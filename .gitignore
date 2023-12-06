@@ -115,3 +115,4 @@ sql/migrations/world_db_updates.sql
 revision.h
 migrations_list.h
 Progression.h
+sql/migrations/world_full_14_june_2021.sql
