@@ -437,9 +437,12 @@ bool ChatHandler::HandleUnitStatInfoCommand(char* args)
     PSendSysMessage("Block chance: %g", pPlayer->GetFloatValue(PLAYER_BLOCK_PERCENTAGE));
     PSendSysMessage("Dodge chance: %g", pPlayer->GetFloatValue(PLAYER_DODGE_PERCENTAGE));
     PSendSysMessage("Parry chance: %g", pPlayer->GetFloatValue(PLAYER_PARRY_PERCENTAGE));
+    PSendSysMessage("Bonus melee hit chance: %g", pPlayer->GetTotalAuraModifier(SPELL_AURA_MOD_HIT_CHANCE));
+    PSendSysMessage("Bonus ranged hit chance: %g", pPlayer->GetTotalAuraModifier(SPELL_AURA_MOD_HIT_CHANCE));
     PSendSysMessage("Crit chance: %g", pPlayer->GetFloatValue(PLAYER_CRIT_PERCENTAGE));
     PSendSysMessage("Ranged crit chance: %g", pPlayer->GetFloatValue(PLAYER_RANGED_CRIT_PERCENTAGE));
     PSendSysMessage("Physical spell crit chance: %g", pPlayer->GetSpellCritPercent(SPELL_SCHOOL_NORMAL));
+    PSendSysMessage("Bonus spell hit chance: %g", pPlayer->GetTotalAuraModifier(SPELL_AURA_MOD_SPELL_HIT_CHANCE));
     PSendSysMessage("Holy spell crit chance: %g", pPlayer->GetSpellCritPercent(SPELL_SCHOOL_HOLY));
     PSendSysMessage("Fire spell crit chance: %g", pPlayer->GetSpellCritPercent(SPELL_SCHOOL_FIRE));
     PSendSysMessage("Nature spell crit chance: %g", pPlayer->GetSpellCritPercent(SPELL_SCHOOL_NATURE));
