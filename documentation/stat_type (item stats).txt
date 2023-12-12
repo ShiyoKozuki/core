@@ -1,0 +1,56 @@
+0 - Mana
+1 - Health
+2 - No Visible Effect
+3 - Agility
+4 - Strength
+5 - Intellect
+6 - Spirit
+7 - Stamina
+8 - No Visible Effect
+9 - No Visible Effect
+10 - No Visible Effect
+11 - No Visible Effect*
+12 - Defense Rating
+13 - Dodge
+14 - Parry Rating
+15 - Shield Block Rating
+16 - Melee Hit Rating
+17 - Ranged Hit Rating
+18 - Spell Hit Rating
+19 - Melee Critical Strike
+20 - Ranged Critical Strike
+21 - Spell Critical Strike
+22 - Melee Hit Avoidance
+23 - Ranged Hit Avoidance
+24 - Spell Hit Avoidance
+25 - Melee Critical Avoidance
+26 - Spell Critical Avoidance
+27 - Melee Haste Rating
+28 - Ranged Haste Rating
+29 - Spell Haste Rating
+30 - Hit Avoidance Rating
+31 - Hit Rating
+32 - Critical Strike
+33 - Hit Avoidance Rating
+34 - Critical Avoidance Rating
+35 - Resilience
+36 - Haste
+37 - Expertise
+38 - Attack Power
+39 - Ranged Attack Power
+40 - No Visible Effect
+41 - Healing Done By Magical Spells and Effects up to value
+42 - Damage Done By Magical Spells and Effects up to value
+43 - Mana Regeneration (Ticks every 5 seconds)
+44 - Armor Penetration Rating
+45 - Spell Power
+46 - Health Regeneration (Ticks every 5 seconds)
+47 - Spell Penetration
+48 - Block Value of Shield
+49 - Mastery
+50 - Armor
+51 - Fire Resist
+52 - Frost Resist
+54 - Shadow Resist
+55 - Nature Resist
+56 - Arcane Resist
