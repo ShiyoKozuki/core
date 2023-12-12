@@ -437,6 +437,8 @@ bool ChatHandler::HandleUnitStatInfoCommand(char* args)
     PSendSysMessage("Block chance: %g", pPlayer->GetFloatValue(PLAYER_BLOCK_PERCENTAGE));
     PSendSysMessage("Dodge chance: %g", pPlayer->GetFloatValue(PLAYER_DODGE_PERCENTAGE));
     PSendSysMessage("Parry chance: %g", pPlayer->GetFloatValue(PLAYER_PARRY_PERCENTAGE));
+    PSendSysMessage("Bonus melee hit chance: %g", pPlayer->GetTotalAuraModifier(SPELL_AURA_MOD_HIT_CHANCE));
+    PSendSysMessage("Bonus ranged hit chance: %g", pPlayer->GetTotalAuraModifier(SPELL_AURA_MOD_HIT_CHANCE));
     PSendSysMessage("Crit chance: %g", pPlayer->GetFloatValue(PLAYER_CRIT_PERCENTAGE));
     PSendSysMessage("Ranged crit chance: %g", pPlayer->GetFloatValue(PLAYER_RANGED_CRIT_PERCENTAGE));
     PSendSysMessage("Physical spell crit chance: %g", pPlayer->GetSpellCritPercent(SPELL_SCHOOL_NORMAL));
@@ -448,7 +450,7 @@ bool ChatHandler::HandleUnitStatInfoCommand(char* args)
     PSendSysMessage("Arcane spell crit chance: %g", pPlayer->GetSpellCritPercent(SPELL_SCHOOL_ARCANE));
     PSendSysMessage("Melee hit chance: %g", pPlayer->GetBonusHitChanceFromAuras(BASE_ATTACK));
     PSendSysMessage("Ranged hit chance: %g", pPlayer->GetBonusHitChanceFromAuras(RANGED_ATTACK));
-    PSendSysMessage("Spell hit chance: %g", pPlayer->m_modSpellHitChance);
+    PSendSysMessage("Bonus spell hit chance: %g", pPlayer->GetTotalAuraModifier(SPELL_AURA_MOD_SPELL_HIT_CHANCE));
     PSendSysMessage("Positive strength: %g", pPlayer->GetPosStat(STAT_STRENGTH));
     PSendSysMessage("Positive agility: %g", pPlayer->GetPosStat(STAT_AGILITY));
     PSendSysMessage("Positive stamina: %g", pPlayer->GetPosStat(STAT_STAMINA));
