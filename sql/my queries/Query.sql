@@ -555,6 +555,95 @@ SET required_skill = 164, -- Blacksmithing
 WHERE entry = 12619;
 
 -- Runic Armor Set
+UPDATE world . item_template
+SET quality = 3,
+    required_skill = 164, -- Blacksmithing
+    required_skill_rank = 300,
+    stat_type1 = 4,
+    stat_value1 = 12,
+    stat_type2 = 5,
+    stat_value2 = 12,
+    spellid_1 = 7597, -- +1% Melee Crit
+    spelltrigger_1 = 1,
+    spellid_2 = 9346, -- +18 Spell Damage
+    spelltrigger_2 = 1,
+    spellid_3 = 21363, -- 5 MP/5
+    spelltrigger_3 = 1,
+    fire_res = 0,
+    nature_res = 0
+WHERE entry = 12611;
+
+UPDATE world . item_template
+SET quality = 3,
+    required_skill = 164, -- Blacksmithing
+    required_skill_rank = 300,
+    stat_type1 = 4,
+    stat_value1 = 17,
+    stat_type2 = 5,
+    stat_value2 = 17,
+    spellid_1 = 7598, -- +2% Melee Crit
+    spelltrigger_1 = 1,
+    spellid_2 = 15715, -- +25 Spell Damage
+    spelltrigger_2 = 1,
+    spellid_3 = 21363, -- 5 MP/5
+    spelltrigger_3 = 1,
+    fire_res = 0,
+    nature_res = 0
+WHERE entry = 12613;
+
+UPDATE world . item_template
+SET quality = 3,
+    required_skill = 164, -- Blacksmithing
+    required_skill_rank = 300,
+    stat_type1 = 4,
+    stat_value1 = 17,
+    stat_type2 = 5,
+    stat_value2 = 17,
+    spellid_1 = 7597, -- +1% Melee Crit
+    spelltrigger_1 = 1,
+    spellid_2 = 15715, -- +25 Spell Damage
+    spelltrigger_2 = 1,
+    spellid_3 = 21363, -- 5 MP/5
+    spelltrigger_3 = 1,
+    fire_res = 0,
+    nature_res = 0
+WHERE entry = 12612;
+
+UPDATE world . item_template
+    SET quality = 3,
+    required_skill = 164, -- Blacksmithing
+    required_skill_rank = 300,
+    stat_type1 = 4,
+    stat_value1 = 17,
+    stat_type2 = 5,
+    stat_value2 = 17,
+    spellid_1 = 15465, -- +2% Melee Hit
+    spelltrigger_1 = 1,
+    spellid_2 = 15715, -- +25 Spell Damage
+    spelltrigger_2 = 1,
+    spellid_3 = 21363, -- 5 MP/5
+    spelltrigger_3 = 1,
+    fire_res = 0,
+    nature_res = 0
+WHERE entry = 12614;
+
+UPDATE world . item_template
+SET quality = 3,
+    required_skill = 164, -- Blacksmithing
+    required_skill_rank = 300,
+    stat_type1 = 4,
+    stat_value1 = 12,
+    stat_type2 = 5,
+    stat_value2 = 12,
+    spellid_1 = 7597, -- +1% Melee Crit
+    spelltrigger_1 = 1,
+    spellid_2 = 9346, -- +18 Spell Damage
+    spelltrigger_2 = 1,
+    spellid_3 = 21363, -- 5 MP/5
+    spelltrigger_3 = 1,
+    fire_res = 0,
+    nature_res = 0
+WHERE entry = 12610;
 
 -- Corruption
 UPDATE world . item_template
@@ -580,6 +669,47 @@ SET required_level = 60,
     dmg_min1 = 130,
     dmg_max1 = 190
 WHERE entry = 22384;
+
+-- Black Amnesty
+UPDATE world . item_template
+SET required_level = 60,
+    item_level = 78,
+    required_skill = 164, -- Blacksmithing
+    required_skill_rank = 300,
+    quality = 4,
+    bonding = 1,
+    delay = 2000,
+    dmg_min1 = 90,
+    dmg_max1 = 130
+WHERE entry = 19166;
+
+-- Frostguard
+UPDATE world . item_template
+SET required_level = 60,
+    item_level = 78,
+    required_skill = 164, -- Blacksmithing
+    required_skill_rank = 300,
+    quality = 4,
+    bonding = 1,
+    delay = 2900,
+    dmg_min1 = 125,
+    dmg_max1 = 190
+WHERE entry = 12797;
+
+-- Sageblade
+UPDATE world . item_template
+SET required_level = 60,
+    item_level = 78,
+    required_skill = 164, -- Blacksmithing
+    required_skill_rank = 300,
+    quality = 4,
+    bonding = 1,
+    delay = 2000,
+    dmg_min1 = 50,
+    dmg_max1 = 100,
+    spellid_1 = 26158, -- +60 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 22383;
 
 -- Copper Battle Axe
 UPDATE world . item_template
