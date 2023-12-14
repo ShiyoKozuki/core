@@ -40,6 +40,15 @@ UPDATE world . spell_template SET effectApplyAuraName2 = 55 WHERE entry = 20193;
 --     stat_value4 = 8
 -- WHERE entry = 210773;
 
+-- Ironforge Breastplaste 
+UPDATE world . item_template
+SET quality = 3,
+    stat_type1 = 4,
+    stat_value1 = 7,
+    stat_type2 = 7,
+    stat_value2 = 7
+WHERE entry = 6731;
+
 -- Truesilver Breastplate
 UPDATE world . item_template
 SET spellid_1 = 13667, -- +2% Parry
@@ -559,14 +568,295 @@ SET required_level = 60,
     dmg_max1 = 345
 WHERE entry = 12782;
 
--- Persuader (TODO: BOP)
+-- Persuader 
 UPDATE world . item_template
 SET required_level = 60,
     item_level = 78,
     required_skill = 164, -- Blacksmithing
     required_skill_rank = 300,
     quality = 4,
+    bonding = 1,
     delay = 2900,
     dmg_min1 = 130,
     dmg_max1 = 190
 WHERE entry = 22384;
+
+-- Copper Battle Axe
+UPDATE world . item_template
+SET quality = 3,
+    delay = 3800,
+    dmg_min1 = 35,
+    dmg_max1 = 48
+WHERE entry = 3488;
+
+-- Thick War Axe
+UPDATE world . item_template
+SET quality = 3,
+    dmg_min1 = 11,
+    dmg_max1 = 27
+WHERE entry = 3489;
+
+-- Heavy Copper Broadsword
+UPDATE world . item_template
+SET quality = 3,
+    delay = 3400,
+    dmg_min1 = 47,
+    dmg_max1 = 70
+WHERE entry = 3487;
+
+-- Big Bronze Knife TEST
+UPDATE world . item_template
+SET quality = 3,
+    dmg_min1 = 17,
+    dmg_max1 = 33
+WHERE entry = 3848;
+
+-- Pearl-handled Dagger
+UPDATE world . item_template
+SET quality = 3,
+    dmg_min1 = 19,
+    dmg_max1 = 37
+WHERE entry = 5540;
+
+-- Deadly Bronze Poniard
+UPDATE world . item_template
+SET quality = 3,
+    dmg_min1 = 21,
+    dmg_max1 = 39
+WHERE entry = 3490;
+
+-- Heavy Bronze Mace
+UPDATE world . item_template
+SET quality = 3,
+    dmg_min1 = 30,
+    dmg_max1 = 57
+WHERE entry = 3491;
+
+-- Iridescent Hammer
+UPDATE world . item_template
+SET quality = 3,
+    dmg_min1 = 19,
+    dmg_max1 = 37
+WHERE entry = 5541;
+
+-- Mighty Iron Hammer
+UPDATE world . item_template
+SET quality = 3,
+    delay = 3800,
+    dmg_min1 = 75,
+    dmg_max1 = 100
+WHERE entry = 3492;
+
+-- Hardened Iron Shortsword
+UPDATE world . item_template
+SET quality = 3,
+    delay = 2700,
+    dmg_min1 = 35,
+    dmg_max1 = 67
+WHERE entry = 3849;
+
+-- Golden Iron Destroyer
+UPDATE world . item_template
+SET quality = 3,
+    delay = 3800,
+    dmg_min1 = 88,
+    dmg_max1 = 132
+WHERE entry = 3852;
+
+-- Moonsteel Broadsword
+UPDATE world . item_template
+SET quality = 3,
+    delay = 3300,
+    dmg_min1 = 80,
+    dmg_max1 = 120
+WHERE entry = 3853;
+
+-- Massive Iron Axe
+UPDATE world . item_template
+SET quality = 3,
+    dmg_min1 = 86,
+    dmg_max1 = 129
+WHERE entry = 3855;
+
+-- Edge of Winter
+UPDATE world . item_template
+SET quality = 4,
+    delay = 1800,
+    dmg_min1 = 44,
+    dmg_max1 = 80
+WHERE entry = 17704;
+
+-- Searing Golden Blade
+UPDATE world . item_template
+SET quality = 3,
+    delay = 2000,
+    dmg_min1 = 40,
+    dmg_max1 = 75
+WHERE entry = 12260;
+
+-- Frost Tiger Blade
+UPDATE world . item_template
+SET quality = 3,
+    dmg_min1 = 110,
+    dmg_max1 = 165
+WHERE entry = 3854;
+
+-- Shadow Crescent Axe
+UPDATE world . item_template
+SET quality = 3,
+    delay = 3800,
+    dmg_min1 = 115,
+    dmg_max1 = 175,
+    spellid_2 = 9081,
+    -- 18217
+    spelltrigger_2 = 2
+WHERE entry = 3856;
+
+-- Big Black Mace
+UPDATE world . item_template
+SET quality = 3,
+    stat_type1 = 5,
+    stat_value1 = 5,
+    spellid_1 = 9314, -- +24 Healing
+    spelltrigger_1 = 1
+WHERE entry = 7945;
+
+-- The Shatterer
+UPDATE world . item_template
+SET quality = 4,
+    delay = 1800,
+    dmg_min1 = 45,
+    dmg_max1 = 85
+WHERE entry = 7954;
+
+-- Dazzling Mithril Rapier
+UPDATE world . item_template
+SET quality = 3,
+    delay = 2500,
+    dmg_min1 = 55,
+    dmg_max1 = 108
+WHERE entry = 7944;
+
+-- Phantom Blade
+UPDATE world . item_template
+SET quality = 4,
+    delay = 2700,
+    dmg_min1 = 72,
+    dmg_max1 = 132
+WHERE entry = 7961;
+
+-- Runed Mithril Hammer
+UPDATE world . item_template
+SET quality = 3,
+    stat_type1 = 5,
+    stat_value1 = 7,
+    spellid_1 = 9316, -- +29 Healing
+    spelltrigger_1 = 1
+WHERE entry = 7946;
+
+-- Blight
+UPDATE world . item_template
+SET quality = 4,
+    delay = 3800,
+    dmg_min1 = 145,
+    dmg_max1 = 220,
+    spellid_2 = 26153, -- +140 Feral attack Power
+    spelltrigger_2 = 1
+WHERE entry = 7959;
+
+-- Truesilver Champion
+UPDATE world . item_template
+SET quality = 4,
+    delay = 3400,
+    dmg_min1 = 145,
+    dmg_max1 = 220
+WHERE entry = 7960;
+
+-- Blazing Rapier
+UPDATE world . item_template
+SET quality = 4,
+    spellid_2 = 15715, -- +25 Spell Damage
+    spelltrigger_2 = 1
+WHERE entry = 12777;
+
+-- Enchanted Battlehammer
+UPDATE world . item_template
+SET quality = 4,
+    delay = 3600,
+    dmg_min1 = 166,
+    dmg_max1 = 250,
+    spellid_3 = 15715, -- +25 Spell Damage
+    spelltrigger_3 = 1
+WHERE entry = 12776;
+
+-- Serenity
+UPDATE world . item_template
+SET quality = 4,
+    delay = 1800,
+    dmg_min1 = 55,
+    dmg_max1 = 90
+WHERE entry = 12781;
+
+-- Volcanic Hammer
+UPDATE world . item_template
+SET quality = 3,
+    delay = 2800,
+    dmg_min1 = 75,
+    dmg_max1 = 145
+WHERE entry = 12792;
+
+-- Ornate Thorium Handaxe
+UPDATE world . item_template
+SET quality = 3,
+    dmg_min1 = 49,
+    dmg_max1 = 92
+WHERE entry = 12773;
+
+-- Huge Thorium Battleaxe
+UPDATE world . item_template
+SET quality = 3,
+    delay = 3800,
+    dmg_min1 = 151,
+    dmg_max1 = 227
+WHERE entry = 12775;
+
+-- Arcanite Champion
+UPDATE world . item_template
+SET  delay = 3800,
+    dmg_min1 = 153,
+    dmg_max1 = 256
+WHERE entry = 12790;
+
+-- Hammer of the Titans
+UPDATE world . item_template
+SET dmg_min1 = 153,
+    dmg_max1 = 256,
+    stat_type1 = 7,
+    stat_value1 = 35
+WHERE entry = 12796;
+
+-- Blackfury
+UPDATE world . item_template
+SET  delay = 3800,
+    dmg_min1 = 165,
+    dmg_max1 = 280
+WHERE entry = 19167;
+
+-- Darkspear
+UPDATE world . item_template
+SET quality = 4, 
+    delay = 3800,
+    dmg_min1 = 165,
+    dmg_max1 = 280,
+    stat_type1 = 3,
+    stat_value1 = 35
+WHERE entry = 12802;
+
+-- Heartseeker
+UPDATE world . item_template
+SET quality = 4, 
+    delay = 1800,
+    dmg_min1 = 59,
+    dmg_max1 = 100
+WHERE entry = 12783;
+
