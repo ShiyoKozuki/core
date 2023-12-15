@@ -645,6 +645,28 @@ SET quality = 3,
     nature_res = 0
 WHERE entry = 12610;
 
+-- Invulnerable Mail
+UPDATE world . item_template
+SET subclass = 4,
+    required_level = 60,
+    item_level = 78,
+    required_skill = 164, -- Blacksmithing
+    required_skill_rank = 300,
+    armor = 900,
+    bonding = 1,
+    stat_type1 = 4,
+    stat_value1 = 25,
+    stat_type2 = 7,
+    stat_value2 = 50,
+    spellid_3 = 21423, -- +25 Defense
+    spelltrigger_3 = 1,
+    arcane_res = 10,
+    fire_res = 10,
+    nature_res = 10,
+    frost_res = 10,
+    shadow_res = 10
+WHERE entry = 12641;
+
 -- Corruption
 UPDATE world . item_template
 SET required_level = 60,
@@ -683,6 +705,18 @@ SET required_level = 60,
     dmg_max1 = 130
 WHERE entry = 19166;
 
+-- Blackguard 
+UPDATE world . item_template
+SET required_level = 60,
+    item_level = 78,
+    required_skill = 164, -- Blacksmithing
+    required_skill_rank = 300,
+    quality = 4,
+    bonding = 1,
+    dmg_min1 = 80,
+    dmg_max1 = 120
+WHERE entry = 19168;
+
 -- Frostguard
 UPDATE world . item_template
 SET required_level = 60,
@@ -710,6 +744,31 @@ SET required_level = 60,
     spellid_1 = 26158, -- +60 Spell Damage
     spelltrigger_1 = 1
 WHERE entry = 22383;
+
+-- Nightfall
+UPDATE world . item_template
+SET required_level = 60,
+    item_level = 78,
+    required_skill = 164, -- Blacksmithing
+    required_skill_rank = 300,
+    bonding = 1,
+    delay = 3800,
+    dmg_min1 = 225,
+    dmg_max1 = 345
+WHERE entry = 19169;
+
+-- Annihilator
+UPDATE world . item_template
+SET required_level = 60,
+    item_level = 78,
+    required_skill = 164, -- Blacksmithing
+    required_skill_rank = 300,
+    quality = 4,
+    bonding = 1,
+    delay = 2900,
+    dmg_min1 = 125,
+    dmg_max1 = 190
+WHERE entry = 12798;
 
 -- Copper Battle Axe
 UPDATE world . item_template
@@ -989,4 +1048,38 @@ SET quality = 4,
     dmg_min1 = 59,
     dmg_max1 = 100
 WHERE entry = 12783;
+
+-- Masterwork Stormhammer
+UPDATE world . item_template
+SET quality = 4,
+    delay = 1800,
+    dmg_min1 = 65,
+    dmg_max1 = 121
+WHERE entry = 12794;
+
+-- Dark Iron Reaver
+UPDATE world . item_template
+SET quality = 4,
+    delay = 2700,
+    dmg_min1 = 104,
+    dmg_max1 = 193
+WHERE entry = 17015;
+
+-- Dark Iron Destroyer
+UPDATE world . item_template
+SET quality = 4,
+    delay = 2700,
+    dmg_min1 = 104,
+    dmg_max1 = 193
+WHERE entry = 17016;
+
+-- Ebon Hand
+UPDATE world . item_template
+SET quality = 4,
+    delay = 2700,
+    dmg_min1 = 104,
+    dmg_max1 = 193
+WHERE entry = 19170;
+
+
 
