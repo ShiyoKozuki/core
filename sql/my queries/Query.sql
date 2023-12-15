@@ -367,7 +367,7 @@ SET required_level = 55,
     stat_value1 = 7,
     spellid_1 = 7597, -- +1% Melee Crit
     spelltrigger_1 = 1,
-    spellid_2 = 15464, -- +1% Melee Hit
+    spellid_2 = 15464, -- +1% Physical Hit
     spelltrigger_2 = 1,
     arcane_res = 0,
     fire_res = 0,
@@ -382,7 +382,7 @@ SET required_level = 55,
     stat_value1 = 15,
     spellid_1 = 7597, -- +1% Melee Crit
     spelltrigger_1 = 1,
-    spellid_2 = 15464, -- +1% Melee Hit
+    spellid_2 = 15464, -- +1% Physical Hit
     spelltrigger_2 = 1,
     arcane_res = 0,
     fire_res = 0,
@@ -397,7 +397,7 @@ SET required_level = 55,
     stat_value1 = 4,
     spellid_1 = 7597, -- +1% Melee Crit
     spelltrigger_1 = 1,
-    spellid_2 = 15464, -- +1% Melee Hit
+    spellid_2 = 15464, -- +1% Physical Hit
     spelltrigger_2 = 1,
     arcane_res = 0,
     fire_res = 0,
@@ -412,7 +412,7 @@ SET required_level = 55,
     stat_value1 = 3,
     spellid_1 = 7597, -- +1% Melee Crit
     spelltrigger_1 = 1,
-    spellid_2 = 15464, -- +1% Melee Hit
+    spellid_2 = 15464, -- +1% Physical Hit
     spelltrigger_2 = 1,
     arcane_res = 0,
     fire_res = 0,
@@ -427,7 +427,7 @@ SET required_level = 55,
     stat_value1 = 12,
     spellid_1 = 7597, -- +1% Melee Crit
     spelltrigger_1 = 1,
-    spellid_2 = 15464, -- +1% Melee Hit
+    spellid_2 = 15464, -- +1% Physical Hit
     spelltrigger_2 = 1,
     arcane_res = 0,
     fire_res = 0,
@@ -442,7 +442,7 @@ SET required_level = 55,
     stat_value1 = 12,
     spellid_1 = 7597, -- +1% Melee Crit
     spelltrigger_1 = 1,
-    spellid_2 = 15464, -- +1% Melee Hit
+    spellid_2 = 15464, -- +1% Physical Hit
     spelltrigger_2 = 1,
     arcane_res = 0,
     fire_res = 0,
@@ -458,7 +458,7 @@ SET quality = 3,
     required_skill_rank = 300,
     spellid_1 = 9330, -- +18 Attack Power
     spelltrigger_1 = 1,
-    spellid_2 = 15464, -- +1% Melee Hit
+    spellid_2 = 15464, -- +1% Physical Hit
     spelltrigger_2 = 1
 WHERE entry = 12426;
 
@@ -468,7 +468,7 @@ SET quality = 3,
     required_skill_rank = 300,
     spellid_1 = 7598, -- +2% Melee Crit
     spelltrigger_1 = 1,
-    spellid_2 = 15465, -- +2% Melee Hit
+    spellid_2 = 15465, -- +2% Physical Hit
     spelltrigger_2 = 1
 WHERE entry = 12422;
 
@@ -478,7 +478,7 @@ SET quality = 3,
     required_skill_rank = 300,
     spellid_1 = 15808, -- +38 Attack Power
     spelltrigger_1 = 1,
-    spellid_2 = 15464, -- +1% Melee Hit
+    spellid_2 = 15464, -- +1% Physical Hit
     spelltrigger_2 = 1
 WHERE entry = 12427;
 
@@ -488,7 +488,7 @@ SET quality = 3,
     required_skill_rank = 300,
     spellid_1 = 9330, -- +18 Attack Power
     spelltrigger_1 = 1,
-    spellid_2 = 15464, -- +1% Melee Hit
+    spellid_2 = 15464, -- +1% Physical Hit
     spelltrigger_2 = 1
 WHERE entry = 12424;
 
@@ -498,7 +498,7 @@ SET quality = 3,
     required_skill_rank = 300,
     spellid_1 = 9330, -- +18 Attack Power
     spelltrigger_1 = 1,
-    spellid_2 = 15464, -- +1% Melee Hit
+    spellid_2 = 15464, -- +1% Physical Hit
     spelltrigger_2 = 1
 WHERE entry = 12425;
 
@@ -508,7 +508,7 @@ SET quality = 3,
     required_skill_rank = 300,
     spellid_1 = 15808, -- +38 Attack Power
     spelltrigger_1 = 1,
-    spellid_2 = 15464, -- +1% Melee Hit
+    spellid_2 = 15464, -- +1% Physical Hit
     spelltrigger_2 = 1
 WHERE entry = 12429;
 
@@ -518,7 +518,7 @@ SET quality = 3,
     required_skill_rank = 300,
     spellid_1 = 7598, -- +2% Melee Crit
     spelltrigger_1 = 1,
-    spellid_2 = 15465, -- +2% Melee Hit
+    spellid_2 = 15465, -- +2% Physical Hit
     spelltrigger_2 = 1
 WHERE entry = 12428;
 
@@ -526,7 +526,7 @@ WHERE entry = 12428;
 UPDATE world . item_template
 SET required_skill = 164, -- Blacksmithing
     required_skill_rank = 300,
-    spellid_2 = 15465, -- +2% Melee Hit
+    spellid_2 = 15465, -- +2% Physical Hit
     spelltrigger_2 = 1,
     spellid_3 = 13670, -- +2% Dodge
     spelltrigger_3 = 1
@@ -537,7 +537,7 @@ SET required_skill = 164, -- Blacksmithing
     required_skill_rank = 300,
     stat_type3 = 5,
     stat_value3 = 20,
-    spellid_2 = 15465, -- +2% Melee Hit
+    spellid_2 = 15465, -- +2% Physical Hit
     spelltrigger_2 = 1,
     spellid_3 = 21363, -- 5 MP/5
     spelltrigger_3 = 1
@@ -548,7 +548,7 @@ SET required_skill = 164, -- Blacksmithing
     required_skill_rank = 300,
     stat_type3 = 5,
     stat_value3 = 20,
-    spellid_2 = 15465, -- +2% Melee Hit
+    spellid_2 = 15465, -- +2% Physical Hit
     spelltrigger_2 = 1,
     spellid_3 = 21363, -- 5 MP/5
     spelltrigger_3 = 1
@@ -617,7 +617,7 @@ UPDATE world . item_template
     stat_value1 = 17,
     stat_type2 = 5,
     stat_value2 = 17,
-    spellid_1 = 15465, -- +2% Melee Hit
+    spellid_1 = 15465, -- +2% Physical Hit
     spelltrigger_1 = 1,
     spellid_2 = 15715, -- +25 Spell Damage
     spelltrigger_2 = 1,
@@ -644,6 +644,99 @@ SET quality = 3,
     fire_res = 0,
     nature_res = 0
 WHERE entry = 12610;
+
+-- Darkrune Set
+UPDATE world . item_template
+SET quality = 4,
+    stat_type1 = 3,
+    stat_value1 = 18,
+    stat_type2 = 4,
+    stat_value2 = 27,
+    stat_type3 = 7,
+    stat_value3 = 15
+WHERE entry = 20550;
+
+UPDATE world . item_template
+SET quality = 4,
+    stat_type1 = 3,
+    stat_value1 = 14,
+    stat_type2 = 4,
+    stat_value2 = 22,
+    stat_type3 = 7,
+    stat_value3 = 10
+WHERE entry = 20549;
+
+UPDATE world . item_template
+SET quality = 4,
+    stat_type1 = 3,
+    stat_value1 = 16,
+    stat_type2 = 4,
+    stat_value2 = 25,
+    stat_type3 = 7,
+    stat_value3 = 12
+WHERE entry = 20551;
+
+-- The Darksoul Set
+UPDATE world . item_template
+SET quality = 4,
+    stat_type1 = 4,
+    stat_value1 = 24,
+    stat_type2 = 7,
+    stat_value2 = 40,
+    spellid_2 = 13670, -- 2% Dodge
+    spelltrigger_2 = 1
+WHERE entry = 19693;
+
+UPDATE world . item_template
+SET quality = 4,
+    stat_type1 = 4,
+    stat_value1 = 20,
+    stat_type2 = 7,
+    stat_value2 = 33,
+    spellid_2 = 13667, -- 2% Parry
+    spelltrigger_2 = 1
+WHERE entry = 19694;
+
+UPDATE world . item_template
+SET quality = 4,
+    stat_type1 = 4,
+    stat_value1 = 17,
+    stat_type2 = 7,
+    stat_value2 = 30,
+    spellid_2 = 21471, -- 2% Shield Block
+    spelltrigger_2 = 1
+WHERE entry = 19695;
+
+-- Bloodsoul Set
+UPDATE world . item_template
+SET quality = 4,
+    stat_type1 = 3,
+    stat_value1 = 30,
+    stat_type2 = 4,
+    stat_value2 = 12,
+    spellid_2 = 15464, -- +1% Physical Hit
+    spelltrigger_2 = 1
+WHERE entry = 19690;
+
+UPDATE world . item_template
+SET quality = 4,
+    stat_type1 = 3,
+    stat_value1 = 25,
+    stat_type2 = 4,
+    stat_value2 = 10,
+    spellid_2 = 15464, -- +1% Physical Hit
+    spelltrigger_2 = 1
+WHERE entry = 19691;
+
+UPDATE world . item_template
+SET quality = 4,
+    stat_type1 = 3,
+    stat_value1 = 22,
+    stat_type2 = 4,
+    stat_value2 = 9,
+    spellid_2 = 15464, -- +1% Physical Hit
+    spelltrigger_2 = 1
+WHERE entry = 19692;
 
 -- Invulnerable Mail
 UPDATE world . item_template
