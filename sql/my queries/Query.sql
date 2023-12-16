@@ -106,6 +106,32 @@ SET subclass = 4,
     spelltrigger_2 = 1
 WHERE entry = 12636;
 
+-- Green Iron Set 
+-- UPDATE mangos . item_template Untested
+    -- spellid_1 = 9138, -- +6 Attack Power
+    -- spelltrigger_1 = 1,
+-- WHERE entry = 3484;
+
+-- UPDATE mangos . item_template Untested
+    -- spellid_1 = 9140, -- +10 Attack Power
+    -- spelltrigger_1 = 1,
+-- WHERE entry = 3844;
+
+-- UPDATE mangos . item_template Untested
+    -- spellid_1 = 9138, -- +6 Attack Power
+    -- spelltrigger_1 = 1,
+-- WHERE entry = 3842;
+
+-- UPDATE mangos . item_template Untested
+    -- spellid_1 = 9138, -- +6 Attack Power
+    -- spelltrigger_1 = 1,
+-- WHERE entry = 3485;
+
+-- UPDATE mangos . item_template Untested
+    -- spellid_1 = 9138, -- +6 Attack Power
+    -- spelltrigger_1 = 1,
+-- WHERE entry = 3840;
+
 -- Silver Bronzed Set
 UPDATE mangos . item_template
 SET stat_type4 = 5,
@@ -265,9 +291,11 @@ WHERE entry = 7928;
 
 -- Radiant Armor Set (BOP)
 UPDATE mangos . item_template
-SET quality = 3,
+SET subclass = 4,
+    quality = 3,
     required_skill = 164, -- Blacksmithing
     required_skill_rank = 300,
+    armor = 386,
     stat_type1 = 5,
     stat_value1 = 7,
     stat_type2 = 7,
@@ -281,9 +309,11 @@ SET quality = 3,
 WHERE entry = 12419;
 
 UPDATE mangos . item_template
-SET quality = 3,
+SET subclass = 4,
+    quality = 3,
     required_skill = 164, -- Blacksmithing
     required_skill_rank = 300,
+    armor = 570,
     stat_type1 = 5,
     stat_value1 = 7,
     stat_type2 = 7,
@@ -297,9 +327,11 @@ SET quality = 3,
 WHERE entry = 12415;
 
 UPDATE mangos . item_template
-SET quality = 3,
+SET subclass = 4,
+    quality = 3,
     required_skill = 164, -- Blacksmithing
     required_skill_rank = 300,
+    armor = 507,
     stat_type1 = 5,
     stat_value1 = 7,
     stat_type2 = 7,
@@ -313,9 +345,11 @@ SET quality = 3,
 WHERE entry = 12420;
 
 UPDATE mangos . item_template
-SET quality = 3,
+SET subclass = 4,
+    quality = 3,
     required_skill = 164, -- Blacksmithing
     required_skill_rank = 300,
+    armor = 386,
     stat_type1 = 5,
     stat_value1 = 7,
     stat_type2 = 7,
@@ -329,9 +363,11 @@ SET quality = 3,
 WHERE entry = 12418;
 
 UPDATE mangos . item_template
-SET quality = 3,
+SET subclass = 4,
+    quality = 3,
     required_skill = 164, -- Blacksmithing
     required_skill_rank = 300,
+    armor = 285,
     stat_type1 = 5,
     stat_value1 = 7,
     stat_type2 = 7,
@@ -345,9 +381,11 @@ SET quality = 3,
 WHERE entry = 12416;
 
 UPDATE mangos . item_template
-SET quality = 3,
+SET subclass = 4,
+    quality = 3,
     required_skill = 164, -- Blacksmithing
     required_skill_rank = 300,
+    armor = 456,
     stat_type1 = 5,
     stat_value1 = 7,
     stat_type2 = 7,
