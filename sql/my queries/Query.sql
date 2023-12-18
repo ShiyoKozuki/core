@@ -32,13 +32,153 @@ UPDATE mangos . spell_template SET effectApplyAuraName2 = 55 WHERE entry = 20193
 -- Items
 -- Delete the WDB folder in your client directory.
 
--- Mantle of the Second War Doesn't exist?
--- UPDATE mangos . item_template
--- SET stat_type3 = 4,
---     stat_value3 = 8,
---     stat_type4 = 5,
---     stat_value4 = 8
--- WHERE entry = 210773;
+-- Sul'thraze the Lasher
+UPDATE mangos . item_template
+SET delay = 3400,
+    dmg_min1 = 146,
+    dmg_max1 = 206
+WHERE entry = 9372;
+
+-- Gloves of Spell Mastery
+UPDATE mangos . item_template
+SET spellid_2 = 18049, -- +26 Spell Damage
+    spelltrigger_2 = 1
+WHERE entry = 14146;
+
+-- Belt of the Archmage
+UPDATE mangos . item_template
+SET spellid_2 = 18049, -- +26 Spell Damage
+    spelltrigger_2 = 1
+WHERE entry = 18405;
+
+-- Argent Boots
+UPDATE mangos . item_template
+SET quality = 4,
+    required_skill = 197, -- Tailoring
+    required_skill_rank = 300,
+    spellid_1 = 14127, -- +28 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 19056;
+
+-- Argent Shoulders
+UPDATE mangos . item_template
+SET quality = 4,
+    required_skill = 197, -- Tailoring
+    required_skill_rank = 300,
+    spellid_1 = 18052, -- +34 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 19059;
+
+-- Mooncloth Armor Set
+UPDATE mangos . item_template
+SET spellid_1 = 18031, -- +40 Healing
+    spelltrigger_1 = 1
+WHERE entry = 15802;
+
+UPDATE mangos . item_template
+SET spellid_1 = 18035, -- +51 Healing
+    spelltrigger_1 = 1
+WHERE entry = 18486;
+
+UPDATE mangos . item_template
+SET spellid_1 = 18033, -- +46 Healing
+    spelltrigger_1 = 1
+WHERE entry = 14137;
+
+UPDATE mangos . item_template
+SET spellid_1 = 18031, -- +40 Healing
+    spelltrigger_1 = 1
+WHERE entry = 14140;
+
+UPDATE mangos . item_template
+SET spellid_1 = 18031, -- +40 Healing
+    spelltrigger_1 = 1
+WHERE entry = 14139;
+
+UPDATE mangos . item_template
+SET spellid_1 = 18031, -- +40 Healing
+    spelltrigger_1 = 1
+WHERE entry = 18409;
+
+-- Ghostweave Set
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 18014, -- +34 Shadow Damage
+    spelltrigger_1 = 1
+WHERE entry = 14141;
+
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 18014, -- +34 Shadow Damage
+    spelltrigger_1 = 1
+WHERE entry = 14144;
+
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 14794, -- +24 Shadow Damage
+    spelltrigger_1 = 1
+WHERE entry = 14142;
+
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 14794, -- +24 Shadow Damage
+    spelltrigger_1 = 1
+WHERE entry = 14143;
+
+-- Cindercloth Set
+UPDATE mangos . item_template
+SET quality = 3,
+    stat_type1 = 5,
+    stat_value1 = 7,
+    stat_type2 = 6,
+    stat_value2 = 9,
+    stat_type3 = 7,
+    stat_value3 = 7
+WHERE entry = 10044;
+
+UPDATE mangos . item_template
+SET quality = 3,
+    stat_type2 = 5,
+    stat_value2 = 12,
+    stat_type3 = 7,
+    stat_value3 = 9,
+    spellid_1 = 17873, -- +36 Fire Damage
+    spelltrigger_1 = 1
+WHERE entry = 14042;
+
+UPDATE mangos . item_template
+SET quality = 3,
+    stat_type1 = 5,
+    stat_value1 = 7,
+    stat_type2 = 6,
+    stat_value2 = 9,
+    stat_type3 = 7,
+    stat_value3 = 7,
+    spellid_1 = 9298, -- +21 Fire Damage
+    spelltrigger_1 = 1
+WHERE entry = 14043;
+
+UPDATE mangos . item_template
+SET quality = 3,
+    stat_type2 = 6,
+    stat_value2 = 12,
+    stat_type3 = 7,
+    stat_value3 = 9,
+    spellid_1 = 17873, -- +36 Fire Damage
+    spelltrigger_1 = 1
+WHERE entry = 14045;
+
+UPDATE mangos . item_template
+SET quality = 3,
+    stat_type1 = 5,
+    stat_value1 = 7,
+    stat_type2 = 6,
+    stat_value2 = 9,
+    stat_type3 = 7,
+    stat_value3 = 7,
+    spellid_1 = 9298, -- +21 Fire Damage
+    spelltrigger_1 = 1
+WHERE entry = 14044;
 
 -- Ironforge Breastplaste 
 UPDATE mangos . item_template
@@ -107,30 +247,30 @@ SET subclass = 4,
 WHERE entry = 12636;
 
 -- Green Iron Set 
--- UPDATE mangos . item_template Untested
-    -- spellid_1 = 9138, -- +6 Attack Power
-    -- spelltrigger_1 = 1,
--- WHERE entry = 3484;
+UPDATE mangos . item_template
+    SET spellid_1 = 9138, -- +6 Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 3484;
 
--- UPDATE mangos . item_template Untested
-    -- spellid_1 = 9140, -- +10 Attack Power
-    -- spelltrigger_1 = 1,
--- WHERE entry = 3844;
+UPDATE mangos . item_template
+    SET spellid_1 = 9140, -- +10 Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 3844;
 
--- UPDATE mangos . item_template Untested
-    -- spellid_1 = 9138, -- +6 Attack Power
-    -- spelltrigger_1 = 1,
--- WHERE entry = 3842;
+UPDATE mangos . item_template
+    SET spellid_1 = 9138, -- +6 Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 3842;
 
--- UPDATE mangos . item_template Untested
-    -- spellid_1 = 9138, -- +6 Attack Power
-    -- spelltrigger_1 = 1,
--- WHERE entry = 3485;
+UPDATE mangos . item_template
+    SET spellid_1 = 9138, -- +6 Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 3485;
 
--- UPDATE mangos . item_template Untested
-    -- spellid_1 = 9138, -- +6 Attack Power
-    -- spelltrigger_1 = 1,
--- WHERE entry = 3840;
+UPDATE mangos . item_template
+    SET spellid_1 = 9138, -- +6 Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 3840;
 
 -- Silver Bronzed Set
 UPDATE mangos . item_template
@@ -924,7 +1064,7 @@ SET quality = 3,
     dmg_max1 = 70
 WHERE entry = 3487;
 
--- Big Bronze Knife TEST
+-- Big Bronze Knife
 UPDATE mangos . item_template
 SET quality = 3,
     dmg_min1 = 17,
@@ -962,9 +1102,9 @@ WHERE entry = 5541;
 -- Mighty Iron Hammer
 UPDATE mangos . item_template
 SET quality = 3,
-    delay = 3800,
-    dmg_min1 = 75,
-    dmg_max1 = 100
+    delay = 2700,
+    dmg_min1 = 35,
+    dmg_max1 = 67
 WHERE entry = 3492;
 
 -- Hardened Iron Shortsword
@@ -983,6 +1123,14 @@ SET quality = 3,
     dmg_max1 = 132
 WHERE entry = 3852;
 
+-- Jade Serpentblade
+UPDATE mangos . item_template
+SET quality = 3,
+    delay = 2700,
+    dmg_min1 = 52,
+    dmg_max1 = 82
+WHERE entry = 3850;
+
 -- Moonsteel Broadsword
 UPDATE mangos . item_template
 SET quality = 3,
@@ -997,6 +1145,16 @@ SET quality = 3,
     dmg_min1 = 86,
     dmg_max1 = 129
 WHERE entry = 3855;
+
+-- Reforged Blade of Heroes
+UPDATE mangos . item_template
+SET quality = 4,
+    delay = 1700,
+    dmg_min1 = 39,
+    dmg_max1 = 64,
+    spellid_1 = 15602, -- +50 Attack Power for 30s
+    spelltrigger_1 = 2
+WHERE entry = 9718;
 
 -- Edge of Winter
 UPDATE mangos . item_template
@@ -1028,7 +1186,6 @@ SET quality = 3,
     dmg_min1 = 115,
     dmg_max1 = 175,
     spellid_2 = 9081,
-    -- 18217
     spelltrigger_2 = 2
 WHERE entry = 3856;
 
