@@ -180,6 +180,25 @@ SET quality = 3,
     spelltrigger_1 = 1
 WHERE entry = 14044;
 
+-- Frostweave Set
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 17896, -- +34 Frost Damage
+    spelltrigger_1 = 1
+WHERE entry = 13869;
+
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 17896, -- +34 Frost Damage
+    spelltrigger_1 = 1
+WHERE entry = 13871;
+
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 17890, -- +24 Frost Damage
+    spelltrigger_1 = 1
+WHERE entry = 13870;
+
 -- Ironforge Breastplaste 
 UPDATE mangos . item_template
 SET quality = 3,
