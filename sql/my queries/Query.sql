@@ -39,6 +39,81 @@ SET delay = 3400,
     dmg_max1 = 206
 WHERE entry = 9372;
 
+-- Helm of Fire
+UPDATE mangos . item_template
+SET quality = 4,
+    bonding = 1,
+    required_skill = 165, -- Leatherworking
+    required_skill_rank = 300,
+    stat_type1 = 3,
+    stat_value1 = 22,
+    stat_type2 = 4,
+    stat_value2 = 25,
+    stat_type2 = 7,
+    stat_value2 = 22,
+    spellid_2 = 7597, -- +1% Melee Crit
+    spelltrigger_2 = 1
+WHERE entry = 8348;
+
+-- Gauntlets of the Sea
+UPDATE mangos . item_template
+SET required_level = 55,
+    quality = 3,
+    stat_type1 = 6,
+    stat_value1 = 25,
+    spellid_2 = 18033, -- +46 Healing
+    spelltrigger_2 = 1
+WHERE entry = 8346;
+
+-- Living Armor Set
+UPDATE mangos . item_template
+SET quality = 4,
+    bonding = 1,
+    required_skill = 165, -- Leatherworking
+    required_skill_rank = 300,
+    spellid_1 = 18045, -- +75 Healing
+    spelltrigger_1 = 1
+WHERE entry = 15059;
+
+UPDATE mangos . item_template
+SET spellid_1 = 18035, -- +51 Healing
+    spelltrigger_1 = 1
+WHERE entry = 15061;
+
+UPDATE mangos . item_template
+SET spellid_1 = 18033, -- +46 Healing
+    spelltrigger_1 = 1
+WHERE entry = 15060;
+
+-- Stormshroud Armor Set
+UPDATE mangos . item_template
+SET required_skill = 165, -- Leatherworking
+    required_skill_rank = 300,
+    stat_type1 = 3,
+    stat_value1 = 30
+WHERE entry = 15056;
+
+UPDATE mangos . item_template
+SET required_skill = 165, -- Leatherworking
+    required_skill_rank = 300,
+    stat_type1 = 3,
+    stat_value1 = 25
+WHERE entry = 15057;
+
+UPDATE mangos . item_template
+SET required_skill = 165, -- Leatherworking
+    required_skill_rank = 300,
+    stat_type1 = 3,
+    stat_value1 = 17
+WHERE entry = 15058;
+
+UPDATE mangos . item_template
+SET required_skill = 165, -- Leatherworking
+    required_skill_rank = 300,
+    stat_type1 = 3,
+    stat_value1 = 17
+WHERE entry = 21278;
+
 -- Gloves of Spell Mastery
 UPDATE mangos . item_template
 SET spellid_2 = 18049, -- +26 Spell Damage
@@ -982,6 +1057,22 @@ SET required_level = 60,
     dmg_max1 = 190
 WHERE entry = 22384;
 
+-- Serenity
+UPDATE mangos . item_template
+SET required_level = 60,
+    item_level = 78,
+    required_skill = 164, -- Blacksmithing
+    required_skill_rank = 300,
+    quality = 4,
+    delay = 1800,
+    dmg_min1 = 55,
+    dmg_max1 = 90,
+    spellid_2 = 26228, -- +121 Healing
+    spelltrigger_2 = 1,
+    spellid_3 = 21626, -- 6 MP/5
+    spelltrigger_3 = 1
+WHERE entry = 12781;
+
 -- Black Amnesty
 UPDATE mangos . item_template
 SET required_level = 60,
@@ -1284,14 +1375,6 @@ SET quality = 4,
     spellid_3 = 15715, -- +25 Spell Damage
     spelltrigger_3 = 1
 WHERE entry = 12776;
-
--- Serenity
-UPDATE mangos . item_template
-SET quality = 4,
-    delay = 1800,
-    dmg_min1 = 55,
-    dmg_max1 = 90
-WHERE entry = 12781;
 
 -- Volcanic Hammer
 UPDATE mangos . item_template
