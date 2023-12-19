@@ -450,7 +450,7 @@ bool ChatHandler::HandleUnitStatInfoCommand(char* args)
     PSendSysMessage("Arcane spell crit chance: %g", pPlayer->GetSpellCritPercent(SPELL_SCHOOL_ARCANE));
     PSendSysMessage("Melee hit chance: %g", pPlayer->GetBonusHitChanceFromAuras(BASE_ATTACK));
     PSendSysMessage("Ranged hit chance: %g", pPlayer->GetBonusHitChanceFromAuras(RANGED_ATTACK));
-    PSendSysMessage("Bonus spell hit chance: %g", pPlayer->GetTotalAuraModifier(SPELL_AURA_MOD_SPELL_HIT_CHANCE));
+    PSendSysMessage("Spell hit chance: %g", pPlayer->m_modSpellHitChance);
     PSendSysMessage("Positive strength: %g", pPlayer->GetPosStat(STAT_STRENGTH));
     PSendSysMessage("Positive agility: %g", pPlayer->GetPosStat(STAT_AGILITY));
     PSendSysMessage("Positive stamina: %g", pPlayer->GetPosStat(STAT_STAMINA));
