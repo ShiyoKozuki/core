@@ -1431,8 +1431,8 @@ UPDATE mangos . item_template
 SET required_level = 50,
     quality = 4,
     delay = 1700,
-    dmg_min1 = 56,
-    dmg_max1 = 86,
+    dmg_min1 = 51,
+    dmg_max1 = 76,
     spellid_1 = 15602, -- +50 Attack Power for 30s
     spelltrigger_1 = 2
 WHERE entry = 9718;
