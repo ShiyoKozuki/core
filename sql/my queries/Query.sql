@@ -55,6 +55,165 @@ SET quality = 4,
     spelltrigger_2 = 1
 WHERE entry = 8348;
 
+-- Chimeric Set
+-- Chimeric Vest
+UPDATE mangos . item_template
+SET quality = 4,
+    bonding = 1,
+    required_skill = 165, -- Leatherworking
+    required_skill_rank = 300,
+    stat_type1 = 5,
+    stat_value1 = 17,
+    stat_type2 = 6,
+    stat_value2 = 12,
+    spellid_1 = 18056, -- +40 Spell Damage
+    spelltrigger_1 = 1,
+    arcane_res = 0,
+    nature_res = 0
+WHERE entry = 15075;
+
+-- Warbear Harness
+UPDATE mangos . item_template
+SET required_skill = 165, -- Leatherworking
+    required_skill_rank = 300,
+    armor = 300
+WHERE entry = 15064;
+
+-- Warbear Woolies
+UPDATE mangos . item_template
+SET required_skill = 165, -- Leatherworking
+    required_skill_rank = 300,
+    armor = 250,
+    spellid_2 = 13670, -- 2% Dodge
+    spelltrigger_2 = 1
+WHERE entry = 15065;
+
+-- Frostsaber Set
+UPDATE mangos . item_template
+SET quality = 3,
+    required_skill = 165, -- Leatherworking
+    required_skill_rank = 300,
+    stat_type1 = 5,
+    stat_value1 = 7,
+    stat_type2 = 6,
+    stat_value2 = 9,
+    spellid_1 = 18384, -- +1% Spell Crit
+    spelltrigger_1 = 1,
+    spellid_2 = 9346, -- +18 Spell Damage
+    spelltrigger_2 = 1,
+    spellid_3 = 21363, -- 5 MP/5
+    spelltrigger_3 = 1,
+    frost_res = 0,
+    shadow_res = 0
+WHERE entry = 15071;
+
+UPDATE mangos . item_template
+SET quality = 3,
+    required_skill = 165, -- Leatherworking
+    required_skill_rank = 300,
+    stat_type1 = 5,
+    stat_value1 = 7,
+    stat_type2 = 6,
+    stat_value2 = 9,
+    spellid_1 = 18382, -- +2% Spell Crit
+    spelltrigger_1 = 1,
+    spellid_2 = 15715, -- +25 Spell Damage
+    spelltrigger_2 = 1,
+    spellid_3 = 21363, -- 5 MP/5
+    spelltrigger_3 = 1,
+    frost_res = 0,
+    shadow_res = 0
+WHERE entry = 15068;
+
+UPDATE mangos . item_template
+SET quality = 3,
+    required_skill = 165, -- Leatherworking
+    required_skill_rank = 300,
+    stat_type1 = 5,
+    stat_value1 = 7,
+    stat_type2 = 6,
+    stat_value2 = 9,
+    spellid_1 = 23729, -- +2% Spell Hit
+    spelltrigger_1 = 1,
+    spellid_2 = 15715, -- +25 Spell Damage
+    spelltrigger_2 = 1,
+    spellid_3 = 21363, -- 5 MP/5
+    spelltrigger_3 = 1,
+    frost_res = 0,
+    shadow_res = 0
+WHERE entry = 15069;
+
+UPDATE mangos . item_template
+SET quality = 3,
+    required_skill = 165, -- Leatherworking
+    required_skill_rank = 300,
+    stat_type1 = 5,
+    stat_value1 = 7,
+    stat_type2 = 6,
+    stat_value2 = 9,
+    spellid_1 = 23727, -- +1% Spell Hit
+    spelltrigger_1 = 1,
+    spellid_2 = 9346, -- +18 Spell Damage
+    spelltrigger_2 = 1,
+    spellid_3 = 21363, -- 5 MP/5
+    spelltrigger_3 = 1,
+    frost_res = 0,
+    shadow_res = 0
+WHERE entry = 15070;
+
+-- Ironfeather Set
+UPDATE mangos . item_template
+SET bonding = 1,
+    required_skill = 165, -- Leatherworking
+    required_skill_rank = 300,
+    spellid_1 = 18042, -- +68 Healing
+    spelltrigger_1 = 1
+WHERE entry = 15066;
+
+UPDATE mangos . item_template
+SET bonding = 1,
+    required_skill = 165, -- Leatherworking
+    required_skill_rank = 300,
+    spellid_1 = 18032, -- +42 Healing
+    spelltrigger_1 = 1
+WHERE entry = 15067;
+
+-- Guardian Set
+UPDATE mangos . item_template
+SET spellid_1 = 9415, -- +9 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 4256;
+
+UPDATE mangos . item_template
+SET spellid_1 = 9415, -- +9 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 5962;
+
+UPDATE mangos . item_template
+SET quality = 2,
+    stat_type1 = 5,
+    stat_value1 = 8,
+    stat_type2 = 6,
+    stat_value2 = 8,
+    spellid_1 = 9395, -- +5 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 5966;
+
+UPDATE mangos . item_template
+SET spellid_1 = 9395, -- +5 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 5965;
+
+UPDATE mangos . item_template
+SET spellid_1 = 9395, -- +5 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 4258;
+
+UPDATE mangos . item_template
+SET spellid_1 = 9395, -- +5 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 4260;
+
 -- Gauntlets of the Sea
 UPDATE mangos . item_template
 SET required_level = 55,
@@ -87,31 +246,35 @@ WHERE entry = 15060;
 
 -- Stormshroud Armor Set
 UPDATE mangos . item_template
-SET required_skill = 165, -- Leatherworking
+SET bonding = 1,
+    required_skill = 165, -- Leatherworking
     required_skill_rank = 300,
     stat_type1 = 3,
-    stat_value1 = 30
+    stat_value1 = 40
 WHERE entry = 15056;
 
 UPDATE mangos . item_template
-SET required_skill = 165, -- Leatherworking
+SET bonding = 1,
+    required_skill = 165, -- Leatherworking
     required_skill_rank = 300,
     stat_type1 = 3,
-    stat_value1 = 25
+    stat_value1 = 35
 WHERE entry = 15057;
 
 UPDATE mangos . item_template
-SET required_skill = 165, -- Leatherworking
+SET bonding = 1,
+    required_skill = 165, -- Leatherworking
     required_skill_rank = 300,
     stat_type1 = 3,
-    stat_value1 = 17
+    stat_value1 = 27
 WHERE entry = 15058;
 
 UPDATE mangos . item_template
-SET required_skill = 165, -- Leatherworking
+SET bonding = 1,
+    required_skill = 165, -- Leatherworking
     required_skill_rank = 300,
     stat_type1 = 3,
-    stat_value1 = 17
+    stat_value1 = 27
 WHERE entry = 21278;
 
 -- Gloves of Spell Mastery
@@ -432,45 +595,45 @@ WHERE entry = 3841;
 -- Heavy Mithril Set
 UPDATE mangos . item_template
 SET stat_type2 = 3,
-    stat_value2 = 5,
+    stat_value2 = 9,
     stat_type3 = 4,
-    stat_value3 = 5
+    stat_value3 = 13
 WHERE entry = 7933;
 
 UPDATE mangos . item_template
 SET quality = 3,
     stat_type2 = 3,
-    stat_value2 = 10,
+    stat_value2 = 15,
     stat_type3 = 4,
-    stat_value3 = 10
+    stat_value3 = 20
 WHERE entry = 7930;
 
 UPDATE mangos . item_template
 SET stat_type2 = 3,
-    stat_value2 = 5,
+    stat_value2 = 9,
     stat_type3 = 4,
-    stat_value3 = 5
+    stat_value3 = 13
 WHERE entry = 7919;
 
 UPDATE mangos . item_template
 SET stat_type2 = 3,
-    stat_value2 = 5,
+    stat_value2 = 9,
     stat_type3 = 4,
-    stat_value3 = 5
+    stat_value3 = 13
 WHERE entry = 7918;
 
 UPDATE mangos . item_template
 SET stat_type2 = 3,
-    stat_value2 = 7,
+    stat_value2 = 15,
     stat_type3 = 4,
-    stat_value3 = 7
+    stat_value3 = 20
 WHERE entry = 7921;
 
 UPDATE mangos . item_template
 SET stat_type2 = 3,
-    stat_value2 = 6,
+    stat_value2 = 9,
     stat_type3 = 4,
-    stat_value3 = 6
+    stat_value3 = 13
 WHERE entry = 7934;
 
 -- Ornate Mithril Set
@@ -1256,12 +1419,20 @@ SET quality = 3,
     dmg_max1 = 129
 WHERE entry = 3855;
 
+-- Blue Glittering Axe
+UPDATE mangos . item_template
+SET quality = 3,
+    stat_type1 = 3,
+    stat_value1 = 15
+WHERE entry = 7942;
+
 -- Reforged Blade of Heroes
 UPDATE mangos . item_template
-SET quality = 4,
+SET required_level = 50,
+    quality = 4,
     delay = 1700,
-    dmg_min1 = 39,
-    dmg_max1 = 64,
+    dmg_min1 = 56,
+    dmg_max1 = 86,
     spellid_1 = 15602, -- +50 Attack Power for 30s
     spelltrigger_1 = 2
 WHERE entry = 9718;
@@ -1304,7 +1475,7 @@ UPDATE mangos . item_template
 SET quality = 3,
     stat_type1 = 5,
     stat_value1 = 5,
-    spellid_1 = 9314, -- +24 Healing
+    spellid_1 = 9316, -- +29 Healing
     spelltrigger_1 = 1
 WHERE entry = 7945;
 
@@ -1337,7 +1508,7 @@ UPDATE mangos . item_template
 SET quality = 3,
     stat_type1 = 5,
     stat_value1 = 7,
-    spellid_1 = 9316, -- +29 Healing
+    spellid_1 = 9318, -- +33 Healing
     spelltrigger_1 = 1
 WHERE entry = 7946;
 
