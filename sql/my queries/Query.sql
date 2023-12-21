@@ -594,7 +594,7 @@ WHERE entry = 3841;
 
 -- Heavy Mithril Set
 UPDATE mangos . item_template
-SET stat_type2 = 3,
+SET stat_type2 = 6,
     stat_value2 = 9,
     stat_type3 = 4,
     stat_value3 = 13
@@ -602,35 +602,35 @@ WHERE entry = 7933;
 
 UPDATE mangos . item_template
 SET quality = 3,
-    stat_type2 = 3,
+    stat_type2 = 6,
     stat_value2 = 15,
     stat_type3 = 4,
     stat_value3 = 20
 WHERE entry = 7930;
 
 UPDATE mangos . item_template
-SET stat_type2 = 3,
+SET stat_type2 = 6,
     stat_value2 = 9,
     stat_type3 = 4,
     stat_value3 = 13
 WHERE entry = 7919;
 
 UPDATE mangos . item_template
-SET stat_type2 = 3,
+SET stat_type2 = 6,
     stat_value2 = 9,
     stat_type3 = 4,
     stat_value3 = 13
 WHERE entry = 7918;
 
 UPDATE mangos . item_template
-SET stat_type2 = 3,
+SET stat_type2 = 6,
     stat_value2 = 15,
     stat_type3 = 4,
     stat_value3 = 20
 WHERE entry = 7921;
 
 UPDATE mangos . item_template
-SET stat_type2 = 3,
+SET stat_type2 = 6,
     stat_value2 = 9,
     stat_type3 = 4,
     stat_value3 = 13
