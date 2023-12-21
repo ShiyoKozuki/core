@@ -1372,6 +1372,19 @@ SET quality = 3,
     dmg_max1 = 37
 WHERE entry = 5541;
 
+-- Solid Iron Maul
+UPDATE mangos . item_template
+SET quality = 3,
+    delay = 3800,
+    armor = 300,
+    dmg_min1 = 71,
+    dmg_max1 = 111,
+    spellid_1 = 13667, -- +2% Parry
+    spelltrigger_1 = 2,
+    spellid_2 = 13670, -- 2% Dodge
+    spelltrigger_2 = 1
+WHERE entry = 3851;
+
 -- Mighty Iron Hammer
 UPDATE mangos . item_template
 SET quality = 3,
@@ -1426,6 +1439,16 @@ SET quality = 3,
     stat_value1 = 15
 WHERE entry = 7942;
 
+-- Wicked Mithril Blade
+UPDATE mangos . item_template
+SET quality = 3,
+    delay = 1800,
+    dmg_min1 = 42,
+    dmg_max1 = 72,
+    spellid_1 = 13667, -- +2% Parry
+    spelltrigger_1 = 2
+WHERE entry = 7943;
+
 -- Reforged Blade of Heroes
 UPDATE mangos . item_template
 SET required_level = 50,
@@ -1475,7 +1498,7 @@ UPDATE mangos . item_template
 SET quality = 3,
     stat_type1 = 5,
     stat_value1 = 5,
-    spellid_1 = 9316, -- +29 Healing
+    spellid_1 = 9314, -- +24 Healing
     spelltrigger_1 = 1
 WHERE entry = 7945;
 
@@ -1508,7 +1531,7 @@ UPDATE mangos . item_template
 SET quality = 3,
     stat_type1 = 5,
     stat_value1 = 7,
-    spellid_1 = 9318, -- +33 Healing
+    spellid_1 = 9316, -- +29 Healing
     spelltrigger_1 = 1
 WHERE entry = 7946;
 
