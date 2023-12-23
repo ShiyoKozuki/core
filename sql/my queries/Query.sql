@@ -51,7 +51,7 @@ SET quality = 4,
     stat_value2 = 25,
     stat_type2 = 7,
     stat_value2 = 22,
-    spellid_2 = 7597, -- +1% Melee Crit
+    spellid_2 = 7597, -- +1% Physical Crit
     spelltrigger_2 = 1
 WHERE entry = 8348;
 
@@ -277,6 +277,136 @@ SET bonding = 1,
     stat_value1 = 27
 WHERE entry = 21278;
 
+-- Heavy Scorpid Armor Set
+UPDATE mangos . item_template
+SET quality = 3,
+    stat_type1 = 3,
+    stat_value1 = 7,
+    stat_type2 = 6,
+    stat_value2 = 12,
+    spellid_1 = 7597, -- +1% Physical Crit
+    spelltrigger_1 = 1,
+    spellid_2 = 15464, -- +1% Physical Hit
+    spelltrigger_2 = 1
+WHERE entry = 15078;
+
+UPDATE mangos . item_template
+SET quality = 3,
+    stat_type1 = 3,
+    stat_value1 = 10,
+    stat_type2 = 6,
+    stat_value2 = 15,
+    spellid_1 = 15465, -- +2% Physical Hit
+    spelltrigger_1 = 1
+WHERE entry = 15076;
+
+UPDATE mangos . item_template
+SET quality = 3,
+    stat_type1 = 3,
+    stat_value1 = 9,
+    stat_type2 = 6,
+    stat_value2 = 13,
+    spellid_1 = 7597, -- +1% Physical Crit
+    spelltrigger_1 = 1,
+    spellid_2 = 15464, -- +1% Physical Hit
+    spelltrigger_2 = 1
+WHERE entry = 15079;
+
+UPDATE mangos . item_template
+SET quality = 3,
+    stat_type1 = 3,
+    stat_value1 = 7,
+    stat_type2 = 6,
+    stat_value2 = 12,
+    spellid_1 = 15808, -- +38 Attack Power
+    spelltrigger_1 = 1,
+    spellid_2 = 15464, -- +1% Physical Hit
+    spelltrigger_2 = 1
+WHERE entry = 15081;
+
+UPDATE mangos . item_template
+SET quality = 3,
+    stat_type1 = 3,
+    stat_value1 = 7,
+    stat_type2 = 6,
+    stat_value2 = 12,
+    spellid_1 = 15808, -- +38 Attack Power
+    spelltrigger_1 = 1,
+    spellid_2 = 7597, -- +1% Physical Crit
+    spelltrigger_2 = 1
+WHERE entry = 15080;
+
+UPDATE mangos . item_template
+SET quality = 3,
+    stat_type1 = 3,
+    stat_value1 = 7,
+    stat_type2 = 6,
+    stat_value2 = 10,
+    spellid_1 = 9330, -- +18 Attack Power
+    spelltrigger_1 = 1,
+    spellid_2 = 7597, -- +1% Physical Crit
+    spelltrigger_2 = 1
+WHERE entry = 15082;
+
+UPDATE mangos . item_template
+SET quality = 3,
+    stat_type1 = 3,
+    stat_value1 = 7,
+    stat_type2 = 6,
+    stat_value2 = 10,
+    spellid_1 = 9330, -- +18 Attack Power
+    spelltrigger_1 = 1,
+    spellid_2 = 15464, -- +1% Physical Hit
+    spelltrigger_2 = 1
+WHERE entry = 15077;
+
+-- Wicked Leather Set
+UPDATE mangos . item_template
+SET quality = 3, 
+    stat_type1 = 3,
+    stat_value1 = 12,
+    stat_type2 = 7,
+    stat_value2 = 5,
+    spellid_1 = 7597, -- +1% Physical Crit
+    spelltrigger_1 = 1,
+    spellid_2 = 15464, -- +1% Physical Hit
+    spelltrigger_2 = 1
+WHERE entry = 15083;
+
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_2 = 15464, -- +1% Physical Hit
+    spelltrigger_2 = 1
+WHERE entry = 15085;
+
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_2 = 15465, -- +2% Physical Hit
+    spelltrigger_2 = 1
+WHERE entry = 15087;
+
+UPDATE mangos . item_template
+    SET quality = 3,
+    spellid_2 = 15464, -- +1% Physical Hit
+    spelltrigger_2 = 1
+WHERE entry = 15086;
+
+UPDATE mangos . item_template
+    SET quality = 3,
+    stat_type2 = 7,
+    stat_value2 = 5,
+    spellid_2 = 15464, -- +1% Physical Hit
+    spelltrigger_2 = 1
+WHERE entry = 15088;
+
+UPDATE mangos . item_template
+SET quality = 3,
+    stat_type2 = 7,
+    stat_value2 = 5,
+    spellid_2 = 7597, -- +1% Physical Crit
+    spelltrigger_2 = 1
+WHERE entry = 15084;
+
 -- Gloves of Spell Mastery
 UPDATE mangos . item_template
 SET spellid_2 = 18049, -- +26 Spell Damage
@@ -456,7 +586,7 @@ WHERE entry = 7939;
 
 -- Truesilver Gauntlets
 UPDATE mangos . item_template
-SET spellid_1 = 7598, -- +2% Melee Crit
+SET spellid_1 = 7598, -- +2% Physical Crit
     spelltrigger_1 = 1
 WHERE entry = 7938;
 
@@ -800,7 +930,7 @@ UPDATE mangos . item_template
 SET required_level = 55,
     stat_type1 = 4,
     stat_value1 = 7,
-    spellid_1 = 7597, -- +1% Melee Crit
+    spellid_1 = 7597, -- +1% Physical Crit
     spelltrigger_1 = 1,
     spellid_2 = 15464, -- +1% Physical Hit
     spelltrigger_2 = 1,
@@ -815,7 +945,7 @@ UPDATE mangos . item_template
 SET required_level = 55,
     stat_type1 = 4,
     stat_value1 = 15,
-    spellid_1 = 7597, -- +1% Melee Crit
+    spellid_1 = 7597, -- +1% Physical Crit
     spelltrigger_1 = 1,
     spellid_2 = 15464, -- +1% Physical Hit
     spelltrigger_2 = 1,
@@ -830,7 +960,7 @@ UPDATE mangos . item_template
 SET required_level = 55,
     stat_type1 = 4,
     stat_value1 = 4,
-    spellid_1 = 7597, -- +1% Melee Crit
+    spellid_1 = 7597, -- +1% Physical Crit
     spelltrigger_1 = 1,
     spellid_2 = 15464, -- +1% Physical Hit
     spelltrigger_2 = 1,
@@ -845,7 +975,7 @@ UPDATE mangos . item_template
 SET required_level = 55,
     stat_type1 = 4,
     stat_value1 = 3,
-    spellid_1 = 7597, -- +1% Melee Crit
+    spellid_1 = 7597, -- +1% Physical Crit
     spelltrigger_1 = 1,
     spellid_2 = 15464, -- +1% Physical Hit
     spelltrigger_2 = 1,
@@ -860,7 +990,7 @@ UPDATE mangos . item_template
 SET required_level = 55,
     stat_type1 = 4,
     stat_value1 = 12,
-    spellid_1 = 7597, -- +1% Melee Crit
+    spellid_1 = 7597, -- +1% Physical Crit
     spelltrigger_1 = 1,
     spellid_2 = 15464, -- +1% Physical Hit
     spelltrigger_2 = 1,
@@ -875,7 +1005,7 @@ UPDATE mangos . item_template
 SET required_level = 55,
     stat_type1 = 4,
     stat_value1 = 12,
-    spellid_1 = 7597, -- +1% Melee Crit
+    spellid_1 = 7597, -- +1% Physical Crit
     spelltrigger_1 = 1,
     spellid_2 = 15464, -- +1% Physical Hit
     spelltrigger_2 = 1,
@@ -901,7 +1031,7 @@ UPDATE mangos . item_template
 SET quality = 3,
     required_skill = 164, -- Blacksmithing
     required_skill_rank = 300,
-    spellid_1 = 7598, -- +2% Melee Crit
+    spellid_1 = 7598, -- +2% Physical Crit
     spelltrigger_1 = 1,
     spellid_2 = 15465, -- +2% Physical Hit
     spelltrigger_2 = 1
@@ -951,7 +1081,7 @@ UPDATE mangos . item_template
 SET quality = 3,
     required_skill = 164, -- Blacksmithing
     required_skill_rank = 300,
-    spellid_1 = 7598, -- +2% Melee Crit
+    spellid_1 = 7598, -- +2% Physical Crit
     spelltrigger_1 = 1,
     spellid_2 = 15465, -- +2% Physical Hit
     spelltrigger_2 = 1
@@ -998,7 +1128,7 @@ SET quality = 3,
     stat_value1 = 12,
     stat_type2 = 5,
     stat_value2 = 12,
-    spellid_1 = 7597, -- +1% Melee Crit
+    spellid_1 = 7597, -- +1% Physical Crit
     spelltrigger_1 = 1,
     spellid_2 = 9346, -- +18 Spell Damage
     spelltrigger_2 = 1,
@@ -1016,7 +1146,7 @@ SET quality = 3,
     stat_value1 = 17,
     stat_type2 = 5,
     stat_value2 = 17,
-    spellid_1 = 7598, -- +2% Melee Crit
+    spellid_1 = 7598, -- +2% Physical Crit
     spelltrigger_1 = 1,
     spellid_2 = 15715, -- +25 Spell Damage
     spelltrigger_2 = 1,
@@ -1034,7 +1164,7 @@ SET quality = 3,
     stat_value1 = 17,
     stat_type2 = 5,
     stat_value2 = 17,
-    spellid_1 = 7597, -- +1% Melee Crit
+    spellid_1 = 7597, -- +1% Physical Crit
     spelltrigger_1 = 1,
     spellid_2 = 15715, -- +25 Spell Damage
     spelltrigger_2 = 1,
@@ -1070,7 +1200,7 @@ SET quality = 3,
     stat_value1 = 12,
     stat_type2 = 5,
     stat_value2 = 12,
-    spellid_1 = 7597, -- +1% Melee Crit
+    spellid_1 = 7597, -- +1% Physical Crit
     spelltrigger_1 = 1,
     spellid_2 = 9346, -- +18 Spell Damage
     spelltrigger_2 = 1,
@@ -1446,7 +1576,7 @@ SET quality = 3,
     dmg_min1 = 42,
     dmg_max1 = 72,
     spellid_1 = 13667, -- +2% Parry
-    spelltrigger_1 = 2
+    spelltrigger_1 = 1
 WHERE entry = 7943;
 
 -- Reforged Blade of Heroes
@@ -1664,6 +1794,11 @@ SET quality = 4,
     dmg_min1 = 104,
     dmg_max1 = 193
 WHERE entry = 19170;
+
+-- Ankh of Life
+UPDATE mangos . item_template
+SET spellid_1 = 10928 -- Heals the target of 510 damage over 15 sec.
+WHERE entry = 1713;
 
 
 
