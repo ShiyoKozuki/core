@@ -584,7 +584,7 @@ SET quality = 3,
     spelltrigger_1 = 1
 WHERE entry = 14044;
 
--- Frostweave Robe Set
+-- Frostweave Set
 UPDATE mangos . item_template
 SET quality = 3,
     spellid_1 = 17896, -- +34 Frost Damage
