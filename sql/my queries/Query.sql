@@ -439,37 +439,44 @@ WHERE entry = 19059;
 
 -- Runecloth Armor Set
 UPDATE mangos . item_template
-SET spellid_1 = 9318, -- +33 Healing
+SET quality = 3,
+    spellid_1 = 9318, -- +33 Healing
     spelltrigger_1 = 1
 WHERE entry = 13857;
 
 UPDATE mangos . item_template
-SET spellid_1 = 9408, -- +22 Healing
+SET quality = 3,
+    spellid_1 = 9408, -- +22 Healing
     spelltrigger_1 = 1
 WHERE entry = 13865;
 
 UPDATE mangos . item_template
-SET spellid_1 = 9408, -- +22 Healing
+SET quality = 3,
+    spellid_1 = 9408, -- +22 Healing
     spelltrigger_1 = 1
 WHERE entry = 13867;
 
 UPDATE mangos . item_template
-SET spellid_1 = 9408, -- +22 Healing
+SET quality = 3,
+    spellid_1 = 9408, -- +22 Healing
     spelltrigger_1 = 1
 WHERE entry = 13856;
 
 UPDATE mangos . item_template
-SET spellid_1 = 9408, -- +22 Healing
+SET quality = 3,
+    spellid_1 = 9408, -- +22 Healing
     spelltrigger_1 = 1
 WHERE entry = 13864;
 
 UPDATE mangos . item_template
-SET spellid_1 = 9318, -- +33 Healing
+SET quality = 3,
+    spellid_1 = 9318, -- +33 Healing
     spelltrigger_1 = 1
 WHERE entry = 13866;
 
 UPDATE mangos . item_template
-SET spellid_1 = 9408, -- +22 Healing
+SET quality = 3,
+    spellid_1 = 9408, -- +22 Healing
     spelltrigger_1 = 1
 WHERE entry = 13860;
 
