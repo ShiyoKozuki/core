@@ -204,7 +204,7 @@ WHERE entry = 15093;
 UPDATE mangos . item_template
 SET quality = 3,
     spellid_1 = 9408, -- +22 Healing
-    spelltrigger_1 = 1
+    spelltrigger_1 = 1,
 WHERE entry = 15092;
 
 -- Chimeric Set
@@ -263,19 +263,6 @@ SET quality = 3,
     arcane_res = 0,
     nature_res = 0
 WHERE entry = 15074;
-
-UPDATE mangos . item_template
-SET quality = 3,
-    bonding = 1,
-    required_skill = 165, -- Leatherworking
-    required_skill_rank = 300,
-    spellid_1 = 17988, -- +24 Nature Damage
-    spelltrigger_1 = 1,
-    spellid_2 = 17822, -- +24 Arcane Damage
-    spelltrigger_2 = 1,
-    arcane_res = 0,
-    nature_res = 0
-WHERE entry = 15092;
 
 -- Warbear Harness
 UPDATE mangos . item_template
