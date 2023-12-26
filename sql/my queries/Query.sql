@@ -1,3 +1,4 @@
+-- Talents
 UPDATE mangos . spell_template SET procCharges = 100 WHERE entry = 20925;
 UPDATE mangos . spell_template SET procCharges = 100 WHERE entry = 20927;
 UPDATE mangos . spell_template SET procCharges = 100 WHERE entry = 20928;
@@ -28,6 +29,114 @@ UPDATE mangos . spell_template SET effectDieSides2 = 1 WHERE entry = 20193;
 UPDATE mangos . spell_template SET effectBaseDice2 = 1 WHERE entry = 20193;
 UPDATE mangos . spell_template SET effectBasePoints2 = 2 WHERE entry = 20193;
 UPDATE mangos . spell_template SET effectApplyAuraName2 = 55 WHERE entry = 20193;
+
+-- Vile Poisons
+UPDATE mangos . spell_template 
+SET effectBasePoints1 = 7,
+    effectBasePoints2 = 7 
+WHERE entry = 16513;
+
+UPDATE mangos . spell_template 
+SET effectBasePoints1 = 15, 
+    effectBasePoints2 = 15 
+WHERE entry = 16514;
+
+UPDATE mangos . spell_template 
+SET effectBasePoints1 = 23, 
+    effectBasePoints2 = 23 
+WHERE entry = 16515;
+
+UPDATE mangos . spell_template 
+SET effectBasePoints1 = 31,
+    effectBasePoints2 = 31 
+WHERE entry = 16719;
+
+UPDATE mangos . spell_template 
+SET effectBasePoints1 = 39,
+    effectBasePoints2 = 39 
+WHERE entry = 16720;
+
+-- Deadliness
+UPDATE mangos . spell_template 
+SET effectBasePoints1 = 4
+WHERE entry = 30902;
+
+UPDATE mangos . spell_template 
+SET effectBasePoints1 = 9
+WHERE entry = 30903;
+
+UPDATE mangos . spell_template 
+SET effectBasePoints1 = 14
+WHERE entry = 30904;
+
+UPDATE mangos . spell_template 
+SET effectBasePoints1 = 19
+WHERE entry = 30905;
+
+UPDATE mangos . spell_template 
+SET effectBasePoints1 = 24
+WHERE entry = 30906;
+
+-- Skill Line Abiity
+-- Improved Backstab
+UPDATE mangos . skill_line_ability
+SET skill_id = 253
+WHERE spell_id = 13733;
+
+UPDATE mangos . skill_line_ability
+SET skill_id = 253
+WHERE spell_id = 13865;
+
+UPDATE mangos . skill_line_ability
+SET skill_id = 253
+WHERE spell_id = 13866;
+
+-- Dagger Spec
+UPDATE mangos . skill_line_ability
+SET skill_id = 253
+WHERE spell_id = 13706;
+
+UPDATE mangos . skill_line_ability
+SET skill_id = 253
+WHERE spell_id = 13804;
+
+UPDATE mangos . skill_line_ability
+SET skill_id = 253
+WHERE spell_id = 13805;
+
+UPDATE mangos . skill_line_ability
+SET skill_id = 253
+WHERE spell_id = 13806;
+
+UPDATE mangos . skill_line_ability
+SET skill_id = 253
+WHERE spell_id = 13807;
+
+-- Improved Kidney Shot
+UPDATE mangos . skill_line_ability
+SET skill_id = 38
+WHERE spell_id = 14174;
+
+UPDATE mangos . skill_line_ability
+SET skill_id = 38
+WHERE spell_id = 14175;
+
+UPDATE mangos . skill_line_ability
+SET skill_id = 38
+WHERE spell_id = 14176;
+
+-- Improved Slice n Dice
+UPDATE mangos . skill_line_ability
+SET skill_id = 38
+WHERE spell_id = 14165;
+
+UPDATE mangos . skill_line_ability
+SET skill_id = 38
+WHERE spell_id = 14166;
+
+UPDATE mangos . skill_line_ability
+SET skill_id = 38
+WHERE spell_id = 14167;
 
 -- Items
 -- Delete the WDB folder in your client directory.
