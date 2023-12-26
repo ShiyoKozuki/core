@@ -55,8 +55,50 @@ SET quality = 4,
     spelltrigger_2 = 1
 WHERE entry = 8348;
 
+-- Runic Leather Set
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 9318, -- +33 Healing
+    spelltrigger_1 = 1
+WHERE entry = 15094;
+
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 9318, -- +33 Healing
+    spelltrigger_1 = 1
+WHERE entry = 15090;
+
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 9318, -- +33 Healing
+    spelltrigger_1 = 1
+WHERE entry = 15095;
+
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 9408, -- +22 Healing
+    spelltrigger_1 = 1
+WHERE entry = 15091;
+
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 9408, -- +22 Healing
+    spelltrigger_1 = 1
+WHERE entry = 15096;
+
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 9408, -- +22 Healing
+    spelltrigger_1 = 1
+WHERE entry = 15093;
+
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 9408, -- +22 Healing
+    spelltrigger_1 = 1
+WHERE entry = 15092;
+
 -- Chimeric Set
--- Chimeric Vest
 UPDATE mangos . item_template
 SET quality = 4,
     bonding = 1,
@@ -66,11 +108,65 @@ SET quality = 4,
     stat_value1 = 17,
     stat_type2 = 6,
     stat_value2 = 12,
-    spellid_1 = 18056, -- +40 Spell Damage
+    spellid_1 = 17997, -- +40 Nature Damage
     spelltrigger_1 = 1,
+    spellid_2 = 17838, -- +40 Arcane Damage
+    spelltrigger_2 = 1,
     arcane_res = 0,
     nature_res = 0
 WHERE entry = 15075;
+
+UPDATE mangos . item_template
+SET quality = 3,
+    bonding = 1,
+    required_skill = 165, -- Leatherworking
+    required_skill_rank = 300,
+    spellid_1 = 17990, -- +27 Nature Damage
+    spelltrigger_1 = 1,
+    spellid_2 = 17824, -- +27 Arcane Damage
+    spelltrigger_2 = 1,
+    arcane_res = 0,
+    nature_res = 0
+WHERE entry = 15072;
+
+UPDATE mangos . item_template
+SET quality = 3,
+    bonding = 1,
+    required_skill = 165, -- Leatherworking
+    required_skill_rank = 300,
+    spellid_1 = 17988, -- +24 Nature Damage
+    spelltrigger_1 = 1,
+    spellid_2 = 17822, -- +24 Arcane Damage
+    spelltrigger_2 = 1,
+    arcane_res = 0,
+    nature_res = 0
+WHERE entry = 15073;
+
+UPDATE mangos . item_template
+SET quality = 3,
+    bonding = 1,
+    required_skill = 165, -- Leatherworking
+    required_skill_rank = 300,
+    spellid_1 = 17988, -- +24 Nature Damage
+    spelltrigger_1 = 1,
+    spellid_2 = 17822, -- +24 Arcane Damage
+    spelltrigger_2 = 1,
+    arcane_res = 0,
+    nature_res = 0
+WHERE entry = 15074;
+
+UPDATE mangos . item_template
+SET quality = 3,
+    bonding = 1,
+    required_skill = 165, -- Leatherworking
+    required_skill_rank = 300,
+    spellid_1 = 17988, -- +24 Nature Damage
+    spelltrigger_1 = 1,
+    spellid_2 = 17822, -- +24 Arcane Damage
+    spelltrigger_2 = 1,
+    arcane_res = 0,
+    nature_res = 0
+WHERE entry = 15092;
 
 -- Warbear Harness
 UPDATE mangos . item_template
@@ -592,12 +688,6 @@ SET quality = 3,
 WHERE entry = 14044;
 
 -- Frostweave Set
-UPDATE mangos . item_template
-SET quality = 3,
-    spellid_1 = 17896, -- +34 Frost Damage
-    spelltrigger_1 = 1
-WHERE entry = 13868;
-
 UPDATE mangos . item_template
 SET quality = 3,
     spellid_1 = 17896, -- +34 Frost Damage
