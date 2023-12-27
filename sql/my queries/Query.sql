@@ -30,6 +30,67 @@ UPDATE mangos . spell_template SET effectBaseDice2 = 1 WHERE entry = 20193;
 UPDATE mangos . spell_template SET effectBasePoints2 = 2 WHERE entry = 20193;
 UPDATE mangos . spell_template SET effectApplyAuraName2 = 55 WHERE entry = 20193;
 
+-- Improved Moonfire
+DELETE FROM `mangos`.`spell_template` WHERE  `entry`=16821 AND `build`=5875;
+DELETE FROM `mangos`.`spell_template` WHERE  `entry`=16821 AND `build`=4222;
+INSERT INTO `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectDieSides2`, `effectBaseDice1`, `effectBaseDice2`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectApplyAuraName1`, `effectItemType1`, `effectItemType2`, `effectMiscValue1`, `effectMiscValue2`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `dmgMultiplier1`, `dmgMultiplier2`) VALUES (16821, 4222, 464, 1, 101, 21, 1, -1, 6, 1, 1, 1, 1, 3, 1, 1, -1, 1, 1, 57, 2, 2, 7, 8, 225, 'Improved Moonfire', 983070, 'Rank 2', 983070, 'Increases the damage and critical strike chance of your Moonfire spell by $s1%.', 983054, 983052, 7, 1, 1);
+UPDATE `mangos`.`spell_template` SET `nameSubtext`='Rank 1' WHERE  `entry`=16821 AND `build`=4222;
+UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=1 WHERE  `entry`=16821 AND `build`=4222;
+
+
+UPDATE mangos . spell_template 
+SET effect2 = 0, 
+    effect3 = 0, 
+    effectApplyAuraName1 = 57,
+    effectApplyAuraName2 = 0,
+    effectApplyAuraName3 = 0,
+    effectBasePoints2 = 0,
+    effectBasePoints3 = 0
+WHERE entry = 16822;
+
+UPDATE mangos . spell_template 
+SET effect2 = 0, 
+    effect3 = 0, 
+    effectApplyAuraName1 = 57,
+    effectApplyAuraName2 = 0,
+    effectApplyAuraName3 = 0,
+    effectBasePoints2 = 0,
+    effectBasePoints3 = 0
+WHERE entry = 16823;
+
+UPDATE mangos . spell_template 
+SET effect2 = 0, 
+    effect3 = 0, 
+    effectApplyAuraName1 = 57,
+    effectApplyAuraName2 = 0,
+    effectApplyAuraName3 = 0,
+    effectBasePoints2 = 0,
+    effectBasePoints3 = 0
+WHERE entry = 16824;
+
+UPDATE mangos . spell_template 
+SET effect2 = 0, 
+    effect3 = 0, 
+    effectApplyAuraName1 = 57,
+    effectApplyAuraName2 = 0,
+    effectApplyAuraName3 = 0,
+    effectBasePoints2 = 0,
+    effectBasePoints3 = 0
+WHERE entry = 16825;
+
+-- Moonglow
+UPDATE mangos . spell_template 
+SET effectBasePoints1 = -11
+WHERE entry = 16845;
+
+UPDATE mangos . spell_template 
+SET effectBasePoints1 = -21
+WHERE entry = 16846;
+
+UPDATE mangos . spell_template 
+SET effectBasePoints1 = -31
+WHERE entry = 16847;
+
 -- Vile Poisons
 UPDATE mangos . spell_template 
 SET effectBasePoints1 = 7,
@@ -137,6 +198,24 @@ WHERE spell_id = 14166;
 UPDATE mangos . skill_line_ability
 SET skill_id = 38
 WHERE spell_id = 14167;
+
+-- Demonic Sacrifice
+UPDATE mangos . skill_line_ability
+SET skill_id = 355
+WHERE spell_id = 18788;
+
+-- Dark Pact
+UPDATE mangos . skill_line_ability
+SET skill_id = 593
+WHERE spell_id = 18220;
+
+UPDATE mangos . skill_line_ability
+SET skill_id = 593
+WHERE spell_id = 18937;
+
+UPDATE mangos . skill_line_ability
+SET skill_id = 593
+WHERE spell_id = 18938;
 
 -- Items
 -- Delete the WDB folder in your client directory.
