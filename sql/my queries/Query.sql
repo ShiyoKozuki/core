@@ -204,7 +204,7 @@ WHERE entry = 15093;
 UPDATE mangos . item_template
 SET quality = 3,
     spellid_1 = 9408, -- +22 Healing
-    spelltrigger_1 = 1,
+    spelltrigger_1 = 1
 WHERE entry = 15092;
 
 -- Chimeric Set
@@ -1641,9 +1641,9 @@ SET required_level = 60,
     required_skill_rank = 300,
     quality = 4,
     bonding = 1,
-    delay = 2000,
-    dmg_min1 = 50,
-    dmg_max1 = 100,
+    delay = 1800,
+    dmg_min1 = 71,
+    dmg_max1 = 101,
     spellid_1 = 26158, -- +60 Spell Damage
     spelltrigger_1 = 1
 WHERE entry = 22383;
