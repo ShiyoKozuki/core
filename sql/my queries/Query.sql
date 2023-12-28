@@ -217,6 +217,74 @@ UPDATE mangos . skill_line_ability
 SET skill_id = 593
 WHERE spell_id = 18938;
 
+-- Fel Intellect
+UPDATE mangos . spell_template 
+SET effectApplyAuraName2 = 85, 
+    effectBaseDice2 = 1,
+    effectBasePoints2 = 2
+WHERE entry = 18731;
+
+UPDATE mangos . spell_template 
+SET effectApplyAuraName2 = 85,
+    effectBaseDice2 = 1,
+    effectBasePoints2 = 5
+WHERE entry = 18743;
+
+UPDATE mangos . spell_template 
+SET effectApplyAuraName2 = 85,
+    effectBaseDice2 = 1,
+    effectBasePoints2 = 8
+WHERE entry = 18744;
+
+UPDATE mangos . spell_template 
+SET effectApplyAuraName2 = 85, 
+    effectBaseDice2 = 1,
+    effectBasePoints2 = 11
+WHERE entry = 18745;
+
+UPDATE mangos . spell_template 
+SET effectApplyAuraName2 = 85, 
+    effectBaseDice2 = 1,
+    effectBasePoints2 = 14
+WHERE entry = 18746;
+
+-- Fel Domination
+UPDATE mangos . spell_template 
+SET recoveryTime = 60000
+WHERE entry = 18708;
+
+-- Soul Link
+UPDATE mangos . spell_template 
+SET effectBasePoints1 = 10,
+    effectBasePoints2 = 20 
+WHERE entry = 25228;
+
+-- Master Demonologist (Felhunter)
+UPDATE mangos . spell_template 
+SET effectApplyAuraName1 = 85, 
+    effectBasePoints1 = 10,
+WHERE entry = 23762;
+
+UPDATE mangos . spell_template 
+SET effectApplyAuraName1 = 85, 
+    effectBasePoints1 = 20,
+WHERE entry = 23837;
+
+UPDATE mangos . spell_template 
+SET effectApplyAuraName1 = 85, 
+    effectBasePoints1 = 30,
+WHERE entry = 23838;
+
+UPDATE mangos . spell_template 
+SET effectApplyAuraName1 = 85, 
+    effectBasePoints1 = 40,
+WHERE entry = 23839;
+
+UPDATE mangos . spell_template 
+SET effectApplyAuraName1 = 85, 
+    effectBasePoints1 = 50,
+WHERE entry = 23840;
+
 -- Items
 -- Delete the WDB folder in your client directory.
 
