@@ -191,36 +191,71 @@ WHERE item IN(15775, 14513);
 
 -- 20%
 
--- Craft materials (CHECK THESE IDs)
+-- Craft materials
+
+-- 1%
+UPDATE mangos . creature_loot_template
+SET ChanceOrQuestChance = 1
+WHERE item IN(7078, 7080, 12803, 7082, 7076, 12808);
 
 -- 5%
 UPDATE mangos . creature_loot_template
 SET ChanceOrQuestChance = 5
-WHERE item IN(7078, 7080, 12803, 7082, 7076, 12808, 7077);
+WHERE item IN(7077, 7079, 7081, 7075, 18512, 14256, 12662);
 
 -- 10%
 UPDATE mangos . creature_loot_template
-SET ChanceOrQuestChance = 5
+SET ChanceOrQuestChance = 10
 WHERE item IN(7068, 7070, 7067, 7069, 10286, 7972);
 
+-- 20%
+UPDATE mangos . creature_loot_template
+SET ChanceOrQuestChance = 20
+WHERE item IN(12809);
+
+
+-- Bags
+-- 0.01%
+UPDATE mangos . creature_loot_template
+SET ChanceOrQuestChance = 0.01
+WHERE item IN(4500, 3914, 1725, 5572, 804, 5575, 856, 5573, 5574, 805, 828, 857, 5571);
+
 -- Quest items
+
+-- 1%
+UPDATE mangos . creature_loot_template
+SET ChanceOrQuestChance = -1
+WHERE item IN(2607, 2939, 5366, 5233, 3349, 6245, 6065, 4612);
 
 -- 5%
 UPDATE mangos . creature_loot_template
 SET ChanceOrQuestChance = -5
-WHERE item IN(8428, 5040);
+WHERE item IN(8428, 5040, 10639, 8363, 2606, 5463, 5475, 3897, 3930, 15878, 15881, 5669, 5664, 5734, 4616, 4518, 4519, 4520, 18969, 
+11837);
+
+-- 10%
+UPDATE mangos . creature_loot_template
+SET ChanceOrQuestChance = -10
+WHERE item IN(2925, 5412, 5338, 5414, 7498, 7499, 7500, 5386, 1261, 3397, 4522, 5659, 8973, 18947, 6257, 6258, 6259);
 
 -- 20%
 UPDATE mangos . creature_loot_template
 SET ChanceOrQuestChance = -20
-WHERE item IN(782, 725, 1019, 1256, 772, 773, 6952);
+WHERE item IN(782, 725, 1019, 1256, 772, 773, 6952, 5166, 3409, 3411, 3412, 5168, 5204, 725, 829, 3110, 2536, 2636, 7847, 7846, 
+7848, 5385, 5360, 5336, 5413, 12237, 5348, 2856, 1013, 3014, 1467, 1075, 5808, 12220, 5481, 3337, 2611, 1598, 1129, 2378, 1130,
+884, 2702, 5803, 5795, 5794, 4053, 3918, 1519, 4106, 4104, 3923, 2466, 3917, 3910, 3919, 1524, 4029, 4016, 6067, 6079, 6246, 
+6247, 6248, 3720, 3716, 3505, 2843, 4503, 4506, 5675, 3658, 5809, 5847, 4630, 4628, 4626, 11472, 9247, 18958, 9259, 20519, 8587, 
+11834, 11674, 11114, 11830, 11831, 11316, 11172,11173, 11478, 11479, 11480);
 
 -- 45%
 UPDATE mangos . creature_loot_template
 SET ChanceOrQuestChance = -45
-WHERE item IN(1256, 780, 752, 750, 2671, 2676, 3083, 3084);
+WHERE item IN(1256, 780, 752, 750, 2671, 2676, 3083, 3084, 3297, 10640, 5170, 1221, 6249, 4527, 4627, 8483);
 
 -- 100%
+UPDATE mangos . creature_loot_template
+SET ChanceOrQuestChance = -100
+WHERE item IN(5796, 5848, 6190, 11503, 11829);
 
 -- Misc
 
