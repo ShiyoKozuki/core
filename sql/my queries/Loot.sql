@@ -191,6 +191,18 @@ WHERE item IN(15775, 14513);
 
 -- 20%
 
+-- Craft materials (CHECK THESE IDs)
+
+-- 5%
+UPDATE mangos . creature_loot_template
+SET ChanceOrQuestChance = 5
+WHERE item IN(7078, 7080, 12803, 7082, 7076, 12808, 7077);
+
+-- 10%
+UPDATE mangos . creature_loot_template
+SET ChanceOrQuestChance = 5
+WHERE item IN(7068, 7070, 7067, 7069, 10286, 7972);
+
 -- Quest items
 
 -- 5%
@@ -209,8 +221,6 @@ SET ChanceOrQuestChance = -45
 WHERE item IN(1256, 780, 752, 750, 2671, 2676, 3083, 3084);
 
 -- 100%
-
-
 
 -- Misc
 
@@ -238,3 +248,8 @@ WHERE item = 11188;
 UPDATE mangos . creature_loot_template
 SET ChanceOrQuestChance = 5
 WHERE item = 11018;
+
+-- Ran Bloodtooth's Skull
+UPDATE mangos . creature_loot_template
+SET ChanceOrQuestChance = 100
+WHERE item IN(5388);
