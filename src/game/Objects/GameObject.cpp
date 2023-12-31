@@ -1472,9 +1472,9 @@ void GameObject::Use(Unit* user)
             if (GetFactionTemplateId() && !GetGOInfo()->chest.minSuccessOpens && !GetGOInfo()->chest.maxSuccessOpens)
             {
                 std::list<Unit*> targets;
-                MaNGOS::AnyFriendlyUnitInObjectRangeCheck check(this, 10.0f);
+                MaNGOS::AnyFriendlyUnitInObjectRangeCheck check(this, 30.0f);
                 MaNGOS::UnitListSearcher<MaNGOS::AnyFriendlyUnitInObjectRangeCheck> searcher(targets, check);
-                Cell::VisitAllObjects(this, searcher, 10.0f);
+                Cell::VisitAllObjects(this, searcher, 30.0f);
                 for (Unit* attacker : targets)
                 {
                     if (!attacker->IsInCombat() && attacker->IsValidAttackTarget(user) &&
