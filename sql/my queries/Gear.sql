@@ -1672,6 +1672,8 @@ WHERE entry = 7943;
 UPDATE mangos . item_template
 SET required_level = 50,
     quality = 4,
+    required_skill = 164, -- Blacksmithing
+    required_skill_rank = 225,
     delay = 1700,
     dmg_min1 = 51,
     dmg_max1 = 76,
