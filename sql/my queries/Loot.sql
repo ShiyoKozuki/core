@@ -65,7 +65,7 @@ WHERE item IN(7078, 7080, 12803, 7082, 7076, 12808, 19441);
 -- 5%
 UPDATE mangos . creature_loot_template
 SET ChanceOrQuestChance = 5
-WHERE item IN(7077, 7079, 7081, 7075, 18512, 14256, 12662, 3182, 4337, 14227, 10285, 1288, 1475);
+WHERE item IN(7077, 7079, 7081, 7075, 18512, 14256, 12662, 3182, 4337, 14227, 10285, 1288, 1475, 12811);
 
 -- 10%
 UPDATE mangos . creature_loot_template
@@ -76,7 +76,7 @@ WHERE item IN(7068, 7070, 7067, 7069, 10286, 7972, 8150);
 UPDATE mangos . creature_loot_template
 SET ChanceOrQuestChance = 20
 WHERE item IN(12809, 20404, 20424, 12206, 12208, 12205, 12204, 12037, 12203, 12202, 3712, 3731, 3667, 3730, 1081, 1080, 2924, 2674, 3173, 2673, 5467, 5469, 
-729, 769, 12223, 2672, 3174, 2251, 5465, 3172, 3685, 12207, 3404, 4402, 12184, 5471, 5470, 723, 731, 2296, 730, 732, 6530);
+729, 769, 12223, 2672, 3174, 2251, 5465, 3172, 3685, 12207, 3404, 4402, 12184, 5471, 5470, 723, 731, 2296, 730, 732, 6530, 12811);
 
 -- 45%
 UPDATE mangos . creature_loot_template
@@ -99,6 +99,13 @@ WHERE item IN(5134, 11407, 4582, 5117, 11404, 19933);
 UPDATE mangos . creature_loot_template
 SET ChanceOrQuestChance = 0.01
 WHERE item IN(4500, 3914, 1725, 5572, 804, 5575, 856, 5573, 5574, 805, 828, 857, 5571);
+
+-- Dungeon Drops
+UPDATE `mangos`.`creature_loot_template` SET `ChanceOrQuestChance`=70 WHERE  `entry`=11261 AND `item`=30289 AND `groupid`=0 AND `patch_min`=0 AND `patch_max`=10;
+UPDATE `mangos`.`creature_loot_template` SET `ChanceOrQuestChance`=70 WHERE  `entry`=10505 AND `item`=30289 AND `groupid`=0 AND `patch_min`=0 AND `patch_max`=10;
+UPDATE `mangos`.`creature_loot_template` SET `ChanceOrQuestChance`=70 WHERE  `entry`=10502 AND `item`=30289 AND `groupid`=0 AND `patch_min`=0 AND `patch_max`=10;
+UPDATE `mangos`.`creature_loot_template` SET `ChanceOrQuestChance`=70 WHERE  `entry`=10507 AND `item`=30289 AND `groupid`=0 AND `patch_min`=0 AND `patch_max`=10;
+UPDATE `mangos`.`creature_loot_template` SET `ChanceOrQuestChance`=70 WHERE  `entry`=10901 AND `item`=30289 AND `groupid`=0 AND `patch_min`=0 AND `patch_max`=10;
 
 -- Misc
 

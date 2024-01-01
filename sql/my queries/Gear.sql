@@ -1,12 +1,24 @@
 -- Gear
 -- Delete the WDB folder in your client directory.
 
+-- Quest rewards
+
+-- Cap of the Scarlet Savant
+UPDATE mangos . item_template
+SET spellid_2 = 17367, -- +32 Spell Damage
+    spelltrigger_2 = 1
+WHERE entry = 12752;
+
+-- Drops
+
 -- Sul'thraze the Lasher
 UPDATE mangos . item_template
 SET delay = 3400,
     dmg_min1 = 146,
     dmg_max1 = 206
 WHERE entry = 9372;
+
+-- Crafted
 
 -- Helm of Fire
 UPDATE mangos . item_template
