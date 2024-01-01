@@ -152,6 +152,50 @@ SET required_skill = 165, -- Leatherworking
     spelltrigger_2 = 1
 WHERE entry = 15065;
 
+-- Timbermaw Brawlers
+UPDATE mangos . item_template
+SET quality = 4,
+    required_skill = 165, -- Leatherworking
+    required_skill_rank = 300,
+    armor = 250,
+    spellid_1 = 13670, -- 2% Dodge
+    spelltrigger_1 = 1
+WHERE entry = 19049;
+
+-- Might of the Timbermaw
+UPDATE mangos . item_template
+SET quality = 4,
+    required_skill = 165, -- Leatherworking
+    required_skill_rank = 300,
+    armor = 250,
+    spellid_1 = 13670, -- 2% Dodge
+    spelltrigger_1 = 1
+WHERE entry = 19044;
+
+-- Golden Mantle of the Dawn
+UPDATE mangos . item_template
+SET quality = 4,
+    required_skill = 165, -- Leatherworking
+    required_skill_rank = 300,
+    armor = 300,
+    spellid_1 = 13669, -- +1% Dodge
+    spelltrigger_1 = 1,
+    spellid_2 = 15808, -- +38 Attack Power
+    spelltrigger_2 = 1
+WHERE entry = 19058;
+
+-- Dawn Treaders
+UPDATE mangos . item_template
+SET quality = 4,
+    required_skill = 165, -- Leatherworking
+    required_skill_rank = 300,
+    armor = 275,
+    spellid_1 = 15465, -- +2% Physical Hit
+    spelltrigger_1 = 1,
+    spellid_2 = 15808, -- +38 Attack Power
+    spelltrigger_2 = 1
+WHERE entry = 19052;
+
 -- Frostsaber Set
 UPDATE mangos . item_template
 SET quality = 3,
@@ -501,6 +545,24 @@ SET quality = 4,
     spelltrigger_1 = 1
 WHERE entry = 19059;
 
+-- Mantle of the Timbermaw
+UPDATE mangos . item_template
+SET quality = 4,
+    required_skill = 197, -- Tailoring
+    required_skill_rank = 300,
+    spellid_2 = 18031, -- +40 Healing
+    spelltrigger_2 = 1
+WHERE entry = 19050;
+
+-- Wisdom of the Timbermaw
+UPDATE mangos . item_template
+SET quality = 4,
+    required_skill = 197, -- Tailoring
+    required_skill_rank = 300,
+    spellid_2 = 9318, -- +33 Healing
+    spelltrigger_2 = 1
+WHERE entry = 19047;
+
 -- Runecloth Armor Set
 UPDATE mangos . item_template
 SET quality = 3,
@@ -690,6 +752,67 @@ UPDATE mangos . item_template
 SET spellid_1 = 7598, -- +2% Physical Crit
     spelltrigger_1 = 1
 WHERE entry = 7938;
+
+-- Gloves of the Dawn
+UPDATE mangos . item_template
+SET quality = 4,
+    required_skill = 164, -- Blacksmithing
+    required_skill_rank = 300,
+    stat_type3 = 5,
+    stat_value3 = 15,
+    spellid_1 = 13387, -- +8 Defense
+    spelltrigger_1 = 1,
+    spellid_2 = 9417, -- +12 spell damage
+    spelltrigger_2 = 1,
+    spellid_3 = 21363, -- 5 MP/5
+    spelltrigger_3 = 1
+WHERE entry = 19057;
+
+-- Girdle of the Dawn
+UPDATE mangos . item_template
+SET quality = 4,
+    required_skill = 164, -- Blacksmithing
+    required_skill_rank = 300,
+    stat_type3 = 5,
+    stat_value3 = 15,
+    spellid_1 = 13387, -- +8 Defense
+    spelltrigger_1 = 1,
+    spellid_2 = 9417, -- +12 spell damage
+    spelltrigger_2 = 1,
+    spellid_3 = 21363, -- 5 MP/5
+    spelltrigger_3 = 1
+WHERE entry = 19051;
+
+
+-- Heavy Timbermaw Boots
+UPDATE mangos . item_template
+SET quality = 4,
+    required_skill = 164, -- Blacksmithing
+    required_skill_rank = 300,
+    stat_type2 = 4,
+    stat_value2 = 15,
+    stat_type3 = 5,
+    stat_value3 = 15,
+    spellid_2 = 13387, -- +8 Defense
+    spelltrigger_2 = 1,
+    spellid_3 = 21363, -- 5 MP/5
+    spelltrigger_3 = 1
+WHERE entry = 19048;
+
+-- Heavy Timbermaw Belt
+UPDATE mangos . item_template
+SET quality = 4,
+    required_skill = 164, -- Blacksmithing
+    required_skill_rank = 300,
+    stat_type2 = 4,
+    stat_value2 = 15,
+    stat_type3 = 5,
+    stat_value3 = 15,
+    spellid_2 = 13387, -- +8 Defense
+    spelltrigger_2 = 1,
+    spellid_3 = 21363, -- 5 MP/5
+    spelltrigger_3 = 1
+WHERE entry = 19043;
 
 -- Demon Forged Breastplate
 UPDATE mangos . item_template
