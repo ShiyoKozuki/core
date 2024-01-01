@@ -489,6 +489,7 @@ public:
             SpellEntry const* pKidneyShot;
             SpellEntry const* pColdBlood;
             SpellEntry const* pBladeFlurry;
+            SpellEntry const* pFeint;
             SpellEntry const* pVanish;
             SpellEntry const* pBlind;
             SpellEntry const* pPreparation;
