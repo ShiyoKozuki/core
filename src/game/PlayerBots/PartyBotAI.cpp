@@ -40,8 +40,8 @@ enum PartyBotSpells
 #define PB_UPDATE_INTERVAL 1000
 #define PB_MIN_FOLLOW_DIST 3.0f
 #define PB_MAX_FOLLOW_DIST 6.0f
-#define PB_HEALER_MIN_FOLLOW_DIST 36.0f
-#define PB_HEALER_MAX_FOLLOW_DIST 30.0f
+#define PB_HEALER_MIN_FOLLOW_DIST 20.0f
+#define PB_HEALER_MAX_FOLLOW_DIST 26.0f
 #define PB_MIN_FOLLOW_ANGLE 0.0f
 #define PB_MAX_FOLLOW_ANGLE 6.0f
 
@@ -2069,14 +2069,6 @@ void PartyBotAI::UpdateInCombatAI_Priest()
 
         if (me->GetShapeshiftForm() == FORM_NONE)
         {
-            if (m_spells.priest.pHolyNova &&
-                GetAttackersInRangeCount(10.0f) > 2 &&
-                CanTryToCastSpell(me, m_spells.priest.pHolyNova))
-            {
-                if (DoCastSpell(me, m_spells.priest.pHolyNova) == SPELL_CAST_OK)
-                    return;
-            }
-
             if (m_spells.priest.pSmite &&
                 CanTryToCastSpell(pVictim, m_spells.priest.pSmite))
             {
@@ -2235,11 +2227,46 @@ void PartyBotAI::UpdateInCombatAI_Warlock()
                 return;
         }
 
-        if (m_spells.warlock.pCurseoftheElements &&
-            CanTryToCastSpell(pVictim, m_spells.warlock.pCurseoftheElements))
+        // Keep Curse of Tongues up on spell casters
+        if (pVictim->GetPowerType() == POWER_MANA && pVictim->GetPowerPercent(POWER_MANA) > 05.0f)
         {
-            if (DoCastSpell(pVictim, m_spells.warlock.pCurseoftheElements) == SPELL_CAST_OK)
-                return;
+            if (m_spells.warlock.pCurseofTongues &&
+                CanTryToCastSpell(pVictim, m_spells.warlock.pCurseofTongues))
+            {
+                if (DoCastSpell(pVictim, m_spells.warlock.pCurseofTongues) == SPELL_CAST_OK)
+                    return;
+            }
+        }
+        else
+        {
+            // TODO: Logic for different curses
+            if (m_spells.warlock.pCurseoftheElements &&
+                CanTryToCastSpell(pVictim, m_spells.warlock.pCurseoftheElements))
+            {
+                if (DoCastSpell(pVictim, m_spells.warlock.pCurseoftheElements) == SPELL_CAST_OK)
+                    return;
+            }
+
+            if (m_spells.warlock.pCurseofRecklessness &&
+                CanTryToCastSpell(pVictim, m_spells.warlock.pCurseofRecklessness))
+            {
+                if (DoCastSpell(pVictim, m_spells.warlock.pCurseofRecklessness) == SPELL_CAST_OK)
+                    return;
+            }
+
+            if (m_spells.warlock.pCurseofShadow &&
+                CanTryToCastSpell(pVictim, m_spells.warlock.pCurseofShadow))
+            {
+                if (DoCastSpell(pVictim, m_spells.warlock.pCurseofShadow) == SPELL_CAST_OK)
+                    return;
+            }
+
+            if (m_spells.warlock.pCurseofAgony &&
+                CanTryToCastSpell(pVictim, m_spells.warlock.pCurseofAgony))
+            {
+                if (DoCastSpell(pVictim, m_spells.warlock.pCurseofAgony) == SPELL_CAST_OK)
+                    return;
+            }
         }
 
         if (me->GetMotionMaster()->GetCurrentMovementGeneratorType() == IDLE_MOTION_TYPE

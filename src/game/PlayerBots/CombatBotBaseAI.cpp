@@ -1309,6 +1309,11 @@ void CombatBotBaseAI::PopulateSpellData()
                     if (IsHigherRankSpell(m_spells.rogue.pBladeFlurry))
                         m_spells.rogue.pBladeFlurry = pSpellEntry;
                 }
+                else if (pSpellEntry->SpellName[0].find("Feint") != std::string::npos)
+                {
+                    if (IsHigherRankSpell(m_spells.rogue.pFeint))
+                        m_spells.rogue.pFeint = pSpellEntry;
+                }
                 else if (pSpellEntry->SpellName[0].find("Vanish") != std::string::npos)
                 {
                     if (IsHigherRankSpell(m_spells.rogue.pVanish))
@@ -1808,8 +1813,11 @@ void CombatBotBaseAI::PopulateSpellData()
 
             if (!vPoisons.empty())
             {
-                m_spells.rogue.pMainHandPoison = SelectRandomContainerElement(vPoisons);
-                m_spells.rogue.pOffHandPoison = SelectRandomContainerElement(vPoisons);
+                // Mainhand Crippling, offhand Mind Numbing
+                if (hasCripplingPoison && (pPoisonSpell = GetHighestRankOfPoisonByName("Crippling Poison", me->GetLevel())))
+                    m_spells.rogue.pMainHandPoison = pPoisonSpell;
+                if (hasInstantPoison && (pPoisonSpell = GetHighestRankOfPoisonByName("Mind-numbing Poison", me->GetLevel())))
+                    m_spells.rogue.pOffHandPoison = pPoisonSpell;
             }
 
             break;
