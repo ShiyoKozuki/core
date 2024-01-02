@@ -57,6 +57,11 @@ WHERE item IN(15775, 14513);
 
 -- Craft materials (Essences, meats, legs, etc)
 
+-- 0.01%
+UPDATE mangos . creature_loot_template
+SET ChanceOrQuestChance = 0.01
+WHERE item IN(18335);
+
 -- 1%
 UPDATE mangos . creature_loot_template
 SET ChanceOrQuestChance = 1
