@@ -263,3 +263,14 @@ UPDATE mangos . spell_template
 SET effectBasePoints1 = 9,
     effectBasePoints2 = 19 
 WHERE entry = 25228;
+
+-- Searing Light
+UPDATE mangos . spell_template 
+SET effectBasePoints1 = 9,
+    effectBasePoints2 = 9
+WHERE entry = 14909;
+
+UPDATE mangos . spell_template 
+SET effectBasePoints1 = 19,
+    effectBasePoints2 = 19
+WHERE entry = 15017;

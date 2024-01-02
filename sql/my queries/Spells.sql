@@ -1,6 +1,9 @@
 -- Spells
 
--- Priest
+-- Racials
 
--- Fear Ward(All races)
-INSERT INTO `mangos`.`npc_trainer_template` (`entry`, `spell`, `spellcost`, `reqlevel`) VALUES (8, 19337, 440, 20);
+-- Shadowmeld usable in combat
+UPDATE mangos . spell_template 
+SET attributes = 169148432,
+    recoveryTime = 120000
+WHERE entry = 20580;
