@@ -2267,7 +2267,7 @@ void PartyBotAI::UpdateInCombatAI_Warlock()
                 if (Player* pLeader = GetPartyLeader())
                 {
                     if (m_spells.warlock.pCurseoftheElements &&
-                        (pLeader->GetClass() == CLASS_MAGE) &&
+                        (pLeader->GetClass() == CLASS_MAGE) || (pLeader->GetClass() == CLASS_PALADIN) &&
                         CanTryToCastSpell(pVictim, m_spells.warlock.pCurseoftheElements))
                     {
                         if (DoCastSpell(pVictim, m_spells.warlock.pCurseoftheElements) == SPELL_CAST_OK)
