@@ -2285,6 +2285,7 @@ void PartyBotAI::UpdateInCombatAI_Warlock()
                     if (m_spells.warlock.pCurseofAgony &&
                         (pLeader->GetClass() != CLASS_MAGE) &&
                         (pLeader->GetClass() != CLASS_WARLOCK) &&
+                        (pLeader->GetClass() != CLASS_PALADIN) &&
                         CanTryToCastSpell(pVictim, m_spells.warlock.pCurseofAgony))
                     {
                         if (DoCastSpell(pVictim, m_spells.warlock.pCurseofAgony) == SPELL_CAST_OK)
