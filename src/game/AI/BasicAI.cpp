@@ -30,6 +30,11 @@ int BasicAI::Permissible(Creature const* creature)
 
 bool BasicAI::IsProximityAggroAllowedFor(Unit* pTarget) const
 {
+    // Don't aggro bots
+    if (pTarget->IsPlayer() &&
+        static_cast<Player const*>(pTarget)->IsBot())
+        return false;
+
     if (!m_creature->GetVictim())
         return true;
 
