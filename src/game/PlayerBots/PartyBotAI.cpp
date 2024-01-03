@@ -196,8 +196,42 @@ bool PartyBotAI::DrinkAndEat()
     if (!needToEat && !needToDrink)
         return false;
 
-    bool const isEating = me->HasAura(PB_SPELL_FOOD);
-    bool const isDrinking = me->HasAura(PB_SPELL_DRINK);
+    int32 currentFood = 29073;
+    int32 currentWater = 22734;
+
+    if (me->GetLevel() < 5)
+    {
+        currentFood = 433;
+        currentWater = 430;
+    }
+    else if (me->GetLevel() < 15)
+    {
+        currentFood = 434;
+        currentWater = 431;
+    }
+    else if (me->GetLevel() < 25)
+    {
+        currentFood = 435;
+        currentWater = 432;
+    }
+    else if (me->GetLevel() < 35)
+    {
+        currentFood = 1127;
+        currentWater = 1133;
+    }
+    else if (me->GetLevel() < 45)
+    {
+        currentFood = 1129;
+        currentWater = 1135;
+    }
+    else if (me->GetLevel() < 55)
+    {
+        currentFood = 1131;
+        currentWater = 1137;
+    }
+
+    bool const isEating = me->HasAura(currentFood);
+    bool const isDrinking = me->HasAura(currentWater);
 
     if (!isEating && needToEat)
     {
@@ -207,7 +241,7 @@ bool PartyBotAI::DrinkAndEat()
             me->GetMotionMaster()->Clear(false, true);
             me->GetMotionMaster()->MoveIdle();
         }
-        if (SpellEntry const* pSpellEntry = sSpellMgr.GetSpellEntry(PB_SPELL_FOOD))
+        if (SpellEntry const* pSpellEntry = sSpellMgr.GetSpellEntry(currentFood))
         {
             me->CastSpell(me, pSpellEntry, true);
             me->RemoveSpellCooldown(*pSpellEntry);
@@ -223,7 +257,7 @@ bool PartyBotAI::DrinkAndEat()
             me->GetMotionMaster()->Clear(false, true);
             me->GetMotionMaster()->MoveIdle();
         }
-        if (SpellEntry const* pSpellEntry = sSpellMgr.GetSpellEntry(PB_SPELL_DRINK))
+        if (SpellEntry const* pSpellEntry = sSpellMgr.GetSpellEntry(currentWater))
         {
             me->CastSpell(me, pSpellEntry, true);
             me->RemoveSpellCooldown(*pSpellEntry);
@@ -1025,17 +1059,18 @@ void PartyBotAI::UpdateInCombatAI()
     // Swap to marked target or party leader's target
     if (GetRole() != ROLE_HEALER)
     {
-        if (!pVictim || !IsValidHostileTarget(pVictim))
+        if (Player* pLeader = GetPartyLeader())
         {
-            if (pVictim)
-                me->AttackStop();
-            if (Player* pLeader = GetPartyLeader())
+        Unit* newVictim = SelectAttackTarget(pLeader);
+
+            if (newVictim && (newVictim != pVictim))
             {
-                if (Unit* pVictim = SelectAttackTarget(pLeader))
-                {
-                    AttackStart(pVictim);
-                    return;
-                }
+                if (pVictim)
+                    me->AttackStop();
+                else
+                    AttackStart(newVictim);
+
+                return;
             }
         }
     }
