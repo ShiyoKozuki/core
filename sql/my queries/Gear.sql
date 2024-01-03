@@ -18,6 +18,60 @@ SET delay = 3400,
     dmg_max1 = 206
 WHERE entry = 9372;
 
+-- Breastplate of Bloodthirst
+UPDATE mangos . item_template
+SET spellid_3 = 15817, -- +64 Attack Power
+    spelltrigger_3 = 1,
+    spellid_4 = 15465, -- +2% Physical Hit
+    spelltrigger_4 = 1
+    arcane_res = 15,
+    fire_res = 15,
+    nature_res = 15,
+    frost_res = 15,
+    shadow_res = 15
+WHERE entry = 12757;
+
+-- Breastplate of the Chromatic Flight
+UPDATE mangos . item_template
+SET spellid_1 = 7598, -- +2% Physical Crit
+    spelltrigger_1 = 1,
+    spellid_2 = 15465, -- +2% Physical Hit
+    spelltrigger_2 = 1,
+    arcane_res = 15,
+    fire_res = 15,
+    nature_res = 15,
+    frost_res = 15,
+    shadow_res = 15
+WHERE entry = 12895;
+
+-- Legguards of the Chromatic Defier
+UPDATE mangos . item_template
+SET spellid_1 = 7598, -- +2% Physical Crit
+    spelltrigger_1 = 1,
+    spellid_2 = 15465, -- +2% Physical Hit
+    spelltrigger_2 = 1,
+    arcane_res = 15,
+    fire_res = 15,
+    nature_res = 15,
+    frost_res = 15,
+    shadow_res = 15
+WHERE entry = 12903;
+
+-- Legplates of the Chromatic Defier
+UPDATE mangos . item_template
+SET spellid_1 = 17367, -- +32 Spell Damage
+    spelltrigger_1 = 1,
+    spellid_2 = 23729, -- +2% Spell Hit
+    spelltrigger_2 = 1,
+    spellid_3 = 21363, -- 5 MP/5
+    spelltrigger_3 = 1,
+    arcane_res = 15,
+    fire_res = 15,  
+    nature_res = 15,
+    frost_res = 15,
+    shadow_res = 15
+WHERE entry = 12945;
+
 -- Crafted
 
 -- Helm of Fire
@@ -2033,3 +2087,40 @@ WHERE entry = 19170;
 UPDATE mangos . item_template
 SET spellid_1 = 10928 -- Heals the target of 510 damage over 15 sec.
 WHERE entry = 1713;
+
+-- New custom items
+
+-- Sentinel's Ring
+UPDATE mangos . item_template
+SET quality = 4,
+    spellid_1 = 7597, -- +1% Physical Crit
+    spelltrigger_1 = 1,
+    spellid_2 = 15464, -- +1% Physical Hit
+    spelltrigger_2 = 1
+WHERE entry = 30000;
+
+-- Battlemage's Ring
+UPDATE mangos . item_template
+SET quality = 4,
+    stat_type1 = 7,
+    stat_value1 = 20,
+    stat_type2 = 5,
+    stat_value2 = 5,
+    spellid_1 = 18054, -- 37 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 30001;
+
+-- Cleric's Cape
+UPDATE mangos . item_template
+SET quality = 4,
+    armor = 200,
+    stat_type1 = 7,
+    stat_value1 = 20,
+    spellid_2 = 21363, -- 5 MP/5
+    spelltrigger_2 = 1
+WHERE entry = 30002;
+
+-- New Custom Items
+INSERT INTO `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id`, `quality`, `flags`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `max_count`, `stat_type1`, `stat_value1`, `stat_type2`, `stat_value2`, `stat_type3`, `stat_value3`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30000, 4, 4, 'Sentinel\'s Ring', 9832, 3, 32768, 75000, 18750, 11, -1, -1, 63, 58, 1, 4, 12, 3, 11, 7, 8, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 4);
+INSERT INTO `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id`, `quality`, `flags`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `max_count`, `stat_type1`, `stat_value1`, `delay`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellid_2`, `spelltrigger_2`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30001, 4, 4, 'Battlemage\'s Ring', 28812, 3, 32768, 75000, 18750, 11, -1, -1, 63, 58, 1, 7, 8, 0, 9343, 1, -1, -1, 21619, 1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 4);
+INSERT INTO `mangos`.`item_template` (`entry`, `patch`, `class`, `subclass`, `name`, `display_id`, `quality`, `flags`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `max_count`, `stat_type1`, `stat_value1`, `stat_type2`, `stat_value2`, `delay`, `armor`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30002, 4, 4, 1, 'Cleric\'s Cape', 32067, 3, 32768, 85492, 17098, 16, -1, -1, 63, 58, 1, 7, 11, 6, 8, 0, 45, 9315, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 7);
