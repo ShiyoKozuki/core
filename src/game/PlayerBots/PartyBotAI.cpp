@@ -1020,6 +1020,26 @@ void PartyBotAI::UpdateInCombatAI()
             return;
     }
 
+    Unit* pVictim = me->GetVictim();
+    
+    // Swap to marked target or party leader's target
+    if (GetRole() != ROLE_HEALER)
+    {
+        if (!pVictim || !IsValidHostileTarget(pVictim))
+        {
+            if (pVictim)
+                me->AttackStop();
+            if (Player* pLeader = GetPartyLeader())
+            {
+                if (Unit* pVictim = SelectAttackTarget(pLeader))
+                {
+                    AttackStart(pVictim);
+                    return;
+                }
+            }
+        }
+    }
+
     switch (me->GetClass())
     {
         case CLASS_PALADIN:
@@ -2191,8 +2211,8 @@ void PartyBotAI::UpdateInCombatAI_Warlock()
     if (Unit* pVictim = me->GetVictim())
     {
         if (m_spells.warlock.pDeathCoil &&
-           (pVictim->CanReachWithMeleeAutoAttack(me) || pVictim->IsNonMeleeSpellCasted()) &&
-           (me->GetPowerPercent(POWER_HEALTH) < 50.0f) &&
+            (pVictim->CanReachWithMeleeAutoAttack(me) || pVictim->IsNonMeleeSpellCasted()) &&
+            (me->GetPowerPercent(POWER_HEALTH) < 50.0f) &&
             CanTryToCastSpell(pVictim, m_spells.warlock.pDeathCoil))
         {
             if (DoCastSpell(pVictim, m_spells.warlock.pDeathCoil) == SPELL_CAST_OK)
@@ -2200,7 +2220,7 @@ void PartyBotAI::UpdateInCombatAI_Warlock()
         }
 
         if (m_spells.warlock.pShadowburn &&
-           (pVictim->GetHealthPercent() < 10.0f) &&
+            (pVictim->GetHealthPercent() < 10.0f) &&
             CanTryToCastSpell(pVictim, m_spells.warlock.pShadowburn))
         {
             if (DoCastSpell(pVictim, m_spells.warlock.pShadowburn) == SPELL_CAST_OK)
@@ -2220,7 +2240,7 @@ void PartyBotAI::UpdateInCombatAI_Warlock()
         }
 
         if (m_spells.warlock.pRainOfFire &&
-           (me->GetEnemyCountInRadiusAround(pVictim, 10.0f) > 3) &&
+            (me->GetEnemyCountInRadiusAround(pVictim, 10.0f) > 3) &&
             CanTryToCastSpell(pVictim, m_spells.warlock.pRainOfFire))
         {
             if (DoCastSpell(pVictim, m_spells.warlock.pRainOfFire) == SPELL_CAST_OK)
@@ -2239,62 +2259,6 @@ void PartyBotAI::UpdateInCombatAI_Warlock()
                 }
             }
         }
-
-        // Keep Curse of Tongues up on spell casters
-        if (pVictim->IsCaster())
-        {
-            if (m_spells.warlock.pCurseofTongues &&
-                CanTryToCastSpell(pVictim, m_spells.warlock.pCurseofTongues))
-            {
-                if (DoCastSpell(pVictim, m_spells.warlock.pCurseofTongues) == SPELL_CAST_OK)
-                    return;
-            }
-        }
-        else
-        {
-            if (pVictim->GetMotionMaster()->GetCurrentMovementGeneratorType() == FLEEING_MOTION_TYPE)
-            {
-                if (m_spells.warlock.pCurseofRecklessness &&
-                    CanTryToCastSpell(pVictim, m_spells.warlock.pCurseofRecklessness))
-                {
-                    if (DoCastSpell(pVictim, m_spells.warlock.pCurseofRecklessness) == SPELL_CAST_OK)
-                        return;
-                }
-            }
-            else
-            {
-                // TODO: Logic for different curses
-                if (Player* pLeader = GetPartyLeader())
-                {
-                    if (m_spells.warlock.pCurseoftheElements &&
-                        (pLeader->GetClass() == CLASS_MAGE) || (pLeader->GetClass() == CLASS_PALADIN) &&
-                        CanTryToCastSpell(pVictim, m_spells.warlock.pCurseoftheElements))
-                    {
-                        if (DoCastSpell(pVictim, m_spells.warlock.pCurseoftheElements) == SPELL_CAST_OK)
-                            return;
-                    }
-
-                    if (m_spells.warlock.pCurseofShadow &&
-                        (pLeader->GetClass() == CLASS_WARLOCK) &&
-                        CanTryToCastSpell(pVictim, m_spells.warlock.pCurseofShadow))
-                    {
-                        if (DoCastSpell(pVictim, m_spells.warlock.pCurseofShadow) == SPELL_CAST_OK)
-                            return;
-                    }
-
-                    if (m_spells.warlock.pCurseofAgony &&
-                        (pLeader->GetClass() != CLASS_MAGE) &&
-                        (pLeader->GetClass() != CLASS_WARLOCK) &&
-                        (pLeader->GetClass() != CLASS_PALADIN) &&
-                        CanTryToCastSpell(pVictim, m_spells.warlock.pCurseofAgony))
-                    {
-                        if (DoCastSpell(pVictim, m_spells.warlock.pCurseofAgony) == SPELL_CAST_OK)
-                            return;
-                    }
-                }
-            }
-        }
-
 
         if (m_spells.warlock.pImmolate &&
             CanTryToCastSpell(pVictim, m_spells.warlock.pImmolate))
@@ -2318,7 +2282,7 @@ void PartyBotAI::UpdateInCombatAI_Warlock()
         }
 
         if (m_spells.warlock.pSiphonLife &&
-           (me->GetHealthPercent() < 80.0f) &&
+            (me->GetHealthPercent() < 80.0f) &&
             CanTryToCastSpell(pVictim, m_spells.warlock.pSiphonLife))
         {
             if (DoCastSpell(pVictim, m_spells.warlock.pSiphonLife) == SPELL_CAST_OK)
@@ -2326,11 +2290,54 @@ void PartyBotAI::UpdateInCombatAI_Warlock()
         }
 
         if (m_spells.warlock.pDrainLife &&
-           (me->GetHealthPercent() < 30.0f) &&
+            (pVictim->GetVictim() == me) &&
+            (me->GetHealthPercent() < 70.0f) &&
             CanTryToCastSpell(pVictim, m_spells.warlock.pDrainLife))
         {
             if (DoCastSpell(pVictim, m_spells.warlock.pDrainLife) == SPELL_CAST_OK)
                 return;
+        }
+
+        // Keep Curse of Tongues up on spell casters
+        if (pVictim->GetPowerType() == POWER_MANA && pVictim->GetPowerPercent(POWER_MANA) > 05.0f)
+        {
+            if (m_spells.warlock.pCurseofTongues &&
+                CanTryToCastSpell(pVictim, m_spells.warlock.pCurseofTongues))
+            {
+                if (DoCastSpell(pVictim, m_spells.warlock.pCurseofTongues) == SPELL_CAST_OK)
+                    return;
+            }
+        }
+        else
+        {
+            // TODO: Logic for different curses
+            if (m_spells.warlock.pCurseoftheElements &&
+                CanTryToCastSpell(pVictim, m_spells.warlock.pCurseoftheElements))
+            {
+                if (DoCastSpell(pVictim, m_spells.warlock.pCurseoftheElements) == SPELL_CAST_OK)
+                    return;
+            }
+
+            if (m_spells.warlock.pCurseofRecklessness &&
+                CanTryToCastSpell(pVictim, m_spells.warlock.pCurseofRecklessness))
+            {
+                if (DoCastSpell(pVictim, m_spells.warlock.pCurseofRecklessness) == SPELL_CAST_OK)
+                    return;
+            }
+
+            if (m_spells.warlock.pCurseofShadow &&
+                CanTryToCastSpell(pVictim, m_spells.warlock.pCurseofShadow))
+            {
+                if (DoCastSpell(pVictim, m_spells.warlock.pCurseofShadow) == SPELL_CAST_OK)
+                    return;
+            }
+
+            if (m_spells.warlock.pCurseofAgony &&
+                CanTryToCastSpell(pVictim, m_spells.warlock.pCurseofAgony))
+            {
+                if (DoCastSpell(pVictim, m_spells.warlock.pCurseofAgony) == SPELL_CAST_OK)
+                    return;
+            }
         }
 
         if (me->GetMotionMaster()->GetCurrentMovementGeneratorType() == IDLE_MOTION_TYPE
@@ -2347,8 +2354,8 @@ void PartyBotAI::UpdateInCombatAI_Warlock()
         }
 
         if (m_spells.warlock.pLifeTap &&
-           (me->GetPowerPercent(POWER_MANA) < 70.0f) &&
-           (me->GetHealthPercent() > 70.0f) &&
+            (me->GetPowerPercent(POWER_MANA) < 70.0f) &&
+            (me->GetHealthPercent() > 70.0f) &&
             CanTryToCastSpell(me, m_spells.warlock.pLifeTap))
         {
             if (DoCastSpell(me, m_spells.warlock.pLifeTap) == SPELL_CAST_OK)
@@ -2356,9 +2363,9 @@ void PartyBotAI::UpdateInCombatAI_Warlock()
         }
 
         if (me->HasSpell(PB_SPELL_SHOOT_WAND) &&
-           !me->IsMoving() &&
-           (me->GetPowerPercent(POWER_MANA) < 5.0f) &&
-           !me->GetCurrentSpell(CURRENT_AUTOREPEAT_SPELL))
+            !me->IsMoving() &&
+            (me->GetPowerPercent(POWER_MANA) < 5.0f) &&
+            !me->GetCurrentSpell(CURRENT_AUTOREPEAT_SPELL))
             me->CastSpell(pVictim, PB_SPELL_SHOOT_WAND, false);
     }
 }
