@@ -62,12 +62,14 @@ WHERE item IN(15775, 14513);
 
 -- 20%
 
--- Craft materials / Skill books (Essences, meats, legs, librams, etc)
+-- Craft materials / Skill books / Cards (Essences, meats, legs, librams, etc)
 
 -- 0.01%
 UPDATE mangos . creature_loot_template
 SET ChanceOrQuestChance = 0.01
-WHERE item IN(18335, 11737, 11733, 11734, 11732, 11736, 18333, 18332, 18334, 17683, 17414, 17682, 18600, 17413, 22393);
+WHERE item IN(18335, 11737, 11733, 11734, 11732, 11736, 18333, 18332, 18334, 17683, 17414, 17682, 18600, 17413, 22393, 19230, 19236, 
+19232, 19234, 19233, 19235, 19231, 19278, 19280, 19279, 19281, 19284, 19282, 19283, 19259, 19260, 19261, 19262, 19263, 19264, 19265, 
+19269, 19270, 19275, 19273, 19271, 19272, 19274);
 
 -- 1%
 UPDATE mangos . creature_loot_template
@@ -171,3 +173,8 @@ WHERE item = 12731;
 UPDATE mangos . creature_loot_template
 SET maxcount = 1
 WHERE item = 8766;
+
+-- Mis fixes
+DELETE FROM `mangos`.`creature_loot_template` WHERE  `entry`=10419 AND `item`=14227 AND `groupid`=0 AND `patch_min`=0 AND `patch_max`=10;
+DELETE FROM `mangos`.`creature_loot_template` WHERE  `entry`=11456 AND `item`=14227 AND `groupid`=0 AND `patch_min`=1 AND `patch_max`=10;
+UPDATE `mangos`.`creature_template` SET `loot_id`=0 WHERE  `entry`=10387 AND `patch`=0;
