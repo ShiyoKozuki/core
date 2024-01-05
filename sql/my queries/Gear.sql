@@ -1,6 +1,28 @@
 -- Gear
 -- Delete the WDB folder in your client directory.
 
+-- New Custom Items
+INSERT IGNORE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id`, `quality`, `flags`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `max_count`, `stat_type1`, `stat_value1`, `stat_type2`, `stat_value2`, `stat_type3`, `stat_value3`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30000, 4, 4, 'Sentinel\'s Ring', 9832, 3, 32768, 75000, 18750, 11, -1, -1, 63, 58, 1, 4, 12, 3, 11, 7, 8, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 4);
+INSERT IGNORE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id`, `quality`, `flags`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `max_count`, `stat_type1`, `stat_value1`, `delay`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellid_2`, `spelltrigger_2`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30001, 4, 4, 'Battlemage\'s Ring', 28812, 3, 32768, 75000, 18750, 11, -1, -1, 63, 58, 1, 7, 8, 0, 9343, 1, -1, -1, 21619, 1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 4);
+INSERT IGNORE `mangos`.`item_template` (`entry`, `patch`, `class`, `subclass`, `name`, `display_id`, `quality`, `flags`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `max_count`, `stat_type1`, `stat_value1`, `stat_type2`, `stat_value2`, `delay`, `armor`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30002, 4, 4, 1, 'Cleric\'s Cape', 32067, 3, 32768, 85492, 17098, 16, -1, -1, 63, 58, 1, 7, 11, 6, 8, 0, 45, 9315, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 7);
+INSERT IGNORE `mangos`.`item_template` (`entry`, `patch`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `max_count`, `delay`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `disenchant_id`) VALUES (30003, 8, 4, 7, 'Tome of Battle', 34961, 3, 66041, 13208, 28, 32767, -1, 57, 52, 1, 0, 27850, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 2, 48);
+INSERT IGNORE `mangos`.`item_template` (`entry`, `patch`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `max_count`, `delay`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `disenchant_id`) VALUES (30004, 8, 4, 8, 'Idol of Battle', 34953, 4, 246770, 49354, 28, 32767, -1, 78, 60, 1, 0, 27846, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 2, 65);
+INSERT IGNORE `mangos`.`item_template` (`entry`, `patch`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `stat_type1`, `stat_value1`, `stat_type2`, `stat_value2`, `delay`, `range_mod`, `dmg_min1`, `dmg_max1`, `dmg_type1`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `max_durability`, `disenchant_id`) VALUES (30005, 5, 2, 19, 'Wand of Arathor', 32774, 4, 517308, 103461, 26, -1, -1, 75, 60, 5, 12, 7, 7, 1600, 100, 107, 199, 2, 9396, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, -1, 1, 2, 75, 65);
+INSERT IGNORE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `range_mod`, `ammo_type`, `dmg_min1`, `dmg_max1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30006, 2, 16, 'Star of Arathor', 20772, 2, 800, 80, 25, -1, -1, 37, 200, 2300, 100, 4, 28, 53, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 1);
+
+-- Vendors
+
+-- Silverwing Rep Vendor (WSG)
+INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (14753, 30000, 159);
+INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (14753, 30001, 159);
+INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (14753, 30002, 159);
+
+-- The League of Arathor Rep Vendor (AB)
+INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (15127, 30003, 0);
+INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (15127, 30004, 0);
+INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (15127, 30005, 0);
+INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (15127, 30006, 0);
+
 -- Quest rewards
 
 -- Cap of the Scarlet Savant
@@ -2119,3 +2141,50 @@ SET quality = 4,
     spellid_2 = 21363, -- 5 MP/5
     spelltrigger_2 = 1
 WHERE entry = 30002;
+
+-- Tome of Battle
+UPDATE mangos . item_template
+SET quality = 4,
+    buy_price = 222362,
+    sell_price = 28472,
+    required_reputation_faction = 509, -- The League of Arathor (AB)
+    required_reputation_rank = 7, -- Exalted
+    stat_type1 = 7,
+    stat_value1 = 5,
+    spellid_1 = 27901, -- -4% Spell damage taken
+    spelltrigger_1 = 1
+WHERE entry = 30003;
+
+-- Idol of Battle
+UPDATE mangos . item_template
+SET quality = 4,
+    required_reputation_faction = 509, -- The League of Arathor (AB)
+    required_reputation_rank = 7, -- Exalted
+    spellid_1 = 14803, -- +200 Armor
+    spelltrigger_1 = 1
+WHERE entry = 30004;
+
+-- Wand of Arathor
+UPDATE mangos . item_template
+SET quality = 4,
+    buy_price = 442362,
+    sell_price = 88472,
+    required_reputation_faction = 509, -- The League of Arathor (AB)
+    required_reputation_rank = 7, -- Exalted
+    stat_type1 = 7,
+    stat_value1 = 20,
+    stat_type2 = 0,
+    stat_value2 = 0
+WHERE entry = 30005;
+
+-- Star of Arathor
+UPDATE mangos . item_template
+SET quality = 4,
+    required_reputation_faction = 509, -- The League of Arathor (AB)
+    required_reputation_rank = 7, -- Exalted
+    delay = 1600,
+    dmg_min1 = 77,
+    dmg_max1 = 102,
+    stat_type1 = 7,
+    stat_value1 = 20
+WHERE entry = 30006;

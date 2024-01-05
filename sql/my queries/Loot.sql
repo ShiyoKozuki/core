@@ -90,7 +90,13 @@ WHERE item IN(7068, 7070, 7067, 7069, 10286, 7972, 8150);
 UPDATE mangos . creature_loot_template
 SET ChanceOrQuestChance = 20
 WHERE item IN(12809, 20404, 20424, 12206, 12208, 12205, 12204, 12037, 12203, 12202, 3712, 3731, 3667, 3730, 1081, 1080, 2924, 2674, 3173, 2673, 5467, 5469, 
-729, 769, 12223, 2672, 3174, 2251, 5465, 3172, 3685, 12207, 3404, 4402, 12184, 5471, 5470, 723, 731, 2296, 730, 732, 6530, 12735);
+729, 769, 12223, 2672, 3174, 2251, 5465, 3172, 3685, 12207, 3404, 4402, 12184, 5471, 5470, 723, 731, 2296, 730, 732, 6530, 12735, 4480
+, 4479, 4481);
+
+-- 30%
+UPDATE mangos . creature_loot_template
+SET ChanceOrQuestChance = 30
+WHERE item IN(2589, 2592, 4306, 4338, 14047);
 
 -- 45%
 UPDATE mangos . creature_loot_template
@@ -174,7 +180,7 @@ UPDATE mangos . creature_loot_template
 SET maxcount = 1
 WHERE item = 8766;
 
--- Mis fixes
+-- Misc fixes
 DELETE FROM `mangos`.`creature_loot_template` WHERE  `entry`=10419 AND `item`=14227 AND `groupid`=0 AND `patch_min`=0 AND `patch_max`=10;
 DELETE FROM `mangos`.`creature_loot_template` WHERE  `entry`=11456 AND `item`=14227 AND `groupid`=0 AND `patch_min`=1 AND `patch_max`=10;
 UPDATE `mangos`.`creature_template` SET `loot_id`=0 WHERE  `entry`=10387 AND `patch`=0;
