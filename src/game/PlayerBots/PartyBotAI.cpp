@@ -371,15 +371,18 @@ bool PartyBotAI::CanUseCrowdControl(SpellEntry const* pSpellEntry, Unit* pTarget
 bool PartyBotAI::AttackStart(Unit* pVictim)
 {
     m_isBuffing = false;
+
+    // Don't engage if the party leader is mouonted
     if (Player* pLeader = GetPartyLeader())
     {
         if (pLeader->IsMounted())
             return false;
     }
 
+    // Don't engage if the party leader isn't in combat, unless they're dead
     if (Player* pLeader = GetPartyLeader())
     {
-        if (!pLeader->IsInCombat())
+        if (!pLeader->IsInCombat() && !pLeader->IsDead())
             return false;
     }
 
