@@ -935,56 +935,65 @@ WHERE entry = 12636;
 
 -- Green Iron Set 
 UPDATE mangos . item_template
-    SET spellid_1 = 9138, -- +6 Attack Power
+SET quality = 3,
+    spellid_1 = 9138, -- +6 Attack Power
     spelltrigger_1 = 1
 WHERE entry = 3484;
 
 UPDATE mangos . item_template
-    SET spellid_1 = 9140, -- +10 Attack Power
+SET quality = 3,
+    spellid_1 = 9140, -- +10 Attack Power
     spelltrigger_1 = 1
 WHERE entry = 3844;
 
 UPDATE mangos . item_template
-    SET spellid_1 = 9138, -- +6 Attack Power
+SET quality = 3,
+    spellid_1 = 9138, -- +6 Attack Power
     spelltrigger_1 = 1
 WHERE entry = 3842;
 
 UPDATE mangos . item_template
-    SET spellid_1 = 9138, -- +6 Attack Power
+SET quality = 3,
+    spellid_1 = 9138, -- +6 Attack Power
     spelltrigger_1 = 1
 WHERE entry = 3485;
 
 UPDATE mangos . item_template
-    SET spellid_1 = 9138, -- +6 Attack Power
+SET quality = 3,
+    spellid_1 = 9138, -- +6 Attack Power
     spelltrigger_1 = 1
 WHERE entry = 3840;
 
--- Silver Bronzed Set
+-- Silvered Bronze Set
 UPDATE mangos . item_template
-SET stat_type4 = 5,
+SET quality = 3,
+    stat_type4 = 5,
     stat_value4 = 3
 WHERE entry = 3482;
 
 UPDATE mangos . item_template
 SET quality = 3,
     stat_type3 = 6,
-    stat_value3 = 10,
+    stat_value3 = 5,
     stat_type4 = 5,
-    stat_value4 = 10
+    stat_value4 = 5
 WHERE entry = 2869;
 
 UPDATE mangos . item_template
-SET stat_type4 = 5,
+SET quality = 3,
+    stat_type4 = 5,
     stat_value4 = 3
 WHERE entry = 3483;
 
 UPDATE mangos . item_template
-SET stat_type4 = 5,
+SET quality = 3,
+    stat_type4 = 5,
     stat_value4 = 6
 WHERE entry = 10423;
 
 UPDATE mangos . item_template
-SET stat_type4 = 5,
+SET quality = 3,
+    stat_type4 = 5,
     stat_value4 = 3
 WHERE entry = 3481;
 
