@@ -23,12 +23,16 @@ WHERE item IN(3821, 3818, 3357, 3357, 3369, 3356, 2450, 785, 2449, 765, 2447);
 
 -- Healing Potions
 UPDATE mangos . creature_loot_template
-SET ChanceOrQuestChance = 1
+SET ChanceOrQuestChance = 1,
+    minCountOrRef = 1,
+    maxcount = 1
 WHERE item IN(118, 858, 929, 1710, 3928, 13446);
 
 -- Mana Potions
 UPDATE mangos . creature_loot_template
-SET ChanceOrQuestChance = 1
+SET ChanceOrQuestChance = 1,
+    minCountOrRef = 1,
+    maxcount = 1
 WHERE item IN(2455, 13443, 6149, 3385, 3827, 13444);
 
 -- Recipes
@@ -69,7 +73,7 @@ UPDATE mangos . creature_loot_template
 SET ChanceOrQuestChance = 0.01
 WHERE item IN(18335, 11737, 11733, 11734, 11732, 11736, 18333, 18332, 18334, 17683, 17414, 17682, 18600, 17413, 22393, 19230, 19236, 
 19232, 19234, 19233, 19235, 19231, 19278, 19280, 19279, 19281, 19284, 19282, 19283, 19259, 19260, 19261, 19262, 19263, 19264, 19265, 
-19269, 19270, 19275, 19273, 19271, 19272, 19274);
+19269, 19270, 19275, 19273, 19271, 19272, 19274, 18255);
 
 -- 1%
 UPDATE mangos . creature_loot_template
@@ -79,7 +83,8 @@ WHERE item IN(7078, 7080, 12803, 7082, 7076, 12808, 19441, 18364, 18361, 18358, 
 -- 5%
 UPDATE mangos . creature_loot_template
 SET ChanceOrQuestChance = 5
-WHERE item IN(7077, 7079, 7081, 7075, 18512, 14256, 12662, 3182, 4337, 14227, 10285, 1288, 1475, 12811, 20520, 12871, 23320, 4213, 9214);
+WHERE item IN(7077, 7079, 7081, 7075, 18512, 14256, 12662, 3182, 4337, 14227, 10285, 1288, 1475, 12811, 20520, 12871, 
+23320, 4213, 9214, 5635, 8146, 5637, 19943, 12804);
 
 -- 10%
 UPDATE mangos . creature_loot_template
@@ -91,17 +96,12 @@ UPDATE mangos . creature_loot_template
 SET ChanceOrQuestChance = 20
 WHERE item IN(12809, 20404, 20424, 12206, 12208, 12205, 12204, 12037, 12203, 12202, 3712, 3731, 3667, 3730, 1081, 1080, 2924, 2674, 3173, 2673, 5467, 5469, 
 729, 769, 12223, 2672, 3174, 2251, 5465, 3172, 3685, 12207, 3404, 4402, 12184, 5471, 5470, 723, 731, 2296, 730, 732, 6530, 12735, 4480
-, 4479, 4481);
-
--- 30%
-UPDATE mangos . creature_loot_template
-SET ChanceOrQuestChance = 30
-WHERE item IN(14047);
+, 4479, 4481, 3164);
 
 -- 45%
 UPDATE mangos . creature_loot_template
 SET ChanceOrQuestChance = 45
-WHERE item IN(6889);
+WHERE item IN(6889, 5524, 7973, 5523);
 
 -- Argent Dawn Turn ins (Bone Fragments etc)
 UPDATE mangos . creature_loot_template
@@ -113,6 +113,11 @@ UPDATE mangos . creature_loot_template
 SET ChanceOrQuestChance = 20
 WHERE item IN(5134, 11407, 4582, 5117, 11404, 19933);
 
+-- Cloth
+-- 30%
+UPDATE mangos . creature_loot_template
+SET ChanceOrQuestChance = 30
+WHERE item IN(2589, 2592, 4306, 4338, 14047) AND ChanceOrQuestChance >= 30;
 
 -- Bags
 -- 0.01%
