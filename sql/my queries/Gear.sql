@@ -22,6 +22,35 @@ INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (15
 INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (15127, 30004, 0);
 INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (15127, 30005, 0);
 INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (15127, 30006, 0);
+INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (15127, 20056, 0);
+INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (15127, 20044, 0);
+INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (15127, 20051, 0);
+INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (15127, 20120, 0);
+INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (15127, 20122, 0);
+INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (15127, 20119, 0);
+INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (15127, 20118, 0);
+
+-- Shaman Trainer (Stormwind)
+INSERT IGNORE `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (90034, 5175, 0, 0);
+INSERT IGNORE `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (90034, 5176, 0, 0);
+INSERT IGNORE `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (90034, 5177, 0, 0);
+INSERT IGNORE `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (90034, 5178, 0, 0);
+
+-- Rank13 Armor Vendor
+INSERT IGNORE `mangos`.`npc_vendor_template` (`entry`, `item`) VALUES (1277701, 16577);
+INSERT IGNORE `mangos`.`npc_vendor_template` (`entry`, `item`) VALUES (1277701, 16578);
+INSERT IGNORE `mangos`.`npc_vendor_template` (`entry`, `item`) VALUES (1277701, 16580);
+INSERT IGNORE `mangos`.`npc_vendor_template` (`entry`, `item`) VALUES (1277701, 16573);
+INSERT IGNORE `mangos`.`npc_vendor_template` (`entry`, `item`) VALUES (1277701, 16574);
+INSERT IGNORE `mangos`.`npc_vendor_template` (`entry`, `item`) VALUES (1277701, 16579);
+
+INSERT IGNORE `mangos`.`npc_vendor_template` (`entry`, `item`) VALUES (1277702, 16577);
+INSERT IGNORE `mangos`.`npc_vendor_template` (`entry`, `item`) VALUES (1277702, 16578);
+INSERT IGNORE `mangos`.`npc_vendor_template` (`entry`, `item`) VALUES (1277702, 16580);
+INSERT IGNORE `mangos`.`npc_vendor_template` (`entry`, `item`) VALUES (1277702, 16573);
+INSERT IGNORE `mangos`.`npc_vendor_template` (`entry`, `item`) VALUES (1277702, 16574);
+INSERT IGNORE `mangos`.`npc_vendor_template` (`entry`, `item`) VALUES (1277702, 16579);
+
 
 -- Quest rewards
 
@@ -2197,3 +2226,8 @@ SET quality = 4,
     stat_type1 = 7,
     stat_value1 = 20
 WHERE entry = 30006;
+
+-- Shaman Gear The League of Arathor Rep (AB)
+UPDATE mangos . item_template 
+SET allowable_class = 68
+WHERE entry IN(20123, 20120, 20122, 20119, 20118, 20121, 20044, 20051, 20056);
