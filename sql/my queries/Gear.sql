@@ -36,7 +36,14 @@ INSERT IGNORE `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (900
 INSERT IGNORE `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (90034, 5177, 0, 0);
 INSERT IGNORE `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (90034, 5178, 0, 0);
 
--- Rank13 Armor Vendor
+-- PvP Armor Vendor (ID: 12777, vendorID: 1277701)
+INSERT IGNORE `mangos`.`npc_vendor_template` (`entry`, `item`) VALUES (1277701, 22857);
+INSERT IGNORE `mangos`.`npc_vendor_template` (`entry`, `item`) VALUES (1277701, 22867);
+INSERT IGNORE `mangos`.`npc_vendor_template` (`entry`, `item`) VALUES (1277701, 22876);
+INSERT IGNORE `mangos`.`npc_vendor_template` (`entry`, `item`) VALUES (1277701, 22887);
+INSERT IGNORE `mangos`.`npc_vendor_template` (`entry`, `item`) VALUES (1277701, 23259);
+INSERT IGNORE `mangos`.`npc_vendor_template` (`entry`, `item`) VALUES (1277701, 23260);
+
 INSERT IGNORE `mangos`.`npc_vendor_template` (`entry`, `item`) VALUES (1277701, 16577);
 INSERT IGNORE `mangos`.`npc_vendor_template` (`entry`, `item`) VALUES (1277701, 16578);
 INSERT IGNORE `mangos`.`npc_vendor_template` (`entry`, `item`) VALUES (1277701, 16580);
@@ -44,12 +51,20 @@ INSERT IGNORE `mangos`.`npc_vendor_template` (`entry`, `item`) VALUES (1277701, 
 INSERT IGNORE `mangos`.`npc_vendor_template` (`entry`, `item`) VALUES (1277701, 16574);
 INSERT IGNORE `mangos`.`npc_vendor_template` (`entry`, `item`) VALUES (1277701, 16579);
 
+INSERT IGNORE `mangos`.`npc_vendor_template` (`entry`, `item`) VALUES (1277702, 22857);
+INSERT IGNORE `mangos`.`npc_vendor_template` (`entry`, `item`) VALUES (1277702, 22867);
+INSERT IGNORE `mangos`.`npc_vendor_template` (`entry`, `item`) VALUES (1277702, 22876);
+INSERT IGNORE `mangos`.`npc_vendor_template` (`entry`, `item`) VALUES (1277702, 22887);
+INSERT IGNORE `mangos`.`npc_vendor_template` (`entry`, `item`) VALUES (1277702, 23259);
+INSERT IGNORE `mangos`.`npc_vendor_template` (`entry`, `item`) VALUES (1277702, 23260);
+
 INSERT IGNORE `mangos`.`npc_vendor_template` (`entry`, `item`) VALUES (1277702, 16577);
 INSERT IGNORE `mangos`.`npc_vendor_template` (`entry`, `item`) VALUES (1277702, 16578);
 INSERT IGNORE `mangos`.`npc_vendor_template` (`entry`, `item`) VALUES (1277702, 16580);
 INSERT IGNORE `mangos`.`npc_vendor_template` (`entry`, `item`) VALUES (1277702, 16573);
 INSERT IGNORE `mangos`.`npc_vendor_template` (`entry`, `item`) VALUES (1277702, 16574);
 INSERT IGNORE `mangos`.`npc_vendor_template` (`entry`, `item`) VALUES (1277702, 16579);
+
 
 
 -- Quest rewards
