@@ -3,13 +3,13 @@
 -- 1%
 UPDATE mangos . creature_loot_template
 SET ChanceOrQuestChance = -1
-WHERE item IN(2607, 2939, 5366, 5233, 3349, 6245, 6065, 4612);
+WHERE item IN(2607, 2939, 5366, 5233, 3349, 6065, 4612);
 
 -- 5%
 UPDATE mangos . creature_loot_template
 SET ChanceOrQuestChance = -5
 WHERE item IN(8428, 5040, 10639, 8363, 2606, 5463, 5475, 3897, 3930, 15878, 15881, 5669, 5664, 5734, 4616, 4518, 4519, 4520, 18969, 
-11837, 12524, 12367, 10552, 18959, 18960);
+11837, 12524, 12367, 10552, 18959, 18960, 6245);
 
 -- 10%
 UPDATE mangos . creature_loot_template
