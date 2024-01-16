@@ -2453,12 +2453,49 @@ void PartyBotAI::UpdateInCombatAI_Warrior()
             }
         }
 
-        if (m_spells.warrior.pExecute &&
-           (pVictim->GetHealthPercent() <= 20.0f) &&
-            CanTryToCastSpell(pVictim, m_spells.warrior.pExecute))
+        if (m_spells.warrior.pBloodrage &&
+            (me->GetPower(POWER_RAGE) < 100) &&
+            CanTryToCastSpell(me, m_spells.warrior.pBloodrage))
         {
-            if (DoCastSpell(pVictim, m_spells.warrior.pExecute) == SPELL_CAST_OK)
+            DoCastSpell(me, m_spells.warrior.pBloodrage);
+        }
+
+        if (m_spells.warrior.pBerserkerRage &&
+            (pVictim && pVictim->GetVictim() == me) &&
+            CanTryToCastSpell(me, m_spells.warrior.pBerserkerRage))
+        {
+            if (DoCastSpell(me, m_spells.warrior.pBerserkerRage) == SPELL_CAST_OK)
                 return;
+        }
+
+        if (m_spells.warrior.pSweepingStrikes &&
+            CanTryToCastSpell(me, m_spells.warrior.pSweepingStrikes) &&
+            (me->GetEnemyCountInRadiusAround(pVictim, 10.0f) > 1))
+        {
+            if (DoCastSpell(me, m_spells.warrior.pSweepingStrikes) == SPELL_CAST_OK)
+                return;
+        }
+
+        // Whirlwind and Cleave if more than 1 target in range
+        if (m_spells.warrior.pWhirlwind && me->GetEnemyCountInRadiusAround(pVictim, 8.0f) > 1)
+        {
+            if (CanTryToCastSpell(pVictim, m_spells.warrior.pWhirlwind))
+            {
+                if (DoCastSpell(pVictim, m_spells.warrior.pWhirlwind) == SPELL_CAST_OK)
+                    return;
+            }
+
+            if (me->GetPower(POWER_RAGE) > 30)
+            {
+                if (m_spells.warrior.pCleave && me->GetEnemyCountInRadiusAround(pVictim, 8.0f) > 1)
+                {
+                    if (CanTryToCastSpell(pVictim, m_spells.warrior.pCleave))
+                    {
+                        if (DoCastSpell(pVictim, m_spells.warrior.pCleave) == SPELL_CAST_OK)
+                            return;
+                    }
+                }
+            }
         }
 
         if (m_spells.warrior.pOverpower &&
@@ -2513,13 +2550,6 @@ void PartyBotAI::UpdateInCombatAI_Warrior()
             }
         }
 
-        if (m_spells.warrior.pThunderClap &&
-            CanTryToCastSpell(pVictim, m_spells.warrior.pThunderClap))
-        {
-            if (DoCastSpell(pVictim, m_spells.warrior.pThunderClap) == SPELL_CAST_OK)
-                return;
-        }
-
         if (m_spells.warrior.pSunderArmor &&
             m_role == ROLE_TANK &&
             CanTryToCastSpell(pVictim, m_spells.warrior.pSunderArmor))
@@ -2538,28 +2568,12 @@ void PartyBotAI::UpdateInCombatAI_Warrior()
                 return;
         }
 
-        if (m_spells.warrior.pRend &&
-            (me->GetLevel() < 40) &&
-            CanTryToCastSpell(pVictim, m_spells.warrior.pRend))
-        {
-            if (DoCastSpell(pVictim, m_spells.warrior.pRend) == SPELL_CAST_OK)
-                return;
-        }
-
         if (m_spells.warrior.pRetaliation &&
             (me->GetHealthPercent() < 30.0f) &&
             (pVictim && pVictim->GetVictim() == me) &&
             CanTryToCastSpell(me, m_spells.warrior.pRetaliation))
         {
             if (DoCastSpell(me, m_spells.warrior.pRetaliation) == SPELL_CAST_OK)
-                return;
-        }
-
-        if (m_spells.warrior.pSweepingStrikes &&
-            CanTryToCastSpell(me, m_spells.warrior.pSweepingStrikes) &&
-           (me->GetEnemyCountInRadiusAround(pVictim, 10.0f) > 1))
-        {
-            if (DoCastSpell(me, m_spells.warrior.pSweepingStrikes) == SPELL_CAST_OK)
                 return;
         }
 
@@ -2637,23 +2651,23 @@ void PartyBotAI::UpdateInCombatAI_Warrior()
                 return;
         }
 
+        if (m_spells.warrior.pThunderClap &&
+            (me->GetEnemyCountInRadiusAround(pVictim, 10.0f) > 3) &&
+            CanTryToCastSpell(pVictim, m_spells.warrior.pThunderClap))
+        {
+            if (DoCastSpell(pVictim, m_spells.warrior.pThunderClap) == SPELL_CAST_OK)
+                return;
+        }
+
         if (me->GetMotionMaster()->GetCurrentMovementGeneratorType() == IDLE_MOTION_TYPE
             && !me->CanReachWithMeleeAutoAttack(pVictim))
         {
             me->GetMotionMaster()->MoveChase(pVictim);
         }
 
-        if (me->GetPower(POWER_RAGE) > 30)
+        // Heroic Strike if overflowing with rage
+        if (me->GetPower(POWER_RAGE) > 60)
         {
-            if (m_spells.warrior.pCleave && me->GetEnemyCountInRadiusAround(pVictim, 8.0f) > 1)
-            {
-                if (CanTryToCastSpell(pVictim, m_spells.warrior.pCleave))
-                {
-                    if (DoCastSpell(pVictim, m_spells.warrior.pCleave) == SPELL_CAST_OK)
-                        return;
-                }
-            }
-            else
             {
                 if (m_spells.warrior.pHeroicStrike &&
                     CanTryToCastSpell(pVictim, m_spells.warrior.pHeroicStrike))
@@ -2805,34 +2819,35 @@ void PartyBotAI::UpdateInCombatAI_Rogue()
             }
         }
 
+        // Always keep up Slice and Dice
+        if (m_spells.rogue.pSliceAndDice &&
+            !me->HasAura(m_spells.rogue.pSliceAndDice->Id) &&
+            (me->GetComboPoints() > 0) &&
+            CanTryToCastSpell(pVictim, m_spells.rogue.pSliceAndDice))
+        {
+            DoCastSpell(pVictim, m_spells.rogue.pSliceAndDice);
+        }
+
         if (me->GetComboPoints() > 4)
         {
             std::vector<SpellEntry const*> vSpells;
 
-            // Give priority to Slice and Dice over other finishing moves.
-            if (m_spells.rogue.pSliceAndDice &&
-               !me->HasAura(m_spells.rogue.pSliceAndDice->Id) &&
-                pVictim->GetHealthPercent() > 10.0f)
-                vSpells.push_back(m_spells.rogue.pSliceAndDice);
-            else
+            // Cold Blood before using Evis
+            if (m_spells.rogue.pColdBlood &&
+                me->IsInCombat() &&
+                pVictim->CanReachWithMeleeAutoAttack(me) &&
+                CanTryToCastSpell(me, m_spells.rogue.pColdBlood))
             {
-                // Cold Blood before using Evis
-                if (m_spells.rogue.pColdBlood &&
-                    CanTryToCastSpell(me, m_spells.rogue.pColdBlood))
-                {
-                    DoCastSpell(me, m_spells.rogue.pColdBlood);
-                }
-
-                if (m_spells.rogue.pEviscerate)
-                    vSpells.push_back(m_spells.rogue.pEviscerate);
-                if (m_spells.rogue.pKidneyShot && !pVictim->IsImmuneToMechanic(MECHANIC_STUN))
-                    vSpells.push_back(m_spells.rogue.pKidneyShot);
-                if (m_spells.rogue.pExposeArmor)
-                    vSpells.push_back(m_spells.rogue.pExposeArmor);
-                if (m_spells.rogue.pRupture)
-                    vSpells.push_back(m_spells.rogue.pRupture);
+                DoCastSpell(me, m_spells.rogue.pColdBlood);
             }
-            
+
+            if (m_spells.rogue.pExposeArmor)
+                vSpells.push_back(m_spells.rogue.pExposeArmor);
+            if (m_spells.rogue.pRupture)
+                vSpells.push_back(m_spells.rogue.pRupture);
+            if (m_spells.rogue.pEviscerate)
+                vSpells.push_back(m_spells.rogue.pEviscerate);
+
             if (!vSpells.empty())
             {
                 SpellEntry const* pComboSpell = SelectRandomContainerElement(vSpells);
@@ -2913,6 +2928,13 @@ void PartyBotAI::UpdateInCombatAI_Rogue()
                 if (DoCastSpell(me, m_spells.rogue.pBladeFlurry) == SPELL_CAST_OK)
                     return;
             }
+        }
+
+        if (m_spells.rogue.pRiposte &&
+            CanTryToCastSpell(pVictim, m_spells.rogue.pRiposte))
+        {
+            if (DoCastSpell(pVictim, m_spells.rogue.pRiposte) == SPELL_CAST_OK)
+                return;
         }
 
         if (m_spells.rogue.pBackstab &&
