@@ -13,13 +13,11 @@ WHERE item IN(3951, 8080, 3975, 3998, 3999, 13820, 3944, 3971, 13821, 3996, 8084
 8083, 8752, 13818, 13823, 13825, 3954, 3988, 4009, 13819, 3955, 3980, 3984, 3956, 3977, 3983, 4008);
 
 -- Ore / Stone
-UPDATE mangos . creature_loot_template
-SET ChanceOrQuestChance = 0.01
+DELETE FROM mangos . creature_loot_template
 WHERE item IN(12365, 10620, 3858, 2772, 7911, 2775, 2776, 11370, 11099);
 
 -- Herbs
-UPDATE mangos . creature_loot_template
-SET ChanceOrQuestChance = 0.01
+DELETE FROM mangos . creature_loot_template
 WHERE item IN(13467, 13466, 13465, 13463, 13464, 8846, 8839, 8845, 8838, 8836, 4625, 3355, 2453, 3820, 2452, 3819);
 
 UPDATE mangos . creature_loot_template
