@@ -2460,14 +2460,6 @@ void PartyBotAI::UpdateInCombatAI_Warrior()
             DoCastSpell(me, m_spells.warrior.pBloodrage);
         }
 
-        if (m_spells.warrior.pBerserkerRage &&
-            (pVictim && pVictim->GetVictim() == me) &&
-            CanTryToCastSpell(me, m_spells.warrior.pBerserkerRage))
-        {
-            if (DoCastSpell(me, m_spells.warrior.pBerserkerRage) == SPELL_CAST_OK)
-                return;
-        }
-
         if (m_spells.warrior.pSweepingStrikes &&
             CanTryToCastSpell(me, m_spells.warrior.pSweepingStrikes) &&
             (me->GetEnemyCountInRadiusAround(pVictim, 10.0f) > 1))
@@ -2579,26 +2571,21 @@ void PartyBotAI::UpdateInCombatAI_Warrior()
             }
         }
 
-        // Whirlwind before MS / Bloodthirst if more than 1 target in range
-        if (m_spells.warrior.pWhirlwind && me->GetEnemyCountInRadiusAround(pVictim, 8.0f) > 1)
+        if (m_spells.warrior.pBerserkerRage &&
+            (pVictim && pVictim->GetVictim() == me) &&
+            CanTryToCastSpell(me, m_spells.warrior.pBerserkerRage))
         {
-            if (CanTryToCastSpell(pVictim, m_spells.warrior.pWhirlwind))
-            {
-                if (DoCastSpell(pVictim, m_spells.warrior.pWhirlwind) == SPELL_CAST_OK)
-                    return;
-            }
+            if (DoCastSpell(me, m_spells.warrior.pBerserkerRage) == SPELL_CAST_OK)
+                return;
         }
 
-        if (me->GetPower(POWER_RAGE) > 30)
+        // Whirlwind before MS / Bloodthirst if more than 1 target in range
+        if (m_spells.warrior.pWhirlwind &&
+            (me->GetEnemyCountInRadiusAround(pVictim, 10.0f) > 1) &&
+            CanTryToCastSpell(pVictim, m_spells.warrior.pWhirlwind))
         {
-            if (m_spells.warrior.pCleave && me->GetEnemyCountInRadiusAround(pVictim, 8.0f) > 1)
-            {
-                if (CanTryToCastSpell(pVictim, m_spells.warrior.pCleave))
-                {
-                    if (DoCastSpell(pVictim, m_spells.warrior.pCleave) == SPELL_CAST_OK)
-                        return;
-                }
-            }
+            if (DoCastSpell(pVictim, m_spells.warrior.pWhirlwind) == SPELL_CAST_OK)
+                return;
         }
 
         if (m_spells.warrior.pOverpower &&
