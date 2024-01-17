@@ -65,7 +65,8 @@ INSERT IGNORE `mangos`.`npc_vendor_template` (`entry`, `item`) VALUES (1277702, 
 INSERT IGNORE `mangos`.`npc_vendor_template` (`entry`, `item`) VALUES (1277702, 16574);
 INSERT IGNORE `mangos`.`npc_vendor_template` (`entry`, `item`) VALUES (1277702, 16579);
 
-
+-- Alchemists' Stone Recipe
+INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`) VALUES (8157, 28, 13517, 1, 3600, 3);
 
 -- Quest rewards
 
@@ -504,6 +505,84 @@ SET bonding = 1,
     stat_type1 = 3,
     stat_value1 = 27
 WHERE entry = 21278;
+
+-- Dragonscale Gauntlets
+UPDATE mangos . item_template
+SET spellid_1 = 7219, -- Immune to disarm
+    spelltrigger_1 = 1
+WHERE entry = 8347;
+
+-- Dragonscale Breastplate
+UPDATE mangos . item_template
+SET spellid_1 = 7598, -- +2% Physical Crit
+    spelltrigger_1 = 1
+WHERE entry = 8367;
+
+-- Blue Dragonscale Set
+UPDATE mangos . item_template
+SET quality = 4,
+    bonding = 1,
+    required_skill = 165, -- Leatherworking
+    required_skill_rank = 300,
+    spellid_1 = 18384, -- +1% Spell Crit
+    spelltrigger_1 = 1,
+    spellid_2 = 18052, -- +34 Spell Damage
+    spelltrigger_2 = 1
+WHERE entry = 15048;
+
+UPDATE mangos . item_template
+SET quality = 4,
+    bonding = 1,
+    required_skill = 165, -- Leatherworking
+    required_skill_rank = 300,
+    spellid_1 = 18384, -- +1% Spell Crit
+    spelltrigger_1 = 1,
+    spellid_2 = 18052, -- +34 Spell Damage
+    spelltrigger_2 = 1
+WHERE entry = 20295;
+
+UPDATE mangos . item_template
+SET quality = 4,
+    bonding = 1,
+    required_skill = 165, -- Leatherworking
+    required_skill_rank = 300,
+    spellid_1 = 23727, -- +1% Spell Hit
+    spelltrigger_1 = 1,
+    spellid_2 = 14127, -- +28 Spell Damage
+    spelltrigger_2 = 1
+WHERE entry = 15049;
+
+-- Green Dragonscale Armor Set
+UPDATE mangos . item_template
+SET required_level = 55,
+    quality = 4,
+    bonding = 1,
+    required_skill = 165, -- Leatherworking
+    required_skill_rank = 300,
+    spellid_1 = 18045, -- +75 Healing
+    spelltrigger_1 = 1
+WHERE entry = 15045;
+
+UPDATE mangos . item_template
+SET required_level = 55,
+    quality = 4,
+    bonding = 1,
+    required_skill = 165, -- Leatherworking
+    required_skill_rank = 300,
+    spellid_1 = 18041, -- +66 Healing
+    spelltrigger_1 = 1
+WHERE entry = 15046;
+
+UPDATE mangos . item_template
+SET required_level = 55,
+    quality = 4,
+    bonding = 1,
+    required_skill = 165, -- Leatherworking
+    required_skill_rank = 300,
+    spellid_1 = 18031, -- +40 Healing
+    spelltrigger_1 = 1
+WHERE entry = 20296;
+
 
 -- Heavy Scorpid Armor Set
 UPDATE mangos . item_template
@@ -2082,13 +2161,18 @@ WHERE entry = 12775;
 UPDATE mangos . item_template
 SET  delay = 3800,
     dmg_min1 = 153,
-    dmg_max1 = 256
+    dmg_max1 = 256,
+    spellid_2 = 7597, -- +1% Physical Crit
+    spelltrigger_2 = 1,
+    spellid_3 = 15465, -- +2% Physical Hit
+    spelltrigger_3 = 1
 WHERE entry = 12790;
 
 -- Hammer of the Titans
 UPDATE mangos . item_template
 SET dmg_min1 = 153,
     dmg_max1 = 256,
+    armor = 350,
     stat_type1 = 7,
     stat_value1 = 35
 WHERE entry = 12796;
@@ -2162,6 +2246,16 @@ WHERE entry = 19170;
 UPDATE mangos . item_template
 SET spellid_1 = 10928 -- Heals the target of 510 damage over 15 sec.
 WHERE entry = 1713;
+
+-- Alchemists' Stone
+UPDATE mangos . item_template
+SET spellid_1 = 17493, -- 44 Spell Damage
+    spelltrigger_1 = 1,
+    spellid_2 = 21365, -- 9 MP/5
+    spelltrigger_2 = 1,
+    spellid_3 = 27675, -- Increases your spell damage by up to 100 and your healing by up to 190 for 15 sec.
+    spelltrigger_3 = 0
+WHERE entry = 13503;
 
 -- New custom items
 
