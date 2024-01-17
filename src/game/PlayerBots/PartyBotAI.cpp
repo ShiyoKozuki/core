@@ -2476,35 +2476,6 @@ void PartyBotAI::UpdateInCombatAI_Warrior()
                 return;
         }
 
-        // Whirlwind and Cleave if more than 1 target in range
-        if (m_spells.warrior.pWhirlwind && me->GetEnemyCountInRadiusAround(pVictim, 8.0f) > 1)
-        {
-            if (CanTryToCastSpell(pVictim, m_spells.warrior.pWhirlwind))
-            {
-                if (DoCastSpell(pVictim, m_spells.warrior.pWhirlwind) == SPELL_CAST_OK)
-                    return;
-            }
-
-            if (me->GetPower(POWER_RAGE) > 30)
-            {
-                if (m_spells.warrior.pCleave && me->GetEnemyCountInRadiusAround(pVictim, 8.0f) > 1)
-                {
-                    if (CanTryToCastSpell(pVictim, m_spells.warrior.pCleave))
-                    {
-                        if (DoCastSpell(pVictim, m_spells.warrior.pCleave) == SPELL_CAST_OK)
-                            return;
-                    }
-                }
-            }
-        }
-
-        if (m_spells.warrior.pOverpower &&
-            CanTryToCastSpell(pVictim, m_spells.warrior.pOverpower))
-        {
-            if (DoCastSpell(pVictim, m_spells.warrior.pOverpower) == SPELL_CAST_OK)
-                return;
-        }
-
         if (m_spells.warrior.pLastStand &&
             me->GetHealthPercent() < 20.0f &&
             CanTryToCastSpell(me, m_spells.warrior.pLastStand))
@@ -2590,20 +2561,6 @@ void PartyBotAI::UpdateInCombatAI_Warrior()
             }
         }
 
-        if (m_spells.warrior.pMortalStrike &&
-            CanTryToCastSpell(pVictim, m_spells.warrior.pMortalStrike))
-        {
-            if (DoCastSpell(pVictim, m_spells.warrior.pMortalStrike) == SPELL_CAST_OK)
-                return;
-        }
-
-        if (m_spells.warrior.pBloodthirst &&
-            CanTryToCastSpell(pVictim, m_spells.warrior.pBloodthirst))
-        {
-            if (DoCastSpell(pVictim, m_spells.warrior.pBloodthirst) == SPELL_CAST_OK)
-                return;
-        }
-
         if ((me->GetHealthPercent() < 20.0f) ||
             (m_role == ROLE_TANK && pVictim->GetLevel() >= me->GetLevel()))
         {
@@ -2620,6 +2577,49 @@ void PartyBotAI::UpdateInCombatAI_Warrior()
             {
                 DoCastSpell(me, m_spells.warrior.pBerserkerStance);
             }
+        }
+
+        // Whirlwind before MS / Bloodthirst if more than 1 target in range
+        if (m_spells.warrior.pWhirlwind && me->GetEnemyCountInRadiusAround(pVictim, 8.0f) > 1)
+        {
+            if (CanTryToCastSpell(pVictim, m_spells.warrior.pWhirlwind))
+            {
+                if (DoCastSpell(pVictim, m_spells.warrior.pWhirlwind) == SPELL_CAST_OK)
+                    return;
+            }
+        }
+
+        if (me->GetPower(POWER_RAGE) > 30)
+        {
+            if (m_spells.warrior.pCleave && me->GetEnemyCountInRadiusAround(pVictim, 8.0f) > 1)
+            {
+                if (CanTryToCastSpell(pVictim, m_spells.warrior.pCleave))
+                {
+                    if (DoCastSpell(pVictim, m_spells.warrior.pCleave) == SPELL_CAST_OK)
+                        return;
+                }
+            }
+        }
+
+        if (m_spells.warrior.pOverpower &&
+            CanTryToCastSpell(pVictim, m_spells.warrior.pOverpower))
+        {
+            if (DoCastSpell(pVictim, m_spells.warrior.pOverpower) == SPELL_CAST_OK)
+                return;
+        }
+
+        if (m_spells.warrior.pMortalStrike &&
+            CanTryToCastSpell(pVictim, m_spells.warrior.pMortalStrike))
+        {
+            if (DoCastSpell(pVictim, m_spells.warrior.pMortalStrike) == SPELL_CAST_OK)
+                return;
+        }
+
+        if (m_spells.warrior.pBloodthirst &&
+            CanTryToCastSpell(pVictim, m_spells.warrior.pBloodthirst))
+        {
+            if (DoCastSpell(pVictim, m_spells.warrior.pBloodthirst) == SPELL_CAST_OK)
+                return;
         }
 
         if (m_spells.warrior.pIntercept &&
@@ -2663,19 +2663,6 @@ void PartyBotAI::UpdateInCombatAI_Warrior()
             && !me->CanReachWithMeleeAutoAttack(pVictim))
         {
             me->GetMotionMaster()->MoveChase(pVictim);
-        }
-
-        // Heroic Strike if overflowing with rage
-        if (me->GetPower(POWER_RAGE) > 60)
-        {
-            {
-                if (m_spells.warrior.pHeroicStrike &&
-                    CanTryToCastSpell(pVictim, m_spells.warrior.pHeroicStrike))
-                {
-                    if (DoCastSpell(pVictim, m_spells.warrior.pHeroicStrike) == SPELL_CAST_OK)
-                        return;
-                }
-            }
         }
     }
     else // no victim
