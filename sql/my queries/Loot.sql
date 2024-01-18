@@ -118,15 +118,15 @@ SET ChanceOrQuestChance = 20
 WHERE item IN(5134, 11407, 4582, 5117, 11404, 19933);
 
 -- Cloth
--- 30%
+-- 20%
 UPDATE mangos . creature_loot_template
-SET ChanceOrQuestChance = 30
-WHERE item IN(2589, 2592, 4306, 4338, 14047) AND ChanceOrQuestChance >= 30;
+SET ChanceOrQuestChance = 20
+WHERE item IN(2589, 2592, 4306, 4338, 14047) AND ChanceOrQuestChance >= 20;
 
 -- Fused wiring
 UPDATE mangos . creature_loot_template
 SET ChanceOrQuestChance = 1
-WHERE item IN(7191) AND ChanceOrQuestChance <= 11;
+WHERE item IN(7191);
 
 -- Bags
 -- 0.01%
