@@ -9,7 +9,15 @@ INSERT IGNORE `mangos`.`item_template` (`entry`, `patch`, `class`, `subclass`, `
 INSERT IGNORE `mangos`.`item_template` (`entry`, `patch`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `max_count`, `delay`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `disenchant_id`) VALUES (30004, 8, 4, 8, 'Idol of Battle', 34953, 4, 246770, 49354, 28, 32767, -1, 78, 60, 1, 0, 27846, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 2, 65);
 INSERT IGNORE `mangos`.`item_template` (`entry`, `patch`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `stat_type1`, `stat_value1`, `stat_type2`, `stat_value2`, `delay`, `range_mod`, `dmg_min1`, `dmg_max1`, `dmg_type1`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `max_durability`, `disenchant_id`) VALUES (30005, 5, 2, 19, 'Wand of Arathor', 32774, 4, 517308, 103461, 26, -1, -1, 75, 60, 5, 12, 7, 7, 1600, 100, 107, 199, 2, 9396, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, -1, 1, 2, 75, 65);
 INSERT IGNORE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `range_mod`, `ammo_type`, `dmg_min1`, `dmg_max1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30006, 2, 16, 'Star of Arathor', 20772, 2, 800, 80, 25, -1, -1, 37, 200, 2300, 100, 4, 28, 53, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 1);
+INSERT IGNORE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id`, `quality`, `flags`, `allowable_class`, `allowable_race`, `item_level`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30007, 2, 12, 'Demon Core', 8560, 1, 2048, -1, -1, 1, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 4, -1);
+INSERT IGNORE `mangos`.`item_template` (`entry`, `patch`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `stat_type1`, `stat_value1`, `stat_type2`, `stat_value2`, `delay`, `armor`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellid_2`, `spelltrigger_2`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `max_durability`, `disenchant_id`) VALUES (30008, 9, 4, 1, 'Belt of Fel Energy', 35120, 3, 75218, 15043, 6, -1, -1, 68, 58, 5, 7, 7, 6, 0, 54, 9346, 1, -1, -1, 25975, 1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 7, 30, 49);
+INSERT IGNORE `mangos`.`item_template` (`entry`, `patch`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `stat_type1`, `stat_value1`, `stat_type2`, `stat_value2`, `delay`, `armor`, `frost_res`, `arcane_res`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `max_durability`, `disenchant_id`) VALUES (30009, 9, 4, 4, 'Demonic Gauntlets', 35118, 3, 74682, 14936, 10, -1, -1, 68, 58, 4, 19, 5, 19, 0, 441, 5, 5, 7597, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 6, 45, 49);
+INSERT IGNORE `mangos`.`item_template` (`entry`, `patch`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `stat_type1`, `stat_value1`, `stat_type2`, `stat_value2`, `delay`, `armor`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `disenchant_id`) VALUES (30010, 9, 4, 1, 'Cape of the Legion', 35115, 3, 111207, 22241, 16, -1, -1, 68, 58, 5, 9, 7, 9, 0, 48, 9335, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 7, 49);
+INSERT IGNORE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `max_count`, `delay`, `dmg_min1`, `dmg_max1`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `sheath`, `max_durability`, `disenchant_id`) VALUES (30011, 2, 7, 'Fel Saber', 19997, 4, 435040, 87008, 21, -1, -1, 65, 60, 1, 2900, 96, 178, 18205, 2, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 2, 1, 3, 105, 65);
+INSERT IGNORE `mangos`.`item_template` (`entry`, `patch`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `max_count`, `stat_type1`, `stat_value1`, `stat_type2`, `stat_value2`, `delay`, `dmg_min1`, `dmg_max1`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `sheath`, `max_durability`, `disenchant_id`) VALUES (30012, 5, 2, 4, 'Corrupted Mace', 32588, 4, 441460, 88292, 21, -1, -1, 66, 60, 1, 5, 9, 7, 6, 2400, 64.4, 134.4, 18035, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 1, 3, 105, 65);
+INSERT IGNORE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `container_slots`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `material`) VALUES (30013, 1, 1, 'Bag of the Legion', 20342, 2, 80000, 20000, 18, -1, -1, 60, 16, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 8);
 
+-- NEXT 30014
 -- Vendors
 
 -- Silverwing Rep Vendor (WSG)
@@ -64,6 +72,15 @@ INSERT IGNORE `mangos`.`npc_vendor_template` (`entry`, `item`) VALUES (1277702, 
 INSERT IGNORE `mangos`.`npc_vendor_template` (`entry`, `item`) VALUES (1277702, 16573);
 INSERT IGNORE `mangos`.`npc_vendor_template` (`entry`, `item`) VALUES (1277702, 16574);
 INSERT IGNORE `mangos`.`npc_vendor_template` (`entry`, `item`) VALUES (1277702, 16579);
+
+-- Nethergarde Defenders Quartermaster
+UPDATE `mangos`.`creature_template` SET `npc_flags`=6 WHERE  `entry`=5393 AND `patch`=0;
+INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (5393, 30008, 0);
+INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (5393, 30009, 0);
+INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (5393, 30010, 0);
+INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (5393, 30011, 0);
+INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (5393, 30012, 0);
+INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (5393, 30013, 0);
 
 -- Alchemists' Stone Recipe
 INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`) VALUES (8157, 28, 13517, 1, 3600, 3);
@@ -2258,6 +2275,36 @@ SET spellid_1 = 17493, -- 44 Spell Damage
 WHERE entry = 13503;
 
 -- New custom items
+-- Cape of the Legion
+UPDATE mangos. item_template 
+SET spellid_2 = 9417, -- +12 spell damage
+    spelltrigger_2 = 1 
+WHERE entry = 30010;
+
+-- Bag of the Legion
+UPDATE mangos. item_template 
+SET flags = 32768,
+    quality = 5,
+    max_count = 1,
+    container_slots = 36
+WHERE entry = 30013;
+
+UPDATE mangos. item_template 
+SET required_reputation_faction = 476, -- Nethergarde Defenders
+    required_reputation_rank = 5 -- Honored
+WHERE entry IN(30008, 30009, 30010);
+
+UPDATE mangos. item_template 
+SET required_reputation_faction = 476, -- Nethergarde Defenders
+    required_reputation_rank = 6, -- Revered
+    bonding = 1
+WHERE entry IN(30013);
+
+UPDATE mangos. item_template 
+SET required_reputation_faction = 476, -- Nethergarde Defenders
+    required_reputation_rank = 7, -- Exalted
+    bonding = 1
+WHERE entry IN(30011, 30012);
 
 -- Sentinel's Ring
 UPDATE mangos . item_template
