@@ -10,7 +10,11 @@ UPDATE mangos . creature_loot_template
 SET ChanceOrQuestChance = 0.01
 WHERE item IN(3951, 8080, 3975, 3998, 3999, 13820, 3944, 3971, 13821, 3996, 8084, 8753, 3949, 3976, 3995, 13817, 3945, 3947, 3972, 3987, 3990, 
 4022, 8755, 13822, 3948, 3973, 3974, 3992, 3993, 13824, 3946, 3969, 3970, 8086, 8754, 3997, 4013, 8081, 3950, 4015, 8085, 13816, 3953, 3994, 8082, 
-8083, 8752, 13818, 13823, 13825, 3954, 3988, 4009, 13819, 3955, 3980, 3984, 3956, 3977, 3983, 4008);
+8083, 8752, 13818, 13823, 13825, 3954, 3988, 4009, 13819, 3955, 3980, 3984, 3956, 3977, 3983, 4008, 4025, 13823, 3944, 4019, 8752, 13822, 3970,
+13820, 3967, 3986, 3987, 4020, 3975, 3993, 3999, 4024, 3939, 3940, 3962, 3968, 3974, 8082, 13816, 3937, 3941, 3942, 3947, 3992, 4001, 4002, 4003, 
+4004, 4017, 4021, 8086, 3964, 3965, 4007, 4022, 8083, 3946, 13824);
+-- Stopped at Lvl. 40-49. Need to Lvl. 1-39
+
 
 -- Ore / Stone
 DELETE FROM mangos . creature_loot_template
@@ -29,14 +33,21 @@ UPDATE mangos . creature_loot_template
 SET ChanceOrQuestChance = 1,
     minCountOrRef = 1,
     maxcount = 1
-WHERE item IN(118, 858, 929, 1710, 3928, 13446);
+WHERE item IN(118, 858, 929, 1710, 3928, 13446) AND ChanceOrQuestChance > 1 ;
 
 -- Mana Potions
 UPDATE mangos . creature_loot_template
 SET ChanceOrQuestChance = 1,
     minCountOrRef = 1,
     maxcount = 1
-WHERE item IN(2455, 13443, 6149, 3385, 3827, 13444);
+WHERE item IN(2455, 13443, 6149, 3385, 3827, 13444) AND ChanceOrQuestChance > 1;
+
+-- Solid Stone
+UPDATE mangos . creature_loot_template
+SET ChanceOrQuestChance = 20,
+    minCountOrRef = 1,
+    maxcount = 1
+WHERE item IN(7912) AND maxcount > 1;
 
 -- Recipes
 -- 0.1%
@@ -58,7 +69,7 @@ WHERE item IN(11186, 15747, 15779 ,15761, 14493, 16054, 15771, 15752, 16223, 162
 -- 5%
 UPDATE mangos . creature_loot_template
 SET ChanceOrQuestChance = 5
-WHERE item IN(13497, 16244, 13491, 13495, 15764, 15749, 18657, 18658, 15760, 15748, 15738, 14495, 14486, 8153);
+WHERE item IN(13497, 16244, 13491, 13495, 15764, 15749, 18657, 18658, 15760, 15748, 15738, 14495, 14486);
 
 -- 10%
 
@@ -88,12 +99,12 @@ WHERE item IN(7078, 7080, 12803, 7082, 7076, 12808, 19441, 18364, 18361, 18358, 
 UPDATE mangos . creature_loot_template
 SET ChanceOrQuestChance = 5
 WHERE item IN(7077, 7079, 7081, 7075, 18512, 14256, 12662, 3182, 4337, 14227, 10285, 1288, 1475, 12811, 20520, 12871, 
-23320, 4213, 9214, 5635, 8146, 5637, 19943, 12804, 4639);
+23320, 4213, 9214, 5635, 8146, 5637, 19943, 12804, 4639, 11818);
 
 -- 10%
 UPDATE mangos . creature_loot_template
 SET ChanceOrQuestChance = 10
-WHERE item IN(7068, 7070, 7067, 7069, 10286, 7972, 8150, 7307, 4096);
+WHERE item IN(7068, 7070, 7067, 7069, 10286, 7972, 8150, 7307, 4096, 12431, 12436, 12432, 12434, 12430, 12433, 12435);
 
 -- 20%
 UPDATE mangos . creature_loot_template
@@ -127,6 +138,11 @@ WHERE item IN(2589, 2592, 4306, 4338, 14047) AND ChanceOrQuestChance >= 20;
 UPDATE mangos . creature_loot_template
 SET ChanceOrQuestChance = 1
 WHERE item IN(7191);
+
+-- Wildvine
+UPDATE mangos . creature_loot_template
+SET ChanceOrQuestChance = 5
+WHERE item IN(8153) AND ChanceOrQuestChance > 5;
 
 -- Bags
 -- 0.01%
