@@ -107,7 +107,7 @@ WHERE item IN(7078, 7080, 12803, 7082, 7076, 12808, 19441, 18364, 18361, 18358, 
 -- 5%
 UPDATE mangos . creature_loot_template
 SET ChanceOrQuestChance = 5
-WHERE item IN(7077, 7079, 7081, 7075, 18512, 14256, 12662, 3182, 4337, 14227, 10285, 1288, 1475, 12811, 20520, 12871, 
+WHERE item IN(7077, 7079, 7081, 7075, 18512, 14256, 12662, 1288, 1475, 12811, 20520, 12871, 
 23320, 4213, 9214, 5635, 8146, 5637, 19943, 12804, 4639, 11818);
 
 -- 10%
@@ -149,6 +149,11 @@ UPDATE mangos . creature_loot_template
 SET ChanceOrQuestChance = 5
 WHERE item IN(4537, 2287, 3770, 4538, 3771, 4544, 1707, 4539, 4607, 3927, 4608, 4599, 4601, 4602, 8932, 8952, 8953, 8948, 8950, 1708, 1645, 
 8766, 4540, 4541, 414, 4605, 422, 4542, 4606, 117, 4536, 2070, 4604, 159, 1179, 1205, 4656) AND ChanceOrQuestChance >= 1;
+
+-- Spider Silks
+UPDATE mangos . creature_loot_template
+SET ChanceOrQuestChance = 5
+WHERE item IN(3182, 4337, 14227, 10285) AND ChanceOrQuestChance >= 1;
 
 -- Fused wiring
 UPDATE mangos . creature_loot_template

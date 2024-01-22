@@ -1,4 +1,8 @@
 -- Misc
+
+-- Object Respawn Time
+UPDATE `mangos`.`gameobject` SET `spawntimesecsmin`=30, `spawntimesecsmax`=30 WHERE  `guid`=40688;
+
 -- Human Shaman
 
 REPLACE `mangos`.`creature_template` (`entry`, `name`, `subname`, `level_min`, `level_max`, `faction`, `npc_flags`, `display_id1`, `detection_range`, `rank`, `unit_class`, `unit_flags`, `trainer_class`, `type`, `flags_extra`) VALUES (90033, 'Illya Einzbern', 'Shaman Trainer', 60, 60, 35, 21, 5546, 20, 1, 8, 2, 7, 1, 64);
