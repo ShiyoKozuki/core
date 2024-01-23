@@ -93,6 +93,8 @@ INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (53
 -- Alchemists' Stone Recipe
 INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`) VALUES (8157, 28, 13517, 1, 3600, 3);
 
+-- Caretakers of Karazhan Quartermaster
+
 -- Quest rewards
 
 -- Cap of the Scarlet Savant
