@@ -16,8 +16,14 @@ INSERT IGNORE `mangos`.`item_template` (`entry`, `patch`, `class`, `subclass`, `
 INSERT IGNORE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `max_count`, `delay`, `dmg_min1`, `dmg_max1`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `sheath`, `max_durability`, `disenchant_id`) VALUES (30011, 2, 7, 'Fel Saber', 19997, 4, 435040, 87008, 21, -1, -1, 65, 60, 1, 2900, 96, 178, 18205, 2, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 2, 1, 3, 105, 65);
 INSERT IGNORE `mangos`.`item_template` (`entry`, `patch`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `max_count`, `stat_type1`, `stat_value1`, `stat_type2`, `stat_value2`, `delay`, `dmg_min1`, `dmg_max1`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `sheath`, `max_durability`, `disenchant_id`) VALUES (30012, 5, 2, 4, 'Corrupted Mace', 32588, 4, 441460, 88292, 21, -1, -1, 66, 60, 1, 5, 9, 7, 6, 2400, 64.4, 134.4, 18035, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 1, 3, 105, 65);
 INSERT IGNORE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `container_slots`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `material`) VALUES (30013, 1, 1, 'Bag of the Legion', 20342, 2, 80000, 20000, 18, -1, -1, 60, 16, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 8);
+INSERT IGNORE `mangos`.`item_template` (`entry`, `patch`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `required_reputation_faction`, `required_reputation_rank`, `stat_type1`, `stat_value1`, `stat_type2`, `stat_value2`, `stat_type3`, `stat_value3`, `delay`, `armor`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellid_2`, `spelltrigger_2`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `max_durability`, `disenchant_id`) VALUES (30014, 5, 4, 4, 'Fel-infused Legplates', 32756, 3, 144352, 28870, 7, -1, -1, 68, 60, 476, 6, 5, 13, 7, 6, 4, 13, 0, 618, 9346, 1, -1, -1, 7597, 1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 5, 100, 49);
+INSERT IGNORE `mangos`.`item_template` (`entry`, `patch`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `required_reputation_faction`, `required_reputation_rank`, `stat_type1`, `stat_value1`, `stat_type2`, `stat_value2`, `delay`, `armor`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellid_2`, `spelltrigger_2`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `max_durability`, `disenchant_id`) VALUES (30015, 5, 4, 3, 'Fel Leggings', 32753, 3, 211655, 42331, 7, -1, -1, 68, 60, 476, 6, 5, 6, 7, 6, 0, 348, 18052, 1, -1, -1, 18382, 1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 5, 90, 49);
+INSERT IGNORE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id`, `quality`, `flags`, `allowable_class`, `allowable_race`, `item_level`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30016, 2, 12, 'Ghost Ectoplasm', 20614, 1, 2048, -1, -1, 1, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 4, -1);
+INSERT IGNORE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id`, `quality`, `flags`, `allowable_class`, `allowable_race`, `item_level`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30017, 2, 12, 'Shade Essence', 20798, 1, 2048, -1, -1, 1, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 4, -1);
+INSERT IGNORE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id`, `quality`, `flags`, `allowable_class`, `allowable_race`, `item_level`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30018, 2, 12, 'Ogre Beads', 1399, 1, 2048, -1, -1, 1, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 4, -1);
 
--- NEXT 30014
+-- NEXT 30019
+
 -- Vendors
 
 -- Silverwing Rep Vendor (WSG)
@@ -81,6 +87,8 @@ INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (53
 INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (5393, 30011, 0);
 INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (5393, 30012, 0);
 INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (5393, 30013, 0);
+INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (5393, 30014, 0);
+INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (5393, 30015, 0);
 
 -- Alchemists' Stone Recipe
 INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`) VALUES (8157, 28, 13517, 1, 3600, 3);
@@ -2189,9 +2197,15 @@ WHERE entry = 12790;
 UPDATE mangos . item_template
 SET dmg_min1 = 153,
     dmg_max1 = 256,
-    armor = 350,
-    stat_type1 = 7,
-    stat_value1 = 35
+    armor = 0,
+    stat_type1 = 4,
+    stat_value1 = 15,
+    stat_type2 = 5,
+    stat_value2 = 15,
+    spellid_1 = 15261, -- Holy Fire
+    spelltrigger_1 = 2,
+    spellid_2 = 21363, -- 5 MP/5
+    spelltrigger_2 = 1
 WHERE entry = 12796;
 
 -- Blackfury
@@ -2289,6 +2303,30 @@ SET flags = 32768,
     container_slots = 36
 WHERE entry = 30013;
 
+-- Fel Saber
+UPDATE mangos. item_template 
+SET dmg_min1 = 95,
+    dmg_max1 = 155,
+    dmg_type2 = 2,
+    dmg_min2 = 1,
+    dmg_max2 = 25
+WHERE entry = 30011;
+
+-- Corrupted Mace
+UPDATE mangos. item_template 
+SET dmg_min1 = 63.4,
+    dmg_max1 = 119.4,
+    dmg_type2 = 5,
+    dmg_min2 = 1,
+    dmg_max2 = 15
+WHERE entry = 30012;
+
+-- Custom quest item stack sizes
+UPDATE mangos . item_template
+SET stackable = 250
+WHERE entry IN(30007, 30016, 30017, 30018);
+
+
 UPDATE mangos. item_template 
 SET required_reputation_faction = 476, -- Nethergarde Defenders
     required_reputation_rank = 5 -- Honored
@@ -2298,13 +2336,13 @@ UPDATE mangos. item_template
 SET required_reputation_faction = 476, -- Nethergarde Defenders
     required_reputation_rank = 6, -- Revered
     bonding = 1
-WHERE entry IN(30013);
+WHERE entry IN(30014, 30015);
 
 UPDATE mangos. item_template 
 SET required_reputation_faction = 476, -- Nethergarde Defenders
     required_reputation_rank = 7, -- Exalted
     bonding = 1
-WHERE entry IN(30011, 30012);
+WHERE entry IN(30011, 30012, 30013);
 
 -- Sentinel's Ring
 UPDATE mangos . item_template
