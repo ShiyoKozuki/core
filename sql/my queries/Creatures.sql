@@ -4,7 +4,19 @@
 UPDATE `mangos`.`creature_template` SET `speed_run`=0.5 WHERE  `entry`=10408 AND `patch`=0;
 UPDATE `mangos`.`creature_template` SET `speed_run`=0.5 WHERE  `entry`=10409 AND `patch`=0;
 
+-- Fireguard Destroyer
+UPDATE `mangos`.`creature_template` SET `damage_multiplier`=1.0 WHERE  `entry`=8911 AND `patch`=0;
+
+-- Ragereaver Golem
+UPDATE `mangos`.`creature_template` SET `damage_multiplier`=3.0 WHERE  `entry`=8906 AND `patch`=0;
+
+-- Molten War Golem
+UPDATE `mangos`.`creature_template` SET `damage_multiplier`=3.0 WHERE  `entry`=8908 AND `patch`=0;
+
 -- Bosses
+
+-- Golem Lord Argelmach
+UPDATE `mangos`.`creature_template` SET `damage_multiplier`=3.0 WHERE  `entry`=8983;
 
 -- Balnazzar
 UPDATE `mangos`.`creature_template` SET `damage_multiplier`=5.0 WHERE  `entry`=10813;
