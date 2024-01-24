@@ -21,8 +21,17 @@ INSERT IGNORE `mangos`.`item_template` (`entry`, `patch`, `class`, `subclass`, `
 INSERT IGNORE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id`, `quality`, `flags`, `allowable_class`, `allowable_race`, `item_level`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30016, 2, 12, 'Ghost Ectoplasm', 20614, 1, 2048, -1, -1, 1, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 4, -1);
 INSERT IGNORE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id`, `quality`, `flags`, `allowable_class`, `allowable_race`, `item_level`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30017, 2, 12, 'Shade Essence', 20798, 1, 2048, -1, -1, 1, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 4, -1);
 INSERT IGNORE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id`, `quality`, `flags`, `allowable_class`, `allowable_race`, `item_level`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30018, 2, 12, 'Ogre Beads', 1399, 1, 2048, -1, -1, 1, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 4, -1);
+INSERT IGNORE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `stat_type1`, `stat_value1`, `stat_type2`, `stat_value2`, `delay`, `block`, `armor`, `shadow_res`, `arcane_res`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellid_2`, `spelltrigger_2`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `sheath`, `max_durability`, `disenchant_id`) VALUES (30019, 4, 6, 'Karazhan Protector', 20971, 3, 183600, 36720, 14, -1, -1, 63, 5, 7, 6, 7, 0, 40, 2153, 5, 5, 9318, 1, -1, -1, 21363, 1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 1, 4, 100, 49);
+INSERT IGNORE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `stat_type1`, `stat_value1`, `stat_type2`, `stat_value2`, `delay`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellid_2`, `spelltrigger_2`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `disenchant_id`) VALUES (30020, 3, 4, 'Ring of the Prophet', 31657, 4, 241024, 60256, 11, -1, -1, 71, 60, 5, 7, 7, 7, 0, 14254, 1, -1, -1, 23727, 1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 3, 65);
+INSERT IGNORE `mangos`.`item_template` (`entry`, `patch`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `stat_type1`, `stat_value1`, `stat_type2`, `stat_value2`, `delay`, `armor`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellid_2`, `spelltrigger_2`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `max_durability`, `disenchant_id`) VALUES (30021, 2, 4, 3, 'Bracers of the Tirisfal', 31280, 4, 162290, 32458, 9, -1, -1, 71, 60, 3, 7, 7, 5, 0, 198, 15464, 1, -1, -1, 9330, 1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 5, 50, 65);
+INSERT IGNORE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `delay`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellid_2`, `spelltrigger_2`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `disenchant_id`) VALUES (30022, 3, 4, 'Lost Karazhan Emblem', 35442, 4, 65132, 16283, 12, -1, -1, 51, 0, 15808, 1, -1, -1, 15465, 1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 4, 9);
+INSERT IGNORE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `stat_type1`, `stat_value1`, `delay`, `armor`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellid_2`, `spelltrigger_2`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellid_3`, `spelltrigger_3`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `disenchant_id`) VALUES (30023, 4, 1, 'Cape of the Tirisfal', 24013, 3, 82494, 16498, 16, -1, -1, 63, 58, 3, 5, 0, 45, 9331, 1, -1, -1, 15907, 1, -1, -1, 15873, 1, -1, -1, -1, -1, 0, 0, 1, 7, 49);
+INSERT IGNORE `mangos`.`item_template` (`entry`, `patch`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `stat_type1`, `stat_value1`, `stat_type2`, `stat_value2`, `stat_type3`, `stat_value3`, `delay`, `armor`, `shadow_res`, `arcane_res`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellid_2`, `spelltrigger_2`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `max_durability`, `disenchant_id`) VALUES (30024, 2, 4, 3, 'Helm of the Tirisfal', 31268, 4, 128980, 25796, 1, 2047, 255, 62, 5, 14, 6, 12, 7, 12, 0, 297, 10, 10, 18384, 1, -1, -1, 14798, 1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 5, 70, 49);
+INSERT IGNORE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `stat_type1`, `stat_value1`, `stat_type2`, `stat_value2`, `delay`, `armor`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellid_2`, `spelltrigger_2`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `max_durability`, `disenchant_id`) VALUES (30025, 4, 3, 'Thundering Mail', 25754, 3, 103212, 20642, 5, -1, -1, 54, 49, 6, 11, 7, 5, 0, 322, 14047, 1, -1, -1, 18384, 1, -1, -1, -1, -1, -1, -1, 0, 0, 2, 5, 120, 47);
+INSERT IGNORE `mangos`.`item_template` (`entry`, `patch`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `stat_type1`, `stat_value1`, `stat_type2`, `stat_value2`, `delay`, `armor`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellid_2`, `spelltrigger_2`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `max_durability`, `disenchant_id`) VALUES (30026, 7, 4, 4, 'Mantle of the Tirisfal', 33810, 3, 178158, 35631, 3, 32767, -1, 72, 60, 4, 12, 5, 12, 0, 510, 15465, 1, -1, -1, 9417, 1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 6, 100, 65);
+INSERT IGNORE `mangos`.`item_template` (`entry`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `spellid_1`, `spellcharges_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30027, 'Tirisfal Whiskey', 18119, 1, 1600, 400, -1, -1, 1, 10, 0, 20875, -1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 3);
 
--- NEXT 30019
+-- NEXT 30028
 
 -- Vendors
 
@@ -90,10 +99,22 @@ INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (53
 INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (5393, 30014, 0);
 INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (5393, 30015, 0);
 
+-- Caretaker of Karazhan Quartermaster
+INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (90036, 30019, 0);
+INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (90036, 30020, 0);
+INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (90036, 30021, 0);
+INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (90036, 30022, 0);
+INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (90036, 30023, 0);
+INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (90036, 30024, 0);
+INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (90036, 30025, 0);
+INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (90036, 30026, 0);
+INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (90036, 30027, 0);
+
 -- Alchemists' Stone Recipe
 INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`) VALUES (8157, 28, 13517, 1, 3600, 3);
 
 -- Caretakers of Karazhan Quartermaster
+INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (5393, 30008, 0);
 
 -- Quest rewards
 
@@ -2328,7 +2349,6 @@ UPDATE mangos . item_template
 SET stackable = 250
 WHERE entry IN(30007, 30016, 30017, 30018);
 
-
 UPDATE mangos. item_template 
 SET required_reputation_faction = 476, -- Nethergarde Defenders
     required_reputation_rank = 5 -- Honored
@@ -2345,6 +2365,23 @@ SET required_reputation_faction = 476, -- Nethergarde Defenders
     required_reputation_rank = 7, -- Exalted
     bonding = 1
 WHERE entry IN(30011, 30012, 30013);
+
+UPDATE mangos. item_template 
+SET required_reputation_faction = 477, -- Caretakers of Karazhan
+    required_reputation_rank = 5 -- Honored
+WHERE entry IN(30023, 30025, 30026, 30019);
+
+UPDATE mangos. item_template 
+SET required_reputation_faction = 477, -- Caretakers of Karazhan
+    required_reputation_rank = 6, -- Revered
+    bonding = 1
+WHERE entry IN(30021);
+
+UPDATE mangos. item_template 
+SET required_reputation_faction = 477, -- Caretakers of Karazhan
+    required_reputation_rank = 7, -- Exalted
+    bonding = 1
+WHERE entry IN(30020, 30022, 30027, 30024);
 
 -- Sentinel's Ring
 UPDATE mangos . item_template

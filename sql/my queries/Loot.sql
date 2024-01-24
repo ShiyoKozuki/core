@@ -238,6 +238,11 @@ UPDATE mangos . creature_loot_template
 SET ChanceOrQuestChance = 20
 WHERE item = 2799;
 
+-- 100%
+UPDATE mangos . creature_loot_template
+SET ChanceOrQuestChance = 100
+WHERE item IN(11885);
+ 
 -- Skinning
 
 -- Pristine Hide of the Beast
