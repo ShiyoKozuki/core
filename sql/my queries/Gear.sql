@@ -774,6 +774,12 @@ SET spellid_2 = 18049, -- +26 Spell Damage
     spelltrigger_2 = 1
 WHERE entry = 18405;
 
+-- Chromatic Cloak
+UPDATE mangos . item_template
+SET spellid_2 = 9346, -- +18 Spell Damage
+    spelltrigger_2 = 1
+WHERE entry = 18509;
+
 -- Argent Boots
 UPDATE mangos . item_template
 SET quality = 4,
@@ -2473,7 +2479,8 @@ WHERE entry IN(30011, 30012, 30013);
 
 UPDATE mangos. item_template 
 SET required_reputation_faction = 477, -- Caretakers of Karazhan
-    required_reputation_rank = 5 -- Honored
+    required_reputation_rank = 5, -- Honored
+    bonding = 1
 WHERE entry IN(30023, 30025, 30026, 30019);
 
 UPDATE mangos. item_template 
