@@ -2400,6 +2400,16 @@ SET spellid_1 = 17884, -- +50 Fire Damage
     spelltrigger_2 = 1   
 WHERE entry = 944;
 
+-- The Lion Horn of Stormwind
+UPDATE mangos . item_template
+SET stat_type1 = 7,
+    stat_value1 = 30
+WHERE entry = 14557;
+
+UPDATE mangos . spell_template
+SET effectBasePoints1 = 1999
+WHERE entry = 18946;
+
 -- Lifestone
 UPDATE mangos . item_template
 SET spellid_3 = 14127, -- +28 Spell Damage
