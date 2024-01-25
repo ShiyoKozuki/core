@@ -2347,16 +2347,16 @@ WHERE entry = 811;
 
 -- Brain Hacker
 UPDATE mangos . item_template
-SET delay = 3700,
-    dmg_min1 = 229,
-    dmg_max1 = 344
+SET delay = 3400,
+    dmg_min1 = 196,
+    dmg_max1 = 246
 WHERE entry = 1263;
 
 -- Destiny
 UPDATE mangos . item_template
 SET delay = 3400,
-    dmg_min1 = 190,
-    dmg_max1 = 295
+    dmg_min1 = 180,
+    dmg_max1 = 230
 WHERE entry = 647;
 
 -- Hand of Edward the Odd
@@ -2387,8 +2387,8 @@ WHERE entry = 2244;
 -- Blade of Hanna
 UPDATE mangos . item_template
 SET delay = 3400,
-    dmg_min1 = 215,
-    dmg_max1 = 325
+    dmg_min1 = 196,
+    dmg_max1 = 246
 WHERE entry = 2801;
 
 -- Dwarven Hand Cannon
