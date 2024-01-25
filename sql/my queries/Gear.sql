@@ -2311,6 +2311,101 @@ SET spellid_1 = 17493, -- 44 Spell Damage
     spelltrigger_3 = 0
 WHERE entry = 13503;
 
+-- Epic BOE's 
+
+-- 50-60
+
+-- Helm of Narv
+UPDATE mangos . item_template
+SET spellid_1 = 7598 -- +2% Physical Crit
+WHERE entry = 2245;
+
+-- Jeweled Amulet of Cainwyn
+UPDATE mangos . item_template
+SET spellid_1 = 14127, -- +28 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 1443;
+
+-- Lady Maye's Pendant
+UPDATE mangos . item_template
+SET spellid_1 = 18031, -- +40 Healing
+    spelltrigger_1 = 1
+WHERE entry = 14558;
+
+-- Axe of the Deep Woods
+UPDATE mangos . item_template
+SET delay = 2700,
+    dmg_min1 = 106,
+    dmg_max1 = 198
+WHERE entry = 811;
+
+-- Brain Hacker
+UPDATE mangos . item_template
+SET delay = 3700,
+    dmg_min1 = 229,
+    dmg_max1 = 344
+WHERE entry = 1263;
+
+-- Destiny
+UPDATE mangos . item_template
+SET delay = 3400,
+    dmg_min1 = 190,
+    dmg_max1 = 295
+WHERE entry = 647;
+
+-- Hand of Edward the Odd
+UPDATE mangos . item_template
+SET dmg_min1 = 65,
+    dmg_max1 = 125
+WHERE entry = 2243;
+
+-- Teebu's Blazing Longsword
+UPDATE mangos . item_template
+SET dmg_min1 = 106,
+    dmg_max1 = 198
+WHERE entry = 1728;
+
+-- Alcor's Sunrazor
+UPDATE mangos . item_template
+SET delay = 1800,
+    dmg_min1 = 65,
+    dmg_max1 = 125
+WHERE entry = 14555;
+
+-- Krol Blade
+UPDATE mangos . item_template
+SET dmg_min1 = 106,
+    dmg_max1 = 198
+WHERE entry = 2244;
+
+-- Blade of Hanna
+UPDATE mangos . item_template
+SET delay = 3400,
+    dmg_min1 = 215,
+    dmg_max1 = 325
+WHERE entry = 2801;
+
+-- Dwarven Hand Cannon
+UPDATE mangos . item_template
+SET delay = 3200,
+    dmg_min1 = 110,
+    dmg_max1 = 170
+WHERE entry = 2099;
+
+-- Elemental Mage Staff
+UPDATE mangos . item_template
+SET spellid_1 = 17884, -- +50 Fire Damage
+    spelltrigger_1 = 1,
+    spellid_2 = 17908, -- +50 Frost Damage
+    spelltrigger_2 = 1   
+WHERE entry = 944;
+
+-- Lifestone
+UPDATE mangos . item_template
+SET spellid_3 = 14127, -- +28 Spell Damage
+    spelltrigger_3 = 1
+WHERE entry = 833;
+
 -- New custom items
 -- Cape of the Legion
 UPDATE mangos. item_template 
