@@ -35,6 +35,14 @@ REPLACE `mangos`.`item_template` (`entry`, `name`, `display_id`, `quality`, `buy
 
 -- Vendors
 
+-- Reagent Vendors
+INSERT IGNORE npc_vendor(entry, item)
+SELECT creature_template.entry, item_template.entry
+FROM (SELECT DISTINCT entry FROM creature_template) creature_template
+JOIN (SELECT DISTINCT entry FROM item_template) item_template
+WHERE creature_template.entry IN (3323, 1307, 1351, 16015, 3335, 4878, 2805, 1257, 3351, 3490, 4083, 8361, 5151, 3562, 12784, 12795, 13476, 1275, 5110, 4575, 983, 958, 4562, 12096, 1308, 3500, 3700, 10364, 12097, 1463, 1673, 3970, 5139, 3542, 4220, 14739, 15175) AND item_template.entry IN (5512, 5511, 5509, 5510, 9421, 16896);
+
+
 -- Silverwing Rep Vendor (WSG)
 INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (14753, 30000, 159);
 INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (14753, 30001, 159);
@@ -2317,6 +2325,18 @@ SET spellid_1 = 17493, -- 44 Spell Damage
     spelltrigger_3 = 0
 WHERE entry = 13503;
 
+-- Healthstones
+UPDATE mangos . item_template
+SET max_count = 3,
+    stackable = 3
+WHERE entry IN(19008,5512,9421,5510,5509,19013,5511,19012,19011,19009,19010,19007,19004,19005,19006);
+
+-- Soulstones
+UPDATE mangos . item_template
+SET max_count = 3,
+    stackable = 10
+WHERE entry IN(16893, 5232, 16896, 16895, 16892);
+
 -- Epic BOE's 
 
 -- 50-60
@@ -2341,8 +2361,8 @@ WHERE entry = 14558;
 -- Axe of the Deep Woods
 UPDATE mangos . item_template
 SET delay = 2700,
-    dmg_min1 = 106,
-    dmg_max1 = 198
+    dmg_min1 = 90,
+    dmg_max1 = 185
 WHERE entry = 811;
 
 -- Brain Hacker
@@ -2361,27 +2381,27 @@ WHERE entry = 647;
 
 -- Hand of Edward the Odd
 UPDATE mangos . item_template
-SET dmg_min1 = 65,
-    dmg_max1 = 125
+SET dmg_min1 = 55,
+    dmg_max1 = 105
 WHERE entry = 2243;
 
 -- Teebu's Blazing Longsword
 UPDATE mangos . item_template
-SET dmg_min1 = 106,
-    dmg_max1 = 198
+SET dmg_min1 = 90,
+    dmg_max1 = 185
 WHERE entry = 1728;
 
 -- Alcor's Sunrazor
 UPDATE mangos . item_template
 SET delay = 1800,
-    dmg_min1 = 65,
-    dmg_max1 = 125
+    dmg_min1 = 55,
+    dmg_max1 = 105
 WHERE entry = 14555;
 
 -- Krol Blade
 UPDATE mangos . item_template
-SET dmg_min1 = 106,
-    dmg_max1 = 198
+SET dmg_min1 = 85,
+    dmg_max1 = 180
 WHERE entry = 2244;
 
 -- Blade of Hanna
@@ -2394,15 +2414,15 @@ WHERE entry = 2801;
 -- Dwarven Hand Cannon
 UPDATE mangos . item_template
 SET delay = 3200,
-    dmg_min1 = 110,
-    dmg_max1 = 170
+    dmg_min1 = 100,
+    dmg_max1 = 150
 WHERE entry = 2099;
 
 -- Elemental Mage Staff
 UPDATE mangos . item_template
-SET spellid_1 = 17884, -- +50 Fire Damage
+SET spellid_1 = 17873, -- +36 Fire Damage
     spelltrigger_1 = 1,
-    spellid_2 = 17908, -- +50 Frost Damage
+    spellid_2 = 17897, -- +36 Frost Damage
     spelltrigger_2 = 1   
 WHERE entry = 944;
 
