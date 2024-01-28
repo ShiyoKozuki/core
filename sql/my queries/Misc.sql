@@ -1,5 +1,12 @@
 -- Misc
 
+-- Events
+
+-- Scourge Invsion
+UPDATE mangos . game_event
+SET length = 999999999 -- was 30240
+WHERE entry IN(81, 90, 91, 92, 93, 94, 95, 129, 130);
+
 -- Object Respawn Time
 UPDATE `mangos`.`gameobject` SET `spawntimesecsmin`=30, `spawntimesecsmax`=30 WHERE  `guid`=40688;
 

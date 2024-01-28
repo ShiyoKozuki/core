@@ -1468,11 +1468,11 @@ WHERE entry = 12406;
 UPDATE mangos . item_template
 SET required_level = 55,
     stat_type1 = 4,
-    stat_value1 = 3,
-    spellid_1 = 7597, -- +1% Physical Crit
+    stat_value1 = 15,
+    spellid_1 = 15464, -- +1% Physical Hit
     spelltrigger_1 = 1,
-    spellid_2 = 15464, -- +1% Physical Hit
-    spelltrigger_2 = 1,
+    spellid_2 = 0,
+    spelltrigger_2 = 0,
     arcane_res = 0,
     fire_res = 0,
     nature_res = 0,
@@ -2333,8 +2333,8 @@ WHERE entry IN(19008,5512,9421,5510,5509,19013,5511,19012,19011,19009,19010,1900
 
 -- Soulstones
 UPDATE mangos . item_template
-SET max_count = 3,
-    stackable = 10
+SET max_count = 20,
+    stackable = 20
 WHERE entry IN(16893, 5232, 16896, 16895, 16892);
 
 -- Epic BOE's 
