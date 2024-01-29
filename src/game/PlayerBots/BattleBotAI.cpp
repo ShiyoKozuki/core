@@ -1662,27 +1662,11 @@ void BattleBotAI::UpdateInCombatAI_Hunter()
                 return;
         }
 
-        if (m_spells.hunter.pAspectOfTheCheetah &&
-            me->HasAura(m_spells.hunter.pAspectOfTheCheetah->Id))
+        if (m_spells.hunter.pAspectOfTheHawk &&
+            CanTryToCastSpell(me, m_spells.hunter.pAspectOfTheHawk))
         {
-            if (pVictim->CanReachWithMeleeAutoAttack(me))
-            {
-                if (m_spells.hunter.pAspectOfTheMonkey &&
-                    CanTryToCastSpell(me, m_spells.hunter.pAspectOfTheMonkey))
-                {
-                    if (DoCastSpell(me, m_spells.hunter.pAspectOfTheMonkey) == SPELL_CAST_OK)
-                        return;
-                }
-            }
-            else
-            {
-                if (m_spells.hunter.pAspectOfTheHawk &&
-                    CanTryToCastSpell(me, m_spells.hunter.pAspectOfTheHawk))
-                {
-                    if (DoCastSpell(me, m_spells.hunter.pAspectOfTheHawk) == SPELL_CAST_OK)
-                        return;
-                }
-            }
+            if (DoCastSpell(me, m_spells.hunter.pAspectOfTheHawk) == SPELL_CAST_OK)
+                return;
         }
 
         if (pVictim->CanReachWithMeleeAutoAttack(me))
@@ -1793,6 +1777,7 @@ void BattleBotAI::UpdateInCombatAI_Mage()
 
         if (m_spells.mage.pManaShield &&
             IsPhysicalDamageClass(pVictim->GetClass()) &&
+           (me->GetPowerPercent(POWER_HEALTH) < 30.0f) &&
            (me->GetPowerPercent(POWER_MANA) > 20.0f) &&
             CanTryToCastSpell(me, m_spells.mage.pManaShield))
         {
