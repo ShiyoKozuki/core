@@ -11,9 +11,6 @@ crimson gallant holy strike for 900
 crimson priest holy fire for over 1k
 
 swiftness pots
-get weapon chain on mirahs song
-respawn scholo scourge invasion boss 2 times
-Baroness ana HP
 black guard sentinel shadow shock should be random
 rammstein trample shouldnt spam / do less dmg?
 add SS res to bots
@@ -22,3 +19,34 @@ plagued hatching hp
 is lord barov using wrong spellid for immolate?
 scarshield warlock cant interrupt summon portal?
 volcanic gear recipes drop rates and stats
+Urok Doomhowl pike doesnt work to kill mobs?
+nerf thorium belt (remove the crit)
+bop enchanting bonus somehow (mana oils?)
+mother's milk debuff only procs on party leader to web?
+mobs outside wymthalaks room facing wrong direction? (LBRS)
+https://www.youtube.com/results?search_query=neuro+dungeon+tanking+stratholme
+small brilliant shard remove the low cost one
+add more small radiant shards
+revert spell change to immolate
+
+bots:
+ice block AI
+grounding totem AI
+travel form AI
+bear form when focused AI
+frost nova AI(spams manashield) and wont use if only 1 target, seems to be if only >1 target on the mage
+shadow priest bot, ai randomly breaks and does nothing when focused
+hunter doesn't use scattershot, aimed shot prio is too high
+hunters afk if deadzoned
+better spec/gear templates
+viperbite if mana, else serpent sting
+warlock dps ai
+priests spam dispel frostbolt, fix dispel prio
+fear ward and devouring plague priest ai
+fear ward on PARTYBOT ai too
+what talents are they using?
+dagger rogues
+paladin bop logic, only if target is being hit by a melee or hunter still and in combat
+
+
+https://github.com/stoneharry/WoW-Spell-Editor/releases/tag/v2.2.1

@@ -31,8 +31,8 @@ WHERE entry = 15570;
 
 -- Lord Alexei Barov Immolate damage
 UPDATE mangos . spell_template
-SET effectBasePoints1 = 140, -- was 379
-    effectBasePoints2 = 500 -- was 759
+SET effectBasePoints1 = 379, -- was 379
+    effectBasePoints2 = 759 -- was 759
 WHERE entry = 20294;
 
 -- Bosses
