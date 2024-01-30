@@ -160,6 +160,7 @@ void CombatBotBaseAI::PopulateSpellData()
     SpellEntry const* pWindfuryTotem = nullptr;
     SpellEntry const* pWindwallTotem = nullptr;
     SpellEntry const* pTranquilAirTotem = nullptr;
+    SpellEntry const* pGroundingTotem = nullptr;
 
     // Earth Totems
     SpellEntry const* pEarthbindTotem = nullptr;
@@ -470,6 +471,11 @@ void CombatBotBaseAI::PopulateSpellData()
                     if (IsHigherRankSpell(pGraceOfAirTotem))
                         pGraceOfAirTotem = pSpellEntry;
                 }
+                else if (pSpellEntry->SpellName[0].find("Grounding Totem") != std::string::npos)
+                {
+                    if (IsHigherRankSpell(pGroundingTotem))
+                        pGroundingTotem = pSpellEntry;
+                }
                 else if (pSpellEntry->SpellName[0].find("Nature Resistance Totem") != std::string::npos)
                 {
                     if (IsHigherRankSpell(pNatureResistanceTotem))
@@ -664,6 +670,16 @@ void CombatBotBaseAI::PopulateSpellData()
                     if (IsHigherRankSpell(m_spells.hunter.pFreezingTrap))
                         m_spells.hunter.pFreezingTrap = pSpellEntry;
                 }
+                else if (pSpellEntry->SpellName[0].find("Viper Sting") != std::string::npos)
+                {
+                    if (IsHigherRankSpell(m_spells.hunter.pViperSting))
+                        m_spells.hunter.pViperSting = pSpellEntry;
+                }
+                else if (pSpellEntry->SpellName[0].find("Scorpid Sting") != std::string::npos)
+                {
+                    if (IsHigherRankSpell(m_spells.hunter.pScorpidSting))
+                        m_spells.hunter.pScorpidSting = pSpellEntry;
+                }
                 break;
             }
             case CLASS_MAGE:
@@ -687,6 +703,11 @@ void CombatBotBaseAI::PopulateSpellData()
                 {
                     if (IsHigherRankSpell(m_spells.mage.pManaShield))
                         m_spells.mage.pManaShield = pSpellEntry;
+                }
+                else if (pSpellEntry->SpellName[0].find("Fire Ward") != std::string::npos)
+                {
+                    if (IsHigherRankSpell(m_spells.mage.pFireWard))
+                        m_spells.mage.pFireWard = pSpellEntry;
                 }
                 else if (pSpellEntry->SpellName[0].find("Arcane Intellect") != std::string::npos)
                 {
@@ -841,6 +862,11 @@ void CombatBotBaseAI::PopulateSpellData()
                 {
                     if (IsHigherRankSpell(m_spells.priest.pShadowProtection))
                         m_spells.priest.pShadowProtection = pSpellEntry;
+                }
+                else if (pSpellEntry->SpellName[0].find("Fear Ward") != std::string::npos)
+                {
+                    if (IsHigherRankSpell(m_spells.priest.pFearWard))
+                        m_spells.priest.pFearWard = pSpellEntry;
                 }
                 else if (pSpellEntry->SpellName[0].find("Power Word: Shield") != std::string::npos)
                 {
@@ -1667,21 +1693,21 @@ void CombatBotBaseAI::PopulateSpellData()
                     blessings.push_back(pBlessingOfWisdom);
                 if (pBlessingOfKings)
                     blessings.push_back(pBlessingOfKings);
-                if (pBlessingOfSanctuary)
-                    blessings.push_back(pBlessingOfSanctuary);
+                //if (pBlessingOfSanctuary)
+                //    blessings.push_back(pBlessingOfSanctuary);
                 if (!blessings.empty())
                     m_spells.paladin.pBlessingBuff = SelectRandomContainerElement(blessings);
             }
 
             std::vector<SpellEntry const*> auras;
-            if (pDevotionAura)
-                auras.push_back(pDevotionAura);
+            //if (pDevotionAura)
+            //    auras.push_back(pDevotionAura);
             if (pConcentrationAura)
                 auras.push_back(pConcentrationAura);
-            if (pRetributionAura)
-                auras.push_back(pRetributionAura);
-            if (pSanctityAura)
-                auras.push_back(pSanctityAura);
+            //if (pRetributionAura)
+            //    auras.push_back(pRetributionAura);
+            //if (pSanctityAura)
+            //    auras.push_back(pSanctityAura);
             if (pShadowResistanceAura)
                 auras.push_back(pShadowResistanceAura);
             if (pFrostResistanceAura)
@@ -1696,28 +1722,30 @@ void CombatBotBaseAI::PopulateSpellData()
         case CLASS_SHAMAN:
         {
             std::vector<SpellEntry const*> airTotems;
-            if (pGraceOfAirTotem)
-                airTotems.push_back(pGraceOfAirTotem);
-            if (pNatureResistanceTotem)
-                airTotems.push_back(pNatureResistanceTotem);
-            if (pWindfuryTotem)
-                airTotems.push_back(pWindfuryTotem);
-            if (pWindwallTotem)
-                airTotems.push_back(pWindwallTotem);
-            if (pTranquilAirTotem)
-                airTotems.push_back(pTranquilAirTotem);
+            //if (pGraceOfAirTotem)
+            //    airTotems.push_back(pGraceOfAirTotem);
+            //if (pNatureResistanceTotem)
+            //    airTotems.push_back(pNatureResistanceTotem);
+            //if (pWindfuryTotem)
+            //    airTotems.push_back(pWindfuryTotem);
+            //if (pWindwallTotem)
+            //    airTotems.push_back(pWindwallTotem);
+            //if (pTranquilAirTotem)
+            //    airTotems.push_back(pTranquilAirTotem);
+            if (pGroundingTotem)
+                airTotems.push_back(pGroundingTotem);
             if (!airTotems.empty())
                 m_spells.shaman.pAirTotem = SelectRandomContainerElement(airTotems);
 
             std::vector<SpellEntry const*> earthTotems;
             if (pEarthbindTotem)
                 earthTotems.push_back(pEarthbindTotem);
-            if (pStoneclawtotem)
-                earthTotems.push_back(pStoneclawtotem);
-            if (pStoneskinTotem)
-                earthTotems.push_back(pStoneskinTotem);
-            if (pStrengthOfEarthTotem)
-                earthTotems.push_back(pStrengthOfEarthTotem);
+            //if (pStoneclawtotem)
+            //    earthTotems.push_back(pStoneclawtotem);
+            //if (pStoneskinTotem)
+            //    earthTotems.push_back(pStoneskinTotem);
+            //if (pStrengthOfEarthTotem)
+            //    earthTotems.push_back(pStrengthOfEarthTotem);
             if (pTremorTotem)
                 earthTotems.push_back(pTremorTotem);
             if (!earthTotems.empty())
@@ -1730,22 +1758,22 @@ void CombatBotBaseAI::PopulateSpellData()
                 fireTotems.push_back(pMagmaTotem);
             if (pSearingTotem)
                 fireTotems.push_back(pSearingTotem);
-            if (pFlametongueTotem)
-                fireTotems.push_back(pFlametongueTotem);
-            if (pFrostResistanceTotem)
-                fireTotems.push_back(pFrostResistanceTotem);
-            if (!fireTotems.empty())
+            //if (pFlametongueTotem)
+            //    fireTotems.push_back(pFlametongueTotem);
+            //if (pFrostResistanceTotem)
+            //    fireTotems.push_back(pFrostResistanceTotem);
+            //if (!fireTotems.empty())
                 m_spells.shaman.pFireTotem = SelectRandomContainerElement(fireTotems);
 
             std::vector<SpellEntry const*> waterTotems;
-            if (pFireResistanceTotem)
-                waterTotems.push_back(pFireResistanceTotem);
-            if (pDiseaseCleansingTotem)
-                waterTotems.push_back(pDiseaseCleansingTotem);
-            if (pHealingStreamTotem)
-                waterTotems.push_back(pHealingStreamTotem);
-            if (pManaSpringTotem)
-                waterTotems.push_back(pManaSpringTotem);
+            //if (pFireResistanceTotem)
+            //    waterTotems.push_back(pFireResistanceTotem);
+            //if (pDiseaseCleansingTotem)
+            //    waterTotems.push_back(pDiseaseCleansingTotem);
+            //if (pHealingStreamTotem)
+            //    waterTotems.push_back(pHealingStreamTotem);
+            //if (pManaSpringTotem)
+            //    waterTotems.push_back(pManaSpringTotem);
             if (pPoisonCleansingTotem)
                 waterTotems.push_back(pPoisonCleansingTotem);
             if (!waterTotems.empty())

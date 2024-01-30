@@ -351,6 +351,8 @@ public:
             SpellEntry const* pVolley;
             SpellEntry const* pScatterShot;
             SpellEntry const* pFreezingTrap;
+            SpellEntry const* pScorpidSting;
+            SpellEntry const* pViperSting;
         } hunter;
         struct
         {
@@ -359,6 +361,7 @@ public:
             SpellEntry const* pArcaneBrilliance;
             SpellEntry const* pIceBarrier;
             SpellEntry const* pManaShield;
+            SpellEntry const* pFireWard;
             SpellEntry const* pPolymorph;
             SpellEntry const* pFrostbolt;
             SpellEntry const* pFireBlast;
@@ -387,6 +390,7 @@ public:
             SpellEntry const* pPrayerofFortitude;
             SpellEntry const* pInnerFire;
             SpellEntry const* pShadowProtection;
+            SpellEntry const* pFearWard;
             SpellEntry const* pPowerWordShield;
             SpellEntry const* pHolyNova;
             SpellEntry const* pHolyFire;
