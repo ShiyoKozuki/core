@@ -83,3 +83,19 @@ UPDATE `mangos`.`creature_template` SET `level_min`=56, `level_max`=56 WHERE  `e
 -- Object GUID is: Creature (Entry: 10481 Guid: 48478)
 -- Object GUID is: Creature (Entry: 10481 Guid: 48760)
 -- Object GUID is: Creature (Entry: 10481 Guid: 91414)
+
+-- Battlebots
+
+-- Holy Priest
+INSERT IGNORE `mangos`.`player_premade_spell` (`entry`, `spell`) VALUES (11, 6346); -- Fear Ward
+INSERT IGNORE `mangos`.`player_premade_spell` (`entry`, `spell`) VALUES (11, 19243); -- Desperate Prayer
+
+-- Shadow Priest
+INSERT IGNORE `mangos`.`player_premade_spell` (`entry`, `spell`) VALUES (5, 15487); -- Silence
+INSERT IGNORE `mangos`.`player_premade_spell` (`entry`, `spell`) VALUES (5, 19280); -- Devouring Plague
+INSERT IGNORE `mangos`.`player_premade_spell` (`entry`, `spell`) VALUES (5, 6346); -- Fear Ward
+INSERT IGNORE `mangos`.`player_premade_spell` (`entry`, `spell`) VALUES (5, 19243); -- Desperate Prayer
+
+-- Destro Lock
+INSERT IGNORE `mangos`.`player_premade_spell` (`entry`, `spell`) VALUES (55, 18932); -- Conflag
+

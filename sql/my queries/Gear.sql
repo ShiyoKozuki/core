@@ -48,6 +48,13 @@ INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (14
 INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (14753, 30001, 159);
 INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (14753, 30002, 159);
 
+INSERT IGNORE npc_vendor(entry, item)
+SELECT creature_template.entry, item_template.entry
+FROM (SELECT DISTINCT entry FROM creature_template) creature_template
+JOIN (SELECT DISTINCT entry FROM item_template) item_template
+WHERE creature_template.entry IN (15127) AND item_template.entry IN (5512, 5511, 5509, 5510, 9421);
+
+
 -- The League of Arathor Rep Vendor (AB)
 INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (15127, 30003, 0);
 INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (15127, 30004, 0);
