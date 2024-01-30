@@ -362,6 +362,7 @@ public:
             SpellEntry const* pIceBarrier;
             SpellEntry const* pManaShield;
             SpellEntry const* pFireWard;
+            SpellEntry const* pDampenMagic;
             SpellEntry const* pPolymorph;
             SpellEntry const* pFrostbolt;
             SpellEntry const* pFireBlast;
@@ -424,6 +425,7 @@ public:
             SpellEntry const* pImmolate;
             SpellEntry const* pRainOfFire;
             SpellEntry const* pDemonicSacrifice;
+            SpellEntry const* pSoulLink;
             SpellEntry const* pDrainLife;
             SpellEntry const* pSiphonLife;
             SpellEntry const* pBanish;

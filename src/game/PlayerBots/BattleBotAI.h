@@ -61,6 +61,7 @@ public:
     bool AttackStart(Unit* pVictim);
     Unit* SelectAttackTarget(Unit* pExcept = nullptr) const;
     Unit* SelectFollowTarget() const;
+    Player* SelectShieldTarget() const;
 
     void OnJustRevived();
     void OnJustDied();

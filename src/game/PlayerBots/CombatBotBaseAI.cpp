@@ -719,6 +719,11 @@ void CombatBotBaseAI::PopulateSpellData()
                     if (IsHigherRankSpell(m_spells.mage.pArcaneBrilliance))
                         m_spells.mage.pArcaneBrilliance = pSpellEntry;
                 }
+                else if (pSpellEntry->SpellName[0].find("Dampen Magic") != std::string::npos)
+                {
+                    if (IsHigherRankSpell(m_spells.mage.pDampenMagic))
+                        m_spells.mage.pDampenMagic = pSpellEntry;
+                }
                 else if (pSpellEntry->SpellName[0].find("Frostbolt") != std::string::npos)
                 {
                     if (IsHigherRankSpell(m_spells.mage.pFrostbolt))
@@ -1021,6 +1026,11 @@ void CombatBotBaseAI::PopulateSpellData()
                 {
                     if (IsHigherRankSpell(m_spells.warlock.pDemonicSacrifice))
                         m_spells.warlock.pDemonicSacrifice = pSpellEntry;
+                }
+                else if (pSpellEntry->SpellName[0].find("Soul Link") != std::string::npos)
+                {
+                    if (IsHigherRankSpell(m_spells.warlock.pSoulLink))
+                        m_spells.warlock.pSoulLink = pSpellEntry;
                 }
                 else if (pSpellEntry->SpellName[0].find("Drain Life") != std::string::npos)
                 {
