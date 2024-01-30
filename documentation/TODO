@@ -70,5 +70,6 @@ rogues AI breaks if you're too far away from them
 add aimed shot onto freezing/scatter shotted targets
 unlearn gheal/heal/lesser heal on spriest
 amplify curse logic
+power infusion logic on allies
 
 https://github.com/stoneharry/WoW-Spell-Editor/releases/tag/v2.2.1
