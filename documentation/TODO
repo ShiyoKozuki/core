@@ -65,7 +65,6 @@ more premade specs, soul link, pom fire, elementalist, prep rogue, seal fate rog
 racials
 druids swap out of cat when being kited but don't go into bear
 rogues and druids dont cheapshot and autoattack from stealth
-rogues AI breaks if you're too far away from them
 add aimed shot onto freezing/scatter shotted targets
 unlearn gheal/heal/lesser heal on spriest
 amplify curse logic
@@ -74,21 +73,22 @@ dont poly dotted targets
 moonkins dont leave moonkin form and heal themselves anymore?
 unlearn succubus/imp on sl locks
 greater blessings
-coldblood logic
 smruin spec
 pom pyro spec
 deep frost spec
-frostbolt if has ice block, else fireball
+survival pvp spec
+marks / survival
+bm hunter
+
 swap out of bear form if > 50% HP and not dps or tank role
 leave all forms and interrupt spells to travel form away at < 20%
-rogue blind target near it if rooted like scatter
-rogue vanish if rooted and pvictim is out of melee range
-rogue KS at 3 combo points
 shaman frost shock mounted players/fc highest prio
 all healers run away if > 1 target within melee range
 move healing if low hp to flag carrier ai stuff in combat, there's a section
 rogues only attack targets without anyone nearby them in radius of 15 yards
 moonkins bad at going into moonkin form and dpsing, put prio of going into moonkin at top and healing % lower for moonkin vs healer role
-
-
+(me->GetAttackers().size() < 3) &&  how many people attacking me?
+false in fc ai for casting spells after spell name? unsure why its there, maybe need for stuff i added
+beastial wrath and intimidate logic
+wyvern sting logic using poly(other target than current) logic
 https://github.com/stoneharry/WoW-Spell-Editor/releases/tag/v2.2.1
