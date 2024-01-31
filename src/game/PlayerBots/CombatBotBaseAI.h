@@ -392,6 +392,8 @@ public:
             SpellEntry const* pInnerFire;
             SpellEntry const* pShadowProtection;
             SpellEntry const* pFearWard;
+            SpellEntry const* pDesperatePrayer;
+            SpellEntry const* pTouchofWeakness;
             SpellEntry const* pPowerWordShield;
             SpellEntry const* pHolyNova;
             SpellEntry const* pHolyFire;
