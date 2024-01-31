@@ -52,7 +52,7 @@ INSERT IGNORE npc_vendor(entry, item)
 SELECT creature_template.entry, item_template.entry
 FROM (SELECT DISTINCT entry FROM creature_template) creature_template
 JOIN (SELECT DISTINCT entry FROM item_template) item_template
-WHERE creature_template.entry IN (15127) AND item_template.entry IN (5512, 5511, 5509, 5510, 9421);
+WHERE creature_template.entry IN (14753) AND item_template.entry IN (5512, 5511, 5509, 5510, 9421);
 
 
 -- The League of Arathor Rep Vendor (AB)
@@ -67,6 +67,12 @@ INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (15
 INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (15127, 20122, 0);
 INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (15127, 20119, 0);
 INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (15127, 20118, 0);
+
+INSERT IGNORE npc_vendor(entry, item)
+SELECT creature_template.entry, item_template.entry
+FROM (SELECT DISTINCT entry FROM creature_template) creature_template
+JOIN (SELECT DISTINCT entry FROM item_template) item_template
+WHERE creature_template.entry IN (15127) AND item_template.entry IN (5512, 5511, 5509, 5510, 9421);
 
 -- Shaman Trainer (Stormwind)
 INSERT IGNORE `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (90034, 5175, 0, 0);
