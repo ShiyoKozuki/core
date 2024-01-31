@@ -426,6 +426,7 @@ public:
             SpellEntry const* pRainOfFire;
             SpellEntry const* pDemonicSacrifice;
             SpellEntry const* pSoulLink;
+            SpellEntry const* pAmplifyCurse;
             SpellEntry const* pDrainLife;
             SpellEntry const* pSiphonLife;
             SpellEntry const* pBanish;

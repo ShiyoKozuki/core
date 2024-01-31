@@ -1032,6 +1032,11 @@ void CombatBotBaseAI::PopulateSpellData()
                     if (IsHigherRankSpell(m_spells.warlock.pSoulLink))
                         m_spells.warlock.pSoulLink = pSpellEntry;
                 }
+                else if (pSpellEntry->SpellName[0].find("Amplify Curse") != std::string::npos)
+                {
+                    if (IsHigherRankSpell(m_spells.warlock.pAmplifyCurse))
+                        m_spells.warlock.pAmplifyCurse = pSpellEntry;
+                }
                 else if (pSpellEntry->SpellName[0].find("Drain Life") != std::string::npos)
                 {
                     if (IsHigherRankSpell(m_spells.warlock.pDrainLife))
