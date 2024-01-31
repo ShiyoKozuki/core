@@ -680,6 +680,16 @@ void CombatBotBaseAI::PopulateSpellData()
                     if (IsHigherRankSpell(m_spells.hunter.pScorpidSting))
                         m_spells.hunter.pScorpidSting = pSpellEntry;
                 }
+                else if (pSpellEntry->SpellName[0].find("Deterrence") != std::string::npos)
+                {
+                    if (IsHigherRankSpell(m_spells.hunter.pDeterrence))
+                        m_spells.hunter.pDeterrence = pSpellEntry;
+                }
+                else if (pSpellEntry->SpellName[0].find("Counterattack") != std::string::npos)
+                {
+                    if (IsHigherRankSpell(m_spells.hunter.pCounterattack))
+                        m_spells.hunter.pCounterattack = pSpellEntry;
+                        }
                 break;
             }
             case CLASS_MAGE:

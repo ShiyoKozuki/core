@@ -347,6 +347,8 @@ public:
             SpellEntry const* pRaptorStrike;
             SpellEntry const* pDisengage;
             SpellEntry const* pFeignDeath;
+            SpellEntry const* pDeterrence;
+            SpellEntry const* pCounterattack;
             SpellEntry const* pScareBeast;
             SpellEntry const* pVolley;
             SpellEntry const* pScatterShot;
