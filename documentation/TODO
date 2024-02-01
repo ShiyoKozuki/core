@@ -92,5 +92,23 @@ false in fc ai for casting spells after spell name? unsure why its there, maybe 
 beastial wrath and intimidate logic
 wyvern sting logic using poly(other target than current) logic
 repentance logic
+rogue bandage if target is blinded,  only 1 taget within 40 yards
+add not rooted to all run away logic(not druid)
+swiftmend logic rejuv aura on me anf has swiftmend and hp below 50%, especially in run away logic
+focus/cc healer logic
+leave combat to cap flag always in ab if hp > x% and no targets within 15 yards
+don't stack near other allied players, move away
+druid out of combat ai spam interrupts itself trying to heal still
+mage ai wonky, stands around idle a lot, takes forever to frostbolt, keeps trying to move forward?
+moonkin ai wonky still? same as mage stands there staring trying to move
+enrage for cat druid for feral charge
+blood rage to intercept/intimidate shout on war
+dont run away if detterence is active, face target and melee. add auracheck to running away
+if target is moving an d > 10 yards from you, entangle
+improve node capturing ai somehow
+ferals dont go bear form and chase in caster after swapping out of cat form if too far to feral charge
+IsNonMeleeSpellCasted doesn't work for shoot crossbow / ranged attacks
+run away and drink function if oom
+stop attacking if target is out of LOS for hunters/casters
 
 https://github.com/stoneharry/WoW-Spell-Editor/releases/tag/v2.2.1
