@@ -16,7 +16,6 @@
 
 #ifndef MANGOS_BattleBotWaypoints_H
 #define MANGOS_BattleBotWaypoints_H
-#define SPELL_CAPTURE_BANNER 21651
 
 #include "SharedDefines.h"
 #include <vector>
