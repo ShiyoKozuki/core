@@ -1279,6 +1279,9 @@ void BattleBotAI::UpdateFlagCarrierAI()
                 }
                 if (m_spells.mage.pCounterspell &&
                     pAttacker->IsNonMeleeSpellCasted(false, false, true) &&
+                    (pAttacker->GetClass() != CLASS_WARRIOR) &&
+                    (pAttacker->GetClass() != CLASS_ROGUE) &&
+                    (pAttacker->GetClass() != CLASS_HUNTER) &&
                     CanTryToCastSpell(pAttacker, m_spells.mage.pCounterspell))
                 {
                     if (DoCastSpell(pAttacker, m_spells.mage.pCounterspell) == SPELL_CAST_OK)
@@ -1359,6 +1362,9 @@ void BattleBotAI::UpdateFlagCarrierAI()
 
                 if (m_spells.priest.pSilence &&
                     pAttacker->IsNonMeleeSpellCasted(false, false, true) &&
+                    (pAttacker->GetClass() != CLASS_WARRIOR) &&
+                    (pAttacker->GetClass() != CLASS_ROGUE) &&
+                    (pAttacker->GetClass() != CLASS_HUNTER) &&
                     CanTryToCastSpell(pAttacker, m_spells.priest.pSilence))
                 {
                     if (DoCastSpell(pAttacker, m_spells.priest.pSilence) == SPELL_CAST_OK)
@@ -1995,6 +2001,9 @@ void BattleBotAI::UpdateInCombatAI_Shaman()
 
         if (m_spells.shaman.pEarthShock &&
             pVictim->IsNonMeleeSpellCasted(false, false, true) &&
+            (pVictim->GetClass() != CLASS_WARRIOR) &&
+            (pVictim->GetClass() != CLASS_ROGUE) &&
+            (pVictim->GetClass() != CLASS_HUNTER) &&
             CanTryToCastSpell(pVictim, m_spells.shaman.pEarthShock))
         {
             if (DoCastSpell(pVictim, m_spells.shaman.pEarthShock) == SPELL_CAST_OK)
@@ -2121,6 +2130,9 @@ void BattleBotAI::UpdateInCombatAI_Hunter()
         // Feign death spells being cast on me
         if (m_spells.hunter.pFeignDeath &&
             pVictim->IsNonMeleeSpellCasted(false, false, true) &&
+            (pVictim->GetClass() != CLASS_WARRIOR) &&
+            (pVictim->GetClass() != CLASS_ROGUE) &&
+            (pVictim->GetClass() != CLASS_HUNTER) &&
             !me->HasAura(AURA_WARSONG_FLAG) &&
             !me->HasAura(AURA_SILVERWING_FLAG) &&
             CanTryToCastSpell(me, m_spells.hunter.pFeignDeath))
@@ -2132,7 +2144,6 @@ void BattleBotAI::UpdateInCombatAI_Hunter()
         // Remove Feign death at < 25% HP
         if (me->GetHealthPercent() < (rand_chance() / 5.0f))
             if (m_spells.hunter.pFeignDeath &&
-                pVictim->IsNonMeleeSpellCasted(false, false, true) &&
                 !me->HasAura(AURA_WARSONG_FLAG) &&
                 !me->HasAura(AURA_SILVERWING_FLAG) &&
                 CanTryToCastSpell(me, m_spells.hunter.pFeignDeath))
@@ -2392,6 +2403,9 @@ void BattleBotAI::UpdateInCombatAI_Mage()
 
         if (m_spells.mage.pCounterspell &&
             pVictim->IsNonMeleeSpellCasted(false, false, true) &&
+            (pVictim->GetClass() != CLASS_WARRIOR) &&
+            (pVictim->GetClass() != CLASS_ROGUE) &&
+            (pVictim->GetClass() != CLASS_HUNTER) &&
             CanTryToCastSpell(pVictim, m_spells.mage.pCounterspell))
         {
             if (DoCastSpell(pVictim, m_spells.mage.pCounterspell) == SPELL_CAST_OK)
@@ -2914,6 +2928,9 @@ void BattleBotAI::UpdateInCombatAI_Priest()
     {
         if (m_spells.priest.pSilence &&
             pVictim->IsNonMeleeSpellCasted(false, false, true) &&
+            (pVictim->GetClass() != CLASS_WARRIOR) &&
+            (pVictim->GetClass() != CLASS_ROGUE) &&
+            (pVictim->GetClass() != CLASS_HUNTER) &&
             CanTryToCastSpell(pVictim, m_spells.priest.pSilence))
         {
             if (DoCastSpell(pVictim, m_spells.priest.pSilence) == SPELL_CAST_OK)
@@ -3795,7 +3812,10 @@ void BattleBotAI::UpdateInCombatAI_Rogue()
                 return;
         }
 
-        if (pVictim->IsNonMeleeSpellCasted())
+        if (pVictim->IsNonMeleeSpellCasted(false, false, true) &&
+            (pVictim->GetClass() != CLASS_WARRIOR) &&
+            (pVictim->GetClass() != CLASS_ROGUE) &&
+            (pVictim->GetClass() != CLASS_HUNTER))
         {
             if (m_spells.rogue.pKick &&
                 CanTryToCastSpell(pVictim, m_spells.rogue.pKick))
