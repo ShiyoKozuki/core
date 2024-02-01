@@ -68,7 +68,11 @@ enum BattleBotSpells
 };
 
 #define BB_UPDATE_INTERVAL 1000
-#define BB_TARGET_SELECT_INTERVAL 5000
+#define BB_FEIGN_DEATH_AURA 5384
+#define BB_SOUL_LINK 25228
+#define BB_DEATH_COIL_AURA1 1572
+#define BB_DEATH_COIL_AURA2 18161
+#define BB_DEATH_COIL_AURA3 18162
 #define BB_MAX_MELEE_CHASE_RANGE 20.0f
 #define BB_MAX_CHASE_RANGE 40.0f
 
@@ -353,15 +357,6 @@ Unit* BattleBotAI::SelectAttackTarget(Unit* pExcept) const
             if (pTarget->HasAura(AURA_SILVERWING_FLAG))
                 return pTarget;
         }
-
-        // Aggro healers
-        if ((IsHealerClass(pTarget->GetClass())) &&
-            pTarget->GetShapeshiftForm() == FORM_NONE)
-            return pTarget;
-
-        // Aggro casters / Hunters
-        if (IsRangedDamageClass(pTarget->GetClass()))
-            return pTarget;
 
         // Aggro weak enemies from further away.
         uint32 const aggroDistance = me->GetHealth() > pTarget->GetHealth() ? maxAggroDistance : 20.0f;
@@ -796,9 +791,9 @@ void BattleBotAI::UpdateAI(uint32 const diff)
 
     // Remove Feign death if > 25% HP
     if ((me->GetClass() == CLASS_HUNTER) &&
-        (me->HasAura(m_spells.hunter.pFeignDeath->Id) &&
+        (me->HasAura(BB_FEIGN_DEATH_AURA) &&
         me->GetHealthPercent() > 25.0f))
-        me->RemoveAurasDueToSpell(m_spells.hunter.pFeignDeath->Id);
+        me->RemoveAurasDueToSpell(BB_FEIGN_DEATH_AURA);
     
     if (me->IsDead())
     {
@@ -872,28 +867,12 @@ void BattleBotAI::UpdateAI(uint32 const diff)
         if (IsMeleeDamageClass(me->GetClass()) || m_role == ROLE_HEALER)
         {
             if (me->GetDistance(pVictim) > BB_MAX_MELEE_CHASE_RANGE)
-            {
                 me->AttackStop();
-                if (Pet* pPet = me->GetPet())
-                {
-                    if (pPet->IsAlive())
-                        pPet->AttackStop();
-                }
-                return;
-            }
         }
         else
         {
             if (me->GetDistance(pVictim) > BB_MAX_CHASE_RANGE)
-            {
                 me->AttackStop();
-                if (Pet* pPet = me->GetPet())
-                {
-                    if (pPet->IsAlive())
-                        pPet->AttackStop();
-                }
-                return;
-            }
         }
     }
 
@@ -965,27 +944,6 @@ void BattleBotAI::UpdateAI(uint32 const diff)
         UpdateFlagCarrierAI();
         UpdateWaypointMovement();
         return;
-    }
-    
-    // Select a new target if ther is a better target to select
-    m_targetSelectTimer.Update(diff);
-    if (m_targetSelectTimer.Passed())
-    {
-        m_targetSelectTimer.Reset(BB_UPDATE_INTERVAL);
-        if (pVictim && GetAttackersInRangeCount(50.0f) > 1)
-        {
-            Unit* newVictim = SelectAttackTarget(pVictim);
-
-            if (newVictim && (newVictim != pVictim))
-            {
-                if (pVictim)
-                    me->AttackStop();
-                else
-                    AttackStart(newVictim);
-
-                return;
-            }
-        }
     }
 
     if (!pVictim || !IsValidHostileTarget(pVictim) || 
@@ -1733,7 +1691,8 @@ void BattleBotAI::UpdateInCombatAI_Paladin()
         if (Unit* pVictim = me->GetVictim())
         {
             if (GetAttackersInRangeCount(10.0f) > 1 &&
-                !me->HasUnitState(UNIT_STAT_ROOT))
+                !me->HasUnitState(UNIT_STAT_ROOT) &&
+                (me->GetMotionMaster()->GetCurrentMovementGeneratorType() != DISTANCING_MOTION_TYPE))
             {
                 // BOP self at low HP, otherwise freedom self to run away
                 if (me->GetHealthPercent() < 20.0f &&
@@ -1788,9 +1747,8 @@ void BattleBotAI::UpdateInCombatAI_Paladin()
                     }
                 }
 
-                if (me->GetMotionMaster()->GetCurrentMovementGeneratorType() != DISTANCING_MOTION_TYPE)
-                    if (me->GetMotionMaster()->MoveDistance(pVictim, 25.0f))
-                        return;
+                if (me->GetMotionMaster()->MoveDistance(pVictim, 25.0f))
+                    return;
             }
         }
     }
@@ -2021,14 +1979,14 @@ void BattleBotAI::UpdateInCombatAI_Shaman()
             if (Unit* pVictim = me->GetVictim())
             {
                 if (GetAttackersInRangeCount(10.0f) > 1 &&
-                    !me->HasUnitState(UNIT_STAT_ROOT))
+                    !me->HasUnitState(UNIT_STAT_ROOT) &&
+                    (me->GetMotionMaster()->GetCurrentMovementGeneratorType() != DISTANCING_MOTION_TYPE))
                 {
                     if (SummonShamanTotems())
                         return;
 
-                    if (me->GetMotionMaster()->GetCurrentMovementGeneratorType() != DISTANCING_MOTION_TYPE)
-                        if (me->GetMotionMaster()->MoveDistance(pVictim, 25.0f))
-                            return;
+                    if (me->GetMotionMaster()->MoveDistance(pVictim, 25.0f))
+                        return;
                 }
             }
         }
@@ -2121,9 +2079,9 @@ void BattleBotAI::UpdateInCombatAI_Shaman()
 void BattleBotAI::UpdateOutOfCombatAI_Hunter()
 {
     // Remove Feign death if > 25% HP
-    if (me->HasAura(m_spells.hunter.pFeignDeath->Id) &&
+    if (me->HasAura(BB_FEIGN_DEATH_AURA) &&
         me->GetHealthPercent() > 25.0f)
-        me->RemoveAurasDueToSpell(m_spells.hunter.pFeignDeath->Id);
+        me->RemoveAurasDueToSpell(BB_FEIGN_DEATH_AURA);
 
     if (m_spells.hunter.pAspectOfTheHawk &&
         CanTryToCastSpell(me, m_spells.hunter.pAspectOfTheHawk))
@@ -2163,9 +2121,9 @@ void BattleBotAI::UpdateOutOfCombatAI_Hunter()
 
 void BattleBotAI::UpdateInCombatAI_Hunter()
 {
-    if (me->HasAura(m_spells.hunter.pFeignDeath->Id) &&
+    if (me->HasAura(BB_FEIGN_DEATH_AURA) &&
         me->GetHealthPercent() > 25.0f)
-        me->RemoveAurasDueToSpell(m_spells.hunter.pFeignDeath->Id);
+        me->RemoveAurasDueToSpell(BB_FEIGN_DEATH_AURA);
 
     if (Unit* pVictim = me->GetVictim())
     {
@@ -2225,7 +2183,8 @@ void BattleBotAI::UpdateInCombatAI_Hunter()
 
         // Run away if more than 1 enemy is near
         if (GetAttackersInRangeCount(10.0f) > 1 &&
-            !me->HasUnitState(UNIT_STAT_ROOT))
+            !me->HasUnitState(UNIT_STAT_ROOT) &&
+            (me->GetMotionMaster()->GetCurrentMovementGeneratorType() != DISTANCING_MOTION_TYPE))
         {
             if (m_spells.hunter.pScatterShot &&
                 CanTryToCastSpell(pVictim, m_spells.hunter.pScatterShot))
@@ -2233,9 +2192,8 @@ void BattleBotAI::UpdateInCombatAI_Hunter()
                 DoCastSpell(pVictim, m_spells.hunter.pScatterShot);
             }
 
-            if (me->GetMotionMaster()->GetCurrentMovementGeneratorType() != DISTANCING_MOTION_TYPE)
-                if (me->GetMotionMaster()->MoveDistance(pVictim, 25.0f))
-                    return;
+            if (me->GetMotionMaster()->MoveDistance(pVictim, 25.0f))
+                return;
         }
 
         if (pVictim->IsCaster())
@@ -2456,7 +2414,8 @@ void BattleBotAI::UpdateInCombatAI_Mage()
 
         // Run away if more than 1 enemy is near
         if (GetAttackersInRangeCount(10.0f) > 1 &&
-            !me->HasUnitState(UNIT_STAT_ROOT))
+            !me->HasUnitState(UNIT_STAT_ROOT) &&
+            (me->GetMotionMaster()->GetCurrentMovementGeneratorType() != DISTANCING_MOTION_TYPE))
         {
 
             if (m_spells.mage.pFrostNova &&
@@ -2490,9 +2449,8 @@ void BattleBotAI::UpdateInCombatAI_Mage()
                     return;
             }
 
-            if (me->GetMotionMaster()->GetCurrentMovementGeneratorType() != DISTANCING_MOTION_TYPE)
-                if (me->GetMotionMaster()->MoveDistance(pVictim, 25.0f))
-                    return;
+            if (me->GetMotionMaster()->MoveDistance(pVictim, 25.0f))
+                return;
         }
 
         if (m_spells.mage.pPolymorph &&
@@ -2830,7 +2788,8 @@ void BattleBotAI::UpdateInCombatAI_Priest()
     if (Unit* pVictim = me->GetVictim())
     {
         if (GetAttackersInRangeCount(10.0f) > 1 &&
-            !me->HasUnitState(UNIT_STAT_ROOT))
+            !me->HasUnitState(UNIT_STAT_ROOT) &&
+            (me->GetMotionMaster()->GetCurrentMovementGeneratorType() != DISTANCING_MOTION_TYPE))
         {
             if (m_spells.priest.pPsychicScream &&
                 GetAttackersInRangeCount(8.0f) &&
@@ -2878,9 +2837,8 @@ void BattleBotAI::UpdateInCombatAI_Priest()
                 }
             }
 
-            if (me->GetMotionMaster()->GetCurrentMovementGeneratorType() != DISTANCING_MOTION_TYPE)
-                if (me->GetMotionMaster()->MoveDistance(pVictim, 25.0f))
-                    return;
+            if (me->GetMotionMaster()->MoveDistance(pVictim, 25.0f))
+                return;
         }
     }
 
@@ -3146,7 +3104,8 @@ void BattleBotAI::UpdateInCombatAI_Warlock()
     {
         // Run away if more than 1 enemy is near
         if (GetAttackersInRangeCount(10.0f) > 1 &&
-            !me->HasUnitState(UNIT_STAT_ROOT))
+            !me->HasUnitState(UNIT_STAT_ROOT) &&
+            (me->GetMotionMaster()->GetCurrentMovementGeneratorType() != DISTANCING_MOTION_TYPE))
         {
             if (m_spells.warlock.pDeathCoil &&
                 CanTryToCastSpell(pVictim, m_spells.warlock.pDeathCoil))
@@ -3191,9 +3150,8 @@ void BattleBotAI::UpdateInCombatAI_Warlock()
                     return;
             }
 
-            if (me->GetMotionMaster()->GetCurrentMovementGeneratorType() != DISTANCING_MOTION_TYPE)
-                if (me->GetMotionMaster()->MoveDistance(pVictim, 25.0f))
-                    return;
+            if (me->GetMotionMaster()->MoveDistance(pVictim, 25.0f))
+                return;
         }
 
         if (m_spells.warlock.pDeathCoil &&
@@ -3206,7 +3164,7 @@ void BattleBotAI::UpdateInCombatAI_Warlock()
 
         // Fear death coiled targets
         if (m_spells.warlock.pFear &&
-            (pVictim->HasAura(m_spells.warlock.pDeathCoil->Id)) &&
+            (pVictim->HasAura(BB_DEATH_COIL_AURA1) || pVictim->HasAura(BB_DEATH_COIL_AURA2) || pVictim->HasAura(BB_DEATH_COIL_AURA3)) &&
             CanTryToCastSpell(pVictim, m_spells.warlock.pFear))
         {
             if (DoCastSpell(pVictim, m_spells.warlock.pFear) == SPELL_CAST_OK)
@@ -3252,7 +3210,7 @@ void BattleBotAI::UpdateInCombatAI_Warlock()
         }
 
         if (m_spells.warlock.pSoulLink &&
-            !me->HasAura(m_spells.warlock.pSoulLink->Id))
+            !me->HasAura(BB_SOUL_LINK))
         {
             if (Pet* pPet = me->GetPet())
             {
@@ -3427,10 +3385,7 @@ void BattleBotAI::UpdateInCombatAI_Warrior()
 {
     if (Unit* pVictim = me->GetVictim())
     {
-        if (pVictim->IsNonMeleeSpellCasted(false, false, true) &&
-            (pVictim->GetClass() != CLASS_WARRIOR) &&
-            (pVictim->GetClass() != CLASS_ROGUE) &&
-            (pVictim->GetClass() != CLASS_HUNTER))
+        if (pVictim->IsNonMeleeSpellCasted(false, false, true))
         {
             if (m_spells.warrior.pPummel &&
                 CanTryToCastSpell(pVictim, m_spells.warrior.pPummel))
@@ -3701,25 +3656,6 @@ void BattleBotAI::UpdateOutOfCombatAI_Rogue()
             return;
     }
 
-    if (Unit* pVictim = me->GetVictim())
-    {
-        if (me->HasAuraType(SPELL_AURA_MOD_STEALTH))
-        {
-            if (m_spells.rogue.pPremeditation &&
-                CanTryToCastSpell(pVictim, m_spells.rogue.pPremeditation))
-            {
-                DoCastSpell(pVictim, m_spells.rogue.pPremeditation);
-            }
-
-            if (m_spells.rogue.pCheapShot &&
-                CanTryToCastSpell(pVictim, m_spells.rogue.pCheapShot))
-            {
-                if (DoCastSpell(pVictim, m_spells.rogue.pCheapShot) == SPELL_CAST_OK)
-                    return;
-            }
-        }
-    }
-
     if (me->GetVictim())
         UpdateInCombatAI_Rogue();
 }
@@ -3812,8 +3748,7 @@ void BattleBotAI::UpdateInCombatAI_Rogue()
             }
         }
 
-        if (me->GetComboPoints() > 2 &&
-            (!pVictim->HasUnitState(UNIT_STAT_STUNNED)))
+        if (me->GetComboPoints() > 2)
         {
             if (m_spells.rogue.pKidneyShot &&
                 CanTryToCastSpell(pVictim, m_spells.rogue.pKidneyShot))
@@ -4054,27 +3989,6 @@ void BattleBotAI::UpdateOutOfCombatAI_Druid()
             if (DoCastSpell(me, m_spells.druid.pProwl) == SPELL_CAST_OK)
                 return;
         }
-
-        if (Unit* pVictim = me->GetVictim())
-        {
-            if (me->HasAuraType(SPELL_AURA_MOD_STEALTH))
-            {
-                if (m_spells.druid.pPounce &&
-                    CanTryToCastSpell(pVictim, m_spells.druid.pPounce))
-                {
-                    if (DoCastSpell(pVictim, m_spells.druid.pPounce) == SPELL_CAST_OK)
-                        return;
-                }
-
-                if (m_spells.druid.pTigersFury &&
-                    CanTryToCastSpell(me, m_spells.druid.pTigersFury))
-                {
-                    if (DoCastSpell(me, m_spells.druid.pTigersFury) == SPELL_CAST_OK)
-                        return;
-                }
-                return;
-            }
-        }
     }
 
     if (me->GetVictim())
@@ -4110,7 +4024,8 @@ void BattleBotAI::UpdateInCombatAI_Druid()
     // Run away if in danger of dying
     if (Unit* pVictim = me->GetVictim())
     {
-        if (me->GetHealthPercent() < 20.0f)
+        if (me->GetHealthPercent() < 20.0f &&
+            (me->GetMotionMaster()->GetCurrentMovementGeneratorType() != DISTANCING_MOTION_TYPE))
         {
             if (me->GetShapeshiftForm() == FORM_NONE)
             {
@@ -4122,9 +4037,8 @@ void BattleBotAI::UpdateInCombatAI_Druid()
                 }
             }
 
-            if (me->GetMotionMaster()->GetCurrentMovementGeneratorType() != DISTANCING_MOTION_TYPE)
-                if (me->GetMotionMaster()->MoveDistance(pVictim, 50.0f))
-                    return;
+            if (me->GetMotionMaster()->MoveDistance(pVictim, 50.0f))
+                return;
         }
     }
 
@@ -4133,7 +4047,8 @@ void BattleBotAI::UpdateInCombatAI_Druid()
     {
         if (Unit* pVictim = me->GetVictim())
         {
-            if (GetAttackersInRangeCount(10.0f) > 1)
+            if (GetAttackersInRangeCount(10.0f) > 1 &&
+                (me->GetMotionMaster()->GetCurrentMovementGeneratorType() != DISTANCING_MOTION_TYPE))
             {
                 if (me->GetShapeshiftForm() == FORM_NONE)
                 {
@@ -4159,9 +4074,8 @@ void BattleBotAI::UpdateInCombatAI_Druid()
                     }
                 }
 
-                if (me->GetMotionMaster()->GetCurrentMovementGeneratorType() != DISTANCING_MOTION_TYPE)
-                    if (me->GetMotionMaster()->MoveDistance(pVictim, 25.0f))
-                        return;
+                if (me->GetMotionMaster()->MoveDistance(pVictim, 25.0f))
+                    return;
             }
         }
     }
@@ -4593,19 +4507,8 @@ void BattleBotAI::UpdateInCombatAI_Druid()
                     }
                 }
 
-                // Entangle mounted players or players with the flag
                 if (m_spells.druid.pEntanglingRoots &&
                     (pVictim->IsMounted() || pVictim->HasAura(AURA_SILVERWING_FLAG) || pVictim->HasAura(AURA_WARSONG_FLAG)) &&
-                    CanTryToCastSpell(pVictim, m_spells.druid.pEntanglingRoots))
-                {
-                    if (DoCastSpell(pVictim, m_spells.druid.pEntanglingRoots) == SPELL_CAST_OK)
-                        return;
-                }
-
-                // Entangle enemies moving and further than 10 yards
-                if (m_spells.druid.pEntanglingRoots &&
-                    pVictim->IsMoving() &&
-                    (me->GetDistance(pVictim) > 10.0f) &&
                     CanTryToCastSpell(pVictim, m_spells.druid.pEntanglingRoots))
                 {
                     if (DoCastSpell(pVictim, m_spells.druid.pEntanglingRoots) == SPELL_CAST_OK)
@@ -4635,6 +4538,7 @@ void BattleBotAI::UpdateInCombatAI_Druid()
                 }
 
                 if (m_spells.druid.pStarfire &&
+                   (pVictim->GetHealthPercent() > 50.0f) &&
                     CanTryToCastSpell(pVictim, m_spells.druid.pStarfire))
                 {
                     if (DoCastSpell(pVictim, m_spells.druid.pStarfire) == SPELL_CAST_OK)
