@@ -165,8 +165,6 @@ void WSG_AtHordeGraveyard(BattleBotAI* pAI)
         pAI->MoveToNextPoint();
 }
 
-#define SPELL_CAPTURE_BANNER 21651
-
 std::vector<uint32> const vFlagsAV = { GO_AV_HORDE_BANNER1 , GO_AV_HORDE_BANNER2 , GO_AV_ALLIANCE_BANNER1 , GO_AV_ALLIANCE_BANNER2 ,
                                        GO_AV_CONTESTED_BANNER1 , GO_AV_CONTESTED_BANNER2 , GO_AV_CONTESTED_BANNER3 ,
                                        GO_AV_CONTESTED_BANNER4 , GO_AV_SNOWFALL_BANNER };
