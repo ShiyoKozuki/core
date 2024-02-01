@@ -110,5 +110,11 @@ ferals dont go bear form and chase in caster after swapping out of cat form if t
 IsNonMeleeSpellCasted doesn't work for shoot crossbow / ranged attacks
 run away and drink function if oom
 stop attacking if target is out of LOS for hunters/casters
+upgrade bot pathing in AB
+prio capping flag
+stealth openers
+don't run away if deter is active
+properly swap targets mid fighting?
+healer run away drink logic
 
 https://github.com/stoneharry/WoW-Spell-Editor/releases/tag/v2.2.1

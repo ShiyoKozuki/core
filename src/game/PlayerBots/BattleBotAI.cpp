@@ -358,6 +358,15 @@ Unit* BattleBotAI::SelectAttackTarget(Unit* pExcept) const
                 return pTarget;
         }
 
+        // Aggro healers
+        if ((IsHealerClass(pTarget->GetClass())) &&
+            pTarget->GetShapeshiftForm() == FORM_NONE)
+            return pTarget;
+
+        // Aggro casters / Hunters
+        if (IsRangedDamageClass(pTarget->GetClass()))
+            return pTarget;
+
         // Aggro weak enemies from further away.
         uint32 const aggroDistance = me->GetHealth() > pTarget->GetHealth() ? maxAggroDistance : 20.0f;
         if (!me->IsWithinDist(pTarget, aggroDistance))
@@ -867,12 +876,29 @@ void BattleBotAI::UpdateAI(uint32 const diff)
         if (IsMeleeDamageClass(me->GetClass()) || m_role == ROLE_HEALER)
         {
             if (me->GetDistance(pVictim) > BB_MAX_MELEE_CHASE_RANGE)
+            {
                 me->AttackStop();
+                if (Pet* pPet = me->GetPet())
+                {
+                    if (pPet->IsAlive())
+                        pPet->AttackStop();
+                }
+                return;
+            }
+
         }
         else
         {
             if (me->GetDistance(pVictim) > BB_MAX_CHASE_RANGE)
+            {
                 me->AttackStop();
+                if (Pet* pPet = me->GetPet())
+                {
+                    if (pPet->IsAlive())
+                        pPet->AttackStop();
+                }
+                return;
+            }
         }
     }
 
@@ -944,6 +970,27 @@ void BattleBotAI::UpdateAI(uint32 const diff)
         UpdateFlagCarrierAI();
         UpdateWaypointMovement();
         return;
+    }
+
+    // Select a new target if ther is a better target to select
+    m_targetSelectTimer.Update(diff);
+    if (m_targetSelectTimer.Passed())
+    {
+        m_targetSelectTimer.Reset(BB_UPDATE_INTERVAL);
+        if (pVictim && GetAttackersInRangeCount(50.0f) > 1)
+        {
+            Unit* newVictim = SelectAttackTarget(pVictim);
+
+            if (newVictim && (newVictim != pVictim))
+            {
+                if (pVictim)
+                    me->AttackStop();
+                else
+                    AttackStart(newVictim);
+
+                return;
+            }
+        }
     }
 
     if (!pVictim || !IsValidHostileTarget(pVictim) || 
@@ -1691,8 +1738,7 @@ void BattleBotAI::UpdateInCombatAI_Paladin()
         if (Unit* pVictim = me->GetVictim())
         {
             if (GetAttackersInRangeCount(10.0f) > 1 &&
-                !me->HasUnitState(UNIT_STAT_ROOT) &&
-                (me->GetMotionMaster()->GetCurrentMovementGeneratorType() != DISTANCING_MOTION_TYPE))
+                !me->HasUnitState(UNIT_STAT_ROOT))
             {
                 // BOP self at low HP, otherwise freedom self to run away
                 if (me->GetHealthPercent() < 20.0f &&
@@ -1747,8 +1793,9 @@ void BattleBotAI::UpdateInCombatAI_Paladin()
                     }
                 }
 
-                if (me->GetMotionMaster()->MoveDistance(pVictim, 25.0f))
-                    return;
+                if (me->GetMotionMaster()->GetCurrentMovementGeneratorType() != DISTANCING_MOTION_TYPE)
+                    if (me->GetMotionMaster()->MoveDistance(pVictim, 25.0f))
+                        return;
             }
         }
     }
@@ -1979,12 +2026,12 @@ void BattleBotAI::UpdateInCombatAI_Shaman()
             if (Unit* pVictim = me->GetVictim())
             {
                 if (GetAttackersInRangeCount(10.0f) > 1 &&
-                    !me->HasUnitState(UNIT_STAT_ROOT) &&
-                    (me->GetMotionMaster()->GetCurrentMovementGeneratorType() != DISTANCING_MOTION_TYPE))
+                    !me->HasUnitState(UNIT_STAT_ROOT))
                 {
                     if (SummonShamanTotems())
                         return;
 
+                if (me->GetMotionMaster()->GetCurrentMovementGeneratorType() != DISTANCING_MOTION_TYPE)
                     if (me->GetMotionMaster()->MoveDistance(pVictim, 25.0f))
                         return;
                 }
@@ -2183,8 +2230,7 @@ void BattleBotAI::UpdateInCombatAI_Hunter()
 
         // Run away if more than 1 enemy is near
         if (GetAttackersInRangeCount(10.0f) > 1 &&
-            !me->HasUnitState(UNIT_STAT_ROOT) &&
-            (me->GetMotionMaster()->GetCurrentMovementGeneratorType() != DISTANCING_MOTION_TYPE))
+            !me->HasUnitState(UNIT_STAT_ROOT))
         {
             if (m_spells.hunter.pScatterShot &&
                 CanTryToCastSpell(pVictim, m_spells.hunter.pScatterShot))
@@ -2192,8 +2238,9 @@ void BattleBotAI::UpdateInCombatAI_Hunter()
                 DoCastSpell(pVictim, m_spells.hunter.pScatterShot);
             }
 
-            if (me->GetMotionMaster()->MoveDistance(pVictim, 25.0f))
-                return;
+            if (me->GetMotionMaster()->GetCurrentMovementGeneratorType() != DISTANCING_MOTION_TYPE)
+                if (me->GetMotionMaster()->MoveDistance(pVictim, 25.0f))
+                    return;
         }
 
         if (pVictim->IsCaster())
@@ -2414,8 +2461,7 @@ void BattleBotAI::UpdateInCombatAI_Mage()
 
         // Run away if more than 1 enemy is near
         if (GetAttackersInRangeCount(10.0f) > 1 &&
-            !me->HasUnitState(UNIT_STAT_ROOT) &&
-            (me->GetMotionMaster()->GetCurrentMovementGeneratorType() != DISTANCING_MOTION_TYPE))
+            !me->HasUnitState(UNIT_STAT_ROOT))
         {
 
             if (m_spells.mage.pFrostNova &&
@@ -2449,8 +2495,9 @@ void BattleBotAI::UpdateInCombatAI_Mage()
                     return;
             }
 
-            if (me->GetMotionMaster()->MoveDistance(pVictim, 25.0f))
-                return;
+            if (me->GetMotionMaster()->GetCurrentMovementGeneratorType() != DISTANCING_MOTION_TYPE)
+                if (me->GetMotionMaster()->MoveDistance(pVictim, 25.0f))
+                    return;
         }
 
         if (m_spells.mage.pPolymorph &&
@@ -2788,8 +2835,7 @@ void BattleBotAI::UpdateInCombatAI_Priest()
     if (Unit* pVictim = me->GetVictim())
     {
         if (GetAttackersInRangeCount(10.0f) > 1 &&
-            !me->HasUnitState(UNIT_STAT_ROOT) &&
-            (me->GetMotionMaster()->GetCurrentMovementGeneratorType() != DISTANCING_MOTION_TYPE))
+            !me->HasUnitState(UNIT_STAT_ROOT))
         {
             if (m_spells.priest.pPsychicScream &&
                 GetAttackersInRangeCount(8.0f) &&
@@ -2837,8 +2883,9 @@ void BattleBotAI::UpdateInCombatAI_Priest()
                 }
             }
 
-            if (me->GetMotionMaster()->MoveDistance(pVictim, 25.0f))
-                return;
+            if (me->GetMotionMaster()->GetCurrentMovementGeneratorType() != DISTANCING_MOTION_TYPE)
+                if (me->GetMotionMaster()->MoveDistance(pVictim, 25.0f))
+                    return;
         }
     }
 
@@ -3104,8 +3151,7 @@ void BattleBotAI::UpdateInCombatAI_Warlock()
     {
         // Run away if more than 1 enemy is near
         if (GetAttackersInRangeCount(10.0f) > 1 &&
-            !me->HasUnitState(UNIT_STAT_ROOT) &&
-            (me->GetMotionMaster()->GetCurrentMovementGeneratorType() != DISTANCING_MOTION_TYPE))
+            !me->HasUnitState(UNIT_STAT_ROOT))
         {
             if (m_spells.warlock.pDeathCoil &&
                 CanTryToCastSpell(pVictim, m_spells.warlock.pDeathCoil))
@@ -3150,8 +3196,9 @@ void BattleBotAI::UpdateInCombatAI_Warlock()
                     return;
             }
 
-            if (me->GetMotionMaster()->MoveDistance(pVictim, 25.0f))
-                return;
+            if (me->GetMotionMaster()->GetCurrentMovementGeneratorType() != DISTANCING_MOTION_TYPE)
+                if (me->GetMotionMaster()->MoveDistance(pVictim, 25.0f))
+                    return;
         }
 
         if (m_spells.warlock.pDeathCoil &&
@@ -4024,8 +4071,7 @@ void BattleBotAI::UpdateInCombatAI_Druid()
     // Run away if in danger of dying
     if (Unit* pVictim = me->GetVictim())
     {
-        if (me->GetHealthPercent() < 20.0f &&
-            (me->GetMotionMaster()->GetCurrentMovementGeneratorType() != DISTANCING_MOTION_TYPE))
+        if (me->GetHealthPercent() < 20.0f)
         {
             if (me->GetShapeshiftForm() == FORM_NONE)
             {
@@ -4037,8 +4083,9 @@ void BattleBotAI::UpdateInCombatAI_Druid()
                 }
             }
 
-            if (me->GetMotionMaster()->MoveDistance(pVictim, 50.0f))
-                return;
+            if (me->GetMotionMaster()->GetCurrentMovementGeneratorType() != DISTANCING_MOTION_TYPE)
+                if (me->GetMotionMaster()->MoveDistance(pVictim, 50.0f))
+                    return;
         }
     }
 
@@ -4047,8 +4094,7 @@ void BattleBotAI::UpdateInCombatAI_Druid()
     {
         if (Unit* pVictim = me->GetVictim())
         {
-            if (GetAttackersInRangeCount(10.0f) > 1 &&
-                (me->GetMotionMaster()->GetCurrentMovementGeneratorType() != DISTANCING_MOTION_TYPE))
+            if (GetAttackersInRangeCount(10.0f) > 1)
             {
                 if (me->GetShapeshiftForm() == FORM_NONE)
                 {
@@ -4074,8 +4120,9 @@ void BattleBotAI::UpdateInCombatAI_Druid()
                     }
                 }
 
-                if (me->GetMotionMaster()->MoveDistance(pVictim, 25.0f))
-                    return;
+                if (me->GetMotionMaster()->GetCurrentMovementGeneratorType() != DISTANCING_MOTION_TYPE)
+                    if (me->GetMotionMaster()->MoveDistance(pVictim, 25.0f))
+                        return;
             }
         }
     }
@@ -4447,8 +4494,7 @@ void BattleBotAI::UpdateInCombatAI_Druid()
                 else if (pVictim->CanReachWithMeleeAutoAttack(me) &&
                         (pVictim->GetVictim() == me) &&
                         IsMeleeDamageClass(pVictim->GetClass()) &&
-                        !pVictim->HasUnitState(UNIT_STAT_ROOT) &&
-                        (me->GetMotionMaster()->GetCurrentMovementGeneratorType() != DISTANCING_MOTION_TYPE))
+                        !pVictim->HasUnitState(UNIT_STAT_ROOT))
                 {
                     if (m_spells.druid.pNaturesGrasp &&
                         CanTryToCastSpell(me, m_spells.druid.pNaturesGrasp))
@@ -4478,8 +4524,9 @@ void BattleBotAI::UpdateInCombatAI_Druid()
                         }
                     }
                     me->SetCasterChaseDistance(25.0f);
-                    if (me->GetMotionMaster()->MoveDistance(pVictim, 25.0f))
-                        return;
+                    if (me->GetMotionMaster()->GetCurrentMovementGeneratorType() != DISTANCING_MOTION_TYPE)
+                        if (me->GetMotionMaster()->MoveDistance(pVictim, 25.0f))
+                            return;
                 }
 
                 // Go back to Bear or Cat form if tank or melee DPS
