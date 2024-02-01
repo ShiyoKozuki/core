@@ -213,6 +213,15 @@ bool BattleBotAI::DrinkAndEat()
         {
             me->CastSpell(me, pSpellEntry, true);
             me->RemoveSpellCooldown(*pSpellEntry);
+            if ((me->GetClass() == CLASS_ROGUE) &&
+                m_spells.rogue.pStealth &&
+                CanTryToCastSpell(me, m_spells.rogue.pStealth) &&
+                !me->HasAura(AURA_WARSONG_FLAG) &&
+                !me->HasAura(AURA_SILVERWING_FLAG))
+            {
+                if (DoCastSpell(me, m_spells.rogue.pStealth) == SPELL_CAST_OK)
+                    return true;
+            }
         }
         return true;
     }
@@ -1024,7 +1033,7 @@ void BattleBotAI::UpdateFlagCarrierAI()
             }
             if (me->GetHealthPercent() < 60.0f)
             {
-                if (FindAndHealInjuredAlly(60.0f))
+                if (FindAndHealInjuredAlly(60.0f, 60.0f))
                     return;
             }
             break;
@@ -1044,7 +1053,7 @@ void BattleBotAI::UpdateFlagCarrierAI()
                     if (!me->IsMounted() &&
                         (!GetMountSpellId() || me->HasAura(AURA_WARSONG_FLAG) || me->HasAura(AURA_SILVERWING_FLAG)))
                     {
-                        if (FindAndHealInjuredAlly(60.0f))
+                        if (FindAndHealInjuredAlly(60.0f, 60.0f))
                             return;
                     }
                 }
@@ -1096,7 +1105,7 @@ void BattleBotAI::UpdateFlagCarrierAI()
 
                     me->RemoveAurasDueToSpellByCancel(m_spells.priest.pShadowform->Id);
                 if (me->GetShapeshiftForm() == FORM_NONE &&
-                    FindAndHealInjuredAlly(60.0f))
+                    FindAndHealInjuredAlly(60.0f, 60.0f))
                     return;
             }
             if (Unit* HealTarget = SelectPeriodicHealTarget(80.0f, 90.0f))
@@ -1136,7 +1145,7 @@ void BattleBotAI::UpdateFlagCarrierAI()
 
                 if (me->GetShapeshiftForm() == FORM_NONE)
                 {
-                    if (FindAndHealInjuredAlly(60.0f))
+                    if (FindAndHealInjuredAlly(60.0f, 60.0f))
                         return;
                 }
             }
@@ -1173,7 +1182,7 @@ void BattleBotAI::UpdateFlagCarrierAI()
                 }
                 if (me->GetHealthPercent() < 60.0f)
                 {
-                    if (FindAndHealInjuredAlly(60.0f))
+                    if (FindAndHealInjuredAlly(60.0f, 60.0f))
                         return;
                 }
                 if (m_spells.paladin.pBlessingOfFreedom &&
@@ -1220,7 +1229,7 @@ void BattleBotAI::UpdateFlagCarrierAI()
 
                     if (me->GetShapeshiftForm() == FORM_NONE)
                     {
-                        if (FindAndHealInjuredAlly(60.0f))
+                        if (FindAndHealInjuredAlly(60.0f, 60.0f))
                             return;
                     }
                 }
@@ -1341,7 +1350,7 @@ void BattleBotAI::UpdateFlagCarrierAI()
 
                         me->RemoveAurasDueToSpellByCancel(m_spells.priest.pShadowform->Id);
                     if (me->GetShapeshiftForm() == FORM_NONE &&
-                        FindAndHealInjuredAlly(60.0f))
+                        FindAndHealInjuredAlly(60.0f, 60.0f))
                         return;
                 }
                 if (Unit* HealTarget = SelectPeriodicHealTarget(80.0f, 90.0f))
@@ -1514,7 +1523,7 @@ void BattleBotAI::UpdateFlagCarrierAI()
                                 return;
                         }
 
-                        if (FindAndHealInjuredAlly(60.0f))
+                        if (FindAndHealInjuredAlly(60.0f, 60.0f))
                             return;
                     }
                 }
@@ -1655,7 +1664,7 @@ void BattleBotAI::UpdateOutOfCombatAI_Paladin()
         m_isBuffing = false;
     }
 
-    FindAndHealInjuredAlly();
+    FindAndHealInjuredAlly(60.0f, 60.0f);
 }
 
 void BattleBotAI::UpdateInCombatAI_Paladin()
@@ -1675,7 +1684,9 @@ void BattleBotAI::UpdateInCombatAI_Paladin()
     {
         if (Unit* pVictim = me->GetVictim())
         {
-            if (GetAttackersInRangeCount(15.0f) > 1)
+            if (GetAttackersInRangeCount(10.0f) > 1 &&
+                !me->HasUnitState(UNIT_STAT_ROOT) &&
+                (me->GetMotionMaster()->GetCurrentMovementGeneratorType() != DISTANCING_MOTION_TYPE))
             {
                 // BOP self at low HP, otherwise freedom self to run away
                 if (me->GetHealthPercent() < 20.0f &&
@@ -1736,7 +1747,14 @@ void BattleBotAI::UpdateInCombatAI_Paladin()
         }
     }
 
-    FindAndHealInjuredAlly(me->IsTotalImmune() ? 80.0f : 40.0f, 50.0f);
+    if (m_role == ROLE_HEALER)
+    {
+        FindAndHealInjuredAlly(80.0f, 80.0f);
+    }
+    else
+    {
+        FindAndHealInjuredAlly(me->IsTotalImmune() ? 80.0f : 40.0f, 50.0f);
+    }
 
     bool const hasSeal = m_spells.paladin.pSeal && me->HasAura(m_spells.paladin.pSeal->Id);
 
@@ -1884,7 +1902,7 @@ void BattleBotAI::UpdateOutOfCombatAI_Shaman()
             if (!me->IsMounted() &&
                 (!GetMountSpellId() || me->HasAura(AURA_WARSONG_FLAG) || me->HasAura(AURA_SILVERWING_FLAG)))
             {
-                if (FindAndHealInjuredAlly(60.0f))
+                if (FindAndHealInjuredAlly(60.0f, 60.0f))
                     return;
             }
         }
@@ -1930,7 +1948,14 @@ void BattleBotAI::UpdateInCombatAI_Shaman()
         me->GetShapeshiftForm() == FORM_GHOSTWOLF)
         me->RemoveAurasDueToSpellByCancel(m_spells.shaman.pGhostWolf->Id);
 
-    FindAndHealInjuredAlly(40.0f);
+    if (m_role == ROLE_HEALER)
+    {
+        FindAndHealInjuredAlly(80.0f, 80.0f);
+    }
+    else
+    {
+        FindAndHealInjuredAlly(40.0f, 40.0f);
+    }
 
     if (Unit* pVictim = me->GetVictim())
     {
@@ -1947,7 +1972,9 @@ void BattleBotAI::UpdateInCombatAI_Shaman()
         {
             if (Unit* pVictim = me->GetVictim())
             {
-                if (GetAttackersInRangeCount(15.0f) > 1)
+                if (GetAttackersInRangeCount(10.0f) > 1 &&
+                    !me->HasUnitState(UNIT_STAT_ROOT) &&
+                    (me->GetMotionMaster()->GetCurrentMovementGeneratorType() != DISTANCING_MOTION_TYPE))
                 {
                     if (SummonShamanTotems())
                         return;
@@ -2137,7 +2164,6 @@ void BattleBotAI::UpdateInCombatAI_Hunter()
         }
 
         if (m_spells.hunter.pConcussiveShot &&
-            (pVictim->IsMounted() || pVictim->HasAura(AURA_SILVERWING_FLAG) || pVictim->HasAura(AURA_WARSONG_FLAG)) &&
             CanTryToCastSpell(pVictim, m_spells.hunter.pConcussiveShot))
         {
             if (DoCastSpell(pVictim, m_spells.hunter.pConcussiveShot) == SPELL_CAST_OK)
@@ -2145,7 +2171,9 @@ void BattleBotAI::UpdateInCombatAI_Hunter()
         }
 
         // Run away if more than 1 enemy is near
-        if (GetAttackersInRangeCount(15.0f) > 1)
+        if (GetAttackersInRangeCount(10.0f) > 1 &&
+            !me->HasUnitState(UNIT_STAT_ROOT) &&
+            (me->GetMotionMaster()->GetCurrentMovementGeneratorType() != DISTANCING_MOTION_TYPE))
         {
             if (m_spells.hunter.pScatterShot &&
                 CanTryToCastSpell(pVictim, m_spells.hunter.pScatterShot))
@@ -2197,6 +2225,12 @@ void BattleBotAI::UpdateInCombatAI_Hunter()
                 return;
         }
 
+        if (m_spells.hunter.pScatterShot &&
+            CanTryToCastSpell(pVictim, m_spells.hunter.pScatterShot))
+        {
+            DoCastSpell(pVictim, m_spells.hunter.pScatterShot);
+        }
+
 
         if (m_spells.hunter.pAspectOfTheHawk &&
             CanTryToCastSpell(me, m_spells.hunter.pAspectOfTheHawk))
@@ -2233,29 +2267,22 @@ void BattleBotAI::UpdateInCombatAI_Hunter()
             }
             else
             {
-                if (m_spells.hunter.pCounterattack &&
-                    CanTryToCastSpell(pVictim, m_spells.hunter.pCounterattack))
-                {
-                    DoCastSpell(pVictim, m_spells.hunter.pCounterattack);
-                }
-
                 if (m_spells.hunter.pWingClip &&
                     CanTryToCastSpell(pVictim, m_spells.hunter.pWingClip))
                 {
                     DoCastSpell(pVictim, m_spells.hunter.pWingClip);
                 }
+                if (m_spells.hunter.pCounterattack &&
+                    CanTryToCastSpell(pVictim, m_spells.hunter.pCounterattack))
+                {
+                    DoCastSpell(pVictim, m_spells.hunter.pCounterattack);
+                }
             }
-        }
-
-        if (m_spells.hunter.pScatterShot &&
-            CanTryToCastSpell(pVictim, m_spells.hunter.pScatterShot))
-        {
-            DoCastSpell(pVictim, m_spells.hunter.pScatterShot);
         }
 
         if (!me->HasUnitState(UNIT_STAT_ROOT) &&
             (me->GetCombatDistance(pVictim) <= 8.0f) &&
-             me->GetMotionMaster()->GetCurrentMovementGeneratorType() != DISTANCING_MOTION_TYPE)
+             (me->GetMotionMaster()->GetCurrentMovementGeneratorType() != DISTANCING_MOTION_TYPE))
         {
             if (!me->IsStopped())
                 me->StopMoving();
@@ -2372,7 +2399,9 @@ void BattleBotAI::UpdateInCombatAI_Mage()
         }
 
         // Run away if more than 1 enemy is near
-        if (GetAttackersInRangeCount(15.0f) > 1)
+        if (GetAttackersInRangeCount(10.0f) > 1 &&
+            !me->HasUnitState(UNIT_STAT_ROOT) &&
+            (me->GetMotionMaster()->GetCurrentMovementGeneratorType() != DISTANCING_MOTION_TYPE))
         {
 
             if (m_spells.mage.pFrostNova &&
@@ -2479,9 +2508,6 @@ void BattleBotAI::UpdateInCombatAI_Mage()
             }
         }
 
-        if (me->GetMotionMaster()->GetCurrentMovementGeneratorType() == DISTANCING_MOTION_TYPE)
-            return;
-
         if (m_spells.mage.pRemoveLesserCurse &&
            (me->GetAttackers().size() < 3) &&
             CanTryToCastSpell(me, m_spells.mage.pRemoveLesserCurse) &&
@@ -2527,15 +2553,8 @@ void BattleBotAI::UpdateInCombatAI_Mage()
                 return;
         } 
 
-        if (m_spells.mage.pScorch &&
-           (pVictim->GetHealthPercent() < 20.0f) &&
-            CanTryToCastSpell(pVictim, m_spells.mage.pScorch))
-        {
-            if (DoCastSpell(pVictim, m_spells.mage.pScorch) == SPELL_CAST_OK)
-                return;
-        }
-
         if (m_spells.mage.pFireBlast &&
+            (me->GetDistance(pVictim) <= 20.0f) &&
             CanTryToCastSpell(pVictim, m_spells.mage.pFireBlast))
         {
             if (DoCastSpell(pVictim, m_spells.mage.pFireBlast) == SPELL_CAST_OK)
@@ -2574,6 +2593,13 @@ void BattleBotAI::UpdateInCombatAI_Mage()
                 return;
         }
 
+        if (m_spells.mage.pScorch &&
+            CanTryToCastSpell(pVictim, m_spells.mage.pScorch))
+        {
+            if (DoCastSpell(pVictim, m_spells.mage.pScorch) == SPELL_CAST_OK)
+                return;
+        }
+
         if (m_spells.mage.pEvocation &&
            (me->GetPowerPercent(POWER_MANA) < 20.0f) &&
            (GetAttackersInRangeCount(10.0f) == 0) &&
@@ -2588,6 +2614,9 @@ void BattleBotAI::UpdateInCombatAI_Mage()
            (me->GetPowerPercent(POWER_MANA) < 5.0f) &&
            !me->GetCurrentSpell(CURRENT_AUTOREPEAT_SPELL))
             me->CastSpell(pVictim, BB_SPELL_SHOOT_WAND, false);
+
+        if (me->GetMotionMaster()->GetCurrentMovementGeneratorType() == DISTANCING_MOTION_TYPE)
+            return;
     }
 }
 
@@ -2643,6 +2672,11 @@ void BattleBotAI::UpdateOutOfCombatAI_Priest()
     }
     else if (bg && bg->GetStatus() == STATUS_IN_PROGRESS)
     {
+        // Heal
+        if (me->GetShapeshiftForm() == FORM_NONE &&
+            FindAndHealInjuredAlly(60.0f, 60.0f))
+            return;
+
         if (m_spells.priest.pPowerWordFortitude &&
             IsValidBuffTarget(me, m_spells.priest.pPowerWordFortitude) &&
             CanTryToCastSpell(me, m_spells.priest.pPowerWordFortitude))
@@ -2737,67 +2771,66 @@ void BattleBotAI::UpdateInCombatAI_Priest()
     }
 
     // Run away if more than 1 enemy is near
-    if (m_role == ROLE_HEALER)
+    if (Unit* pVictim = me->GetVictim())
     {
-        if (Unit* pVictim = me->GetVictim())
+        if (GetAttackersInRangeCount(10.0f) > 1 &&
+            !me->HasUnitState(UNIT_STAT_ROOT) &&
+            (me->GetMotionMaster()->GetCurrentMovementGeneratorType() != DISTANCING_MOTION_TYPE))
         {
-            if (GetAttackersInRangeCount(15.0f) > 1)
+            if (m_spells.priest.pPsychicScream &&
+                GetAttackersInRangeCount(8.0f) &&
+                CanTryToCastSpell(me, m_spells.priest.pPsychicScream))
             {
-                if (m_spells.priest.pPsychicScream &&
-                    GetAttackersInRangeCount(8.0f) &&
-                    CanTryToCastSpell(me, m_spells.priest.pPsychicScream))
-                {
-                    if (DoCastSpell(me, m_spells.priest.pPsychicScream) == SPELL_CAST_OK)
-                        return;
-                }
-
-                if (Unit* pTarget = SelectPeriodicHealTarget(80.0f, 90.0f))
-                    if (HealInjuredTargetPeriodic(pTarget))
-                        return;
-
-                if (m_spells.priest.pDispelMagic)
-                {
-                    if (Unit* pFriend = SelectDispelTarget(m_spells.priest.pDispelMagic))
-                    {
-                        if (CanTryToCastSpell(pFriend, m_spells.priest.pDispelMagic))
-                        {
-                            if (DoCastSpell(pFriend, m_spells.priest.pDispelMagic) == SPELL_CAST_OK)
-                                return;
-                        }
-                    }
-                }
-
-                if (m_spells.priest.pAbolishDisease)
-                {
-                    if (Unit* pFriend = SelectDispelTarget(m_spells.priest.pAbolishDisease))
-                    {
-                        if (CanTryToCastSpell(pFriend, m_spells.priest.pAbolishDisease))
-                        {
-                            if (DoCastSpell(pFriend, m_spells.priest.pAbolishDisease) == SPELL_CAST_OK)
-                                return;
-                        }
-                    }
-                }
-
-                if (m_spells.priest.pInnerFire &&
-                    (me->GetPowerPercent(POWER_MANA) > 25.0f) &&
-                    CanTryToCastSpell(me, m_spells.priest.pInnerFire))
-                {
-                    if (DoCastSpell(me, m_spells.priest.pInnerFire) == SPELL_CAST_OK)
-                    {
-                        return;
-                    }
-                }
-
-                if (me->GetMotionMaster()->MoveDistance(pVictim, 25.0f))
+                if (DoCastSpell(me, m_spells.priest.pPsychicScream) == SPELL_CAST_OK)
                     return;
             }
+
+            if (Unit* pTarget = SelectPeriodicHealTarget(80.0f, 90.0f))
+                if (HealInjuredTargetPeriodic(pTarget))
+                    return;
+
+            if (m_spells.priest.pDispelMagic)
+            {
+                if (Unit* pFriend = SelectDispelTarget(m_spells.priest.pDispelMagic))
+                {
+                    if (CanTryToCastSpell(pFriend, m_spells.priest.pDispelMagic))
+                    {
+                        if (DoCastSpell(pFriend, m_spells.priest.pDispelMagic) == SPELL_CAST_OK)
+                            return;
+                    }
+                }
+            }
+
+            if (m_spells.priest.pAbolishDisease)
+            {
+                if (Unit* pFriend = SelectDispelTarget(m_spells.priest.pAbolishDisease))
+                {
+                    if (CanTryToCastSpell(pFriend, m_spells.priest.pAbolishDisease))
+                    {
+                        if (DoCastSpell(pFriend, m_spells.priest.pAbolishDisease) == SPELL_CAST_OK)
+                            return;
+                    }
+                }
+            }
+
+            if (m_spells.priest.pInnerFire &&
+                (me->GetPowerPercent(POWER_MANA) > 25.0f) &&
+                CanTryToCastSpell(me, m_spells.priest.pInnerFire))
+            {
+                if (DoCastSpell(me, m_spells.priest.pInnerFire) == SPELL_CAST_OK)
+                {
+                    return;
+                }
+            }
+
+            if (me->GetMotionMaster()->MoveDistance(pVictim, 25.0f))
+                return;
         }
     }
 
     // Heal
     if (me->GetShapeshiftForm() == FORM_NONE &&
-        FindAndHealInjuredAlly(40.0f))
+        FindAndHealInjuredAlly(80.0f, 80.0f))
         return;
 
     // Heal Self
@@ -2808,7 +2841,7 @@ void BattleBotAI::UpdateInCombatAI_Priest()
        
         me->RemoveAurasDueToSpellByCancel(m_spells.priest.pShadowform->Id);
         if (me->GetShapeshiftForm() == FORM_NONE &&
-            FindAndHealInjuredAlly(40.0f))
+            FindAndHealInjuredAlly(40.0f, 40.0f))
             return;
     }
 
@@ -3053,7 +3086,9 @@ void BattleBotAI::UpdateInCombatAI_Warlock()
     if (Unit* pVictim = me->GetVictim())
     {
         // Run away if more than 1 enemy is near
-        if (GetAttackersInRangeCount(15.0f) > 1)
+        if (GetAttackersInRangeCount(10.0f) > 1 &&
+            !me->HasUnitState(UNIT_STAT_ROOT) &&
+            (me->GetMotionMaster()->GetCurrentMovementGeneratorType() != DISTANCING_MOTION_TYPE))
         {
             if (m_spells.warlock.pDeathCoil &&
                 CanTryToCastSpell(pVictim, m_spells.warlock.pDeathCoil))
@@ -3129,6 +3164,7 @@ void BattleBotAI::UpdateInCombatAI_Warlock()
 
         if (m_spells.warlock.pSearingPain &&
            (pVictim->GetHealthPercent() < 20.0f) &&
+            !pVictim->IsMoving() &&
             CanTryToCastSpell(pVictim, m_spells.warlock.pSearingPain))
         {
             if (DoCastSpell(pVictim, m_spells.warlock.pSearingPain) == SPELL_CAST_OK)
@@ -3136,7 +3172,7 @@ void BattleBotAI::UpdateInCombatAI_Warlock()
         }
 
         if (m_spells.warlock.pShadowWard &&
-           (pVictim->GetClass() == CLASS_WARLOCK) &&
+           (pVictim->GetClass() == CLASS_WARLOCK || pVictim->GetClass() == CLASS_PRIEST) &&
             CanTryToCastSpell(me, m_spells.warlock.pShadowWard))
         {
             if (DoCastSpell(me, m_spells.warlock.pShadowWard) == SPELL_CAST_OK)
@@ -3545,6 +3581,14 @@ void BattleBotAI::UpdateInCombatAI_Warrior()
                 return;
         }
 
+        if (m_spells.warrior.pIntimidatingShout &&
+            !me->CanReachWithMeleeAutoAttack(pVictim) &&
+            CanTryToCastSpell(pVictim, m_spells.warrior.pIntimidatingShout))
+        {
+            if (DoCastSpell(pVictim, m_spells.warrior.pIntimidatingShout) == SPELL_CAST_OK)
+                return;
+        }
+
         if (me->GetMotionMaster()->GetCurrentMovementGeneratorType() == IDLE_MOTION_TYPE
             && !me->CanReachWithMeleeAutoAttack(pVictim))
         {
@@ -3911,7 +3955,7 @@ void BattleBotAI::UpdateOutOfCombatAI_Druid()
         else
         {
             if ((me->GetPowerPercent(POWER_MANA) >  80.0f) &&
-                FindAndHealInjuredAlly(50.0f))
+                FindAndHealInjuredAlly(50.0f, 50.0f))
                 return;
         }
     }
@@ -3960,7 +4004,8 @@ void BattleBotAI::UpdateInCombatAI_Druid()
     // Run away if in danger of dying
     if (Unit* pVictim = me->GetVictim())
     {
-        if (me->GetHealthPercent() < 20.0f)
+        if (me->GetHealthPercent() < 20.0f &&
+            (me->GetMotionMaster()->GetCurrentMovementGeneratorType() != DISTANCING_MOTION_TYPE))
         {
             if (me->GetShapeshiftForm() == FORM_NONE)
             {
@@ -3982,7 +4027,8 @@ void BattleBotAI::UpdateInCombatAI_Druid()
     {
         if (Unit* pVictim = me->GetVictim())
         {
-            if (GetAttackersInRangeCount(15.0f) > 1)
+            if (GetAttackersInRangeCount(10.0f) > 1 &&
+                (me->GetMotionMaster()->GetCurrentMovementGeneratorType() != DISTANCING_MOTION_TYPE))
             {
                 if (me->GetShapeshiftForm() == FORM_NONE)
                 {
@@ -4067,8 +4113,16 @@ void BattleBotAI::UpdateInCombatAI_Druid()
         }
 
         // Healing touch
-        if (FindAndHealInjuredAlly(40.0f))
-            return;
+        if (m_role == ROLE_HEALER)
+        {
+            if (FindAndHealInjuredAlly(80.0f, 80.0f))
+                return;
+        }
+        else
+        {
+            if (FindAndHealInjuredAlly(40.0f, 40.0f))
+                return;
+        }
 
         // Dispels
        SpellEntry const* pDispelSpell = m_spells.druid.pAbolishPoison ?
@@ -4121,15 +4175,6 @@ void BattleBotAI::UpdateInCombatAI_Druid()
         {
             if (Unit* pVictim = me->GetVictim())
             {
-                if (m_spells.druid.pBearForm &&
-                    pVictim->CanReachWithMeleeAutoAttack(me) &&
-                    IsPhysicalDamageClass(pVictim->GetClass()) &&
-                    CanTryToCastSpell(me, m_spells.druid.pBearForm))
-                {
-                    if (DoCastSpell(me, m_spells.druid.pBearForm) == SPELL_CAST_OK)
-                        return;
-                }
-
                 // Go bear form to feral charge if being kited
                 if (!me->CanReachWithMeleeAutoAttack(pVictim))
                 {
@@ -4417,6 +4462,31 @@ void BattleBotAI::UpdateInCombatAI_Druid()
                         return;
                 }
 
+                // Go back to Bear or Cat form if tank or melee DPS
+                if (m_role == ROLE_MELEE_DPS || m_role == ROLE_TANK)
+                {
+                    if (Unit* pVictim = me->GetVictim())
+                    {
+                        // Go bear form to feral charge if being kited
+                        if (!me->CanReachWithMeleeAutoAttack(pVictim))
+                        {
+                            if (m_spells.druid.pBearForm &&
+                                CanTryToCastSpell(me, m_spells.druid.pBearForm))
+                            {
+                                if (DoCastSpell(me, m_spells.druid.pBearForm) == SPELL_CAST_OK)
+                                    return;
+                            }
+                        }
+
+                        if (m_spells.druid.pCatForm &&
+                            CanTryToCastSpell(me, m_spells.druid.pCatForm))
+                        {
+                            if (DoCastSpell(me, m_spells.druid.pCatForm) == SPELL_CAST_OK)
+                                return;
+                        }
+                    }
+                }
+
                 if (m_spells.druid.pEntanglingRoots &&
                     (pVictim->IsMounted() || pVictim->HasAura(AURA_SILVERWING_FLAG) || pVictim->HasAura(AURA_WARSONG_FLAG)) &&
                     CanTryToCastSpell(pVictim, m_spells.druid.pEntanglingRoots))
@@ -4440,9 +4510,6 @@ void BattleBotAI::UpdateInCombatAI_Druid()
                         return;
                 }
 
-                if (me->GetMotionMaster()->GetCurrentMovementGeneratorType() == DISTANCING_MOTION_TYPE)
-                    return;
-
                 if (m_spells.druid.pMoonfire &&
                     CanTryToCastSpell(pVictim, m_spells.druid.pMoonfire))
                 {
@@ -4464,6 +4531,9 @@ void BattleBotAI::UpdateInCombatAI_Druid()
                     if (DoCastSpell(pVictim, m_spells.druid.pWrath) == SPELL_CAST_OK)
                         return;
                 }
+
+                if (me->GetMotionMaster()->GetCurrentMovementGeneratorType() == DISTANCING_MOTION_TYPE)
+                    return;
 
                 break;
             }
