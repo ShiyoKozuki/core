@@ -117,7 +117,6 @@ don't run away if deter is active
 healer run away drink logic
 vanish + run away if dying
 hunters bad at running away at low hp and is fucked up ai
-moonkin retarded at chasing targets and hitting them if they're moving like mage used to be
 aimed shot cced targets
 they still dont hit people capping flag
 only scatter/feign if pvictims target is me
@@ -128,5 +127,9 @@ rogues dont mount?
 berserker rage logic(use if feared)
 fear death coil logic doesnt work, try getting its pDeathCoil->Id and make sure it doesnt trash
 and mana > 20% for druids to power shift out of snares / to sit in caster and try to heal themselves of dps/tank
-
+nightfall procs
+amp curs eis always wasted
+mages randomly sit at spawn in AB
+moonkin retarded at chasing targets and hitting them if they're moving like mage used to be. stares at people <-!!!
+add shaman to https://www.wowhead.com/classic/item=20043/highlanders-chain-girdle
 https://github.com/stoneharry/WoW-Spell-Editor/releases/tag/v2.2.1

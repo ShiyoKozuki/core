@@ -74,8 +74,8 @@ enum BattleBotSpells
 #define BB_DEATH_COIL_AURA2 18161
 #define BB_DEATH_COIL_AURA3 18162
 #define BB_MAX_MELEE_CHASE_RANGE 20.0f
-#define BB_MAX_HEALER_CHASE_RANGE 10.0f
-#define BB_MAX_CHASE_RANGE 40.0f
+#define BB_MAX_HEALER_CHASE_RANGE 36.0f
+#define BB_MAX_CHASE_RANGE 41.0f
 
 #define GO_WSG_DROPPED_SILVERWING_FLAG 179785
 #define GO_WSG_DROPPED_WARSONG_FLAG 179786
@@ -4583,33 +4583,33 @@ void BattleBotAI::UpdateInCombatAI_Druid()
                         IsMeleeDamageClass(pVictim->GetClass()) &&
                         !pVictim->HasUnitState(UNIT_STAT_ROOT))
                 {
-                    if (m_spells.druid.pNaturesGrasp &&
+                     if (m_spells.druid.pNaturesGrasp &&
                         CanTryToCastSpell(me, m_spells.druid.pNaturesGrasp))
-                    {
+                     {
                         if (DoCastSpell(me, m_spells.druid.pNaturesGrasp) == SPELL_CAST_OK)
                             return;
-                    }
+                     }
 
-                    if (m_spells.druid.pEntanglingRoots &&
+                     if (m_spells.druid.pEntanglingRoots &&
                         CanTryToCastSpell(pVictim, m_spells.druid.pEntanglingRoots))
-                    {
+                     {
                         if (DoCastSpell(pVictim, m_spells.druid.pEntanglingRoots) == SPELL_CAST_OK)
                             return;
-                    }
+                     }
 
                     if (m_spells.druid.pMoonkinForm &&
                         me->GetShapeshiftForm() == FORM_MOONKIN)
                         me->RemoveAurasDueToSpellByCancel(m_spells.druid.pMoonkinForm->Id);
 
-                    if (me->GetShapeshiftForm() == FORM_NONE)
-                    {
+                     if (me->GetShapeshiftForm() == FORM_NONE)
+                     {
                         if (m_spells.druid.pTravelForm &&
                             CanTryToCastSpell(me, m_spells.druid.pTravelForm))
                         {
                             me->CastSpell(me, m_spells.druid.pTravelForm, false);
                             return;
                         }
-                    }
+                     }
 
                     if (me->GetMotionMaster()->GetCurrentMovementGeneratorType() != DISTANCING_MOTION_TYPE)
                         if (me->GetMotionMaster()->MoveDistance(pVictim, 25.0f))
