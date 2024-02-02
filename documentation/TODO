@@ -114,7 +114,19 @@ upgrade bot pathing in AB
 prio capping flag
 stealth openers
 don't run away if deter is active
-properly swap targets mid fighting?
 healer run away drink logic
+vanish + run away if dying
+hunters bad at running away at low hp and is fucked up ai
+moonkin retarded at chasing targets and hitting them if they're moving like mage used to be
+aimed shot cced targets
+they still dont hit people capping flag
+only scatter/feign if pvictims target is me
+shaman ai wonky just stands there like moonkin/mage used to
+priest offensive ai also wonky just stands there too
+if is melee and cannot reach target in melee range then swap target to the force swap thing
+rogues dont mount?
+berserker rage logic(use if feared)
+fear death coil logic doesnt work, try getting its pDeathCoil->Id and make sure it doesnt trash
+and mana > 20% for druids to power shift out of snares / to sit in caster and try to heal themselves of dps/tank
 
 https://github.com/stoneharry/WoW-Spell-Editor/releases/tag/v2.2.1
