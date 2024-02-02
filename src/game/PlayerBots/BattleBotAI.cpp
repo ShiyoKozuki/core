@@ -1233,7 +1233,8 @@ void BattleBotAI::UpdateFlagCarrierAI()
                     return;
                 }
             }
-            else if (me->HasAuraType(SPELL_AURA_MOD_DECREASE_SPEED))
+            else if (me->HasAuraType(SPELL_AURA_MOD_DECREASE_SPEED) &&
+                    (me->GetPowerPercent(POWER_MANA) > 20.0f))
             {
                 me->RemoveSpellsCausingAura(SPELL_AURA_MOD_SHAPESHIFT);
             }
@@ -4220,20 +4221,11 @@ void BattleBotAI::UpdateInCombatAI_Druid()
         }
     }
 
-    if (m_spells.druid.pTravelForm &&
-        me->GetShapeshiftForm() == FORM_TRAVEL)
-        me->RemoveAurasDueToSpellByCancel(m_spells.druid.pTravelForm->Id);
-
-    // Swap out of moonkin form if low HP, in order to heal
-    if (me->GetHealthPercent() < 40.0f &&
-        m_spells.druid.pMoonkinForm &&
-        me->GetShapeshiftForm() == FORM_MOONKIN)
-            me->RemoveAurasDueToSpellByCancel(m_spells.druid.pMoonkinForm->Id);
-
     if (me->GetShapeshiftForm() == FORM_NONE)
     {
         if (m_spells.druid.pMoonkinForm &&
             me->GetHealthPercent() > 40.0f &&
+            (me->GetPowerPercent(POWER_MANA) > 40.0f) &&
             CanTryToCastSpell(me, m_spells.druid.pMoonkinForm))
         {
             if (DoCastSpell(me, m_spells.druid.pMoonkinForm) == SPELL_CAST_OK)
@@ -4322,8 +4314,6 @@ void BattleBotAI::UpdateInCombatAI_Druid()
         }
 
         if (m_spells.druid.pInnervate &&
-            me->GetVictim() &&
-           (me->GetHealthPercent() > 40.0f) &&
            (me->GetPowerPercent(POWER_MANA) < 10.0f) &&
             CanTryToCastSpell(me, m_spells.druid.pInnervate))
         {
@@ -4358,7 +4348,8 @@ void BattleBotAI::UpdateInCombatAI_Druid()
     else
     {
         if (me->HasUnitState(UNIT_STAT_ROOT) &&
-            me->HasAuraType(SPELL_AURA_MOD_SHAPESHIFT))
+            me->HasAuraType(SPELL_AURA_MOD_SHAPESHIFT) &&
+            (me->GetPowerPercent(POWER_MANA) > 30.0f))
             me->RemoveSpellsCausingAura(SPELL_AURA_MOD_SHAPESHIFT);
     }
     
@@ -4376,6 +4367,26 @@ void BattleBotAI::UpdateInCombatAI_Druid()
 
         switch (form)
         {
+            case FORM_TRAVEL:
+            {    // Run away if in danger of dying
+                if (Unit* pVictim = me->GetVictim())
+                {
+                    if (me->GetHealthPercent() < 20.0f)
+                    {
+                        if (me->GetMotionMaster()->GetCurrentMovementGeneratorType() != DISTANCING_MOTION_TYPE)
+                            if (me->GetMotionMaster()->MoveDistance(pVictim, 50.0f))
+                                return;
+                    }
+                    else // Swap back to caster
+                    {
+                        if (m_spells.druid.pTravelForm &&
+                            me->GetShapeshiftForm() == FORM_TRAVEL)
+                            me->RemoveAurasDueToSpellByCancel(m_spells.druid.pTravelForm->Id);
+                        return;
+                    }
+                }
+                break;
+            }
             case FORM_CAT:
             {
                 if (me->GetMotionMaster()->GetCurrentMovementGeneratorType() == IDLE_MOTION_TYPE
@@ -4425,7 +4436,8 @@ void BattleBotAI::UpdateInCombatAI_Druid()
                 }
 
                 // Swap out into caster form at low HP
-                if (me->GetHealthPercent() < 40.0f)
+                if (me->GetHealthPercent() < 40.0f &&
+                    (me->GetPowerPercent(POWER_MANA) > 30.0f))
                 {
                     if (m_spells.druid.pCatForm &&
                         me->GetShapeshiftForm() == FORM_CAT)
@@ -4444,7 +4456,8 @@ void BattleBotAI::UpdateInCombatAI_Druid()
 
                     // Swap to bear form if target is out of range, so feral charge is usable
                     if (m_spells.druid.pCatForm &&
-                        me->GetShapeshiftForm() == FORM_CAT)
+                        me->GetShapeshiftForm() == FORM_CAT &&
+                        (me->GetPowerPercent(POWER_MANA) > 30.0f))
                             me->RemoveAurasDueToSpellByCancel(m_spells.druid.pCatForm->Id);
                             return;
 
@@ -4511,7 +4524,7 @@ void BattleBotAI::UpdateInCombatAI_Druid()
                 }
 
                 if (m_spells.druid.pFrenziedRegeneration &&
-                   (me->GetHealthPercent() < 30.0f) &&
+                   (me->GetHealthPercent() < 50.0f) &&
                     CanTryToCastSpell(me, m_spells.druid.pFrenziedRegeneration))
                 {
                     if (DoCastSpell(me, m_spells.druid.pFrenziedRegeneration) == SPELL_CAST_OK)
@@ -4521,7 +4534,21 @@ void BattleBotAI::UpdateInCombatAI_Druid()
                 // Swap back into caster form at high HP if Moonkin or Healer
                 if (m_role != ROLE_MELEE_DPS || m_role != ROLE_TANK)
                 {
-                    if (me->GetHealthPercent() > 50.0f)
+                    if (me->GetHealthPercent() > 50.0f &&
+                        (me->GetPowerPercent(POWER_MANA) > 30.0f))
+                    {
+                        if (m_spells.druid.pBearForm &&
+                            me->GetShapeshiftForm() == FORM_DIREBEAR)
+                            me->RemoveAurasDueToSpellByCancel(m_spells.druid.pBearForm->Id);
+                        return;
+                    }
+                }
+
+                // SWap back to caster form if in melee range and then go back to Cat if melee DPS
+                if (m_role == ROLE_MELEE_DPS)
+                {
+                    if (me->CanReachWithMeleeAutoAttack(pVictim) &&
+                        (me->GetPowerPercent(POWER_MANA) > 30.0f))
                     {
                         if (m_spells.druid.pBearForm &&
                             me->GetShapeshiftForm() == FORM_DIREBEAR)
@@ -4531,7 +4558,8 @@ void BattleBotAI::UpdateInCombatAI_Druid()
                 }
 
                 // Swap out into caster form at low HP
-                if (me->GetHealthPercent() < 40.0f)
+                if (me->GetHealthPercent() < 40.0f &&
+                    (me->GetPowerPercent(POWER_MANA) > 30.0f))
                 {
                     if (m_spells.druid.pBearForm &&
                         me->GetShapeshiftForm() == FORM_DIREBEAR)
@@ -4573,6 +4601,14 @@ void BattleBotAI::UpdateInCombatAI_Druid()
             case FORM_NONE:
             case FORM_MOONKIN:
             {
+
+                // Swap out of moonkin form if low HP, in order to heal
+                if (me->GetHealthPercent() < 40.0f &&
+                    m_spells.druid.pMoonkinForm &&
+                    me->GetShapeshiftForm() == FORM_MOONKIN)
+                    me->RemoveAurasDueToSpellByCancel(m_spells.druid.pMoonkinForm->Id);
+                    return;
+
                 if (me->GetMotionMaster()->GetCurrentMovementGeneratorType() == IDLE_MOTION_TYPE &&
                     me->GetDistance(pVictim) > 30.0f)
                 {
@@ -4611,7 +4647,7 @@ void BattleBotAI::UpdateInCombatAI_Druid()
                         }
                      }
 
-                    if (me->GetMotionMaster()->GetCurrentMovementGeneratorType() != DISTANCING_MOTION_TYPE)
+                     if (me->GetMotionMaster()->GetCurrentMovementGeneratorType() != DISTANCING_MOTION_TYPE)
                         if (me->GetMotionMaster()->MoveDistance(pVictim, 25.0f))
                             return;
                 }
