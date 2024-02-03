@@ -296,6 +296,7 @@ public:
             SpellEntry const* pBlessingOfFreedom;
             SpellEntry const* pBlessingOfSacrifice;
             SpellEntry const* pHammerOfJustice;
+            SpellEntry const* pRepentance;
             SpellEntry const* pJudgement;
             SpellEntry const* pExorcism;
             SpellEntry const* pConsecration;
@@ -317,6 +318,7 @@ public:
             SpellEntry const* pEarthShock;
             SpellEntry const* pFlameShock;
             SpellEntry const* pFrostShock;
+            SpellEntry const* pNaturesSwiftness;
             SpellEntry const* pPurge;
             SpellEntry const* pStormstrike;
             SpellEntry const* pElementalMastery;
@@ -426,6 +428,7 @@ public:
             SpellEntry const* pConflagrate;
             SpellEntry const* pShadowburn;
             SpellEntry const* pSearingPain;
+            SpellEntry const* pSoulfire;
             SpellEntry const* pImmolate;
             SpellEntry const* pRainOfFire;
             SpellEntry const* pDemonicSacrifice;

@@ -257,6 +257,11 @@ void CombatBotBaseAI::PopulateSpellData()
                     if (IsHigherRankSpell(m_spells.paladin.pHammerOfJustice))
                         m_spells.paladin.pHammerOfJustice = pSpellEntry;
                 }
+                else if (pSpellEntry->SpellName[0].find("Repentance") != std::string::npos)
+                {
+                    if (IsHigherRankSpell(m_spells.paladin.pRepentance))
+                        m_spells.paladin.pRepentance = pSpellEntry;
+                }
                 else if (pSpellEntry->SpellName[0].find("Blessing of Sacrifice") != std::string::npos)
                 {
                     if (IsHigherRankSpell(m_spells.paladin.pBlessingOfSacrifice))
@@ -425,6 +430,11 @@ void CombatBotBaseAI::PopulateSpellData()
                 {
                     if (IsHigherRankSpell(m_spells.shaman.pFrostShock))
                         m_spells.shaman.pFrostShock = pSpellEntry;
+                }
+                else if (pSpellEntry->SpellName[0].find("Nature's Swiftness") != std::string::npos)
+                {
+                    if (IsHigherRankSpell(m_spells.shaman.pNaturesSwiftness))
+                        m_spells.shaman.pNaturesSwiftness = pSpellEntry;
                 }
                 else if (pSpellEntry->SpellName[0].find("Purge") != std::string::npos)
                 {
@@ -1031,6 +1041,11 @@ void CombatBotBaseAI::PopulateSpellData()
                 {
                     if (IsHigherRankSpell(m_spells.warlock.pSearingPain))
                         m_spells.warlock.pSearingPain = pSpellEntry;
+                }
+                else if (pSpellEntry->SpellName[0].find("Soul Fire") != std::string::npos)
+                {
+                    if (IsHigherRankSpell(m_spells.warlock.pSoulfire))
+                        m_spells.warlock.pSoulfire = pSpellEntry;
                 }
                 else if (pSpellEntry->SpellName[0].find("Immolate") != std::string::npos)
                 {
@@ -1797,7 +1812,7 @@ void CombatBotBaseAI::PopulateSpellData()
             //    fireTotems.push_back(pFlametongueTotem);
             //if (pFrostResistanceTotem)
             //    fireTotems.push_back(pFrostResistanceTotem);
-            //if (!fireTotems.empty())
+            if (!fireTotems.empty())
                 m_spells.shaman.pFireTotem = SelectRandomContainerElement(fireTotems);
 
             std::vector<SpellEntry const*> waterTotems;
