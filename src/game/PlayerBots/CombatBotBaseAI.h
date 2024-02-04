@@ -447,6 +447,7 @@ public:
             SpellEntry const* pCurseofTongues;
             SpellEntry const* pCurseofExhaustion;
             SpellEntry const* pLifeTap;
+            SpellEntry const* pInferno;
         } warlock;
         struct
         {

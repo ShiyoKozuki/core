@@ -1127,6 +1127,11 @@ void CombatBotBaseAI::PopulateSpellData()
                     if (IsHigherRankSpell(m_spells.warlock.pLifeTap))
                         m_spells.warlock.pLifeTap = pSpellEntry;
                 }
+                else if (pSpellEntry->SpellName[0].find("Inferno") != std::string::npos)
+                {
+                    if (IsHigherRankSpell(m_spells.warlock.pInferno))
+                        m_spells.warlock.pInferno = pSpellEntry;
+                        }
                 break;
             }
             case CLASS_WARRIOR:
