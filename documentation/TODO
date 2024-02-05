@@ -131,5 +131,55 @@ nightfall procs
 amp curs eis always wasted
 mages randomly sit at spawn in AB
 moonkin retarded at chasing targets and hitting them if they're moving like mage used to be. stares at people <-!!!
+give bots grenades, if target is casting/out of rannge and random chance to use
+the hitting flag and changing targets ai needs to be moved into line 344
+rogues never stealth (use get nearby enemies)
+flare/trap if at flag in ab
+moonkins stand around staring and never dps now
+rogues/ferals still dont stealth
+rogues/ferals still dont use openers
+have 1 person stay at a flag if no ones by it can reference logic of not all spam capping in waypoints - >
+when atflag or w/e in waypoints just stay there then?
+remove hardiness/wotf from spell template lists or player:addspell somewhere
+dismount from shorter range away from enemies(is it in waypoint?)
+weapon chain rogue offhand in database
+swap out of cat or bear form to run away in travel
+if has ice block then coc after novaing
+spam shift if snared while running(logic is already used somewhere else MOVEMENT_SNARE or something)
+CoC facing when running away
+only drink/eat if no enemies within 50 yards
+shadowmeld eating/drinking as NE
+
+maybe need this in run away logic
+
+            if (!me->IsStopped())
+                me->StopMoving();
+            me->GetMotionMaster()->Clear();
+            if (me->GetMotionMaster()->MoveDistance(pVictim, 25.0f))
+                return;
+
+if ppet is felhunter then tell pet to spell lock if person casting
+if ppet is succubus then tell it to seduce
+if pvictim is casting poly or targets around me and im target then go into travel
+healer druid bot goes into travel then doesnt swap out and uses moonkins logic to stay x distance from target
+banish logic, copy hibernate logic
+enslave demon logic if infernal and dont have a pet
+if conflag, use CoE
+druids dont heal self if running away in travel, doesnt work flawlessly prob needs natures swiftness aura logic
+maybe if far enough away from nearby enemies remove travel and heal?
+
+nightfall etc auras:
+check the spell itself
+spell proc event, check there or template
+
+lock bot will spam fear even if immmune due to dr..is there a way to check this mechanic immune_fear?
+power infusion logic
+rogue dont attack retaled targets
+TUF proc animation is wrong?
+rogues / ferals should only start attack if stealthed if the target is alone and no other enemies within 40 yards
+resend position packet after mage uses coc sometime
+better NS + heal logic for shaman and druid. put inside right before casting a heal or something idk
+mage blink root to not just stun
+
 add shaman to https://www.wowhead.com/classic/item=20043/highlanders-chain-girdle
 https://github.com/stoneharry/WoW-Spell-Editor/releases/tag/v2.2.1
