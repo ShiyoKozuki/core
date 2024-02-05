@@ -55,6 +55,7 @@ public:
 
     bool ShouldIgnoreCombat() const;
     bool DrinkAndEat();
+    Unit* GetFlagCapper();
     bool UseMount();
     uint32 GetMountSpellId() const;
     bool CheckForUnreachableTarget();

@@ -243,6 +243,31 @@ bool BattleBotAI::DrinkAndEat()
     return needToEat || needToDrink;
 }
 
+Unit* BattleBotAI::GetFlagCapper()
+{
+    // Check current victim first.. if they are capping flag no need to look at anything else
+    Unit* pVictim = me->GetVictim();
+    if (pVictim)
+    {
+        auto spell = pVictim->GetCurrentSpell(CURRENT_GENERIC_SPELL);
+        if (spell && (spell->m_spellInfo->Id == SPELL_CAPTURE_BANNER))
+            return pVictim;
+    }
+
+    // Check other players next..
+    std::list<Player*> players;
+    me->GetAlivePlayerListInRange(me, players, GetMaxAggroDistanceForMap());
+    for (const auto& pTarget : players)
+    {
+        auto spell = pTarget->GetCurrentSpell(CURRENT_GENERIC_SPELL);
+        if (spell && (spell->m_spellInfo->Id == SPELL_CAPTURE_BANNER) &&
+            IsValidHostileTarget(pTarget))
+            return pTarget;
+    }
+
+    return nullptr;
+}
+
 float BattleBotAI::GetMaxAggroDistanceForMap() const
 {
     BattleGround* bg = me->GetBattleGround();
@@ -284,6 +309,11 @@ bool BattleBotAI::ShouldIgnoreCombat() const
     if (m_battlegroundId == BATTLEGROUND_QUEUE_WS && !me->IsRooted() &&
        (me->HasAura(AURA_SILVERWING_FLAG) || me->HasAura(AURA_WARSONG_FLAG)))
         return true;
+
+    auto spell = me->GetCurrentSpell(CURRENT_GENERIC_SPELL);
+    if (spell && (spell->m_spellInfo->Id == SPELL_CAPTURE_BANNER))
+        return true;
+
     return false;
 }
 
@@ -948,6 +978,17 @@ void BattleBotAI::UpdateAI(uint32 const diff)
         }
     }
 
+    // Hit people capping AB / AV flags
+    if (Unit* pCapper = GetFlagCapper())
+    {
+        if (pCapper != me->GetVictim())
+        {
+            me->AttackStop();
+            AttackStart(pCapper);
+            return;
+        }
+    }
+
     if (!me->IsInCombat() &&
         (GetAttackersInRangeCount(VISIBILITY_DISTANCE_SMALL) == 0))
     {
@@ -1038,7 +1079,8 @@ void BattleBotAI::UpdateAI(uint32 const diff)
     {
         // Run away if oom
         if (me->GetPowerPercent(POWER_MANA) < 10.0f &&
-            !me->HasUnitState(UNIT_STAT_ROOT) &&
+            (m_role != ROLE_MELEE_DPS) &&
+            (!me->HasUnitState(UNIT_STAT_ROOT)) &&
             (me->GetMotionMaster()->GetCurrentMovementGeneratorType() != DISTANCING_MOTION_TYPE))
         {
             if (!me->IsStopped())
@@ -2558,20 +2600,34 @@ void BattleBotAI::UpdateInCombatAI_Mage()
                     return;
             }
 
-        if (m_spells.mage.pCounterspell &&
-            pVictim->IsNonMeleeSpellCasted(false, false, true) &&
-            (pVictim->GetClass() != CLASS_WARRIOR) &&
-            (pVictim->GetClass() != CLASS_ROGUE) &&
-            (pVictim->GetClass() != CLASS_HUNTER) &&
-            CanTryToCastSpell(pVictim, m_spells.mage.pCounterspell))
-        {
-            if (DoCastSpell(pVictim, m_spells.mage.pCounterspell) == SPELL_CAST_OK)
-                return;
-        }
+            auto spell = pVictim->GetCurrentSpell(CURRENT_GENERIC_SPELL);
+            if (m_spells.mage.pCounterspell &&
+                pVictim->IsNonMeleeSpellCasted(false, false, true) &&
+                (pVictim->GetClass() != CLASS_WARRIOR) &&
+                (pVictim->GetClass() != CLASS_ROGUE) &&
+                (pVictim->GetClass() != CLASS_HUNTER) &&
+                (spell->m_spellInfo->Id != SPELL_CAPTURE_BANNER) &&
+                CanTryToCastSpell(pVictim, m_spells.mage.pCounterspell))
+            {
+                if (DoCastSpell(pVictim, m_spells.mage.pCounterspell) == SPELL_CAST_OK)
+                    return;
+            }
 
         // Running away logic
         if (me->GetMotionMaster()->GetCurrentMovementGeneratorType() == DISTANCING_MOTION_TYPE)
         {
+
+            if (m_spells.mage.pBlink &&
+                (GetAttackersInRangeCount(10.0f) == 0) &&
+                CanTryToCastSpell(me, m_spells.mage.pBlink))
+            {
+                if (me->GetMotionMaster()->GetCurrentMovementGeneratorType())
+                    me->GetMotionMaster()->MoveIdle();
+
+                if (DoCastSpell(me, m_spells.mage.pBlink) == SPELL_CAST_OK)
+                    return;
+            }
+
             if (m_spells.mage.pFrostNova &&
                 !pVictim->HasUnitState(UNIT_STAT_ROOT) &&
                 !pVictim->HasUnitState(UNIT_STAT_CAN_NOT_REACT_OR_LOST_CONTROL) &&
@@ -3140,6 +3196,7 @@ void BattleBotAI::UpdateInCombatAI_Priest()
         if (m_spells.priest.pManaBurn &&
             (pVictim->GetClass() == CLASS_PRIEST || pVictim->GetClass() == CLASS_PALADIN) &&
             (pVictim->GetPowerType() == POWER_MANA) &&
+            (pVictim->GetPowerPercent(POWER_MANA) > 5.0f) &&
             CanTryToCastSpell(pVictim, m_spells.priest.pManaBurn))
         {
             if (DoCastSpell(pVictim, m_spells.priest.pManaBurn) == SPELL_CAST_OK)
@@ -3300,6 +3357,15 @@ void BattleBotAI::UpdateInCombatAI_Warlock()
                     return;
             }
 
+            if (m_spells.warlock.pShadowburn &&
+                CanTryToCastSpell(pVictim, m_spells.warlock.pShadowburn))
+            {
+                me->SetInFront(pVictim);
+                me->SendMovementPacket(MSG_MOVE_SET_FACING, false);
+                if (DoCastSpell(pVictim, m_spells.warlock.pShadowburn) == SPELL_CAST_OK)
+                    return;
+            }
+
             if (m_spells.warlock.pShadowWard &&
                 (pVictim->GetClass() == CLASS_WARLOCK) &&
                 CanTryToCastSpell(me, m_spells.warlock.pShadowWard))
@@ -3319,6 +3385,7 @@ void BattleBotAI::UpdateInCombatAI_Warlock()
 
         // Fear death coiled targets
         if (m_spells.warlock.pFear &&
+            m_spells.warlock.pDeathCoil &&
             (pVictim->HasAura(m_spells.warlock.pDeathCoil->Id)) &&
             CanTryToCastSpell(pVictim, m_spells.warlock.pFear))
         {
@@ -3932,6 +3999,7 @@ void BattleBotAI::UpdateInCombatAI_Rogue()
         if (me->GetComboPoints() > 2)
         {
             if (m_spells.rogue.pKidneyShot &&
+                (!pVictim->HasUnitState(UNIT_STAT_STUNNED)) &&
                 CanTryToCastSpell(pVictim, m_spells.rogue.pKidneyShot))
             {
                 if (DoCastSpell(pVictim, m_spells.rogue.pKidneyShot) == SPELL_CAST_OK)
@@ -3939,7 +4007,7 @@ void BattleBotAI::UpdateInCombatAI_Rogue()
             }
         }
 
-        if (me->GetComboPoints() > 4)
+        if (me->GetComboPoints() > 3)
         {
             if (m_spells.rogue.pColdBlood &&
                 CanTryToCastSpell(me, m_spells.rogue.pColdBlood))
