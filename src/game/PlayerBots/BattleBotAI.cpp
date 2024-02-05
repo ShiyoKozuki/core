@@ -74,6 +74,10 @@ enum BattleBotSpells
 #define BB_DETERRENCE 19263
 #define BB_CHEAP_SHOT 1833
 #define BB_POUNCE 9827
+#define BB_NIGHTFALL_PROC 17941
+#define BB_NS_DRUID 17116
+#define BB_NS_SHAMAN 16188
+#define BB_AMP_CURSE 18288
 #define BB_MAX_MELEE_CHASE_RANGE 20.0f
 #define BB_MAX_HEALER_CHASE_RANGE 36.0f
 #define BB_MAX_CHASE_RANGE 41.0f
@@ -1019,17 +1023,6 @@ void BattleBotAI::UpdateAI(uint32 const diff)
         if (me->IsInCombat())
             return;
 
-        // Face target at all times if not running away
-        if (pVictim &&
-            me->GetMotionMaster()->GetCurrentMovementGeneratorType() == DISTANCING_MOTION_TYPE)
-        {
-            if (!me->HasInArc(pVictim, 2 * M_PI_F / 3) && !me->IsMoving())
-            {
-                me->SetInFront(pVictim);
-                me->SendMovementPacket(MSG_MOVE_SET_FACING, false);
-            }
-        }
-
         if (me->IsNonMeleeSpellCasted())
             return;
 
@@ -1095,6 +1088,8 @@ void BattleBotAI::UpdateAI(uint32 const diff)
         {
             if ((GetAttackersInRangeCount(10.0f) > 1) &&
                 !me->HasUnitState(UNIT_STAT_ROOT) &&
+                !me->HasAura(BB_NS_DRUID) &&
+                !me->HasAura(BB_NS_SHAMAN) &&
                 (pVictim->GetHealthPercent() > 50.0f) &&
                 (me->GetMotionMaster()->GetCurrentMovementGeneratorType() != DISTANCING_MOTION_TYPE))
             {
@@ -1497,6 +1492,7 @@ void BattleBotAI::UpdateFlagCarrierAI()
                     return;
                 }
                 if (m_spells.mage.pPolymorph &&
+                    (pAttacker->GetDiminishing(DIMINISHING_POLYMORPH) != DIMINISHING_LEVEL_IMMUNE) &&
                     CanTryToCastSpell(pAttacker, m_spells.mage.pPolymorph))
                 {
                     if (DoCastSpell(pAttacker, m_spells.mage.pPolymorph) == SPELL_CAST_OK)
@@ -1708,7 +1704,6 @@ void BattleBotAI::UpdateFlagCarrierAI()
                     if (m_spells.druid.pTravelForm &&
                         me->GetShapeshiftForm() == FORM_TRAVEL)
                         me->RemoveAurasDueToSpellByCancel(m_spells.druid.pTravelForm->Id);
-                    return;
 
                     if (me->GetShapeshiftForm() == FORM_NONE)
                     {
@@ -2681,6 +2676,7 @@ void BattleBotAI::UpdateInCombatAI_Mage()
 
         if (m_spells.mage.pPolymorph &&
             pVictim->IsMounted() &&
+            (pVictim->GetDiminishing(DIMINISHING_POLYMORPH) != DIMINISHING_LEVEL_IMMUNE) &&
             CanTryToCastSpell(pVictim, m_spells.mage.pPolymorph))
         {
             if (DoCastSpell(pVictim, m_spells.mage.pPolymorph) == SPELL_CAST_OK)
@@ -2762,7 +2758,8 @@ void BattleBotAI::UpdateInCombatAI_Mage()
             if (Unit* pTarget = SelectAttackerDifferentFrom(pVictim))
             {
                 if (CanTryToCastSpell(pVictim, m_spells.mage.pPolymorph) &&
-                    (pVictim->GetHealthPercent() > 80.0f))
+                    (pVictim->GetHealthPercent() > 80.0f) &&
+                    (pVictim->GetDiminishing(DIMINISHING_POLYMORPH) != DIMINISHING_LEVEL_IMMUNE))
                 {
                     if (DoCastSpell(pVictim, m_spells.mage.pPolymorph) == SPELL_CAST_OK)
                         return;
@@ -3393,6 +3390,7 @@ void BattleBotAI::UpdateInCombatAI_Warlock()
         // Fear death coiled targets
         if (m_spells.warlock.pFear &&
             m_spells.warlock.pDeathCoil &&
+            (pVictim->GetDiminishing(DIMINISHING_FEAR) != DIMINISHING_LEVEL_IMMUNE) &&
             (pVictim->HasAura(m_spells.warlock.pDeathCoil->Id)) &&
             CanTryToCastSpell(pVictim, m_spells.warlock.pFear))
         {
@@ -3400,8 +3398,16 @@ void BattleBotAI::UpdateInCombatAI_Warlock()
                 return;
         }
 
+        // Always use up NF procs
+        if (m_spells.warlock.pShadowBolt &&
+            (me->HasAura(BB_NIGHTFALL_PROC)) &&
+            CanTryToCastSpell(pVictim, m_spells.warlock.pShadowBolt))
+        {
+            if (DoCastSpell(pVictim, m_spells.warlock.pShadowBolt) == SPELL_CAST_OK)
+                return;
+        }
+
         if (m_spells.warlock.pShadowburn &&
-           (pVictim->GetHealthPercent() < 20.0f) &&
             CanTryToCastSpell(pVictim, m_spells.warlock.pShadowburn))
         {
             if (DoCastSpell(pVictim, m_spells.warlock.pShadowburn) == SPELL_CAST_OK)
@@ -3466,21 +3472,6 @@ void BattleBotAI::UpdateInCombatAI_Warlock()
                 return;
         }
 
-        if (m_spells.warlock.pDrainLife &&
-           (me->GetHealthPercent() < 30.0f) &&
-            CanTryToCastSpell(pVictim, m_spells.warlock.pDrainLife))
-        {
-            if (DoCastSpell(pVictim, m_spells.warlock.pDrainLife) == SPELL_CAST_OK)
-                return;
-        }
-
-        if (m_spells.warlock.pFear &&
-            CanTryToCastSpell(pVictim, m_spells.warlock.pFear))
-        {
-            if (DoCastSpell(pVictim, m_spells.warlock.pFear) == SPELL_CAST_OK)
-                return;
-        }
-
         // CoEX flag carriers or mounted players, otherwise CoT casters or CoA non-casters
         if (pVictim->IsMounted() || pVictim->HasAura(AURA_SILVERWING_FLAG) || pVictim->HasAura(AURA_WARSONG_FLAG))
         {
@@ -3513,20 +3504,50 @@ void BattleBotAI::UpdateInCombatAI_Warlock()
             }
             else
             {
-                if (m_spells.warlock.pAmplifyCurse &&
-                    CanTryToCastSpell(me, m_spells.warlock.pAmplifyCurse))
+                // If conflag spec, use CoE, otherwise use CoA
+                if (m_spells.warlock.pConflagrate)
                 {
-                    if (DoCastSpell(me, m_spells.warlock.pAmplifyCurse) == SPELL_CAST_OK)
-                        return;
+                    if (m_spells.warlock.pCurseoftheElements &&
+                        CanTryToCastSpell(pVictim, m_spells.warlock.pCurseoftheElements))
+                    {
+                        if (DoCastSpell(pVictim, m_spells.warlock.pCurseoftheElements) == SPELL_CAST_OK)
+                            return;
+                    }
                 }
-
-                if (m_spells.warlock.pCurseofAgony &&
-                    CanTryToCastSpell(pVictim, m_spells.warlock.pCurseofAgony))
+                else
                 {
-                    if (DoCastSpell(pVictim, m_spells.warlock.pCurseofAgony) == SPELL_CAST_OK)
-                        return;
+                    if (m_spells.warlock.pAmplifyCurse &&
+                        CanTryToCastSpell(me, m_spells.warlock.pAmplifyCurse))
+                    {
+                        if (DoCastSpell(me, m_spells.warlock.pAmplifyCurse) == SPELL_CAST_OK)
+                            return;
+                    }
+
+                    if (m_spells.warlock.pCurseofAgony &&
+                        CanTryToCastSpell(pVictim, m_spells.warlock.pCurseofAgony))
+                    {
+                        if (DoCastSpell(pVictim, m_spells.warlock.pCurseofAgony) == SPELL_CAST_OK)
+                            return;
+                    }
                 }
             }
+        }
+
+        if (m_spells.warlock.pFear &&
+            (pVictim->GetDiminishing(DIMINISHING_FEAR) != DIMINISHING_LEVEL_IMMUNE) &&
+            CanTryToCastSpell(pVictim, m_spells.warlock.pFear))
+        {
+            if (DoCastSpell(pVictim, m_spells.warlock.pFear) == SPELL_CAST_OK)
+                return;
+        }
+
+        if (m_spells.warlock.pDrainLife &&
+            !m_spells.warlock.pConflagrate &&
+            (me->GetHealthPercent() < 30.0f) &&
+            CanTryToCastSpell(pVictim, m_spells.warlock.pDrainLife))
+        {
+            if (DoCastSpell(pVictim, m_spells.warlock.pDrainLife) == SPELL_CAST_OK)
+                return;
         }
 
         if (m_spells.warlock.pInferno &&
@@ -4303,6 +4324,7 @@ void BattleBotAI::UpdateInCombatAI_Druid()
     {
         if (me->GetHealthPercent() < 50.0f &&
             (GetAttackersInRangeCount(50.0f) > 0) &&
+            !me->HasAura(BB_NS_DRUID) &&
             (me->GetMotionMaster()->GetCurrentMovementGeneratorType() != DISTANCING_MOTION_TYPE))
         {
             if (me->GetShapeshiftForm() == FORM_NONE)
@@ -4333,7 +4355,8 @@ void BattleBotAI::UpdateInCombatAI_Druid()
     {
         if (me->GetMotionMaster()->GetCurrentMovementGeneratorType() == DISTANCING_MOTION_TYPE)
         {
-            if (me->GetShapeshiftForm() == FORM_NONE)
+            if (me->GetShapeshiftForm() == FORM_NONE &&
+                !me->HasAura(BB_NS_DRUID))
             {
                 if (m_spells.druid.pBarkskin &&
                     CanTryToCastSpell(me, m_spells.druid.pBarkskin))
@@ -4382,7 +4405,8 @@ void BattleBotAI::UpdateInCombatAI_Druid()
         }
 
         // Prioritize applying HoTs.
-        if (me->GetHealthPercent() > 50.0f)
+        if (me->GetHealthPercent() > 50.0f &&
+            !me->HasAura(BB_NS_DRUID))
         {
             if (m_role == ROLE_HEALER)
             {
@@ -4513,7 +4537,8 @@ void BattleBotAI::UpdateInCombatAI_Druid()
                 if (Unit* pVictim = me->GetVictim())
                 {
                     if (me->GetHealthPercent() < 50.0 &&
-                        GetAttackersInRangeCount(50.0f) > 0)
+                        GetAttackersInRangeCount(50.0f) > 0 &&
+                        !me->HasAura(BB_NS_DRUID))
                     {
                         if (me->GetMotionMaster()->GetCurrentMovementGeneratorType() != DISTANCING_MOTION_TYPE)
                             if (me->GetMotionMaster()->MoveDistance(pVictim, 50.0f))
