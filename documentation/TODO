@@ -168,17 +168,12 @@ if conflag, use CoE
 druids dont heal self if running away in travel, doesnt work flawlessly prob needs natures swiftness aura logic
 maybe if far enough away from nearby enemies remove travel and heal?
 
-nightfall etc auras:
-check the spell itself
-spell proc event, check there or template
-
 lock bot will spam fear even if immmune due to dr..is there a way to check this mechanic immune_fear?
 power infusion logic
 rogue dont attack retaled targets
 TUF proc animation is wrong?
 rogues / ferals should only start attack if stealthed if the target is alone and no other enemies within 40 yards
 resend position packet after mage uses coc sometime
-better NS + heal logic for shaman and druid. put inside right before casting a heal or something idk
 mage blink root to not just stun
 
 bool BasicAI::IsProximityAggroAllowedFor(Unit* pTarget) const needs to specify ZONE ISNT AV for NOT aggroing bots
