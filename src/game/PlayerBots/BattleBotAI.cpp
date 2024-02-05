@@ -2258,6 +2258,13 @@ void BattleBotAI::UpdateInCombatAI_Shaman()
     if (SummonShamanTotems())
         return;
 
+    if (m_spells.shaman.pLightningShield &&
+        CanTryToCastSpell(me, m_spells.shaman.pLightningShield))
+    {
+        if (DoCastSpell(me, m_spells.shaman.pLightningShield) == SPELL_CAST_OK)
+            return;
+    }
+
     if (m_spells.shaman.pCureDisease &&
         CanTryToCastSpell(me, m_spells.shaman.pCureDisease) &&
         IsValidDispelTarget(me, m_spells.shaman.pCureDisease))
@@ -2606,7 +2613,7 @@ void BattleBotAI::UpdateInCombatAI_Mage()
                 (pVictim->GetClass() != CLASS_WARRIOR) &&
                 (pVictim->GetClass() != CLASS_ROGUE) &&
                 (pVictim->GetClass() != CLASS_HUNTER) &&
-                (spell->m_spellInfo->Id != SPELL_CAPTURE_BANNER) &&
+                (spell && (spell->m_spellInfo->Id != SPELL_CAPTURE_BANNER)) &&
                 CanTryToCastSpell(pVictim, m_spells.mage.pCounterspell))
             {
                 if (DoCastSpell(pVictim, m_spells.mage.pCounterspell) == SPELL_CAST_OK)
