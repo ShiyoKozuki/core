@@ -994,7 +994,7 @@ void BattleBotAI::UpdateAI(uint32 const diff)
     }
 
     if (!me->IsInCombat() &&
-        (GetAttackersInRangeCount(VISIBILITY_DISTANCE_SMALL) == 0))
+        (GetPlayerAttackersInRangeCount(VISIBILITY_DISTANCE_SMALL) == 0))
     {
         if (DrinkAndEat())
             return;
@@ -1086,7 +1086,7 @@ void BattleBotAI::UpdateAI(uint32 const diff)
         // Healers and ranged DPS should away if more than 1 enemy is near
         if (m_role == ROLE_HEALER || m_role == ROLE_RANGE_DPS)
         {
-            if ((GetAttackersInRangeCount(10.0f) > 1) &&
+            if ((GetPlayerAttackersInRangeCount(10.0f) > 1) &&
                 !me->HasUnitState(UNIT_STAT_ROOT) &&
                 !me->HasAura(BB_NS_DRUID) &&
                 !me->HasAura(BB_NS_SHAMAN) &&
@@ -1109,7 +1109,7 @@ void BattleBotAI::UpdateAI(uint32 const diff)
         m_targetSelectTimer.Reset(BB_NEW_TARGET_INTERVAL);
         if (pVictim && 
             me->IsInCombat() &&
-            (GetAttackersInRangeCount(36.0f) > 1) &&
+            (GetPlayerAttackersInRangeCount(36.0f) > 1) &&
             !me->IsMounted() &&
             m_role != ROLE_HEALER)
         {
@@ -1980,13 +1980,13 @@ void BattleBotAI::UpdateInCombatAI_Paladin()
         }
         if (m_spells.paladin.pHolyShield &&
             CanTryToCastSpell(me, m_spells.paladin.pHolyShield) &&
-           (IsMeleeDamageClass(pVictim->GetClass()) || (GetAttackersInRangeCount(8.0f) > 1)))
+           (IsMeleeDamageClass(pVictim->GetClass()) || (GetPlayerAttackersInRangeCount(8.0f) > 1)))
         {
             if (DoCastSpell(me, m_spells.paladin.pHolyShield) == SPELL_CAST_OK)
                 return;
         }
         if (m_spells.paladin.pConsecration &&
-           (GetAttackersInRangeCount(10.0f) > 2) &&
+           (GetPlayerAttackersInRangeCount(10.0f) > 2) &&
             CanTryToCastSpell(me, m_spells.paladin.pConsecration))
         {
             if (DoCastSpell(me, m_spells.paladin.pConsecration) == SPELL_CAST_OK)
@@ -2617,7 +2617,7 @@ void BattleBotAI::UpdateInCombatAI_Mage()
         {
 
             if (m_spells.mage.pBlink &&
-                (GetAttackersInRangeCount(10.0f) == 0) &&
+                (GetPlayerAttackersInRangeCount(10.0f) == 0) &&
                 CanTryToCastSpell(me, m_spells.mage.pBlink))
             {
                 if (me->GetMotionMaster()->GetCurrentMovementGeneratorType())
@@ -2636,7 +2636,7 @@ void BattleBotAI::UpdateInCombatAI_Mage()
             }
 
             if (m_spells.mage.pConeofCold &&
-                (GetAttackersInRangeCount(8.0f) > 0) &&
+                (GetPlayerAttackersInRangeCount(8.0f) > 0) &&
                 CanTryToCastSpell(me, m_spells.mage.pConeofCold))
             {
                 me->SetInFront(pVictim);
@@ -2730,7 +2730,7 @@ void BattleBotAI::UpdateInCombatAI_Mage()
             }
         }
 
-        if (GetAttackersInRangeCount(10.0f) > 3)
+        if (GetPlayerAttackersInRangeCount(10.0f) > 3)
         {
             if (m_spells.mage.pArcaneExplosion &&
                 CanTryToCastSpell(me, m_spells.mage.pArcaneExplosion))
@@ -2788,7 +2788,7 @@ void BattleBotAI::UpdateInCombatAI_Mage()
 
         // Blink after targets out of range offensively if it's safe to do so
         if (m_spells.mage.pBlink &&
-            (GetAttackersInRangeCount(10.0f) == 0) &&
+            (GetPlayerAttackersInRangeCount(10.0f) == 0) &&
             (me->GetDistance(pVictim) >= 30.0f) &&
             CanTryToCastSpell(me, m_spells.mage.pBlink))
         {
@@ -2809,7 +2809,7 @@ void BattleBotAI::UpdateInCombatAI_Mage()
         }
 
         if (m_spells.mage.pBlastWave &&
-            GetAttackersInRangeCount(8.0f) &&
+            GetPlayerAttackersInRangeCount(8.0f) &&
             CanTryToCastSpell(me, m_spells.mage.pBlastWave))
         {
             if (DoCastSpell(me, m_spells.mage.pBlastWave) == SPELL_CAST_OK)
@@ -2849,7 +2849,7 @@ void BattleBotAI::UpdateInCombatAI_Mage()
 
         if (m_spells.mage.pEvocation &&
            (me->GetPowerPercent(POWER_MANA) < 20.0f) &&
-           (GetAttackersInRangeCount(10.0f) == 0) &&
+           (GetPlayerAttackersInRangeCount(10.0f) == 0) &&
             CanTryToCastSpell(me, m_spells.mage.pEvocation))
         {
             if (DoCastSpell(me, m_spells.mage.pEvocation) == SPELL_CAST_OK)
@@ -3015,7 +3015,7 @@ void BattleBotAI::UpdateInCombatAI_Priest()
     if (me->GetMotionMaster()->GetCurrentMovementGeneratorType() == DISTANCING_MOTION_TYPE)
     {
         if (m_spells.priest.pPsychicScream &&
-            GetAttackersInRangeCount(8.0f) &&
+            GetPlayerAttackersInRangeCount(8.0f) &&
             CanTryToCastSpell(me, m_spells.priest.pPsychicScream))
         {
             if (DoCastSpell(me, m_spells.priest.pPsychicScream) == SPELL_CAST_OK)
@@ -3158,7 +3158,7 @@ void BattleBotAI::UpdateInCombatAI_Priest()
 
 
         if (m_spells.priest.pPsychicScream &&
-            GetAttackersInRangeCount(8.0f) &&
+            GetPlayerAttackersInRangeCount(8.0f) &&
             CanTryToCastSpell(me, m_spells.priest.pPsychicScream))
         {
             if (DoCastSpell(me, m_spells.priest.pPsychicScream) == SPELL_CAST_OK)
@@ -3769,7 +3769,7 @@ void BattleBotAI::UpdateInCombatAI_Warrior()
 
         if (m_spells.warrior.pIntimidatingShout &&
            (me->GetHealthPercent() < 50.0f) &&
-           (GetAttackersInRangeCount(10.0f) > 2) &&
+           (GetPlayerAttackersInRangeCount(10.0f) > 2) &&
             CanTryToCastSpell(pVictim, m_spells.warrior.pIntimidatingShout))
         {
             if (DoCastSpell(pVictim, m_spells.warrior.pIntimidatingShout) == SPELL_CAST_OK)
@@ -3779,7 +3779,7 @@ void BattleBotAI::UpdateInCombatAI_Warrior()
         if (m_spells.warrior.pRetaliation &&
             IsMeleeDamageClass(pVictim->GetClass()) &&
            (me->GetHealthPercent() > 70.0f) &&
-           ((GetAttackersInRangeCount(10.0f) > 1) || (pVictim->GetClass() == CLASS_ROGUE)) &&
+           ((GetPlayerAttackersInRangeCount(10.0f) > 1) || (pVictim->GetClass() == CLASS_ROGUE)) &&
             CanTryToCastSpell(me, m_spells.warrior.pRetaliation))
         {
             if (DoCastSpell(me, m_spells.warrior.pRetaliation) == SPELL_CAST_OK)
@@ -4117,7 +4117,7 @@ void BattleBotAI::UpdateInCombatAI_Rogue()
         {
             if (m_spells.rogue.pEvasion &&
                (me->GetHealthPercent() < 80.0f) &&
-               ((GetAttackersInRangeCount(10.0f) > 2) || !IsRangedDamageClass(pVictim->GetClass())) &&
+               ((GetPlayerAttackersInRangeCount(10.0f) > 2) || !IsRangedDamageClass(pVictim->GetClass())) &&
                 CanTryToCastSpell(me, m_spells.rogue.pEvasion))
             {
                 if (DoCastSpell(me, m_spells.rogue.pEvasion) == SPELL_CAST_OK)
@@ -4327,7 +4327,7 @@ void BattleBotAI::UpdateInCombatAI_Druid()
     if (Unit* pVictim = me->GetVictim())
     {
         if (me->GetHealthPercent() < 50.0f &&
-            (GetAttackersInRangeCount(50.0f) > 0) &&
+            (GetPlayerAttackersInRangeCount(50.0f) > 0) &&
             !me->HasAura(BB_NS_DRUID) &&
             (me->GetMotionMaster()->GetCurrentMovementGeneratorType() != DISTANCING_MOTION_TYPE))
         {
@@ -4541,7 +4541,7 @@ void BattleBotAI::UpdateInCombatAI_Druid()
                 if (Unit* pVictim = me->GetVictim())
                 {
                     if (me->GetHealthPercent() < 50.0 &&
-                        GetAttackersInRangeCount(50.0f) > 0 &&
+                        GetPlayerAttackersInRangeCount(50.0f) > 0 &&
                         !me->HasAura(BB_NS_DRUID))
                     {
                         if (me->GetMotionMaster()->GetCurrentMovementGeneratorType() != DISTANCING_MOTION_TYPE)
@@ -4764,7 +4764,7 @@ void BattleBotAI::UpdateInCombatAI_Druid()
                 }
 
                 if (m_spells.druid.pSwipe &&
-                   ((me->GetPower(POWER_RAGE) > 50) || (GetAttackersInRangeCount(10.0f) > 1)) &&
+                   ((me->GetPower(POWER_RAGE) > 50) || (GetPlayerAttackersInRangeCount(10.0f) > 1)) &&
                     CanTryToCastSpell(pVictim, m_spells.druid.pSwipe))
                 {
                     if (DoCastSpell(pVictim, m_spells.druid.pSwipe) == SPELL_CAST_OK)

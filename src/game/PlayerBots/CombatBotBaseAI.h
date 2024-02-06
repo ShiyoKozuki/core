@@ -100,6 +100,7 @@ public:
     void LearnRandomTalents();
     
     uint8 GetAttackersInRangeCount(float range) const;
+    uint8 GetPlayerAttackersInRangeCount(float range) const;
     Unit* SelectAttackerDifferentFrom(Unit const* pExcept) const;
     Unit* SelectHealTarget(float selfHealPercent = 100.0f, float groupHealPercent = 100.0f) const;
     Unit* SelectPeriodicHealTarget(float selfHealPercent = 100.0f, float groupHealPercent = 100.0f) const;

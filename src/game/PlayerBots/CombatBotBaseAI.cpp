@@ -2300,6 +2300,20 @@ uint8 CombatBotBaseAI::GetAttackersInRangeCount(float range) const
     return count;
 }
 
+uint8 CombatBotBaseAI::GetPlayerAttackersInRangeCount(float range) const
+{
+    uint8 count = 0;
+    for (const auto& pTarget : me->GetAttackers())
+    {
+        if (me->GetCombatDistance(pTarget) <= range &&
+            !pTarget->IsCreature() &&
+            !pTarget->IsPet())
+            count++;
+    }
+
+    return count;
+}
+
 Unit* CombatBotBaseAI::SelectAttackerDifferentFrom(Unit const* pExcept) const
 {
     for (const auto& pTarget : me->GetAttackers())
