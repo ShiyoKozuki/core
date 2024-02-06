@@ -1443,7 +1443,6 @@ void BattleBotAI::UpdateFlagCarrierAI()
                     CanTryToCastSpell(pAttacker, m_spells.hunter.pScatterShot))
                 {
                     me->SetInFront(pAttacker);
-                    me->SendMovementPacket(MSG_MOVE_SET_FACING, false);
                     DoCastSpell(pAttacker, m_spells.hunter.pScatterShot);
                 }
                 break;
@@ -1600,7 +1599,6 @@ void BattleBotAI::UpdateFlagCarrierAI()
                     CanTryToCastSpell(pAttacker, m_spells.warlock.pDeathCoil))
                 {
                     me->SetInFront(pAttacker);
-                    me->SendMovementPacket(MSG_MOVE_SET_FACING, false);
                     me->CastSpell(pAttacker, m_spells.warlock.pDeathCoil, false);
                     return;
                 }
@@ -2383,7 +2381,6 @@ void BattleBotAI::UpdateInCombatAI_Hunter()
                 CanTryToCastSpell(pVictim, m_spells.hunter.pScatterShot))
             {
                 me->SetInFront(pVictim);
-                me->SendMovementPacket(MSG_MOVE_SET_FACING, false);
                 DoCastSpell(pVictim, m_spells.hunter.pScatterShot);
             }
         }
@@ -2643,7 +2640,6 @@ void BattleBotAI::UpdateInCombatAI_Mage()
                 CanTryToCastSpell(me, m_spells.mage.pConeofCold))
             {
                 me->SetInFront(pVictim);
-                me->SendMovementPacket(MSG_MOVE_SET_FACING, false);
                 if (DoCastSpell(pVictim, m_spells.mage.pConeofCold) == SPELL_CAST_OK)
                     return;
             }
@@ -3337,7 +3333,6 @@ void BattleBotAI::UpdateInCombatAI_Warlock()
                 CanTryToCastSpell(pVictim, m_spells.warlock.pDeathCoil))
             {
                 me->SetInFront(pVictim);
-                me->SendMovementPacket(MSG_MOVE_SET_FACING, false);
                 if (DoCastSpell(pVictim, m_spells.warlock.pDeathCoil) == SPELL_CAST_OK)
                     return;
             }
@@ -3375,7 +3370,6 @@ void BattleBotAI::UpdateInCombatAI_Warlock()
                 CanTryToCastSpell(pVictim, m_spells.warlock.pShadowburn))
             {
                 me->SetInFront(pVictim);
-                me->SendMovementPacket(MSG_MOVE_SET_FACING, false);
                 if (DoCastSpell(pVictim, m_spells.warlock.pShadowburn) == SPELL_CAST_OK)
                     return;
             }
