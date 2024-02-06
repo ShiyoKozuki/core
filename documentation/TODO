@@ -164,7 +164,6 @@ if pvictim is casting poly or targets around me and im target then go into trave
 healer druid bot goes into travel then doesnt swap out and uses moonkins logic to stay x distance from target
 banish logic, copy hibernate logic
 enslave demon logic if infernal and dont have a pet
-if conflag, use CoE
 druids dont heal self if running away in travel, doesnt work flawlessly prob needs natures swiftness aura logic
 maybe if far enough away from nearby enemies remove travel and heal?
 
@@ -176,7 +175,11 @@ rogues / ferals should only start attack if stealthed if the target is alone and
 resend position packet after mage uses coc sometime
 mage blink root to not just stun
 
-bool BasicAI::IsProximityAggroAllowedFor(Unit* pTarget) const needs to specify ZONE ISNT AV for NOT aggroing bots
+move IB gy to a non-dumb spot
+dont run from creatures only players, oom low hp etc
+maybe need to remove packet sending for when facing ? check how it was originally used
+only use AR if target is in melee range
+infernal pets don't immolate, code all pets
 
 add shaman to https://www.wowhead.com/classic/item=20043/highlanders-chain-girdle
 https://github.com/stoneharry/WoW-Spell-Editor/releases/tag/v2.2.1
