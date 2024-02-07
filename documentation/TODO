@@ -179,6 +179,15 @@ move IB gy to a non-dumb spot
 dont run from creatures only players, oom low hp etc
 maybe need to remove packet sending for when facing ? check how it was originally used
 infernal pets don't immolate, code all pets
+level scaling food/water
+bots should click flags highest prio if no one within range
+ai to keep someone staying at a flag if no one there
+frostwolf guardian / tauren mob hitboxes
+dampen positive and negative(and amplify) should cap at -50% of spells base power
+CoShadows if have ruin(SM ruin)
+if element != none to nonmeleespellcasted or w/e
+Wands macc fix
+bots in farming spots farming need to code ai somehow
 
 add shaman to https://www.wowhead.com/classic/item=20043/highlanders-chain-girdle
 https://github.com/stoneharry/WoW-Spell-Editor/releases/tag/v2.2.1
