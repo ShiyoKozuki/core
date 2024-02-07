@@ -1079,7 +1079,7 @@ void BattleBotAI::UpdateAI(uint32 const diff)
             if (!me->IsStopped())
                 me->StopMoving();
             me->GetMotionMaster()->Clear();
-            if (me->GetMotionMaster()->MoveDistance(pVictim, 50.0f))
+            if (me->GetMotionMaster()->MoveDistance(pVictim, 70.0f))
                 return;
         }
 
