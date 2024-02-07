@@ -176,7 +176,6 @@ resend position packet after mage uses coc sometime
 mage blink root to not just stun
 
 move IB gy to a non-dumb spot
-dont run from creatures only players, oom low hp etc
 maybe need to remove packet sending for when facing ? check how it was originally used
 infernal pets don't immolate, code all pets
 level scaling food/water

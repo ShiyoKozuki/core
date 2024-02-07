@@ -5,6 +5,10 @@ UPDATE mangos . quest_template
 SET RequiredRaces = 0
 WHERE entry IN(5641, 5645, 5647);
 
+-- Rampaging Giants
+UPDATE `mangos`.`quest_template` SET `RewRepValue1`=200 WHERE  `entry`=5981 AND `patch`=0;
+
+
 -- Blasted Lands
 REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (8716, 30007, 20);
 REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (8717, 30007, 20);
