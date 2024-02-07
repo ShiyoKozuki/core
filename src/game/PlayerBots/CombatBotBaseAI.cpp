@@ -1131,7 +1131,17 @@ void CombatBotBaseAI::PopulateSpellData()
                 {
                     if (IsHigherRankSpell(m_spells.warlock.pInferno))
                         m_spells.warlock.pInferno = pSpellEntry;
-                        }
+                }
+                else if (pSpellEntry->SpellName[0].find("Devour Magic") != std::string::npos)
+                {
+                    if (IsHigherRankSpell(m_spells.warlock.pDevourMagic))
+                        m_spells.warlock.pDevourMagic = pSpellEntry;
+                }
+                else if (pSpellEntry->SpellName[0].find("Spell Lock") != std::string::npos)
+                {
+                    if (IsHigherRankSpell(m_spells.warlock.pSpellLock))
+                        m_spells.warlock.pSpellLock = pSpellEntry;
+                }
                 break;
             }
             case CLASS_WARRIOR:
@@ -2942,6 +2952,30 @@ SpellCastResult CombatBotBaseAI::DoCastSpell(Unit* pTarget, SpellEntry const* pS
 
         AddItemToInventory(pSpellEntry->Reagent[0]);
     }
+
+    return result;
+}
+
+SpellCastResult CombatBotBaseAI::DoCastPetSpell(Unit* pTarget, SpellEntry const* pSpellEntry)
+{
+    Pet* pPet = me->GetPet();
+
+    if (pPet != pTarget)
+        pPet->SetFacingToObject(pTarget);
+
+    if (me->IsMounted())
+        me->RemoveSpellsCausingAura(SPELL_AURA_MOUNTED);
+
+    pPet->SetTargetGuid(pTarget->GetObjectGuid());
+    auto result = pPet->CastSpell(pTarget, pSpellEntry, false);
+
+    //printf("cast %s result %u\n", pSpellEntry->SpellNapPet[0].c_str(), result);
+
+    if ((result == SPELL_FAILED_MOVING ||
+        result == SPELL_CAST_OK) &&
+        (pSpellEntry->GetCastTime(pPet) > 0) &&
+        (pPet->IsMoving() || !pPet->IsStopped()))
+        pPet->StopMoving();
 
     return result;
 }

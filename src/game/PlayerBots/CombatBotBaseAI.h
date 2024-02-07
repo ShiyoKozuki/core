@@ -123,6 +123,7 @@ public:
     bool AreOthersOnSameTarget(ObjectGuid guid, bool checkMelee = true, bool checkSpells = true) const;
 
     SpellCastResult DoCastSpell(Unit* pTarget, SpellEntry const* pSpellEntry);
+    SpellCastResult DoCastPetSpell(Unit* pTarget, SpellEntry const* pSpellEntry);
     virtual bool CanTryToCastSpell(Unit const* pTarget, SpellEntry const* pSpellEntry) const;
     bool IsWearingShield(Player* pPlayer) const;
     bool IsInDuel() const;
@@ -449,6 +450,8 @@ public:
             SpellEntry const* pCurseofExhaustion;
             SpellEntry const* pLifeTap;
             SpellEntry const* pInferno;
+            SpellEntry const* pDevourMagic;
+            SpellEntry const* pSpellLock;
         } warlock;
         struct
         {

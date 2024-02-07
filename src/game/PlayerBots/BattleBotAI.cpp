@@ -3382,6 +3382,31 @@ void BattleBotAI::UpdateInCombatAI_Warlock()
             }
         }
 
+        if (Pet* pPet = me->GetPet())
+        {
+            if (pPet->GetCreatureInfo()->pet_family == CREATURE_FAMILY_FELHUNTER)
+            {
+                if (m_spells.warlock.pSpellLock &&
+                    pVictim->IsNonMeleeSpellCasted(false, false, true) &&
+                    (pVictim->GetClass() != CLASS_WARRIOR) &&
+                    (pVictim->GetClass() != CLASS_ROGUE) &&
+                    (pVictim->GetClass() != CLASS_HUNTER) &&
+                    CanTryToCastSpell(pVictim, m_spells.warlock.pSpellLock))
+                {
+                    if (DoCastPetSpell(pVictim, m_spells.warlock.pSpellLock) == SPELL_CAST_OK)
+                        return;
+                }
+
+                if (m_spells.warlock.pDevourMagic &&
+                    IsValidDispelTarget(pVictim, m_spells.warlock.pDevourMagic) &&
+                    CanTryToCastSpell(pVictim, m_spells.warlock.pDevourMagic))
+                {
+                    if (DoCastPetSpell(pVictim, m_spells.warlock.pDevourMagic) == SPELL_CAST_OK)
+                        return;
+                }
+            }
+        }
+
         if (m_spells.warlock.pLifeTap &&
             (me->GetPowerPercent(POWER_MANA) < 30.0f) &&
             (me->GetHealthPercent() > 70.0f) &&
