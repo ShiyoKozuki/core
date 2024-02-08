@@ -3391,7 +3391,7 @@ void BattleBotAI::UpdateInCombatAI_Warlock()
                     (pVictim->GetClass() != CLASS_WARRIOR) &&
                     (pVictim->GetClass() != CLASS_ROGUE) &&
                     (pVictim->GetClass() != CLASS_HUNTER) &&
-                    CanTryToCastSpell(pVictim, m_spells.warlock.pSpellLock))
+                    CanTryToCastPetSpell(pVictim, m_spells.warlock.pSpellLock))
                 {
                     if (DoCastPetSpell(pVictim, m_spells.warlock.pSpellLock) == SPELL_CAST_OK)
                         return;
@@ -3399,10 +3399,42 @@ void BattleBotAI::UpdateInCombatAI_Warlock()
 
                 if (m_spells.warlock.pDevourMagic &&
                     IsValidDispelTarget(pVictim, m_spells.warlock.pDevourMagic) &&
-                    CanTryToCastSpell(pVictim, m_spells.warlock.pDevourMagic))
+                    CanTryToCastPetSpell(pVictim, m_spells.warlock.pDevourMagic))
                 {
                     if (DoCastPetSpell(pVictim, m_spells.warlock.pDevourMagic) == SPELL_CAST_OK)
                         return;
+                }
+            }
+            else if (pPet->GetCreatureInfo()->pet_family == CREATURE_FAMILY_SUCCUBUS)
+            {
+                if (m_spells.warlock.pSeduction)
+                {
+                    if (Unit* pTarget = SelectAttackerDifferentFrom(pVictim))
+                    {
+                        if (CanTryToCastPetSpell(pVictim, m_spells.warlock.pSeduction) &&
+                            (pVictim->GetDiminishing(DIMINISHING_CHARM) != DIMINISHING_LEVEL_IMMUNE))
+                        {
+                            if (DoCastPetSpell(pVictim, m_spells.warlock.pSeduction) == SPELL_CAST_OK)
+                                return;
+                        }
+                    }
+                }
+
+                if (m_spells.warlock.pLashofPain &&
+                    CanTryToCastPetSpell(pVictim, m_spells.warlock.pLashofPain))
+                {
+                    if (DoCastPetSpell(pVictim, m_spells.warlock.pLashofPain) == SPELL_CAST_OK)
+                        return;
+                }
+
+                if (m_spells.warlock.pLesserInvisibility &&
+                    !pPet->IsInCombat() &&
+                    CanTryToCastPetSpell(pPet, m_spells.warlock.pLesserInvisibility))
+                {
+                    if (DoCastPetSpell(pPet, m_spells.warlock.pLesserInvisibility) == SPELL_CAST_OK)
+                    {
+                        return;
+                    }
                 }
             }
         }
@@ -3468,18 +3500,18 @@ void BattleBotAI::UpdateInCombatAI_Warlock()
                 return;
         }
 
-        if (m_spells.warlock.pDemonicSacrifice)
-        {
-            if (Pet* pPet = me->GetPet())
-            {
-                if (pPet->IsAlive() &&
-                    CanTryToCastSpell(pPet, m_spells.warlock.pDemonicSacrifice))
-                {
-                    if (DoCastSpell(pPet, m_spells.warlock.pDemonicSacrifice) == SPELL_CAST_OK)
-                        return;
-                }
-            }
-        }
+        //if (m_spells.warlock.pDemonicSacrifice)
+        //{
+        //    if (Pet* pPet = me->GetPet())
+        //    {
+        //        if (pPet->IsAlive() &&
+        //            CanTryToCastSpell(pPet, m_spells.warlock.pDemonicSacrifice))
+        //        {
+        //            if (DoCastSpell(pPet, m_spells.warlock.pDemonicSacrifice) == SPELL_CAST_OK)
+        //                return;
+        //        }
+        //    }
+        //}
 
         if (m_spells.warlock.pSoulLink &&
             !me->HasAura(BB_SOUL_LINK))

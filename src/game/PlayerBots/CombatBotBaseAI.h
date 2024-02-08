@@ -125,6 +125,7 @@ public:
     SpellCastResult DoCastSpell(Unit* pTarget, SpellEntry const* pSpellEntry);
     SpellCastResult DoCastPetSpell(Unit* pTarget, SpellEntry const* pSpellEntry);
     virtual bool CanTryToCastSpell(Unit const* pTarget, SpellEntry const* pSpellEntry) const;
+    virtual bool CanTryToCastPetSpell(Unit const* pTarget, SpellEntry const* pSpellEntry) const;
     bool IsWearingShield(Player* pPlayer) const;
     bool IsInDuel() const;
     CombatBotRoles GetRole() const;
@@ -452,6 +453,11 @@ public:
             SpellEntry const* pInferno;
             SpellEntry const* pDevourMagic;
             SpellEntry const* pSpellLock;
+            SpellEntry const* pParanoia;
+            SpellEntry const* pTaintedBlood;
+            SpellEntry const* pSeduction;
+            SpellEntry const* pLesserInvisibility;
+            SpellEntry const* pLashofPain;
         } warlock;
         struct
         {

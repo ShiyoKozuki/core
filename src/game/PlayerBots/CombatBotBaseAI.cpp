@@ -1142,6 +1142,46 @@ void CombatBotBaseAI::PopulateSpellData()
                     if (IsHigherRankSpell(m_spells.warlock.pSpellLock))
                         m_spells.warlock.pSpellLock = pSpellEntry;
                 }
+                else if (pSpellEntry->SpellName[0].find("Tainted Blood") != std::string::npos)
+                {
+                    if (IsHigherRankSpell(m_spells.warlock.pTaintedBlood))
+                        m_spells.warlock.pTaintedBlood = pSpellEntry;
+                }
+                else if (pSpellEntry->SpellName[0].find("Paranoia") != std::string::npos)
+                {
+                    if (IsHigherRankSpell(m_spells.warlock.pParanoia))
+                        m_spells.warlock.pParanoia = pSpellEntry;
+                }
+                else if (pSpellEntry->SpellName[0].find("Paranoia") != std::string::npos)
+                {
+                    if (IsHigherRankSpell(m_spells.warlock.pParanoia))
+                        m_spells.warlock.pParanoia = pSpellEntry;
+                }
+                else if (pSpellEntry->SpellName[0].find("Paranoia") != std::string::npos)
+                {
+                    if (IsHigherRankSpell(m_spells.warlock.pParanoia))
+                        m_spells.warlock.pParanoia = pSpellEntry;
+                }
+                else if (pSpellEntry->SpellName[0].find("Paranoia") != std::string::npos)
+                {
+                    if (IsHigherRankSpell(m_spells.warlock.pParanoia))
+                        m_spells.warlock.pParanoia = pSpellEntry;
+                }
+                else if (pSpellEntry->SpellName[0].find("Seduction") != std::string::npos)
+                {
+                    if (IsHigherRankSpell(m_spells.warlock.pSeduction))
+                        m_spells.warlock.pSeduction = pSpellEntry;
+                }
+                else if (pSpellEntry->SpellName[0].find("Lash of Pain") != std::string::npos)
+                {
+                    if (IsHigherRankSpell(m_spells.warlock.pLashofPain))
+                        m_spells.warlock.pLashofPain = pSpellEntry;
+                }
+                else if (pSpellEntry->SpellName[0].find("Lesser Invisibility") != std::string::npos)
+                {
+                    if (IsHigherRankSpell(m_spells.warlock.pLesserInvisibility))
+                        m_spells.warlock.pLesserInvisibility = pSpellEntry;
+                }
                 break;
             }
             case CLASS_WARRIOR:
@@ -2914,6 +2954,57 @@ bool CombatBotBaseAI::CanTryToCastSpell(Unit const* pTarget, SpellEntry const* p
     if (me != pTarget && pSpellEntry->EffectImplicitTargetA[0] != TARGET_UNIT_CASTER)
     {
         float const dist = me->GetCombatDistance(pTarget);
+
+        if (dist > srange->maxRange)
+            return false;
+        if (srange->minRange && dist < srange->minRange)
+            return false;
+    }
+
+    return true;
+}
+
+bool CombatBotBaseAI::CanTryToCastPetSpell(Unit const* pTarget, SpellEntry const* pSpellEntry) const
+{
+    Pet* pPet = me->GetPet();
+
+    if (!pPet->IsSpellReady(pSpellEntry->Id))
+        return false;
+
+    if (pSpellEntry->TargetAuraState &&
+        !pTarget->HasAuraState(AuraState(pSpellEntry->TargetAuraState)))
+        return false;
+
+    if (pSpellEntry->CasterAuraState &&
+        !pPet->HasAuraState(AuraState(pSpellEntry->CasterAuraState)))
+        return false;
+
+    uint32 const powerCost = Spell::CalculatePowerCost(pSpellEntry, pPet);
+    Powers const powerType = Powers(pSpellEntry->powerType);
+
+    if (powerType == POWER_HEALTH)
+    {
+        if (pPet->GetHealth() <= powerCost)
+            return false;
+        return true;
+    }
+
+    if (pPet->GetPower(powerType) < powerCost)
+        return false;
+
+    if (pTarget->IsImmuneToSpell(pSpellEntry, false))
+        return false;
+
+    if (pSpellEntry->GetErrorAtShapeshiftedCast(me->GetShapeshiftForm()) != SPELL_CAST_OK)
+        return false;
+
+    if (pSpellEntry->IsSpellAppliesAura() && pTarget->HasAura(pSpellEntry->Id))
+        return false;
+
+    SpellRangeEntry const* srange = sSpellRangeStore.LookupEntry(pSpellEntry->rangeIndex);
+    if (pPet != pTarget && pSpellEntry->EffectImplicitTargetA[0] != TARGET_UNIT_CASTER)
+    {
+        float const dist = pPet->GetCombatDistance(pTarget);
 
         if (dist > srange->maxRange)
             return false;
