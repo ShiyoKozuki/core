@@ -1851,7 +1851,8 @@ void BattleBotAI::UpdateOutOfCombatAI_Paladin()
         m_isBuffing = false;
     }
 
-    FindAndHealInjuredAlly(60.0f, 60.0f);
+    if (FindAndHealInjuredAlly(60.0f, 60.0f));
+        return;
 }
 
 void BattleBotAI::UpdateInCombatAI_Paladin()
@@ -1931,11 +1932,13 @@ void BattleBotAI::UpdateInCombatAI_Paladin()
 
     if (m_role == ROLE_HEALER)
     {
-        FindAndHealInjuredAlly(80.0f, 80.0f);
+        if (FindAndHealInjuredAlly(80.0f, 80.0f))
+            return;
     }
     else
     {
-        FindAndHealInjuredAlly(me->IsTotalImmune() ? 80.0f : 40.0f, 50.0f);
+        if (FindAndHealInjuredAlly(me->IsTotalImmune() ? 80.0f : 40.0f, 50.0f))
+            return;
     }
 
     bool const hasSeal = m_spells.paladin.pSeal && me->HasAura(m_spells.paladin.pSeal->Id);
@@ -2150,11 +2153,13 @@ void BattleBotAI::UpdateInCombatAI_Shaman()
 
     if (m_role == ROLE_HEALER)
     {
-        FindAndHealInjuredAlly(80.0f, 80.0f);
+        if (FindAndHealInjuredAlly(80.0f, 80.0f))
+            return;
     }
     else
     {
-        FindAndHealInjuredAlly(40.0f, 40.0f);
+        if (FindAndHealInjuredAlly(40.0f, 40.0f))
+            return;
     }
 
     if (Unit* pVictim = me->GetVictim())
