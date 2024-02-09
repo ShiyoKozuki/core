@@ -191,13 +191,7 @@ taunt / bear taunt if target is creature
 ********spell lock works, add other pet spells, vw sac at low HP on lock etc, succubus spells dont very well, maybe better ai for invis (anytime even in combat) annd
 seduce should also be on main target? also seduce + nuke logic if conflag spec**********
 *************BOTS AT FARM SPOTS*************
-TAUREN attack range still too long
-druids go into catform / bear form and then don't heal themselves with NS up, if NS iu up then swap out regardless of MP
-healer bots self interrupt OOC again, maybe add stopmoving and delete waypoints to ooc healing checks? Or something with motion_distancing returning in updateai
 cap flag prio over drink/eat
-moonkin don't cast natures grasp / barkskin when running away? or didnt have spell
-moonkin shouldnt run from 1 player, don't entangle, just barkskin and natures grasp, if target is entangled and you arent snared then move
-charge in OOC warrior AI
 add t2, t2.5 and rank14 bots
 why does horde love mine so much in AB?
 better capping AI
