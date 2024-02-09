@@ -188,10 +188,13 @@ Wands macc fix
 bots in farming spots farming need to code ai somehow
 beastial wrath logic
 taunt / bear taunt if target is creature
-spell lock works, add other pet spells
-***** frostwolf guardian / tauren mob (all mobs tbh) hitboxes *****
+********spell lock works, add other pet spells, vw sac at low HP on lock etc, succubus spells dont very well, maybe better ai for invis (anytime even in combat) annd
+seduce should also be on main target? also seduce + nuke logic if conflag spec**********
 *************BOTS AT FARM SPOTS*************
-healer bots self interrupt OOC again
+TAUREN attack range still too long
+druids go into catform / bear form and then don't heal themselves with NS up, if NS iu up then swap out regardless of MP
+healer bots self interrupt OOC again, maybe add stopmoving and delete waypoints to ooc healing checks? Or something with motion_distancing returning in updateai
+cap flag prio over drink/eat
 
 
 add shaman to https://www.wowhead.com/classic/item=20043/highlanders-chain-girdle
