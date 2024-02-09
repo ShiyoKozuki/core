@@ -360,6 +360,17 @@ public:
             SpellEntry const* pFreezingTrap;
             SpellEntry const* pScorpidSting;
             SpellEntry const* pViperSting;
+            SpellEntry const* pBestialWrath;
+            SpellEntry const* pBite;
+            SpellEntry const* pClaw;
+            SpellEntry const* pDash;
+            SpellEntry const* pDive;
+            SpellEntry const* pGrowl;
+            SpellEntry const* pCharge;
+            SpellEntry const* pThunderstomp;
+            SpellEntry const* pScorpidPoison;
+            SpellEntry const* pLightningBreath;
+            SpellEntry const* pFuriousHowl;
         } hunter;
         struct
         {
@@ -458,6 +469,8 @@ public:
             SpellEntry const* pSeduction;
             SpellEntry const* pLesserInvisibility;
             SpellEntry const* pLashofPain;
+            SpellEntry const* pSacrifice;
+            SpellEntry const* pTorment;
         } warlock;
         struct
         {

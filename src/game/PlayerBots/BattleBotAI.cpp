@@ -1785,6 +1785,22 @@ void BattleBotAI::UpdateOutOfCombatAI()
 
 void BattleBotAI::UpdateInCombatAI()
 {
+    // Taunt target if its attacking someone else.
+    Unit* pVictim = me->GetVictim();
+    if (pVictim && pVictim->GetVictim() != me &&
+        (me->GetHealthPercent() > 25.0f) &&
+        pVictim->IsCreature())
+    {
+        for (const auto& pSpellEntry : m_spellListTaunt)
+        {
+            if (CanTryToCastSpell(pVictim, pSpellEntry))
+            {
+                if (DoCastSpell(pVictim, pSpellEntry) == SPELL_CAST_OK)
+                    return;
+            }
+        }
+    }
+
     switch (me->GetClass())
     {
         case CLASS_PALADIN:
@@ -2348,6 +2364,7 @@ void BattleBotAI::UpdateInCombatAI_Hunter()
 
         // Remove Feign death at < 25% HP
         if (me->GetHealthPercent() < (rand_chance() / 5.0f))
+        {
             if (m_spells.hunter.pFeignDeath &&
                 !me->HasAura(AURA_WARSONG_FLAG) &&
                 !me->HasAura(AURA_SILVERWING_FLAG) &&
@@ -2356,6 +2373,105 @@ void BattleBotAI::UpdateInCombatAI_Hunter()
                 if (DoCastSpell(me, m_spells.hunter.pFeignDeath) == SPELL_CAST_OK)
                     return;
             }
+        }
+
+        if (Pet* pPet = me->GetPet())
+        {
+            if (pPet->IsAlive())
+            {
+                if (m_spells.hunter.pBestialWrath &&
+                    CanTryToCastSpell(pPet, m_spells.hunter.pBestialWrath))
+                {
+                    if (DoCastSpell(pPet, m_spells.hunter.pBestialWrath) == SPELL_CAST_OK)
+                        return;
+                }
+
+                if (m_spells.hunter.pGrowl &&
+                    pVictim->IsCreature() &&
+                    CanTryToCastPetSpell(pVictim, m_spells.hunter.pGrowl))
+                {
+                    if (DoCastPetSpell(pVictim, m_spells.hunter.pGrowl) == SPELL_CAST_OK)
+                        return;
+                }
+
+                if (m_spells.hunter.pBite &&
+                    CanTryToCastPetSpell(pVictim, m_spells.hunter.pBite))
+                {
+                    if (DoCastPetSpell(pVictim, m_spells.hunter.pBite) == SPELL_CAST_OK)
+                        return;
+                }
+
+                if (m_spells.hunter.pClaw &&
+                    CanTryToCastPetSpell(pVictim, m_spells.hunter.pClaw))
+                {
+                    if (DoCastPetSpell(pVictim, m_spells.hunter.pClaw) == SPELL_CAST_OK)
+                        return;
+                }
+
+                if (pPet->GetDistance(pVictim) > 20.0f)
+                {
+                    if (m_spells.hunter.pDash &&
+                        CanTryToCastPetSpell(pPet, m_spells.hunter.pDash))
+                    {
+                        if (DoCastPetSpell(pPet, m_spells.hunter.pDash) == SPELL_CAST_OK)
+                            return;
+                    }
+
+                    if (m_spells.hunter.pDive &&
+                        CanTryToCastPetSpell(pPet, m_spells.hunter.pDive))
+                    {
+                        if (DoCastPetSpell(pPet, m_spells.hunter.pDive) == SPELL_CAST_OK)
+                            return;
+                    }
+                }
+
+                if (pPet->GetCreatureInfo()->pet_family == CREATURE_FAMILY_GORILLA)
+                {
+                    if (m_spells.hunter.pThunderstomp &&
+                        CanTryToCastPetSpell(pVictim, m_spells.hunter.pThunderstomp))
+                    {
+                        if (DoCastPetSpell(pVictim, m_spells.hunter.pThunderstomp) == SPELL_CAST_OK)
+                            return;
+                    }
+                }
+                else if (pPet->GetCreatureInfo()->pet_family == CREATURE_FAMILY_SPIDER)
+                {
+                    if (m_spells.hunter.pScorpidPoison &&
+                        CanTryToCastPetSpell(pVictim, m_spells.hunter.pScorpidPoison))
+                    {
+                        if (DoCastPetSpell(pVictim, m_spells.hunter.pScorpidPoison) == SPELL_CAST_OK)
+                            return;
+                    }
+                }
+                else if (pPet->GetCreatureInfo()->pet_family == CREATURE_FAMILY_WIND_SERPENT)
+                {
+                    if (m_spells.hunter.pLightningBreath &&
+                        CanTryToCastPetSpell(pVictim, m_spells.hunter.pLightningBreath))
+                    {
+                        if (DoCastPetSpell(pVictim, m_spells.hunter.pLightningBreath) == SPELL_CAST_OK)
+                            return;
+                    }
+                }
+                else if (pPet->GetCreatureInfo()->pet_family == CREATURE_FAMILY_BOAR)
+                {
+                    if (m_spells.hunter.pCharge &&
+                        CanTryToCastPetSpell(pVictim, m_spells.hunter.pCharge))
+                    {
+                        if (DoCastPetSpell(pVictim, m_spells.hunter.pCharge) == SPELL_CAST_OK)
+                            return;
+                    }
+                }
+                else if (pPet->GetCreatureInfo()->pet_family == CREATURE_FAMILY_WOLF)
+                {
+                    if (m_spells.hunter.pFuriousHowl &&
+                        CanTryToCastPetSpell(pPet, m_spells.hunter.pFuriousHowl))
+                    {
+                        if (DoCastPetSpell(pPet, m_spells.hunter.pFuriousHowl) == SPELL_CAST_OK)
+                            return;
+                    }
+                }
+            }
+        }
 
         if (me->GetMotionMaster()->GetCurrentMovementGeneratorType() == IDLE_MOTION_TYPE
             && me->GetDistance(pVictim) > 30.0f)
@@ -3321,7 +3437,9 @@ void BattleBotAI::UpdateInCombatAI_Warlock()
     if (Unit* pVictim = me->GetVictim())
     {
         // Running away logic
-        if (me->GetMotionMaster()->GetCurrentMovementGeneratorType() == DISTANCING_MOTION_TYPE)
+        if (me->GetMotionMaster()->GetCurrentMovementGeneratorType() == DISTANCING_MOTION_TYPE &&
+            m_spells.warlock.pSeduction &&
+            !pVictim->HasAura(m_spells.warlock.pSeduction->Id))
         {
 
             if (m_spells.warlock.pLifeTap &&
@@ -3389,56 +3507,96 @@ void BattleBotAI::UpdateInCombatAI_Warlock()
 
         if (Pet* pPet = me->GetPet())
         {
-            if (pPet->GetCreatureInfo()->pet_family == CREATURE_FAMILY_FELHUNTER)
+            if (pPet->IsAlive())
             {
-                if (m_spells.warlock.pSpellLock &&
-                    pVictim->IsNonMeleeSpellCasted(false, false, true) &&
-                    (pVictim->GetClass() != CLASS_WARRIOR) &&
-                    (pVictim->GetClass() != CLASS_ROGUE) &&
-                    (pVictim->GetClass() != CLASS_HUNTER) &&
-                    CanTryToCastPetSpell(pVictim, m_spells.warlock.pSpellLock))
+                if (pPet->GetCreatureInfo()->pet_family == CREATURE_FAMILY_FELHUNTER)
                 {
-                    if (DoCastPetSpell(pVictim, m_spells.warlock.pSpellLock) == SPELL_CAST_OK)
-                        return;
-                }
-
-                if (m_spells.warlock.pDevourMagic &&
-                    IsValidDispelTarget(pVictim, m_spells.warlock.pDevourMagic) &&
-                    CanTryToCastPetSpell(pVictim, m_spells.warlock.pDevourMagic))
-                {
-                    if (DoCastPetSpell(pVictim, m_spells.warlock.pDevourMagic) == SPELL_CAST_OK)
-                        return;
-                }
-            }
-            else if (pPet->GetCreatureInfo()->pet_family == CREATURE_FAMILY_SUCCUBUS)
-            {
-                if (m_spells.warlock.pSeduction)
-                {
-                    if (Unit* pTarget = SelectAttackerDifferentFrom(pVictim))
+                    if (m_spells.warlock.pSpellLock &&
+                        pVictim->IsNonMeleeSpellCasted(false, false, true) &&
+                        (pVictim->GetClass() != CLASS_WARRIOR) &&
+                        (pVictim->GetClass() != CLASS_ROGUE) &&
+                        (pVictim->GetClass() != CLASS_HUNTER) &&
+                        CanTryToCastPetSpell(pVictim, m_spells.warlock.pSpellLock))
                     {
-                        if (CanTryToCastPetSpell(pVictim, m_spells.warlock.pSeduction) &&
-                            (pVictim->GetDiminishing(DIMINISHING_CHARM) != DIMINISHING_LEVEL_IMMUNE))
+                        if (DoCastPetSpell(pVictim, m_spells.warlock.pSpellLock) == SPELL_CAST_OK)
+                            return;
+                    }
+
+                    if (m_spells.warlock.pDevourMagic &&
+                        IsValidDispelTarget(pVictim, m_spells.warlock.pDevourMagic) &&
+                        CanTryToCastPetSpell(pVictim, m_spells.warlock.pDevourMagic))
+                    {
+                        if (DoCastPetSpell(pVictim, m_spells.warlock.pDevourMagic) == SPELL_CAST_OK)
+                            return;
+                    }
+
+                    if (m_spells.warlock.pParanoia &&
+                        CanTryToCastPetSpell(pPet, m_spells.warlock.pParanoia))
+                    {
+                        if (DoCastPetSpell(pPet, m_spells.warlock.pParanoia) == SPELL_CAST_OK)
+                            return;
+                    }
+                }
+                else if (pPet->GetCreatureInfo()->pet_family == CREATURE_FAMILY_SUCCUBUS)
+                {
+                    if (m_spells.warlock.pSeduction)
+                    {
+                        if (pVictim->GetDiminishing(DIMINISHING_CHARM) != DIMINISHING_LEVEL_IMMUNE)
                         {
-                            if (DoCastPetSpell(pVictim, m_spells.warlock.pSeduction) == SPELL_CAST_OK)
-                                return;
+                            if (CanTryToCastPetSpell(pVictim, m_spells.warlock.pSeduction) &&
+                                (pVictim->GetDiminishing(DIMINISHING_CHARM) != DIMINISHING_LEVEL_IMMUNE))
+                            {
+                                if (DoCastPetSpell(pVictim, m_spells.warlock.pSeduction) == SPELL_CAST_OK)
+                                    return;
+                            }
+                        }
+                        else
+                        {
+                            if (Unit* pTarget = SelectAttackerDifferentFrom(pVictim))
+                            {
+                                if (CanTryToCastPetSpell(pTarget, m_spells.warlock.pSeduction) &&
+                                    (pVictim->GetDiminishing(DIMINISHING_CHARM) != DIMINISHING_LEVEL_IMMUNE))
+                                {
+                                    if (DoCastPetSpell(pTarget, m_spells.warlock.pSeduction) == SPELL_CAST_OK)
+                                        return;
+                                }
+                            }
+                        }
+                    }
+
+                    if (m_spells.warlock.pLashofPain &&
+                        CanTryToCastPetSpell(pVictim, m_spells.warlock.pLashofPain))
+                    {
+                        if (DoCastPetSpell(pVictim, m_spells.warlock.pLashofPain) == SPELL_CAST_OK)
+                            return;
+                    }
+
+                    if (m_spells.warlock.pLesserInvisibility &&
+                        !pPet->IsInCombat() &&
+                        CanTryToCastPetSpell(pPet, m_spells.warlock.pLesserInvisibility))
+                    {
+                        if (DoCastPetSpell(pPet, m_spells.warlock.pLesserInvisibility) == SPELL_CAST_OK)
+                        {
+                            return;
                         }
                     }
                 }
-
-                if (m_spells.warlock.pLashofPain &&
-                    CanTryToCastPetSpell(pVictim, m_spells.warlock.pLashofPain))
+                else if (pPet->GetCreatureInfo()->pet_family == CREATURE_FAMILY_VOIDWALKER)
                 {
-                    if (DoCastPetSpell(pVictim, m_spells.warlock.pLashofPain) == SPELL_CAST_OK)
-                        return;
-                }
-
-                if (m_spells.warlock.pLesserInvisibility &&
-                    !pPet->IsInCombat() &&
-                    CanTryToCastPetSpell(pPet, m_spells.warlock.pLesserInvisibility))
-                {
-                    if (DoCastPetSpell(pPet, m_spells.warlock.pLesserInvisibility) == SPELL_CAST_OK)
+                    if (m_spells.warlock.pTorment &&
+                        pVictim->IsCreature() &&
+                        CanTryToCastPetSpell(pVictim, m_spells.warlock.pTorment))
                     {
-                        return;
+                        if (DoCastPetSpell(pVictim, m_spells.warlock.pTorment) == SPELL_CAST_OK)
+                            return;
+                    }
+
+                    if (m_spells.warlock.pSacrifice &&
+                        (me->GetHealthPercent() < 50.0f) &&
+                        CanTryToCastPetSpell(pPet, m_spells.warlock.pSacrifice))
+                    {
+                        if (DoCastPetSpell(pPet, m_spells.warlock.pSacrifice) == SPELL_CAST_OK)
+                            return;
                     }
                 }
             }
@@ -3455,6 +3613,8 @@ void BattleBotAI::UpdateInCombatAI_Warlock()
 
         if (m_spells.warlock.pDeathCoil &&
            (pVictim->CanReachWithMeleeAutoAttack(me) || pVictim->IsNonMeleeSpellCasted()) &&
+           (m_spells.warlock.pSeduction &&
+            (!pVictim->HasAura(m_spells.warlock.pSeduction->Id))) &&
             CanTryToCastSpell(pVictim, m_spells.warlock.pDeathCoil))
         {
             if (DoCastSpell(pVictim, m_spells.warlock.pDeathCoil) == SPELL_CAST_OK)
@@ -3466,6 +3626,8 @@ void BattleBotAI::UpdateInCombatAI_Warlock()
             m_spells.warlock.pDeathCoil &&
             (pVictim->GetDiminishing(DIMINISHING_FEAR) != DIMINISHING_LEVEL_IMMUNE) &&
             (pVictim->HasAura(m_spells.warlock.pDeathCoil->Id)) &&
+            (m_spells.warlock.pSeduction &&
+            (!pVictim->HasAura(m_spells.warlock.pSeduction->Id))) &&
             CanTryToCastSpell(pVictim, m_spells.warlock.pFear))
         {
             if (DoCastSpell(pVictim, m_spells.warlock.pFear) == SPELL_CAST_OK)
@@ -3481,20 +3643,24 @@ void BattleBotAI::UpdateInCombatAI_Warlock()
                 return;
         }
 
-        if (m_spells.warlock.pShadowburn &&
-            CanTryToCastSpell(pVictim, m_spells.warlock.pShadowburn))
+        if (m_spells.warlock.pSeduction &&
+            (!pVictim->HasAura(m_spells.warlock.pSeduction->Id)))
         {
-            if (DoCastSpell(pVictim, m_spells.warlock.pShadowburn) == SPELL_CAST_OK)
-                return;
-        }
+            if (m_spells.warlock.pShadowburn &&
+                CanTryToCastSpell(pVictim, m_spells.warlock.pShadowburn))
+            {
+                if (DoCastSpell(pVictim, m_spells.warlock.pShadowburn) == SPELL_CAST_OK)
+                    return;
+            }
 
-        if (m_spells.warlock.pSearingPain &&
-           (pVictim->GetHealthPercent() < 20.0f) &&
-            !pVictim->IsMoving() &&
-            CanTryToCastSpell(pVictim, m_spells.warlock.pSearingPain))
-        {
-            if (DoCastSpell(pVictim, m_spells.warlock.pSearingPain) == SPELL_CAST_OK)
-                return;
+            if (m_spells.warlock.pSearingPain &&
+                (pVictim->GetHealthPercent() < 20.0f) &&
+                !pVictim->IsMoving() &&
+                CanTryToCastSpell(pVictim, m_spells.warlock.pSearingPain))
+            {
+                if (DoCastSpell(pVictim, m_spells.warlock.pSearingPain) == SPELL_CAST_OK)
+                    return;
+            }
         }
 
         if (m_spells.warlock.pShadowWard &&
@@ -3505,18 +3671,18 @@ void BattleBotAI::UpdateInCombatAI_Warlock()
                 return;
         }
 
-        //if (m_spells.warlock.pDemonicSacrifice)
-        //{
-        //    if (Pet* pPet = me->GetPet())
-        //    {
-        //        if (pPet->IsAlive() &&
-        //            CanTryToCastSpell(pPet, m_spells.warlock.pDemonicSacrifice))
-        //        {
-        //            if (DoCastSpell(pPet, m_spells.warlock.pDemonicSacrifice) == SPELL_CAST_OK)
-        //                return;
-        //        }
-        //    }
-        //}
+        if (m_spells.warlock.pDemonicSacrifice)
+        {
+            if (Pet* pPet = me->GetPet())
+            {
+                if (pPet->IsAlive() &&
+                    CanTryToCastSpell(pPet, m_spells.warlock.pDemonicSacrifice))
+                {
+                    if (DoCastSpell(pPet, m_spells.warlock.pDemonicSacrifice) == SPELL_CAST_OK)
+                        return;
+                }
+            }
+        }
 
         if (m_spells.warlock.pSoulLink &&
             !me->HasAura(BB_SOUL_LINK))
@@ -3532,18 +3698,22 @@ void BattleBotAI::UpdateInCombatAI_Warlock()
             }
         }
 
-        if (m_spells.warlock.pCorruption &&
-            CanTryToCastSpell(pVictim, m_spells.warlock.pCorruption))
+        if (m_spells.warlock.pSeduction &&
+            (!pVictim->HasAura(m_spells.warlock.pSeduction->Id)))
         {
-            if (DoCastSpell(pVictim, m_spells.warlock.pCorruption) == SPELL_CAST_OK)
-                return;
-        }
+            if (m_spells.warlock.pCorruption &&
+                CanTryToCastSpell(pVictim, m_spells.warlock.pCorruption))
+            {
+                if (DoCastSpell(pVictim, m_spells.warlock.pCorruption) == SPELL_CAST_OK)
+                    return;
+            }
 
-        if (m_spells.warlock.pSiphonLife &&
-            CanTryToCastSpell(pVictim, m_spells.warlock.pSiphonLife))
-        {
-            if (DoCastSpell(pVictim, m_spells.warlock.pSiphonLife) == SPELL_CAST_OK)
-                return;
+            if (m_spells.warlock.pSiphonLife &&
+                CanTryToCastSpell(pVictim, m_spells.warlock.pSiphonLife))
+            {
+                if (DoCastSpell(pVictim, m_spells.warlock.pSiphonLife) == SPELL_CAST_OK)
+                    return;
+            }
         }
 
         // CoEX flag carriers or mounted players, otherwise CoT casters or CoA non-casters
@@ -3598,6 +3768,8 @@ void BattleBotAI::UpdateInCombatAI_Warlock()
                     }
 
                     if (m_spells.warlock.pCurseofAgony &&
+                        (m_spells.warlock.pSeduction &&
+                        (!pVictim->HasAura(m_spells.warlock.pSeduction->Id))) &&
                         CanTryToCastSpell(pVictim, m_spells.warlock.pCurseofAgony))
                     {
                         if (DoCastSpell(pVictim, m_spells.warlock.pCurseofAgony) == SPELL_CAST_OK)
@@ -3608,6 +3780,8 @@ void BattleBotAI::UpdateInCombatAI_Warlock()
         }
 
         if (m_spells.warlock.pFear &&
+            m_spells.warlock.pSeduction &&
+            (!pVictim->HasAura(m_spells.warlock.pSeduction->Id)) &&
             (pVictim->GetDiminishing(DIMINISHING_FEAR) != DIMINISHING_LEVEL_IMMUNE) &&
             CanTryToCastSpell(pVictim, m_spells.warlock.pFear))
         {
@@ -3617,6 +3791,8 @@ void BattleBotAI::UpdateInCombatAI_Warlock()
 
         if (m_spells.warlock.pDrainLife &&
             !m_spells.warlock.pConflagrate &&
+            (m_spells.warlock.pSeduction &&
+            (!pVictim->HasAura(m_spells.warlock.pSeduction->Id))) &&
             (me->GetHealthPercent() < 30.0f) &&
             CanTryToCastSpell(pVictim, m_spells.warlock.pDrainLife))
         {
@@ -3634,18 +3810,22 @@ void BattleBotAI::UpdateInCombatAI_Warlock()
                 return;
         }
 
-        if (m_spells.warlock.pImmolate &&
-            CanTryToCastSpell(pVictim, m_spells.warlock.pImmolate))
+        if (m_spells.warlock.pSeduction &&
+            (!pVictim->HasAura(m_spells.warlock.pSeduction->Id)))
         {
-            if (DoCastSpell(pVictim, m_spells.warlock.pImmolate) == SPELL_CAST_OK)
-                return;
-        }
+            if (m_spells.warlock.pImmolate &&
+                CanTryToCastSpell(pVictim, m_spells.warlock.pImmolate))
+            {
+                if (DoCastSpell(pVictim, m_spells.warlock.pImmolate) == SPELL_CAST_OK)
+                    return;
+            }
 
-        if (m_spells.warlock.pConflagrate &&
-            CanTryToCastSpell(pVictim, m_spells.warlock.pConflagrate))
-        {
-            if (DoCastSpell(pVictim, m_spells.warlock.pConflagrate) == SPELL_CAST_OK)
-                return;
+            if (m_spells.warlock.pConflagrate &&
+                CanTryToCastSpell(pVictim, m_spells.warlock.pConflagrate))
+            {
+                if (DoCastSpell(pVictim, m_spells.warlock.pConflagrate) == SPELL_CAST_OK)
+                    return;
+            }
         }
 
         if (me->GetMotionMaster()->GetCurrentMovementGeneratorType() == IDLE_MOTION_TYPE
@@ -3663,6 +3843,8 @@ void BattleBotAI::UpdateInCombatAI_Warlock()
         //}
 
         if (m_spells.warlock.pSearingPain &&
+            (m_spells.warlock.pSeduction &&
+            (!pVictim->HasAura(m_spells.warlock.pSeduction->Id))) &&
             pVictim->CanReachWithMeleeAutoAttack(me) &&
             (pVictim->GetVictim() == me) &&
             IsMeleeDamageClass(pVictim->GetClass()) &&
@@ -3708,6 +3890,8 @@ void BattleBotAI::UpdateOutOfCombatAI_Warrior()
             if (DoCastSpell(pVictim, m_spells.warrior.pCharge) == SPELL_CAST_OK)
                 return;
         }
+
+        UpdateInCombatAI_Warrior();
     }
 }
 
@@ -4672,7 +4856,7 @@ void BattleBotAI::UpdateInCombatAI_Druid()
 
                 // Swap out into caster form at low HP
                 if (me->GetHealthPercent() < 50.0f &&
-                    (me->GetPowerPercent(POWER_MANA) > 30.0f))
+                    (me->GetPowerPercent(POWER_MANA) > 30.0f) || me->HasAura(BB_NS_DRUID))
                 {
                     if (m_spells.druid.pCatForm &&
                         me->GetShapeshiftForm() == FORM_CAT)
@@ -4782,11 +4966,11 @@ void BattleBotAI::UpdateInCombatAI_Druid()
                         if (m_spells.druid.pBearForm &&
                             me->GetShapeshiftForm() == FORM_DIREBEAR)
                             me->RemoveAurasDueToSpellByCancel(m_spells.druid.pBearForm->Id);
-                        return;
+                            return;
                     }
                 }
 
-                // SWap back to caster form if in melee range and then go back to Cat if melee DPS
+                // Swap back to caster form if in melee range and then go back to Cat if melee DPS
                 if (m_role == ROLE_MELEE_DPS)
                 {
                     if (me->CanReachWithMeleeAutoAttack(pVictim) &&
@@ -4801,12 +4985,12 @@ void BattleBotAI::UpdateInCombatAI_Druid()
 
                 // Swap out into caster form at low HP
                 if (me->GetHealthPercent() < 50.0f &&
-                    (me->GetPowerPercent(POWER_MANA) > 30.0f))
+                    (me->GetPowerPercent(POWER_MANA) > 30.0f) || me->HasAura(BB_NS_DRUID))
                 {
                     if (m_spells.druid.pBearForm &&
                         me->GetShapeshiftForm() == FORM_DIREBEAR)
                         me->RemoveAurasDueToSpellByCancel(m_spells.druid.pBearForm->Id);
-                    return;
+                        return;
                 }
 
                 if (m_spells.druid.pFaerieFireFeral &&
@@ -4853,8 +5037,22 @@ void BattleBotAI::UpdateInCombatAI_Druid()
                     else if (pVictim->CanReachWithMeleeAutoAttack(me) &&
                         (pVictim->GetVictim() == me) &&
                         !me->HasUnitState(UNIT_STAT_ROOT) &&
+                        IsMeleeDamageClass(pVictim->GetClass()) &&
                         (me->GetMotionMaster()->GetCurrentMovementGeneratorType() != DISTANCING_MOTION_TYPE))
                     {
+                        if (m_spells.druid.pBarkskin &&
+                            CanTryToCastSpell(me, m_spells.druid.pBarkskin))
+                        {
+                            if (DoCastSpell(me, m_spells.druid.pBarkskin) == SPELL_CAST_OK)
+                                return;
+                        }
+
+                        if (m_spells.druid.pNaturesGrasp &&
+                            CanTryToCastSpell(me, m_spells.druid.pNaturesGrasp))
+                        {
+                            if (DoCastSpell(me, m_spells.druid.pNaturesGrasp) == SPELL_CAST_OK)
+                                return;
+                        }
                         if (m_spells.druid.pEntanglingRoots &&
                             CanTryToCastSpell(pVictim, m_spells.druid.pEntanglingRoots))
                         {
