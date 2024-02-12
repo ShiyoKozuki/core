@@ -70,6 +70,7 @@ enum BattleBotSpells
 #define BB_UPDATE_INTERVAL 1000
 #define BB_NEW_TARGET_INTERVAL 5000
 #define BB_FEIGN_DEATH_AURA 5384
+#define BB_SEDUCTION 6358
 #define BB_SOUL_LINK 25228
 #define BB_DETERRENCE 19263
 #define BB_CHEAP_SHOT 1833
@@ -1080,6 +1081,7 @@ void BattleBotAI::UpdateAI(uint32 const diff)
                 me->StopMoving();
             me->GetMotionMaster()->Clear();
             if (me->GetMotionMaster()->MoveDistance(pVictim, 70.0f))
+                me->SendMovementPacket(MSG_MOVE_JUMP, false);
                 return;
         }
 
@@ -1097,6 +1099,7 @@ void BattleBotAI::UpdateAI(uint32 const diff)
                     me->StopMoving();
                 me->GetMotionMaster()->Clear();
                 if (me->GetMotionMaster()->MoveDistance(pVictim, 30.0f))
+                    me->SendMovementPacket(MSG_MOVE_JUMP, false);
                     return;
             }
         }
@@ -3438,8 +3441,7 @@ void BattleBotAI::UpdateInCombatAI_Warlock()
     {
         // Running away logic
         if (me->GetMotionMaster()->GetCurrentMovementGeneratorType() == DISTANCING_MOTION_TYPE &&
-            m_spells.warlock.pSeduction &&
-            !pVictim->HasAura(m_spells.warlock.pSeduction->Id))
+            !pVictim->HasAura(BB_SEDUCTION))
         {
 
             if (m_spells.warlock.pLifeTap &&
@@ -3613,8 +3615,7 @@ void BattleBotAI::UpdateInCombatAI_Warlock()
 
         if (m_spells.warlock.pDeathCoil &&
            (pVictim->CanReachWithMeleeAutoAttack(me) || pVictim->IsNonMeleeSpellCasted()) &&
-           (m_spells.warlock.pSeduction &&
-            (!pVictim->HasAura(m_spells.warlock.pSeduction->Id))) &&
+            (!pVictim->HasAura(BB_SEDUCTION)) &&
             CanTryToCastSpell(pVictim, m_spells.warlock.pDeathCoil))
         {
             if (DoCastSpell(pVictim, m_spells.warlock.pDeathCoil) == SPELL_CAST_OK)
@@ -3626,8 +3627,7 @@ void BattleBotAI::UpdateInCombatAI_Warlock()
             m_spells.warlock.pDeathCoil &&
             (pVictim->GetDiminishing(DIMINISHING_FEAR) != DIMINISHING_LEVEL_IMMUNE) &&
             (pVictim->HasAura(m_spells.warlock.pDeathCoil->Id)) &&
-            (m_spells.warlock.pSeduction &&
-            (!pVictim->HasAura(m_spells.warlock.pSeduction->Id))) &&
+            (!pVictim->HasAura(BB_SEDUCTION)) &&
             CanTryToCastSpell(pVictim, m_spells.warlock.pFear))
         {
             if (DoCastSpell(pVictim, m_spells.warlock.pFear) == SPELL_CAST_OK)
@@ -3643,8 +3643,7 @@ void BattleBotAI::UpdateInCombatAI_Warlock()
                 return;
         }
 
-        if (m_spells.warlock.pSeduction &&
-            (!pVictim->HasAura(m_spells.warlock.pSeduction->Id)))
+        if ((!pVictim->HasAura(BB_SEDUCTION)))
         {
             if (m_spells.warlock.pShadowburn &&
                 CanTryToCastSpell(pVictim, m_spells.warlock.pShadowburn))
@@ -3698,8 +3697,7 @@ void BattleBotAI::UpdateInCombatAI_Warlock()
             }
         }
 
-        if (m_spells.warlock.pSeduction &&
-            (!pVictim->HasAura(m_spells.warlock.pSeduction->Id)))
+        if ((!pVictim->HasAura(BB_SEDUCTION)))
         {
             if (m_spells.warlock.pCorruption &&
                 CanTryToCastSpell(pVictim, m_spells.warlock.pCorruption))
@@ -3768,8 +3766,7 @@ void BattleBotAI::UpdateInCombatAI_Warlock()
                     }
 
                     if (m_spells.warlock.pCurseofAgony &&
-                        (m_spells.warlock.pSeduction &&
-                        (!pVictim->HasAura(m_spells.warlock.pSeduction->Id))) &&
+                        (!pVictim->HasAura(BB_SEDUCTION)) &&
                         CanTryToCastSpell(pVictim, m_spells.warlock.pCurseofAgony))
                     {
                         if (DoCastSpell(pVictim, m_spells.warlock.pCurseofAgony) == SPELL_CAST_OK)
@@ -3780,8 +3777,7 @@ void BattleBotAI::UpdateInCombatAI_Warlock()
         }
 
         if (m_spells.warlock.pFear &&
-            m_spells.warlock.pSeduction &&
-            (!pVictim->HasAura(m_spells.warlock.pSeduction->Id)) &&
+            (!pVictim->HasAura(BB_SEDUCTION)) &&
             (pVictim->GetDiminishing(DIMINISHING_FEAR) != DIMINISHING_LEVEL_IMMUNE) &&
             CanTryToCastSpell(pVictim, m_spells.warlock.pFear))
         {
@@ -3791,8 +3787,7 @@ void BattleBotAI::UpdateInCombatAI_Warlock()
 
         if (m_spells.warlock.pDrainLife &&
             !m_spells.warlock.pConflagrate &&
-            (m_spells.warlock.pSeduction &&
-            (!pVictim->HasAura(m_spells.warlock.pSeduction->Id))) &&
+            (!pVictim->HasAura(BB_SEDUCTION)) &&
             (me->GetHealthPercent() < 30.0f) &&
             CanTryToCastSpell(pVictim, m_spells.warlock.pDrainLife))
         {
@@ -3810,8 +3805,7 @@ void BattleBotAI::UpdateInCombatAI_Warlock()
                 return;
         }
 
-        if (m_spells.warlock.pSeduction &&
-            (!pVictim->HasAura(m_spells.warlock.pSeduction->Id)))
+        if ((!pVictim->HasAura(BB_SEDUCTION)))
         {
             if (m_spells.warlock.pImmolate &&
                 CanTryToCastSpell(pVictim, m_spells.warlock.pImmolate))
@@ -3843,8 +3837,7 @@ void BattleBotAI::UpdateInCombatAI_Warlock()
         //}
 
         if (m_spells.warlock.pSearingPain &&
-            (m_spells.warlock.pSeduction &&
-            (!pVictim->HasAura(m_spells.warlock.pSeduction->Id))) &&
+            (!pVictim->HasAura(BB_SEDUCTION)) &&
             pVictim->CanReachWithMeleeAutoAttack(me) &&
             (pVictim->GetVictim() == me) &&
             IsMeleeDamageClass(pVictim->GetClass()) &&
@@ -5059,9 +5052,6 @@ void BattleBotAI::UpdateInCombatAI_Druid()
                             if (DoCastSpell(pVictim, m_spells.druid.pEntanglingRoots) == SPELL_CAST_OK)
                                 return;
                         }
-                        me->SetCasterChaseDistance(25.0f);
-                        if (me->GetMotionMaster()->MoveDistance(pVictim, 25.0f))
-                            return;
                     }
                 }
 
@@ -5094,9 +5084,6 @@ void BattleBotAI::UpdateInCombatAI_Druid()
                         return;
                 }
 
-                if (me->GetMotionMaster()->GetCurrentMovementGeneratorType() == DISTANCING_MOTION_TYPE)
-                    return;
-
                 if (m_spells.druid.pMoonfire &&
                     CanTryToCastSpell(pVictim, m_spells.druid.pMoonfire))
                 {
@@ -5118,6 +5105,9 @@ void BattleBotAI::UpdateInCombatAI_Druid()
                     if (DoCastSpell(pVictim, m_spells.druid.pWrath) == SPELL_CAST_OK)
                         return;
                 }
+
+                if (me->GetMotionMaster()->GetCurrentMovementGeneratorType() == DISTANCING_MOTION_TYPE)
+                    return;
 
                 break;
             }
