@@ -371,6 +371,7 @@ public:
             SpellEntry const* pScorpidPoison;
             SpellEntry const* pLightningBreath;
             SpellEntry const* pFuriousHowl;
+            SpellEntry const* pFlare;
         } hunter;
         struct
         {

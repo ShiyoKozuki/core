@@ -680,6 +680,11 @@ void CombatBotBaseAI::PopulateSpellData()
                     if (IsHigherRankSpell(m_spells.hunter.pFreezingTrap))
                         m_spells.hunter.pFreezingTrap = pSpellEntry;
                 }
+                else if (pSpellEntry->SpellName[0].find("Flare") != std::string::npos)
+                {
+                    if (IsHigherRankSpell(m_spells.hunter.pFlare))
+                        m_spells.hunter.pFlare = pSpellEntry;
+                }
                 else if (pSpellEntry->SpellName[0].find("Viper Sting") != std::string::npos)
                 {
                     if (IsHigherRankSpell(m_spells.hunter.pViperSting))

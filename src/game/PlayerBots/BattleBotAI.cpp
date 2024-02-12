@@ -156,6 +156,9 @@ bool BattleBotAI::UseMount()
     if (me->IsMoving())
         return false;
 
+    if (m_isDefending)
+        return false;
+
     if (me->GetDisplayId() != me->GetNativeDisplayId())
         return false;
 
@@ -203,8 +206,42 @@ bool BattleBotAI::DrinkAndEat()
         me->HasAura(AURA_SILVERWING_FLAG))
         return false;
 
-    bool const isEating = me->HasAura(BB_SPELL_FOOD);
-    bool const isDrinking = me->HasAura(BB_SPELL_DRINK);
+    int32 currentFood = 29073;
+    int32 currentWater = 22734;
+
+    if (me->GetLevel() < 5)
+    {
+        currentFood = 433;
+        currentWater = 430;
+    }
+    else if (me->GetLevel() < 15)
+    {
+        currentFood = 434;
+        currentWater = 431;
+    }
+    else if (me->GetLevel() < 25)
+    {
+        currentFood = 435;
+        currentWater = 432;
+    }
+    else if (me->GetLevel() < 35)
+    {
+        currentFood = 1127;
+        currentWater = 1133;
+    }
+    else if (me->GetLevel() < 45)
+    {
+        currentFood = 1129;
+        currentWater = 1135;
+    }
+    else if (me->GetLevel() < 55)
+    {
+        currentFood = 1131;
+        currentWater = 1137;
+    }
+
+    bool const isEating = me->HasAura(currentFood);
+    bool const isDrinking = me->HasAura(currentWater);
 
     if (!isEating && needToEat)
     {
@@ -213,7 +250,7 @@ bool BattleBotAI::DrinkAndEat()
             ClearPath();
             StopMoving();
         }
-        if (SpellEntry const* pSpellEntry = sSpellMgr.GetSpellEntry(BB_SPELL_FOOD))
+        if (SpellEntry const* pSpellEntry = sSpellMgr.GetSpellEntry(currentFood))
         {
             me->CastSpell(me, pSpellEntry, true);
             me->RemoveSpellCooldown(*pSpellEntry);
@@ -237,7 +274,7 @@ bool BattleBotAI::DrinkAndEat()
             ClearPath();
             StopMoving();
         }
-        if (SpellEntry const* pSpellEntry = sSpellMgr.GetSpellEntry(BB_SPELL_DRINK))
+        if (SpellEntry const* pSpellEntry = sSpellMgr.GetSpellEntry(currentWater))
         {
             me->CastSpell(me, pSpellEntry, true);
             me->RemoveSpellCooldown(*pSpellEntry);
@@ -591,6 +628,10 @@ void BattleBotAI::UpdateWaypointMovement()
 {
     // We already have a path.
     if (m_currentPath)
+        return;
+
+    // We are defending a node
+    if (m_isDefending)
         return;
 
     if (me->IsMoving())
@@ -2306,6 +2347,15 @@ void BattleBotAI::UpdateOutOfCombatAI_Hunter()
         CanTryToCastSpell(me, m_spells.hunter.pFreezingTrap))
     {
         if (DoCastSpell(me, m_spells.hunter.pFreezingTrap) == SPELL_CAST_OK)
+            return;
+    }
+
+    if (m_spells.hunter.pFlare &&
+        !me->IsMounted() &&
+        m_isDefending &&
+        CanTryToCastSpell(me, m_spells.hunter.pFlare))
+    {
+        if (DoCastSpell(me, m_spells.hunter.pFlare) == SPELL_CAST_OK)
             return;
     }
 

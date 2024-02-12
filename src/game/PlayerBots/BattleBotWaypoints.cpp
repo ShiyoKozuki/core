@@ -184,6 +184,7 @@ void AtFlag(BattleBotAI* pAI, std::vector<uint32> const& vFlagIds)
         {
             pAI->ClearPath();
             pAI->StartNewPathFromBeginning();
+            pAI->DefendCheck();
             return;
         }
     }
@@ -202,12 +203,36 @@ void AtFlag(BattleBotAI* pAI, std::vector<uint32> const& vFlagIds)
 
                 pAI->ClearPath();
                 pAI->me->CastSpell(pGo, SPELL_CAPTURE_BANNER, false);
+                pAI->DefendCheck();
+                return;
+            }
+            if (pGo->isSpawned())
+            {
+                pAI->ClearPath();
+                pAI->DefendCheck();
                 return;
             }
         }
     }
     
     pAI->MoveToNextPoint();
+}
+
+void BattleBotAI::DefendCheck()
+{
+    //Find ally player in range.
+    std::list<Player*> players;
+    this->me->GetAlivePlayerListInRange(this->me, players, VISIBILITY_DISTANCE_TINY);
+    auto count = 0;
+    for (const auto& pTarget : players)
+    {
+        if (this->me->GetReactionTo(pTarget) == REP_FRIENDLY)
+        {
+            count++;
+        }
+    }
+    // Stay to guard flag if less than 3 allies are near it
+    this->m_isDefending = (count < 3);
 }
 
 void AB_AtFlag(BattleBotAI* pAI)
@@ -2176,6 +2201,17 @@ bool BattleBotAI::StartNewPathToObjective()
             }
             break;
         }
+        case BATTLEGROUND_AB: // TODO
+        {
+            if (me->GetTeam() == HORDE)
+            {
+
+            }
+            else // ALLIANCE
+            {
+            }
+            break;
+        }
     }
 
     return false;
@@ -2186,4 +2222,5 @@ void BattleBotAI::ClearPath()
     m_currentPath = nullptr;
     m_currentPoint = 0;
     m_movingInReverse = false;
+    m_isDefending = false;
 }
