@@ -1981,6 +1981,20 @@ SET required_level = 60,
     dmg_max1 = 190
 WHERE entry = 12798;
 
+-- Copper Shortsword
+UPDATE mangos . item_template
+SET quality = 2,
+    dmg_min1 = 9,
+    dmg_max1 = 18
+WHERE entry = 2847;
+
+-- Copper Dagger
+UPDATE mangos . item_template
+SET quality = 2,
+    dmg_min1 = 7,
+    dmg_max1 = 13
+WHERE entry = 7166;
+
 -- Copper Battle Axe
 UPDATE mangos . item_template
 SET quality = 3,
@@ -2017,6 +2031,13 @@ SET quality = 3,
     dmg_min1 = 19,
     dmg_max1 = 37
 WHERE entry = 5540;
+
+-- Bronze Shortsword
+UPDATE mangos . item_template
+SET quality = 2,
+    dmg_min1 = 18,
+    dmg_max1 = 38
+WHERE entry = 2850;
 
 -- Deadly Bronze Poniard
 UPDATE mangos . item_template
@@ -2120,6 +2141,7 @@ WHERE entry = 7943;
 UPDATE mangos . item_template
 SET required_level = 50,
     quality = 4,
+    inventory_type = 21,
     required_skill = 164, -- Blacksmithing
     required_skill_rank = 225,
     delay = 1700,
@@ -2656,4 +2678,4 @@ WHERE entry = 30006;
 -- Shaman Gear The League of Arathor Rep (AB)
 UPDATE mangos . item_template 
 SET allowable_class = 68
-WHERE entry IN(20123, 20120, 20122, 20119, 20118, 20121, 20044, 20051, 20056);
+WHERE entry IN(20123, 20120, 20122, 20119, 20118, 20121, 20044, 20051, 20056, 20043, 20050, 20055);
