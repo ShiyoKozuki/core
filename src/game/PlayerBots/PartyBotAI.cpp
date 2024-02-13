@@ -1928,7 +1928,8 @@ void PartyBotAI::UpdateOutOfCombatAI_Priest()
         FindAndHealInjuredAlly(70.0f, 70.0f))
         return;
 
-    if (m_spells.priest.pPrayerofFortitude && !me->HasAura(m_spells.priest.pPrayerofFortitude->Id))
+    if (m_spells.priest.pPrayerofFortitude && 
+        !me->HasAura(m_spells.priest.pPrayerofFortitude->Id))
     {
         if (Player* pTarget = SelectBuffTarget(m_spells.priest.pPrayerofFortitude))
         {
@@ -1965,7 +1966,8 @@ void PartyBotAI::UpdateOutOfCombatAI_Priest()
         }
     }
 
-    if (m_spells.priest.pPrayerofSpirit && !me->HasAura(m_spells.priest.pPrayerofSpirit->Id))
+    if (m_spells.priest.pPrayerofSpirit && 
+        !me->HasAura(m_spells.priest.pPrayerofSpirit->Id))
     {
         if (Player* pTarget = SelectBuffTarget(m_spells.priest.pPrayerofSpirit))
         {
@@ -2002,7 +2004,8 @@ void PartyBotAI::UpdateOutOfCombatAI_Priest()
         }
     }
 
-    if (m_spells.priest.pPrayerofShadowProtection)
+    if (m_spells.priest.pPrayerofShadowProtection && 
+        !me->HasAura(m_spells.priest.pPrayerofShadowProtection->Id))
     {
         if (Player* pTarget = SelectBuffTarget(m_spells.priest.pPrayerofShadowProtection))
         {
@@ -2483,6 +2486,7 @@ void PartyBotAI::UpdateInCombatAI_Warrior()
 
         if (m_spells.warrior.pBloodrage &&
             (me->GetPower(POWER_RAGE) < 100) &&
+            (me->GetHealthPercent() > 50.0f) &&
             CanTryToCastSpell(me, m_spells.warrior.pBloodrage))
         {
             DoCastSpell(me, m_spells.warrior.pBloodrage);
@@ -2497,7 +2501,7 @@ void PartyBotAI::UpdateInCombatAI_Warrior()
         }
 
         if (m_spells.warrior.pLastStand &&
-            me->GetHealthPercent() < 20.0f &&
+            (me->GetHealthPercent() < 20.0f) &&
             CanTryToCastSpell(me, m_spells.warrior.pLastStand))
         {
             if (DoCastSpell(me, m_spells.warrior.pLastStand) == SPELL_CAST_OK)
@@ -2525,7 +2529,7 @@ void PartyBotAI::UpdateInCombatAI_Warrior()
                 }
 
                 if (m_spells.warrior.pShieldWall &&
-                   (me->GetHealthPercent() < 40.0f) &&
+                   (me->GetHealthPercent() < 20.0f) &&
                     CanTryToCastSpell(me, m_spells.warrior.pShieldWall))
                 {
                     if (DoCastSpell(me, m_spells.warrior.pShieldWall) == SPELL_CAST_OK)
@@ -2667,7 +2671,7 @@ void PartyBotAI::UpdateInCombatAI_Warrior()
         }
 
         if (m_spells.warrior.pThunderClap &&
-            (me->GetEnemyCountInRadiusAround(pVictim, 10.0f) > 3) &&
+            (me->GetEnemyCountInRadiusAround(pVictim, 10.0f) > 2) &&
             CanTryToCastSpell(pVictim, m_spells.warrior.pThunderClap))
         {
             if (DoCastSpell(pVictim, m_spells.warrior.pThunderClap) == SPELL_CAST_OK)
