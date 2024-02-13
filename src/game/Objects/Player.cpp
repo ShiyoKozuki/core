@@ -5926,21 +5926,21 @@ void Player::UpdateCombatSkills(Unit* pVictim, WeaponAttackType attType, bool de
         if (currentSkillMax * 0.9f > currentSkillValue)
         {
             // Skill progress: 1% - 90% - chance decreases from 100% to 50%
-            chance = std::min(100.0f, float(currentSkillMax * 0.9f * 50) / currentSkillValue);
+            chance = std::min(95.0f, float(currentSkillMax * 0.9f * 50) / currentSkillValue);
         }
         else
         {
             // Skill progress: 90% - 100% - chance decreases from 50% to a minimum which is level dependent
-            chance = (0.5f - 0.0168966f * currentSkillValue * (300.0f / currentSkillMax) + 0.0152069f * currentSkillMax * (300.0f / currentSkillMax)) * 100.0f;
+            chance = (0.45f - 0.0168966f * currentSkillValue * (300.0f / currentSkillMax) + 0.0152069f * currentSkillMax * (300.0f / currentSkillMax)) * 100.0f;
             if (skillDiff <= 3)
-                chance *= (0.5f / (4 - skillDiff));
+                chance *= (0.45f / (4 - skillDiff));
         }      
 
-        // Add intellect bonus (capped at 10% - guessed)
-        chance += std::min(10.0f, 0.02f * GetStat(STAT_INTELLECT));
+        // Add intellect bonus (capped at 5% - guessed)
+        chance += std::min(5.0f, 0.02f * GetStat(STAT_INTELLECT));
     }
 
-    chance = std::min(100.0f, chance);
+    chance = std::min(95.0f, chance);
 
     sLog.Out(LOG_BASIC, LOG_LVL_DEBUG, "Player::UpdateCombatSkills(defence=%d, playerLevel=%i) -> (%i/%i) chance to increase skill is %f ", defence, playerLevel, currentSkillValue, currentSkillMax, chance);
 
