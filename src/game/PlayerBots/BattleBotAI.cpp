@@ -1122,7 +1122,6 @@ void BattleBotAI::UpdateAI(uint32 const diff)
                 me->StopMoving();
             me->GetMotionMaster()->Clear();
             if (me->GetMotionMaster()->MoveDistance(pVictim, 70.0f))
-                me->SendMovementPacket(MSG_MOVE_JUMP, false);
                 return;
         }
 
@@ -1140,7 +1139,6 @@ void BattleBotAI::UpdateAI(uint32 const diff)
                     me->StopMoving();
                 me->GetMotionMaster()->Clear();
                 if (me->GetMotionMaster()->MoveDistance(pVictim, 30.0f))
-                    me->SendMovementPacket(MSG_MOVE_JUMP, false);
                     return;
             }
         }
