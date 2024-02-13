@@ -2276,6 +2276,15 @@ void PartyBotAI::UpdateInCombatAI_Warlock()
 {
     if (Unit* pVictim = me->GetVictim())
     {
+        if (m_spells.warlock.pLifeTap &&
+            (me->GetPowerPercent(POWER_MANA) < 70.0f) &&
+            (me->GetHealthPercent() > 70.0f) &&
+            CanTryToCastSpell(me, m_spells.warlock.pLifeTap))
+        {
+            if (DoCastSpell(me, m_spells.warlock.pLifeTap) == SPELL_CAST_OK)
+                return;
+        }
+
         if (m_spells.warlock.pDeathCoil &&
             (pVictim->CanReachWithMeleeAutoAttack(me) || pVictim->IsNonMeleeSpellCasted()) &&
             (me->GetPowerPercent(POWER_HEALTH) < 50.0f) &&
@@ -2416,15 +2425,6 @@ void PartyBotAI::UpdateInCombatAI_Warlock()
             CanTryToCastSpell(pVictim, m_spells.warlock.pShadowBolt))
         {
             if (DoCastSpell(pVictim, m_spells.warlock.pShadowBolt) == SPELL_CAST_OK)
-                return;
-        }
-
-        if (m_spells.warlock.pLifeTap &&
-            (me->GetPowerPercent(POWER_MANA) < 70.0f) &&
-            (me->GetHealthPercent() > 70.0f) &&
-            CanTryToCastSpell(me, m_spells.warlock.pLifeTap))
-        {
-            if (DoCastSpell(me, m_spells.warlock.pLifeTap) == SPELL_CAST_OK)
                 return;
         }
 
