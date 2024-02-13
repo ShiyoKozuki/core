@@ -1975,7 +1975,7 @@ SET required_level = 60,
     required_skill = 164, -- Blacksmithing
     required_skill_rank = 300,
     quality = 4,
-    bonding = 1,
+    bonding = 1, -- BOP
     delay = 2900,
     dmg_min1 = 125,
     dmg_max1 = 190
@@ -1984,6 +1984,8 @@ WHERE entry = 12798;
 -- Copper Shortsword
 UPDATE mangos . item_template
 SET quality = 2,
+    inventory_type = 13, -- One-handed (MH or OH)
+    bonding = 2, -- BoE
     dmg_min1 = 9,
     dmg_max1 = 18
 WHERE entry = 2847;
@@ -1991,6 +1993,7 @@ WHERE entry = 2847;
 -- Copper Dagger
 UPDATE mangos . item_template
 SET quality = 2,
+    bonding = 2, -- BoE
     dmg_min1 = 7,
     dmg_max1 = 13
 WHERE entry = 7166;
@@ -2035,6 +2038,8 @@ WHERE entry = 5540;
 -- Bronze Shortsword
 UPDATE mangos . item_template
 SET quality = 2,
+    inventory_type = 13, -- One-handed (MH or OH)
+    bonding = 2, -- BoE
     dmg_min1 = 18,
     dmg_max1 = 38
 WHERE entry = 2850;
