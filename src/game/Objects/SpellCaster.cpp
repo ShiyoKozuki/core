@@ -523,24 +523,19 @@ int32 SpellCaster::MagicSpellHitChance(Unit* pVictim, SpellEntry const* spell, S
 
     // PvP - PvE spell misschances per leveldif > 2
     int32 lchance = pVictim->GetTypeId() == TYPEID_PLAYER ? 7 : 11;
+    const auto victimLevel = static_cast<int32>(pVictim->GetLevelForTarget(this));
+    auto attackerLevel = static_cast<int32>(GetLevelForTarget(pVictim));
 
-    // World of Warcraft Client Patch 1.7.0 (2005-09-13)
-    // - Debuffs and area effect spells now use their actual cast level rather
-    //   than effective cast level for calculating periodic resistance.
-    // - Fixed a bug where area of effect periodic damage spells were being
-    //   resisted more frequently than they should have been when casting
-    //   lower level ranks of the spell (affected spells were Blizzard,
-    //   Consecration,Explosive Trap, Flamestrike, Hurricane, Rain of Fire and
-    //   Volley).
-#if SUPPORTED_CLIENT_BUILD > CLIENT_BUILD_1_6_1
-    int32 leveldif = int32(pVictim->GetLevelForTarget(this)) - int32(GetLevelForTarget(pVictim));
-#else
-    int32 leveldif = (!spellPtr && spell->HasEffect(SPELL_EFFECT_PERSISTENT_AREA_AURA)) ?
-        int32(pVictim->GetLevelForTarget(this)) - std::max<int32>(1, spell->spellLevel) :
-        int32(pVictim->GetLevelForTarget(this)) - int32(GetLevelForTarget(pVictim));
-#endif
+    // Change Wands hit chance to be baesd on skill (228) instead of level difference
+    if (spell->Id == 5019)
+    {
+        const auto attackerWandSkill = static_cast<int32>(GetWeaponSkillValue(RANGED_ATTACK, pVictim));
+        const int32 equivalentAttackerLevel = std::max(1, attackerWandSkill / 5);
+        attackerLevel = equivalentAttackerLevel;
+    }
 
     // Base hit chance from attacker and victim levels
+    const int32 leveldif = victimLevel - attackerLevel;
     float modHitChance;
     if (leveldif < 3)
         modHitChance = 96 - leveldif;
