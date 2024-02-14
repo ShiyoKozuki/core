@@ -382,7 +382,7 @@ bool PartyBotAI::AttackStart(Unit* pVictim)
     // Don't engage if the party leader isn't in combat, unless they're dead
     if (Player* pLeader = GetPartyLeader())
     {
-        if (!pLeader->IsInCombat() && !pLeader->IsDead())
+        if (!pLeader->IsInCombat() && !pLeader->IsDead() && m_role != ROLE_TANK)
             return false;
     }
 
