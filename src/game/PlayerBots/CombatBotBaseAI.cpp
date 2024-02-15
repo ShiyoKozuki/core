@@ -3555,7 +3555,10 @@ void CombatBotBaseAI::OnPacketReceived(WorldPacket const* packet)
             std::unique_ptr<WorldPacket> data = std::make_unique<WorldPacket>(CMSG_LOOT_ROLL);
             *data << uint64(guid);
             *data << uint32(slot);
-            *data << uint8(0); // pass
+            //ROLL_PASS = 0,
+            //ROLL_NEED = 1,
+            //ROLL_GREED = 2,
+            *data << uint8(2); // greed
             me->GetSession()->QueuePacket(std::move(data));
             return;
         }

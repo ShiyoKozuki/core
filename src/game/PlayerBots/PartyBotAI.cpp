@@ -2516,6 +2516,15 @@ void PartyBotAI::UpdateInCombatAI_Warrior()
                 return;
         }
 
+        if (m_spells.warrior.pExecute &&
+            (pVictim->GetHealthPercent() < 20.0f) &&
+            (me->GetLevel() < 40) &&
+            CanTryToCastSpell(pVictim, m_spells.warrior.pExecute))
+        {
+            if (DoCastSpell(pVictim, m_spells.warrior.pExecute) == SPELL_CAST_OK)
+                return;
+        }
+
         if (me->GetShapeshiftForm() == FORM_DEFENSIVESTANCE &&
             IsWearingShield(me))
         {
@@ -2682,6 +2691,27 @@ void PartyBotAI::UpdateInCombatAI_Warrior()
             && !me->CanReachWithMeleeAutoAttack(pVictim))
         {
             me->GetMotionMaster()->MoveChase(pVictim);
+        }
+
+        if (me->GetLevel() < 40)
+        {
+            if (m_spells.warrior.pCleave && me->GetEnemyCountInRadiusAround(pVictim, 8.0f) > 1)
+            {
+                if (CanTryToCastSpell(pVictim, m_spells.warrior.pCleave))
+                {
+                    if (DoCastSpell(pVictim, m_spells.warrior.pCleave) == SPELL_CAST_OK)
+                        return;
+                }
+            }
+            else
+            {
+                if (m_spells.warrior.pHeroicStrike &&
+                    CanTryToCastSpell(pVictim, m_spells.warrior.pHeroicStrike))
+                {
+                    if (DoCastSpell(pVictim, m_spells.warrior.pHeroicStrike) == SPELL_CAST_OK)
+                        return;
+                }
+            }
         }
     }
     else // no victim
