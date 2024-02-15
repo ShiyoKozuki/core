@@ -1,5 +1,21 @@
 #ifndef MANGOS_COMBAT_BOT_BASE_H
 #define MANGOS_COMBAT_BOT_BASE_H
+#define DUNGEON_BFD 719 
+#define DUNGEON_RFD 1316 
+#define DUNGEON_ULDAMAN 1337 
+#define DUNGEON_ST 1417 
+#define DUNGEON_LBRSUBRS 1583 
+#define DUNGEON_BRD 1584
+#define DUNGEON_STRATH 2017 
+#define DUNGEON_SCHOLO 2057
+#define RAID_ONYXIA 2159
+#define RAID_BWL 2677
+#define RAID_MC 2717
+#define RAID_NAXX 3456
+#define BOT_SHADOW_PROTECTON_R1 976
+#define BOT_SHADOW_PROTECTON_R2 10957
+#define BOT_SHADOW_PROTECTON_R3 10958
+#define BOT_PRAYER_OF_SHADOW_PROTECTION 27683
 
 #include "PlayerBotAI.h"
 #include "SpellEntry.h"
@@ -176,6 +192,30 @@ public:
         }
         return false;
     }
+    static bool IsPureDPSClass(uint8 playerClass)
+    {
+        switch (playerClass)
+        {
+        case CLASS_WARRIOR:
+        case CLASS_ROGUE:
+        case CLASS_HUNTER:
+        case CLASS_WARLOCK:
+        case CLASS_MAGE:
+            return true;
+        }
+        return false;
+    }
+    static bool IsHybridClass(uint8 playerClass)
+    {
+        switch (playerClass)
+        {
+        case CLASS_PALADIN:
+        case CLASS_SHAMAN:
+        case CLASS_DRUID:
+            return true;
+        }
+        return false;
+    }
     static bool IsRangedDamageClass(uint8 playerClass)
     {
         switch (playerClass)
@@ -187,6 +227,27 @@ public:
             case CLASS_WARLOCK:
             case CLASS_DRUID:
                 return true;
+        }
+        return false;
+    }
+    static bool IsPurePhysicalDPS(uint8 playerClass)
+    {
+        switch (playerClass)
+        {
+        case CLASS_WARRIOR:
+        case CLASS_ROGUE:
+        case CLASS_HUNTER:
+            return true;
+        }
+        return false;
+    }
+    static bool IsPureCasterDPS(uint8 playerClass)
+    {
+        switch (playerClass)
+        {
+        case CLASS_WARLOCK:
+        case CLASS_MAGE:
+            return true;
         }
         return false;
     }
@@ -292,12 +353,29 @@ public:
         } raw;
         struct
         {
-            SpellEntry const* pAura;
+            // Paladin Auras
+            SpellEntry const* pDevotionAura;
+            SpellEntry const* pConcentrationAura;
+            SpellEntry const* pRetributionAura;
+            SpellEntry const* pSanctityAura;
+            SpellEntry const* pShadowResistanceAura;
+            SpellEntry const* pFrostResistanceAura;
+            SpellEntry const* pFireResistanceAura;
             SpellEntry const* pSeal;
-            SpellEntry const* pBlessingBuff;
+            // Paladin Blessings
+            SpellEntry const* pBlessingOfLight;
+            SpellEntry const* pBlessingOfMight;
+            SpellEntry const* pBlessingOfWisdom;
+            SpellEntry const* pBlessingOfSalvation;
+            SpellEntry const* pBlessingOfKings;
+            SpellEntry const* pBlessingOfSanctuary;
             SpellEntry const* pBlessingOfProtection;
             SpellEntry const* pBlessingOfFreedom;
             SpellEntry const* pBlessingOfSacrifice;
+            // Paladin Seals
+            SpellEntry const* pSealOfRighteousness;
+            SpellEntry const* pSealOfCommand;
+            SpellEntry const* pSealOfFury;
             SpellEntry const* pHammerOfJustice;
             SpellEntry const* pRepentance;
             SpellEntry const* pJudgement;

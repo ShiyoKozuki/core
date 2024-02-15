@@ -133,27 +133,6 @@ void CombatBotBaseAI::ResetSpellData()
 
 void CombatBotBaseAI::PopulateSpellData()
 {
-    // Paladin Seals
-    SpellEntry const* pSealOfRighteousness = nullptr;
-    SpellEntry const* pSealOfCommand = nullptr;
-    SpellEntry const* pSealOfFury = nullptr;
-
-    // Paladin Blessings
-    SpellEntry const* pBlessingOfLight = nullptr;
-    SpellEntry const* pBlessingOfMight = nullptr;
-    SpellEntry const* pBlessingOfWisdom = nullptr;
-    SpellEntry const* pBlessingOfKings = nullptr;
-    SpellEntry const* pBlessingOfSanctuary = nullptr;
-
-    // Paladin Auras
-    SpellEntry const* pDevotionAura = nullptr;
-    SpellEntry const* pConcentrationAura = nullptr;
-    SpellEntry const* pRetributionAura = nullptr;
-    SpellEntry const* pSanctityAura = nullptr;
-    SpellEntry const* pShadowResistanceAura = nullptr;
-    SpellEntry const* pFrostResistanceAura = nullptr;
-    SpellEntry const* pFireResistanceAura = nullptr;
-
     // Air Totems
     SpellEntry const* pGraceOfAirTotem = nullptr;
     SpellEntry const* pNatureResistanceTotem = nullptr;
@@ -239,13 +218,13 @@ void CombatBotBaseAI::PopulateSpellData()
             {
                 if (pSpellEntry->SpellName[0].find("Seal of Righteousness") != std::string::npos)
                 {
-                    if (IsHigherRankSpell(pSealOfRighteousness))
-                        pSealOfRighteousness = pSpellEntry;
+                    if (IsHigherRankSpell(m_spells.paladin.pSealOfRighteousness))
+                        m_spells.paladin.pSealOfRighteousness = pSpellEntry;
                 }
                 else if (pSpellEntry->SpellName[0].find("Seal of Command") != std::string::npos)
                 {
-                    if (IsHigherRankSpell(pSealOfCommand))
-                        pSealOfCommand = pSpellEntry;
+                    if (IsHigherRankSpell(m_spells.paladin.pSealOfCommand))
+                        m_spells.paladin.pSealOfCommand = pSpellEntry;
                 }
                 else if (pSpellEntry->SpellName[0].find("Judgement") != std::string::npos)
                 {
@@ -279,63 +258,68 @@ void CombatBotBaseAI::PopulateSpellData()
                 }
                 else if (pSpellEntry->SpellName[0].find("Blessing of Sanctuary") != std::string::npos)
                 {
-                    if (IsHigherRankSpell(pBlessingOfSanctuary))
-                        pBlessingOfSanctuary = pSpellEntry;
+                    if (IsHigherRankSpell(m_spells.paladin.pBlessingOfSanctuary))
+                        m_spells.paladin.pBlessingOfSanctuary = pSpellEntry;
                 }
                 else if (pSpellEntry->SpellName[0].find("Blessing of Kings") != std::string::npos)
                 {
-                    if (IsHigherRankSpell(pBlessingOfKings))
-                        pBlessingOfKings = pSpellEntry;
+                    if (IsHigherRankSpell(m_spells.paladin.pBlessingOfKings))
+                        m_spells.paladin.pBlessingOfKings = pSpellEntry;
                 }
                 else if (pSpellEntry->SpellName[0].find("Blessing of Wisdom") != std::string::npos)
                 {
-                    if (IsHigherRankSpell(pBlessingOfWisdom))
-                        pBlessingOfWisdom = pSpellEntry;
+                    if (IsHigherRankSpell(m_spells.paladin.pBlessingOfWisdom))
+                        m_spells.paladin.pBlessingOfWisdom = pSpellEntry;
                 }
                 else if (pSpellEntry->SpellName[0].find("Blessing of Might") != std::string::npos)
                 {
-                    if (IsHigherRankSpell(pBlessingOfMight))
-                        pBlessingOfMight = pSpellEntry;
+                    if (IsHigherRankSpell(m_spells.paladin.pBlessingOfMight))
+                        m_spells.paladin.pBlessingOfMight = pSpellEntry;
+                }
+                else if (pSpellEntry->SpellName[0].find("Blessing of Salvation") != std::string::npos)
+                {
+                    if (IsHigherRankSpell(m_spells.paladin.pBlessingOfSalvation))
+                        m_spells.paladin.pBlessingOfSalvation = pSpellEntry;
                 }
                 else if (pSpellEntry->SpellName[0].find("Blessing of Light") != std::string::npos)
                 {
-                    if (IsHigherRankSpell(pBlessingOfLight))
-                        pBlessingOfLight = pSpellEntry;
+                    if (IsHigherRankSpell(m_spells.paladin.pBlessingOfLight))
+                        m_spells.paladin.pBlessingOfLight = pSpellEntry;
                 }
                 else if (pSpellEntry->SpellName[0].find("Devotion Aura") != std::string::npos)
                 {
-                    if (IsHigherRankSpell(pDevotionAura))
-                        pDevotionAura = pSpellEntry;
+                    if (IsHigherRankSpell(m_spells.paladin.pDevotionAura))
+                        m_spells.paladin.pDevotionAura = pSpellEntry;
                 }
                 else if (pSpellEntry->SpellName[0].find("Retribution Aura") != std::string::npos)
                 {
-                    if (IsHigherRankSpell(pRetributionAura))
-                        pRetributionAura = pSpellEntry;
+                    if (IsHigherRankSpell(m_spells.paladin.pRetributionAura))
+                        m_spells.paladin.pRetributionAura = pSpellEntry;
                 }
                 else if (pSpellEntry->SpellName[0].find("Concentration Aura") != std::string::npos)
                 {
-                    if (IsHigherRankSpell(pConcentrationAura))
-                        pConcentrationAura = pSpellEntry;
+                    if (IsHigherRankSpell(m_spells.paladin.pConcentrationAura))
+                        m_spells.paladin.pConcentrationAura = pSpellEntry;
                 }
                 else if (pSpellEntry->SpellName[0].find("Sanctity Aura") != std::string::npos)
                 {
-                    if (IsHigherRankSpell(pSanctityAura))
-                        pSanctityAura = pSpellEntry;
+                    if (IsHigherRankSpell(m_spells.paladin.pSanctityAura))
+                        m_spells.paladin.pSanctityAura = pSpellEntry;
                 }
                 else if (pSpellEntry->SpellName[0].find("Shadow Resistance Aura") != std::string::npos)
                 {
-                    if (IsHigherRankSpell(pShadowResistanceAura))
-                        pShadowResistanceAura = pSpellEntry;
+                    if (IsHigherRankSpell(m_spells.paladin.pShadowResistanceAura))
+                        m_spells.paladin.pShadowResistanceAura = pSpellEntry;
                 }
                 else if (pSpellEntry->SpellName[0].find("Frost Resistance Aura") != std::string::npos)
                 {
-                    if (IsHigherRankSpell(pFrostResistanceAura))
-                        pFrostResistanceAura = pSpellEntry;
+                    if (IsHigherRankSpell(m_spells.paladin.pFrostResistanceAura))
+                        m_spells.paladin.pFrostResistanceAura = pSpellEntry;
                 }
                 else if (pSpellEntry->SpellName[0].find("Fire Resistance Aura") != std::string::npos)
                 {
-                    if (IsHigherRankSpell(pFireResistanceAura))
-                        pFireResistanceAura = pSpellEntry;
+                    if (IsHigherRankSpell(m_spells.paladin.pFireResistanceAura))
+                        m_spells.paladin.pFireResistanceAura = pSpellEntry;
                 }
                 else if (pSpellEntry->SpellName[0].find("Exorcism") != std::string::npos)
                 {
@@ -374,8 +358,8 @@ void CombatBotBaseAI::PopulateSpellData()
                 }
                 else if (pSpellEntry->SpellName[0].find("Seal of Fury") != std::string::npos) // pre 1.9
                 {
-                    if (IsHigherRankSpell(pSealOfFury))
-                        pSealOfFury = pSpellEntry;
+                    if (IsHigherRankSpell(m_spells.paladin.pSealOfFury))
+                        m_spells.paladin.pSealOfFury = pSpellEntry;
                 }
                 else if (pSpellEntry->SpellName[0].find("Holy Shock") != std::string::npos)
                 {
@@ -1853,50 +1837,6 @@ void CombatBotBaseAI::PopulateSpellData()
     {
         case CLASS_PALADIN:
         {
-            if (pSealOfFury && m_role == ROLE_TANK)
-                m_spells.paladin.pSeal = pSealOfFury;
-            else if (pSealOfCommand)
-                m_spells.paladin.pSeal = pSealOfCommand;
-            else
-                m_spells.paladin.pSeal = pSealOfRighteousness;
-
-            if (pBlessingOfSanctuary && m_role == ROLE_TANK)
-                m_spells.paladin.pBlessingBuff = pBlessingOfSanctuary;
-            else
-            {
-                std::vector<SpellEntry const*> blessings;
-                if (pBlessingOfLight)
-                    blessings.push_back(pBlessingOfLight);
-                if (pBlessingOfMight)
-                    blessings.push_back(pBlessingOfMight);
-                if (pBlessingOfWisdom)
-                    blessings.push_back(pBlessingOfWisdom);
-                if (pBlessingOfKings)
-                    blessings.push_back(pBlessingOfKings);
-                //if (pBlessingOfSanctuary)
-                //    blessings.push_back(pBlessingOfSanctuary);
-                if (!blessings.empty())
-                    m_spells.paladin.pBlessingBuff = SelectRandomContainerElement(blessings);
-            }
-
-            std::vector<SpellEntry const*> auras;
-            //if (pDevotionAura)
-            //    auras.push_back(pDevotionAura);
-            if (pConcentrationAura)
-                auras.push_back(pConcentrationAura);
-            //if (pRetributionAura)
-            //    auras.push_back(pRetributionAura);
-            //if (pSanctityAura)
-            //    auras.push_back(pSanctityAura);
-            if (pShadowResistanceAura)
-                auras.push_back(pShadowResistanceAura);
-            if (pFrostResistanceAura)
-                auras.push_back(pFrostResistanceAura);
-            if (pFireResistanceAura)
-                auras.push_back(pFireResistanceAura);
-            if (!auras.empty())
-                m_spells.paladin.pAura = SelectRandomContainerElement(auras);
-
             break;
         }
         case CLASS_SHAMAN:
