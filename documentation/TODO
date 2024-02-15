@@ -196,20 +196,16 @@ why does horde love mine so much in AB?
 better capping AI
 hunters dont have pet spells / resists / etc learned
 entangle moving/mounte dunits moonkin
-always use SoCommand if ret
 node guarding (AB/AV) and routing in AB
 moonkins still braindead and stand around a lot...
 rogue and priest class quest item dorp rates (alliance)
 *************BOTS AT FARM SPOTS*************
-************ REDUCE WEAPON SKILL UP RATES!!!*********
-********* FIX WANDS***************
 deeprun rat roundup bugged can spamn it on 1 rat to finish
 paladin blessings based on targets class
 pet abilities to warlock flag carrier ai(sacrifice, devour self, spell lock opponent, etc)
 custom crafted fist weapons and drops
-Finising blessings stuff copy/paste
-fix the dungeon keys to drop for everyone like executioner in zf
 stealth detection is too generous to the rogue
+use HealInjuredTarget(me) for druid when swapping out of forms and ns + heal on shaman/druid
 
 https://www.wowhead.com/classic/guide/classic-wow-hunter-pets
 https://www.wowhead.com/classic/spell=24516/shadow-resistance
@@ -222,5 +218,5 @@ https://www.wowhead.com/classic/spell=5042/great-stamina
 https://www.wowhead.com/classic/spell=14921/growl
 
 
-https://github.com/stoneharry/WoW-Spell-Editor/releases/tag/v2.2.1
+https://www.getmangos.eu/wiki/referenceinfo/dbinfo/mangosdb/mangoszeroworlddb/item_template-r1064/
 https://www.ownedcore.com/forums/world-of-warcraft/world-of-warcraft-emulator-servers/wow-emu-guides-tutorials/150213-guide-custom-weapon.html
