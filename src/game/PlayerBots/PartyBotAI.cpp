@@ -439,8 +439,7 @@ Unit* PartyBotAI::SelectAttackTarget(Player* pLeader) const
         // Who is the leader attacking.
         if (Unit* pVictim = pLeader->GetVictim())
         {
-            if (IsValidHostileTarget(pVictim) &&
-                m_role != ROLE_TANK)  // Don't assist if a tank
+            if (IsValidHostileTarget(pVictim))
                 return pVictim;
         }
     }
