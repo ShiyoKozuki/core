@@ -383,6 +383,7 @@ public:
             SpellEntry const* pConsecration;
             SpellEntry const* pHammerOfWrath;
             SpellEntry const* pCleanse;
+            SpellEntry const* pPurify;
             SpellEntry const* pDivineShield;
             SpellEntry const* pLayOnHands;
             SpellEntry const* pRighteousFury;

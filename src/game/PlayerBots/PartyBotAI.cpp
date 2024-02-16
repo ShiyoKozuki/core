@@ -1120,16 +1120,17 @@ void PartyBotAI::UpdateOutOfCombatAI_Paladin()
     {
         switch (me->GetZoneId())
         {
-            case DUNGEON_BFD:
-            {
-                if (m_spells.paladin.pFrostResistanceAura &&
-                    CanTryToCastSpell(me, m_spells.paladin.pFrostResistanceAura))
-                {
-                    if (DoCastSpell(me, m_spells.paladin.pFrostResistanceAura) == SPELL_CAST_OK)
-                        return;
-                }
-                break;
-            }
+            // No frost resist dungeon / raid yet
+            //case ???:
+            //{
+            //    if (m_spells.paladin.pFrostResistanceAura &&
+            //        CanTryToCastSpell(me, m_spells.paladin.pFrostResistanceAura))
+            //    {
+            //        if (DoCastSpell(me, m_spells.paladin.pFrostResistanceAura) == SPELL_CAST_OK)
+            //            return;
+            //    }
+            //    break;
+            //}
             case DUNGEON_RFD:
             case DUNGEON_ST:
             case DUNGEON_STRATH:
@@ -1220,9 +1221,16 @@ void PartyBotAI::UpdateOutOfCombatAI_Paladin()
         }
     }
 
-    if (m_role == ROLE_HEALER &&
-        FindAndHealInjuredAlly(90.0f, 90.0f))
-        return;
+    if (m_role == ROLE_HEALER)
+    {
+        if (FindAndHealInjuredAlly(90.0f, 90.0f))
+            return;
+    }
+    else if (m_role == ROLE_MELEE_DPS)
+    {
+        if (FindAndHealInjuredAlly(30.0f, 30.0f))
+            return;
+    }
 
     if (m_role == ROLE_TANK &&
         m_spells.paladin.pRighteousFury &&
@@ -1232,14 +1240,31 @@ void PartyBotAI::UpdateOutOfCombatAI_Paladin()
             return;
     }
 
-    if (m_spells.paladin.pCleanse)
+    if (me->GetLevel() < 42)
     {
-        if (Unit* pFriend = SelectDispelTarget(m_spells.paladin.pCleanse))
+        if (m_spells.paladin.pPurify)
         {
-            if (CanTryToCastSpell(pFriend, m_spells.paladin.pCleanse))
+            if (Unit* pFriend = SelectDispelTarget(m_spells.paladin.pPurify))
             {
-                if (DoCastSpell(pFriend, m_spells.paladin.pCleanse) == SPELL_CAST_OK)
-                    return;
+                if (CanTryToCastSpell(pFriend, m_spells.paladin.pPurify))
+                {
+                    if (DoCastSpell(pFriend, m_spells.paladin.pPurify) == SPELL_CAST_OK)
+                        return;
+                }
+            }
+        }
+    }
+    else
+    {
+        if (m_spells.paladin.pCleanse)
+        {
+            if (Unit* pFriend = SelectDispelTarget(m_spells.paladin.pCleanse))
+            {
+                if (CanTryToCastSpell(pFriend, m_spells.paladin.pCleanse))
+                {
+                    if (DoCastSpell(pFriend, m_spells.paladin.pCleanse) == SPELL_CAST_OK)
+                        return;
+                }
             }
         }
     }
@@ -1502,14 +1527,31 @@ void PartyBotAI::UpdateInCombatAI_Paladin()
         }
     }
 
-    if (m_spells.paladin.pCleanse)
+    if (me->GetLevel() < 42)
     {
-        if (Unit* pFriend = SelectDispelTarget(m_spells.paladin.pCleanse))
+        if (m_spells.paladin.pPurify)
         {
-            if (CanTryToCastSpell(pFriend, m_spells.paladin.pCleanse))
+            if (Unit* pFriend = SelectDispelTarget(m_spells.paladin.pPurify))
             {
-                if (DoCastSpell(pFriend, m_spells.paladin.pCleanse) == SPELL_CAST_OK)
-                    return;
+                if (CanTryToCastSpell(pFriend, m_spells.paladin.pPurify))
+                {
+                    if (DoCastSpell(pFriend, m_spells.paladin.pPurify) == SPELL_CAST_OK)
+                        return;
+                }
+            }
+        }
+    }
+    else
+    {
+        if (m_spells.paladin.pCleanse)
+        {
+            if (Unit* pFriend = SelectDispelTarget(m_spells.paladin.pCleanse))
+            {
+                if (CanTryToCastSpell(pFriend, m_spells.paladin.pCleanse))
+                {
+                    if (DoCastSpell(pFriend, m_spells.paladin.pCleanse) == SPELL_CAST_OK)
+                        return;
+                }
             }
         }
     }
@@ -1568,6 +1610,9 @@ void PartyBotAI::UpdateInCombatAI_Paladin()
                 return;
         }
 
+        if (FindAndHealInjuredAlly(0.0f, 30.0f))
+            return;
+
         bool hasSeal = false;
 
         if (m_spells.paladin.pSealOfCommand &&
@@ -1596,6 +1641,17 @@ void PartyBotAI::UpdateInCombatAI_Paladin()
                 CanTryToCastSpell(me, m_spells.paladin.pSealOfRighteousness))
             {
                 me->CastSpell(me, m_spells.paladin.pSealOfRighteousness, false);
+            }
+        }
+
+        if (Unit* pFriend = me->FindLowestHpFriendlyUnit(30.0f, 100, true, me))
+        {
+            if (m_spells.paladin.pBlessingOfFreedom &&
+                (pFriend->HasUnitState(UNIT_STAT_ROOT)) &&
+                CanTryToCastSpell(pFriend, m_spells.paladin.pBlessingOfFreedom))
+            {
+                if (DoCastSpell(pFriend, m_spells.paladin.pBlessingOfFreedom) == SPELL_CAST_OK)
+                    return;
             }
         }
 
@@ -1673,14 +1729,14 @@ void PartyBotAI::UpdateInCombatAI_Paladin()
     }
 
     if (m_spells.paladin.pBlessingOfFreedom &&
-       (me->HasUnitState(UNIT_STAT_ROOT) || me->HasAuraType(SPELL_AURA_MOD_DECREASE_SPEED)) &&
+       (me->HasUnitState(UNIT_STAT_ROOT)) &&
         CanTryToCastSpell(me, m_spells.paladin.pBlessingOfFreedom))
     {
         if (DoCastSpell(me, m_spells.paladin.pBlessingOfFreedom) == SPELL_CAST_OK)
             return;
     }
     
-    if (GetRole() != ROLE_HEALER &&
+    if (GetRole() == ROLE_MELEE_DPS &&
         me->GetHealthPercent() < 30.0f)
         HealInjuredTarget(me);
 }

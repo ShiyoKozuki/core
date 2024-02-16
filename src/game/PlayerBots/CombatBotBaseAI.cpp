@@ -336,6 +336,11 @@ void CombatBotBaseAI::PopulateSpellData()
                     if (IsHigherRankSpell(m_spells.paladin.pHammerOfWrath))
                         m_spells.paladin.pHammerOfWrath = pSpellEntry;
                 }
+                else if (pSpellEntry->SpellName[0].find("Purify") != std::string::npos)
+                {
+                    if (IsHigherRankSpell(m_spells.paladin.pPurify))
+                        m_spells.paladin.pPurify = pSpellEntry;
+                }
                 else if (pSpellEntry->SpellName[0].find("Cleanse") != std::string::npos)
                 {
                     if (IsHigherRankSpell(m_spells.paladin.pCleanse))

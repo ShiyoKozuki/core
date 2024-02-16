@@ -1427,14 +1427,31 @@ void BattleBotAI::UpdateFlagCarrierAI()
                     if (DoCastSpell(me, m_spells.paladin.pHolyShock) == SPELL_CAST_OK)
                         return;
                 }
-                if (m_spells.paladin.pCleanse)
+                if (me->GetLevel() < 42)
                 {
-                    if (Unit* pFriend = SelectDispelTarget(m_spells.paladin.pCleanse))
+                    if (m_spells.paladin.pPurify)
                     {
-                        if (CanTryToCastSpell(pFriend, m_spells.paladin.pCleanse))
+                        if (Unit* pFriend = SelectDispelTarget(m_spells.paladin.pPurify))
                         {
-                            if (DoCastSpell(pFriend, m_spells.paladin.pCleanse) == SPELL_CAST_OK)
-                                return;
+                            if (CanTryToCastSpell(pFriend, m_spells.paladin.pPurify))
+                            {
+                                if (DoCastSpell(pFriend, m_spells.paladin.pPurify) == SPELL_CAST_OK)
+                                    return;
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    if (m_spells.paladin.pCleanse)
+                    {
+                        if (Unit* pFriend = SelectDispelTarget(m_spells.paladin.pCleanse))
+                        {
+                            if (CanTryToCastSpell(pFriend, m_spells.paladin.pCleanse))
+                            {
+                                if (DoCastSpell(pFriend, m_spells.paladin.pCleanse) == SPELL_CAST_OK)
+                                    return;
+                            }
                         }
                     }
                 }
@@ -2044,14 +2061,31 @@ void BattleBotAI::UpdateInCombatAI_Paladin()
                         return;
                 }
 
-                if (m_spells.paladin.pCleanse)
+                if (me->GetLevel() < 42)
                 {
-                    if (Unit* pFriend = SelectDispelTarget(m_spells.paladin.pCleanse))
+                    if (m_spells.paladin.pPurify)
                     {
-                        if (CanTryToCastSpell(pFriend, m_spells.paladin.pCleanse))
+                        if (Unit* pFriend = SelectDispelTarget(m_spells.paladin.pPurify))
                         {
-                            if (DoCastSpell(pFriend, m_spells.paladin.pCleanse) == SPELL_CAST_OK)
-                                return;
+                            if (CanTryToCastSpell(pFriend, m_spells.paladin.pPurify))
+                            {
+                                if (DoCastSpell(pFriend, m_spells.paladin.pPurify) == SPELL_CAST_OK)
+                                    return;
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    if (m_spells.paladin.pCleanse)
+                    {
+                        if (Unit* pFriend = SelectDispelTarget(m_spells.paladin.pCleanse))
+                        {
+                            if (CanTryToCastSpell(pFriend, m_spells.paladin.pCleanse))
+                            {
+                                if (DoCastSpell(pFriend, m_spells.paladin.pCleanse) == SPELL_CAST_OK)
+                                    return;
+                            }
                         }
                     }
                 }
@@ -2218,14 +2252,31 @@ void BattleBotAI::UpdateInCombatAI_Paladin()
         }
     }
 
-    if (m_spells.paladin.pCleanse)
+    if (me->GetLevel() < 42)
     {
-        if (Unit* pFriend = SelectDispelTarget(m_spells.paladin.pCleanse))
+        if (m_spells.paladin.pPurify)
         {
-            if (CanTryToCastSpell(pFriend, m_spells.paladin.pCleanse))
+            if (Unit* pFriend = SelectDispelTarget(m_spells.paladin.pPurify))
             {
-                if (DoCastSpell(pFriend, m_spells.paladin.pCleanse) == SPELL_CAST_OK)
-                    return;
+                if (CanTryToCastSpell(pFriend, m_spells.paladin.pPurify))
+                {
+                    if (DoCastSpell(pFriend, m_spells.paladin.pPurify) == SPELL_CAST_OK)
+                        return;
+                }
+            }
+        }
+    }
+    else
+    {
+        if (m_spells.paladin.pCleanse)
+        {
+            if (Unit* pFriend = SelectDispelTarget(m_spells.paladin.pCleanse))
+            {
+                if (CanTryToCastSpell(pFriend, m_spells.paladin.pCleanse))
+                {
+                    if (DoCastSpell(pFriend, m_spells.paladin.pCleanse) == SPELL_CAST_OK)
+                        return;
+                }
             }
         }
     }
