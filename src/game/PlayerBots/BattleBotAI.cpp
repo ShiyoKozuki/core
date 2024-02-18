@@ -1374,11 +1374,23 @@ void BattleBotAI::UpdateFlagCarrierAI()
 
             if (me->GetShapeshiftForm() == FORM_NONE)
             {
-                if (m_spells.druid.pTravelForm &&
-                    CanTryToCastSpell(me, m_spells.druid.pTravelForm))
+                if (me->GetLevel() < 30)
                 {
-                    me->CastSpell(me, m_spells.druid.pTravelForm, false);
-                    return;
+                    if (m_spells.druid.pBearForm &&
+                        CanTryToCastSpell(me, m_spells.druid.pBearForm))
+                    {
+                        me->CastSpell(me, m_spells.druid.pBearForm, false);
+                        return;
+                    }
+                }
+                else
+                {
+                    if (m_spells.druid.pTravelForm &&
+                        CanTryToCastSpell(me, m_spells.druid.pTravelForm))
+                    {
+                        me->CastSpell(me, m_spells.druid.pTravelForm, false);
+                        return;
+                    }
                 }
             }
             else if (me->HasAuraType(SPELL_AURA_MOD_DECREASE_SPEED) &&

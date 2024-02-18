@@ -2844,6 +2844,17 @@ void PartyBotAI::UpdateOutOfCombatAI_Warrior()
             DoCastSpell(me, m_spells.warrior.pBloodrage);
         }
     }
+
+    if (Unit* pVictim = me->GetVictim())
+    {
+        if (m_spells.warrior.pCharge &&
+            (m_role == ROLE_TANK) &&
+            CanTryToCastSpell(pVictim, m_spells.warrior.pCharge))
+        {
+            if (DoCastSpell(pVictim, m_spells.warrior.pCharge) == SPELL_CAST_OK)
+                return;
+        }
+    }
 }
 
 void PartyBotAI::UpdateInCombatAI_Warrior()
