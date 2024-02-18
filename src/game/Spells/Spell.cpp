@@ -1486,8 +1486,9 @@ void Spell::DoAllEffectOnTarget(TargetInfo *target)
     // All weapon based abilities can trigger weapon procs,
     bool triggerWeaponProcs = m_casterUnit != unitTarget && m_spellInfo->EquippedItemClass == ITEM_CLASS_WEAPON;
 
-    // Don't proc on sap, Blizzard era bug
-    if (m_spellInfo->Id == 6770 || m_spellInfo->Id == 2070 || m_spellInfo->Id == 11297)
+    // Don't proc on Sap or Gouge, Blizzard era bug
+    // TODO: Make into a bool using a switch and add other gouge levels
+    if (m_spellInfo->Id == 6770 || m_spellInfo->Id == 2070 || m_spellInfo->Id == 11297 || m_spellInfo->Id == 1776)
         triggerWeaponProcs = false;
     // All calculated do it!
     // Do healing and triggers
