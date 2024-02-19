@@ -220,7 +220,6 @@ better tc logic, go back to bstance and tclap if target doesnt have tclap and > 
 revenge, shield block and overpower logic
 use curse based on pt leaders class
 better logic for salvationing wars with a 2h tanking
-better mocking blow logic..seems to use everytime its up
 bom self over bow if m_role is melee dps
 
 battlebot ai:
