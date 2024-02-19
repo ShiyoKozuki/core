@@ -217,6 +217,11 @@ better LW armor kits for legs
 partybot:
 loh logic for partybot paladin
 better tc logic, go back to bstance and tclap if target doesnt have tclap and > 1 target
+revenge, shield block and overpower logic
+use curse based on pt leaders class
+better logic for salvationing wars with a 2h tanking
+better mocking blow logic..seems to use everytime its up
+bom self over bow if m_role is melee dps
 
 battlebot ai:
 low level rogues don't use poisons?
@@ -237,6 +242,13 @@ remove hunters mark on hunter releasing after dying
 mind vision shouldn't require LOS
 rogue footlockers aggro mobs like chests
 wep procs(poisons also) shouldn't proc on gouge
+https://www.wowhead.com/classic/item=9309/robo-mechanical-guts shouldnt drop from horrors or slimes
+add leeway back(revert change)
+does repose proc on spell casted on you?
+you can pickpocket a mob while the pickpocket menu is open and then get resisted
+
+sql:
+cap sweet nectar drop rates at 1 quantity max(all food/drink)
 
 
 https://www.wowhead.com/classic/guide/classic-wow-hunter-pets
