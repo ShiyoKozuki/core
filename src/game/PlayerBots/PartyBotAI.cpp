@@ -1291,7 +1291,8 @@ void PartyBotAI::UpdateOutOfCombatAI_Paladin()
                             me->IsWithinDist(pMember, 30.0f) &&
                             CanTryToCastSpell(pMember, m_spells.paladin.pBlessingOfSalvation) &&
                             (IsPureDPSClass(pMember->GetClass())) &&
-                            !IsWearingShield(pMember))
+                            !IsWearingShield(pMember) && 
+                            !pMember->GetGroup()->GetTargetWithIcon(RAID_TARGET_ICON_SQUARE))
                         {
                             //here's where it'd return..
                             if (DoCastSpell(pMember, m_spells.paladin.pBlessingOfSalvation) == SPELL_CAST_OK)
@@ -1326,7 +1327,8 @@ void PartyBotAI::UpdateOutOfCombatAI_Paladin()
                             me->IsWithinDist(pMember, 30.0f) &&
                             CanTryToCastSpell(pMember, m_spells.paladin.pBlessingOfMight) &&
                             (IsPureDPSClass(pMember->GetClass())) &&
-                            !IsWearingShield(pMember))
+                            !IsWearingShield(pMember) &&
+                            !pMember->GetGroup()->GetTargetWithIcon(RAID_TARGET_ICON_SQUARE))
                         {
                             //here's where it'd return..
                             if (DoCastSpell(pMember, m_spells.paladin.pBlessingOfMight) == SPELL_CAST_OK)
@@ -1393,7 +1395,7 @@ void PartyBotAI::UpdateOutOfCombatAI_Paladin()
                             me->IsWithinLOSInMap(pMember) &&
                             me->IsWithinDist(pMember, 30.0f) &&
                             CanTryToCastSpell(pMember, m_spells.paladin.pBlessingOfLight) &&
-                            IsWearingShield(pMember) &&
+                            (IsWearingShield(pMember) || pMember->GetGroup()->GetTargetWithIcon(RAID_TARGET_ICON_SQUARE)) &&
                             (pMember != me))
                         {
                             //here's where it'd return..
@@ -1428,7 +1430,7 @@ void PartyBotAI::UpdateOutOfCombatAI_Paladin()
                             me->IsWithinLOSInMap(pMember) &&
                             me->IsWithinDist(pMember, 30.0f) &&
                             CanTryToCastSpell(pMember, m_spells.paladin.pBlessingOfKings) &&
-                            IsWearingShield(pMember) &&
+                            (IsWearingShield(pMember) || pMember->GetGroup()->GetTargetWithIcon(RAID_TARGET_ICON_SQUARE)) &&
                             (pMember != me))
                         {
                             //here's where it'd return..
@@ -1462,7 +1464,7 @@ void PartyBotAI::UpdateOutOfCombatAI_Paladin()
                                 me->IsWithinLOSInMap(pMember) &&
                                 me->IsWithinDist(pMember, 30.0f) &&
                                 CanTryToCastSpell(pMember, m_spells.paladin.pBlessingOfMight) &&
-                                IsWearingShield(pMember) &&
+                                (IsWearingShield(pMember) || pMember->GetGroup()->GetTargetWithIcon(RAID_TARGET_ICON_SQUARE)) &&
                                 (pMember != me))
                             {
                                 //here's where it'd return..
