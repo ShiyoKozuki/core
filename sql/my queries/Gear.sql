@@ -250,6 +250,15 @@ WHERE entry = 12945;
 
 -- Crafted
 
+-- Heavy Earthen Gloves
+-- UNTESTED
+UPDATE mangos . item_template
+SET quality = 3,
+    armor = 150,
+    stat_type1 = 7,
+    stat_value1 = 8,
+WHERE entry = 7359;
+
 -- Helm of Fire
 UPDATE mangos . item_template
 SET quality = 4,
