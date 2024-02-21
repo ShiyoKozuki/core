@@ -226,12 +226,18 @@ battlebot ai:
 low level rogues don't use poisons?
 mages dont blink stuns as normal or fc ai
 aura based on class being fought if not healer
+add enough bots when queueing to fully fill bg
+rogue focus prio after healer before casters
+balance druid check taget doesnt have entangle when casting in the one logic of checking if someone is in melee range
+rogues use builders from stearlth, disable it
 
 
 flag carrier ai:
 don't ignore combat if carrying flag unless a specific thing i.e travel form
 only ghost wolf if imp ghostwolf talent learned with flag
 bear form if cant travel form
+random pathing with flag
+check target isnt in melee range when swapping out of snares/roots as a feral druid
 
 bugs:
 spells should get interrupted when the target stealths and is too far to see
@@ -248,6 +254,7 @@ you can pickpocket a mob while the pickpocket menu is open and then get resisted
 
 sql:
 cap sweet nectar drop rates at 1 quantity max(all food/drink)
+barbaric gloves, bright-eye goggles, earthen gloves recipe drop rates
 
 
 https://www.wowhead.com/classic/guide/classic-wow-hunter-pets
