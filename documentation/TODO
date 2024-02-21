@@ -230,6 +230,7 @@ add enough bots when queueing to fully fill bg
 rogue focus prio after healer before casters
 balance druid check taget doesnt have entangle when casting in the one logic of checking if someone is in melee range
 rogues use builders from stearlth, disable it
+don't daggro target if they have WSG flag aura
 
 
 flag carrier ai:
@@ -248,7 +249,6 @@ mind vision shouldn't require LOS
 rogue footlockers aggro mobs like chests
 wep procs(poisons also) shouldn't proc on gouge
 https://www.wowhead.com/classic/item=9309/robo-mechanical-guts shouldnt drop from horrors or slimes
-add leeway back(revert change)
 does repose proc on spell casted on you?
 you can pickpocket a mob while the pickpocket menu is open and then get resisted
 
