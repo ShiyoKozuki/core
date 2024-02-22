@@ -231,6 +231,7 @@ rogue focus prio after healer before casters
 balance druid check taget doesnt have entangle when casting in the one logic of checking if someone is in melee range
 rogues use builders from stearlth, disable it
 don't daggro target if they have WSG flag aura
+healer druid ai is messed up and engages targets then never fights back and doesnt heal itself very well
 
 
 flag carrier ai:
@@ -239,6 +240,8 @@ only ghost wolf if imp ghostwolf talent learned with flag
 bear form if cant travel form
 random pathing with flag
 check target isnt in melee range when swapping out of snares/roots as a feral druid
+CAP FLAG IF CAPABLE, do not keep running to enemy base, reset waypoint
+.unaura 23333
 
 bugs:
 spells should get interrupted when the target stealths and is too far to see
