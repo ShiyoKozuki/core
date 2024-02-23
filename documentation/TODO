@@ -232,6 +232,7 @@ balance druid check taget doesnt have entangle when casting in the one logic of 
 rogues use builders from stearlth, disable it
 don't daggro target if they have WSG flag aura
 healer druid ai is messed up and engages targets then never fights back and doesnt heal itself very well
+don't drink/eat if have vanish aura
 
 
 flag carrier ai:
