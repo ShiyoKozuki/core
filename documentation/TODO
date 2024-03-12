@@ -245,6 +245,7 @@ CAP FLAG IF CAPABLE, do not keep running to enemy base, reset waypoint
 .unaura 23333
 
 bugs:
+Make sure gouge/sap is still being coded as execption after pulling stuff
 spells should get interrupted when the target stealths and is too far to see
 stealthed allies shouldnt ever go out of vision range
 vanish removes hunters mark ?!?!?!?!
