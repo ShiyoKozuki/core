@@ -3265,14 +3265,14 @@ bool Map::GetSwimRandomPosition(float& x, float& y, float& z, float radius, Grid
     return false;
 }
 
-bool Map::GetWalkRandomPosition(GenericTransport* transport, float &x, float &y, float &z, float maxRadius, uint32 moveAllowedFlags) const
+bool Map::GetWalkRandomPosition(GenericTransport* transport, float &x, float &y, float &z, float maxRadius, uint32 moveAllowedFlags, bool useMMaps) const
 {
     ASSERT(MaNGOS::IsValidMapCoord(x, y, z));
 
     // Find the navMeshQuery.
     MMAP::MMapManager* mmap = MMAP::MMapFactory::createOrGetMMapManager();
-    dtNavMeshQuery const* m_navMeshQuery = transport ? mmap->GetModelNavMeshQuery(transport->GetDisplayId()) : mmap->GetNavMeshQuery(GetId());
-    float const radius = maxRadius * rand_norm_f();
+    dtNavMeshQuery const* m_navMeshQuery = useMMaps ? (transport ? mmap->GetModelNavMeshQuery(transport->GetDisplayId()) : mmap->GetNavMeshQuery(GetId())) : nullptr;
+    float radius = maxRadius * rand_norm_f();
 
     // Find a valid position nearby.
     float endPosition[3];
@@ -3326,11 +3326,14 @@ bool Map::GetWalkRandomPosition(GenericTransport* transport, float &x, float &y,
 
     if (transport)
         transport->CalculatePassengerPosition(endPosition[2], endPosition[0], endPosition[1]);
+
     if (!MaNGOS::IsValidMapCoord(endPosition[2], endPosition[0], endPosition[1]))
         return false;
+
     x = endPosition[2];
     y = endPosition[0];
     z = endPosition[1];
+
     // 2. We specify with the vmaps (the first step basically allows you to select the floor)
     if (transport)
         z += 0.5f; // Allow us a little error (mmaps not very precise regarding height computations)
@@ -3340,6 +3343,7 @@ bool Map::GetWalkRandomPosition(GenericTransport* transport, float &x, float &y,
         if (vmapH > z)
             z = vmapH;
     }
+
     return true;
 }
 
