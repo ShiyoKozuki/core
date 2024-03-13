@@ -258,6 +258,7 @@ wep procs(poisons also) shouldn't proc on gouge
 https://www.wowhead.com/classic/item=9309/robo-mechanical-guts shouldnt drop from horrors or slimes
 does repose proc on spell casted on you?
 you can pickpocket a mob while the pickpocket menu is open and then get resisted
+Cresting key (4484) bugged respawn? check its object ID
 
 sql:
 cap sweet nectar drop rates at 1 quantity max(all food/drink)
