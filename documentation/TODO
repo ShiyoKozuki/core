@@ -259,6 +259,7 @@ https://www.wowhead.com/classic/item=9309/robo-mechanical-guts shouldnt drop fro
 does repose proc on spell casted on you?
 you can pickpocket a mob while the pickpocket menu is open and then get resisted
 Cresting key (4484) bugged respawn? check its object ID
+Get me out of here! mobs at end that spawn despawn if you delay the goblin you're escorting from moving?
 
 sql:
 cap sweet nectar drop rates at 1 quantity max(all food/drink)
