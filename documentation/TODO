@@ -221,6 +221,8 @@ revenge, shield block and overpower logic
 use curse based on pt leaders class
 better logic for salvationing wars with a 2h tanking
 bom self over bow if m_role is melee dps
+Make bots aggro mobs again!
+Tanks spam isengage if someone else is being attacked
 
 battlebot ai:
 low level rogues don't use poisons?
