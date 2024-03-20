@@ -344,7 +344,7 @@ void WorldObject::DirectSendPublicValueUpdate(uint32 index, uint32 count)
 {
     // Do we need an update ?
     bool abort = true;
-    for (int i = 0; i < count; i++)
+    for (uint32 i = 0; i < count; i++)
     {
         if (m_uint32Values_mirror[index + i] != m_uint32Values[index + i])
         {
@@ -358,7 +358,7 @@ void WorldObject::DirectSendPublicValueUpdate(uint32 index, uint32 count)
 
     UpdateMask updateMask;
     updateMask.SetCount(m_valuesCount);
-    for (int i = 0; i < count; i++)
+    for (uint32 i = 0; i < count; i++)
         updateMask.SetBit(index + i);
 
     DirectSendPublicValueUpdate(updateMask);
@@ -1892,7 +1892,7 @@ bool WorldObject::IsFacingTarget(WorldObject const* target) const
     return (GetDistance2dToCenter(target) < NO_FACING_CHECKS_DISTANCE) || HasInArc(target);
 }
 
-bool WorldObject::GetRandomPoint(float x, float y, float z, float distance, float &rand_x, float &rand_y, float &rand_z, bool useMMaps) const
+bool WorldObject::GetRandomPoint(float x, float y, float z, float distance, float &rand_x, float &rand_y, float &rand_z) const
 {
     if (distance < 0.1f)
     {
@@ -1947,7 +1947,7 @@ bool WorldObject::GetRandomPoint(float x, float y, float z, float distance, floa
         rand_x = x;
         rand_y = y;
         rand_z = z;
-        if (pMap->GetWalkRandomPosition(GetTransport(), rand_x, rand_y, rand_z, distance, moveAllowed, useMMaps))
+        if (pMap->GetWalkRandomPosition(GetTransport(), rand_x, rand_y, rand_z, distance, moveAllowed))
         {
             // Giant type creatures walk underwater
             if ((pUnit && !pUnit->CanSwim()) ||
@@ -2398,7 +2398,7 @@ Creature* Map::SummonCreature(uint32 entry, float x, float y, float z, float ang
 
 Creature* WorldObject::SummonCreature(uint32 id, float x, float y, float z, float ang, TempSummonType spwtype, uint32 despwtime, bool asActiveObject, uint32 pacifiedTimer, CreatureAiSetter pFuncAiSetter, GenericTransport* pTransport)
 {
-    CreatureInfo const* cinfo = ObjectMgr::GetCreatureTemplate(id);
+    CreatureInfo const* cinfo = sObjectMgr.GetCreatureTemplate(id);
     if (!cinfo)
     {
         sLog.Out(LOG_DBERROR, LOG_LVL_MINIMAL, "WorldObject::SummonCreature: Creature (Entry: %u) not existed for summoner: %s. ", id, GetGuidStr().c_str());
