@@ -5804,8 +5804,7 @@ void Spell::RemoveChanneledAuraHolder(SpellAuraHolder* holder, AuraRemoveMode mo
 
 SpellCastResult Spell::CheckCast(bool strict)
 {
-    if (m_spellInfo->HasAttribute(SPELL_ATTR_EX_IGNORE_CASTER_AND_TARGET_RESTRICTIONS) ||
-        m_spellInfo->HasAttribute(SPELL_ATTR_EX3_IGNORE_CASTER_AND_TARGET_RESTRICTIONS))
+    if (m_spellInfo->IsIgnoringCasterAndTargetRestrictions())
         return SPELL_CAST_OK;
 
     if (m_caster->IsPlayer() && m_caster->ToPlayer()->HasCheatOption(PLAYER_CHEAT_NO_CHECK_CAST))
@@ -6396,7 +6395,7 @@ SpellCastResult Spell::CheckCast(bool strict)
                     return SPELL_FAILED_DONT_REPORT;
                 }
 
-                if (!target->GetCreatureInfo()->isTameable())
+                if (!target->GetCreatureInfo()->IsTameable())
                 {
                     plrCaster->SendPetTameFailure(PETTAME_NOTTAMEABLE);
                     return SPELL_FAILED_DONT_REPORT;
