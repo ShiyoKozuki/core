@@ -12,11 +12,11 @@ UPDATE `mangos`.`gameobject` SET `spawntimesecsmin`=30, `spawntimesecsmax`=30 WH
 
 -- Human Shaman
 
-REPLACE `mangos`.`creature_template` (`entry`, `name`, `subname`, `level_min`, `level_max`, `faction`, `npc_flags`, `display_id1`, `detection_range`, `rank`, `unit_class`, `unit_flags`, `trainer_class`, `type`, `flags_extra`) VALUES (90033, 'Illya Einzbern', 'Shaman Trainer', 60, 60, 35, 21, 5546, 20, 1, 8, 2, 7, 1, 64);
+-- REPLACE `mangos`.`creature_template` (`entry`, `name`, `subname`, `level_min`, `level_max`, `faction`, `npc_flags`, `display_id1`, `detection_range`, `rank`, `unit_class`, `unit_flags`, `trainer_class`, `type`, `flags_extra`) VALUES (90033, 'Illya Einzbern', 'Shaman Trainer', 60, 60, 35, 21, 5546, 20, 1, 8, 2, 7, 1, 64);
 REPLACE `mangos`.`creature` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `wander_distance`) VALUES (2000035, 90033, 0, -8907.379883, -212.085114, 82.118698, 2.77240, 0);
 
 
-REPLACE `mangos`.`creature_template` (`entry`, `name`, `subname`, `level_min`, `level_max`, `faction`, `npc_flags`, `display_id1`, `detection_range`, `rank`, `unit_class`, `unit_flags`, `trainer_class`, `type`, `flags_extra`) VALUES (90034, 'Miyu Edelfelt', 'Shaman Trainer', 60, 60, 35, 23, 8769, 20, 1, 8, 2, 7, 1, 64);
+-- REPLACE `mangos`.`creature_template` (`entry`, `name`, `subname`, `level_min`, `level_max`, `faction`, `npc_flags`, `display_id1`, `detection_range`, `rank`, `unit_class`, `unit_flags`, `trainer_class`, `type`, `flags_extra`) VALUES (90034, 'Miyu Edelfelt', 'Shaman Trainer', 60, 60, 35, 23, 8769, 20, 1, 8, 2, 7, 1, 64);
 REPLACE `mangos`.`creature` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `wander_distance`) VALUES (2000036, 90034, 0, -8967.931641, 779.198776, 95.600540, 4.45551, 0);
 
 REPLACE `npc_trainer` (`entry`, `spell`, `spellcost`, `reqskill`, `reqskillvalue`, `reqlevel`) VALUES (90033, 1303, 0, 0, 0, 8);
