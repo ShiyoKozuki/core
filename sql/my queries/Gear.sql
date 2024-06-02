@@ -1,6 +1,14 @@
 -- Gear
 -- Delete the WDB folder in your client directory.
 
+-- ITEM_MOD_MANA                     = 0,
+-- ITEM_MOD_HEALTH                   = 1,
+-- ITEM_MOD_AGILITY                  = 3,
+-- ITEM_MOD_STRENGTH                 = 4,
+-- ITEM_MOD_INTELLECT                = 5,
+-- ITEM_MOD_SPIRIT                   = 6,
+-- ITEM_MOD_STAMINA                  = 7,
+
 -- New Custom Items
 REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id`, `quality`, `flags`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `max_count`, `stat_type1`, `stat_value1`, `stat_type2`, `stat_value2`, `stat_type3`, `stat_value3`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30000, 4, 4, 'Sentinel\'s Ring', 9832, 3, 32768, 750000, 18750, 11, -1, -1, 63, 58, 1, 4, 12, 3, 11, 7, 8, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 4);
 REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id`, `quality`, `flags`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `max_count`, `stat_type1`, `stat_value1`, `delay`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellid_2`, `spelltrigger_2`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30001, 4, 4, 'Battlemage\'s Ring', 28812, 3, 32768, 750000, 18750, 11, -1, -1, 63, 58, 1, 7, 8, 0, 9343, 1, -1, -1, 21619, 1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 4);
@@ -251,13 +259,24 @@ WHERE entry = 12945;
 -- Crafted
 
 -- Heavy Earthen Gloves
--- UNTESTED
--- UPDATE mangos . item_template
--- SET quality = 3,
---     armor = 150,
---     stat_type1 = 7,
---     stat_value1 = 8,
--- WHERE entry = 7359;
+UPDATE mangos . item_template
+SET quality = 3,
+    armor = 150,
+    stat_type1 = 7,
+    stat_value1 = 8,
+WHERE entry = 7359;
+
+-- Toughened Leather Gloves
+UPDATE mangos . item_template
+SET spellid_1 = 9140, -- +10 Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 4253;
+
+-- Barbaric Bracers
+UPDATE mangos . item_template
+SET spellid_1 = 9140, -- +10 Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 18948;
 
 -- Helm of Fire
 UPDATE mangos . item_template
@@ -274,6 +293,92 @@ SET quality = 4,
     spellid_2 = 7597, -- +1% Physical Crit
     spelltrigger_2 = 1
 WHERE entry = 8348;
+
+-- Dark Leather Set
+-- boots
+UPDATE mangos . item_template
+SET quality = 2,
+    stat_type1 = 3,
+    stat_value1 = 6,
+    stat_type2 = 7,
+    stat_value2 = 6
+WHERE entry = 2315;
+
+-- shoulders
+UPDATE mangos . item_template
+SET quality = 2,
+    stat_type1 = 3,
+    stat_value1 = 7,
+    stat_type2 = 7,
+    stat_value2 = 2
+WHERE entry = 4252;
+
+-- gloves
+UPDATE mangos . item_template
+SET quality = 2,
+    stat_type1 = 3,
+    stat_value1 = 6,
+    stat_type2 = 7,
+    stat_value2 = 6
+WHERE entry = 4248;
+
+-- belt
+UPDATE mangos . item_template
+SET quality = 2,
+    stat_type1 = 3,
+    stat_value1 = 6,
+    stat_type2 = 7,
+    stat_value2 = 6
+WHERE entry = 4249;
+
+-- pants
+UPDATE mangos . item_template
+SET quality = 2,
+    stat_type1 = 3,
+    stat_value1 = 8,
+    stat_type2 = 7,
+    stat_value2 = 3
+WHERE entry = 5961;
+
+-- body
+UPDATE mangos . item_template
+SET quality = 3,
+    stat_type1 = 3,
+    stat_value1 = 10,
+    stat_type2 = 7,
+    stat_value2 = 4
+WHERE entry = 2317;
+
+-- cloak
+UPDATE mangos . item_template
+SET quality = 2,
+    stat_type1 = 3,
+    stat_value1 = 6
+WHERE entry = 2316;
+
+-- Dusky Leather Set
+
+-- boots
+UPDATE mangos . item_template
+SET quality = 2,
+    spellid_1 = 9140, -- +10 Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 7390;
+
+-- body
+UPDATE mangos . item_template
+SET quality = 2,
+    spellid_1 = 9142, -- +14 Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 7374;
+
+-- belt
+UPDATE mangos . item_template
+SET quality = 2,
+    spellid_1 = 9140, -- +10 Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 7387;
+
 
 -- Runic Leather Set
 UPDATE mangos . item_template
@@ -2138,6 +2243,14 @@ SET quality = 3,
     dmg_max1 = 120
 WHERE entry = 3853;
 
+-- Glinting Steel Dagger
+UPDATE mangos . item_template
+SET quality = 3,
+    delay = 1700,
+    dmg_min1 = 29,
+    dmg_max1 = 57
+WHERE entry = 12259;
+
 -- Massive Iron Axe
 UPDATE mangos . item_template
 SET quality = 3,
@@ -2250,6 +2363,14 @@ SET quality = 3,
     spellid_1 = 9316, -- +29 Healing
     spelltrigger_1 = 1
 WHERE entry = 7946;
+
+-- Ebon Shiv
+UPDATE mangos . item_template
+SET quality = 3,
+    delay = 1700,
+    dmg_min1 = 39,
+    dmg_max1 = 74
+WHERE entry = 7947;
 
 -- Blight
 UPDATE mangos . item_template
