@@ -9,6 +9,8 @@
 -- ITEM_MOD_SPIRIT                   = 6,
 -- ITEM_MOD_STAMINA                  = 7,
 
+-- spellid_1 = 9331, -- +20 Attack Power
+
 -- New Custom Items
 REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id`, `quality`, `flags`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `max_count`, `stat_type1`, `stat_value1`, `stat_type2`, `stat_value2`, `stat_type3`, `stat_value3`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30000, 4, 4, 'Sentinel\'s Ring', 9832, 3, 32768, 750000, 18750, 11, -1, -1, 63, 58, 1, 4, 12, 3, 11, 7, 8, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 4);
 REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id`, `quality`, `flags`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `max_count`, `stat_type1`, `stat_value1`, `delay`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellid_2`, `spelltrigger_2`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30001, 4, 4, 'Battlemage\'s Ring', 28812, 3, 32768, 750000, 18750, 11, -1, -1, 63, 58, 1, 7, 8, 0, 9343, 1, -1, -1, 21619, 1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 4);
@@ -357,7 +359,6 @@ SET quality = 2,
 WHERE entry = 2316;
 
 -- Dusky Leather Set
-
 -- boots
 UPDATE mangos . item_template
 SET quality = 2,
@@ -379,6 +380,48 @@ SET quality = 2,
     spelltrigger_1 = 1
 WHERE entry = 7387;
 
+-- Nightscape Leather Set
+-- boots
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 9142, -- +14 Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 8197;
+
+-- body
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 15807, -- +32 Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 8175;
+
+-- pants
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 15807, -- +32 Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 8193;
+
+-- helm
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 9140, -- +10 Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 8176;
+
+-- shoulders
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 9142, -- +14 Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 8192;
+
+-- cape
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 9140, -- +10 Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 8195;
 
 -- Runic Leather Set
 UPDATE mangos . item_template

@@ -1,3 +1,5 @@
+https://github.com/cmangos/issues/wiki/Quest_template#Examples
+
 major mana pot recipe
 Generic kill quests in zones with few quests like Swamp of Sorrows
 organize raid frames by group
@@ -41,6 +43,8 @@ str tank mail + leather
 
 
 bots:
+mages don't blink when stunned anymore
+warriors don't always charge?
 ice block AI
 grounding totem AI
 travel form AI
