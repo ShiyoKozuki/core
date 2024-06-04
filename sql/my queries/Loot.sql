@@ -247,8 +247,18 @@ WHERE item IN(11885);
 
 -- Pristine Hide of the Beast
 UPDATE mangos . skinning_loot_template
-SET ChanceOrQuestChance = 1
+SET ChanceOrQuestChance = -1
 WHERE item = 12731;
+
+-- Thick Yeti Hide
+UPDATE mangos . skinning_loot_template
+SET ChanceOrQuestChance = -10
+WHERE item = 8973;
+
+-- Rage Scar Yeti Hide
+UPDATE mangos . skinning_loot_template
+SET ChanceOrQuestChance = -10
+WHERE item = 18947;
 
 -- Max amount
 
