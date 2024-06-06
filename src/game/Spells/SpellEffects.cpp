@@ -2154,13 +2154,6 @@ void Spell::EffectTriggerSpell(SpellEffectIndex effIdx)
             unitTarget->RemoveSpellsCausingAura(SPELL_AURA_MOD_ROOT);
             unitTarget->RemoveSpellsCausingAura(SPELL_AURA_MOD_DECREASE_SPEED);
 
-            // World of Warcraft Client Patch 1.12.0 (2006-08-22)
-            // -  Vanish now removes effects that allow the caster to always remain
-            //    aware of their target(currently Hunter's Mark and Mind Vision).
-#if SUPPORTED_CLIENT_BUILD > CLIENT_BUILD_1_11_2
-            unitTarget->RemoveSpellsCausingAura(SPELL_AURA_MOD_STALKED);
-#endif
-
             if (Player* pPlayer = unitTarget->ToPlayer())
                 pPlayer->CastHighestStealthRank();
 
