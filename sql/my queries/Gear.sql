@@ -11,6 +11,8 @@
 
 -- spellid_1 = 9331, -- +20 Attack Power
 
+-- DPS Calc: https://docs.google.com/spreadsheets/d/1R3A3AQiqE0aqhn4C9zdLSVr_wrecjtrpxPgg3UZ66y4/edit?gid=0#gid=0
+
 -- New Custom Items
 REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id`, `quality`, `flags`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `max_count`, `stat_type1`, `stat_value1`, `stat_type2`, `stat_value2`, `stat_type3`, `stat_value3`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30000, 4, 4, 'Sentinel\'s Ring', 9832, 3, 32768, 750000, 18750, 11, -1, -1, 63, 58, 1, 4, 12, 3, 11, 7, 8, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 4);
 REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id`, `quality`, `flags`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `max_count`, `stat_type1`, `stat_value1`, `delay`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellid_2`, `spelltrigger_2`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30001, 4, 4, 'Battlemage\'s Ring', 28812, 3, 32768, 750000, 18750, 11, -1, -1, 63, 58, 1, 7, 8, 0, 9343, 1, -1, -1, 21619, 1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 4);
@@ -265,7 +267,7 @@ UPDATE mangos . item_template
 SET quality = 3,
     armor = 150,
     stat_type1 = 7,
-    stat_value1 = 8,
+    stat_value1 = 8
 WHERE entry = 7359;
 
 -- Toughened Leather Gloves
@@ -848,7 +850,6 @@ SET required_level = 55,
     spellid_1 = 18031, -- +40 Healing
     spelltrigger_1 = 1
 WHERE entry = 20296;
-
 
 -- Heavy Scorpid Armor Set
 UPDATE mangos . item_template
@@ -2590,6 +2591,97 @@ UPDATE mangos . item_template
 SET max_count = 20,
     stackable = 20
 WHERE entry IN(16893, 5232, 16896, 16895, 16892);
+
+-- Dungeon Gear
+
+-- Sunken Temple
+
+-- Firebreather
+UPDATE mangos . item_template
+SET delay = 2200,
+    dmg_min1 = 60,
+    dmg_max1 = 110
+WHERE entry = 10797;
+
+-- Vestments of the Atal'ai Prophet
+UPDATE mangos . item_template
+SET  spellid_1 = 9408, -- +22 Healing
+    spelltrigger_1 = 1
+WHERE entry = 10806;
+
+-- Kilt of the Atal'ai Prophet
+UPDATE mangos . item_template
+SET  spellid_1 = 9408, -- +22 Healing
+    spelltrigger_1 = 1
+WHERE entry = 10807;
+
+-- Gloves of the Atal'ai Prophet
+UPDATE mangos . item_template
+SET  spellid_1 = 7680, -- +13 Healing
+    spelltrigger_1 = 1
+WHERE entry = 10808;
+
+-- Dawnspire Cord
+UPDATE mangos . item_template
+SET  spellid_1 = 7680, -- +13 Healing
+    spelltrigger_1 = 1
+WHERE entry = 12466;
+
+-- Nightfall Drape
+UPDATE mangos . item_template
+SET  spellid_1 = 21624, -- 2 MP/5
+    spelltrigger_1 = 1
+WHERE entry = 12465;
+
+-- Dragon's Eye
+UPDATE mangos . item_template
+SET spellid_1 = 21624, -- 2 MP/5
+    spelltrigger_1 = 1
+WHERE entry = 10829;
+
+-- Horns of Eranikus
+UPDATE mangos . item_template
+SET spellid_1 = 9346, -- +18 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 10833;
+
+-- Quest Rewards
+
+-- Brantwood Sash (A Final Blow)
+UPDATE mangos . item_template
+SET spellid_1 = 9415, -- +9 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 15707;
+
+-- Argent Crusader (The Argent Hold)
+UPDATE mangos . item_template
+SET spellid_1 = 9346, -- +18 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 13249;
+
+-- Archlight Talisman (Hidden Treasures)
+UPDATE mangos . item_template
+SET spellid_1 = 9415, -- +9 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 15856;
+
+-- Magebane Scion (Hidden Treasures) TODO
+-- UPDATE mangos . item_template
+-- SET spellid_1 = 9415, -- +9 Spell Damage
+    -- spelltrigger_1 = 1
+-- WHERE entry = 15857;
+
+-- Crown of the Penitent (Houses of the Holy)
+UPDATE mangos . item_template
+SET spellid_2 = 9408, -- +22 Healing
+    spelltrigger_2 = 1
+WHERE entry = 13216;
+
+-- Penelope's Rose (Kirtonos the Herald)
+UPDATE mangos . item_template
+SET spellid_1 = 9415, -- +9 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 15805;
 
 -- Epic BOE's 
 
