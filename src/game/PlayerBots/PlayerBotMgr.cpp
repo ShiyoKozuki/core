@@ -1113,6 +1113,11 @@ void StopPartyBotAttackHelper(PartyBotAI* pAI, Player* pBot)
     pBot->InterruptNonMeleeSpells(false);
     if (!pBot->IsStopped())
         pBot->StopMoving();
+    if (Pet* pPet = pBot->GetPet())
+    {
+        if (pPet->IsAlive())
+            pPet->AttackStop();
+    }
     if (pBot->GetMotionMaster()->GetCurrentMovementGeneratorType() == CHASE_MOTION_TYPE)
         pBot->GetMotionMaster()->Clear();
     if (pAI->m_updateTimer.GetExpiry() < 3000)
@@ -1539,6 +1544,11 @@ bool HandlePartyBotPauseApplyHelper(Player* pTarget, uint32 duration)
             {
                 pTarget->StopMoving();
                 pTarget->GetMotionMaster()->MoveIdle();
+                if (Pet* pPet = pTarget->GetPet())
+                {
+                    if (pPet->IsAlive())
+                        pPet->AttackStop();
+                }
             }
 
             return true;

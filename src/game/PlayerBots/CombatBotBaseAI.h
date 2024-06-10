@@ -561,6 +561,7 @@ public:
             SpellEntry const* pCharge;
             SpellEntry const* pIntercept;
             SpellEntry const* pOverpower;
+            SpellEntry const* pRevenge;
             SpellEntry const* pHeroicStrike;
             SpellEntry const* pCleave;
             SpellEntry const* pExecute;
