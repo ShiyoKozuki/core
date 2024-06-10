@@ -1,7 +1,13 @@
 https://github.com/cmangos/issues/wiki/Quest_template#Examples
 
 major mana pot recipe
+wildvine potion recipe drop rate(make 5%?)
 Generic kill quests in zones with few quests like Swamp of Sorrows / Azshara / Feralas(Ogres - Big night elf structure far South called Ruins of Isildien and a Cave), Hinterlands(Wolves/Owlbeasts/Turtles + More elite troll quests + Slime Cave)
+Tanaris (Propsector Gunstan) has no quests? useless NPC? Add stuff to him?
+Revamp level 50+ cloth quest rewards to have better stats
+11140 (PRison Cell Key) lootable by everyone
+PLDBOT needs better melee dps gear
+
 organize raid frames by group
 start scourge invasion and super high dura like elemental invasions
 dungeon mob respawns 2 hrs
@@ -12,6 +18,13 @@ savage gladiator chain look/moodel id
 mob mind blast should have cooldown? strath live run to see (crimson initiate)
 crimson gallant holy strike for 900
 crimson priest holy fire for over 1k
+cap foods/water at 1 per mob(Soft banana bread)
+Slave workers completely bugged, they should go friendly and despawn once running away ends
+Twilight Dark Shaman interrupt healing wave with shrink?
+Summoned pets like mechanical chicken shouldn't be aggressive AI and should be defensive pet AI
+Dazzling mithril sword 35.5 dps
+Centipaar Swarmer pets it summons(not the initial one) should be level 22?
+Tunneler Acid proc on weapon(-armor)
 
 swiftness pots
 black guard sentinel shadow shock should be random
@@ -33,7 +46,6 @@ add more small radiant shards
 revert spell change to immolate
 warlock use healthstones, other bots us ab healing / mana pots
 
-
 Quests / Misc SQL queries broken
 
 Leatherworking (Low-mid level recipes):
@@ -43,6 +55,31 @@ str tank mail + leather
 
 
 bots:
+
+Partybots:
+
+Warbot spam disengages if someone else has aggro
+Warbot doesn't charge if 1h/shield is on? sits in def stance even OOC?
+Warbot only sunders once
+cleave/heroic strike bot logic if d stance and revenge above it(?)
+Warbot will charge then immediately sunder instead of TC if > 1 targets. want TC to always be first action if > 1 target
+Warbot will charge then sit at high rage and not TC/demo? Related to trying to shield slam but can't? .. will immediately TC if i force her to swap target. Didn't do this when she was arms, bug with prot abilities? ..
+Seems related to charging?
+
+Warbot won't taunt if target doesn't have TC(cause won't go d stance until they do)
+Warbot if tank refuses to swap to skull?
+
+Warbot better tank AI, goes to zerker when tanking with a shield instead of dstance and doesnt use thunderclap enough. Should only d stance and b stance if using 1h/shield and go to bstance to clap if no tclap on mobs
+
+PLDbot doesn't BoF allies
+PLDBot BOM herself if meleedps role
+PLDBot doesn't use consc in AOE as DPS
+
+Warlockbot unending breath
+Warlockbot cast soulstone on anyone with res if they do not have it up
+
+Battlebots:
+
 mages don't blink when stunned anymore
 warriors don't always charge?
 ice block AI
