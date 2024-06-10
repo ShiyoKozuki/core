@@ -2884,7 +2884,8 @@ void BattleBotAI::UpdateInCombatAI_Mage()
     {
 
         if (m_spells.mage.pBlink &&
-            (me->HasUnitState(UNIT_STAT_CAN_NOT_MOVE)) &&
+            (me->HasUnitState(UNIT_STAT_CAN_NOT_MOVE) ||
+                me->HasAuraType(SPELL_AURA_MOD_DECREASE_SPEED)) &&
             CanTryToCastSpell(me, m_spells.mage.pBlink))
         {
             if (me->GetMotionMaster()->GetCurrentMovementGeneratorType())
@@ -3025,7 +3026,8 @@ void BattleBotAI::UpdateInCombatAI_Mage()
                 (me->GetMotionMaster()->GetCurrentMovementGeneratorType() != DISTANCING_MOTION_TYPE))
         {
             if (m_spells.mage.pBlink &&
-               (me->HasUnitState(UNIT_STAT_CAN_NOT_MOVE)) &&
+                (me->HasUnitState(UNIT_STAT_CAN_NOT_MOVE) ||
+                    me->HasAuraType(SPELL_AURA_MOD_DECREASE_SPEED)) &&
                 CanTryToCastSpell(me, m_spells.mage.pBlink))
             {
                 if (me->GetMotionMaster()->GetCurrentMovementGeneratorType())
@@ -4990,7 +4992,7 @@ void BattleBotAI::UpdateInCombatAI_Druid()
                         !me->HasAura(BB_NS_DRUID))
                     {
                         if (me->GetMotionMaster()->GetCurrentMovementGeneratorType() != DISTANCING_MOTION_TYPE)
-                            if (me->GetMotionMaster()->MoveDistance(pVictim, 50.0f))
+                            if (me->GetMotionMaster()->MoveDistance(pVictim, 100.0f))
                                 return;
                     }
                     else // Swap back to caster
