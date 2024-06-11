@@ -2603,14 +2603,6 @@ SET delay = 2200,
     dmg_max1 = 110
 WHERE entry = 10797;
 
--- BRD
-
--- Lord General's Sword
-UPDATE mangos . item_template
-SET dmg_min1 = 70,
-    dmg_max1 = 133
-WHERE entry = 11817;
-
 -- Vestments of the Atal'ai Prophet
 UPDATE mangos . item_template
 SET  spellid_1 = 9408, -- +22 Healing
@@ -2652,6 +2644,88 @@ UPDATE mangos . item_template
 SET spellid_1 = 9346, -- +18 Spell Damage
     spelltrigger_1 = 1
 WHERE entry = 10833;
+
+-- BRD
+
+-- Lord General's Sword
+UPDATE mangos . item_template
+SET dmg_min1 = 68,
+    dmg_max1 = 130
+WHERE entry = 11817;
+
+-- LBRS
+
+-- Fist of Omokk
+UPDATE mangos . item_template
+SET spellid_1 = 14798, -- +30 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 13167;
+
+-- Demonic Runed Spaulders
+UPDATE mangos . item_template
+SET spellid_1 = 9408, -- +22 Healing
+    spelltrigger_1 = 1
+WHERE entry = 13257;
+
+-- Brazecore Armguards
+UPDATE mangos . item_template
+SET spellid_2 = 9415, -- +9 Spell Damage
+    spelltrigger_2 = 1
+WHERE entry = 13179;
+
+-- Gilded Gauntlets
+UPDATE mangos . item_template
+SET spellid_2 = 9415, -- +9 Spell Damage
+    spelltrigger_2 = 1
+WHERE entry = 13244;
+
+-- Smolderweb's Eye
+UPDATE mangos . item_template
+SET stat_type1 = 3,
+    stat_value1 = 15
+WHERE entry = 13213;
+
+-- Rhombeard Protector
+UPDATE mangos . item_template
+SET spellid_1 = 9415, -- +9 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 13205;
+
+-- Sunderseer Mantle
+UPDATE mangos . item_template
+SET spellid_1 = 9408, -- +22 Healing
+    spelltrigger_1 = 1
+WHERE entry = 13185;
+
+-- Backusarian Gauntlets
+UPDATE mangos . item_template
+SET spellid_2 = 9408, -- +22 Healing
+    spelltrigger_2 = 1
+WHERE entry = 12637;
+
+-- Butcher's Apron
+UPDATE mangos . item_template
+SET spellid_1 = 9408, -- +22 Healing
+    spelltrigger_1 = 1
+WHERE entry = 12608;
+
+-- Heart of the Scale
+UPDATE mangos . item_template
+SET spellid_2 = 13670, -- 2% Dodge
+    spelltrigger_2 = 1
+WHERE entry = 13164;
+
+-- Heart of Wyrmthalak
+UPDATE mangos . item_template
+SET spellid_2 = 15807, -- +32 Attack Power
+    spelltrigger_2 = 1
+WHERE entry = 22321;
+
+-- Mark of the Dragon Lord
+UPDATE mangos . item_template
+SET spellid_2 = 9316, -- +29 Healing
+    spelltrigger_2 = 1
+WHERE entry = 13143;
 
 -- Quest Rewards
 
@@ -2723,6 +2797,78 @@ UPDATE mangos . item_template
 SET spellid_1 = 9415, -- +9 Spell Damage
     spelltrigger_1 = 1
 WHERE entry = 15784;
+
+-- Wyrmthalak's Shackles (Maxwell's Mission)
+UPDATE mangos . item_template
+SET spellid_1 = 9415, -- +9 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 13958;
+
+-- Halycon's Muzzle (Maxwell's Mission)
+UPDATE mangos . item_template
+SET spellid_1 = 9408, -- +22 Healing
+    spelltrigger_1 = 1
+WHERE entry = 13961;
+
+-- Astoria Robes (Put Her Down)
+UPDATE mangos . item_template
+SET spellid_1 = 9345, -- +16 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 15824;
+
+-- Jadescale Breastplate (Put Her Down)
+UPDATE mangos . item_template
+SET spellid_1 = 9345, -- +16 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 15827;
+
+-- Lorespinner (Lethtendris's Web)
+UPDATE mangos . item_template
+SET spellid_2 = 9415, -- +9 Spell Damage
+    spelltrigger_2 = 1
+WHERE entry = 18491;
+
+-- Milli's Lexicon (Shards of the Felvine)
+UPDATE mangos . item_template
+SET spellid_2 = 9415, -- +9 Spell Damage
+    spelltrigger_2 = 1
+WHERE entry = 18536;
+
+-- Milli's Shield (Shards of the Felvine)
+UPDATE mangos . item_template
+SET spellid_2 = 9408, -- +22 Healing
+    spelltrigger_2 = 1
+WHERE entry = 18535;
+
+-- Gordok's Gauntlets (Unfinished Gordok Business)
+UPDATE mangos . item_template
+SET spellid_2 = 9415, -- +9 Spell Damage
+    spelltrigger_2 = 1
+WHERE entry = 18367;
+
+-- Gordok's Gloves (Unfinished Gordok Business)
+UPDATE mangos . item_template
+SET spellid_2 = 9415, -- +9 Spell Damage
+    spelltrigger_2 = 1
+WHERE entry = 18368;
+
+-- Gordok's Handwraps (Unfinished Gordok Business)
+UPDATE mangos . item_template
+SET spellid_2 = 9415, -- +9 Spell Damage
+    spelltrigger_2 = 1
+WHERE entry = 18369;
+
+-- Sedge Boots (The Treasure of the Shen'dralar)
+UPDATE mangos . item_template
+SET stat_type3 = 4,
+    stat_value3 = 16
+WHERE entry = 18424;
+
+-- Bonecrusher (The Treasure of the Shen'dralar)
+UPDATE mangos . item_template
+SET stat_type3 = 5,
+    stat_value3 = 30
+WHERE entry = 18420;
 
 -- Epic BOE's 
 
