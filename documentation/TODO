@@ -7,6 +7,8 @@ Tanaris (Propsector Gunstan) has no quests? useless NPC? Add stuff to him?
 Revamp level 50+ cloth quest rewards to have better stats
 11140 (PRison Cell Key) lootable by everyone
 PLDBOT needs better melee dps gear
+Buff lord general's sword
+Remove the fire cannons from Magmus' room in BRD
 
 organize raid frames by group
 start scourge invasion and super high dura like elemental invasions
@@ -65,6 +67,7 @@ cleave/heroic strike bot logic if d stance and revenge above it(?)
 Warbot will charge then immediately sunder instead of TC if > 1 targets. want TC to always be first action if > 1 target
 Warbot will charge then sit at high rage and not TC/demo? Related to trying to shield slam but can't? .. will immediately TC if i force her to swap target. Didn't do this when she was arms, bug with prot abilities? ..
 Seems related to charging?
+Warbot bring back swapping to protect targets and don't assist player in combat only OOC
 
 Warbot won't taunt if target doesn't have TC(cause won't go d stance until they do)
 Warbot if tank refuses to swap to skull?

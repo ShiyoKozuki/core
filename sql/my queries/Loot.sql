@@ -260,6 +260,11 @@ UPDATE mangos . skinning_loot_template
 SET ChanceOrQuestChance = -10
 WHERE item = 18947;
 
+-- Thick Yeti Fur
+UPDATE mangos . skinning_loot_template
+SET ChanceOrQuestChance = 0
+WHERE item = 12366;
+
 -- Max amount
 
 -- Morning Glory Dew

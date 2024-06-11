@@ -2603,6 +2603,14 @@ SET delay = 2200,
     dmg_max1 = 110
 WHERE entry = 10797;
 
+-- BRD
+
+-- Lord General's Sword
+UPDATE mangos . item_template
+SET dmg_min1 = 70,
+    dmg_max1 = 133
+WHERE entry = 11817;
+
 -- Vestments of the Atal'ai Prophet
 UPDATE mangos . item_template
 SET  spellid_1 = 9408, -- +22 Healing
@@ -2682,6 +2690,39 @@ UPDATE mangos . item_template
 SET spellid_1 = 9415, -- +9 Spell Damage
     spelltrigger_1 = 1
 WHERE entry = 15805;
+
+-- Mark of Resolution (Alas, Andorhal)
+UPDATE mangos . item_template
+SET quality = 3,
+    armor = 50,
+    stat_type1 = 7,
+    stat_value1 = 15
+WHERE entry = 17759;
+
+-- Shroud of the Exile (In Dreams)
+UPDATE mangos . item_template
+SET spellid_1 = 9343, -- +14 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 15421;
+
+-- Shimmering Platinum Warhammer (In Dreams)
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_2 = 26153, -- +140 Feral attack Power
+    spelltrigger_2 = 1
+WHERE entry = 15418;
+
+-- Crown of Caer Darrow (The Lich, Ras Frostwhisper)
+UPDATE mangos . item_template
+SET spellid_1 = 9346, -- +18 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 13986;
+
+-- Crystal Breeze Mantle (High Chief Winterfall)
+UPDATE mangos . item_template
+SET spellid_1 = 9415, -- +9 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 15784;
 
 -- Epic BOE's 
 
