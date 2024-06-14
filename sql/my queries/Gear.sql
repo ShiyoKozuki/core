@@ -2709,9 +2709,47 @@ SET spellid_1 = 9408, -- +22 Healing
     spelltrigger_1 = 1
 WHERE entry = 12608;
 
+-- Butcher's Apron
+UPDATE mangos . item_template
+SET spellid_1 = 9408, -- +22 Healing
+    spelltrigger_1 = 1
+WHERE entry = 12608;
+
+-- Demonskin Gloves
+UPDATE mangos . item_template
+SET spellid_1 = 9408, -- +22 Healing
+    spelltrigger_1 = 1
+WHERE entry = 13181;
+
+-- Phase Blade
+UPDATE mangos . item_template
+SET dmg_min1 = 57,
+    dmg_max1 = 107,
+    spellid_1 = 15807, -- +32 Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 13182;
+
+-- The Nicker (The Blackrock Slicer)
+UPDATE mangos . item_template
+SET delay = 3500,
+    dmg_min1 = 151,
+    dmg_max1 = 227,
+    spellid_1 = 24680, -- Chain Lightning (875 DMG, 10 targets)
+    spelltrigger_1 = 2
+WHERE entry = 13285;
+
+-- Pendulum of Doom (The Blackrock Slicer)
+UPDATE mangos . item_template
+SET delay = 3500,
+    dmg_min1 = 151,
+    dmg_max1 = 227,
+    spellid_1 = 16431, -- Bone Armor (Encases the caster in bone armor, absorbing 1388 to 1612 damage for 1 min. While the armor holds, spellcasting cannot be interrupted by Physical attacks)
+    spelltrigger_1 = 2
+WHERE entry = 9425;
+
 -- Heart of the Scale
 UPDATE mangos . item_template
-SET spellid_2 = 13670, -- 2% Dodge
+SET spellid_2 = 22852, -- +23 Block Value
     spelltrigger_2 = 1
 WHERE entry = 13164;
 
@@ -2869,6 +2907,71 @@ UPDATE mangos . item_template
 SET stat_type3 = 5,
     stat_value3 = 30
 WHERE entry = 18420;
+
+-- Necklace of Sanctuary (You Are Rakh'likh, Demon)
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 9298, -- +21 Fire Damage
+    spelltrigger_1 = 1,
+    spellid_2 = 14794, -- +24 Shadow Damage
+    spelltrigger_2 = 1
+WHERE entry = 10778;
+
+-- Demon's Blood (You Are Rakh'likh, Demon)
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_2 = 28773, -- Glyph of Deflection (Increases the block value of your shield by 235 for 20 sec.)
+    spelltrigger_2 = 0
+WHERE entry = 10779;
+
+-- Demon Hide Sack (You Are Rakh'likh, Demon)
+UPDATE mangos . item_template
+SET quality = 3,
+    container_slots = 18
+WHERE entry = 10959;
+
+-- Faded Hakkari Cloak (Confront Yeh'kinya)
+UPDATE mangos . item_template
+SET spellid_2 = 9415, -- +9 Spell Damage
+    spelltrigger_2 = 1
+WHERE entry = 20218;
+
+-- Tattered Hakkari Cape (Confront Yeh'kinya)
+UPDATE mangos . item_template
+SET armor = 120,
+    spellid_2 = 13383, -- +5 Defense
+    spelltrigger_2 = 1
+WHERE entry = 20219;
+
+-- Plow Wood Spaulders (The Crystal of Zin-Malor)
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 17990, -- +27 Nature Damage
+    spelltrigger_1 = 1
+WHERE entry = 15792;
+
+-- Turquoise Sash (The Crystal of Zin-Malor)
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 12051, -- Evocation
+    spelltrigger_1 = 0
+WHERE entry = 15791;
+
+-- Emerald Mist Gauntlets (The Crystal of Zin-Malor)
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 21142, -- +5 Immolation (Deals 5 Fire damage to anyone who strikes you with a melee attack)
+    spelltrigger_1 = 1
+WHERE entry = 15795;
+
+-- Prismcharm (Urok Doomhowl)
+UPDATE mangos . item_template
+SET arcane_res = 15,
+    fire_res = 15,
+    nature_res = 15,
+    frost_res = 15,
+    shadow_res = 15
+WHERE entry = 15867;
 
 -- Epic BOE's 
 

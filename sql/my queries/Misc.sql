@@ -7,6 +7,19 @@ UPDATE mangos . game_event
 SET length = 999999999 -- was 30240
 WHERE entry IN(81, 90, 91, 92, 93, 94, 95, 129, 130);
 
+UPDATE `mangos`.`game_event` SET `hardcoded`=0 WHERE  `entry`=91;
+UPDATE `mangos`.`game_event` SET `hardcoded`=10 WHERE  `entry`=92;
+UPDATE `mangos`.`game_event` SET `hardcoded`=0 WHERE  `entry`=92;
+UPDATE `mangos`.`game_event` SET `hardcoded`=0 WHERE  `entry`=93;
+UPDATE `mangos`.`game_event` SET `hardcoded`=0 WHERE  `entry`=94;
+UPDATE `mangos`.`game_event` SET `hardcoded`=0 WHERE  `entry`=95;
+UPDATE `mangos`.`game_event` SET `hardcoded`=0 WHERE  `entry`=96;
+UPDATE `mangos`.`game_event` SET `hardcoded`=0 WHERE  `entry`=97;
+UPDATE `mangos`.`game_event` SET `hardcoded`=0 WHERE  `entry`=98;
+UPDATE `mangos`.`game_event` SET `hardcoded`=0 WHERE  `entry`=99;
+UPDATE `mangos`.`game_event` SET `hardcoded`=0 WHERE  `entry`=90;
+UPDATE `mangos`.`game_event` SET `hardcoded`=0 WHERE  `entry`=17;
+
 -- Object Respawn Time
 UPDATE `mangos`.`gameobject` SET `spawntimesecsmin`=30, `spawntimesecsmax`=30 WHERE  `guid`=40688;
 

@@ -45,6 +45,10 @@ SET effectBasePoints1 = 379, -- was 379
     effectBasePoints2 = 759 -- was 759
 WHERE entry = 20294;
 
+-- Flame Buffet Totem (Smolderthorn Witch Doctor)
+UPDATE `mangos`.`creature_template` SET `spell_id1`=9574 WHERE  `entry`=10217 AND `patch`=0;
+UPDATE `mangos`.`creature_template` SET `spell_id1`=9574 WHERE  `entry`=10217 AND `patch`=10;
+
 -- Bosses
 
 -- Golem Lord Argelmach
