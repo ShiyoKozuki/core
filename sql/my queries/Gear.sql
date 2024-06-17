@@ -2592,7 +2592,107 @@ SET max_count = 20,
     stackable = 20
 WHERE entry IN(16893, 5232, 16896, 16895, 16892);
 
+-- Elemental Invasions
+
+-- Baron Charr's Sceptre
+UPDATE mangos . item_template
+SET quality = 4,
+    dmg_min1 = 97,
+    dmg_max1 = 181
+WHERE entry = 18671;
+
+-- Elemental Ember
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_2 = 14248, -- +21 Spell Damage
+    spelltrigger_2 = 1
+WHERE entry = 18672;
+
+-- Avalanchion's Stony Hide
+UPDATE mangos . item_template
+SET quality = 4,
+    block = 47,
+    armor = 2575,
+    spellid_1 = 23516, -- Block Value +27
+    spelltrigger_1 = 1
+WHERE entry = 18673;
+
+-- Hardened Stone Band
+UPDATE mangos . item_template
+SET quality = 3,
+    armor = 100,
+    spellid_1 = 13387, -- +8 Defense
+    spelltrigger_1 = 1
+WHERE entry = 18674;
+
+-- Tempestria's Frozen Necklace
+UPDATE mangos . item_template
+SET quality = 4,
+    spellid_1 = 17900, -- +40 Frost Damage
+    spelltrigger_1 = 1
+WHERE entry = 18678;
+
+-- Frigid Ring
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 17890, -- +24 Frost Damage
+    spelltrigger_2 = 1
+WHERE entry = 18679;
+
+-- Sash of the Windreaver
+UPDATE mangos . item_template
+SET quality = 4,
+    spellid_1 = 17997, -- +40 Nature Damage
+    spelltrigger_2 = 1
+WHERE entry = 18676;
+
+-- Zephyr Cloak
+UPDATE mangos . item_template
+SET quality = 3,
+    stat_type1 = 3,
+    stat_value1 = 15,
+    stat_type2 = 4,
+    stat_value2 = 15
+    spellid_1 = 15464, -- +1% Physical Hit
+    spelltrigger_2 = 1
+WHERE entry = 18677;
+
 -- Dungeon Gear
+
+-- Shadowfang Keep
+
+-- Odo's Ley Staff
+UPDATE mangos . item_template
+SET spellid_1 = 9395, -- +5 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 6318;
+
+-- Fenrus' Hide
+UPDATE mangos . item_template
+SET quality = 3,
+    stat_type1 = 3,
+    stat_value1 = 6,
+    stat_type2 = 7,
+    stat_value2 = 5
+WHERE entry = 6340;
+
+-- Feline Mantle
+UPDATE mangos . item_template
+SET stat_type2 = 6,
+    stat_value2 = 10
+WHERE entry = 3748;
+
+-- Robes of Arugal
+UPDATE mangos . item_template
+SET stat_type1 = 6,
+    stat_value1 = 20
+WHERE entry = 6324;
+
+-- Belt of Arugal
+UPDATE mangos . item_template
+SET stat_type2 = 6,
+    stat_value2 = 10
+WHERE entry = 6392;
 
 -- Sunken Temple
 
@@ -2729,6 +2829,18 @@ SET dmg_min1 = 57,
     spelltrigger_1 = 1
 WHERE entry = 13182;
 
+-- Ogreseer Tower Boots
+UPDATE mangos . item_template
+SET spellid_1 = 9408, -- +22 Healing
+    spelltrigger_1 = 1
+WHERE entry = 13282;
+
+-- Magus Ring
+UPDATE mangos . item_template
+SET spellid_1 = 9346, -- +18 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 13283;
+
 -- The Nicker (The Blackrock Slicer)
 UPDATE mangos . item_template
 SET delay = 3500,
@@ -2738,7 +2850,7 @@ SET delay = 3500,
     spelltrigger_1 = 2
 WHERE entry = 13285;
 
--- Pendulum of Doom (The Blackrock Slicer)
+-- Pendulum of Doom
 UPDATE mangos . item_template
 SET delay = 3500,
     dmg_min1 = 151,
@@ -2746,6 +2858,13 @@ SET delay = 3500,
     spellid_1 = 16431, -- Bone Armor (Encases the caster in bone armor, absorbing 1388 to 1612 damage for 1 min. While the armor holds, spellcasting cannot be interrupted by Physical attacks)
     spelltrigger_1 = 2
 WHERE entry = 9425;
+
+-- Relentless Scythe
+UPDATE mangos . item_template
+SET delay = 3500,
+    dmg_min1 = 151,
+    dmg_max1 = 227,
+WHERE entry = 13163;
 
 -- Heart of the Scale
 UPDATE mangos . item_template
@@ -2764,6 +2883,35 @@ UPDATE mangos . item_template
 SET spellid_2 = 9316, -- +29 Healing
     spelltrigger_2 = 1
 WHERE entry = 13143;
+
+-- Scholomance
+
+-- Barovian Family Sword
+UPDATE mangos . item_template
+SET spellid_1 = 24672, -- Unholy Frenzy (Increases an ally's attack speed by 50% for 20 sec., but also inflicts 200 Nature damage to that ally every 2 sec)
+    spelltrigger_1 = 2
+WHERE entry = 14541;
+
+-- Headmaster's Charge
+
+-- Alanna's Embrace
+
+-- Stratholme
+
+-- Demonshear
+UPDATE mangos . item_template
+SET spellid_1 = 16104, -- Crystallize (Stuns enemies in a cone in front of the caster, rendering them unable to move or attack for 6 sec)
+    spelltrigger_1 = 2
+WHERE entry = 13348;
+
+-- Runeblade of Baron Rivendare
+UPDATE mangos . item_template
+SET delay = 3400,
+    dmg_min1 = 196,
+    dmg_max1 = 246,
+    spellid_1 = 17467, -- Unholy Aura (150 dmg/tick while in combat)
+    spelltrigger_1 = 2
+WHERE entry = 13505;
 
 -- Quest Rewards
 
@@ -2972,6 +3120,8 @@ SET arcane_res = 15,
     frost_res = 15,
     shadow_res = 15
 WHERE entry = 15867;
+
+-- (Epic Armaments of Battle)
 
 -- Epic BOE's 
 

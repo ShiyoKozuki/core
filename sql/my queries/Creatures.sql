@@ -33,18 +33,6 @@ UPDATE `mangos`.`creature_template` SET `damage_multiplier`=1.5 WHERE  `entry`=1
 -- Dark Shade (Scholomance Occultist 2nd form)
 UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.3 WHERE  `entry`=11284 AND `patch`=0;
 
--- Lord Alexei Barov Immolate damage
-UPDATE mangos . spell_template
-SET effectBasePoints1 = 41, -- was 41
-    effectBasePoints2 = 143 -- was 143
-WHERE entry = 15570;
-
--- Lord Alexei Barov Immolate damage
-UPDATE mangos . spell_template
-SET effectBasePoints1 = 379, -- was 379
-    effectBasePoints2 = 759 -- was 759
-WHERE entry = 20294;
-
 -- Flame Buffet Totem (Smolderthorn Witch Doctor)
 UPDATE `mangos`.`creature_template` SET `spell_id1`=9574 WHERE  `entry`=10217 AND `patch`=0;
 UPDATE `mangos`.`creature_template` SET `spell_id1`=9574 WHERE  `entry`=10217 AND `patch`=10;
@@ -72,6 +60,9 @@ UPDATE `mangos`.`creature` SET `spawntimesecsmin`=180, `spawntimesecsmax`=180 WH
 
 -- Risen Lackey levels
 UPDATE `mangos`.`creature_template` SET `level_min`=56, `level_max`=56 WHERE  `entry`=10482 AND `patch`=0;
+
+-- Shadow Hunter Vosh'gajin
+UPDATE `mangos`.`creature_template` SET `spell_id2`=16098 WHERE  `entry`=9236 AND `patch`=0;
 
 -- Scholo spawns to delete
 -- Object GUID is: Creature (Entry: 10485 Guid: 48773)
