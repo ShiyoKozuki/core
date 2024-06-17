@@ -206,11 +206,15 @@ void AtFlag(BattleBotAI* pAI, std::vector<uint32> const& vFlagIds)
                 pAI->DefendCheck();
                 return;
             }
-            if (pGo->isSpawned())
+            // Needed in order for bots to properly guard flags in AB
+            if (pAI->me->GetBattleGround()->GetTypeID() == BATTLEGROUND_AB)
             {
-                pAI->ClearPath();
-                pAI->DefendCheck();
-                return;
+                if (pGo->isSpawned())
+                {
+                    pAI->ClearPath();
+                    pAI->DefendCheck();
+                    return;
+                }
             }
         }
     }
