@@ -2465,6 +2465,29 @@ Player* CombatBotBaseAI::SelectDispelTarget(SpellEntry const* pSpellEntry) const
     return nullptr;
 }
 
+Player* CombatBotBaseAI::SelectFreedomTarget() const
+{
+    Group* pGroup = me->GetGroup();
+    if (pGroup)
+    {
+        for (GroupReference* itr = pGroup->GetFirstMember(); itr != nullptr; itr = itr->next())
+        {
+            if (Player* pMember = itr->getSource())
+            {
+                if (me->IsValidHelpfulTarget(pMember) &&
+                    !pMember->IsGameMaster() &&
+                    (pMember->HasUnitState(UNIT_STAT_ROOT)) &&
+                    IsPhysicalDamageClass(pMember->GetClass()) &&
+                    me->IsWithinLOSInMap(pMember) &&
+                    me->IsWithinDist(pMember, 30.0f))
+                    return pMember;
+            }
+        }
+    }
+
+    return nullptr;
+}
+
 void CombatBotBaseAI::SummonPetIfNeeded()
 {
     if (me->GetClass() == CLASS_HUNTER)

@@ -379,7 +379,7 @@ bool PartyBotAI::AttackStart(Unit* pVictim)
             return false;
     }
 
-    // Don't engage if the party leader isn't in combat, unless they're dead
+    // Don't engage if the party leader isn't in combat, unless the lead is dead or bot is a tank
     if (Player* pLeader = GetPartyLeader())
     {
         if (!pLeader->IsInCombat() && !pLeader->IsDead() && m_role != ROLE_TANK)
@@ -947,7 +947,8 @@ void PartyBotAI::UpdateOutOfCombatAI()
 {
     if (!IsInDuel())
     {
-        if (m_resurrectionSpell)
+        if (m_resurrectionSpell &&
+            !me->IsInCombat())
             if (Player* pTarget = SelectResurrectionTarget())
                 if (CanTryToCastSpell(pTarget, m_resurrectionSpell))
                     if (DoCastSpell(pTarget, m_resurrectionSpell) == SPELL_CAST_OK)
@@ -1030,6 +1031,16 @@ void PartyBotAI::UpdateInCombatAI()
         {
             Unit* pVictim = me->GetVictim();
 
+            // Defend party members.
+            if (!pVictim || pVictim->GetVictim() == me)
+            {
+                if (pVictim = SelectPartyAttackTarget())
+                {
+                    me->AttackStop(true);
+                    AttackStart(pVictim);
+                }
+            }
+
             // Taunt target if its attacking someone else.
             if (pVictim && pVictim->GetVictim() != me)
             {
@@ -1050,7 +1061,7 @@ void PartyBotAI::UpdateInCombatAI()
     Unit* pVictim = me->GetVictim();
     
     // Swap to marked target or party leader's target
-    if (GetRole() != ROLE_HEALER)
+    if (GetRole() != ROLE_HEALER && GetRole() != ROLE_TANK)
     {
         if (Player* pLeader = GetPartyLeader())
         {
@@ -1122,15 +1133,9 @@ void PartyBotAI::UpdateOutOfCombatAI_Paladin()
             //    break;
             //}
             case DUNGEON_RFD:
+                break;
             case DUNGEON_ST:
-                if (m_spells.paladin.pShadowResistanceAura &&
-                    CanTryToCastSpell(me, m_spells.paladin.pShadowResistanceAura))
-                {
-                    if (DoCastSpell(me, m_spells.paladin.pShadowResistanceAura) == SPELL_CAST_OK)
-                        return;
-                }
             case DUNGEON_STRATH:
-            case DUNGEON_SCHOLO:
             case RAID_NAXX:
             {
                 if (!me->HasAura(BOT_SHADOW_PROTECTON_R1) &&
@@ -1166,8 +1171,33 @@ void PartyBotAI::UpdateOutOfCombatAI_Paladin()
                         }
                     }
                 }
-                break;
             }
+            break;
+            case DUNGEON_SCHOLO:
+            {
+                if (!me->HasAura(BOT_SHADOW_PROTECTON_R1) &&
+                    !me->HasAura(BOT_SHADOW_PROTECTON_R2) &&
+                    !me->HasAura(BOT_SHADOW_PROTECTON_R3) &&
+                    !me->HasAura(BOT_PRAYER_OF_SHADOW_PROTECTION))
+                {
+                    if (m_spells.paladin.pShadowResistanceAura &&
+                        CanTryToCastSpell(me, m_spells.paladin.pShadowResistanceAura))
+                    {
+                        if (DoCastSpell(me, m_spells.paladin.pShadowResistanceAura) == SPELL_CAST_OK)
+                            return;
+                    }
+                }
+                else
+                {
+                    if (m_spells.paladin.pFrostResistanceAura &&
+                        CanTryToCastSpell(me, m_spells.paladin.pFrostResistanceAura))
+                    {
+                        if (DoCastSpell(me, m_spells.paladin.pFrostResistanceAura) == SPELL_CAST_OK)
+                            return;
+                    }
+                }
+            }
+            break;
             case DUNGEON_ULDAMAN:
             case DUNGEON_LBRSUBRS:
             case DUNGEON_BRD:
@@ -1181,8 +1211,8 @@ void PartyBotAI::UpdateOutOfCombatAI_Paladin()
                     if (DoCastSpell(me, m_spells.paladin.pFireResistanceAura) == SPELL_CAST_OK)
                         return;
                 }
-                break;
             }
+            break;
             default:
             {
                 if (m_role == ROLE_HEALER)
@@ -1203,8 +1233,8 @@ void PartyBotAI::UpdateOutOfCombatAI_Paladin()
                             return;
                     }
                 }
-                break;
             }
+            break;
         }
     }
     else if (m_role == ROLE_TANK)
@@ -1496,12 +1526,11 @@ void PartyBotAI::UpdateInCombatAI_Paladin()
             return;
     }
 
-    if (Unit* pFriend = me->FindLowestHpFriendlyUnit(30.0f, 70, true, me))
+    if (Unit* pFriend = me->FindLowestHpFriendlyUnit(30.0f, 30, true, me))
     {
-        Unit* pVictim = me->GetVictim();
         if (m_spells.paladin.pBlessingOfProtection &&
            !IsPhysicalDamageClass(pFriend->GetClass()) &&
-            (pVictim && pVictim->GetVictim() == pFriend) &&
+            !pFriend->GetAttackers().empty() &&
             CanTryToCastSpell(pFriend, m_spells.paladin.pBlessingOfProtection))
         {
             if (DoCastSpell(pFriend, m_spells.paladin.pBlessingOfProtection) == SPELL_CAST_OK)
@@ -1640,10 +1669,9 @@ void PartyBotAI::UpdateInCombatAI_Paladin()
             }
         }
 
-        if (Unit* pFriend = me->FindLowestHpFriendlyUnit(30.0f, 100, true, me))
+        if (Unit* pFriend = SelectFreedomTarget())
         {
             if (m_spells.paladin.pBlessingOfFreedom &&
-                (pFriend->HasUnitState(UNIT_STAT_ROOT)) &&
                 CanTryToCastSpell(pFriend, m_spells.paladin.pBlessingOfFreedom))
             {
                 if (DoCastSpell(pFriend, m_spells.paladin.pBlessingOfFreedom) == SPELL_CAST_OK)
@@ -1677,7 +1705,7 @@ void PartyBotAI::UpdateInCombatAI_Paladin()
                     return;
             }
             if (m_spells.paladin.pConsecration &&
-               (GetAttackersInRangeCount(10.0f) > 4) &&
+               (GetAttackersInRangeCount(10.0f) > 2) &&
                 (me->GetPowerPercent(POWER_MANA) > 50.0f) &&
                 CanTryToCastSpell(me, m_spells.paladin.pConsecration))
             {
@@ -2814,6 +2842,7 @@ void PartyBotAI::UpdateInCombatAI_Warlock()
         if (me->HasSpell(PB_SPELL_SHOOT_WAND) &&
             !me->IsMoving() &&
             (me->GetPowerPercent(POWER_MANA) < 5.0f) &&
+            (me->GetPowerPercent(POWER_HEALTH) < 25.0f) &&
             !me->GetCurrentSpell(CURRENT_AUTOREPEAT_SPELL))
             me->CastSpell(pVictim, PB_SPELL_SHOOT_WAND, false);
     }
@@ -2841,17 +2870,16 @@ void PartyBotAI::UpdateOutOfCombatAI_Warrior()
         }
     }
 
-    // For some reason this bugs out TC / Demo shout?
-    //if (Unit* pVictim = me->GetVictim())
-    //{
-    //    if (m_spells.warrior.pCharge &&
-    //        (m_role == ROLE_TANK) &&
-    //        CanTryToCastSpell(pVictim, m_spells.warrior.pCharge))
-    //    {
-    //        if (DoCastSpell(pVictim, m_spells.warrior.pCharge) == SPELL_CAST_OK)
-    //            return;
-    //    }
-    //}
+    if (Unit* pVictim = me->GetVictim())
+    {
+        if (m_spells.warrior.pCharge &&
+            (m_role == ROLE_TANK) &&
+            CanTryToCastSpell(pVictim, m_spells.warrior.pCharge))
+        {
+            if (DoCastSpell(pVictim, m_spells.warrior.pCharge) == SPELL_CAST_OK)
+                return;
+        }
+    }
 }
 
 void PartyBotAI::UpdateInCombatAI_Warrior()
@@ -2897,9 +2925,9 @@ void PartyBotAI::UpdateInCombatAI_Warrior()
             }
 
             if (m_spells.warrior.pThunderClap &&
-                CanTryToCastSpell(pVictim, m_spells.warrior.pThunderClap))
+                CanTryToCastSpell(me, m_spells.warrior.pThunderClap))
             {
-                if (DoCastSpell(pVictim, m_spells.warrior.pThunderClap) == SPELL_CAST_OK)
+                if (DoCastSpell(me, m_spells.warrior.pThunderClap) == SPELL_CAST_OK)
                     return;
             }
 
