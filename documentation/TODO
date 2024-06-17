@@ -5,10 +5,19 @@ wildvine potion recipe drop rate(make 5%?)
 Generic kill quests in zones with few quests like Swamp of Sorrows / Azshara / Feralas(Ogres - Big night elf structure far South called Ruins of Isildien and a Cave), Hinterlands(Wolves/Owlbeasts/Turtles + More elite troll quests + Slime Cave)
 Tanaris (Propsector Gunstan) has no quests? useless NPC? Add stuff to him?
 Revamp level 50+ cloth quest rewards to have better stats
-11140 (PRison Cell Key) lootable by everyone
-PLDBOT needs better melee dps gear
-Buff lord general's sword
 Remove the fire cannons from Magmus' room in BRD
+https://www.wowhead.com/classic/npc=11082/stratholme-courier keys green (so its rolled on)
+Blood Of Innocents green(so its rolled on)
+11140 (Prison Cell Key) green(so its rolled on)
+Lightning Reflexes 5%
+Buff Tirion Fordrings dmg for "In Dreams"
+BG rejuv leaf should be removed on dot ticks
+Rogue lightning reflexes 3% per talent point
+change modelIDs of alliance rogue blue pvp set
+T0.5 sets as good as T2 gear
+buff https://www.wowhead.com/classic/search?q=barbaric#items;0-15-2
+add to paladin ZG trinket and buff all ZG trinkets for most classes https://www.wowhead.com/classic/spell=13589/haste-aura#used-by-npc
+
 
 organize raid frames by group
 start scourge invasion and super high dura like elemental invasions
@@ -75,11 +84,14 @@ Warbot if tank refuses to swap to skull?
 Warbot better tank AI, goes to zerker when tanking with a shield instead of dstance and doesnt use thunderclap enough. Should only d stance and b stance if using 1h/shield and go to bstance to clap if no tclap on mobs
 
 PLDbot doesn't BoF allies
+PLDbot doesn't BoP allies(not phys dmg dealers) - copy from pvp
 PLDBot BOM herself if meleedps role
 PLDBot doesn't use consc in AOE as DPS
 
 Warlockbot unending breath
 Warlockbot cast soulstone on anyone with res if they do not have it up
+
+Warlock / Mage / Hunter bot stay ranged from mobs
 
 Battlebots:
 
