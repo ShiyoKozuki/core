@@ -6603,7 +6603,17 @@ void Aura::PeriodicTick(SpellEntry const* sProto, AuraType auraType, uint32 data
         }
         case SPELL_AURA_PERIODIC_TRIGGER_SPELL:
         {
-            TriggerSpell();
+            // Unholy Aura
+            // Should not tick if the caster isn't in combat
+            if (GetId() == 17467 || GetId() == 27987 || GetId() == 28340)
+            {
+                Unit* pCaster = GetCaster();
+
+                if (pCaster && pCaster->IsInCombat())
+                {
+                    TriggerSpell();
+                }
+            }
             break;
         }
         default:
