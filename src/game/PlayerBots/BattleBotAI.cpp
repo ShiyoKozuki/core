@@ -194,6 +194,10 @@ bool BattleBotAI::DrinkAndEat()
     if (me->GetVictim())
         return false;
 
+    if (m_spells.rogue.pVanish &&
+        me->HasAura(m_spells.rogue.pVanish->Id))
+        return false;
+
     BattleGround* bg;
     bool const needToEat = me->GetHealthPercent() < 70.0f && !((bg = me->GetBattleGround()) && bg->GetStatus() == STATUS_WAIT_JOIN);
     bool const needToDrink = (me->GetPowerType() == POWER_MANA) && (me->GetPowerPercent(POWER_MANA) < 70.0f);
@@ -1521,7 +1525,7 @@ void BattleBotAI::UpdateFlagCarrierAI()
             case CLASS_MAGE:
             {
                 if (m_spells.mage.pBlink &&
-                    (me->HasUnitState(UNIT_STAT_CAN_NOT_MOVE)) &&
+                    (me->HasUnitState(UNIT_STAT_CAN_NOT_REACT_OR_LOST_CONTROL)) &&
                     CanTryToCastSpell(me, m_spells.mage.pBlink))
                 {
                     if (me->GetMotionMaster()->GetCurrentMovementGeneratorType())
@@ -2884,8 +2888,7 @@ void BattleBotAI::UpdateInCombatAI_Mage()
     {
 
         if (m_spells.mage.pBlink &&
-            (me->HasUnitState(UNIT_STAT_CAN_NOT_MOVE) ||
-                me->HasAuraType(SPELL_AURA_MOD_DECREASE_SPEED)) &&
+            (me->HasUnitState(UNIT_STAT_CAN_NOT_REACT_OR_LOST_CONTROL)) &&
             CanTryToCastSpell(me, m_spells.mage.pBlink))
         {
             if (me->GetMotionMaster()->GetCurrentMovementGeneratorType())
@@ -3026,8 +3029,7 @@ void BattleBotAI::UpdateInCombatAI_Mage()
                 (me->GetMotionMaster()->GetCurrentMovementGeneratorType() != DISTANCING_MOTION_TYPE))
         {
             if (m_spells.mage.pBlink &&
-                (me->HasUnitState(UNIT_STAT_CAN_NOT_MOVE) ||
-                    me->HasAuraType(SPELL_AURA_MOD_DECREASE_SPEED)) &&
+                (me->HasUnitState(UNIT_STAT_CAN_NOT_REACT_OR_LOST_CONTROL)) &&
                 CanTryToCastSpell(me, m_spells.mage.pBlink))
             {
                 if (me->GetMotionMaster()->GetCurrentMovementGeneratorType())
@@ -4230,10 +4232,9 @@ void BattleBotAI::UpdateInCombatAI_Warrior()
                 return;
         }
 
-        // Berserker rage or Death Wish if feared
         if (m_spells.warrior.pBerserkerRage &&
             CanTryToCastSpell(me, m_spells.warrior.pBerserkerRage) &&
-            me->HasUnitState(UNIT_STAT_FLEEING_MOVE))
+            me->HasUnitState(UNIT_STAT_CAN_NOT_REACT_OR_LOST_CONTROL))
         {
             if (DoCastSpell(me, m_spells.warrior.pBerserkerRage) == SPELL_CAST_OK)
                 return;
@@ -4429,6 +4430,11 @@ void BattleBotAI::UpdateInCombatAI_Rogue()
                     }
                 }
             }
+        }
+
+        if (me->HasAuraType(SPELL_AURA_MOD_STEALTH))
+        {
+            return;
         }
 
         if (m_spells.rogue.pVanish &&
@@ -4844,17 +4850,6 @@ void BattleBotAI::UpdateInCombatAI_Druid()
                 return;
         }
 
-        if (m_spells.druid.pHibernate &&
-            !me->GetAttackers().empty())
-        {
-            Unit* pAttacker = *me->GetAttackers().begin();
-            if (CanTryToCastSpell(pAttacker, m_spells.druid.pHibernate))
-            {
-                if (DoCastSpell(pAttacker, m_spells.druid.pHibernate) == SPELL_CAST_OK)
-                    return;
-            }
-        }
-
         // Prioritize applying HoTs.
         if (me->GetHealthPercent() > 50.0f &&
             !me->HasAura(BB_NS_DRUID))
@@ -4926,6 +4921,17 @@ void BattleBotAI::UpdateInCombatAI_Druid()
                     if (DoCastSpell(pFriend, m_spells.druid.pRemoveCurse) == SPELL_CAST_OK)
                         return;
                 }
+            }
+        }
+
+        if (m_spells.druid.pHibernate &&
+            !me->GetAttackers().empty())
+        {
+            Unit* pAttacker = *me->GetAttackers().begin();
+            if (CanTryToCastSpell(pAttacker, m_spells.druid.pHibernate))
+            {
+                if (DoCastSpell(pAttacker, m_spells.druid.pHibernate) == SPELL_CAST_OK)
+                    return;
             }
         }
 
@@ -5254,12 +5260,6 @@ void BattleBotAI::UpdateInCombatAI_Druid()
                             CanTryToCastSpell(me, m_spells.druid.pNaturesGrasp))
                         {
                             if (DoCastSpell(me, m_spells.druid.pNaturesGrasp) == SPELL_CAST_OK)
-                                return;
-                        }
-                        if (m_spells.druid.pEntanglingRoots &&
-                            CanTryToCastSpell(pVictim, m_spells.druid.pEntanglingRoots))
-                        {
-                            if (DoCastSpell(pVictim, m_spells.druid.pEntanglingRoots) == SPELL_CAST_OK)
                                 return;
                         }
                     }
