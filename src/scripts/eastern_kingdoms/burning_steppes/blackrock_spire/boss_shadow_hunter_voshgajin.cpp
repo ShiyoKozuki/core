@@ -25,7 +25,7 @@ EndScriptData */
 
 enum
 {
-    SPELL_CURSEOFBLOOD = 24673,
+    SPELL_CURSEOFBLOOD = 16098,
     SPELL_HEX          = 16708,
     SPELL_CLEAVE       = 20691
 };
