@@ -2652,7 +2652,7 @@ SET quality = 3,
     stat_type1 = 3,
     stat_value1 = 15,
     stat_type2 = 4,
-    stat_value2 = 15
+    stat_value2 = 15,
     spellid_1 = 15464, -- +1% Physical Hit
     spelltrigger_2 = 1
 WHERE entry = 18677;
@@ -2863,7 +2863,7 @@ WHERE entry = 9425;
 UPDATE mangos . item_template
 SET delay = 3500,
     dmg_min1 = 151,
-    dmg_max1 = 227,
+    dmg_max1 = 227
 WHERE entry = 13163;
 
 -- Heart of the Scale
