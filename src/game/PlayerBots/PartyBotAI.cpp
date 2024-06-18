@@ -1528,9 +1528,12 @@ void PartyBotAI::UpdateInCombatAI_Paladin()
 
     if (Unit* pFriend = me->FindLowestHpFriendlyUnit(30.0f, 30, true, me))
     {
+        Pet* pPet = pFriend->GetPet();
+
         if (m_spells.paladin.pBlessingOfProtection &&
            !IsPhysicalDamageClass(pFriend->GetClass()) &&
             !pFriend->GetAttackers().empty() &&
+            (pFriend != pPet) &&
             CanTryToCastSpell(pFriend, m_spells.paladin.pBlessingOfProtection))
         {
             if (DoCastSpell(pFriend, m_spells.paladin.pBlessingOfProtection) == SPELL_CAST_OK)
@@ -1705,7 +1708,7 @@ void PartyBotAI::UpdateInCombatAI_Paladin()
                     return;
             }
             if (m_spells.paladin.pConsecration &&
-               (GetAttackersInRangeCount(10.0f) > 2) &&
+                (me->GetEnemyCountInRadiusAround(pVictim, 10.0f) > 2) &&
                 (me->GetPowerPercent(POWER_MANA) > 50.0f) &&
                 CanTryToCastSpell(me, m_spells.paladin.pConsecration))
             {
