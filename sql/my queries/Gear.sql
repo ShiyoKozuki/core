@@ -2747,11 +2747,25 @@ WHERE entry = 10833;
 
 -- BRD
 
+-- Force of Magma
+UPDATE mangos . item_template
+SET spellid_1 = 15095, -- Molten Blast
+    spelltrigger_1 = 2,
+    spellid_1 = 15714, -- +22 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 11803;
+
 -- Lord General's Sword
 UPDATE mangos . item_template
 SET dmg_min1 = 68,
     dmg_max1 = 130
 WHERE entry = 11817;
+
+-- Enthralled Sphere
+UPDATE mangos . item_template
+SET spellid_1 = 9345, -- +16 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 11625;
 
 -- LBRS
 
@@ -2910,7 +2924,7 @@ SET delay = 3400,
     dmg_min1 = 196,
     dmg_max1 = 246,
     spellid_1 = 17467, -- Unholy Aura (150 dmg/tick while in combat)
-    spelltrigger_1 = 2
+    spelltrigger_1 = 1
 WHERE entry = 13505;
 
 -- Quest Rewards
@@ -3122,6 +3136,44 @@ SET arcane_res = 15,
 WHERE entry = 15867;
 
 -- (Epic Armaments of Battle)
+
+-- Amulet of the Dawn
+UPDATE mangos . item_template
+SET spellid_1 = 15714, -- +22 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 22657;
+
+-- Bracers of Hope
+UPDATE mangos . item_template
+SET spellid_1 = 18033, -- +46 Healing
+    spelltrigger_1 = 1
+WHERE entry = 22667;
+
+-- Bracers of Subterfuge
+UPDATE mangos . item_template
+SET spellid_1 = 15807, -- +32 Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 22668;
+
+-- Medallion of the Dawn
+UPDATE mangos . item_template
+SET spellid_1 = 15807, -- +32 Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 22659;
+
+-- Talisman of Ascendance
+UPDATE mangos . item_template
+SET spellid_2 = 17367, -- +32 Spell Damage
+    spelltrigger_2 = 1
+WHERE entry = 22678;
+
+-- The Purifier
+UPDATE mangos . item_template
+SET dmg_min1 = 95,
+    dmg_max1 = 175,
+    spellid_2 = 9140, -- +10 Attack Power
+    spelltrigger_2 = 1
+WHERE entry = 22656;
 
 -- Epic BOE's 
 
