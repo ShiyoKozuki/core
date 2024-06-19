@@ -1540,7 +1540,8 @@ void PartyBotAI::UpdateInCombatAI_Paladin()
                 return;
         }
         if (m_spells.paladin.pBlessingOfSacrifice &&
-           (me->GetHealthPercent() > 80.0f) &&
+           !pFriend->GetAttackers().empty() &&
+           (me->GetHealthPercent() > 40.0f) &&
             CanTryToCastSpell(pFriend, m_spells.paladin.pBlessingOfSacrifice))
         {
             if (DoCastSpell(pFriend, m_spells.paladin.pBlessingOfSacrifice) == SPELL_CAST_OK)
@@ -1684,6 +1685,22 @@ void PartyBotAI::UpdateInCombatAI_Paladin()
 
         if (Unit* pVictim = me->GetVictim())
         {
+            if (m_spells.paladin.pConsecration &&
+                (me->GetEnemyCountInRadiusAround(pVictim, 10.0f) > 2) &&
+                (me->GetPowerPercent(POWER_MANA) > 50.0f) &&
+                CanTryToCastSpell(me, m_spells.paladin.pConsecration))
+            {
+                if (DoCastSpell(me, m_spells.paladin.pConsecration) == SPELL_CAST_OK)
+                    return;
+            }
+            if (m_spells.paladin.pHammerOfWrath &&
+                pVictim->GetHealthPercent() < 20.0f &&
+                (me->GetPowerPercent(POWER_MANA) > 50.0f) &&
+                CanTryToCastSpell(pVictim, m_spells.paladin.pHammerOfWrath))
+            {
+                if (DoCastSpell(pVictim, m_spells.paladin.pHammerOfWrath) == SPELL_CAST_OK)
+                    return;
+            }
             if (hasSeal && m_spells.paladin.pJudgement &&
                (me->GetPowerPercent(POWER_MANA) > 30.0f) &&
                 CanTryToCastSpell(pVictim, m_spells.paladin.pJudgement))
@@ -1697,22 +1714,6 @@ void PartyBotAI::UpdateInCombatAI_Paladin()
                 CanTryToCastSpell(pVictim, m_spells.paladin.pHammerOfJustice))
             {
                 if (DoCastSpell(pVictim, m_spells.paladin.pHammerOfJustice) == SPELL_CAST_OK)
-                    return;
-            }
-            if (m_spells.paladin.pHammerOfWrath &&
-                pVictim->GetHealthPercent() < 20.0f &&
-                (me->GetPowerPercent(POWER_MANA) > 70.0f) &&
-                CanTryToCastSpell(pVictim, m_spells.paladin.pHammerOfWrath))
-            {
-                if (DoCastSpell(pVictim, m_spells.paladin.pHammerOfWrath) == SPELL_CAST_OK)
-                    return;
-            }
-            if (m_spells.paladin.pConsecration &&
-                (me->GetEnemyCountInRadiusAround(pVictim, 10.0f) > 2) &&
-                (me->GetPowerPercent(POWER_MANA) > 50.0f) &&
-                CanTryToCastSpell(me, m_spells.paladin.pConsecration))
-            {
-                if (DoCastSpell(me, m_spells.paladin.pConsecration) == SPELL_CAST_OK)
                     return;
             }
             if (m_spells.paladin.pHolyShock &&
@@ -2764,6 +2765,7 @@ void PartyBotAI::UpdateInCombatAI_Warlock()
         }
 
         if (m_spells.warlock.pCorruption &&
+            (pVictim->GetLevel() > me->GetLevel()) &&
             CanTryToCastSpell(pVictim, m_spells.warlock.pCorruption))
         {
             if (DoCastSpell(pVictim, m_spells.warlock.pCorruption) == SPELL_CAST_OK)
@@ -2771,7 +2773,7 @@ void PartyBotAI::UpdateInCombatAI_Warlock()
         }
 
         if (m_spells.warlock.pSiphonLife &&
-            (me->GetHealthPercent() < 80.0f) &&
+            (pVictim->GetLevel() > me->GetLevel()) &&
             CanTryToCastSpell(pVictim, m_spells.warlock.pSiphonLife))
         {
             if (DoCastSpell(pVictim, m_spells.warlock.pSiphonLife) == SPELL_CAST_OK)
@@ -2918,6 +2920,7 @@ void PartyBotAI::UpdateInCombatAI_Warrior()
         if (m_role == ROLE_TANK)
         {
             if (m_spells.warrior.pThunderClap &&
+                (me->GetDistance(pVictim) <= 8.0f) &&
                (!pVictim->HasAura(m_spells.warrior.pThunderClap->Id)))
             {
                 if (m_spells.warrior.pBattleStance &&
@@ -2928,6 +2931,7 @@ void PartyBotAI::UpdateInCombatAI_Warrior()
             }
 
             if (m_spells.warrior.pThunderClap &&
+                (me->GetDistance(pVictim) <= 8.0f) &&
                 CanTryToCastSpell(me, m_spells.warrior.pThunderClap))
             {
                 if (DoCastSpell(me, m_spells.warrior.pThunderClap) == SPELL_CAST_OK)
@@ -3061,6 +3065,7 @@ void PartyBotAI::UpdateInCombatAI_Warrior()
             IsWearingShield(me))
         {
             if (m_spells.warrior.pDefensiveStance &&
+                (me->GetDistance(pVictim) <= 8.0f) &&
                 m_spells.warrior.pThunderClap &&
                 (pVictim->HasAura(m_spells.warrior.pThunderClap->Id)) &&
                 CanTryToCastSpell(me, m_spells.warrior.pDefensiveStance))
@@ -3140,6 +3145,7 @@ void PartyBotAI::UpdateInCombatAI_Warrior()
         }
 
         if (m_spells.warrior.pThunderClap &&
+            (me->GetDistance(pVictim) <= 8.0f) &&
             CanTryToCastSpell(pVictim, m_spells.warrior.pThunderClap))
         {
             if (DoCastSpell(pVictim, m_spells.warrior.pThunderClap) == SPELL_CAST_OK)
