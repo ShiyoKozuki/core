@@ -941,10 +941,8 @@ SET quality = 3,
     stat_value1 = 12,
     stat_type2 = 7,
     stat_value2 = 5,
-    spellid_1 = 7597, -- +1% Physical Crit
-    spelltrigger_1 = 1,
-    spellid_2 = 15464, -- +1% Physical Hit
-    spelltrigger_2 = 1
+    spellid_1 = 15464, -- +1% Physical Hit
+    spelltrigger_1 = 1
 WHERE entry = 15083;
 
 UPDATE mangos . item_template
@@ -2763,7 +2761,7 @@ WHERE entry = 11817;
 
 -- Enthralled Sphere
 UPDATE mangos . item_template
-SET spellid_1 = 9345, -- +16 Spell Damage
+SET spellid_1 = 18384, -- +1% Spell Crit
     spelltrigger_1 = 1
 WHERE entry = 11625;
 
@@ -2927,6 +2925,23 @@ SET delay = 3400,
     spelltrigger_1 = 1
 WHERE entry = 13505;
 
+-- Dire Maul
+
+-- Quickdraw Gloves 
+UPDATE mangos . item_template
+SET armor = 200,
+    spellid_2 = 15464, -- +1% Physical Hit
+    spelltrigger_2 = 1
+WHERE entry = 18377;
+
+-- Felhide Cap
+UPDATE mangos . item_template
+SET stat_type1 = 3,
+    stat_value1 = 31,
+    spellid_1 = 7597, -- +1% Physical Crit
+    spelltrigger_1 = 1
+WHERE entry = 18325;
+
 -- Quest Rewards
 
 -- Brantwood Sash (A Final Blow)
@@ -3067,7 +3082,9 @@ WHERE entry = 18424;
 -- Bonecrusher (The Treasure of the Shen'dralar)
 UPDATE mangos . item_template
 SET stat_type3 = 5,
-    stat_value3 = 30
+    stat_value3 = 30,
+    spellid_2 = 15465, -- +2% Physical Hit
+    spelltrigger_2 = 1
 WHERE entry = 18420;
 
 -- Necklace of Sanctuary (You Are Rakh'likh, Demon)
