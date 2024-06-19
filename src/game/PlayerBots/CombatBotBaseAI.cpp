@@ -1061,7 +1061,7 @@ void CombatBotBaseAI::PopulateSpellData()
                     if (IsHigherRankSpell(m_spells.warlock.pDeathCoil))
                         m_spells.warlock.pDeathCoil = pSpellEntry;
                 }
-                else if (pSpellEntry->SpellName[0].find("Detect Invisibility") != std::string::npos)
+                else if (pSpellEntry->SpellName[0].find("Detect Greater Invisibility") != std::string::npos)
                 {
                     if (IsHigherRankSpell(m_spells.warlock.pDetectInvisibility))
                         m_spells.warlock.pDetectInvisibility = pSpellEntry;
