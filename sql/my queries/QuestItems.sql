@@ -1,5 +1,10 @@
 -- Quest items
 
+-- 0% (Shouldn't drop)
+UPDATE mangos . creature_loot_template
+SET ChanceOrQuestChance = 0
+WHERE item IN(20378);
+
 -- 1%
 UPDATE mangos . creature_loot_template
 SET ChanceOrQuestChance = -1

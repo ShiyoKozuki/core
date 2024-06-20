@@ -2927,6 +2927,79 @@ WHERE entry = 13505;
 
 -- Dire Maul
 
+-- Band of Vigor
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 21363, -- 5 MP/5
+    spelltrigger_1 = 1
+WHERE entry = 18302;
+
+-- Quel'dorai Channeling Rod
+UPDATE mangos . item_template
+SET spellid_1 = 14127, -- +28 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 18311;
+
+-- Waveslicer
+UPDATE mangos . item_template
+SET delay = 3500,
+    dmg_min1 = 151,
+    dmg_max1 = 227,
+    spellid_1 = 7219, -- Immune to disarm
+    spelltrigger_1 = 1
+WHERE entry = 18324;
+
+-- Waterspout Boots
+UPDATE mangos . item_template
+SET stat_type3 = 7,
+    stat_value3 = 10
+WHERE entry = 18322;
+
+-- Clever Hat
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_2 = 15715, -- +25 Spell Damage
+    spelltrigger_2 = 1
+WHERE entry = 18308;
+
+-- Gloves of Shadowy Mist
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_2 = 11743, -- Detect Greater Invisiability
+    spelltrigger_2 = 1
+WHERE entry = 18306;
+
+-- Razor Gauntlets
+UPDATE mangos . item_template
+SET spellid_1 = 14127, -- +28 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 18326;
+
+-- Ring of Demonic Guile
+UPDATE mangos . item_template
+SET spellid_2 = 13387, -- +8 Defense
+    spelltrigger_2 = 1
+WHERE entry = 18314;
+
+-- Ring of Demonic Potency
+UPDATE mangos . item_template
+SET spellid_2 = 22417, -- Shadow Shield (Surrounds the caster with a shield woven of Shadow magic. The shield lasts 30 sec., absorbs up to 400 Physical or magical damage, and inflicts 20 damage to melee attackers)
+    spelltrigger_1 = 0
+WHERE entry = 18315;
+
+-- Shadewood Cloak
+UPDATE mangos . item_template
+SET spellid_1 = 22356, -- Slow (Increases the time between nearby enemies' attacks by 54% and slows their movement by 60% for 10 sec)
+    spelltrigger_1 = 2
+WHERE entry = 18328;
+
+-- Gallant's Wristguards
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_2 = 21363, -- 5 MP/5
+    spelltrigger_2 = 1
+WHERE entry = 18459;
+
 -- Quickdraw Gloves 
 UPDATE mangos . item_template
 SET armor = 200,
@@ -2941,6 +3014,86 @@ SET stat_type1 = 3,
     spellid_1 = 7597, -- +1% Physical Crit
     spelltrigger_1 = 1
 WHERE entry = 18325;
+
+-- Monstrous Glaive
+UPDATE mangos . item_template
+SET delay = 3500,
+    dmg_min1 = 151,
+    dmg_max1 = 227,
+    spellid_1 = 23990, -- Minor Run Speed
+    spelltrigger_1 = 1
+WHERE entry = 18502;
+
+-- Cyclone Spaulders
+UPDATE mangos . item_template
+SET stat_type1 = 3,
+    stat_value1 = 31,
+    spellid_1 = 9332, -- +22 Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 18528;
+
+-- Crown of the Ogre King
+UPDATE mangos . item_template
+SET spellid_1 = 9346, -- +18 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 18526;
+
+-- Grimy Metal Boots
+UPDATE mangos . item_template
+SET spellid_2 = 20886, -- +3 Arcane Reflect
+    spelltrigger_2 = 1
+WHERE entry = 18521;
+
+-- Tanglemoss Leggings
+UPDATE mangos . item_template
+SET spellid_2 = 9408, -- +22 Healing
+    spelltrigger_2 = 1
+WHERE entry = 18390;
+
+-- Brightspark Gloves
+UPDATE mangos . item_template
+SET spellid_2 = 9408, -- +22 Healing
+    spelltrigger_2 = 1
+WHERE entry = 18387;
+
+-- Bile-etched Spaulders
+UPDATE mangos . item_template
+SET spellid_2 = 21363, -- 5 MP/5
+    spelltrigger_2 = 1
+WHERE entry = 18384;
+
+-- Timeworn Mace
+UPDATE mangos . item_template
+SET spellid_1 = 11879, -- 5s Disarm
+    spelltrigger_1 = 2
+WHERE entry = 18376;
+
+-- Chestplate of Tranquility
+UPDATE mangos . item_template
+SET spellid_2 = 23727, -- +1% Spell Hit
+    spelltrigger_2 = 1
+WHERE entry = 18373;
+
+-- Silvermoon Leggings
+UPDATE mangos . item_template
+SET spellid_2 = 23727, -- +1% Spell Hit
+    spelltrigger_2 = 1
+WHERE entry = 18378;
+
+-- Diabolic Mantle
+UPDATE mangos . item_template
+SET spellid_2 = 14794, -- +24 Shadow Damage
+    spelltrigger_2 = 1
+WHERE entry = 18757;
+
+-- Treant's Bane
+UPDATE mangos . item_template
+SET delay = 3400,
+    dmg_min1 = 196,
+    dmg_max1 = 246,
+    spellid_2 = 7554, -- +7 2H Axe
+    spelltrigger_2 = 1
+WHERE entry = 18538;
 
 -- Quest Rewards
 
