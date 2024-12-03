@@ -2712,6 +2712,26 @@ SET stat_type2 = 6,
     stat_value2 = 10
 WHERE entry = 6392;
 
+-- RFK
+
+-- Agamaggan's Clutch
+UPDATE mangos . item_template
+SET spellid_1 = 9324, -- +16 Shadow Damage
+    spelltrigger_1 = 1
+WHERE entry = 6693;
+
+-- Stygian Bone Amulet
+UPDATE mangos . item_template
+SET spellid_1 = 9324, -- +16 Shadow Damage
+    spelltrigger_1 = 1
+WHERE entry = 6695;
+
+-- Wind Spirit Staff
+UPDATE mangos . item_template
+SET spellid_1 = 9345, -- +16 spell damage
+    spelltrigger_1 = 1
+WHERE entry = 6689;
+
 -- Sunken Temple
 
 -- Firebreather
@@ -3284,6 +3304,12 @@ SET quality = 3,
     spellid_1 = 7677, -- +7 Healing
     spelltrigger_1 = 1
 WHERE entry = 7002;
+
+-- Berylline Pads (The Crone of the Kraul)
+UPDATE mangos . item_template
+SET  spellid_1 = 25975, -- +10 Spell Penetration
+    spelltrigger_1 = 1
+WHERE entry = 4197;
 
 -- Brantwood Sash (A Final Blow)
 UPDATE mangos . item_template
