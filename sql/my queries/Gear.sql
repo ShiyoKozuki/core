@@ -2147,6 +2147,26 @@ SET required_level = 60,
     dmg_max1 = 190
 WHERE entry = 12798;
 
+-- Lesser Magic Wand
+UPDATE mangos . item_template
+SET  dmg_min1 = 9,
+    dmg_max1 = 17
+WHERE entry = 11287;
+
+-- Greater Magic Wand
+UPDATE mangos . item_template
+SET  dmg_min1 = 13,
+    dmg_max1 = 25
+WHERE entry = 11288;
+
+-- Gravestone Scepter
+UPDATE mangos . item_template
+SET  dmg_min1 = 18,
+    dmg_max1 = 35,
+    spellid_1 = 9415, -- +9 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 7001;
+
 -- Copper Shortsword
 UPDATE mangos . item_template
 SET quality = 2,
@@ -2154,7 +2174,7 @@ SET quality = 2,
     bonding = 2, -- BoE
     dmg_min1 = 9,
     dmg_max1 = 18
-WHERE entry = 2847;
+WHERE entry = 7001;
 
 -- Copper Dagger
 UPDATE mangos . item_template
@@ -2927,6 +2947,28 @@ WHERE entry = 13505;
 
 -- Dire Maul
 
+-- Lethtendris's Wand
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_2 = 21363, -- 5 MP/5
+    spelltrigger_2 = 1
+WHERE entry = 18301;
+
+-- Fiendish Machete
+UPDATE mangos . item_template
+SET delay = 280,
+    dmg_min1 = 81,
+    dmg_max1 = 151
+WHERE entry = 18310;
+
+-- Fluctuating Cloak
+UPDATE mangos . item_template
+SET stat_type1 = 6,
+    stat_value1 = 10,
+    stat_type2 = 7,
+    stat_value2 = 15
+WHERE entry = 18382;
+
 -- Band of Vigor
 UPDATE mangos . item_template
 SET quality = 3,
@@ -2984,8 +3026,74 @@ WHERE entry = 18314;
 -- Ring of Demonic Potency
 UPDATE mangos . item_template
 SET spellid_2 = 22417, -- Shadow Shield (Surrounds the caster with a shield woven of Shadow magic. The shield lasts 30 sec., absorbs up to 400 Physical or magical damage, and inflicts 20 damage to melee attackers)
-    spelltrigger_1 = 0
+    spelltrigger_2 = 0
 WHERE entry = 18315;
+
+-- Well Balanced Axe
+UPDATE mangos . item_template
+SET quality = 3,
+    dmg_min1 = 51,
+    dmg_max1 = 101,
+    spellid_1 = 21919, -- Thrash (Grants an extra attack on your next swing)
+    spelltrigger_1 = 1
+WHERE entry = 18347;
+
+-- Gauntlets of Accuracy
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 15465, -- +2% Physical Hit
+    spelltrigger_1 = 1,
+    spellid_2 = 23729, -- +2% Spell Hit
+    spelltrigger_2 = 1
+WHERE entry = 18349;
+
+-- Petrified Bark Shield
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_2 = 18030, -- +37 Healing
+    spelltrigger_2 = 1
+WHERE entry = 18352;
+
+-- Stoneflower Staff
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_2 = 17997, -- +40 Nature Damage
+    spelltrigger_1 = 2
+WHERE entry = 18353;
+
+-- Barbed Thorn Necklace
+UPDATE mangos . item_template
+SET spellid_1 = 17990, -- +27 Nature Damage
+    spelltrigger_1 = 1
+WHERE entry = 18289;
+
+-- Unbridled Leggings
+UPDATE mangos . item_template
+SET armor = 220,
+    spellid_2 = 13669, -- +1% Dodge
+    spelltrigger_2 = 1
+WHERE entry = 18298;
+
+-- Phasing Boots
+UPDATE mangos . item_template
+SET armor = 220,
+    spellid_2 = 13670, -- 2% Dodge
+    spelltrigger_2 = 1
+WHERE entry = 18298;
+
+-- Breakwater Legguards
+UPDATE mangos . item_template
+SET stat_type1 = 3,
+    stat_value1 = 31,
+    spellid_1 = 7597, -- +1% Physical Crit
+    spelltrigger_1 = 1
+WHERE entry = 18305;
+
+-- Energized Chestplate
+UPDATE mangos . item_template
+SET spellid_2 = 9408, -- +22 Healing
+    spelltrigger_2 = 1
+WHERE entry = 18312;
 
 -- Shadewood Cloak
 UPDATE mangos . item_template
@@ -3015,6 +3123,33 @@ SET stat_type1 = 3,
     spelltrigger_1 = 1
 WHERE entry = 18325;
 
+-- Boots of Ferocity
+UPDATE mangos . item_template
+SET spellid_1 = 5915, -- Crazed (Increases the caster's attack speed by 20% for 1 min)
+    spelltrigger_1 = 0,
+    spellcooldown_1 = 300000
+WHERE entry = 22472;
+
+-- Hammer of Revitalization
+UPDATE mangos . item_template
+SET spellid_1 = 9346, -- +18 Spell Damage
+    spelltrigger_1 = 1,
+    spellid_2 = 21363, -- 5 MP/5
+    spelltrigger_2 = 1,
+    spellid_3 = 13387, -- +8 Defense
+    spelltrigger_3 = 1
+WHERE entry = 22315;
+
+-- Huntsman's Harpoon
+UPDATE mangos . item_template
+SET delay = 3500,
+    dmg_min1 = 151,
+    dmg_max1 = 227,
+    spellid_1 = 6533, -- Net (10s)
+    spelltrigger_1 = 0,
+    spellcooldown_1 = 300000
+WHERE entry = 22314;
+
 -- Monstrous Glaive
 UPDATE mangos . item_template
 SET delay = 3500,
@@ -3034,8 +3169,8 @@ WHERE entry = 18528;
 
 -- Crown of the Ogre King
 UPDATE mangos . item_template
-SET spellid_1 = 9346, -- +18 Spell Damage
-    spelltrigger_1 = 1
+SET spellid_2 = 9346, -- +18 Spell Damage
+    spelltrigger_1 = 2
 WHERE entry = 18526;
 
 -- Grimy Metal Boots
@@ -3096,6 +3231,59 @@ SET delay = 3400,
 WHERE entry = 18538;
 
 -- Quest Rewards
+
+-- Staff of Westfall (The Defias Brotherhood)
+UPDATE mangos . item_template
+SET spellid_1 = 9415, -- +9 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 2042;
+
+-- Lucine Longsword (What Comes Around...)
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 9415, -- +9 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 3400;
+
+-- Hardened Root Staff (What Comes Around...)
+UPDATE mangos . item_template
+SET quality = 3,
+    stat_type1 = 4,
+    stat_value1 = 11,
+    armor = 50
+WHERE entry = 3400;
+
+-- Sustaining Ring (Knowledge in the Deeps)
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 20555, -- Health regeneration rate increased by 10%.  10% of total Health regeneration may continue during combat.
+    spelltrigger_1 = 1
+WHERE entry = 6743;
+
+-- Prelacy Cape (Researching the Corruption)
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 17106, -- Allows 5% of your Mana regeneration to continue while casting.
+    spelltrigger_1 = 1
+WHERE entry = 7004;
+
+-- Mechanic's Pipehammer (Data Recsue)
+UPDATE mangos . item_template
+SET spellid_1 = 9408, -- +22 Healing
+    spelltrigger_1 = 1
+WHERE entry = 9604;
+
+-- Repairman's Cape (Data Recsue)
+UPDATE mangos . item_template
+SET armor = 50
+WHERE entry = 9605;
+
+-- Arctic Buckler (Blackfathom Villainy)
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 7677, -- +7 Healing
+    spelltrigger_1 = 1
+WHERE entry = 7002;
 
 -- Brantwood Sash (A Final Blow)
 UPDATE mangos . item_template
@@ -3253,7 +3441,8 @@ WHERE entry = 10778;
 UPDATE mangos . item_template
 SET quality = 3,
     spellid_2 = 28773, -- Glyph of Deflection (Increases the block value of your shield by 235 for 20 sec.)
-    spelltrigger_2 = 0
+    spelltrigger_2 = 0,
+    spellcooldown_2 = 180000
 WHERE entry = 10779;
 
 -- Demon Hide Sack (You Are Rakh'likh, Demon)
@@ -3304,6 +3493,54 @@ SET arcane_res = 15,
     frost_res = 15,
     shadow_res = 15
 WHERE entry = 15867;
+
+-- (The Perfect Poison)
+
+-- Ravenholdt Slicer
+UPDATE mangos . item_template
+SET quality = 4,
+    dmg_min1 = 100,
+    dmg_max1 = 190
+WHERE entry = 22378;
+
+-- Shivsprocket's Shiv
+UPDATE mangos . item_template
+SET quality = 4,
+    spellid_1 = 18053, -- +36 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 22379;
+
+-- The Thunderwood Poke
+UPDATE mangos . item_template
+SET quality = 4,
+    delay = 1900,
+    dmg_min1 = 64,
+    dmg_max1 = 119
+WHERE entry = 22377;
+
+-- Doomulus Prime
+UPDATE mangos . item_template
+SET quality = 4,
+    dmg_min1 = 165,
+    dmg_max1 = 285,
+    spellid_2 = 26158, -- +60 Spell Damage
+    spelltrigger_2 = 1
+WHERE entry = 22348;
+
+-- Fahrad's Reloading Repeater
+UPDATE mangos . item_template
+SET quality = 4,
+    dmg_min1 = 90,
+    dmg_max1 = 140
+WHERE entry = 22347;
+
+-- Simone's Cultivating Hammer
+UPDATE mangos . item_template
+SET quality = 4,
+    spellid_1 = 18035, -- +51 Healing
+    spelltrigger_1 = 1
+WHERE entry = 22380;
+
 
 -- (Epic Armaments of Battle)
 

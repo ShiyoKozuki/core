@@ -33,6 +33,12 @@ UPDATE `mangos`.`creature_template` SET `damage_multiplier`=5.5 WHERE  `entry`=8
 -- Plagued Hatching
 UPDATE `mangos`.`creature_template` SET `damage_multiplier`=1.5 WHERE  `entry`=10678 AND `patch`=0;
 
+-- Gordok Brute
+UPDATE `mangos`.`creature_template` SET `damage_multiplier`=4.0 WHERE  `entry`=11441 AND `patch`=1;
+
+-- Netherwalker
+UPDATE `mangos`.`creature_template` SET `damage_multiplier`=2 WHERE  `entry`=14389 AND `patch`=1;
+
 -- Dark Shade (Scholomance Occultist 2nd form)
 UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.3 WHERE  `entry`=11284 AND `patch`=0;
 
