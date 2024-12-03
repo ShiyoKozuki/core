@@ -2149,21 +2149,26 @@ WHERE entry = 12798;
 
 -- Lesser Magic Wand
 UPDATE mangos . item_template
-SET  dmg_min1 = 9,
-    dmg_max1 = 17
+SET dmg_min1 = 9,
+    dmg_max1 = 17,
+    spellid_1 = 25975, -- +10 Spell Penetration
+    spelltrigger_1 = 1
 WHERE entry = 11287;
 
 -- Greater Magic Wand
 UPDATE mangos . item_template
-SET  dmg_min1 = 13,
-    dmg_max1 = 25
+SET dmg_min1 = 13,
+    dmg_max1 = 25,
+    spellid_1 = 25975, -- +10 Spell Penetration
+    spelltrigger_1 = 1
 WHERE entry = 11288;
 
 -- Gravestone Scepter
 UPDATE mangos . item_template
-SET  dmg_min1 = 18,
+SET quality = 3,
+    dmg_min1 = 18,
     dmg_max1 = 35,
-    spellid_1 = 9415, -- +9 Spell Damage
+    spellid_1 = 9395, -- +5 Spell Damage
     spelltrigger_1 = 1
 WHERE entry = 7001;
 
@@ -2174,7 +2179,7 @@ SET quality = 2,
     bonding = 2, -- BoE
     dmg_min1 = 9,
     dmg_max1 = 18
-WHERE entry = 7001;
+WHERE entry = 2847;
 
 -- Copper Dagger
 UPDATE mangos . item_template
@@ -2677,6 +2682,36 @@ WHERE entry = 18677;
 
 -- Dungeon Gear
 
+-- Deadmines
+
+-- Lavishly Jeweled Ring
+UPDATE mangos . item_template
+SET spellid_1 = 23727, -- +1% Spell Hit
+    spelltrigger_1 = 1
+WHERE entry = 1156;
+
+-- Emberstone Staff
+UPDATE mangos . item_template
+SET  spellid_1 = 9408, -- +22 Healing
+    spelltrigger_1 = 1
+WHERE entry = 5201;
+
+-- Corsair's Overshirt
+UPDATE mangos . item_template
+SET stat_type1 = 7,
+    stat_value1 = 5,
+    stat_type2 = 6,
+    stat_value2 = 0,
+    spellid_1 = 9415, -- +9 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 5202;
+
+-- Cookie's Stirring Rod
+UPDATE mangos . item_template
+SET spellid_1 = 7680, -- +13 Healing
+    spelltrigger_1 = 1
+WHERE entry = 5198;
+
 -- Shadowfang Keep
 
 -- Odo's Ley Staff
@@ -2712,17 +2747,91 @@ SET stat_type2 = 6,
     stat_value2 = 10
 WHERE entry = 6392;
 
+-- BRD
+
+-- Rod of the Sleepwalker
+UPDATE mangos . item_template
+SET spellid_1 = 23727, -- +1% Spell Hit
+    spelltrigger_1 = 1
+WHERE entry = 1155;
+
+-- Ghamoo-ra's Bind
+UPDATE mangos . item_template
+SET quality = 2,
+    stat_type1 = 7,
+    stat_value1 = 0,
+    stat_type2 = 5,
+    stat_value2 = 0,
+    spellid_1 = 21624, -- 2 MP/5
+    spelltrigger_1 = 1
+WHERE entry = 6908;
+
+-- Leech Pants
+UPDATE mangos . item_template
+SET stat_type1 = 7,
+    stat_value1 = 1,
+    stat_type2 = 5,
+    stat_value2 = 5,
+    stat_type3 = 6,
+    stat_value3 = 0,
+    spellid_1 = 9395, -- +5 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 6910;
+
+-- Gnomergan
+
+-- Electrocutioner Leg
+UPDATE mangos . item_template
+SET spellid_1 = 23727, -- +1% Spell Hit
+    spelltrigger_1 = 1
+WHERE entry = 9446;
+
+-- Electrocutioner Lagnut
+UPDATE mangos . item_template
+SET stat_type1 = 7,
+    stat_value1 = 0,
+    stat_type2 = 5,
+    stat_value2 = 0,
+    spellid_1 = 23688, -- 2% chance on successful spellcast to allow 100% of your Mana regeneration to continue while casting for 15 sec. (Proc chance: 2%)
+    spelltrigger_1 = 1
+WHERE entry = 9447;
+
+-- Charged Gear
+UPDATE mangos . item_template
+SET stat_type1 = 7,
+    stat_value1 = 0,
+    stat_type2 = 5,
+    stat_value2 = 0,
+   spellid_1 = 18384, -- +1% Spell Crit
+    spelltrigger_1 = 1
+WHERE entry = 9461;
+
+-- Electromagnetic Gigaflux Reactivator
+UPDATE mangos . item_template
+SET  spellcooldown_1 = 300000,
+    spellid_2 = 9415, -- +9 Spell Damage
+    spelltrigger_2 = 1
+WHERE entry = 9492;
+
 -- RFK
 
 -- Agamaggan's Clutch
 UPDATE mangos . item_template
-SET spellid_1 = 9324, -- +16 Shadow Damage
+SET stat_type1 = 6,
+    stat_value1 = 5,
+    stat_type2 = 7,
+    stat_value2 = 0,
+    spellid_1 = 9324, -- +16 Shadow Damage
     spelltrigger_1 = 1
 WHERE entry = 6693;
 
 -- Stygian Bone Amulet
 UPDATE mangos . item_template
-SET spellid_1 = 9324, -- +16 Shadow Damage
+SET stat_type1 = 6,
+    stat_value1 = 5,
+    stat_type2 = 7,
+    stat_value2 = 0,
+    spellid_1 = 9324, -- +16 Shadow Damage
     spelltrigger_1 = 1
 WHERE entry = 6695;
 
@@ -2761,7 +2870,7 @@ WHERE entry = 10808;
 
 -- Dawnspire Cord
 UPDATE mangos . item_template
-SET  spellid_1 = 7680, -- +13 Healing
+SET spellid_1 = 7680, -- +13 Healing
     spelltrigger_1 = 1
 WHERE entry = 12466;
 
@@ -2976,7 +3085,7 @@ WHERE entry = 18301;
 
 -- Fiendish Machete
 UPDATE mangos . item_template
-SET delay = 280,
+SET delay = 2800,
     dmg_min1 = 81,
     dmg_max1 = 151
 WHERE entry = 18310;
@@ -3287,6 +3396,13 @@ SET quality = 3,
     spelltrigger_1 = 1
 WHERE entry = 7004;
 
+-- Arctic Buckler (Blackfathom Villainy)
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 7677, -- +7 Healing
+    spelltrigger_1 = 1
+WHERE entry = 7002;
+
 -- Mechanic's Pipehammer (Data Recsue)
 UPDATE mangos . item_template
 SET spellid_1 = 9408, -- +22 Healing
@@ -3298,16 +3414,29 @@ UPDATE mangos . item_template
 SET armor = 50
 WHERE entry = 9605;
 
--- Arctic Buckler (Blackfathom Villainy)
+-- Talvash's Gold Ring (Gnome Improvement)
 UPDATE mangos . item_template
-SET quality = 3,
-    spellid_1 = 7677, -- +7 Healing
+SET stat_type1 = 7,
+    stat_value1 = 0,
+    stat_type2 = 6,
+    stat_value2 = 0,
+    spellid_1 = 9415, -- +9 Spell Damage
     spelltrigger_1 = 1
-WHERE entry = 7002;
+WHERE entry = 9538;
+
+-- Fairywing Mantle (A Fine Mess)
+UPDATE mangos . item_template
+SET stat_type1 = 5,
+    stat_value1 = 0,
+    stat_type2 = 7,
+    stat_value2 = 0,
+    spellid_1 = 7680, -- +13 Healing
+    spelltrigger_1 = 1
+WHERE entry = 9536;
 
 -- Berylline Pads (The Crone of the Kraul)
 UPDATE mangos . item_template
-SET  spellid_1 = 25975, -- +10 Spell Penetration
+SET spellid_1 = 25975, -- +10 Spell Penetration
     spelltrigger_1 = 1
 WHERE entry = 4197;
 
