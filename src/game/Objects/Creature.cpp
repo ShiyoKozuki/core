@@ -549,11 +549,11 @@ bool Creature::UpdateEntry(uint32 entry, GameEventCreatureData const* eventData 
 
     SelectLevel(preserveHPAndPower ? GetHealthPercent() : 100.0f, preserveHPAndPower ? GetPowerPercent(POWER_MANA) : 100.0f);
     SetCreateResistance(SPELL_SCHOOL_HOLY, GetCreatureInfo()->holy_res);
-    SetCreateResistance(SPELL_SCHOOL_FIRE, GetCreatureInfo()->fire_res);
-    SetCreateResistance(SPELL_SCHOOL_NATURE, GetCreatureInfo()->nature_res);
-    SetCreateResistance(SPELL_SCHOOL_FROST, GetCreatureInfo()->frost_res);
-    SetCreateResistance(SPELL_SCHOOL_SHADOW, GetCreatureInfo()->shadow_res);
-    SetCreateResistance(SPELL_SCHOOL_ARCANE, GetCreatureInfo()->arcane_res);
+    SetCreateResistance(SPELL_SCHOOL_FIRE, GetCreatureInfo()->fire_res + GetLevel());
+    SetCreateResistance(SPELL_SCHOOL_NATURE, GetCreatureInfo()->nature_res + GetLevel());
+    SetCreateResistance(SPELL_SCHOOL_FROST, GetCreatureInfo()->frost_res + GetLevel());
+    SetCreateResistance(SPELL_SCHOOL_SHADOW, GetCreatureInfo()->shadow_res + GetLevel());
+    SetCreateResistance(SPELL_SCHOOL_ARCANE, GetCreatureInfo()->arcane_res + GetLevel());
     uint32 attackTimer = GetCreatureInfo()->base_attack_time;
     SetAttackTime(BASE_ATTACK, attackTimer);
     SetAttackTime(OFF_ATTACK, attackTimer);
