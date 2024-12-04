@@ -13,6 +13,11 @@
 
 -- DPS Calc: https://docs.google.com/spreadsheets/d/1R3A3AQiqE0aqhn4C9zdLSVr_wrecjtrpxPgg3UZ66y4/edit?gid=0#gid=0
 
+-- Preview rows before updating
+-- SELECT * FROM mangos.creature_template 
+-- WHERE armor_multiplier < 2.0 AND armor_multiplier > 0;
+
+
 -- New Custom Items
 REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id`, `quality`, `flags`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `max_count`, `stat_type1`, `stat_value1`, `stat_type2`, `stat_value2`, `stat_type3`, `stat_value3`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30000, 4, 4, 'Sentinel\'s Ring', 9832, 3, 32768, 750000, 18750, 11, -1, -1, 63, 58, 1, 4, 12, 3, 11, 7, 8, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 4);
 REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id`, `quality`, `flags`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `max_count`, `stat_type1`, `stat_value1`, `delay`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellid_2`, `spelltrigger_2`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30001, 4, 4, 'Battlemage\'s Ring', 28812, 3, 32768, 750000, 18750, 11, -1, -1, 63, 58, 1, 7, 8, 0, 9343, 1, -1, -1, 21619, 1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 4);
@@ -3841,6 +3846,44 @@ UPDATE mangos . item_template
 SET spellid_3 = 14127, -- +28 Spell Damage
     spelltrigger_3 = 1
 WHERE entry = 833;
+
+-- Conjured Items
+
+-- Lesser Firestone
+UPDATE mangos . item_template
+SET name = 'Lesser Demons Heart',
+    stat_type1 = 7,
+    stat_value1 = 25,
+    spellid_1 = 20555, -- Health regeneration rate increased by 10%.  10% of total Health regeneration may continue during combat.
+    spelltrigger_1 = 1
+WHERE entry = 1254;
+
+-- Demons Heart
+UPDATE mangos . item_template
+SET name = 'Demons Heart',
+    stat_type1 = 7,
+    stat_value1 = 35,
+    spellid_1 = 20555, -- Health regeneration rate increased by 10%.  10% of total Health regeneration may continue during combat.
+    spelltrigger_1 = 1
+WHERE entry = 13699;
+
+-- Greater Demons Heart
+UPDATE mangos . item_template
+SET name = 'Greater Demons Heart',
+    stat_type1 = 7,
+    stat_value1 = 45,
+    spellid_1 = 20555, -- Health regeneration rate increased by 10%.  10% of total Health regeneration may continue during combat.
+    spelltrigger_1 = 1
+WHERE entry = 13700;
+
+-- Major Demons Heart
+UPDATE mangos . item_template
+SET name = 'Major Demons Heart',
+    stat_type1 = 7,
+    stat_value1 = 55,
+    spellid_1 = 20555, -- Health regeneration rate increased by 10%.  10% of total Health regeneration may continue during combat.
+    spelltrigger_1 = 1
+WHERE entry = 13701;
 
 -- New custom items
 -- Cape of the Legion

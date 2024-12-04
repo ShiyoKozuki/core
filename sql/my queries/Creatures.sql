@@ -1,5 +1,10 @@
 -- Creatures
 
+-- Double the armor of any mob < 2.0 multiplier and > 0 multiplier
+UPDATE mangos . creature_template
+SET armor_multiplier = 2.0
+WHERE armor_multiplier < 2.0 AND armor_multiplier > 0;
+
 -- Combat Reach
 UPDATE mangos . creature_display_info_addon 
 SET combat_reach = 1
