@@ -4136,8 +4136,10 @@ UPDATE mangos . item_template
 SET name = 'Lesser Demons Heart',
     stat_type1 = 7,
     stat_value1 = 25,
-    spellid_1 = 20555, -- Health regeneration rate increased by 15%.  15% of total Health regeneration may continue during combat.
-    spelltrigger_1 = 1
+    spellid_1 = 20555, -- Health regeneration rate increased by 10%.  10% of total Health regeneration may continue during combat.
+    spelltrigger_1 = 1,
+    spellid_2 = 23210, -- 16 HP/5
+    spelltrigger_2 = 1
 WHERE entry = 1254;
 
 -- Demons Heart
@@ -4146,7 +4148,9 @@ SET name = 'Demons Heart',
     stat_type1 = 7,
     stat_value1 = 35,
     spellid_1 = 20555, -- Health regeneration rate increased by 10%.  10% of total Health regeneration may continue during combat.
-    spelltrigger_1 = 1
+    spelltrigger_1 = 1,
+    spellid_2 = 23210, -- 16 HP/5
+    spelltrigger_2 = 1
 WHERE entry = 13699;
 
 -- Greater Demons Heart
@@ -4155,7 +4159,9 @@ SET name = 'Greater Demons Heart',
     stat_type1 = 7,
     stat_value1 = 45,
     spellid_1 = 20555, -- Health regeneration rate increased by 10%.  10% of total Health regeneration may continue during combat.
-    spelltrigger_1 = 1
+    spelltrigger_1 = 1,
+    spellid_2 = 23210, -- 16 HP/5
+    spelltrigger_2 = 1
 WHERE entry = 13700;
 
 -- Major Demons Heart
@@ -4164,7 +4170,9 @@ SET name = 'Major Demons Heart',
     stat_type1 = 7,
     stat_value1 = 55,
     spellid_1 = 20555, -- Health regeneration rate increased by 10%.  10% of total Health regeneration may continue during combat.
-    spelltrigger_1 = 1
+    spelltrigger_1 = 1,
+    spellid_2 = 23210, -- 16 HP/5
+    spelltrigger_2 = 1
 WHERE entry = 13701;
 
 -- New custom items
