@@ -3124,7 +3124,7 @@ WHERE entry = 6695;
 
 -- Wind Spirit Staff
 UPDATE mangos . item_template
-SET spellid_1 = 9345, -- +16 spell damage
+SET spellid_1 = 9345, -- +16 Spell damage
     spelltrigger_1 = 1
 WHERE entry = 6689;
 
@@ -4131,6 +4131,11 @@ WHERE entry = 833;
 
 -- Conjured Items
 
+-- Soulshard
+UPDATE mangos . item_template
+SET stackable = 5
+WHERE entry = 6265;
+
 -- Lesser Firestone
 UPDATE mangos . item_template
 SET name = 'Lesser Demons Heart',
@@ -4174,6 +4179,30 @@ SET name = 'Major Demons Heart',
     spellid_2 = 23210, -- 16 HP/5
     spelltrigger_2 = 1
 WHERE entry = 13701;
+
+-- Spellstone
+UPDATE mangos . item_template
+SET spellid_3 = 23727, -- +1% Spell Hit
+    spelltrigger_3 = 1
+WHERE entry = 5522;
+
+-- Greater Spellstone
+UPDATE mangos . item_template
+SET spellid_3 = 23727, -- +1% Spell Hit
+    spelltrigger_3 = 1,
+    spellid_4 = 9345, -- +16 Spell damage
+    spelltrigger_4 = 1
+WHERE entry = 13602;
+
+-- Major Spellstone
+UPDATE mangos . item_template
+SET spellid_2 = 18382, -- +2% Spell Crit
+    spelltrigger_2 = 1,
+    spellid_3 = 23729, -- +2% Spell Hit
+    spelltrigger_3 = 1,
+    spellid_4 = 15714, -- +22 Spell Damage
+    spelltrigger_4 = 1
+WHERE entry = 13603;
 
 -- New custom items
 -- Cape of the Legion
