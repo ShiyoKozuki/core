@@ -61,11 +61,24 @@ REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display
 REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `delay`, `dmg_min1`, `dmg_max1`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `sheath`, `max_durability`, `disenchant_id`) VALUES (30039, 2, 13, 'Protectors Claw', 23270, 3, 71548, 30656, 13, -1, -1, 51, 38, 2700, 55, 103, 9142, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 2, 1, 7, 65, 47);
 REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `delay`, `dmg_min1`, `dmg_max1`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `sheath`, `max_durability`, `disenchant_id`) VALUES (30040, 2, 13, 'Protectors Claw', 23270, 3, 144705, 30656, 13, -1, -1, 51, 48, 2700, 66, 124, 9331, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 2, 1, 7, 65, 47);
 REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `delay`, `dmg_min1`, `dmg_max1`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `sheath`, `max_durability`, `disenchant_id`) VALUES (30041, 2, 13, 'Protectors Claw', 23270, 3, 247162, 30656, 13, -1, -1, 51, 58, 2700, 78, 146, 9336, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 2, 1, 7, 65, 47);
-REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id`, `quality`, `flags`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_reputation_faction`, `required_reputation_rank`, `max_count`, `container_slots`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `material`) VALUES (30042, 1, 1, 'Shiyo\'s Bank Bag', 20342, 5, 32768, 2500000, 20000, 18, -1, -1, 60, 476, 7, 0, 36, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 8);
+REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id`, `quality`, `flags`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_reputation_faction`, `required_reputation_rank`, `max_count`, `container_slots`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `material`) VALUES (30042, 1, 1, 'Shiyo\'s Bank Bag', 20342, 5, 32768, 2500000, 20000, 18, -1, -1, 60, 0, 7, 0, 36, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 8);
 
 -- NEXT 30043
 
 -- Vendors
+
+-- Vendor Prices
+
+-- High level Fish (5s+)
+UPDATE mangos . item_template SET sell_price = 530 WHERE entry = 13758;
+UPDATE mangos . item_template SET sell_price = 515 WHERE entry = 13760;
+UPDATE mangos . item_template SET sell_price = 575 WHERE entry = 13754;
+UPDATE mangos . item_template SET sell_price = 595 WHERE entry = 13756;
+UPDATE mangos . item_template SET sell_price = 605 WHERE entry = 13889;
+UPDATE mangos . item_template SET sell_price = 635 WHERE entry = 13888;
+UPDATE mangos . item_template SET sell_price = 625 WHERE entry = 13893;
+UPDATE mangos . item_template SET sell_price = 500 WHERE entry = 13422;
+UPDATE mangos . item_template SET sell_price = 525 WHERE entry = 13755;
 
 -- Reagent Vendors
 INSERT IGNORE npc_vendor(entry, item)
