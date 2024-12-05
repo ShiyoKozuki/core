@@ -562,13 +562,285 @@ WHERE entry = 12945;
 
 -- Crafted
 
+-- Linen Belt
+UPDATE mangos . item_template
+SET quality = 2,
+    stat_type1 = 5,
+    stat_value1 = 3,
+    stat_type2 = 6,
+    stat_value2 = 3
+WHERE entry = 7026;
+
+-- Brown Linen Robe
+UPDATE mangos . item_template
+SET stat_type1 = 7,
+    stat_value1 = 5,
+    stat_type2 = 6,
+    stat_value2 = 5
+WHERE entry = 6238;
+
+-- White Linen Robe
+UPDATE mangos . item_template
+SET stat_type1 = 5,
+    stat_value1 = 5,
+    stat_type2 = 6,
+    stat_value2 = 5
+WHERE entry = 6241;
+
+-- Heavy Linen Gloves
+UPDATE mangos . item_template
+SET quality = 2,
+    stat_type1 = 5,
+    stat_value1 = 4,
+    stat_type2 = 6,
+    stat_value2 = 4
+WHERE entry = 4307;
+
+-- Red Linen Robe
+UPDATE mangos . item_template
+SET stat_type1 = 5,
+    stat_value1 = 7,
+    stat_type2 = 6,
+    stat_value2 = 0
+WHERE entry = 2572;
+
+-- Blue Linen Vest
+UPDATE mangos . item_template
+SET stat_type1 = 6,
+    stat_value1 = 7
+WHERE entry = 6240;
+
+-- Red Linen Vest
+UPDATE mangos . item_template
+SET stat_type1 = 7,
+    stat_value1 = 7
+WHERE entry = 6239;
+
+-- Green Linen Bracers
+UPDATE mangos . item_template
+SET quality = 2,
+    stat_type1 = 5,
+    stat_value1 = 4,
+    stat_type2 = 6,
+    stat_value2 = 4
+WHERE entry = 4308;
+
+-- Reinforced Linen Cape
+UPDATE mangos . item_template
+SET quality = 2,
+    stat_type1 = 5,
+    stat_value1 = 4,
+    stat_type2 = 6,
+    stat_value2 = 4
+WHERE entry = 2580;
+
+-- Linen Boots
+UPDATE mangos . item_template
+SET quality = 2,
+    stat_type1 = 5,
+    stat_value1 = 4,
+    stat_type2 = 6,
+    stat_value2 = 4
+WHERE entry = 2569;
+
+-- Soft-soled Linen Boots
+UPDATE mangos . item_template
+SET stat_type1 = 6,
+    stat_value1 = 4,
+    stat_type2 = 7,
+    stat_value2 = 4
+WHERE entry = 4312;
+
+-- Barbaric Linen Vest
+UPDATE mangos . item_template
+SET quality = 3,
+    stat_type1 = 6,
+    stat_value1 = 7,
+    stat_type2 = 7,
+    stat_value2 = 7
+WHERE entry = 2578;
+
+-- Blue Linen Robe
+UPDATE mangos . item_template
+SET quality = 2,
+    stat_type1 = 5,
+    stat_value1 = 5,
+    stat_type2 = 6,
+    stat_value2 = 0,
+    stat_type3 = 7,
+    stat_value3 = 5
+WHERE entry = 6242;
+
+-- Handstitched Linen Britches
+UPDATE mangos . item_template
+SET stat_type1 = 5,
+    stat_value1 = 5,
+    stat_type2 = 6,
+    stat_value2 = 5
+WHERE entry = 4309;
+
+-- Spidersilk Boots
+UPDATE mangos . item_template
+SET spellid_1 = 9395, -- +5 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 4320;
+
+-- Green Woolen Vest
+UPDATE mangos . item_template
+SET quality = 2,
+    stat_type1 = 5,
+    stat_value1 = 7,
+    stat_type2 = 6,
+    stat_value2 = 7
+WHERE entry = 2582;
+
+-- Heaven Woolen Gloves
+UPDATE mangos . item_template
+SET stat_type1 = 5,
+    stat_value1 = 6,
+    stat_type2 = 6,
+    stat_value2 = 6
+WHERE entry = 4310;
+
+-- Pearl-clasped Cloak
+UPDATE mangos . item_template
+SET quality = 3,
+    stat_type1 = 5,
+    stat_value1 = 3,
+    stat_type2 = 6,
+    stat_value2 = 3,
+    spellid_1 = 9395, -- +5 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 5542;
+
+-- Red Woolen Boots
+UPDATE mangos . item_template
+SET stat_type1 = 6,
+    stat_value1 = 5,
+    stat_type2 = 7,
+    stat_value2 = 5
+WHERE entry = 4313;
+
+-- Woolen Boots
+UPDATE mangos . item_template
+SET stat_type1 = 6,
+    stat_value1 = 8,
+    stat_type2 = 7,
+    stat_value2 = 0,
+    stat_type3 = 3,
+    stat_value3 = 0
+WHERE entry = 2583;
+
+-- Blue Overalls
+UPDATE mangos . item_template
+SET stat_type1 = 4,
+    stat_value1 = 0,
+    stat_type2 = 7,
+    stat_value2 = 10
+WHERE entry = 6263;
+
+-- Heavy Woolen Cloak
+UPDATE mangos . item_template
+SET quality = 2,
+    stat_type1 = 5,
+    stat_value1 = 6,
+    stat_type2 = 6,
+    stat_value2 = 6
+WHERE entry = 4311;
+
+-- Gray Woolen Robe
+UPDATE mangos . item_template
+SET stat_type1 = 5,
+    stat_value1 = 7,
+    stat_type2 = 7,
+    stat_value2 = 7
+WHERE entry = 2585;
+
+-- Double-stitched Woolen Shoulders
+UPDATE mangos . item_template
+SET quality = 2,
+    stat_type1 = 5,
+    stat_value1 = 4,
+    stat_type2 = 6,
+    stat_value2 = 4
+WHERE entry = 4314;
+
+-- Heavy Woolen Pants
+UPDATE mangos . item_template
+SET stat_type1 = 5,
+    stat_value1 = 5,
+    stat_type2 = 6,
+    stat_value2 = 8
+WHERE entry = 4316;
+
+-- Greater Adept's Robe
+UPDATE mangos . item_template
+SET stat_type1 = 5,
+    stat_value1 = 5,
+    stat_type2 = 6,
+    stat_value2 = 5,
+    stat_type3 = 7,
+    stat_value3 = 7
+WHERE entry = 6264;
+
+-- Colorful Kilt
+UPDATE mangos . item_template
+SET stat_type1 = 5,
+    stat_value1 = 5,
+    stat_type2 = 7,
+    stat_value2 = 8,
+    stat_type3 = 3,
+    stat_value3 = 0
+WHERE entry = 10048;
+
+-- Reinforced Woolen Shoulders
+UPDATE mangos . item_template
+SET quality = 2,
+    stat_type1 = 5,
+    stat_value1 = 2,
+    stat_type2 = 7,
+    stat_value2 = 6
+WHERE entry = 4315;
+
+-- Gloves of Meditation
+UPDATE mangos . item_template
+SET quality = 3,
+    stat_type1 = 6,
+    stat_value1 = 10,
+    spellid_1 = 21361, -- 3 MP/5
+    spelltrigger_1 = 1
+WHERE entry = 4318;
+
+-- Lesser Wizard's Robe
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 9395, -- +5 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 5766;
+
+-- Robes of Arcana
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 7680, -- +13 Healing
+    spelltrigger_1 = 1
+WHERE entry = 5770;
+
+-- Enchanter's Cowl
+UPDATE mangos . item_template
+SET quality = 3,
+    stat_type1 = 5,
+    stat_value1 = 4,
+    spellid_1 = 9395, -- +5 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 4322;
+
 -- Heavy Earthen Gloves
 UPDATE mangos . item_template
 SET quality = 3,
     armor = 150,
     stat_type1 = 7,
     stat_value1 = 8
-WHERE entry = 7359;
+WHERE entry = 5770;
 
 -- Toughened Leather Gloves
 UPDATE mangos . item_template
@@ -592,8 +864,8 @@ SET quality = 4,
     stat_value1 = 22,
     stat_type2 = 4,
     stat_value2 = 25,
-    stat_type2 = 7,
-    stat_value2 = 22,
+    stat_type3 = 7,
+    stat_value3 = 22,
     spellid_2 = 7597, -- +1% Physical Crit
     spelltrigger_2 = 1
 WHERE entry = 8348;
