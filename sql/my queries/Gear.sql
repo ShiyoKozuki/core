@@ -80,12 +80,17 @@ UPDATE mangos . item_template SET sell_price = 625 WHERE entry = 13893;
 UPDATE mangos . item_template SET sell_price = 500 WHERE entry = 13422;
 UPDATE mangos . item_template SET sell_price = 525 WHERE entry = 13755;
 
+-- T4 Scroll buy prices
+UPDATE mangos.item_template
+SET buy_price = 2000
+WHERE entry IN (10310, 10309, 10307, 10308, 10305);
+
 -- Reagent Vendors
 INSERT IGNORE npc_vendor(entry, item)
 SELECT creature_template.entry, item_template.entry
 FROM (SELECT DISTINCT entry FROM creature_template) creature_template
 JOIN (SELECT DISTINCT entry FROM item_template) item_template
-WHERE creature_template.entry IN (3323, 1307, 1351, 16015, 3335, 4878, 2805, 1257, 3351, 3490, 4083, 8361, 5151, 3562, 12784, 12795, 13476, 1275, 5110, 4575, 983, 958, 4562, 12096, 1308, 3500, 3700, 10364, 12097, 1463, 1673, 3970, 5139, 3542, 4220, 14739, 15175) AND item_template.entry IN (5512, 5511, 5509, 5510, 9421, 16896);
+WHERE creature_template.entry IN (3323, 1307, 1351, 16015, 3335, 4878, 2805, 1257, 3351, 3490, 4083, 8361, 5151, 3562, 12784, 12795, 13476, 1275, 5110, 4575, 983, 958, 4562, 12096, 1308, 3500, 3700, 10364, 12097, 1463, 1673, 3970, 5139, 3542, 4220, 14739, 15175) AND item_template.entry IN (5512, 5511, 5509, 5510, 9421, 16896, 10310, 10309, 10307, 10308, 10305);
 
 
 -- Silverwing Rep Vendor (WSG)
@@ -565,6 +570,7 @@ WHERE entry = 12945;
 -- Linen Belt
 UPDATE mangos . item_template
 SET quality = 2,
+    bonding = 2,
     stat_type1 = 5,
     stat_value1 = 3,
     stat_type2 = 6,
@@ -590,6 +596,7 @@ WHERE entry = 6241;
 -- Heavy Linen Gloves
 UPDATE mangos . item_template
 SET quality = 2,
+    bonding = 2,
     stat_type1 = 5,
     stat_value1 = 4,
     stat_type2 = 6,
@@ -619,6 +626,7 @@ WHERE entry = 6239;
 -- Green Linen Bracers
 UPDATE mangos . item_template
 SET quality = 2,
+    bonding = 2,
     stat_type1 = 5,
     stat_value1 = 4,
     stat_type2 = 6,
@@ -628,6 +636,7 @@ WHERE entry = 4308;
 -- Reinforced Linen Cape
 UPDATE mangos . item_template
 SET quality = 2,
+    bonding = 2,
     stat_type1 = 5,
     stat_value1 = 4,
     stat_type2 = 6,
@@ -637,6 +646,7 @@ WHERE entry = 2580;
 -- Linen Boots
 UPDATE mangos . item_template
 SET quality = 2,
+    bonding = 2,
     stat_type1 = 5,
     stat_value1 = 4,
     stat_type2 = 6,
@@ -663,6 +673,7 @@ WHERE entry = 2578;
 -- Blue Linen Robe
 UPDATE mangos . item_template
 SET quality = 2,
+    bonding = 2,
     stat_type1 = 5,
     stat_value1 = 5,
     stat_type2 = 6,
@@ -688,6 +699,7 @@ WHERE entry = 4320;
 -- Green Woolen Vest
 UPDATE mangos . item_template
 SET quality = 2,
+    bonding = 2,
     stat_type1 = 5,
     stat_value1 = 7,
     stat_type2 = 6,
@@ -742,6 +754,7 @@ WHERE entry = 6263;
 -- Heavy Woolen Cloak
 UPDATE mangos . item_template
 SET quality = 2,
+    bonding = 2,
     stat_type1 = 5,
     stat_value1 = 6,
     stat_type2 = 6,
@@ -759,6 +772,7 @@ WHERE entry = 2585;
 -- Double-stitched Woolen Shoulders
 UPDATE mangos . item_template
 SET quality = 2,
+    bonding = 2,
     stat_type1 = 5,
     stat_value1 = 4,
     stat_type2 = 6,
@@ -796,6 +810,7 @@ WHERE entry = 10048;
 -- Reinforced Woolen Shoulders
 UPDATE mangos . item_template
 SET quality = 2,
+    bonding = 2,
     stat_type1 = 5,
     stat_value1 = 2,
     stat_type2 = 7,
@@ -874,6 +889,7 @@ WHERE entry = 8348;
 -- boots
 UPDATE mangos . item_template
 SET quality = 2,
+    bonding = 2,
     stat_type1 = 3,
     stat_value1 = 6,
     stat_type2 = 7,
@@ -883,6 +899,7 @@ WHERE entry = 2315;
 -- shoulders
 UPDATE mangos . item_template
 SET quality = 2,
+    bonding = 2,
     stat_type1 = 3,
     stat_value1 = 7,
     stat_type2 = 7,
@@ -892,6 +909,7 @@ WHERE entry = 4252;
 -- gloves
 UPDATE mangos . item_template
 SET quality = 2,
+    bonding = 2,
     stat_type1 = 3,
     stat_value1 = 6,
     stat_type2 = 7,
@@ -901,6 +919,7 @@ WHERE entry = 4248;
 -- belt
 UPDATE mangos . item_template
 SET quality = 2,
+    bonding = 2,
     stat_type1 = 3,
     stat_value1 = 6,
     stat_type2 = 7,
@@ -910,6 +929,7 @@ WHERE entry = 4249;
 -- pants
 UPDATE mangos . item_template
 SET quality = 2,
+    bonding = 2,
     stat_type1 = 3,
     stat_value1 = 8,
     stat_type2 = 7,
@@ -928,6 +948,7 @@ WHERE entry = 2317;
 -- cloak
 UPDATE mangos . item_template
 SET quality = 2,
+    bonding = 2,
     stat_type1 = 3,
     stat_value1 = 6
 WHERE entry = 2316;
@@ -936,6 +957,7 @@ WHERE entry = 2316;
 -- boots
 UPDATE mangos . item_template
 SET quality = 2,
+    bonding = 2,
     spellid_1 = 9140, -- +10 Attack Power
     spelltrigger_1 = 1
 WHERE entry = 7390;
@@ -943,6 +965,7 @@ WHERE entry = 7390;
 -- body
 UPDATE mangos . item_template
 SET quality = 2,
+    bonding = 2,
     spellid_1 = 9142, -- +14 Attack Power
     spelltrigger_1 = 1
 WHERE entry = 7374;
@@ -950,6 +973,7 @@ WHERE entry = 7374;
 -- belt
 UPDATE mangos . item_template
 SET quality = 2,
+    bonding = 2,
     spellid_1 = 9140, -- +10 Attack Power
     spelltrigger_1 = 1
 WHERE entry = 7387;
@@ -1260,6 +1284,7 @@ WHERE entry = 5962;
 
 UPDATE mangos . item_template
 SET quality = 2,
+    bonding = 2,
     stat_type1 = 5,
     stat_value1 = 8,
     stat_type2 = 6,
@@ -3330,6 +3355,7 @@ WHERE entry = 1155;
 -- Ghamoo-ra's Bind
 UPDATE mangos . item_template
 SET quality = 2,
+    bonding = 2,
     stat_type1 = 7,
     stat_value1 = 0,
     stat_type2 = 5,

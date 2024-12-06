@@ -1,5 +1,5 @@
 -- Quests
-
+-- NEXT 30013
 -- A Lack of Fear (Fear Ward Quest)
 UPDATE mangos . quest_template 
 SET RequiredRaces = 0
@@ -8,6 +8,22 @@ WHERE entry IN(5641, 5645, 5647);
 -- Rampaging Giants
 UPDATE `mangos`.`quest_template` SET `RewRepValue1`=200 WHERE  `entry`=5981 AND `patch`=0;
 
+-- Swamp of Sorrows
+INSERT INTO `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOId2`, `ReqCreatureOrGOId3`, `ReqCreatureOrGOCount1`, `ReqCreatureOrGOCount2`, `ReqCreatureOrGOCount3`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewMoneyMaxLevel`, `OfferRewardEmote1`) VALUES (30009, 8, 35, 45, 8, 'Swamp Cleaning', 'Please, help me defend my camp from the beasts!', 'Kill 10 Marsh Inkspewers, 10 Marsh Flesheaters, and 10 Marsh Oracles, then return to Watcher Biggs in the Swamp of Sorrows.', 'The sounds of animals are now faint, more distant.  Thank you, $N.  Now let\'s hope they don\'t return!', 'Kill 10 Marsh Inkspewers, 10 Marsh Flesheaters, and 10 Marsh Oracles, then return to Watcher Biggs in the Swamp of Sorrows.', '', '', '', '', '', 750, 751, 752, 15, 15, 15, 72, 100, 3900, 1740, 4);
+REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (1396, 30009);
+REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (1396, 30009);
+UPDATE `mangos`.`quest_template` SET `RequestItemsText`='Bring 10 Monstrous Crawler Legs to Watcher Biggs in the Swamp of Sorrows.', `ReqItemId1`=6184, `ReqItemCount1`=10, `ReqCreatureOrGOId1`=0, `ReqCreatureOrGOId2`=0, `ReqCreatureOrGOId3`=0, `ReqCreatureOrGOCount1`=0, `ReqCreatureOrGOCount2`=0, `ReqCreatureOrGOCount3`=0, `RewXP`=3750 WHERE  `entry`=30010 AND `patch`=0;
+REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (1396, 30010);
+REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (1396, 30010);
+UPDATE `mangos`.`quest_template` SET `RewChoiceItemId1`=9680, `RewChoiceItemId2`=9678, `RewChoiceItemId3`=9679, `RewChoiceItemCount1`=1, `RewChoiceItemCount2`=1, `RewChoiceItemCount3`=1 WHERE  `entry`=30011 AND `patch`=0;
+REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (1396, 30011);
+REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (1396, 30011);
+INSERT INTO `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewMoneyMaxLevel`, `OfferRewardEmote1`) VALUES (30012, 8, 35, 42, 8, 'Lack of Surplus', 'The sawtooth snappers\' claws make for fine weapons when properly prepared. Bring me some of their claws and I\'ll see you\'re rewarded with one of our weapons in thanks for the fresh meat and the good company.', 'Bring 6 Sawtooth Snapper Claws to Watcher Biggs in the Swamp of Sorrows.', 'Excellent!', 'Bring 6 Sawtooth Snapper Claws to Watcher Biggs in the Swamp of Sorrows.', '', '', '', '', '', 6168, 6, 72, 100, 3450, 1740, 4);
+REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (1396, 30012);
+REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (1396, 30012);
+
+-- needs 8463 to be lootable if on quest 30011
+-- buff 3 Tok'kar's weapons
 
 -- Blasted Lands
 REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (8716, 30007, 20);

@@ -138,9 +138,9 @@ SET ChanceOrQuestChance = 20
 WHERE item IN(5134, 11407, 4582, 5117, 11404, 19933);
 
 -- Cloth
--- 20%
+-- 45%
 UPDATE mangos . creature_loot_template
-SET ChanceOrQuestChance = 20
+SET ChanceOrQuestChance = 45
 WHERE item IN(2589, 2592, 4306, 4338, 14047) AND ChanceOrQuestChance >= 20;
 
 -- Food & Drink
