@@ -239,8 +239,8 @@ WHERE entry = 12296;
 
 -- Moonstone Wand (The Blackwood Corrupted)
 UPDATE mangos . item_template
-SET dmg_min1 = 26,
-    dmg_max1 = 46,
+SET dmg_min1 = 20,
+    dmg_max1 = 40,
     stat_type1 = 6,
     stat_value1 = 5
 WHERE entry = 15204;
