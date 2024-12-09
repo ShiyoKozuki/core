@@ -63,9 +63,9 @@ REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display
 REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `delay`, `dmg_min1`, `dmg_max1`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `sheath`, `max_durability`, `disenchant_id`) VALUES (30040, 2, 13, 'Protectors Claw', 23270, 3, 144705, 30656, 13, -1, -1, 51, 48, 2700, 66, 124, 9331, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 2, 1, 7, 65, 47);
 REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `delay`, `dmg_min1`, `dmg_max1`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `sheath`, `max_durability`, `disenchant_id`) VALUES (30041, 2, 13, 'Protectors Claw', 23270, 3, 247162, 30656, 13, -1, -1, 51, 58, 2700, 78, 146, 9336, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 2, 1, 7, 65, 47);
 REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id`, `quality`, `flags`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_reputation_faction`, `required_reputation_rank`, `max_count`, `container_slots`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `material`) VALUES (30042, 1, 1, 'Shiyo\'s Bank Bag', 20342, 5, 32768, 2500000, 20000, 18, -1, -1, 60, 0, 7, 0, 36, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 8);
-REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id`, `quality`, `flags`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30043, 2, 12, 'Ooze Ichor', 6690, 1, 2048, -1, -1, 1, 5, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 4, -1);
-REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id`, `quality`, `flags`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30044, 2, 12, 'Daggermaw Crocolisk Skin', 3124, 1, 2048, -1, -1, 1, 10, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 4, -1);
-REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id`, `quality`, `flags`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30045, 2, 12, 'Dustwallow Spider Venom', 2048, 1, 2048, -1, -1, 1, 10, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 4, -1);
+REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id`, `quality`, `flags`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30043, 2, 12, 'Ooze Ichor', 6690, 1, 0, -1, -1, 1, 5, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 4, -1);
+REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id`, `quality`, `flags`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30044, 2, 12, 'Daggermaw Crocolisk Skin', 3124, 1, 0, -1, -1, 1, 10, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 4, -1);
+REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id`, `quality`, `flags`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30045, 2, 12, 'Dustwallow Spider Venom', 2048, 1, 0, -1, -1, 1, 10, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 4, -1);
 REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id`, `quality`, `flags`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30046, 2, 12, 'Bloodfen Claw', 3146, 1, 2048, -1, -1, 1, 10, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 4, -1);
 REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `required_reputation_faction`, `required_reputation_rank`, `stat_type1`, `stat_value1`, `stat_type2`, `stat_value2`, `delay`, `dmg_min1`, `dmg_max1`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `sheath`, `max_durability`, `disenchant_id`) VALUES (30047, 2, 10, 'Wildhammer Staff', 20379, 4, 153296, 25549, 17, -1, -1, 51, 47, 471, 5, 6, 15, 5, 12, 3000, 106, 160, 18049, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 2, 2, 90, 41);
 REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `required_reputation_faction`, `required_reputation_rank`, `delay`, `dmg_min1`, `dmg_max1`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellid_2`, `spelltrigger_2`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellid_3`, `spelltrigger_3`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `sheath`, `max_durability`, `disenchant_id`) VALUES (30048, 2, 1, 'Wildhammer Waraxe', 28719, 4, 153296, 25549, 17, -1, -1, 51, 47, 471, 5, 3700, 149, 225, 13665, 1, -1, -1, 7597, 1, -1, -1, 9336, 1, -1, -1, -1, -1, 0, 0, 1, 1, 1, 100, 48);
@@ -74,7 +74,7 @@ REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display
 REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `required_reputation_faction`, `required_reputation_rank`, `delay`, `dmg_min1`, `dmg_max1`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `sheath`, `max_durability`, `disenchant_id`) VALUES (30051, 2, 2, 15, 'Wildhammer Blade', 20574, 4, 75532, 12588, 13, -1, -1, 51, 47, 471, 5, 1800, 51, 96, 9336, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 1, 3, 65, 49);
 REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `required_reputation_faction`, `required_reputation_rank`, `delay`, `dmg_min1`, `dmg_max1`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellid_2`, `spelltrigger_2`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `sheath`, `max_durability`, `disenchant_id`) VALUES (30053, 2, 2, 6, 'Wildhammer Spear', 31174, 4, 153296, 25549, 17, -1, -1, 51, 47, 471, 5, 3400, 137, 206, 7597, 1, -1, -1, 15814, 1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 2, 2, 100, 48);
 REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `required_reputation_faction`, `required_reputation_rank`, `delay`, `dmg_min1`, `dmg_max1`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `sheath`, `max_durability`, `disenchant_id`) VALUES (30054, 2, 4, 'Wildhammer Mace', 21956, 4, 75532, 12588, 21, -1, -1, 51, 47, 471, 5, 2700, 71, 132, 9317, 1, 0, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 2, 3, 90, 48);
-REPLACE`mangos`.`item_template` (`entry`, `patch`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `required_reputation_faction`, `required_reputation_rank`, `stat_type1`, `stat_value1`, `delay`, `range_mod`, `ammo_type`, `dmg_min1`, `dmg_max1`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `max_durability`, `disenchant_id`) VALUES (30055, 8, 2, 18, 'Blackcrow', 22929, 4, 153296, 25549, 26, -1, -1, 51, 47, 471, 5, 3, 3, 3200, 100, 2, 77, 117, 15464, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, -1, 1, 2, 75, 48);
+REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `required_reputation_faction`, `required_reputation_rank`, `stat_type1`, `stat_value1`, `delay`, `range_mod`, `ammo_type`, `dmg_min1`, `dmg_max1`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `max_durability`, `disenchant_id`) VALUES (30055, 8, 2, 18, 'Blackcrow', 22929, 4, 153296, 25549, 26, -1, -1, 51, 47, 471, 5, 3, 3, 3200, 100, 2, 77, 117, 15464, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, -1, 1, 2, 75, 48);
 
 -- NEXT 30056
 
@@ -594,11 +594,98 @@ SET quality = 3,
     spelltrigger_1 = 1
 WHERE entry = 4987;
 
+-- Gemmed Gloves (Hostile Takeover)
+UPDATE mangos . item_template
+SET stat_type1 = 5,
+    stat_value1 = 7,
+    stat_type2 = 0,
+    stat_value2 = 0,
+    stat_type3 = 0,
+    stat_value3 = 0,
+    spellid_1 = 9395, -- +5 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 4121;
+
+-- Captain Rackmore's Tiller (Claim Rackmore's Treasure!)
+UPDATE mangos . item_template
+SET spellid_1 = 9395, -- +5 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 16789;
+
+-- Silkstream Cuffs (Book of the Ancients)
+UPDATE mangos . item_template
+SET stat_type1 = 5,
+    stat_value1 = 3,
+    stat_type2 = 7,
+    stat_value2 = 3,
+    stat_type3 = 0,
+    stat_value3 = 0,
+    spellid_1 = 9395, -- +5 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 16791;
+
+-- Kodo Brander (Gizelton Caravan)
+UPDATE mangos . item_template
+SET stat_type1 = 6,
+    stat_value1 = 6
+WHERE entry = 15692;
+
+-- Fizzle's Zippy Lighter (News for Fizzle)
+UPDATE mangos . item_template
+SET spellid_1 = 25975, -- +10 Spell Penetration
+    spelltrigger_1 = 1
+WHERE entry = 6729;
+
 -- Cap of the Scarlet Savant
 UPDATE mangos . item_template
 SET spellid_2 = 17367, -- +32 Spell Damage
     spelltrigger_2 = 1
 WHERE entry = 12752;
+
+-- Condor Bracers (Ghost-o-plasm Round Up)
+UPDATE mangos . item_template
+SET stat_type1 = 6,
+    stat_value1 = 3,
+    stat_type2 = 7,
+    stat_value2 = 3,
+    spellid_1 = 9395, -- +5 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 15864;
+
+-- Gnomish Zapper (Sunken Treasure)
+UPDATE mangos . item_template
+SET spellid_1 = 7680, -- +13 Healing
+    spelltrigger_1 = 1
+WHERE entry = 4547;
+
+-- Orb of Lorica (In the Name of the Light)
+UPDATE mangos . item_template
+SET spellid_1 = 7680, -- +13 Healing
+    spelltrigger_1 = 1
+WHERE entry = 11262;
+
+-- Teacher's Sash (Mazen's Behest)
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 9416, -- +11 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 10747;
+
+-- Wanderlust Boots (Mazen's Behest)
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 7680, -- +13 Healing
+    spelltrigger_1 = 1
+WHERE entry = 10748;
+
+-- Goblin Igniter (Venture Company Mining)
+UPDATE mangos . item_template
+SET arcane_res = 12,
+    fire_res = 12,
+    nature_res = 12,
+    frost_res = 12,
+    shadow_res = 12
+WHERE entry = 5253;
 
 -- Drops
 
@@ -919,7 +1006,7 @@ UPDATE mangos . item_template
 SET stat_type1 = 7,
     stat_value1 = 10,
     stat_type2 = 0,
-    stat_value2 = 0w
+    stat_value2 = 0
 WHERE entry = 6263;
 
 -- Heavy Woolen Cloak
@@ -1133,7 +1220,7 @@ WHERE entry = 7062;
 
 -- Green Silken Shoulders
 UPDATE mangos . item_template
-    stat_type1 = 5,
+SET stat_type1 = 5,
     stat_value1 = 5,
     stat_type2 = 6,
     stat_value2 = 5,
@@ -1143,7 +1230,7 @@ WHERE entry = 7057;
 
 -- Robe of Power
 UPDATE mangos . item_template
-    spellid_1 = 15714, -- +22 Spell Damage
+SET spellid_1 = 15714, -- +22 Spell Damage
     spelltrigger_1 = 1
 WHERE entry = 7054;
 
@@ -3737,6 +3824,64 @@ SET spellid_1 = 9345, -- +16 Spell damage
     spelltrigger_1 = 1
 WHERE entry = 6689;
 
+-- Scarlet Monastery
+
+-- Whitemane's Chapeau
+UPDATE mangos . item_template
+SET stat_type1 = 5,
+    stat_value1 = 9,
+    stat_type2 = 6,
+    stat_value2 = 9,
+    stat_type3 = 0,
+    stat_value3 = 0,
+    spellid_1 = 7680, -- +13 Healing
+    spelltrigger_1 = 1
+WHERE entry = 7720;
+
+-- Triune Amulet
+UPDATE mangos . item_template
+SET stat_type1 = 5,
+    stat_value1 = 4,
+    stat_type2 = 6,
+    stat_value2 = 4,
+    stat_type3 = 0,
+    stat_value3 = 0,
+    spellid_1 = 7680, -- +13 Healing
+    spelltrigger_1 = 1
+WHERE entry = 7722;
+
+-- Mograine's Might
+UPDATE mangos . item_template
+SET spellid_1 = 9345, -- +16 Spell damage
+    spelltrigger_1 = 1
+WHERE entry = 7723;
+
+-- RFD
+
+-- Glowing Eye of Mordresh
+UPDATE mangos . item_template
+SET stat_type1 = 5,
+    stat_value1 = 5,
+    stat_type2 = 6,
+    stat_value2 = 0,
+    stat_type3 = 0,
+    stat_value3 = 0,
+    spellid_1 = 9415, -- +9 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 10769;
+
+-- Robes of the Lich
+UPDATE mangos . item_template
+SET stat_type1 = 5,
+    stat_value1 = 6,
+    stat_type2 = 7,
+    stat_value2 = 12,
+    spellid_1 = 9417, -- +12 spell damage
+    spelltrigger_1 = 1
+WHERE entry = 10762;
+
+-- Uldaman
+
 -- Sunken Temple
 
 -- Firebreather
@@ -4276,9 +4421,9 @@ WHERE entry = 3400;
 -- Hardened Root Staff (What Comes Around...)
 UPDATE mangos . item_template
 SET quality = 3,
-    armor = 50
+    armor = 50,
     stat_type1 = 4,
-    stat_value1 = 11,
+    stat_value1 = 11
 WHERE entry = 1317;
 
 -- Sustaining Ring (Knowledge in the Deeps)
