@@ -6614,6 +6614,10 @@ void Aura::PeriodicTick(SpellEntry const* sProto, AuraType auraType, uint32 data
                     TriggerSpell();
                 }
             }
+            else
+            {
+                TriggerSpell();
+            }
             break;
         }
         default:

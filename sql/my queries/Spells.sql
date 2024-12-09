@@ -25,13 +25,18 @@ DELETE FROM `mangos`.`playercreateinfo_spell` WHERE  `race`=5 AND `class`=8 AND 
 DELETE FROM `mangos`.`playercreateinfo_spell` WHERE  `race`=5 AND `class`=9 AND `spell`=7744;
 
 -- Demon Skin / Demon Armor (HP Regen Tripled)
-UPDATE `mangos`.`spell_template` SET `effectBasePoints2`=8 WHERE  `entry`=687 AND `build`=5086;
-UPDATE `mangos`.`spell_template` SET `effectBasePoints2`=14 WHERE  `entry`=696 AND `build`=5086;
-UPDATE `mangos`.`spell_template` SET `effectBasePoints2`=20 WHERE  `entry`=706 AND `build`=5086;
-UPDATE `mangos`.`spell_template` SET `effectBasePoints2`=26 WHERE  `entry`=1086 AND `build`=5086;
-UPDATE `mangos`.`spell_template` SET `effectBasePoints2`=32 WHERE  `entry`=11733 AND `build`=5086;
-UPDATE `mangos`.`spell_template` SET `effectBasePoints2`=38 WHERE  `entry`=11734 AND `build`=5086;
-UPDATE `mangos`.`spell_template` SET `effectBasePoints2`=44 WHERE  `entry`=11735 AND `build`=5086;
+UPDATE `mangos`.`spell_template` SET `effectBasePoints2`=8 WHERE  `entry`=687;
+UPDATE `mangos`.`spell_template` SET `effectBasePoints2`=14 WHERE  `entry`=696;
+UPDATE `mangos`.`spell_template` SET `effectBasePoints2`=2 WHERE  `entry`=706;
+UPDATE `mangos`.`spell_template` SET `effectBasePoints2`=5 WHERE  `entry`=1086;
+UPDATE `mangos`.`spell_template` SET `effectBasePoints2`=8 WHERE  `entry`=11733;
+UPDATE `mangos`.`spell_template` SET `effectBasePoints2`=11 WHERE  `entry`=11734;
+UPDATE `mangos`.`spell_template` SET `effectBasePoints2`=14 WHERE  `entry`=11735;
+UPDATE `mangos`.`spell_template` SET `effectBasePoints3`=20 WHERE  `entry`=706;
+UPDATE `mangos`.`spell_template` SET `effectBasePoints3`=26 WHERE  `entry`=1086;
+UPDATE `mangos`.`spell_template` SET `effectBasePoints3`=32 WHERE  `entry`=11733;
+UPDATE `mangos`.`spell_template` SET `effectBasePoints3`=38 WHERE  `entry`=11734;
+UPDATE `mangos`.`spell_template` SET `effectBasePoints3`=44 WHERE  `entry`=11735;
 
 -- Curse of Weakness
 UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=-10 WHERE  `entry`=702 AND `build`=5302;
