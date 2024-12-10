@@ -366,7 +366,7 @@ SET stat_type1 = 6,
     stat_value1 = 0,
     stat_type2 = 7,
     stat_value2 = 0,
-    spellid_1 = 21347, -- +4 HP/s
+    spellid_1 = 21347, -- +4 HP/5
     spelltrigger_1 = 1,
     spellid_2 = 21360, -- 2 MP/5
     spelltrigger_2 = 1
@@ -686,6 +686,90 @@ SET arcane_res = 12,
     frost_res = 12,
     shadow_res = 12
 WHERE entry = 5253;
+
+-- Black Water Hammer (Deep Sea Salvage)
+UPDATE mangos . item_template
+SET quality = 3,
+    dmg_min1 = 66,
+    dmg_max1 = 96
+WHERE entry = 4511;
+
+-- Silent Hunter (Call to Arms)
+UPDATE mangos . item_template
+SET quality = 3,
+    dmg_min1 = 37,
+    dmg_max1 = 67
+WHERE entry = 9520;
+
+-- Skullsplitter (Call to Arms)
+UPDATE mangos . item_template
+SET quality = 3,
+    delay = 3600,
+    dmg_min1 = 111,
+    dmg_max1 = 141
+WHERE entry = 9521;
+
+-- Royal Highmark Vestments
+UPDATE mangos . item_template
+SET spellid_1 = 9408, -- +22 Healing
+    spelltrigger_1 = 1
+WHERE entry = 9649;
+
+-- Coldwater Ring (Death From Below)
+UPDATE mangos . item_template
+SET stat_type1 = 5,
+    stat_value1 = 3,
+    stat_type2 = 0,
+    stat_value2 = 0,
+    spellid_1 = 9397, -- +7 Spell damage
+    spelltrigger_1 = 1
+WHERE entry = 4550;
+
+-- Medicine Blanket (Stranglethorn Fever)
+UPDATE mangos . item_template
+SET stat_type1 = 7,
+    stat_value1 = 4,
+    stat_type2 = 0,
+    stat_value2 = 0,
+    spellid_1 = 7680, -- +13 Healing
+    spelltrigger_1 = 1
+WHERE entry = 4113;
+
+-- Chainlink Towel
+UPDATE mangos . item_template
+SET stat_type1 = 5,
+    stat_value1 = 3,
+    stat_type2 = 0,
+    stat_value2 = 0,
+    spellid_1 = 9397, -- +7 Spell damage
+    spelltrigger_1 = 1
+WHERE entry = 9648;
+
+-- Tranquil Orb
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 9408, -- +22 Healing
+    spelltrigger_1 = 1
+WHERE entry = 4125;
+
+-- Enchanted Stonecloth Bracers
+UPDATE mangos . item_template
+SET stat_type1 = 7,
+    stat_value1 = 4,
+    stat_type2 = 0,
+    stat_value2 = 0,
+    spellid_1 = 9397, -- +7 Spell damage
+    spelltrigger_1 = 1
+WHERE entry = 4979;
+
+-- Doomsayer's Robe (Solution to Doom)
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 11903, -- Restores 700 to 900 mana
+    spelltrigger_1 = 0,
+    spellcooldown_1 = 300000 -- 5 minutes
+WHERE entry = 4746;
+
 
 -- Drops
 
@@ -4473,7 +4557,7 @@ WHERE entry = 9538;
 UPDATE mangos . item_template
 SET stat_type1 = 5,
     stat_value1 = 0,
-    stat_type2 = 7,
+    stat_type2 = 0,
     stat_value2 = 0,
     spellid_1 = 7680, -- +13 Healing
     spelltrigger_1 = 1
@@ -4484,6 +4568,31 @@ UPDATE mangos . item_template
 SET spellid_1 = 25975, -- +10 Spell Penetration
     spelltrigger_1 = 1
 WHERE entry = 4197;
+
+-- Snake Hoop (Willix the Importer)
+UPDATE mangos . item_template
+SET spellid_1 = 9395, -- +5 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 6750;
+
+-- Mourning Shawl (Mortality Wanes)
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 15464, -- +1% Physical Hit
+    spelltrigger_1 = 1
+WHERE entry = 6751;
+
+-- Dragonclaw Ring (Extinguishing the Ido)
+UPDATE mangos . item_template
+SET stat_type1 = 7,
+    stat_value1 = 10,
+    stat_type2 = 0,
+    stat_value2 = 0,
+    spellid_1 = 21347, -- +4 HP/5
+    spelltrigger_1 = 1,
+    spellid_2 = 21360, -- 2 MP/5
+    spelltrigger_2 = 1
+WHERE entry = 10710;
 
 -- Brantwood Sash (A Final Blow)
 UPDATE mangos . item_template

@@ -1,11 +1,10 @@
 -- Quests
--- Arathi (Spiders / Vultures / Eles), Alterac (More syndicate quests and Yeti quests)
--- Alterac Mountains (More syndicate quests & Yetis & Elite Ogres), Blasted Lands (Ogre quests in the cave), Azshara
+-- Alterac Mountains (More syndicate quests & Yetis & Elite Ogres) Azshara
 -- Feralas (Long chain in huge ogre ruins + the cave, harpy quests, long loot quest inside Naga cave, Insect long loot quest, Gnole  killquest)
--- Crocolisk Gumbo (Tender Crocolisk Meat) from Jarl quest
 -- Rune of the Guard Captain Elite troll quest in Hinterlands
--- buff 3 Tok'kar's weapons, 9649, 9520, 9521
+-- buff 3 Tok'kar's weapons, 9649
 -- NEXT 30059
+
 -- A Lack of Fear (Fear Ward Quest)
 UPDATE mangos . quest_template 
 SET RequiredRaces = 0
