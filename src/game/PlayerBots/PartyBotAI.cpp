@@ -1067,7 +1067,8 @@ void PartyBotAI::UpdateInCombatAI()
         {
         Unit* newVictim = SelectAttackTarget(pLeader);
 
-            if (newVictim && (newVictim != pVictim))
+            if (newVictim && (newVictim != pVictim
+                && me->GetDistance(newVictim) <= 100.0f))
             {
                 if (pVictim)
                     me->AttackStop();
@@ -1528,12 +1529,9 @@ void PartyBotAI::UpdateInCombatAI_Paladin()
 
     if (Unit* pFriend = me->FindLowestHpFriendlyUnit(30.0f, 30, true, me))
     {
-        Pet* pPet = pFriend->GetPet();
-
         if (m_spells.paladin.pBlessingOfProtection &&
            !IsPhysicalDamageClass(pFriend->GetClass()) &&
             !pFriend->GetAttackers().empty() &&
-            (pFriend != pPet) &&
             CanTryToCastSpell(pFriend, m_spells.paladin.pBlessingOfProtection))
         {
             if (DoCastSpell(pFriend, m_spells.paladin.pBlessingOfProtection) == SPELL_CAST_OK)
@@ -1693,6 +1691,22 @@ void PartyBotAI::UpdateInCombatAI_Paladin()
                 if (DoCastSpell(me, m_spells.paladin.pConsecration) == SPELL_CAST_OK)
                     return;
             }
+            if (m_spells.paladin.pHolyWrath &&
+                pVictim->IsCreature() &&
+                (pVictim->GetCreatureType() == CREATURE_TYPE_UNDEAD ||
+                    pVictim->GetCreatureType() == CREATURE_TYPE_DEMON) &&
+                (me->GetAttackers().size() < 3) && // too much pushback
+                (me->GetPowerPercent(POWER_MANA) > 50.0f) &&
+                CanTryToCastSpell(pVictim, m_spells.paladin.pHolyWrath))
+            {
+                if (DoCastSpell(pVictim, m_spells.paladin.pHolyWrath) == SPELL_CAST_OK)
+                    return;
+            }
+            if (me->GetMotionMaster()->GetCurrentMovementGeneratorType() == IDLE_MOTION_TYPE
+                && !me->CanReachWithMeleeAutoAttack(pVictim))
+            {
+                me->GetMotionMaster()->MoveChase(pVictim);
+            }
             if (m_spells.paladin.pHammerOfWrath &&
                 pVictim->GetHealthPercent() < 20.0f &&
                 (me->GetPowerPercent(POWER_MANA) > 50.0f) &&
@@ -1736,22 +1750,6 @@ void PartyBotAI::UpdateInCombatAI_Paladin()
             {
                 if (DoCastSpell(pVictim, m_spells.paladin.pExorcism) == SPELL_CAST_OK)
                     return;
-            }
-            if (m_spells.paladin.pHolyWrath &&
-                pVictim->IsCreature() &&
-               (pVictim->GetCreatureType() == CREATURE_TYPE_UNDEAD ||
-                pVictim->GetCreatureType() == CREATURE_TYPE_DEMON) &&
-               (me->GetAttackers().size() < 3) && // too much pushback
-                (me->GetPowerPercent(POWER_MANA) > 50.0f) &&
-                CanTryToCastSpell(pVictim, m_spells.paladin.pHolyWrath))
-            {
-                if (DoCastSpell(pVictim, m_spells.paladin.pHolyWrath) == SPELL_CAST_OK)
-                    return;
-            }
-            if (me->GetMotionMaster()->GetCurrentMovementGeneratorType() == IDLE_MOTION_TYPE
-                && !me->CanReachWithMeleeAutoAttack(pVictim))
-            {
-                me->GetMotionMaster()->MoveChase(pVictim);
             }
         }
     }
@@ -3163,28 +3161,6 @@ void PartyBotAI::UpdateInCombatAI_Warrior()
             && !me->CanReachWithMeleeAutoAttack(pVictim))
         {
             me->GetMotionMaster()->MoveChase(pVictim);
-        }
-
-        if (me->GetLevel() < 40)
-        {
-            if (m_spells.warrior.pCleave && 
-                me->GetEnemyCountInRadiusAround(pVictim, 8.0f) > 1)
-            {
-                if (CanTryToCastSpell(pVictim, m_spells.warrior.pCleave))
-                {
-                    if (DoCastSpell(pVictim, m_spells.warrior.pCleave) == SPELL_CAST_OK)
-                        return;
-                }
-            }
-            else
-            {
-                if (m_spells.warrior.pHeroicStrike &&
-                    CanTryToCastSpell(pVictim, m_spells.warrior.pHeroicStrike))
-                {
-                    if (DoCastSpell(pVictim, m_spells.warrior.pHeroicStrike) == SPELL_CAST_OK)
-                        return;
-                }
-            }
         }
     }
     else // no victim
