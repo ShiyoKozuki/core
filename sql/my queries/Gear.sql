@@ -3147,8 +3147,7 @@ WHERE entry = 11288;
 
 -- Gravestone Scepter
 UPDATE mangos . item_template
-SET quality = 3,
-    dmg_min1 = 18,
+SET dmg_min1 = 18,
     dmg_max1 = 35,
     spellid_1 = 9395, -- +5 Spell Damage
     spelltrigger_1 = 1

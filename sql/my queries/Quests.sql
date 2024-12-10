@@ -1,10 +1,11 @@
 -- Quests
--- Arathi (Spiders / Vultures / Raptors / Earth Eles), STV North(Ogres / Murlocs), HIllsbrad (Remove cloak off yeti quest) 
--- Shimmering Flags (Insects) Alterac Mountains (Yetis & Elite Ogres), Blasted Lands, Azshara, Feralas
+-- Arathi (Spiders / Vultures / Eles), Alterac (More syndicate quests and Yeti quests)
+-- Alterac Mountains (More syndicate quests & Yetis & Elite Ogres), Blasted Lands (Ogre quests in the cave), Azshara
+-- Feralas (Long chain in huge ogre ruins + the cave, harpy quests, long loot quest inside Naga cave, Insect long loot quest, Gnole  killquest)
 -- Crocolisk Gumbo (Tender Crocolisk Meat) from Jarl quest
 -- Rune of the Guard Captain Elite troll quest in Hinterlands
 -- buff 3 Tok'kar's weapons, 9649
--- NEXT 30039
+-- NEXT 30044
 -- A Lack of Fear (Fear Ward Quest)
 UPDATE mangos . quest_template 
 SET RequiredRaces = 0
@@ -52,6 +53,22 @@ REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (2382, 30038);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (2382, 30038);
 
 -- Arathi Highlands
+REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewMoneyMaxLevel`) VALUES (30039, 45, 30, 31, 8, 'Foul Magic', ' have felt a strangeness in the air... a feeling that simmers in my blood. I had my suspicions. I set off to find the source of my unease and discovered to the west, at Northfold Manor, the residual traces of demonic summoning. As I got close, my blood began to boil and the rage within me grew.', 'Get 10 Bloodstone Amulets for Captain Nials at Refuge Pointe.', 'Very good, $N.  With the deaths of those Syndicate members we should have an easier time receiving supplies from Southshore.$B$BPerhaps our cause yet has hope.', 'Get 10 Bloodstone Amulets for Captain Nials at Refuge Pointe.', '', '', '', '', '', 4495, 10, 72, 100, 2650, 1500);
+REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (2700, 30039);
+REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (2700, 30039);
+REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `NextQuestId`, `NextQuestInChain`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewMoneyMaxLevel`) VALUES (30040, 45, 29, 34, 8, 0, 30041, 'Raptor Slaughter', 'Between the Ogres, Trolls, and Syndicate we can\'t spare the forces to also deal with the raptors. Thin out their numbers for us.', 'Acquire 10 Highland Raptor Eyes from Highland Striders and Highland Thrashers for Captain Nials at Refuge Pointe.', 'Very good, $N.  You have been a great help!', 'Acquire 10 Highland Raptor Eyes from Highland Striders and Highland Thrashers for Captain Nials at Refuge Pointe.', '', '', '', '', '', 4512, 10, 72, 100, 2700, 1500);
+REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (2700, 30040);
+REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (2700, 30040);
+REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `PrevQuestId`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewMoneyMaxLevel`) VALUES (30041, 45, 29, 37, 8, 30040, 'Raptor Slaughter II', 'You did good last time, but there\'s more raptors to the south. Take care of those as well. ', 'Acquire 12 Raptor Hearts from Highland Fleshstalkers for  Captain Nials at Refuge Pointe.', 'Now the raptor threat has been successfully culled.', 'Acquire 12 Raptor Hearts from Highland Fleshstalkers for  Captain Nials at Refuge Pointe.', '', '', '', '', '', 4513, 12, 72, 100, 2850, 1500);
+REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (2700, 30041);
+REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (2700, 30041);
+
+REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `NextQuestInChain`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewMoneyMaxLevel`) VALUES (30042, 45, 26, 32, 8, 30043, 'Vulture Pruning', 'Everytime I try to cook a nice meal, vultures swoop in and take it all! Can you please help me?', 'Kill 15 Young Mesa Buzards for Vikki Lonsav in Refuge Pointe.', 'Thank you!', 'Kill 15 Young Mesa Buzards for Vikki Lonsav in Refuge Pointe.', '', '', '', '', '', 2578, 15, 72, 100, 1900, 1500);
+REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (2808, 30042);
+REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (2808, 30042);
+REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `PrevQuestId`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewMoneyMaxLevel`) VALUES (30043, 45, 28, 35, 8, 30042, 'More Vulture Pruning', 'There\'s still more vultures to take care of! Please kill more vultures for me. ', 'Kill 15 Mesa Buzards for Vikki Lonsav in Refuge Pointe.', 'Thank you!', 'Kill 15 Mesa Buzards for Vikki Lonsav in Refuge Pointe.', '', '', '', '', '', 2579, 15, 72, 100, 2100, 1500);
+REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (2808, 30043);
+REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (2808, 30043);
 
 -- Dustwallow Marsh
 INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (4411, 30045, -10);
