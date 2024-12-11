@@ -431,8 +431,8 @@ WHERE entry = 5241;
 UPDATE mangos . item_template
 SET stat_type1 = 5,
     stat_value1 = 4,
-    stat_type1 = 6,
-    stat_value1 = 12
+    stat_type2 = 6,
+    stat_value2 = 12
 WHERE entry = 7106;
 
 -- Luminescent Amice(Fallen Sky Lake) 
