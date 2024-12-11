@@ -1,7 +1,7 @@
 -- Quests
 -- Alterac Mountains (More syndicate quests & Yetis & Elite Ogres) Azshara
 -- Feralas (Long chain in huge ogre ruins + the cave, harpy quests, long loot quest inside Naga cave, Insect long loot quest, Gnole  killquest)
--- Quest for the "Living" elementals. I also think there's a named one in cave? 2nd quest for that one
+-- Quest for the "Living" elementals. Mire Lord named one in cave add another quest for
 -- Rune of the Guard Captain Elite troll quest in Hinterlands
 -- buff 3 Tok'kar's weapons, 9649
 -- NEXT 30059
