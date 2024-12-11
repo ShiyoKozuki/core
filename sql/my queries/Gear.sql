@@ -75,8 +75,9 @@ REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `subclass`, `name`,
 REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `required_reputation_faction`, `required_reputation_rank`, `delay`, `dmg_min1`, `dmg_max1`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellid_2`, `spelltrigger_2`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `sheath`, `max_durability`, `disenchant_id`) VALUES (30053, 2, 2, 6, 'Wildhammer Spear', 31174, 4, 153296, 25549, 17, -1, -1, 51, 47, 471, 5, 3400, 137, 206, 7597, 1, -1, -1, 15814, 1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 2, 2, 100, 48);
 REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `required_reputation_faction`, `required_reputation_rank`, `delay`, `dmg_min1`, `dmg_max1`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `sheath`, `max_durability`, `disenchant_id`) VALUES (30054, 2, 4, 'Wildhammer Mace', 21956, 4, 75532, 12588, 21, -1, -1, 51, 47, 471, 5, 2700, 71, 132, 9317, 1, 0, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 2, 3, 90, 48);
 REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `required_reputation_faction`, `required_reputation_rank`, `stat_type1`, `stat_value1`, `delay`, `range_mod`, `ammo_type`, `dmg_min1`, `dmg_max1`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `max_durability`, `disenchant_id`) VALUES (30055, 8, 2, 18, 'Blackcrow', 22929, 4, 153296, 25549, 26, -1, -1, 51, 47, 471, 5, 3, 3, 3200, 100, 2, 77, 117, 15464, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, -1, 1, 2, 75, 48);
+REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id`, `quality`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30056, 2, 12, 'Lost One Artifact', 20784, 1, -1, -1, 1, 12, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 4, -1);
 
--- NEXT 30056
+-- NEXT 30057
 
 -- Vendors
 
@@ -1262,7 +1263,7 @@ WHERE entry = 4325;
 -- Crimson Silk Belt
 UPDATE mangos . item_template
 SET quality = 3,
-    spellid_1 = 9395, -- +5 Spell Damage
+    spellid_1 = 9415, -- +9 Spell Damage
     spelltrigger_1 = 1
 WHERE entry = 7055;
 
@@ -1273,7 +1274,7 @@ SET quality = 3,
     stat_value1 = 4,
     stat_type2 = 6,
     stat_value2 = 4,
-    spellid_1 = 9395, -- +5 Spell Damage
+    spellid_1 = 9415, -- +9 Spell Damage
     spelltrigger_1 = 1
 WHERE entry = 7056;
 
@@ -1286,7 +1287,7 @@ WHERE entry = 4326;
 
 -- Crimson Silk Shoulders
 UPDATE mangos . item_template
-SET spellid_1 = 9395, -- +5 Spell Damage
+SET spellid_1 = 9415, -- +9 Spell Damage
     spelltrigger_1 = 1
 WHERE entry = 7059;
 
@@ -1298,7 +1299,7 @@ SET quality = 2,
     stat_value1 = 6,
     stat_type2 = 6,
     stat_value2 = 6,
-    spellid_1 = 9395, -- +5 Spell Damage
+    spellid_1 = 9415, -- +9 Spell Damage
     spelltrigger_1 = 1
 WHERE entry = 7062;
 
@@ -1308,8 +1309,8 @@ SET stat_type1 = 5,
     stat_value1 = 5,
     stat_type2 = 6,
     stat_value2 = 5,
-    stat_type2 = 7,
-    stat_value2 = 6
+    stat_type3 = 7,
+    stat_value3 = 6
 WHERE entry = 7057;
 
 -- Robe of Power
@@ -1317,6 +1318,131 @@ UPDATE mangos . item_template
 SET spellid_1 = 15714, -- +22 Spell Damage
     spelltrigger_1 = 1
 WHERE entry = 7054;
+
+-- Crimson Silk Robe
+UPDATE mangos . item_template
+SET quality = 2,
+    spellid_1 = 9408, -- +22 Healing
+    spelltrigger_1 = 1
+WHERE entry = 7063;
+
+-- Earthern Silk Belt
+UPDATE mangos . item_template
+SET quality = 3,
+    stat_type1 = 6,
+    stat_value1 = 15,
+    stat_type2 = 7,
+    stat_value2 = 10
+WHERE entry = 7061;
+
+-- Icy Cloak
+UPDATE mangos . item_template
+SET spellid_1 = 9304, -- +16 Frost Damage
+    spelltrigger_1 = 1
+WHERE entry = 4327;
+
+-- Star Belt
+UPDATE mangos . item_template
+SET quality = 3,
+    stat_type1 = 5,
+    stat_value1 = 6,
+    stat_type2 = 6,
+    stat_value2 = 6
+WHERE entry = 4329;
+
+-- Black Mageweave Leggings
+UPDATE mangos . item_template
+SET spellid_1 = 9343, -- +14 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 9999;
+
+-- Black Mageweave Vest
+UPDATE mangos . item_template
+SET spellid_1 = 9343, -- +14 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 9998;
+
+-- Black Mageweave Robe
+UPDATE mangos . item_template
+SET spellid_1 = 18384, -- +1% Spell Crit
+    spelltrigger_1 = 1
+WHERE entry = 10001;
+
+-- Black Mageweave Gloves
+UPDATE mangos . item_template
+SET stat_type1 = 6,
+    stat_value1 = 6,
+    stat_type2 = 7,
+    stat_value2 = 6
+WHERE entry = 10003;
+
+-- Black Mageweave Boots
+UPDATE mangos . item_template
+SET spellid_1 = 9415, -- +9 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 10026;
+
+-- Black Mageweave Headband
+UPDATE mangos . item_template
+SET spellid_1 = 9415, -- +9 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 10024;
+
+-- Black Mageweave Shoulders
+UPDATE mangos . item_template
+SET spellid_1 = 9415, -- +9 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 10027;
+
+-- Crimson Silk Gloves
+UPDATE mangos . item_template
+SET stat_type1 = 6,
+    stat_value1 = 3,
+    stat_type2 = 7,
+    stat_value2 = 3,
+    spellid_1 = 18384, -- +1% Spell Crit
+    spelltrigger_1 = 1
+WHERE entry = 7064;
+
+-- White Bandit Mask
+UPDATE mangos . item_template
+SET stat_type1 = 6,
+    stat_value1 = 3,
+    stat_type2 = 7,
+    stat_value2 = 3,
+    spellid_1 = 18384, -- +1% Spell Crit
+    spelltrigger_1 = 1
+WHERE entry = 10008;
+
+-- Red Mageweave Pants
+UPDATE mangos . item_template
+SET spellid_1 = 9315, -- +26 Healing
+    spelltrigger_1 = 1
+WHERE entry = 10009;
+
+-- Red Mageweave Vest
+UPDATE mangos . item_template
+SET spellid_1 = 9315, -- +26 Healing
+    spelltrigger_1 = 1
+WHERE entry = 10007;
+
+-- Red Mageweave Shoulders
+UPDATE mangos . item_template
+SET spellid_1 = 7681, -- +15 Healing
+    spelltrigger_1 = 1
+WHERE entry = 10029;
+
+-- Red Mageweave Shoulders
+UPDATE mangos . item_template
+SET spellid_1 = 7681, -- +15 Healing
+    spelltrigger_1 = 1
+WHERE entry = 10033;
+
+-- Red Mageweave Gloves
+UPDATE mangos . item_template
+SET spellid_1 = 9408, -- +22 Healing
+    spelltrigger_1 = 1
+WHERE entry = 10018;
 
 -- Heavy Earthen Gloves
 UPDATE mangos . item_template
@@ -4890,6 +5016,14 @@ SET dmg_min1 = 95,
     spellid_2 = 9140, -- +10 Attack Power
     spelltrigger_2 = 1
 WHERE entry = 22656;
+
+-- Specific mob drops
+
+-- Ogremind Ring
+UPDATE mangos . item_template
+SET spellid_1 = 7680, -- +13 Healing
+    spelltrigger_1 = 1
+WHERE entry = 1993;
 
 -- Epic BOE's 
 
