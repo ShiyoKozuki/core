@@ -76,8 +76,9 @@ REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `subclass`, `name`,
 REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `required_reputation_faction`, `required_reputation_rank`, `delay`, `dmg_min1`, `dmg_max1`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `sheath`, `max_durability`, `disenchant_id`) VALUES (30054, 2, 4, 'Wildhammer Mace', 21956, 4, 75532, 12588, 21, -1, -1, 51, 47, 471, 5, 2700, 71, 132, 9317, 1, 0, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 2, 3, 90, 48);
 REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `required_reputation_faction`, `required_reputation_rank`, `stat_type1`, `stat_value1`, `delay`, `range_mod`, `ammo_type`, `dmg_min1`, `dmg_max1`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `max_durability`, `disenchant_id`) VALUES (30055, 8, 2, 18, 'Blackcrow', 22929, 4, 153296, 25549, 26, -1, -1, 51, 47, 471, 5, 3, 3, 3200, 100, 2, 77, 117, 15464, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, -1, 1, 2, 75, 48);
 REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id`, `quality`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30056, 2, 12, 'Lost One Artifact', 20784, 1, -1, -1, 1, 12, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 4, -1);
-
--- NEXT 30057
+REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id`, `quality`, `flags`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30057, 2, 12, 'Gorduuni Artifact', 26772, 1, 2048, -1, -1, 1, 10, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 4, -1);
+REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id`, `quality`, `flags`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30058, 2, 12, 'Gorduuni Orb', 16209, 1, 2048, -1, -1, 1, 10, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 4, -1);
+-- NEXT 30059
 
 -- Vendors
 
@@ -4657,6 +4658,17 @@ SET quality = 3,
     spellid_1 = 7677, -- +7 Healing
     spelltrigger_1 = 1
 WHERE entry = 7002;
+
+-- Enchanted Gold Bloodrobe (The Completed Robe)
+UPDATE mangos . item_template
+SET quality = 4,
+    stat_type1 = 7,
+    stat_value1 = 20,
+    stat_type2 = 0,
+    stat_value2 = 0,
+    spellid_1 = 18049, -- +26 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 6900;
 
 -- Mechanic's Pipehammer (Data Recsue)
 UPDATE mangos . item_template

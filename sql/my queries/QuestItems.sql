@@ -40,7 +40,7 @@ WHERE item IN(1256, 780, 752, 750, 2671, 2676, 3083, 3084, 3297, 10640, 5170, 12
 -- 100%
 UPDATE mangos . creature_loot_template
 SET ChanceOrQuestChance = -100
-WHERE item IN(5796, 5848, 6190, 11503, 11829, 14619, 12738, 13157, 17346, 7267, 6838, 6839, 6840, 6841, 6994, 6166) AND mincountOrRef = 1;
+WHERE item IN(5796, 5848, 6190, 11503, 11829, 14619, 12738, 13157, 17346, 7267, 6838, 6839, 6840, 6841, 6994, 6166, 9591, 18961) AND mincountOrRef = 1;
 
 -- Blackrock Medallion 1-10
 UPDATE mangos.creature_loot_template SET maxcount=10 WHERE item = 11467 AND mincountOrRef = 1;
