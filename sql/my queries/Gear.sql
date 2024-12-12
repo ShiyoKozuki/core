@@ -1213,9 +1213,9 @@ WHERE entry = 4321;
 UPDATE mangos . item_template
 SET stat_type1 = 5,
     stat_value1 = 5,
-    spellid_2 = 7703, -- +10 Frost spell damage
-    spelltrigger_2 = 1
-WHERE entry = 4319;
+    spellid_1 = 7703, -- +10 Frost spell damage
+    spelltrigger_1 = 1
+WHERE entry = 7048;
 
 -- Hands of Darkness
 UPDATE mangos . item_template
@@ -5021,7 +5021,8 @@ WHERE entry = 22656;
 
 -- Ogremind Ring
 UPDATE mangos . item_template
-SET spellid_1 = 7680, -- +13 Healing
+SET quality = 3,
+    spellid_1 = 7680, -- +13 Healing
     spelltrigger_1 = 1
 WHERE entry = 1993;
 
