@@ -496,14 +496,14 @@ REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (8379, 30116);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (8379, 30116);
 REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (7864, 30067, -100); -- 20%
 
---TODO: 
+-- TODO: 
 -- https://www.wowhead.com/classic/npc=6201/legashi-rogue
 -- https://www.wowhead.com/classic/npc=6200/legashi-satyr
 -- https://www.wowhead.com/classic/npc=6202/legashi-hellcaller
 -- https://www.wowhead.com/classic/npc=6378/thunderhead-skystormer
 -- Add Naga bosses to The Shattered Strand. One can go at X: 3664 Y: -5770 Z: 11, and all the other structures
 
-Next NPC:
+-- Next NPC:
 -- https://www.wowhead.com/classic/npc=8420/kimjael
 
 -- REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (8379, 30117);
