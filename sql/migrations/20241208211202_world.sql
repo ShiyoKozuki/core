@@ -200,7 +200,7 @@ UPDATE `gameobject` SET `animprogress` = 100 WHERE `guid` IN (35876, 82575);
 
 -- Respawn Winter Veil Credit Oroxzy https://github.com/vmangos/core/pull/1288
 SET @FEAST_OF_WINTER_VEIL_EVENT = 2;
-SET @FEAST_OF_WINTER_VEIL_OGUID = 257528;
+SET @FEAST_OF_WINTER_VEIL_OGUID = 75000;
 
 DELETE FROM `gameobject` WHERE `guid` IN (SELECT `guid` FROM `game_event_gameobject` WHERE `event`=@FEAST_OF_WINTER_VEIL_EVENT);
 DELETE FROM `game_event_gameobject` WHERE `event`=@FEAST_OF_WINTER_VEIL_EVENT;
