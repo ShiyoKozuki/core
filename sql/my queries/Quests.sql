@@ -2,7 +2,7 @@
 -- Feralas - Add 1 more quest for hippogryphs
 -- South STV
 -- Tanaris Basilisks north (5419, 5420) (Two turtle places [5431, 14123], mostly south tanaris [5430, 5427, 5424, 5421], many more ogre quests, elite giants by Uldum, Coast Strider/ Deep Dweller (Elites) and LOTS for the insect caves)
--- Azshara - Wildlife: (8759, 8762, 8760, 8761) Ooze: 8766 Turtles: (6352, 6369) Hippo: 6377 Cracklaws: (6135, 6370, 6350, 6137) Murloc: 6138 Hydra: 6348 Chimaera: 8764 Shark: 12125 Giant Strider: 6144
+-- Azshara - Wildlife: (8759, 8762, 8760, 8761) Ooze: 8766 Turtles: (6352, 6369) Hippo: 6377 Cracklaws: (6135, 6370, 6350, 6137) Murloc: 6138 Hydra: 6348 Chimaera: (8763, 8764) Shark: 12125 Giant Strider: 6144
 -- Blasted Lands
 -- Deadwind Pass
 -- Felwood
@@ -19,7 +19,9 @@
 -- buff 3 Tok'kar's weapons, 9649, 11859, 9660, 9658, 9666, 9665
 -- Add new custom item rewards to a lot of quests (especially end of chains missing rewards)
 -- Hydraxian waterlolrds rep vendor and killing stuff here gives rep? or just eles in general and https://www.wowhead.com/classic/quest=3507/betrayed 
--- NEXT 30080
+-- level 42~45 quests in hinterlands/feralas give ~4200 exp, level 48~50 quests give 4900 exp
+-- NEXT quest_template 30099
+-- NEXT creature_template 90039
 
 -- A Lack of Fear (Fear Ward Quest)
 UPDATE mangos . quest_template 
@@ -322,13 +324,13 @@ REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (5385, 30002);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (5385, 30002);
 
 -- Feralas
-REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewOrReqMoney`) VALUES (30080, 357, 40, 45, 8, 'Hating the Hatecrest I', 'Push into the south island and wipe out as many naga as you can.', 'Kill 15 Hatecrest Serpent Guard for Latronicus Moonspear in Feathermoon Stronghold.', 'This should help slow down the naga.', 'Did you kill the nagas yet?', '', '', '', '', '', 5333, 20, 72, 100, 3000, 3500);
+REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewOrReqMoney`) VALUES (30080, 357, 40, 45, 8, 'Hating the Hatecrest I', 'Push into the south island and wipe out as many naga as you can.', 'Kill 15 Hatecrest Serpent Guards for Latronicus Moonspear in Feathermoon Stronghold.', 'This should help slow down the naga.', 'Did you kill the nagas yet?', '', '', '', '', '', 5333, 20, 72, 100, 3000, 3500);
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (7877, 30080);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (7877, 30080);
 REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewOrReqMoney`) VALUES (30081, 357, 40, 45, 8, 'Hating the Hatecrest II', 'Push into the south island and wipe out as many naga as you can.', 'Kill 15 Hatecrest Sorceress for Latronicus Moonspear in Feathermoon Stronghold.', 'This should help slow down the naga.', 'Did you kill the nagas yet?', '', '', '', '', '', 5336, 15, 72, 100, 3000, 3000);
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (7877, 30081);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (7877, 30081);
-REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewOrReqMoney`) VALUES (30082, 357, 40, 45, 8, 'Hating the Hatecrest III', 'Push into the south island and wipe out as many naga as you can.', 'Kill 15 Hatecrest Myrmidon for Latronicus Moonspear in Feathermoon Stronghold.', 'This should help slow down the naga.', 'Did you kill the nagas yet?', '', '', '', '', '', 5334, 15, 72, 100, 3000, 2500);
+REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewOrReqMoney`) VALUES (30082, 357, 40, 45, 8, 'Hating the Hatecrest III', 'Push into the south island and wipe out as many naga as you can.', 'Kill 15 Hatecrest Myrmidons for Latronicus Moonspear in Feathermoon Stronghold.', 'This should help slow down the naga.', 'Did you kill the nagas yet?', '', '', '', '', '', 5334, 15, 72, 100, 3000, 2500);
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (7877, 30082);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (7877, 30082);
 
@@ -399,7 +401,122 @@ REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLeve
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (7765, 30098);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (7765, 30098);
 
+-- Azshara
+UPDATE `mangos`.`quest_template` SET `NextQuestInChain`=30099 WHERE  `entry`=5536 AND `patch`=0;
+REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `PrevQuestId`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewXP`, `RewOrReqMoney`, `RewMoneyMaxLevel`, `DetailsEmote1`, `DetailsEmote2`, `IncompleteEmote`, `CompleteEmote`, `OfferRewardEmote1`, `OfferRewardEmote2`) VALUES (30099, 16, 45, 47, 8, 5536, 'A Land Filled with Hatred', 'The satyrs hold an interseting object. I would like you to collect them so I can study them.', 'Gather 12 Fel Rocks then return to Loh\'atu on the border of Ashenvale.', 'Well done, $c. I see you\'re not only skilled but cunning. To defeat such creatures is a testament to your loyalty to the tenants of the Earthmother, even if you do not recognize her as your own deity. She is in all things on this planet and beyond. Her eyes, one dark and one light, travel across the skies always gazing down upon us.$B$BPlease, take this small amount of coin in appreciation for what you have done.', 'Have you gathered the stones yet?', '', '', '', '', '', 30060, 12, 4200, 2500, 2520, 1, 1, 1, 1, 2, 1);
+REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (11548, 30099);
+REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (11548, 30099);
+REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (6125, 30060, -20);
+REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (6126, 30060, -20);
+REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (6127, 30060, -20);
 
+UPDATE `mangos`.`quest_template` SET `NextQuestInChain`=30100 WHERE  `entry`=5535 AND `patch`=0;
+REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `PrevQuestId`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewXP`, `RewOrReqMoney`, `RewMoneyMaxLevel`, `DetailsEmote1`, `DetailsEmote2`, `IncompleteEmote`, `CompleteEmote`, `OfferRewardEmote1`, `OfferRewardEmote2`) VALUES (30100, 16, 45, 47, 8, 5535, 'Spiritual Unrest', 'I would like to you to collect objects from the nearby highborne so I can perhaps discover something new from them.', 'Gather 12 Elven Keepsakes then return to Loh\'atu in Azshara.', 'Hopefully there are new things to discover from these!', 'Have you gathered all the keepsakes yet?', '', '', '', '', '', 30061, 12, 4200, 2500, 2520, 1, 1, 6, 6, 1, 1);
+REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (11548, 30100);
+REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (11548, 30100);
+REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (6116, 30061, -20);
+REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (6117, 30061, -20);
+
+REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewXP`, `RewMoneyMaxLevel`, `DetailsEmote1`, `DetailsEmote2`, `IncompleteEmote`, `CompleteEmote`, `OfferRewardEmote1`, `OfferRewardEmote2`) VALUES (30101, 16, 45, 47, 8, 'Moose Hunting', 'The Mosshoof Runners to the north west of here have antlers with restorative property. Gather some for me.', 'Gather 5 Moose Antlers then return to Brinna Valanaar in Azshara.', 'This will do nicely, thank you.', 'Have you gathered all the antlers?', '', '', '', '', '', 30062, 5, 4200, 2520, 1, 1, 6, 6, 1, 1);
+REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (14301, 30101);
+REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (14301, 30101);
+REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (8759, 30062, -100); -- 10%
+
+REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewXP`, `RewMoneyMaxLevel`, `DetailsEmote1`, `DetailsEmote2`, `IncompleteEmote`, `CompleteEmote`, `OfferRewardEmote1`, `OfferRewardEmote2`) VALUES (30102, 16, 45, 48, 8, 'Hippogryph Beaks', 'The Thunderhead Hippogryph to the north west of here have sharp beaks that are excellent for making bows and spears. Gather me some so our forces can be strengthed in our battle against the horde of the warsong.', 'Gather 5 Hippogryph Beaks then return to Brinna Valanaar in Azshara.', 'This will do nicely, thank you.', 'Have you gathered all the beaks', '', '', '', '', '', 30063, 5, 4200, 2520, 1, 1, 6, 6, 1, 1);
+REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (14301, 30102);
+REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (14301, 30102);
+REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (6375, 30063, -100); -- 10%
+
+REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `NextQuestId`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOId2`, `ReqCreatureOrGOCount1`, `ReqCreatureOrGOCount2`, `RewXP`, `RewMoneyMaxLevel`, `DetailsEmote1`, `DetailsEmote2`, `IncompleteEmote`, `CompleteEmote`, `OfferRewardEmote1`, `OfferRewardEmote2`) VALUES (30103, 16, 45, 48, 8, 30104, 'At War with the Spitelash', 'The spitelash naga have been getting overly zealous and expanding their territorial control all over azshara. They are getting far too close to our camp, which puts Ashenvale at risk. Push them back.', 'Kill 15 Spitelash Warriors and 15 Spitelash Screamer then return to Brinna Valanaar in Azshara.', 'You have done well.', 'Have you killed the spitelash?', '', '', '', '', '', 6190, 6193, 15, 15, 4200, 2520, 1, 1, 6, 6, 1, 1);
+REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (14301, 30103);
+REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (14301, 30103);
+
+-- Add custom gear rewards here
+REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `PrevQuestId`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemId2`, `ReqItemCount1`, `ReqItemCount2`, `RewXP`, `RewMoneyMaxLevel`, `DetailsEmote1`, `DetailsEmote2`, `IncompleteEmote`, `CompleteEmote`, `OfferRewardEmote1`, `OfferRewardEmote2`) VALUES (30104, 16, 45, 48, 8, 30103, 'At War with the Spitelash', 'The spitelash are back. It seems killing them was not enough. We will have to take up arms against them as well. Kill them, and gather their weapons for us to use against them.', 'Gather 6 Spitelash Spears and 6 Spitelash Maces then return to Brinna Valanaar in Azshara.', 'This is exactly what we need! Good job!', 'Have you gathered their weapons for us?', '', '', '', '', '', 30064, 30065, 6, 6, 4200, 2520, 1, 1, 6, 6, 1, 1);
+REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (14301, 30104);
+REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (14301, 30104);
+REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (6190, 30064, -100); -- 20%
+REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (6193, 30065, -100); -- 20%
+
+REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOId2`, `RewXP`, `RewMoneyMaxLevel`, `DetailsEmote1`, `DetailsEmote2`, `IncompleteEmote`, `CompleteEmote`, `OfferRewardEmote1`, `OfferRewardEmote2`) VALUES (30105, 16, 45, 53, 8, 'Operation Azshara: Part 1', 'Azshara is full of wildlife. They may look peaceful but in reality they will attack you if you try to contest their territory. Start clearing them out so we can expand our operations into Azshara.', 'Kill 20 Mosshoof Courser then return to Brinna Valanaar in Azshara.', 'This will help speed up our expansion into Azshara.', 'Have you killed the mosshoof?', '', '', '', '', '', 8761, 20, 5200, 2520, 1, 1, 6, 6, 1, 1);
+REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (14301, 30105);
+REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (14301, 30105);
+
+REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOId2`, `RewXP`, `RewMoneyMaxLevel`, `DetailsEmote1`, `DetailsEmote2`, `IncompleteEmote`, `CompleteEmote`, `OfferRewardEmote1`, `OfferRewardEmote2`) VALUES (30106, 16, 45, 50, 8, 'Operation Azshara: Part 2', 'Azshara is full of wildlife. They may look peaceful but in reality they will attack you if you try to contest their territory. Start clearing them out so we can expand our operations into Azshara.', 'Kill 20 Thunderhead Stagwing then return to Brinna Valanaar in Azshara.', 'This will help speed up our expansion into Azshara.', 'Have you killed the hippogryphs?', '', '', '', '', '', 6377, 20, 5200, 2520, 1, 1, 6, 6, 1, 1);
+REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (14301, 30106);
+REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (14301, 30106);
+
+REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOId2`, `RewXP`, `RewMoneyMaxLevel`, `DetailsEmote1`, `DetailsEmote2`, `IncompleteEmote`, `CompleteEmote`, `OfferRewardEmote1`, `OfferRewardEmote2`) VALUES (30107, 16, 45, 50, 8, 'Operation Azshara: Part 3', 'Azshara is full of wildlife. They may look peaceful but in reality they will attack you if you try to contest their territory. Start clearing them out so we can expand our operations into Azshara.', 'Kill 20 Mistwing Rogue then return to Brinna Valanaar in Azshara.', 'This will help speed up our expansion into Azshara.', 'Have you killed the chimaeras?', '', '', '', '', '', 8763, 20, 5200, 2520, 1, 1, 6, 6, 1, 1);
+REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (14301, 30107);
+REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (14301, 30107);
+
+-- Custom gear rewards from these quests
+REPLACE `mangos`.`creature_template` (`entry`, `patch`, `name`, `subname`, `level_min`, `level_max`, `faction`, `npc_flags`, `display_id1`, `display_probability1`, `display_total_probability`, `type`, `unit_class`, `health_multiplier`, `equipment_id`, `static_flags1`, `flags_extra`) VALUES (90037, 1, 'Kyuni', 'Bowyer', 45, 45, 80, 16388, 4399, 1, 1, 7, 1, 1.2, 4190, 138936326, 2);
+REPLACE `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000039, 90037, 0, 0, 0, 0, 1, 2693.56, -3889.35, 109.274, 0.883703, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
+
+REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `Type`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOId2`, `RewXP`, `RewMoneyMaxLevel`, `DetailsEmote1`, `DetailsEmote2`, `IncompleteEmote`, `CompleteEmote`, `OfferRewardEmote1`, `OfferRewardEmote2`) VALUES (30108, 16, 48, 54, 1, 8, ' Azure Dragons Of Azshara I', 'The azure dragonkin have taken up camp in Azshara and are trying to summon their elder dragons into it. Rid them of this place before they can summon them.', 'Kill 20 Draconic Mageweavers for Kyuni in Azshara.', 'Hopefully this will interrupt their operations.', 'Have you killed the azure dragons?', '', '', '', '', '', 6131, 20, 6500, 5500, 1, 1, 6, 6, 1, 1);
+REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90037, 30108);
+REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90037, 30108);
+
+REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `Type`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOId2`, `RewXP`, `RewMoneyMaxLevel`, `DetailsEmote1`, `DetailsEmote2`, `IncompleteEmote`, `CompleteEmote`, `OfferRewardEmote1`, `OfferRewardEmote2`) VALUES (30109, 16, 48, 54, 1, 8, ' Azure Dragons Of Azshara II', 'The azure dragonkin have taken up camp in Azshara and are trying to summon their elder dragons into it. Rid them of this place before they can summon them.', 'Kill 20 Blue Dragonspawns for Kyuni in Azshara.', 'Hopefully this will interrupt their operations.', 'Have you killed the azure dragons?', '', '', '', '', '', 193, 20, 6500, 5500, 1, 1, 6, 6, 1, 1);
+REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90037, 30109);
+REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90037, 30109);
+
+REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `Type`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOId2`, `RewXP`, `RewMoneyMaxLevel`, `DetailsEmote1`, `DetailsEmote2`, `IncompleteEmote`, `CompleteEmote`, `OfferRewardEmote1`, `OfferRewardEmote2`) VALUES (30110, 16, 48, 54, 1, 8, ' Azure Dragons Of Azshara III', 'The azure dragonkin have taken up camp in Azshara and are trying to summon their elder dragons into it. Rid them of this place before they can summon them.', 'Kill 12 Blue Scalebanes for Kyuni in Azshara.', 'Hopefully this will interrupt their operations.', 'Have you killed the azure dragons?', '', '', '', '', '', 6130, 12, 6500, 7500, 1, 1, 6, 6, 1, 1);
+REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90037, 30110);
+REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90037, 30110);
+
+REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `Type`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOId2`, `RewXP`, `RewMoneyMaxLevel`, `DetailsEmote1`, `DetailsEmote2`, `IncompleteEmote`, `CompleteEmote`, `OfferRewardEmote1`, `OfferRewardEmote2`) VALUES (30111, 16, 48, 54, 1, 8, ' Azure Dragons Of Azshara IV', 'The azure dragonkin have taken up camp in Azshara and are trying to summon their elder dragons into it. Rid them of this place before they can summon them.', 'Kill 6 Draconic Magelords for Kyuni in Azshara.', 'Hopefully this will interrupt their operations.', 'Have you killed the azure dragons?', '', '', '', '', '', 6129, 6, 7100, 12500, 1, 1, 6, 6, 1, 1);
+REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90037, 30111);
+REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90037, 30111);
+
+-- Custom gear reward
+REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `Type`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewXP`, `DetailsEmote1`, `DetailsEmote2`, `IncompleteEmote`, `CompleteEmote`, `OfferRewardEmote1`, `OfferRewardEmote2`) VALUES (30112, 16, 48, 53, 1, 8, 'Giant Medicine', 'There are many giants the size of mountains roaming around Azshara. They grow moss on their back with great medical properties. Take out these giants and collect their moss.', 'Gather 12 Mountain Giant Moss for Kyuni  in Azshara.', 'This is exactly what I need!', 'Have you gathered all the moss?', '', '', '', '', '', 30066, 6, 6500, 1, 1, 6, 6, 1, 1);
+REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90037, 30112);
+REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90037, 30112);
+REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (6148, 30066, -100); -- 10%
+
+REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOCount1`, `RewXP`, `DetailsEmote1`, `DetailsEmote2`, `IncompleteEmote`, `CompleteEmote`, `OfferRewardEmote1`, `OfferRewardEmote2`) VALUES (30113, 16, 45, 49, 8, 'Spitelash Menance I', 'Adventurer, I need your help. Go down to the Ruins of Eldarath and clear out the Spitelash Nagas.', 'Kill 20 Spitelash Serpent Guards for Archmage Xylemin Azshara.', 'You have done well.', 'Have you killed the spitelash naga?', '', '', '', '', '', 6194, 20, 5200, 1, 1, 6, 6, 1, 1);
+REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (8379, 30113);
+REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (8379, 30113);
+
+REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOCount1`, `RewXP`, `RewOrReqMoney`, `DetailsEmote1`, `DetailsEmote2`, `IncompleteEmote`, `CompleteEmote`, `OfferRewardEmote1`, `OfferRewardEmote2`) VALUES (30114, 16, 45, 52, 8, 'Spitelash Menance II', 'Adventurer, I need your help. Go down to the Ruins of Eldarath and clear out the Spitelash Nagas.', 'Kill 20 Spitelash Sirens for Archmage Xylemin Azshara.', 'You have done well.', 'Have you killed the spitelash naga?', '', '', '', '', '', 6195, 20, 5200, 5500, 1, 1, 6, 6, 1, 1);
+REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (8379, 30114);
+REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (8379, 30114);
+
+-- Custom gear reward
+REPLACE `mangos`.`creature_template` (`entry`, `name`, `level_min`, `level_max`, `faction`, `display_id1`, `type`, `unit_class`, `health_multiplier`, `loot_id`, `pickpocket_loot_id`, `gold_min`, `gold_max`, `spell_id1`, `spell_id2`, `spell_list_id`, `ai_name`, `equipment_id`, `static_flags1`) VALUES (90038, 'General Narka', 55, 55, 74, 11271, 7, 1, 1.3, 8408, 8408, 116, 632, 11976, 10968, 84080, 'EventAI', 8408, 268959744);
+REPLACE `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000040, 90038, 0, 0, 0, 0, 1, 3547.4, -5330.53, 134.253, 1.66993, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
+REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOCount1`, `RewXP`, `RewOrReqMoney`, `DetailsEmote1`, `DetailsEmote2`, `IncompleteEmote`, `CompleteEmote`, `OfferRewardEmote1`, `OfferRewardEmote2`) VALUES (30115, 16, 50, 55, 8, 'Spitelash General', 'Adventurer, I can use your help removing General Narka from the Temple of Zin-Malor.', 'Kill General Narka in the Temple of Zin-Malor for Archmage Xylemin Azshara.', 'You have done well.', 'Have you killed the spitelash general?', '', '', '', '', '', 90038, 1, 7200, 15000, 1, 1, 6, 6, 1, 1);
+REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (8379, 30115);
+REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (8379, 30115);
+
+REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewXP`, `DetailsEmote1`, `DetailsEmote2`, `IncompleteEmote`, `CompleteEmote`, `OfferRewardEmote1`, `OfferRewardEmote2`) VALUES (30116, 16, 45, 50, 8, 'Ghosts of Eldarath', 'Adventurer, I can use your help. There are Highborne ghosts still lingering in the Ruins of Eldarath. Find them and take their amulets for me.', 'Bring 12 Highborne Amulets to  Archmage Xylemin Azshara.', 'Thank you for these amulets!', 'Have you gathered all the amulets?', '', '', '', '', '', 30067, 12, 5200, 1, 1, 6, 6, 1, 1);
+REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (8379, 30116);
+REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (8379, 30116);
+REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (7864, 30067, -100); -- 20%
+
+--TODO: 
+-- https://www.wowhead.com/classic/npc=6201/legashi-rogue
+-- https://www.wowhead.com/classic/npc=6200/legashi-satyr
+-- https://www.wowhead.com/classic/npc=6202/legashi-hellcaller
+-- https://www.wowhead.com/classic/npc=6378/thunderhead-skystormer
+-- Add Naga bosses to The Shattered Strand. One can go at X: 3664 Y: -5770 Z: 11, and all the other structures
+
+Next NPC:
+-- https://www.wowhead.com/classic/npc=8420/kimjael
+
+-- REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (8379, 30117);
+-- REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (8379, 30117);
+
+-- REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (8379, 30118);
+-- REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (8379, 30118);
+
+-- REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (8379, 30119);
+-- REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (8379, 30119);
+
+-- REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (8379, 30120);
+-- REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (8379, 30120);
 -- Deadwind Pass
 REPLACE `mangos`.`faction` (`id`, `build`, `reputation_list_id`, `base_rep_race_mask1`, `base_rep_race_mask2`, `base_rep_race_mask3`, `base_rep_value1`, `base_rep_value2`, `base_rep_value3`, `reputation_flags1`, `reputation_flags2`, `name`, `description`) VALUES (477, 5302, 56, 73, 178, 4, 150, -42000, 500, 16, 22, 'Caretakers of Karazhan', 'Medivh\'s personal caretakers.');
 REPLACE `mangos`.`faction_template` (`id`, `build`, `faction_id`, `hostile_mask`, `friend_faction1`) VALUES (1681, 4222, 477, 4, 471);
