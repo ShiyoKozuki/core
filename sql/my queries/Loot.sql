@@ -276,6 +276,7 @@ WHERE item = 8766;
 DELETE FROM `mangos`.`creature_loot_template` WHERE  `entry`=10419 AND `item`=14227 AND `groupid`=0 AND `patch_min`=0 AND `patch_max`=10;
 DELETE FROM `mangos`.`creature_loot_template` WHERE  `entry`=11456 AND `item`=14227 AND `groupid`=0 AND `patch_min`=1 AND `patch_max`=10;
 UPDATE `mangos`.`creature_template` SET `loot_id`=0 WHERE  `entry`=10387 AND `patch`=0;
+UPDATE `mangos`.`creature_loot_template` SET `ChanceOrQuestChance`=5 WHERE  `entry`=2337 AND `item`=5773 AND `groupid`=0 AND `patch_min`=0 AND `patch_max`=10; -- Robes of Arcane off Dark Strand Voidcaller
 
 -- Lootable by anyone in party / alliance
 

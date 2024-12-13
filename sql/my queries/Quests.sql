@@ -1,7 +1,24 @@
 -- Quests
--- Feralas (Long chain in huge ogre ruins + the cave, harpy quests, long loot quest inside Naga cave, Insect long loot quest, Gnole  killquest)
+-- Feralas - Add 1 more quest for hippogryphs
+-- South STV
+-- Tanaris Basilisks north (5419, 5420) (Two turtle places [5431, 14123], mostly south tanaris [5430, 5427, 5424, 5421], many more ogre quests, elite giants by Uldum, Coast Strider/ Deep Dweller (Elites) and LOTS for the insect caves)
+-- Azshara - Wildlife: (8759, 8762, 8760, 8761) Ooze: 8766 Turtles: (6352, 6369) Hippo: 6377 Cracklaws: (6135, 6370, 6350, 6137) Murloc: 6138 Hydra: 6348 Chimaera: 8764 Shark: 12125 Giant Strider: 6144
+-- Blasted Lands
+-- Deadwind Pass
+-- Felwood
+-- Burning Steppes
+-- Winterspring
+-- Silithus
+-- WPL (Tomb in Sorrow Hill)
+-- EPL
+-- Coninutation of "James Hyal" quest. Breadcrumb that abruptly ends
+-- Quests that start from random drops from mobs (5% drop chance)
+-- Quests that start from a drop from random named mobs (like TBC)
+-- Quests that start at random clickable objects
 -- Rune of the Guard Captain Elite troll quest in Hinterlands
 -- buff 3 Tok'kar's weapons, 9649, 11859, 9660, 9658, 9666, 9665
+-- Add new custom item rewards to a lot of quests (especially end of chains missing rewards)
+-- Hydraxian waterlolrds rep vendor and killing stuff here gives rep? or just eles in general and https://www.wowhead.com/classic/quest=3507/betrayed 
 -- NEXT 30080
 
 -- A Lack of Fear (Fear Ward Quest)
