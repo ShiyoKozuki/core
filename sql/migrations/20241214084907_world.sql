@@ -32,8 +32,8 @@ UPDATE `pool_template` SET `max_limit` = 7 WHERE `entry`=1266; -- Arthas Tears i
 UPDATE `pool_template` SET `max_limit` = 3 WHERE `entry`=1269; -- Mountain Silversage in Eastern Plaguelands
 UPDATE `pool_template` SET `max_limit` = 3 WHERE `entry`=1320; -- Sungrass in Eastern Plaguelands
 UPDATE `pool_template` SET `max_limit` = 3 WHERE `entry`=1268; -- Golden Sansam in Eastern Plaguelands
-UPDATE `pool_template` SET `max_limit` = 5 WHERE `entry` = 325; -- Eastern Plaguelands - Truesilver Deposits / Rich Thorium Veins (Master Pool)
-UPDATE `pool_template` SET `max_limit` = 4 WHERE `entry` = 1264; -- Eastern Plaguelands - Truesilver Deposits / Small Thorium Veins (Master Pool)
+UPDATE `pool_template` SET `max_limit` = 7 WHERE `entry` = 325; -- Eastern Plaguelands - Truesilver Deposits / Rich Thorium Veins (Master Pool)
+UPDATE `pool_template` SET `max_limit` = 5 WHERE `entry` = 1264; -- Eastern Plaguelands - Truesilver Deposits / Small Thorium Veins (Master Pool)
 UPDATE `pool_template` SET `max_limit` = 3 WHERE `entry` = 1263; -- Eastern Plaguelands - Mithril Deposits / Gold Veins / Truesilver Deposits (Master Pool)
 
 -- Burning Steppes
@@ -44,6 +44,13 @@ UPDATE `pool_template` SET `max_limit` = 2 WHERE `entry` = 1303; -- Sungrass in 
 UPDATE `pool_template` SET `max_limit` = 2 WHERE `entry` = 1297; -- Burning Steppes - Truesilver Deposit / Dark Iron Deposit / Rich Thorium Vein (Master Pool)
 UPDATE `pool_template` SET `max_limit` = 4 WHERE `entry` = 1296; -- Burning Steppes - Truesilver Deposit / Dark Iron Deposit / Small Thorium Vein (Master Pool)
 UPDATE `pool_template` SET `max_limit` = 10 WHERE `entry` = 1299; -- Burning Steppes - Gold Vein / Mithril Deposit / Truesilver Deposit / Dark Iron Deposit (Master Pool)
+
+-- Winterspring
+UPDATE `pool_template` SET `max_limit` = 20 WHERE `entry` = 1236; -- Icecap in Winterspring
+UPDATE `pool_template` SET `max_limit` = 8 WHERE `entry` = 1237; -- Mountain Silversage in Winterspring
+UPDATE `pool_template` SET `max_limit` = 5 WHERE `entry` = 1234; -- Winterspring - Gold Vein / Mithril Deposit / Truesilver Deposit (Master Pool)
+UPDATE `pool_template` SET `max_limit` = 5 WHERE `entry` = 1233; -- Winterspring - Truesilver Deposit / Small Thorium Vein (Master Pool)
+UPDATE `pool_template` SET `max_limit` = 8 WHERE `entry` = 1235; -- Winterspring - Truesilver Deposit / Rich Thorium Vein (Master Pool)
 
 
 -- End of migration.
