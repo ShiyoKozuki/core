@@ -41,7 +41,7 @@ UPDATE `pool_template` SET `max_limit` = 5 WHERE `entry` = 1302; -- Mountain Sil
 UPDATE `pool_template` SET `max_limit` = 4 WHERE `entry` = 1301; -- Dreamfoil in Burning Steppes
 UPDATE `pool_template` SET `max_limit` = 2 WHERE `entry` = 1300; -- Golden Sansam in Burning Steppes
 UPDATE `pool_template` SET `max_limit` = 2 WHERE `entry` = 1303; -- Sungrass in Burning Steppes
-UPDATE `pool_template` SET `max_limit` = 1 WHERE `entry` = 1297; -- Burning Steppes - Truesilver Deposit / Dark Iron Deposit / Rich Thorium Vein (Master Pool)
+UPDATE `pool_template` SET `max_limit` = 2 WHERE `entry` = 1297; -- Burning Steppes - Truesilver Deposit / Dark Iron Deposit / Rich Thorium Vein (Master Pool)
 UPDATE `pool_template` SET `max_limit` = 4 WHERE `entry` = 1296; -- Burning Steppes - Truesilver Deposit / Dark Iron Deposit / Small Thorium Vein (Master Pool)
 UPDATE `pool_template` SET `max_limit` = 10 WHERE `entry` = 1299; -- Burning Steppes - Gold Vein / Mithril Deposit / Truesilver Deposit / Dark Iron Deposit (Master Pool)
 
