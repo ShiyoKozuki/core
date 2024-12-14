@@ -198,6 +198,9 @@ UPDATE `gameobject` SET `spawntimesecsmin` = 0, `spawntimesecsmax` = 0 WHERE `gu
 UPDATE `gameobject` SET `spawntimesecsmin` = 10, `spawntimesecsmax` = 10 WHERE `guid` IN (3996164, 26772, 49695, 12863, 14137, 40668, 11014, 12872, 12864, 12871, 40688, 30277, 15008, 40688, 234778, 350470, 362149, 35792, 29680);
 UPDATE `gameobject` SET `animprogress` = 100 WHERE `guid` IN (35876, 82575);
 
+-- Remove Unused Pool
+DELETE FROM `pool_template` WHERE `entry` = 39934;
+
 -- Respawn Winter Veil Credit Oroxzy https://github.com/vmangos/core/pull/1288
 SET @FEAST_OF_WINTER_VEIL_EVENT = 2;
 SET @FEAST_OF_WINTER_VEIL_OGUID = 75000;
