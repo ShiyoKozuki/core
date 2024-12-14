@@ -22,8 +22,8 @@ UPDATE `pool_template` SET `max_limit` = 3 WHERE `entry` = 1261; -- Sungrass in 
 UPDATE `pool_template` SET `max_limit` = 4 WHERE `entry` = 1260; -- Dreamfoil in Western Plaguelands
 UPDATE `pool_template` SET `max_limit` = 3 WHERE `entry` = 402; -- Mountain Silversage in Western Plaguelands
 UPDATE `pool_template` SET `max_limit` = 5 WHERE `entry` = 1271; -- Western Plaguelands - Mithril Deposits / Gold Veins / Truesilver Deposits (Master Pool)
-UPDATE `pool_template` SET `max_limit` = 1 WHERE `entry` = 1262; -- Western Plaguelands - Truesilver Deposits / Small Thorium Veins (Master Pool)
-UPDATE `pool_template` SET `max_limit` = 4 WHERE `entry` = 1331; -- Western Plaguelands - Truesilver Deposits / Rich Thorium Veins (Master Pool)
+UPDATE `pool_template` SET `max_limit` = 2 WHERE `entry` = 1262; -- Western Plaguelands - Truesilver Deposits / Small Thorium Veins (Master Pool)
+UPDATE `pool_template` SET `max_limit` = 3 WHERE `entry` = 1331; -- Western Plaguelands - Truesilver Deposits / Rich Thorium Veins (Master Pool)
 
 -- Eastern Plaguelands
 UPDATE `pool_template` SET `max_limit` = 15 WHERE `entry`=1265; -- Plaguebloom in Eastern Plaguelands
@@ -32,7 +32,7 @@ UPDATE `pool_template` SET `max_limit` = 7 WHERE `entry`=1266; -- Arthas Tears i
 UPDATE `pool_template` SET `max_limit` = 3 WHERE `entry`=1269; -- Mountain Silversage in Eastern Plaguelands
 UPDATE `pool_template` SET `max_limit` = 3 WHERE `entry`=1320; -- Sungrass in Eastern Plaguelands
 UPDATE `pool_template` SET `max_limit` = 3 WHERE `entry`=1268; -- Golden Sansam in Eastern Plaguelands
-UPDATE `pool_template` SET `max_limit` = 3 WHERE `entry` = 325; -- Eastern Plaguelands - Truesilver Deposits / Rich Thorium Veins (Master Pool)
+UPDATE `pool_template` SET `max_limit` = 5 WHERE `entry` = 325; -- Eastern Plaguelands - Truesilver Deposits / Rich Thorium Veins (Master Pool)
 UPDATE `pool_template` SET `max_limit` = 4 WHERE `entry` = 1264; -- Eastern Plaguelands - Truesilver Deposits / Small Thorium Veins (Master Pool)
 UPDATE `pool_template` SET `max_limit` = 3 WHERE `entry` = 1263; -- Eastern Plaguelands - Mithril Deposits / Gold Veins / Truesilver Deposits (Master Pool)
 
@@ -41,9 +41,9 @@ UPDATE `pool_template` SET `max_limit` = 5 WHERE `entry` = 1302; -- Mountain Sil
 UPDATE `pool_template` SET `max_limit` = 4 WHERE `entry` = 1301; -- Dreamfoil in Burning Steppes
 UPDATE `pool_template` SET `max_limit` = 2 WHERE `entry` = 1300; -- Golden Sansam in Burning Steppes
 UPDATE `pool_template` SET `max_limit` = 2 WHERE `entry` = 1303; -- Sungrass in Burning Steppes
-UPDATE `pool_template` SET `max_limit`=1 WHERE `entry`=1297; -- Burning Steppes - Truesilver Deposit / Dark Iron Deposit / Rich Thorium Vein (Master Pool)
-UPDATE `pool_template` SET `max_limit`=4 WHERE `entry`=1296; -- Burning Steppes - Truesilver Deposit / Dark Iron Deposit / Small Thorium Vein (Master Pool)
-UPDATE `pool_template` SET `max_limit`=10 WHERE `entry`=1299; -- Burning Steppes - Gold Vein / Mithril Deposit / Truesilver Deposit / Dark Iron Deposit (Master Pool)
+UPDATE `pool_template` SET `max_limit` = 1 WHERE `entry` = 1297; -- Burning Steppes - Truesilver Deposit / Dark Iron Deposit / Rich Thorium Vein (Master Pool)
+UPDATE `pool_template` SET `max_limit` = 4 WHERE `entry` = 1296; -- Burning Steppes - Truesilver Deposit / Dark Iron Deposit / Small Thorium Vein (Master Pool)
+UPDATE `pool_template` SET `max_limit` = 10 WHERE `entry` = 1299; -- Burning Steppes - Gold Vein / Mithril Deposit / Truesilver Deposit / Dark Iron Deposit (Master Pool)
 
 
 -- End of migration.
