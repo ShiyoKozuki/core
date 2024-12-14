@@ -32,7 +32,7 @@ UPDATE `pool_template` SET `max_limit` = 7 WHERE `entry`=1266; -- Arthas Tears i
 UPDATE `pool_template` SET `max_limit` = 3 WHERE `entry`=1269; -- Mountain Silversage in Eastern Plaguelands
 UPDATE `pool_template` SET `max_limit` = 3 WHERE `entry`=1320; -- Sungrass in Eastern Plaguelands
 UPDATE `pool_template` SET `max_limit` = 3 WHERE `entry`=1268; -- Golden Sansam in Eastern Plaguelands
-UPDATE `pool_template` SET `max_limit` = 7 WHERE `entry` = 325; -- Eastern Plaguelands - Truesilver Deposits / Rich Thorium Veins (Master Pool)
+UPDATE `pool_template` SET `max_limit` = 8 WHERE `entry` = 325; -- Eastern Plaguelands - Truesilver Deposits / Rich Thorium Veins (Master Pool)
 UPDATE `pool_template` SET `max_limit` = 5 WHERE `entry` = 1264; -- Eastern Plaguelands - Truesilver Deposits / Small Thorium Veins (Master Pool)
 UPDATE `pool_template` SET `max_limit` = 3 WHERE `entry` = 1263; -- Eastern Plaguelands - Mithril Deposits / Gold Veins / Truesilver Deposits (Master Pool)
 
@@ -49,8 +49,19 @@ UPDATE `pool_template` SET `max_limit` = 10 WHERE `entry` = 1299; -- Burning Ste
 UPDATE `pool_template` SET `max_limit` = 20 WHERE `entry` = 1236; -- Icecap in Winterspring
 UPDATE `pool_template` SET `max_limit` = 8 WHERE `entry` = 1237; -- Mountain Silversage in Winterspring
 UPDATE `pool_template` SET `max_limit` = 5 WHERE `entry` = 1234; -- Winterspring - Gold Vein / Mithril Deposit / Truesilver Deposit (Master Pool)
-UPDATE `pool_template` SET `max_limit` = 5 WHERE `entry` = 1233; -- Winterspring - Truesilver Deposit / Small Thorium Vein (Master Pool)
+UPDATE `pool_template` SET `max_limit` = 8 WHERE `entry` = 1233; -- Winterspring - Truesilver Deposit / Small Thorium Vein (Master Pool)
 UPDATE `pool_template` SET `max_limit` = 8 WHERE `entry` = 1235; -- Winterspring - Truesilver Deposit / Rich Thorium Vein (Master Pool)
+
+-- Felwood
+UPDATE `pool_template` SET `max_limit` = 5 WHERE `entry` = 1227; -- Plaguebloom in Felwood
+UPDATE `pool_template` SET `max_limit` = 4 WHERE `entry` = 1228; -- Dreamfoil in Felwood
+UPDATE `pool_template` SET `max_limit` = 5 WHERE `entry` = 1225; -- Gromsblood in Felwood
+UPDATE `pool_template` SET `max_limit` = 4 WHERE `entry` = 1226; -- Arthas Tears in Felwood
+UPDATE `pool_template` SET `max_limit` = 3 WHERE `entry` = 401; -- Mountain Silversage in Felwood
+UPDATE `pool_template` SET `max_limit` = 4 WHERE `entry` = 1230; -- Golden Sansam in Felwood
+UPDATE `pool_template` SET `max_limit` = 3 WHERE `entry` = 1229; -- Sungrass in Felwood
+UPDATE `pool_template` SET `max_limit` = 8 WHERE `entry` = 1232; -- Felwood - Truesilver Deposit / Small Thorium Vein (Master Pool)
+UPDATE `pool_template` SET `max_limit` = 8 WHERE `entry` = 328; -- Felwood - Gold Vein / Mithril Deposit / Truesilver Deposit (Master Pool)
 
 
 -- End of migration.
