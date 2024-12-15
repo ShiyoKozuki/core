@@ -69,6 +69,12 @@ UPDATE `pool_template` SET `max_limit` = 25 WHERE `entry` = 1007; -- Silverleaf 
 UPDATE `pool_template` SET `max_limit` = 25 WHERE `entry` = 1006; -- Peacebloom in Tirisfal
 UPDATE `pool_template` SET `max_limit` = 16 WHERE `entry` = 1005; -- Earthroot in Tirisfal
 
+-- Silithus
+UPDATE `pool_template` SET `max_limit` = 5 WHERE `entry` = 1220; -- Silithus - Ooze Covered Truesilver Deposit / Ooze Covered Rich Thorium Vein (Master Pool)
+UPDATE `pool_template` SET `max_limit` = 8 WHERE `entry` = 1219; -- Silithus - Truesilver Deposit / Small Thorium Vein (Master Pool)
+UPDATE `pool_template` SET `max_limit` = 6 WHERE `entry` = 1222; -- Mountain Silversage in Silithus
+UPDATE `pool_template` SET `max_limit` = 4 WHERE `entry` = 1221; -- Dreamfoil in Silithus
+
 
 -- End of migration.
 END IF;
