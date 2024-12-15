@@ -63,6 +63,12 @@ UPDATE `pool_template` SET `max_limit` = 3 WHERE `entry` = 1229; -- Sungrass in 
 UPDATE `pool_template` SET `max_limit` = 8 WHERE `entry` = 1232; -- Felwood - Truesilver Deposit / Small Thorium Vein (Master Pool)
 UPDATE `pool_template` SET `max_limit` = 8 WHERE `entry` = 328; -- Felwood - Gold Vein / Mithril Deposit / Truesilver Deposit (Master Pool)
 
+-- Tirisfal Glades
+UPDATE `pool_template` SET `max_limit` = 32 WHERE `entry` = 1008; -- Copper Veins - Tirisfal Glades
+UPDATE `pool_template` SET `max_limit` = 25 WHERE `entry` = 1007; -- Silverleaf in Tirisfal
+UPDATE `pool_template` SET `max_limit` = 25 WHERE `entry` = 1006; -- Peacebloom in Tirisfal
+UPDATE `pool_template` SET `max_limit` = 16 WHERE `entry` = 1005; -- Earthroot in Tirisfal
+
 
 -- End of migration.
 END IF;
