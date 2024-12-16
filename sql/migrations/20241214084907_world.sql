@@ -75,6 +75,31 @@ UPDATE `pool_template` SET `max_limit` = 8 WHERE `entry` = 1219; -- Silithus - T
 UPDATE `pool_template` SET `max_limit` = 6 WHERE `entry` = 1222; -- Mountain Silversage in Silithus
 UPDATE `pool_template` SET `max_limit` = 4 WHERE `entry` = 1221; -- Dreamfoil in Silithus
 
+-- Elwynn Forest
+UPDATE `pool_template` SET `max_limit` = 32 WHERE `entry` = 1015; -- Copper Veins - Elwynn Forest
+UPDATE `pool_template` SET `max_limit` = 26 WHERE `entry` = 1013; -- Silverleaf in Elwynn Forest
+UPDATE `pool_template` SET `max_limit` = 11 WHERE `entry` = 1011; -- Earthroot in Elwynn Forest
+
+-- Loch Modan
+UPDATE `pool_template` SET `max_limit`= 34 WHERE `entry` = 1166; -- Copper Veins - Loch Modan
+UPDATE `pool_template` SET `max_limit`= 12 WHERE `entry` = 1186; -- Loch Modan - Tin Vein / Silver Vein (Master Pool)
+UPDATE `pool_template` SET `max_limit`= 7 WHERE `entry` = 1163; -- Mageroyal in Loch Modan
+UPDATE `pool_template` SET `max_limit`= 7 WHERE `entry` = 1165; -- Briarthorn in Loch Modan
+UPDATE `pool_template` SET `max_limit`= 13 WHERE `entry` = 1162; -- Silverleaf in Loch Modan
+UPDATE `pool_template` SET `max_limit`= 7 WHERE `entry` = 1161; -- Peacebloom in Loch Modan
+UPDATE `pool_template` SET `max_limit`= 5 WHERE `entry` = 1160; -- Earthroot in Loch Modan
+
+-- ungoro
+UPDATE `pool_template` SET `max_limit` = 8 WHERE `entry` = 1212; -- Dreamfoil in Ungoro Crater
+UPDATE `pool_template` SET `max_limit` = 8 WHERE `entry` = 1218; -- Mountain Silversage in Ungoro Crater
+UPDATE `pool_template` SET `max_limit` = 8 WHERE `entry` = 1214; -- Golden Sansam in Ungoro
+UPDATE `pool_template` SET `max_limit` = 8 WHERE `entry` = 1215; -- Sungrass in Ungoro Crater
+UPDATE `pool_template` SET `max_limit` = 3 WHERE `entry` = 1216; -- Blindweed in Ungoro
+UPDATE `pool_template` SET `max_limit` = 9 WHERE `entry` = 1211; -- Un'Goro Crater - Truesilver Deposit / Small Thorium Vein (Master Pool)
+UPDATE `pool_template` SET `max_limit` = 5 WHERE `entry` = 1210; -- Un'Goro Crater - Gold Vein / Mithril Deposit / Truesilver Deposit (Master Pool)
+UPDATE `pool_template` SET `max_limit` = 2 WHERE `entry` = 1217; -- Un'Goro Crater - Truesilver Deposit / Rich Thorium Vein (Master Pool)
+UPDATE `pool_template` SET `max_limit` = 2 WHERE `entry` = 412; -- Un'Goro Crater - Ooze Covered Truesilver Deposit / Ooze Covered Thorium Vein (Master Pool)
+
 
 -- End of migration.
 END IF;
