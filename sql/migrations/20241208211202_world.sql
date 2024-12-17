@@ -9,6 +9,9 @@ INSERT INTO `migrations` VALUES ('20241208211202');
 -- Add your query below.
 
 
+-- Correct Call For Help For Silithid Hive Drone
+UPDATE `creature_ai_scripts` SET `x` = 20 WHERE `id` IN (413301, 413302);
+
 -- Correct State For Object
 UPDATE `gameobject` SET `state` = 1 WHERE `guid` = 60099;
 
