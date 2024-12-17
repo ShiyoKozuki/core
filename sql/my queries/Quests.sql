@@ -2,7 +2,7 @@
 -- Dustwallow Marsh - New named NPC at sentry point to kill spiders, raptors, and crocs neaby
 -- Feralas - Add 1 more quest for hippogryphs
 -- South STV
--- Tanaris Basilisks north (5419, 5420) (Two turtle places [5431, 14123], mostly south tanaris [5430, 5427, 5424, 5421], many more ogre quests, elite giants by Uldum, Coast Strider/ Deep Dweller (Elites) and LOTS for the insect caves)
+-- Tanaris Basilisks north (5419, 5420) (Two turtle places [5431, 14123], mostly south tanaris [5430, 5427, 5424, 5421], many more ogre quests, elite giants by Uldum, Coast Strider/ Deep Dweller (Elites) and LOTS for the insect caves) There's an unused dwarf camp south
 -- Azshara - Wildlife: (8759, 8762, 8760, 8761) Ooze: 8766 Turtles: (6352, 6369) Hippo: 6377 Cracklaws: (6135, 6370, 6350, 6137) Murloc: 6138 Hydra: 6348 Chimaera: (8763, 8764) Shark: 12125 Giant Strider: 6144
 -- Blasted Lands
 -- Deadwind Pass

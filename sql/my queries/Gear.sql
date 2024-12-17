@@ -906,11 +906,11 @@ WHERE entry = 10499;
 UPDATE mangos . item_template
 SET quality = 3,
     stat_type1 = 5,
-    stat_value1 = 12,
-    stat_type2 = 6,
-    stat_value2 = 12,
-    stat_type3 = 7,
-    stat_value3 = 12,
+    stat_value1 = 15,
+    stat_type2 = 0,
+    stat_value2 = 0,
+    stat_type3 = 0,
+    stat_value3 = 0,
     spellid_1 = 15714, -- +22 Spell Damage
     spelltrigger_1 = 1
 WHERE entry = 4393;
@@ -938,6 +938,12 @@ WHERE entry = 10545;
 -- Spellpower Goggles Xtreme
 UPDATE mangos . item_template
 SET quality = 4,
+    stat_type1 = 5,
+    stat_value1 = 12,
+    stat_type2 = 6,
+    stat_value2 = 12,
+    stat_type3 = 7,
+    stat_value3 = 12,
     spellid_1 = 23729, -- +2% Spell Hit
     spelltrigger_1 = 1,
     spellid_2 = 14127, -- +28 Spell Damage
