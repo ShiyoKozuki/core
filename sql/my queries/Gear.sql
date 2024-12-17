@@ -276,6 +276,25 @@ SET spellid_1 = 17869, -- +30 Fire Damage
     spelltrigger_1 = 1
 WHERE entry = 15105;
 
+-- Everlast Boots (Power Stones)
+UPDATE mangos . item_template
+SET quality = 3,
+    stat_type1 = 6,
+    stat_value1 = 5,
+    spellid_1 = 21347, -- +4 HP/5
+    spelltrigger_1 = 1,
+    spellid_2 = 21361, -- 3 MP/5
+    spelltrigger_2 = 1
+WHERE entry = 10359;
+
+-- Explorer's League Lodestar (The Hidden Chamber)
+UPDATE mangos . item_template
+SET stat_type1 = 3,
+    stat_value1 = 7,
+    stat_type2 = 4,
+    stat_value2 = 7
+WHERE entry = 9627;
+
 -- Lucky Trousers (In Defense of the King's Lands)
 UPDATE mangos . item_template
 SET stat_type1 = 3,
@@ -808,6 +827,124 @@ SET quality = 3,
     spellcooldown_1 = 300000 -- 5 minutes
 WHERE entry = 4746;
 
+-- Medal of Courage (The Lost Tablets of Will)
+UPDATE mangos . item_template
+SET armor = 50
+WHERE entry = 6723;
+
+-- Thermotastic Egg Timer (Rescue OOX-17/TN!)
+UPDATE mangos . item_template
+SET stat_type1 = 3,
+    stat_value1 = 9,
+    stat_type2 = 4,
+    stat_value2 = 9
+WHERE entry = 9644;
+
+-- Cairnstone Sliver (The Morrow Stone)
+UPDATE mangos . item_template
+SET spellid_1 = 9417, -- +12 spell damage
+    spelltrigger_1 = 1
+WHERE entry = 9654;
+
+-- Band of the Great Tortoise
+UPDATE mangos . item_template
+SET quality = 3,
+    stat_type1 = 7,
+    stat_value1 = 12,
+    spellid_1 = 13383, -- +5 Defense
+    spelltrigger_1 = 1
+WHERE entry = 9642;
+
+-- Mindburst Medallion (Tremors of the Earth)
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_2 = 9417, -- +12 spell damage
+    spelltrigger_2 = 1
+WHERE entry = 11196;
+
+-- Pulsating Crystalline Shard (Summoning the Princess)
+UPDATE mangos . item_template
+SET quality = 3,
+    stat_type1 = 5,
+    stat_value1 = 8,
+    stat_type2 = 7,
+    stat_value2 = 8,
+    spellid_1 = 21361, -- 3 MP/5
+    spelltrigger_1 = 1
+WHERE entry = 4743;
+
+-- Smotts' Compass (Facing Negolash)
+UPDATE mangos . item_template
+SET quality = 3,
+    armor = 150,
+    stat_type1 = 7,
+    stat_value1 = 12
+WHERE entry = 4130;
+
+-- Guardian Talisman (Into The Temple of Atal'Hakkar)
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_2 = 21466, -- 1% Shield Block
+    spelltrigger_2 = 1,
+    spellid_3 = 23172, -- Block Value +10
+    spelltrigger_3 = 1
+WHERE entry = 1490;
+
+-- Ring of Fortitude (Rise, Obsidion!)
+UPDATE mangos . item_template
+SET name = 'Spellslingers Ring',
+    quality = 3,
+    stat_type1 = 0,
+    stat_value1 = 0,
+    stat_type2 = 0,
+    stat_value2 = 0,
+    spellid_1 = 9345, -- +16 Spell damage
+    spelltrigger_1 = 1
+WHERE entry = 10739;
+
+-- Dragonflight Leggings (Set Them Ablaze!)
+UPDATE mangos . item_template
+SET stat_type1 = 6,
+    stat_value1 = 12,
+    stat_type2 = 0,
+    stat_value2 = 0,
+    stat_type3 = 0,
+    stat_value3 = 0,
+    spellid_1 = 9343, -- +14 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 10742;
+
+-- Ring of the Aristocrat (The Smoldering Ruins of Thaurissan)
+UPDATE mangos . item_template
+SET stat_type1 = 6,
+    stat_value1 = 6,
+    stat_type2 = 0,
+    stat_value2 = 0,
+    spellid_1 = 9314, -- +24 Healing
+    spelltrigger_1 = 1
+WHERE entry = 12102;
+
+-- Hazecover Boots (A Little Slime Goes a Long Way)
+UPDATE mangos . item_template
+SET stat_type1 = 6,
+    stat_value1 = 6,
+    stat_type2 = 7,
+    stat_value2 = 6, 
+    spellid_1 = 7681, -- +15 Healing
+    spelltrigger_1 = 1
+WHERE entry = 12050;
+
+-- Ethereal Mist Cape (Ancient Spirit)
+UPDATE mangos . item_template
+SET spellid_1 = 9415, -- +9 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 11873;
+
+-- Shard of the Splithooves (Heroes of Old)
+UPDATE mangos . item_template
+SET spellid_3 = 9408, -- +22 Healing
+    spelltrigger_3 = 1
+WHERE entry = 10659;
 
 -- Drops
 
@@ -4148,6 +4285,128 @@ WHERE entry = 10762;
 
 -- Uldaman
 
+-- Archaedic Stone
+UPDATE mangos . item_template
+SET armor = 0,
+    spellid_1 = 9345, -- +16 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 11118;
+
+
+-- Zul Farrak
+
+-- Witch Doctor's Cane
+UPDATE mangos . item_template
+SET spellid_2 = 9318, -- +33 Healing
+    spelltrigger_2 = 1
+WHERE entry = 9482;
+
+-- Lifeblood Amulet
+UPDATE mangos . item_template
+SET spellid_1 = 9406, -- +18 Healing
+    spelltrigger_1 = 1
+WHERE entry = 9641;
+
+-- The Chief's Enforcer
+UPDATE mangos . item_template
+SET stat_type1 = 4,
+    stat_value1 = 20,
+    spellid_1 = 7597, -- +1% Physical Crit
+    spelltrigger_1 = 1
+WHERE entry = 9477;
+
+-- Desertwalker Cane
+UPDATE mangos . item_template
+SET spellid_1 = 9406, -- +18 Healing
+    spelltrigger_1 = 1
+WHERE entry = 12471;
+
+-- Maraudon
+
+-- Cloud Stone
+UPDATE mangos . item_template
+SET spellid_1 = 9408, -- +22 Healing
+    spelltrigger_1 = 1
+WHERE entry = 17737;
+
+-- Fist of Stone
+UPDATE mangos . item_template
+SET spellid_2 = 9406, -- +18 Healing
+    spelltrigger_2 = 1
+WHERE entry = 17943;
+
+-- Satyrmane Sash
+UPDATE mangos . item_template
+SET stat_type1 = 5,
+    stat_value1 = 6,
+    stat_type2 = 7,
+    stat_value2 = 5,
+    spellid_1 = 9415, -- +9 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 17755;
+
+-- Heart of Noxxion
+UPDATE mangos . item_template
+SET stat_type1 = 3,
+    stat_value1 = 7
+WHERE entry = 17744;
+
+-- Gemshard Heart
+UPDATE mangos . item_template
+SET stat_type1 = 5,
+    stat_value1 = 5,
+    stat_type2 = 6,
+    stat_value2 = 6,
+    stat_type3 = 7,
+    stat_value3 = 5,
+    spellid_1 = 9417, -- +12 spell damage
+    spelltrigger_1 = 1
+WHERE entry = 17707;
+
+-- Eye of Theradras
+UPDATE mangos . item_template
+SET stat_type1 = 5,
+    stat_value1 = 8,
+    stat_type2 = 6,
+    stat_value2 = 7,
+    stat_type3 = 7,
+    stat_value3 = 6,
+    spellid_1 = 7681, -- +15 Healing
+    spelltrigger_1 = 1
+WHERE entry = 17715;
+
+-- Vinerot Sandals
+UPDATE mangos . item_template
+SET stat_type1 = 5,
+    stat_value1 = 7,
+    stat_type2 = 6,
+    stat_value2 = 7,
+    spellid_1 = 7681, -- +15 Healing
+    spelltrigger_1 = 1
+WHERE entry = 17748;
+
+-- Rotgrip Mantle
+UPDATE mangos . item_template
+SET stat_type1 = 5,
+    stat_value1 = 8,
+    stat_type2 = 6,
+    stat_value2 = 6,
+    spellid_1 = 9415, -- +9 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 17732;
+
+-- Chloromesh Girdle
+UPDATE mangos . item_template
+SET spellid_1 = 21361, -- 3 MP/5
+    spelltrigger_1 = 1
+WHERE entry = 17750;
+
+-- Inventor's Focal Sword
+UPDATE mangos . item_template
+SET spellid_2 = 9415, -- +9 Spell Damage
+    spelltrigger_1 = 2
+WHERE entry = 17719;
+
 -- Sunken Temple
 
 -- Firebreather
@@ -4778,7 +5037,7 @@ SET quality = 3,
     spelltrigger_1 = 1
 WHERE entry = 6751;
 
--- Dragonclaw Ring (Extinguishing the Ido)
+-- Dragonclaw Ring (Extinguishing the Idol)
 UPDATE mangos . item_template
 SET stat_type1 = 7,
     stat_value1 = 10,
@@ -4795,6 +5054,58 @@ UPDATE mangos . item_template
 SET spellid_1 = 9415, -- +9 Spell Damage
     spelltrigger_1 = 1
 WHERE entry = 15707;
+
+-- Spellshifter Rod (Tiara of the Deep)
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 9346, -- +18 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 9527;
+
+-- Engineer's Guild Headpiece (Divino-matic Rod)
+UPDATE mangos . item_template
+SET spellid_1 = 9346, -- +18 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 9534;
+
+-- Resurgence Rod (Corruption of Earth and Seed)
+UPDATE mangos . item_template
+SET spellid_2 = 14248, -- +21 Spell Damage
+    spelltrigger_2 = 1
+WHERE entry = 17743;
+
+-- Woodseed Hoop (Vyletongue Corruption)
+UPDATE mangos . item_template
+SET quality = 3,
+    stat_type1 = 5,
+    stat_value1 = 4,
+    stat_type2 = 7,
+    stat_value2 = 4,
+    spellid_1 = 9417, -- +12 spell damage
+    spelltrigger_1 = 1
+WHERE entry = 17768;
+
+-- Prodigious Shadowshard Pendant (Shadowshard Fragments)
+UPDATE mangos . item_template
+SET stat_type1 = 0,
+    stat_value1 = 0,
+    spellid_1 = 9417, -- +12 spell damage
+    spelltrigger_1 = 1
+WHERE entry = 17773;
+
+-- Mark of the Chosen (The Pariah's Instructions)
+UPDATE mangos . item_template
+SET spellid_2 = 23172, -- Block Value +10
+    spelltrigger_2 = 1
+WHERE entry = 17774;
+
+-- Acumen Robes (Twisted Evils)
+UPDATE mangos . item_template
+SET stat_type1 = 5,
+    stat_value1 = 6,
+    spellid_1 = 9417, -- +12 spell damage
+    spelltrigger_1 = 1
+WHERE entry = 17775;
 
 -- Argent Crusader (The Argent Hold)
 UPDATE mangos . item_template
