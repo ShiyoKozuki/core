@@ -100,6 +100,38 @@ UPDATE `pool_template` SET `max_limit` = 5 WHERE `entry` = 1210; -- Un'Goro Crat
 UPDATE `pool_template` SET `max_limit` = 2 WHERE `entry` = 1217; -- Un'Goro Crater - Truesilver Deposit / Rich Thorium Vein (Master Pool)
 UPDATE `pool_template` SET `max_limit` = 2 WHERE `entry` = 412; -- Un'Goro Crater - Ooze Covered Truesilver Deposit / Ooze Covered Thorium Vein (Master Pool)
 
+-- Feralas
+UPDATE `pool_template` SET `max_limit` = 4 WHERE `entry` = 1196; -- Feralas - Silver Vein / Gold Vein / Iron Deposit (Master Pool)
+UPDATE `pool_template` SET `max_limit` = 1 WHERE `entry` = 1197; -- Feralas - Mithril Deposit / Truesilver Deposit (Master Pool)
+UPDATE `pool_template` SET `max_limit` = 2 WHERE `entry` = 985; -- Feralas - Truesilver Deposit / Small Thorium Vein (Master Pool)
+UPDATE `pool_template` SET `max_limit` = 3 WHERE `entry` = 1198; -- Feralas - Ooze Covered Gold Vein / Ooze Covered Mithril Deposit / Ooze Covered Truesilver Deposit (Master Pool)
+UPDATE `pool_template` SET `max_limit` = 1 WHERE `entry` = 413; -- Feralas - Ooze Covered Truesilver Deposit / Ooze Covered Thorium Vein (Master Pool)
+UPDATE `pool_template` SET `max_limit` = 8 WHERE `entry` = 1357; -- Feralas - Gold Vein / Mithril Deposit (Master Pool)
+UPDATE `pool_template` SET `max_limit` = 19 WHERE `entry` = 1192; -- Sungrass in Feralas
+UPDATE `pool_template` SET `max_limit` = 18 WHERE `entry` = 1191; -- Goldthorn in Feralas
+UPDATE `pool_template` SET `max_limit` = 15 WHERE `entry` = 1189; -- Khadgars Whisker in Feralas
+UPDATE `pool_template` SET `max_limit` = 14 WHERE `entry` = 1324; -- Purple Lotus in Feralas
+UPDATE `pool_template` SET `max_limit` = 4 WHERE `entry` = 1190 AND `patch_min`=5 AND `patch_max`=10; -- Stranglekelp in Feralas
+UPDATE `pool_template` SET `max_limit` = 4 WHERE `entry` = 1194; -- Golden Sansam in Feralas
+
+-- Durotar
+UPDATE `pool_template` SET `max_limit` = 29 WHERE `entry` = 1024; -- Copper Veins - Durotar
+UPDATE `pool_template` SET `max_limit` = 22 WHERE `entry` = 1022; -- Silverleaf in Durotar
+UPDATE `pool_template` SET `max_limit` = 20 WHERE `entry` = 1020; -- Peacebloom in Durotar
+UPDATE `pool_template` SET `max_limit` = 11 WHERE `entry` = 1021; -- Earthroot in Durotar
+UPDATE `pool_template` SET `max_limit` = 1 WHERE `entry` = 1023; -- Mageroyal in Durotar
+
+-- Mulgore
+UPDATE `pool_template` SET `max_limit` = 32 WHERE `entry` = 1028; -- Copper Veins - Mulgore
+UPDATE `pool_template` SET `max_limit` = 26 WHERE `entry` = 1027; -- Silverleaf in Mulgore
+UPDATE `pool_template` SET `max_limit` = 23 WHERE `entry` = 1026; -- Peacebloom in Mulgore
+UPDATE `pool_template` SET `max_limit` = 11 WHERE `entry` = 1025; -- Earthroot in Mulgore
+
+-- Teldrassil
+UPDATE `pool_template` SET `max_limit` = 23 WHERE `entry` = 1003; -- Silverleaf in Teldrassil
+UPDATE `pool_template` SET `max_limit` = 21 WHERE `entry` = 1002; -- Peacebloom in Teldrassil
+UPDATE `pool_template` SET `max_limit` = 9 WHERE `entry` = 1001; -- Earthroot in Teldrassil
+
 
 -- End of migration.
 END IF;
