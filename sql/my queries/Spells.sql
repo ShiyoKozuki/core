@@ -54,6 +54,59 @@ UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=629 WHERE  `entry`=1168
 UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=899 WHERE  `entry`=11688 AND `build`=5875;
 UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=1259 WHERE  `entry`=11689 AND `build`=5875;
 
+-- Searing Pain
+UPDATE `mangos`.`spell_threat` SET `multiplier`=0 WHERE  `entry`=5676 AND `build_min`=0 AND `build_max`=5875;
+UPDATE `mangos`.`spell_threat` SET `multiplier`=0 WHERE  `entry`=17919 AND `build_min`=0 AND `build_max`=5875;
+UPDATE `mangos`.`spell_threat` SET `multiplier`=0 WHERE  `entry`=17920 AND `build_min`=0 AND `build_max`=5875;
+UPDATE `mangos`.`spell_threat` SET `multiplier`=0 WHERE  `entry`=17921 AND `build_min`=0 AND `build_max`=5875;
+UPDATE `mangos`.`spell_threat` SET `multiplier`=0 WHERE  `entry`=17922 AND `build_min`=0 AND `build_max`=5875;
+UPDATE `mangos`.`spell_threat` SET `multiplier`=0 WHERE  `entry`=17923 AND `build_min`=0 AND `build_max`=5875;
+
+UPDATE `mangos`.`spell_template` SET `description`='Inflict searing pain on the enemy target, causing $s1 Fire damage.' WHERE  `entry`=17922 AND `build`=5086;
+UPDATE `mangos`.`spell_template` SET `description`='Inflict searing pain on the enemy target, causing $s1 Fire damage.' WHERE  `entry`=17921 AND `build`=5086;
+UPDATE `mangos`.`spell_template` SET `description`='Inflict searing pain on the enemy target, causing $s1 Fire damage.' WHERE  `entry`=17920 AND `build`=5086;
+UPDATE `mangos`.`spell_template` SET `description`='Inflict searing pain on the enemy target, causing $s1 Fire damage.' WHERE  `entry`=17919 AND `build`=5086;
+UPDATE `mangos`.`spell_template` SET `description`='Inflict searing pain on the enemy target, causing $s1 Fire damage.' WHERE  `entry`=5676 AND `build`=5086;
+
+
+
+-- Rain of fire
+UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=83 WHERE  `entry`=5740;
+UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=191 WHERE  `entry`=6219;
+UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=309 WHERE  `entry`=11677;
+UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=451 WHERE  `entry`=11678;
+
+-- Hellfire
+UPDATE `mangos`.`spell_template` SET `manaCost`=0 WHERE  `entry`=1949;
+UPDATE `mangos`.`spell_template` SET `manaCost`=0 WHERE  `entry`=11683;
+UPDATE `mangos`.`spell_template` SET `manaCost`=0 WHERE  `entry`=11684;
+
+-- Torment (Voidwalker)
+UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=89 WHERE  `entry`=3716;
+UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=149 WHERE  `entry`=7809;
+UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=249 WHERE  `entry`=7810;
+UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=429 WHERE  `entry`=7811;
+UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=599 WHERE  `entry`=11774;
+UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=1199 WHERE  `entry`=11775;
+
+UPDATE `mangos`.`spell_template` SET `manaCost`=10 WHERE  `entry`=3716;
+UPDATE `mangos`.`spell_template` SET `manaCost`=20 WHERE  `entry`=7809;
+UPDATE `mangos`.`spell_template` SET `manaCost`=30 WHERE  `entry`=7810;
+UPDATE `mangos`.`spell_template` SET `manaCost`=45 WHERE  `entry`=7811;
+UPDATE `mangos`.`spell_template` SET `manaCost`=55 WHERE  `entry`=11774;
+UPDATE `mangos`.`spell_template` SET `manaCost`=70 WHERE  `entry`=11775;
+
+-- Suffering (Voidwalker)
+UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=299 WHERE  `entry`=17735;
+UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=599 WHERE  `entry`=17750;
+UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=899 WHERE  `entry`=17751;
+UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=429 WHERE  `entry`=17752;
+
+UPDATE `mangos`.`spell_template` SET `manaCost`=25 WHERE  `entry`=17735;
+UPDATE `mangos`.`spell_template` SET `manaCost`=50 WHERE  `entry`=17750;
+UPDATE `mangos`.`spell_template` SET `manaCost`=75 WHERE  `entry`=17751;
+UPDATE `mangos`.`spell_template` SET `manaCost`=100 WHERE `entry`=17752;
+
 -- Smite
 UPDATE `mangos`.`spell_template` SET `manaCost`=10 WHERE  `entry`=585 AND `build`=5302;
 UPDATE `mangos`.`spell_template` SET `manaCost`=15 WHERE  `entry`=591 AND `build`=5302;
