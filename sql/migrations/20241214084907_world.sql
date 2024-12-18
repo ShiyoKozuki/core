@@ -143,6 +143,29 @@ UPDATE `pool_template` SET `max_limit` = 11 WHERE `entry`=2585; -- Copper Veins 
 UPDATE `pool_template` SET `max_limit` = 2 WHERE `entry`=304; -- Thousand Needles - Ooze Covered Silver Vein / Ooze Covered Gold Vein / Ooze Covered Mithril Deposit (Master Pool)
 UPDATE `pool_template` SET `max_limit` = 3 WHERE `entry`=329; -- Thousand Needles - Silver Vein / Gold Vein / Iron Deposit (Master Pool)
 
+-- Blasted Lands
+UPDATE `pool_template` SET `max_limit` = 6 WHERE `entry` = 1275; -- Gromsblood in Blasted Lands
+UPDATE `pool_template` SET `max_limit` = 5 WHERE `entry` = 1276; -- Firebloom in Blasted Lands
+UPDATE `pool_template` SET `max_limit` = 5 WHERE `entry` = 1277; -- Sungrass in Blasted Lands
+UPDATE `pool_template` SET `max_limit` = 7 WHERE `entry` = 1359; -- Blasted Lands - Truesilver Deposit / Small Thorium Vein (Master Pool)
+UPDATE `pool_template` SET `max_limit` = 7 WHERE `entry` = 1279; -- Blasted Lands - Gold Vein / Mithril Deposit (Master Pool)
+UPDATE `pool_template` SET `max_limit` = 2 WHERE `entry` = 3956; -- Blasted Lands - Garrison Armory - Gold Vein / Mithril Deposit (Master Pool)
+UPDATE `pool_template` SET `max_limit` = 1 WHERE `entry` = 4345; -- Blasted Lands - Garrison Armory - Truesilver Deposit / Small Thorium Vein (Master Pool)
+UPDATE `pool_template` SET `max_limit` = 1 WHERE `entry` = 4250; -- Blasted Lands - Garrison Armory - Gold Vein / Mithril Deposit / Truesilver Deposit (Master Pool)
+UPDATE `pool_template` SET `max_limit` = 1 WHERE `entry` = 1280; -- Blasted Lands - Gold Vein / Mithril Deposit / Truesilver Deposit / Small Thorium Vein (Master Pool)
+
+-- Swamp of Sorrows
+UPDATE `pool_template` SET `max_limit` = 15 WHERE `entry`=1307; -- Blindweed in Swamp of Sorrows
+UPDATE `pool_template` SET `max_limit` = 7 WHERE `entry`=1317; -- Liferoot in Swamp of Sorrows
+UPDATE `pool_template` SET `max_limit` = 5 WHERE `entry`=1313; -- Goldthorn in Swamp of Sorrows
+UPDATE `pool_template` SET `max_limit` = 6 WHERE `entry`=1309; -- Khadgars Whisker in Swamp of Sorrows
+UPDATE `pool_template` SET `max_limit` = 4 WHERE `entry`=984 AND `patch_min`=5 AND `patch_max`=10; -- Stranglekelp in Swamp of Sorrows
+UPDATE `pool_template` SET `max_limit` = 4 WHERE `entry`=1326; -- Kingsblood in Swamp of Sorrows
+UPDATE `pool_template` SET `max_limit` = 3 WHERE `entry`=1311; -- Fadeleaf in Swamp of Sorrows
+UPDATE `pool_template` SET `max_limit` = 4 WHERE `entry`=984 AND `patch_min`=0 AND `patch_max`=4; -- Stranglekelp in Swamp of Sorrows
+UPDATE `pool_template` SET `max_limit` = 6 WHERE `entry` = 1318; -- Swamp of Sorrows - Silver Vein / Gold Vein / Iron Deposit (Master Pool)
+UPDATE `pool_template` SET `max_limit` = 4 WHERE `entry` = 1314; -- Swamp of Sorrows - Mithril Deposit / Truesilver Deposit (Master Pool)
+
 
 -- End of migration.
 END IF;
