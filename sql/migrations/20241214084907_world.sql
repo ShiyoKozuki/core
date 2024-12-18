@@ -166,6 +166,22 @@ UPDATE `pool_template` SET `max_limit` = 4 WHERE `entry`=984 AND `patch_min`=0 A
 UPDATE `pool_template` SET `max_limit` = 6 WHERE `entry` = 1318; -- Swamp of Sorrows - Silver Vein / Gold Vein / Iron Deposit (Master Pool)
 UPDATE `pool_template` SET `max_limit` = 4 WHERE `entry` = 1314; -- Swamp of Sorrows - Mithril Deposit / Truesilver Deposit (Master Pool)
 
+-- Desolace
+UPDATE `pool_template` SET `max_limit` = 1 WHERE `entry` = 321;
+UPDATE `pool_template` SET `max_limit` = 1 WHERE `entry` = 1139;
+UPDATE `pool_template` SET `max_limit` = 1 WHERE `entry` = 1147;
+UPDATE `pool_template` SET `max_limit` = 4 WHERE `entry` = 1140;
+UPDATE `pool_template` SET `max_limit` = 15 WHERE `entry` = 1146;
+UPDATE `pool_template` SET `max_limit` = 8 WHERE `entry` = 1141;
+UPDATE `pool_template` SET `max_limit` = 4 WHERE `entry` = 23058;
+UPDATE `pool_template` SET `max_limit` = 4 WHERE `entry` = 1145 AND `patch_min`=5 AND `patch_max`=10;
+UPDATE `pool_template` SET `max_limit` = 4 WHERE `entry` = 1145 AND `patch_min`=0 AND `patch_max`=4;
+UPDATE `pool_template` SET `max_limit` = 5 WHERE `entry` = 1137;
+UPDATE `pool_template` SET `max_limit` = 6 WHERE `entry` = 107;
+UPDATE `pool_template` SET `max_limit` = 3 WHERE `entry` = 1144;
+UPDATE `pool_template` SET `max_limit` = 3 WHERE `entry` = 1143;
+UPDATE `pool_template` SET `max_limit` = 4 WHERE `entry` = 1142;
+
 
 -- End of migration.
 END IF;
