@@ -611,6 +611,11 @@ REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLeve
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90041, 30136);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90041, 30136);
 
+-- Tanaris
+REPLACE INTO `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewXP`, `RewMoneyMaxLevel`, `CompleteEmote`) VALUES (30137, 440, 44, 49, 8, 'Dunemaul Treasure', 'The ogres have taken up camp all over Tanaris. They hold a treasure that I\'d like to get my hands on for some profit. Kill the ogres and get me this treasure. ', 'Bring the Ogre Treasure to Marvon Rivetseeker in Tanaris.', 'This will net me tons of money!', '', '', '', '', '', 30069, 1, 5600, 5600, 1);
+REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (7771, 30137);
+REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (7771, 30137);
+
 -- Add Naga bosses to The Shattered Strand. One can go at X: 3664 Y: -5770 Z: 11, and all the other structures
 
 -- Deadwind Pass

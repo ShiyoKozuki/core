@@ -476,3 +476,4 @@ sql/my queries/Loot.sql
 .vs/ProjectSettings.json
 .vs/slnx.sqlite
 .vs/VSWorkspaceState.json
+*.vsidx
