@@ -267,7 +267,16 @@ void Unit::Update(uint32 update_diff, uint32 p_time)
                     if (!IsCharmerOrOwnerPlayerOrPlayerItself() && static_cast<Creature const*>(this)->HasExtraFlag(CREATURE_FLAG_EXTRA_NO_THREAT_LIST))
                         OnLeaveCombat();
                     else
+                    {
+                        // World of Warcraft Client Patch 1.6.1 (2005-08-02)
+                        // - Spell casting is no longer interrupted when leaving combat. 
+#if SUPPORTED_CLIENT_BUILD < CLIENT_BUILD_1_6_1
+                        if (IsNonMeleeSpellCasted(false))
+                            InterruptNonMeleeSpells(false);
+#endif
+
                         ClearInCombat();
+                    }
                 }
             }
         }
@@ -778,7 +787,8 @@ uint32 Unit::DealDamage(Unit* pVictim, uint32 damage, CleanDamage const* cleanDa
     if (health <= damage && pVictim->GetInvincibilityHpThreshold() == 0)
     {
         DEBUG_FILTER_LOG(LOG_FILTER_DAMAGE, "DealDamage: victim just died");
-        Kill(pVictim, spellProto, durabilityLoss); // Function too long, we cut
+        Kill(pVictim, spellProto, durabilityLoss);
+
         // last damage from non duel opponent or opponent controlled creature
         if (duel_hasEnded)
         {
@@ -1053,38 +1063,53 @@ void Unit::Kill(Unit* pVictim, SpellEntry const* spellProto, bool durabilityLoss
 
     DEBUG_FILTER_LOG(LOG_FILTER_DAMAGE, "DealDamageAttackStop");
 
-    bool damageFromSpiritOfRedemtionTalent = (spellProto && spellProto->Id == 27795);
+    bool const damageFromSpiritOfRedemptionTalent = (spellProto && spellProto->Id == 27965);
+    bool const spiritOfRedemptionTalentImmune = pVictim->GetClass() == CLASS_PRIEST && !damageFromSpiritOfRedemptionTalent && pVictim->HasAura(20711);
 
-    // if talent known but not triggered (check priest class for speedup check)
-    bool spiritOfRedemtionTalentImmune = false;
-    if (pPlayerVictim && pVictim->GetClass() == CLASS_PRIEST)
+    // handle spirit of redemption talent
+    if (spiritOfRedemptionTalentImmune)
+#if SUPPORTED_CLIENT_BUILD > CLIENT_BUILD_1_9_4
     {
-        if (!damageFromSpiritOfRedemtionTalent)           // not called from SPELL_AURA_SPIRIT_OF_REDEMPTION
-        {
-            AuraList const& vDummyAuras = pVictim->GetAurasByType(SPELL_AURA_DUMMY);
-            for (const auto& itr : vDummyAuras)
-            {
-                if (itr->GetSpellProto()->SpellIconID == 1654)
-                {
-                    spiritOfRedemtionTalentImmune = true;
-                    break;
-                }
-            }
-        }
+        pVictim->InterruptNonMeleeSpells(false);
 
-        // Already applied spirit of redemption. Fix stuck in ANGEL form.
-        if (!spiritOfRedemtionTalentImmune && HasAura(27827))
-            return;
+        // save value before aura remove
+        uint32 ressSpellId = 0;
+#if SUPPORTED_CLIENT_BUILD >= CLIENT_BUILD_1_6_1
+        ressSpellId = pVictim->GetUInt32Value(PLAYER_SELF_RES_SPELL);
+        if (!ressSpellId)
+            ressSpellId = ((Player*)pVictim)->SelectResurrectionSpellId();
+#else
+        if (HasFlag(PLAYER_FLAGS, PLAYER_FLAGS_CAN_SELF_RESURRECT))
+            ressSpellId = ((Player*)pVictim)->GetResurrectionSpellId();
+#endif
+
+        pVictim->RemoveAllAurasOnDeath();
+
+        // restore for use at real death
+#if SUPPORTED_CLIENT_BUILD >= CLIENT_BUILD_1_6_1
+        pVictim->SetUInt32Value(PLAYER_SELF_RES_SPELL, ressSpellId);
+#else
+        pPlayerVictim->SetResurrectionSpellId(ressSpellId);
+        if (ressSpellId)
+            SetFlag(PLAYER_FLAGS, PLAYER_FLAGS_CAN_SELF_RESURRECT);
+#endif
+
+        pVictim->CastCustomSpell(pVictim, 27827, pVictim->GetMaxHealth(), {}, {}, true);
     }
-
-    if (!spiritOfRedemtionTalentImmune)
+    else
+#else
+    {
+        pVictim->CastSpell(pVictim->GetPositionX(), pVictim->GetPositionY(), pVictim->GetPositionZ(), 20713, true);
+    }
+    // no else
+#endif
     {
         pVictim->SetHealth(0);
         DEBUG_FILTER_LOG(LOG_FILTER_DAMAGE, "SET JUST_DIED");
         pVictim->SetDeathState(JUST_DIED);
 
-// World of Warcraft Client Patch 1.6.0 (2005-07-12)
-// - Self-resurrection spells show their name on the button in the release spirit dialog.
+        // World of Warcraft Client Patch 1.6.0 (2005-07-12)
+        // - Self-resurrection spells show their name on the button in the release spirit dialog.
 #if SUPPORTED_CLIENT_BUILD >= CLIENT_BUILD_1_6_1
         if (pPlayerVictim && pVictim->GetUInt32Value(PLAYER_SELF_RES_SPELL))
             pVictim->DirectSendPublicValueUpdate(PLAYER_SELF_RES_SPELL);
@@ -1094,14 +1119,6 @@ void Unit::Kill(Unit* pVictim, SpellEntry const* spellProto, bool durabilityLoss
 #endif
         // Nostalrius: Instantly send values update for health
         pVictim->DirectSendPublicValueUpdate(UNIT_FIELD_HEALTH);
-    }
-    else
-    {
-        // Before the stop of combat, the auras of type MC are removed. We must be able to redirect the mobs to the caster.
-        pVictim->RemoveCharmAuras(AURA_REMOVE_BY_DEATH);
-
-        // stop combat
-        pVictim->CombatStop();
     }
 
     pVictim->GetHostileRefManager().deleteReferences();
@@ -1115,39 +1132,9 @@ void Unit::Kill(Unit* pVictim, SpellEntry const* spellProto, bool durabilityLoss
 
     DEBUG_FILTER_LOG(LOG_FILTER_DAMAGE, "DealDamageHealth1");
 
-    if (spiritOfRedemtionTalentImmune)
-    {
-        // save value before aura remove
-        uint32 ressSpellId = 0;
-#if SUPPORTED_CLIENT_BUILD >= CLIENT_BUILD_1_6_1
-        ressSpellId = pVictim->GetUInt32Value(PLAYER_SELF_RES_SPELL);
-        if (!ressSpellId)
-            ressSpellId = ((Player*)pVictim)->SelectResurrectionSpellId();
-#else
-        if (HasFlag(PLAYER_FLAGS, PLAYER_FLAGS_CAN_SELF_RESURRECT))
-            ressSpellId = ((Player*)pVictim)->GetResurrectionSpellId();
-#endif
-
-        //Remove all expected to remove at death auras (most important negative case like DoT or periodic triggers)
-        pVictim->RemoveAllAurasOnDeath();
-
-        // restore for use at real death
-#if SUPPORTED_CLIENT_BUILD >= CLIENT_BUILD_1_6_1
-        pVictim->SetUInt32Value(PLAYER_SELF_RES_SPELL, ressSpellId);
-#else
-        pPlayerVictim->SetResurrectionSpellId(ressSpellId);
-        if (ressSpellId)
-            SetFlag(PLAYER_FLAGS, PLAYER_FLAGS_CAN_SELF_RESURRECT);
-#endif
-
-        // FORM_SPIRITOFREDEMPTION and related auras
-        pVictim->AddAura(27827, ADD_AURA_NO_OPTION, pVictim);
-        pVictim->InterruptNonMeleeSpells(false);
-    }
-
     // remember victim PvP death for corpse type and corpse reclaim delay
-    // at original death (not at SpiritOfRedemtionTalent timeout)
-    if (pPlayerVictim && !damageFromSpiritOfRedemtionTalent)
+    // at original death (not at SpiritOfRedemptionTalent timeout)
+    if (pPlayerVictim && !damageFromSpiritOfRedemptionTalent)
         pPlayerVictim->SetPvPDeath(pPlayerTap != nullptr);
 
     // Call KilledUnit for creatures
@@ -2032,7 +2019,7 @@ void Unit::CalculateDamageAbsorbAndResist(SpellCaster* pCaster, SpellSchoolMask 
             // Nostalrius : la reflection (bene de sacrifice par exemple) ne fait pas forcement des degats (si pala sous bouclier divin)
             uint32 reflectAbsorb = 0;
             int32 reflectResist = 0;
-            // On evite une boucle infinie
+            // We avoid an infinite loop
             if (!reflectTo->HasAuraType(SPELL_AURA_SPLIT_DAMAGE_FLAT))
                 reflectTo->CalculateDamageAbsorbAndResist(pCaster, schoolMask, DOT, splitted, &reflectAbsorb, &reflectResist, spellProto);
             splitted -= (reflectAbsorb + reflectResist);
@@ -2310,16 +2297,16 @@ MeleeHitOutcome Unit::RollMeleeOutcomeAgainst(Unit const* pVictim, WeaponAttackT
         int32 maxskill = attackerMaxSkillValueForLevel;
         skill = (skill > maxskill) ? maxskill : skill;
 
-        // (Youfie) Le +skill avant BC ne permet pas de réduire la fréquence des glancing blows une fois qu'il est égal au niveau du joueur*5
+        // (Youfie) The +skill before BC does not reduce the frequency of glancing blows once it is equal to the player's level*5
         if (attackerWeaponSkill > maxskill)
             attackerWeaponSkill = maxskill;
 
-        // (Youfie) Chance de glance en Vanilla (inchangée par le +skill au delà de maxskill, cf. au dessus) :
+        // (Youfie) Chance of glance in Vanilla (unchanged by +skill beyond maxskill, see above):
         tmp = (10 + ((victimDefenseSkill - attackerWeaponSkill) * 2)) * 100;
         tmp = tmp > 4000 ? 4000 : tmp;
         if (tmp < 0)
             tmp = 0;
-        // sLog.Out(LOG_BASIC, LOG_LVL_MINIMAL, "tmp = %i, Skill = %i, Max Skill = %i", tmp, attackerWeaponSkill, attackerMaxSkillValueForLevel); //Pour tests & débug via la console
+        // sLog.Out(LOG_BASIC, LOG_LVL_MINIMAL, "tmp = %i, Skill = %i, Max Skill = %i", tmp, attackerWeaponSkill, attackerMaxSkillValueForLevel); //For testing & debugging via the console
 
         if (roll < (sum += tmp))
         {
@@ -2530,8 +2517,8 @@ bool Unit::RollSpellBlockChanceOutcome(SpellCaster const* pCaster, WeaponAttackT
 float Unit::RollMagicResistanceMultiplierOutcomeAgainst(float resistanceChance, SpellSchoolMask schoolMask, DamageEffectType damagetype, SpellEntry const* spellProto) const
 {
     // Magic vulnerability instead of magic resistance:
-    bool negative;
-    if (negative = (resistanceChance < 0.0f))
+    bool negative = resistanceChance < 0.0f;
+    if (negative)
         resistanceChance = -resistanceChance;
 
     resistanceChance *= 100.0f;
@@ -2734,6 +2721,18 @@ float Unit::GetUnitBlockChance() const
 
     if (Player const* pPlayer = ToPlayer())
     {
+        // Test results from classic:
+        // Sheath State Unarmed - Can't Block
+        // Sheath State Melee - Can Block
+        // Sheath State Ranged - Can Block
+        // Parry and Dodge don't have any sheath state restrictions.
+        // https://warcraft.wiki.gg/wiki/Patch_2.1.0_(undocumented_changes)
+        // "You can now block attacks while your shield is in the sheathed position."
+        // "Previously, Warriors, Shamans and Paladins were vulnerable while using"
+        // "instant-cast abilities that caused their shield to momentarily appear on their back."
+        if (pPlayer->GetSheath() == SHEATH_STATE_UNARMED)
+            return 0.0f;
+
         if (pPlayer->CanBlock() && pPlayer->CanUseEquippedWeapon(OFF_ATTACK))
         {
             Item* tmpitem = pPlayer->GetItemByPos(INVENTORY_SLOT_BAG_0, EQUIPMENT_SLOT_OFFHAND);
@@ -3585,7 +3584,7 @@ bool Unit::RemoveNoStackAurasDueToAuraHolder(SpellAuraHolder* holder)
         {
             // Nostalrius - fix stack same HoT rank / diff caster
             if (firstInChain)
-                aurasToRemove.push_back({ spellId, i.second->GetCasterGuid() });
+                aurasToRemove.emplace_back(spellId, i.second->GetCasterGuid());
             else switch (spellId)
             {
             // Blessing of Light does not stack between casters.
@@ -3593,7 +3592,7 @@ bool Unit::RemoveNoStackAurasDueToAuraHolder(SpellAuraHolder* holder)
                 case 19978:
                 case 19979:
                 case 25890:
-                    aurasToRemove.push_back({ spellId, i.second->GetCasterGuid() });
+                    aurasToRemove.emplace_back(spellId, i.second->GetCasterGuid());
                     break;
             }
             continue;
@@ -3610,7 +3609,7 @@ bool Unit::RemoveNoStackAurasDueToAuraHolder(SpellAuraHolder* holder)
                 return false;
             }
             sLog.Out(LOG_BASIC, LOG_LVL_DETAIL, "[STACK][DB] Unable to stack %u and %u. %u will be removed.", spellId, i_spellId, i_spellId);
-            aurasToRemove.push_back({ i_spellId, i.second->GetCasterGuid() });
+            aurasToRemove.emplace_back(i_spellId, i.second->GetCasterGuid());
             continue;
         }
 
@@ -3647,7 +3646,7 @@ bool Unit::RemoveNoStackAurasDueToAuraHolder(SpellAuraHolder* holder)
                 continue;
             }
             sLog.Out(LOG_BASIC, LOG_LVL_DETAIL, "[STACK][%u/%u] SpellSpecPerTarget ou SpellSpecPerCaster", spellId, i_spellId);
-            aurasToRemove.push_back({ i_spellId, i.second->GetCasterGuid() });
+            aurasToRemove.emplace_back(i_spellId, i.second->GetCasterGuid());
             continue;
         }
 
@@ -3670,7 +3669,7 @@ bool Unit::RemoveNoStackAurasDueToAuraHolder(SpellAuraHolder* holder)
                 continue;
             }
             sLog.Out(LOG_BASIC, LOG_LVL_DETAIL, "[STACK][%u/%u] SpellPerTarget", spellId, i_spellId);
-            aurasToRemove.push_back({ i_spellId, i.second->GetCasterGuid() });
+            aurasToRemove.emplace_back(i_spellId, i.second->GetCasterGuid());
             continue;
         }
 
@@ -3696,7 +3695,7 @@ bool Unit::RemoveNoStackAurasDueToAuraHolder(SpellAuraHolder* holder)
                 continue;
             }
             sLog.Out(LOG_BASIC, LOG_LVL_DETAIL, "[STACK][%u/%u] NoStackSpellDueToSpell", spellId, i_spellId);
-            aurasToRemove.push_back({ i_spellId, i.second->GetCasterGuid() });
+            aurasToRemove.emplace_back(i_spellId, i.second->GetCasterGuid());
             continue;
         }
     }
@@ -4432,7 +4431,7 @@ void Unit::HandleTriggers(Unit* pVictim, uint32 procExtra, uint32 amount, uint32
         {
             // If last charge dropped add spell to remove list
             if (triggeredByHolder->DropAuraCharge())
-                removedSpells.push_back(RemovedSpellData(triggeredByHolder->GetId(), caster));
+                removedSpells.emplace_back(triggeredByHolder->GetId(), caster);
         }
 
         triggeredByHolder->SetInUse(false);
@@ -5370,7 +5369,7 @@ bool Unit::IsSpellCrit(Unit const* pVictim, SpellEntry const* spellProto, SpellS
                 AuraList const& mOverrideClassScript = GetAurasByType(SPELL_AURA_OVERRIDE_CLASS_SCRIPTS);
                 for (const auto& i : mOverrideClassScript)
                 {
-                    if (!(i->GetSpellProto()->SpellFamilyName == spellProto->SpellFamilyName))
+                    if (i->GetSpellProto()->SpellFamilyName != spellProto->SpellFamilyName)
                         continue;
 #if SUPPORTED_CLIENT_BUILD <= CLIENT_BUILD_1_10_2
                     // 1.11.0 - Mage talent Shatter was changed to affect all spells, previously limited to Frost spells.
@@ -6551,7 +6550,7 @@ bool Unit::IsVisibleForOrDetect(WorldObject const* pDetector, WorldObject const*
     //players detect players only in Player::HandleStealthedUnitsDetection()
     // Units detect Units only in Units::HandleStealthedUnitsDetection()
     if (!detect)
-        return pDetectorPlayer ? pDetectorPlayer->IsInVisibleList(this) : false;
+        return pDetectorPlayer != nullptr && pDetectorPlayer->IsInVisibleList(this);
 
     // Special cases
     if (pDetectorUnit && !pDetectorUnit->CanDetectStealthOf(this, GetDistance3dToCenter(viewPoint), alert))
@@ -7074,7 +7073,7 @@ void Unit::UpdateSpeed(UnitMoveType mtype, bool forced, float ratio)
             break;
         }
         case MOVE_RUN_BACK:
-            return;
+            break;
         case MOVE_SWIM:
         {
             main_speed_mod  = GetMaxPositiveAuraModifier(SPELL_AURA_MOD_INCREASE_SWIM_SPEED);
@@ -7118,10 +7117,19 @@ void Unit::UpdateSpeed(UnitMoveType mtype, bool forced, float ratio)
             speed *= sWorld.getConfig(((Player*)this)->InBattleGround() ? CONFIG_FLOAT_GHOST_RUN_SPEED_BG : CONFIG_FLOAT_GHOST_RUN_SPEED_WORLD);
     }
 
-    // Apply strongest slow aura mod to speed
-    int32 slow = GetMaxNegativeAuraModifier(SPELL_AURA_MOD_DECREASE_SPEED);
-    if (slow)
-        speed *= (100.0f + slow) / 100.0f;
+    switch (mtype)
+    {
+        case MOVE_RUN:
+        case MOVE_RUN_BACK:
+        case MOVE_SWIM:
+        {
+            // Apply strongest slow aura mod to speed
+            int32 slow = GetMaxNegativeAuraModifier(SPELL_AURA_MOD_DECREASE_SPEED);
+            if (slow)
+                speed *= (100.0f + slow) / 100.0f;
+            break;
+        }
+    }
 
     if (IsCreature())
     {
@@ -7706,7 +7714,7 @@ void Unit::IncrDiminishing(DiminishingGroup group)
             i.hitCount += 1;
         return;
     }
-    m_Diminishing.push_back(DiminishingReturn(group, WorldTimer::getMSTime(), DIMINISHING_LEVEL_2));
+    m_Diminishing.emplace_back(group, WorldTimer::getMSTime(), DIMINISHING_LEVEL_2);
 }
 
 void Unit::ApplyDiminishingToDuration(DiminishingGroup group, int32& duration, WorldObject const* caster, DiminishingLevels Level, bool isReflected)
@@ -7795,6 +7803,56 @@ uint32 Unit::GetCreatureType() const
 ########                         ########
 #######################################*/
 
+// attack power needs special handling because positive and negative mods are set in separate update fields
+bool Unit::HandleAttackPowerModifier(AttackPowerModIndex index, AttackPowerModType modifierType, float amount, bool apply)
+{
+    if (index >= AP_MODS_COUNT || modifierType >= AP_MOD_TYPE_COUNT)
+    {
+        sLog.Out(LOG_BASIC, LOG_LVL_ERROR, "ERROR in HandleAttackPowerModifier(): nonexistent index %u or type %u!", index, modifierType);
+        return false;
+    }
+
+    switch (modifierType)
+    {
+        case AP_MOD_POSITIVE_FLAT:
+            m_attackPowerMods[index].positiveMods += apply ? amount : -amount;
+            break;
+        case AP_MOD_NEGATIVE_FLAT:
+            m_attackPowerMods[index].negativeMods += apply ? amount : -amount;
+            break;
+        case AP_MOD_PCT:
+            ApplyPercentModFloatVar(m_attackPowerMods[index].multiplier, amount, apply);
+            break;
+    }
+
+    if (!CanModifyStats())
+        return false;
+
+    UpdateAttackPowerAndDamage(index == RANGED_AP_MODS);
+    return true;
+}
+
+float Unit::GetAttackPowerModifierValue(AttackPowerModIndex index, AttackPowerModType modifierType) const
+{
+    if (index >= AP_MODS_COUNT || modifierType >= AP_MOD_TYPE_COUNT)
+    {
+        sLog.Out(LOG_BASIC, LOG_LVL_ERROR, "Attempt to access nonexistent modifier value from m_attackPowerMods!");
+        return 0.0f;
+    }
+
+    switch (modifierType)
+    {
+        case AP_MOD_POSITIVE_FLAT:
+            return m_attackPowerMods[index].positiveMods;
+        case AP_MOD_NEGATIVE_FLAT:
+            return m_attackPowerMods[index].negativeMods;
+        case AP_MOD_PCT:
+            return std::max(0.0f, m_attackPowerMods[index].multiplier);
+    }
+
+    return 0;
+}
+
 bool Unit::HandleStatModifier(UnitMods unitMod, UnitModifierType modifierType, float amount, bool apply)
 {
     if (unitMod >= UNIT_MOD_END || modifierType >= MODIFIER_TYPE_END)
@@ -7853,13 +7911,6 @@ bool Unit::HandleStatModifier(UnitMods unitMod, UnitModifierType modifierType, f
         case UNIT_MOD_RESISTANCE_SHADOW:
         case UNIT_MOD_RESISTANCE_ARCANE:
             UpdateResistances(GetSpellSchoolByAuraGroup(unitMod));
-            break;
-
-        case UNIT_MOD_ATTACK_POWER:
-            UpdateAttackPowerAndDamage();
-            break;
-        case UNIT_MOD_ATTACK_POWER_RANGED:
-            UpdateAttackPowerAndDamage(true);
             break;
 
         case UNIT_MOD_DAMAGE_MAINHAND:
@@ -8049,7 +8100,7 @@ float Unit::GetTotalAttackPowerValue(WeaponAttackType attType) const
 {
     if (attType == RANGED_ATTACK)
     {
-        int32 ap = GetInt32Value(UNIT_FIELD_RANGED_ATTACK_POWER) + GetInt32Value(UNIT_FIELD_RANGED_ATTACK_POWER_MODS);
+        int32 ap = GetInt32Value(UNIT_FIELD_RANGED_ATTACK_POWER) + GetInt16Value(UNIT_FIELD_RANGED_ATTACK_POWER_MODS, 0) + GetInt16Value(UNIT_FIELD_RANGED_ATTACK_POWER_MODS, 1);
         if (ap < 0)
             return 0.0f;
 #if SUPPORTED_CLIENT_BUILD > CLIENT_BUILD_1_8_4
@@ -8060,7 +8111,7 @@ float Unit::GetTotalAttackPowerValue(WeaponAttackType attType) const
     }
     else
     {
-        int32 ap = GetInt32Value(UNIT_FIELD_ATTACK_POWER) + GetInt32Value(UNIT_FIELD_ATTACK_POWER_MODS);
+        int32 ap = GetInt32Value(UNIT_FIELD_ATTACK_POWER) + GetInt16Value(UNIT_FIELD_ATTACK_POWER_MODS, 0) + GetInt16Value(UNIT_FIELD_ATTACK_POWER_MODS, 1);
         if (ap < 0)
             return 0.0f;
 #if SUPPORTED_CLIENT_BUILD > CLIENT_BUILD_1_8_4
@@ -9007,7 +9058,7 @@ void Unit::ProcDamageAndSpellFor(bool isVictim, Unit* pTarget, ProcSystemArgumen
         }
 
         itr.second->SetInUse(true);                        // prevent holder deletion
-        triggeredList.push_back(ProcTriggeredData(spellProcEvent, itr.second, pTarget, procFlag));
+        triggeredList.emplace_back(spellProcEvent, itr.second, pTarget, procFlag);
     }
 }
 

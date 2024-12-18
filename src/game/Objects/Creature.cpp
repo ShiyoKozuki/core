@@ -941,7 +941,7 @@ void Creature::Update(uint32 update_diff, uint32 diff)
             if (unreachableTarget)
             {
                 m_TargetNotReachableTimer += update_diff;
-                if (GetMapId() == 30 && CanHaveThreatList() && m_TargetNotReachableTimer > 1000) // Alterac Valley exploit fix
+                if (GetMapId() == MAP_ALTERAC_VALLEY && CanHaveThreatList() && m_TargetNotReachableTimer > 1000) // Alterac Valley exploit fix
                     GetThreatManager().modifyThreatPercent(GetVictim(), -101);
             }
             else
@@ -1762,9 +1762,6 @@ void Creature::InitStatsForLevel(float percentHealth, float percentMana)
 
     SetBaseWeaponDamage(RANGED_ATTACK, MINDAMAGE, rangedDamageAverage - rangedDamageVariance);
     SetBaseWeaponDamage(RANGED_ATTACK, MAXDAMAGE, rangedDamageAverage + rangedDamageVariance);
-
-    SetModifierValue(UNIT_MOD_ATTACK_POWER, BASE_VALUE, pCLS->attack_power);
-    SetModifierValue(UNIT_MOD_ATTACK_POWER_RANGED, BASE_VALUE, pCLS->ranged_attack_power);
 
     // armor
     SetCreateResistance(SPELL_SCHOOL_NORMAL, pCLS->armor * cinfo->armor_multiplier);
