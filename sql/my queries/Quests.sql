@@ -22,6 +22,8 @@
 -- Hydraxian waterlolrds rep vendor and killing stuff here gives rep? or just eles in general and https://www.wowhead.com/classic/quest=3507/betrayed 
 -- Down the coast II also add daggerspine screamer (make kill count 10/10)
 -- Fix respawn times on the two custom mobs i added (Narka and Blood Elf)
+
+-- Quest + Vendor + Repair npc flag = 
 -- NEXT quest_template 30131
 -- NEXT creature_template 90042
 
@@ -578,7 +580,7 @@ REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLeve
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (8420, 30125);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (8420, 30125);
 
-REPLACE `mangos`.`creature_template` (`entry`, `name`, `subname`, `level_min`, `level_max`, `faction`, `npc_flags`, `display_id1`, `display_probability1`, `display_total_probability`, `type`, `unit_class`, `health_multiplier`, `static_flags1`, `flags_extra`) VALUES (90041, 'Sophie Klein', '', 55, 55, 12, 16390, 1447, 1, 1, 7, 1, 1.05, 138936390, 2);
+REPLACE `mangos`.`creature_template` (`entry`, `name`, `subname`, `level_min`, `level_max`, `faction`, `npc_flags`, `display_id1`, `display_probability1`, `display_total_probability`, `type`, `unit_class`, `health_multiplier`, `static_flags1`, `flags_extra`) VALUES (90041, 'Sophie Klein', '', 55, 55, 12, 6, 1447, 1, 1, 7, 1, 1.05, 138936390, 2);
 REPLACE `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000043, 90041, 0, 0, 0, 0, 1, 4564.81, -7637.84, 44.3538, 0.994856, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
 
 REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `NextQuestInChain`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOCount1`, `RewXP`, `RewMoneyMaxLevel`, `CompleteEmote`) VALUES (30130, 11, 50, 53, 8, 0, 'Reef Thrashers', 'The reef used to be a beautiful place. Now it\'s full of monsters. Please clear them out to make this place nice again.', 'Kill 25 Wavethrasher then return to Sophie Klein in Azshara.', 'Very nice!', '', '', '', '', '', 6348, 25, 5300, 5300, 1);
@@ -589,7 +591,7 @@ REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLeve
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90041, 30131);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90041, 30131);
 
-REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `PrevQuestId`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOCount1`, `RewXP`, `RewMoneyMaxLevel`, `CompleteEmote`) VALUES (30132, 11, 50, 54, 8, 30132, 'Clack Attack', 'The monsters have also infested the ruined temple of Eldara to the south west. Clear out the temple for me.', 'Kill 20 Arkkoran Clacker then return to Sophie Klein in Azshara.', 'Very nice!', '', '', '', '', '', 6135, 20, 5300, 5300, 1);
+REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `PrevQuestId`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOCount1`, `RewXP`, `RewMoneyMaxLevel`, `CompleteEmote`) VALUES (30132, 11, 50, 54, 8, 30131, 'Clack Attack', 'The monsters have also infested the ruined temple of Eldara to the south west. Clear out the temple for me.', 'Kill 20 Arkkoran Clacker then return to Sophie Klein in Azshara.', 'Very nice!', '', '', '', '', '', 6135, 20, 5300, 5300, 1);
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90041, 30132);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90041, 30132);
 
@@ -601,9 +603,11 @@ REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLeve
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90041, 30134);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90041, 30134);
 
+REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `NextQuestInChain`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOCount1`, `RewXP`, `RewMoneyMaxLevel`, `CompleteEmote`) VALUES (30135, 11, 50, 54, 8, 30136, 'Big Mean Turtles', 'The turtles here may look nice but they are a menance that needs to be taken care of. Clear them out from the reef.', 'Kill 30 Coralshell Lurker then return to Sophie Klein in Azshara.', 'Very nice!', '', '', '', '', '', 6352, 30, 5300, 5300, 1);
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90041, 30135);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90041, 30135);
 
+REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `PrevQuestId`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOCount1`, `RewXP`, `RewMoneyMaxLevel`, `CompleteEmote`) VALUES (30136, 11, 50, 55, 8, 30135, 'Crab Pincers', 'The crabs called Arkkoran Pincers have started living in the temple of Eldara. Clear the temple out of their presence.', 'Kill 25 Arkkoran Pincer then return to Sophie Klein in Azshara.', 'Very nice!', '', '', '', '', '', 6137, 25, 5300, 5300, 1);
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90041, 30136);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90041, 30136);
 

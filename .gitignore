@@ -468,3 +468,11 @@ sql/backups/full db/mangos/variables.sql
 sql/backups/full db/mangos/warden_scans.sql
 sql/backups/full db/mangos/world_safe_locs_facing.sql
 sql/my queries/Loot.sql
+.vs/CMake Overview
+.vs/core/FileContentIndex/024e593b-1661-4ed1-a96f-95f81b14f7a8.vsidx
+.vs/core/FileContentIndex/a9efc310-48b9-4a0c-af3c-7b8cf0e27823.vsidx
+.vs/core/v17/Browse.VC.db-shm
+.vs/core/v17/Browse.VC.db-wal
+.vs/ProjectSettings.json
+.vs/slnx.sqlite
+.vs/VSWorkspaceState.json
