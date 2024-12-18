@@ -132,6 +132,17 @@ UPDATE `pool_template` SET `max_limit` = 23 WHERE `entry` = 1003; -- Silverleaf 
 UPDATE `pool_template` SET `max_limit` = 21 WHERE `entry` = 1002; -- Peacebloom in Teldrassil
 UPDATE `pool_template` SET `max_limit` = 9 WHERE `entry` = 1001; -- Earthroot in Teldrassil
 
+-- Thousand Needles
+UPDATE `pool_template` SET `max_limit` = 6 WHERE `entry`=1133; -- Bruiseweed in Thousand Needles
+UPDATE `pool_template` SET `max_limit` = 2 WHERE `entry`=2586; -- Mithril Deposits - Thousand Needles
+UPDATE `pool_template` SET `max_limit` = 6 WHERE `entry`=1136; -- Kingsblood in Thousand Needles
+UPDATE `pool_template` SET `max_limit` = 5 WHERE `entry`=1134; -- Wild Steelbloom in Thousand Needles
+UPDATE `pool_template` SET `max_limit` = 11 WHERE `entry`=1131; -- Thousand Needles - Tin Vein / Silver Vein (Master Pool)
+UPDATE `pool_template` SET `max_limit` = 14 WHERE `entry`=1132; -- Thousand Needles - Gold Vein / Iron Deposit (Master Pool)
+UPDATE `pool_template` SET `max_limit` = 11 WHERE `entry`=2585; -- Copper Veins - Thousand Needles
+UPDATE `pool_template` SET `max_limit` = 2 WHERE `entry`=304; -- Thousand Needles - Ooze Covered Silver Vein / Ooze Covered Gold Vein / Ooze Covered Mithril Deposit (Master Pool)
+UPDATE `pool_template` SET `max_limit` = 3 WHERE `entry`=329; -- Thousand Needles - Silver Vein / Gold Vein / Iron Deposit (Master Pool)
+
 
 -- End of migration.
 END IF;
