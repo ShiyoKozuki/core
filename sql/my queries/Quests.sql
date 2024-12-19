@@ -1,8 +1,7 @@
 -- Quests
--- Dustwallow Marsh - New named NPC at sentry point to kill spiders, raptors, and crocs neaby
 -- Feralas - Add 1 more quest for hippogryphs
 -- South STV
--- Tanaris Basilisks north (5419, 5420) (Two turtle places [5431, 14123], mostly south tanaris [5430, 5427, 5424, 5421], many more ogre quests, elite giants by Uldum, Coast Strider/ Deep Dweller (Elites) and LOTS for the insect caves) There's an unused dwarf camp south
+-- Tanaris Basilisks mid west (5420)
 -- Azshara - Wildlife: (8759, 8762, 8760, 8761) Ooze: 8766 Turtles: (6352, 6369) Hippo: 6377 Cracklaws: (6135, 6370, 6350, 6137) Murloc: 6138 Hydra: 6348 Chimaera: (8763, 8764) Shark: 12125 Giant Strider: 6144
 -- Blasted Lands
 -- Deadwind Pass
@@ -21,9 +20,11 @@
 -- Add new custom item rewards to a lot of quests (especially end of chains missing rewards)
 -- Hydraxian waterlolrds rep vendor and killing stuff here gives rep? or just eles in general and https://www.wowhead.com/classic/quest=3507/betrayed 
 -- Down the coast II also add daggerspine screamer (make kill count 10/10)
+-- Azshara quests (at least final ones at Sophia) have wrong zone ID (its wetlands)
+-- Dustwallow Sentry Point quests have wrong zone ID (its wetlands)
 
 -- Quest + Vendor + Repair npc flag = 
--- NEXT quest_template 30144
+-- NEXT quest_template 30150
 -- NEXT creature_template 90042
 
 -- A Lack of Fear (Fear Ward Quest)
@@ -644,11 +645,37 @@ REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (14743, 30142);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (14743, 30142);
 
 -- Custom gear reward
-REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewXP`, `RewMoneyMaxLevel`, `CompleteEmote`) VALUES (30143, 440, 45, 50, 8, 'Guardians of Uldum', 'The dune smashers to the south of here hold an ancient stone from Uldum. The key to accessing Uldum might be in that stone! Kill them and get the stone for me!', 'Bring the Uldum Stone to Prospector Gunstan in Tanaris.', 'With this, the secrets of Uldum might be revealed!', '', '', '', '', '', 30070, 1, 6500, 6500, 1);
+REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewXP`, `RewMoneyMaxLevel`, `CompleteEmote`) VALUES (30143, 440, 45, 50, 8, 'Guardians of Uldum', 'The dune smashers to the south of here hold an ancient stone from Uldum. The key to accessing Uldum might be in that stone! Kill them and get the stone for me!', 'Bring the Uldum Stone to Prospector Gunstan in Tanaris.', 'With this the secrets of Uldum might be revealed!', '', '', '', '', '', 30070, 1, 6500, 6500, 1);
+UPDATE `mangos`.`quest_template` SET `Type`=1 WHERE  `entry`=30143 AND `patch`=0;
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (5389, 30143);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (5389, 30143);
 REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (5469, 30070, -5);
 REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (5470, 30070, -5);
+
+-- Custom gear reward
+REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `Type`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOId2`, `ReqCreatureOrGOCount1`, `ReqCreatureOrGOCount2`, `RewXP`, `RewMoneyMaxLevel`, `CompleteEmote`) VALUES (30144, 440, 45, 50, 1, 8, 'Ocean Giants', 'The east coast of Tanaris is home of giants that live in the ocean. I\'d like you to take them out for me.', 'Kill 15 Coast Strider and 15 Deep Dweller for Prospector Gunstan in Tanaris.', 'Thank you!', '', '', '', '', '', 5466, 5467, 15, 15, 6500, 6500, 1);
+REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (5389, 30144);
+REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (5389, 30144);
+
+REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOCount1`, `RewXP`, `RewMoneyMaxLevel`, `CompleteEmote`) VALUES (30145, 440, 45, 50, 8, 'Surf Gliders', 'Everytime I try to fish in Tanaris, I get attacked by turtles! Please clear out the turtles on the east and south coasts of Tanaris so I can fish in peace.', 'Kill 30 Surf Glider for Prospector Gunstan in Tanaris.', 'Thank you!', '', '', '', '', '', 5431, 30, 5100, 5100, 1);
+REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (5389, 30145);
+REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (5389, 30145);
+
+REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOCount1`, `RewXP`, `RewMoneyMaxLevel`, `CompleteEmote`) VALUES (30146, 440, 45, 49, 8, 'Rocs my Socks', 'The rocs here keep eating my freshly cooked meals. I\'ve gone multiple days without eating some days. Please clear them out for me.', 'Kill 25 Searing Roc for Prospector Gunstan in Tanaris.', 'Now I should be able to eat my meals in peace.', '', '', '', '', '', 5430, 25, 5100, 5100, 1);
+REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (5389, 30146);
+REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (5389, 30146);
+
+REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOCount1`, `RewXP`, `RewMoneyMaxLevel`, `CompleteEmote`) VALUES (30147, 440, 45, 48, 8, 'Tanaris Hyenas', 'If it\'s not the rocs stealing my food, it\'s the hyenas stealing my tools. Please clear out the hyenas for me.', 'Kill 25 Rabid Blisterpaw for Prospector Gunstan in Tanaris.', 'Hopefully I can work more efficiently now.', '', '', '', '', '', 5427, 25, 4900, 4900, 1);
+REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (5389, 30147);
+REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (5389, 30147);
+
+REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOCount1`, `RewXP`, `RewMoneyMaxLevel`, `CompleteEmote`) VALUES (30148, 440, 45, 49, 8, 'Tanaris Basilisks', 'The basilisks block the road and make it hard for me to travel. Please kill as many of them as you can.', 'Kill 25 Glasshide Petrifier for Prospector Gunstan in Tanaris.', 'Hopefully I can work more efficiently now.', '', '', '', '', '', 5421, 25, 4900, 4900, 1);
+REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (5389, 30148);
+REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (5389, 30148);
+
+REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOCount1`, `RewXP`, `RewMoneyMaxLevel`, `CompleteEmote`) VALUES (30149, 440, 45, 47, 8, 'Deadly Scorpions', 'The scorpions in south Tanaris have a very deadly venom that makes it tough to trave, especially at night. Please clear them out so the roads are safer.', 'Kill 25 Scorpid Dunestalker for Prospector Gunstan in Tanaris.', 'Hopefully I can work more efficiently now.', '', '', '', '', '', 5424, 25, 4500, 4500, 1);
+REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (5389, 30149);
+REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (5389, 30149);
 
 
 -- Deadwind Pass
