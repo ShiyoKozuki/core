@@ -477,3 +477,6 @@ sql/my queries/Loot.sql
 .vs/slnx.sqlite
 .vs/VSWorkspaceState.json
 *.vsidx
+.vs/core/v17/.wsuo
+.vs/core/v17/DocumentLayout.backup.json
+.vs/core/v17/DocumentLayout.json
