@@ -215,6 +215,20 @@ REPLACE INTO `creature_spells` (`entry`, `name`, `spellId_1`, `probability_1`, `
 UPDATE `creature_template` SET `spell_id1` = 9574 WHERE `entry` = 10217;
 UPDATE `creature_template` SET `spell_id1` = 0, `spell_id2` = 0, `spell_id3` = 0 WHERE `entry` = 9266;
 
+-- Pool Dustwallow Marsh Mining Nodes
+INSERT INTO `pool_template` (`entry`, `max_limit`, `description`, `flags`, `instance`, `patch_min`, `patch_max`) VALUES
+(4825, 4, ' Dustwallow Marsh - Mining Nodes (Master Pool)', 0, 0, 0, 10);
+INSERT INTO `pool_pool` (`pool_id`, `mother_pool`, `chance`, `description`, `flags`) VALUES
+(2872, 4825, 0, ' Dustwallow Marsh - Mining Nodes', 0),
+(2873, 4825, 0, ' Dustwallow Marsh - Mining Nodes', 0),
+(2874, 4825, 0, ' Dustwallow Marsh - Mining Nodes', 0),
+(2875, 4825, 0, ' Dustwallow Marsh - Mining Nodes', 0),
+(2871, 4825, 0, ' Dustwallow Marsh - Mining Nodes', 0),
+(2223, 4825, 0, ' Dustwallow Marsh - Mining Nodes', 0),
+(23046, 4825, 0, 'Dustwallow Marsh - Mining Nodes', 0),
+(9005, 4825, 0, ' Dustwallow Marsh - Mining Nodes', 0),
+(9006, 4825, 0, ' Dustwallow Marsh - Mining Nodes', 0);
+
 
 -- End of migration.
 END IF;
