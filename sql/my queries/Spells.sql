@@ -81,6 +81,9 @@ UPDATE `mangos`.`spell_template` SET `manaCost`=0 WHERE  `entry`=1949;
 UPDATE `mangos`.`spell_template` SET `manaCost`=0 WHERE  `entry`=11683;
 UPDATE `mangos`.`spell_template` SET `manaCost`=0 WHERE  `entry`=11684;
 
+-- Create Healthstone
+UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=3 WHERE NAME LIKE 'Create Healthstone%';
+
 -- Torment (Voidwalker)
 UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=89 WHERE  `entry`=3716;
 UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=149 WHERE  `entry`=7809;
