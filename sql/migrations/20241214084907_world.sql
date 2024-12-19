@@ -182,6 +182,13 @@ UPDATE `pool_template` SET `max_limit` = 3 WHERE `entry` = 1144;
 UPDATE `pool_template` SET `max_limit` = 3 WHERE `entry` = 1143;
 UPDATE `pool_template` SET `max_limit` = 4 WHERE `entry` = 1142;
 
+-- Tanaris
+UPDATE `pool_template` SET `max_limit` = 15 WHERE `entry`=1208; -- Firebloom in Tanaris
+UPDATE `pool_template` SET `max_limit` = 10 WHERE `entry`=1205; -- Purple Lotus in Tanaris
+UPDATE `pool_template` SET `max_limit` = 10 WHERE `entry`=1200; -- Tanaris - Silver Vein / Gold Vein / Iron Deposit (Master Pool)
+UPDATE `pool_template` SET `max_limit` = 16 WHERE `entry`=1203; -- Tanaris - Gold Vein / Mithril Deposit / Truesilver Deposit (Master Pool)
+UPDATE `pool_template` SET `max_limit` = 4 WHERE `entry`=1204; -- Small Thorium Veins - Tanaris
+
 
 -- End of migration.
 END IF;
