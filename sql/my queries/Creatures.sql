@@ -1,8 +1,5 @@
 -- Creatures
 
--- Slithid in Shimmering Flats link radius
-UPDATE `creature_ai_scripts` SET `x` = 30 WHERE `id` IN (413301,413302);
-
 -- Double the armor of any mob < 2.0 multiplier and > 0 multiplier
 UPDATE mangos . creature_template
 SET armor_multiplier = 2.0
