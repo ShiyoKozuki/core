@@ -21,10 +21,9 @@
 -- Add new custom item rewards to a lot of quests (especially end of chains missing rewards)
 -- Hydraxian waterlolrds rep vendor and killing stuff here gives rep? or just eles in general and https://www.wowhead.com/classic/quest=3507/betrayed 
 -- Down the coast II also add daggerspine screamer (make kill count 10/10)
--- Fix respawn times on the two custom mobs i added (Narka and Blood Elf)
 
 -- Quest + Vendor + Repair npc flag = 
--- NEXT quest_template 30131
+-- NEXT quest_template 30144
 -- NEXT creature_template 90042
 
 -- A Lack of Fear (Fear Ward Quest)
@@ -611,12 +610,46 @@ REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLeve
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90041, 30136);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90041, 30136);
 
+-- Add Naga bosses to The Shattered Strand. One can go at X: 3664 Y: -5770 Z: 11, and all the other structures
+
 -- Tanaris
-REPLACE INTO `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewXP`, `RewMoneyMaxLevel`, `CompleteEmote`) VALUES (30137, 440, 44, 49, 8, 'Dunemaul Treasure', 'The ogres have taken up camp all over Tanaris. They hold a treasure that I\'d like to get my hands on for some profit. Kill the ogres and get me this treasure. ', 'Bring the Ogre Treasure to Marvon Rivetseeker in Tanaris.', 'This will net me tons of money!', '', '', '', '', '', 30069, 1, 5600, 5600, 1);
+REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewXP`, `RewMoneyMaxLevel`, `CompleteEmote`) VALUES (30137, 440, 44, 49, 8, 'Dunemaul Treasure', 'The ogres have taken up camp all over Tanaris. They hold a treasure that I\'d like to get my hands on for some profit. Kill the ogres and get me this treasure. ', 'Bring the Ogre Treasure to Marvon Rivetseeker in Tanaris.', 'This will net me tons of money!', '', '', '', '', '', 30069, 1, 5600, 5600, 1);
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (7771, 30137);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (7771, 30137);
+REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (5471, 30069, -5);
+REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (5472, 30069, -5);
+REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (5473, 30069, -5);
+REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (5474, 30069, -5);
+REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (5475, 30069, -5);
 
--- Add Naga bosses to The Shattered Strand. One can go at X: 3664 Y: -5770 Z: 11, and all the other structures
+REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOCount1`, `RewXP`, `RewMoneyMaxLevel`, `CompleteEmote`) VALUES (30138, 440, 40, 43, 8, 'Tanaris Snappers', 'The turtles on the beach here keep attacking our shipments. Take care of them for me.', 'Security Chief Bilgewhizzle of Steamwheedle Port in Tanaris wants you to kill 25 Steeljaw Snapper.', 'It\'s much safer here now.', '', '', '', '', '', 14123, 25, 4100, 4100, 1);
+REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (7882, 30138);
+REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (7882, 30138);
+
+REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOCount1`, `RewXP`, `RewMoneyMaxLevel`, `CompleteEmote`) VALUES (30139, 440, 40, 43, 8, 'Critters of Tanaris I', 'The rocs around here block the road and make it hard to travel. Clear as many of them out as you can.', 'Kill 20 Roc for Jhordy Lapforge at Gadgetzan in Tanaris.', 'This will help make the roads safer!', '', '', '', '', '', 5428, 20, 4100, 4100, 1);
+REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (14743, 30139);
+REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (14743, 30139);
+
+REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOCount1`, `RewXP`, `RewMoneyMaxLevel`, `CompleteEmote`) VALUES (30140, 440, 40, 43, 8, 'Critters of Tanaris II', 'The basilisk around here block the road and make it hard to travel. Clear as many of them out as you can.', 'Kill 20 Glasshide Basilisk for Jhordy Lapforge at Gadgetzan in Tanaris.', 'This will help make the roads safer!', '', '', '', '', '', 5419, 20, 4100, 4100, 1);
+REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (14743, 30140);
+REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (14743, 30140);
+
+UPDATE `mangos`.`creature_template` SET `npc_flags`=3 WHERE  `entry`=14743;
+REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOCount1`, `RewXP`, `RewMoneyMaxLevel`, `CompleteEmote`) VALUES (30141, 440, 40, 44, 8, 'Critters of Tanaris III', 'The scorpids around here block the road and make it hard to travel. Clear as many of them out as you can.', 'Kill 20 Scorpid Tail Lasher for Jhordy Lapforge at Gadgetzan in Tanaris.', 'This will help make the roads safer!', '', '', '', '', '', 5423, 20, 4100, 4100, 1);
+REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (14743, 30141);
+REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (14743, 30141);
+
+REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOCount1`, `RewXP`, `RewMoneyMaxLevel`, `CompleteEmote`) VALUES (30142, 440, 40, 42, 8, 'Critters of Tanaris IV', 'The hyenas around here block the road and make it hard to travel. Clear as many of them out as you can.', 'Kill 20 Starving Blisterpaw for Jhordy Lapforge at Gadgetzan in Tanaris.', 'This will help make the roads safer!', '', '', '', '', '', 5425, 20, 4100, 4100, 1);
+REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (14743, 30142);
+REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (14743, 30142);
+
+-- Custom gear reward
+REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewXP`, `RewMoneyMaxLevel`, `CompleteEmote`) VALUES (30143, 440, 45, 50, 8, 'Guardians of Uldum', 'The dune smashers to the south of here hold an ancient stone from Uldum. The key to accessing Uldum might be in that stone! Kill them and get the stone for me!', 'Bring the Uldum Stone to Prospector Gunstan in Tanaris.', 'With this, the secrets of Uldum might be revealed!', '', '', '', '', '', 30070, 1, 6500, 6500, 1);
+REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (5389, 30143);
+REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (5389, 30143);
+REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (5469, 30070, -5);
+REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (5470, 30070, -5);
+
 
 -- Deadwind Pass
 REPLACE `mangos`.`faction` (`id`, `build`, `reputation_list_id`, `base_rep_race_mask1`, `base_rep_race_mask2`, `base_rep_race_mask3`, `base_rep_value1`, `base_rep_value2`, `base_rep_value3`, `reputation_flags1`, `reputation_flags2`, `name`, `description`) VALUES (477, 5302, 56, 73, 178, 4, 150, -42000, 500, 16, 22, 'Caretakers of Karazhan', 'Medivh\'s personal caretakers.');
