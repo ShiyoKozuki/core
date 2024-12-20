@@ -189,6 +189,15 @@ UPDATE `pool_template` SET `max_limit` = 10 WHERE `entry`=1200; -- Tanaris - Sil
 UPDATE `pool_template` SET `max_limit` = 16 WHERE `entry`=1203; -- Tanaris - Gold Vein / Mithril Deposit / Truesilver Deposit (Master Pool)
 UPDATE `pool_template` SET `max_limit` = 4 WHERE `entry`=1204; -- Small Thorium Veins - Tanaris
 
+-- Dustwallow Marsh
+UPDATE `pool_template` SET `max_limit` = 6 WHERE `entry` = 43520 AND `patch_min` = 7 AND `patch_max` = 10;
+UPDATE `pool_template` SET `max_limit` = 2 WHERE `entry` = 43521 AND `patch_min` = 7 AND `patch_max` = 10;
+UPDATE `pool_template` SET `max_limit` = 10 WHERE `entry`=1102;
+UPDATE `pool_template` SET `max_limit` = 14 WHERE `entry`=1104;
+UPDATE `pool_template` SET `max_limit` = 8 WHERE `entry`=1103;
+UPDATE `pool_template` SET `max_limit` = 8 WHERE `entry`=1328;
+UPDATE `pool_template` SET `max_limit` = 6 WHERE `entry`=1039;
+
 
 -- End of migration.
 END IF;
