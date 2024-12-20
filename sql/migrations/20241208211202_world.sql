@@ -229,6 +229,9 @@ INSERT INTO `pool_pool` (`pool_id`, `mother_pool`, `chance`, `description`, `fla
 (9005, 4825, 0, ' Dustwallow Marsh - Mining Nodes', 0),
 (9006, 4825, 0, ' Dustwallow Marsh - Mining Nodes', 0);
 
+-- Creature 5469 Shares Spawns With 5470
+UPDATE `creature` SET `id2` = 5470 WHERE `id`= 5469;
+
 
 -- End of migration.
 END IF;
