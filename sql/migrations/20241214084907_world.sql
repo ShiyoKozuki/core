@@ -198,6 +198,29 @@ UPDATE `pool_template` SET `max_limit` = 8 WHERE `entry`=1103;
 UPDATE `pool_template` SET `max_limit` = 8 WHERE `entry`=1328;
 UPDATE `pool_template` SET `max_limit` = 6 WHERE `entry`=1039;
 
+-- Badlands
+UPDATE `pool_template` SET `max_limit` = 6 WHERE `entry` = 1284;
+UPDATE `pool_template` SET `max_limit` = 5 WHERE `entry` = 1281;
+UPDATE `pool_template` SET `max_limit` = 5 WHERE `entry` = 1282;
+UPDATE `pool_template` SET `max_limit` = 3 WHERE `entry` = 1283;
+UPDATE `pool_template` SET `max_limit` = 4 WHERE `entry` = 1084;
+UPDATE `pool_template` SET `max_limit` = 2 WHERE `entry` = 1285;
+UPDATE `pool_template` SET `max_limit` = 1 WHERE `entry` = 1286;
+UPDATE `pool_template` SET `max_limit` = 11 WHERE `entry` = 1287;
+UPDATE `pool_template` SET `max_limit` = 10 WHERE `entry` = 1288;
+
+-- Alterac Mountains
+UPDATE `pool_template` SET `max_limit` = 10 WHERE `entry`=1068;
+UPDATE `pool_template` SET `max_limit` = 9 WHERE `entry`=1069;
+UPDATE `pool_template` SET `max_limit` = 1 WHERE `entry`=407;
+UPDATE `pool_template` SET `max_limit` = 8 WHERE `entry`=1058;
+UPDATE `pool_template` SET `max_limit` = 6 WHERE `entry`=1057;
+UPDATE `pool_template` SET `max_limit` = 6 WHERE `entry`=1059;
+UPDATE `pool_template` SET `max_limit` = 4 WHERE `entry`=1062;
+UPDATE `pool_template` SET `max_limit` = 3 WHERE `entry`=1071;
+UPDATE `pool_template` SET `max_limit` = 3 WHERE `entry`=1063;
+UPDATE `pool_template` SET `max_limit` = 2 WHERE `entry`=1056;
+
 
 -- End of migration.
 END IF;
