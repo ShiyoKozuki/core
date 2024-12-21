@@ -221,6 +221,20 @@ UPDATE `pool_template` SET `max_limit` = 3 WHERE `entry`=1071;
 UPDATE `pool_template` SET `max_limit` = 3 WHERE `entry`=1063;
 UPDATE `pool_template` SET `max_limit` = 2 WHERE `entry`=1056;
 
+-- Stranglethorn
+UPDATE `pool_template` SET `max_limit` = 15 WHERE `entry`=1175;
+UPDATE `pool_template` SET `max_limit` = 10 WHERE `entry`=1174;
+UPDATE `pool_template` SET `max_limit` = 16 WHERE `entry`=1171 AND `patch_min`=0 AND `patch_max`=10;
+UPDATE `pool_template` SET `max_limit` = 19 WHERE `entry`=1170;
+UPDATE `pool_template` SET `max_limit` = 11 WHERE `entry`=1173;
+UPDATE `pool_template` SET `max_limit` = 13 WHERE `entry`=1179;
+UPDATE `pool_template` SET `max_limit` = 11 WHERE `entry`=1169;
+UPDATE `pool_template` SET `max_limit` = 16 WHERE `entry`=1171 AND `patch_min`=0 AND `patch_max`=4;
+UPDATE `pool_template` SET `max_limit` = 3 WHERE `entry`=1199;
+UPDATE `pool_template` SET `max_limit` = 4 WHERE `entry`=1172;
+UPDATE `pool_template` SET `max_limit` = 3 WHERE `entry`=1178;
+UPDATE `pool_template` SET `max_limit` = 2 WHERE `entry`=1176;
+
 
 -- End of migration.
 END IF;
