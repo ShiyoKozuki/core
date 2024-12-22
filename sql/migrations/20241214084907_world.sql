@@ -235,6 +235,13 @@ UPDATE `pool_template` SET `max_limit` = 4 WHERE `entry`=1172;
 UPDATE `pool_template` SET `max_limit` = 3 WHERE `entry`=1178;
 UPDATE `pool_template` SET `max_limit` = 2 WHERE `entry`=1176;
 
+-- Searing Gorge
+UPDATE `pool_template` SET `max_limit` = 12 WHERE `entry`=1291;
+UPDATE `pool_template` SET `max_limit` = 3 WHERE `entry`=4350;
+UPDATE `pool_template` SET `max_limit` = 2 WHERE `entry`=4352;
+UPDATE `pool_template` SET `max_limit` = 8 WHERE `entry`=1338;
+UPDATE `pool_template` SET `max_limit` = 3 WHERE `entry`=4351;
+
 
 -- End of migration.
 END IF;
