@@ -23,6 +23,13 @@ INSERT INTO `gameobject_loot_template` (`entry`, `item`, `ChanceOrQuestChance`, 
 (2514, 2452, 20, 0, 1, 3, 0, 0, 10),
 (2515, 2452, 40, 0, 1, 3, 0, 0, 10);
 
+-- Barrens Herbs Should Drop Betreen 1 and 3 Herbs
+UPDATE `gameobject_loot_template` SET `mincountOrRef` = 1, `maxcount` = 3 WHERE `entry` = 2514 AND `item` = 785;
+UPDATE `gameobject_loot_template` SET `mincountOrRef` = 1, `maxcount` = 3 WHERE `entry` = 2515 AND `item` = 2450;
+UPDATE `gameobject_loot_template` SET `mincountOrRef` = 1, `maxcount` = 3 WHERE `entry` = 2512 AND `item` = 2447;
+UPDATE `gameobject_loot_template` SET `mincountOrRef` = 1, `maxcount` = 3 WHERE `entry` = 2513 AND `item` = 2449;
+UPDATE `gameobject_loot_template` SET `mincountOrRef` = 1, `maxcount` = 3 WHERE `entry` = 2511 AND `item` = 765;
+
 -- Remove Unused Quest From NPC
 DELETE FROM `creature_questrelation` WHERE  `id` = 14358 AND `quest` = 7462;
 
