@@ -123,19 +123,6 @@ FROM (SELECT DISTINCT entry FROM creature_template) creature_template
 JOIN (SELECT DISTINCT entry FROM item_template) item_template
 WHERE creature_template.entry IN (3323, 1307, 1351, 16015, 3335, 4878, 2805, 1257, 3351, 3490, 4083, 8361, 5151, 3562, 12784, 12795, 13476, 1275, 5110, 4575, 983, 958, 4562, 12096, 1308, 3500, 3700, 10364, 12097, 1463, 1673, 3970, 5139, 3542, 4220, 14739, 15175) AND item_template.entry IN (5512, 5511, 5509, 5510, 9421, 16896, 10310, 10309, 10307, 10308, 10305);
 
--- Wildhammer Rep Vendor (471)
-UPDATE `mangos`.`creature_template` SET `npc_flags`=6 WHERE  `entry`=5635 AND `patch`=0; -- Quest Giver + Vendor flags
-INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (5635, 30047, 0);
-INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (5635, 30048, 0);
-INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (5635, 30049, 0);
-INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (5635, 30050, 0);
-INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (5635, 30051, 0);
-INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (5635, 30052, 0);
-INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (5635, 30053, 0);
-INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (5635, 30054, 0);
-INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (5635, 30055, 0);
-INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (5635, 30059, 0);
-
 -- Silverwing Rep Vendor (WSG)
 INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (14753, 30000, 159);
 INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (14753, 30001, 159);
@@ -145,6 +132,9 @@ INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (14
 INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (14753, 30039, 160);
 INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (14753, 30040, 160);
 INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (14753, 30041, 160);
+
+-- Timermaw Rep
+INSERT IGNORE `mangos`.`npc_vendor_template` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (1155700, 18260, 1, 7200);
 
 INSERT IGNORE npc_vendor(entry, item)
 SELECT creature_template.entry, item_template.entry
@@ -220,6 +210,20 @@ INSERT IGNORE `mangos`.`npc_vendor_template` (`entry`, `item`) VALUES (1277702, 
 INSERT IGNORE `mangos`.`npc_vendor_template` (`entry`, `item`) VALUES (1277702, 16574);
 INSERT IGNORE `mangos`.`npc_vendor_template` (`entry`, `item`) VALUES (1277702, 16579);
 
+-- Wildhammer Rep Vendor (471)
+UPDATE `mangos`.`creature_template` SET `npc_flags`=6 WHERE  `entry`=5635 AND `patch`=0; -- Quest Giver + Vendor flags
+INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (5635, 30047, 0);
+INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (5635, 30048, 0);
+INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (5635, 30049, 0);
+INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (5635, 30050, 0);
+INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (5635, 30051, 0);
+INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (5635, 30052, 0);
+INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (5635, 30053, 0);
+INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (5635, 30054, 0);
+INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (5635, 30055, 0);
+INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (5635, 30059, 0);
+INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (5635, 20730, 0);
+
 -- Nethergarde Defenders Quartermaster
 UPDATE `mangos`.`creature_template` SET `npc_flags`=6 WHERE  `entry`=5393 AND `patch`=0;
 INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (5393, 30008, 0);
@@ -230,6 +234,7 @@ INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (53
 INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (5393, 30013, 0);
 INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (5393, 30014, 0);
 INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (5393, 30015, 0);
+INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (5393, 18259, 0);
 
 -- Caretaker of Karazhan Quartermaster
 INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (90036, 30019, 0);
@@ -241,6 +246,7 @@ INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (90
 INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (90036, 30025, 0);
 INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (90036, 30026, 0);
 INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (90036, 30027, 0);
+INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (90036, 20727, 0);
 
 -- Wintersaber Trainers Quarter 
 INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (10618, 30028, 0);
@@ -252,6 +258,7 @@ INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (10
 INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (10618, 30034, 0);
 INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (10618, 30035, 0);
 INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (10618, 30036, 0);
+INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (10618, 20728, 0);
 
 -- Alchemists' Stone Recipe
 INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`) VALUES (8157, 28, 13517, 1, 3600, 3);
@@ -5631,6 +5638,23 @@ UPDATE mangos . item_template
 SET stackable = 250
 WHERE entry IN(30007, 30016, 30017, 30018);
 
+-- TODO: Formula: Enchant Gloves - Fire Power (20729)
+-- TODO: Formula: Enchant Gloves - Superior Agility (20731)
+-- TODO: Formula: Enchant Cloak - Subtlety (20735)
+-- TODO: Formula: Enchant Cloak - Dodge (20736)
+-- TODO: Formula: Enchant Weapon - Healing Power
+
+UPDATE mangos. item_template 
+SET required_reputation_faction = 476, -- Timbermaw Rep
+    required_reputation_rank = 7 -- Exalted
+WHERE entry = 18260;
+
+-- Formula: Enchant Gloves - Healing Power
+UPDATE mangos. item_template 
+SET required_reputation_faction = 471, -- Wildhammer Rep
+    required_reputation_rank = 7 -- Exalted
+WHERE entry = 20730;
+
 UPDATE mangos. item_template 
 SET required_reputation_faction = 476, -- Nethergarde Defenders
     required_reputation_rank = 5 -- Honored
@@ -5646,7 +5670,7 @@ UPDATE mangos. item_template
 SET required_reputation_faction = 476, -- Nethergarde Defenders
     required_reputation_rank = 7, -- Exalted
     bonding = 1
-WHERE entry IN(30011, 30012, 30013);
+WHERE entry IN(30011, 30012, 30013, 18259);
 
 UPDATE mangos. item_template 
 SET required_reputation_faction = 477, -- Caretakers of Karazhan
@@ -5664,7 +5688,7 @@ UPDATE mangos. item_template
 SET required_reputation_faction = 477, -- Caretakers of Karazhan
     required_reputation_rank = 7, -- Exalted
     bonding = 1
-WHERE entry IN(30020, 30022, 30027, 30024);
+WHERE entry IN(30020, 30022, 30027, 30024, 20727);
 
 UPDATE mangos. item_template 
 SET required_reputation_faction = 589, -- Wintersaber Trainers
@@ -5682,7 +5706,7 @@ UPDATE mangos. item_template
 SET required_reputation_faction = 589, -- Wintersaber Trainers
     required_reputation_rank = 7, -- Exalted
     bonding = 1
-WHERE entry IN(30028, 30032, 30034);
+WHERE entry IN(30028, 30032, 30034, 20728);
 
 -- Sentinel's Ring
 UPDATE mangos . item_template

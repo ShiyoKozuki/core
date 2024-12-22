@@ -287,3 +287,9 @@ WHERE entry IN(13873, 8444);
 UPDATE mangos . item_template
 SET flags = 3136 
 WHERE entry = 7741;
+
+-- Custom drops
+
+-- Scarlet Priest 
+-- Pattern: Truefaith Vestments
+INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (10608, 14512, 1);
