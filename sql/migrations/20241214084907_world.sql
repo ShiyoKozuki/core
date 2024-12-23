@@ -242,6 +242,16 @@ UPDATE `pool_template` SET `max_limit` = 2 WHERE `entry`=4352;
 UPDATE `pool_template` SET `max_limit` = 8 WHERE `entry`=1338;
 UPDATE `pool_template` SET `max_limit` = 3 WHERE `entry`=4351;
 
+-- Stonetalon
+UPDATE `pool_template` SET `max_limit` = 14 WHERE `entry`=1086;
+UPDATE `pool_template` SET `max_limit` = 13 WHERE `entry`=1085;
+UPDATE `pool_template` SET `max_limit` = 11 WHERE `entry`=1088;
+UPDATE `pool_template` SET `max_limit` = 8 WHERE `entry`=1087;
+UPDATE `pool_template` SET `max_limit` = 4 WHERE `entry`=1082;
+UPDATE `pool_template` SET `max_limit` = 6 WHERE `entry`=1091;
+UPDATE `pool_template` SET `max_limit` = 15 WHERE `entry`=1090;
+UPDATE `pool_template` SET `max_limit` = 16 WHERE `entry`=1089;
+
 
 -- End of migration.
 END IF;
