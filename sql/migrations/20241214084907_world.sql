@@ -252,6 +252,15 @@ UPDATE `pool_template` SET `max_limit` = 6 WHERE `entry`=1091;
 UPDATE `pool_template` SET `max_limit` = 15 WHERE `entry`=1090;
 UPDATE `pool_template` SET `max_limit` = 16 WHERE `entry`=1089;
 
+-- Redridge
+UPDATE `pool_template` SET `max_limit` = 22 WHERE `entry`=1128;
+UPDATE `pool_template` SET `max_limit` = 7 WHERE `entry`=400;
+UPDATE `pool_template` SET `max_limit` = 7 WHERE `entry`=1129;
+UPDATE `pool_template` SET `max_limit` = 8 WHERE `entry`=1126;
+UPDATE `pool_template` SET `max_limit` = 8 WHERE `entry`=1127;
+UPDATE `pool_template` SET `max_limit` = 12 WHERE `entry`=1124;
+UPDATE `pool_template` SET `max_limit` = 6 WHERE `entry`=1306;
+
 
 -- End of migration.
 END IF;
