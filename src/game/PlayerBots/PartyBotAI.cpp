@@ -1299,7 +1299,7 @@ void PartyBotAI::UpdateOutOfCombatAI_Paladin()
     // Blessings logic
     // TODO: Kings logic (Need to track that the current blessing aura checking wasn't casted by you)
     // TODO: BoSanc logic for tanks. Kept spamming wisdom after kings on self as a prot paladin
-    if (me->GetLevel() > 25)
+    if (me->GetLevel() == 60)
     {
         if (m_spells.paladin.pBlessingOfSalvation)
         {
