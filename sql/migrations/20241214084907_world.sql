@@ -273,6 +273,20 @@ UPDATE `pool_template` SET `max_limit` = 4 WHERE `entry`=1101;
 UPDATE `pool_template` SET `max_limit` = 28 WHERE `entry`=1098;
 UPDATE `pool_template` SET `max_limit` = 11 WHERE `entry`=1099;
 
+-- Ashenvale
+UPDATE `pool_template` SET `max_limit` = 11 WHERE `entry` = 1075;
+UPDATE `pool_template` SET `max_limit` = 6 WHERE `entry` = 1080;
+UPDATE `pool_template` SET `max_limit` = 10 WHERE `entry` = 1078;
+UPDATE `pool_template` SET `max_limit` = 11 WHERE `entry` = 1072;
+UPDATE `pool_template` SET `max_limit` = 6 WHERE `entry` = 1076 AND `patch_min`=5 AND `patch_max`=10;
+UPDATE `pool_template` SET `max_limit` = 6 WHERE `entry` = 1074;
+UPDATE `pool_template` SET `max_limit` = 10 WHERE `entry` = 1073;
+UPDATE `pool_template` SET `max_limit` = 4 WHERE `entry` = 1351;
+UPDATE `pool_template` SET `max_limit` = 6 WHERE `entry` = 1076 AND `patch_min`=0 AND `patch_max`=4;
+UPDATE `pool_template` SET `max_limit` = 8 WHERE `entry` = 1077;
+UPDATE `pool_template` SET `max_limit` = 4 WHERE `entry` = 1079;
+UPDATE `pool_template` SET `max_limit` = 4 WHERE `entry` = 1325;
+
 
 -- End of migration.
 END IF;
