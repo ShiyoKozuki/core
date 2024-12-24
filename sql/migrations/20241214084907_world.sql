@@ -261,6 +261,18 @@ UPDATE `pool_template` SET `max_limit` = 8 WHERE `entry`=1127;
 UPDATE `pool_template` SET `max_limit` = 12 WHERE `entry`=1124;
 UPDATE `pool_template` SET `max_limit` = 6 WHERE `entry`=1306;
 
+-- Darkshore
+UPDATE `pool_template` SET `max_limit` = 9 WHERE `entry`=1322 AND `patch_min`=5 AND `patch_max`=10;
+UPDATE `pool_template` SET `max_limit` = 10 WHERE `entry`=1097;
+UPDATE `pool_template` SET `max_limit` = 9 WHERE `entry`=1100;
+UPDATE `pool_template` SET `max_limit` = 11 WHERE `entry`=1095;
+UPDATE `pool_template` SET `max_limit` = 9 WHERE `entry`=1322 AND `patch_min`=0 AND `patch_max`=4;
+UPDATE `pool_template` SET `max_limit` = 10 WHERE `entry`=1094;
+UPDATE `pool_template` SET `max_limit` = 8 WHERE `entry`=1096;
+UPDATE `pool_template` SET `max_limit` = 4 WHERE `entry`=1101;
+UPDATE `pool_template` SET `max_limit` = 28 WHERE `entry`=1098;
+UPDATE `pool_template` SET `max_limit` = 11 WHERE `entry`=1099;
+
 
 -- End of migration.
 END IF;
