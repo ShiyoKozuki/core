@@ -299,6 +299,22 @@ UPDATE `pool_template` SET `max_limit` = 4 WHERE `entry` = 1114;
 UPDATE `pool_template` SET `max_limit` = 3 WHERE `entry` = 105;
 UPDATE `pool_template` SET `max_limit` = 6 WHERE `entry` = 18830;
 
+-- Barrens
+UPDATE `pool_template` SET `max_limit` = 22 WHERE `entry` = 1032;
+UPDATE `pool_template` SET `max_limit` = 18 WHERE `entry` = 1037;
+UPDATE `pool_template` SET `max_limit` = 16 WHERE `entry` = 1036;
+UPDATE `pool_template` SET `max_limit` = 16 WHERE `entry` = 1030;
+UPDATE `pool_template` SET `max_limit` = 14 WHERE `entry` = 1031;
+UPDATE `pool_template` SET `max_limit` = 11 WHERE `entry` = 1029;
+UPDATE `pool_template` SET `max_limit` = 12 WHERE `entry` = 1038;
+UPDATE `pool_template` SET `max_limit` = 6 WHERE `entry` = 1064 AND `patch_min`=5 AND `patch_max`=10;
+UPDATE `pool_template` SET `max_limit` = 6 WHERE `entry` = 1064 AND `patch_min`=0 AND `patch_max`=4;
+UPDATE `pool_template` SET `max_limit` = 4 WHERE `entry` = 1168;
+UPDATE `pool_template` SET `max_limit` = 3 WHERE `entry` = 3165;
+UPDATE `pool_template` SET `max_limit` = 9 WHERE `entry` = 2587;
+UPDATE `pool_template` SET `max_limit` = 9 WHERE `entry` = 1033;
+UPDATE `pool_template` SET `max_limit` = 28 WHERE `entry` = 4303;
+
 
 -- End of migration.
 END IF;
