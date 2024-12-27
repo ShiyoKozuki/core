@@ -315,6 +315,17 @@ UPDATE `pool_template` SET `max_limit` = 9 WHERE `entry` = 2587;
 UPDATE `pool_template` SET `max_limit` = 9 WHERE `entry` = 1033;
 UPDATE `pool_template` SET `max_limit` = 28 WHERE `entry` = 4303;
 
+-- Westfall
+UPDATE `pool_template` SET `max_limit` = 27 WHERE `entry` = 1111;
+UPDATE `pool_template` SET `max_limit` = 10 WHERE `entry` = 1109;
+UPDATE `pool_template` SET `max_limit` = 7 WHERE `entry` = 1108;
+UPDATE `pool_template` SET `max_limit` = 7 WHERE `entry` = 1110;
+UPDATE `pool_template` SET `max_limit` = 9 WHERE `entry`=1122 AND `patch_min`=5 AND `patch_max`=10;
+UPDATE `pool_template` SET `max_limit` = 12 WHERE `entry` = 1106;
+UPDATE `pool_template` SET `max_limit` = 6 WHERE `entry` = 1105;
+UPDATE `pool_template` SET `max_limit` = 8 WHERE `entry` = 1107;
+UPDATE `pool_template` SET `max_limit` = 9 WHERE `entry` = 1112;
+
 
 -- End of migration.
 END IF;
