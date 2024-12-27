@@ -287,6 +287,18 @@ UPDATE `pool_template` SET `max_limit` = 8 WHERE `entry` = 1077;
 UPDATE `pool_template` SET `max_limit` = 4 WHERE `entry` = 1079;
 UPDATE `pool_template` SET `max_limit` = 4 WHERE `entry` = 1325;
 
+-- Duskwood
+UPDATE `pool_template` SET `max_limit` = 10 WHERE `entry` = 1113;
+UPDATE `pool_template` SET `max_limit` = 6 WHERE `entry` = 399;
+UPDATE `pool_template` SET `max_limit` = 11 WHERE `entry` = 1119;
+UPDATE `pool_template` SET `max_limit` = 9 WHERE `entry` = 1115;
+UPDATE `pool_template` SET `max_limit` = 5 WHERE `entry` = 1117;
+UPDATE `pool_template` SET `max_limit` = 6 WHERE `entry` = 1120;
+UPDATE `pool_template` SET `max_limit` = 3 WHERE `entry` = 1116;
+UPDATE `pool_template` SET `max_limit` = 4 WHERE `entry` = 1114;
+UPDATE `pool_template` SET `max_limit` = 3 WHERE `entry` = 105;
+UPDATE `pool_template` SET `max_limit` = 6 WHERE `entry` = 18830;
+
 
 -- End of migration.
 END IF;
