@@ -101,7 +101,7 @@ void TotemAI::UpdateAI(uint32 const /*diff*/)
 
     if (victim &&
         owner &&
-        owner->GetVictim() == victim)
+        victim->IsInCombat())
     {
         m_victimGuid = victim->GetObjectGuid();
 
