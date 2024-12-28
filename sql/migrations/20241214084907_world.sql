@@ -338,6 +338,19 @@ UPDATE `pool_template` SET `max_limit` = 4 WHERE `entry`=1065 AND `patch_min`=0 
 UPDATE `pool_template` SET `max_limit` = 5 WHERE `entry`=1045;
 UPDATE `pool_template` SET `max_limit` = 5 WHERE `entry`=1354;
 
+--Wetlands
+UPDATE `pool_template` SET `max_limit` = 7 WHERE `entry` = 1156;
+UPDATE `pool_template` SET `max_limit` = 8 WHERE `entry` = 1348;
+UPDATE `pool_template` SET `max_limit` = 4 WHERE `entry` = 1355;
+UPDATE `pool_template` SET `max_limit` = 11 WHERE `entry`=1149 AND `patch_min`=5 AND `patch_max`=10;
+UPDATE `pool_template` SET `max_limit` = 11 WHERE `entry`=1149 AND `patch_min`=0 AND `patch_max`=4;
+UPDATE `pool_template` SET `max_limit` = 13 WHERE `entry` = 1155;
+UPDATE `pool_template` SET `max_limit` = 11 WHERE `entry` = 1151;
+UPDATE `pool_template` SET `max_limit` = 11 WHERE `entry` = 1153;
+UPDATE `pool_template` SET `max_limit` = 7 WHERE `entry` = 1150;
+UPDATE `pool_template` SET `max_limit` = 5 WHERE `entry` = 1154;
+UPDATE `pool_template` SET `max_limit` = 6 WHERE `entry` = 1152;
+
 
 -- End of migration.
 END IF;
