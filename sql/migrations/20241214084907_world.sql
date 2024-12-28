@@ -326,6 +326,18 @@ UPDATE `pool_template` SET `max_limit` = 6 WHERE `entry` = 1105;
 UPDATE `pool_template` SET `max_limit` = 8 WHERE `entry` = 1107;
 UPDATE `pool_template` SET `max_limit` = 9 WHERE `entry` = 1112;
 
+-- Silverpine
+UPDATE `pool_template` SET `max_limit` = 23 WHERE `entry` = 1044;
+UPDATE `pool_template` SET `max_limit` = 10 WHERE `entry` = 1046;
+UPDATE `pool_template` SET `max_limit` = 10 WHERE `entry` = 1043;
+UPDATE `pool_template` SET `max_limit` = 19 WHERE `entry` = 1042;
+UPDATE `pool_template` SET `max_limit` = 13 WHERE `entry` = 1041;
+UPDATE `pool_template` SET `max_limit` = 4 WHERE `entry` = 1047;
+UPDATE `pool_template` SET `max_limit` = 4 WHERE `entry`=1065 AND `patch_min`=5 AND `patch_max`=10;
+UPDATE `pool_template` SET `max_limit` = 4 WHERE `entry`=1065 AND `patch_min`=0 AND `patch_max`=4;
+UPDATE `pool_template` SET `max_limit` = 5 WHERE `entry`=1045;
+UPDATE `pool_template` SET `max_limit` = 5 WHERE `entry`=1354;
+
 
 -- End of migration.
 END IF;
