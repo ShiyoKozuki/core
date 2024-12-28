@@ -338,7 +338,7 @@ UPDATE `pool_template` SET `max_limit` = 4 WHERE `entry`=1065 AND `patch_min`=0 
 UPDATE `pool_template` SET `max_limit` = 5 WHERE `entry`=1045;
 UPDATE `pool_template` SET `max_limit` = 5 WHERE `entry`=1354;
 
---Wetlands
+-- Wetlands
 UPDATE `pool_template` SET `max_limit` = 7 WHERE `entry` = 1156;
 UPDATE `pool_template` SET `max_limit` = 8 WHERE `entry` = 1348;
 UPDATE `pool_template` SET `max_limit` = 4 WHERE `entry` = 1355;
