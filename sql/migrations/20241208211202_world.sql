@@ -12,9 +12,6 @@ INSERT INTO `migrations` VALUES ('20241208211202');
 -- Add Missing Script
 UPDATE `gameobject_template` SET `script_name` = 'go_corrupted_plant' WHERE `entry` = 174597;
 
--- Remove Unused Pool
-DELETE FROM `pool_template` WHERE `entry` = 39934;
-
 -- Creature 5469 Shares Spawns With 5470
 UPDATE `creature` SET `id2` = 5470 WHERE `id`= 5469;
 
