@@ -366,6 +366,21 @@ UPDATE `pool_template` SET `max_limit` = 2 WHERE `entry` = 322;
 UPDATE `pool_template` SET `max_limit` = 3 WHERE `entry` = 3310;
 UPDATE `pool_template` SET `max_limit` = 2 WHERE `entry` = 998;
 
+-- Arathi
+UPDATE `pool_template` SET `max_limit` = 4 WHERE `entry` = 18840;
+UPDATE `pool_template` SET `max_limit` = 4 WHERE `entry` = 1358;
+UPDATE `pool_template` SET `max_limit` = 8 WHERE `entry` = 406;
+UPDATE `pool_template` SET `max_limit` = 16 WHERE `entry` = 323;
+UPDATE `pool_template` SET `max_limit` = 10 WHERE `entry` = 1185;
+UPDATE `pool_template` SET `max_limit` = 10 WHERE `entry` = 1181;
+UPDATE `pool_template` SET `max_limit` = 8 WHERE `entry` = 1182;
+UPDATE `pool_template` SET `max_limit` = 6 WHERE `entry` = 1180;
+UPDATE `pool_template` SET `max_limit` = 5 WHERE `entry` = 1183;
+UPDATE `pool_template` SET `max_limit` = 4 WHERE `entry` = 1184;
+UPDATE `pool_template` SET `max_limit` = 2 WHERE `entry` = 298;
+UPDATE `pool_template` SET `max_limit` = 2 WHERE `entry` = 1052;
+UPDATE `pool_template` SET `max_limit` = 1 WHERE `entry` = 104;
+
 
 -- End of migration.
 END IF;
