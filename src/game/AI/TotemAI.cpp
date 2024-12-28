@@ -99,7 +99,9 @@ void TotemAI::UpdateAI(uint32 const /*diff*/)
         Cell::VisitAllObjects(m_creature, checker, max_range);
     }
 
-    if (victim)
+    if (victim &&
+        owner &&
+        owner->GetVictim() == victim)
     {
         m_victimGuid = victim->GetObjectGuid();
 
