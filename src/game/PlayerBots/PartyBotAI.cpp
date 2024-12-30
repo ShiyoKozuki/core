@@ -1351,6 +1351,8 @@ void PartyBotAI::UpdateOutOfCombatAI_Paladin()
                             IsValidBuffTarget(pMember, pSpellEntry) &&
                             me->IsWithinLOSInMap(pMember) &&
                             me->IsWithinDist(pMember, 30.0f) &&
+                            pMember->GetClass() != CLASS_SHAMAN &&
+                            pMember->GetClass() != CLASS_PALADIN &&
                             CanTryToCastSpell(pMember, m_spells.paladin.pBlessingOfMight) &&
                             (IsPureDPSClass(pMember->GetClass())) &&
                             !IsWearingShield(pMember))
@@ -1488,6 +1490,8 @@ void PartyBotAI::UpdateOutOfCombatAI_Paladin()
                                 IsValidBuffTarget(pMember, pSpellEntry) &&
                                 me->IsWithinLOSInMap(pMember) &&
                                 me->IsWithinDist(pMember, 30.0f) &&
+                                pMember->GetClass() != CLASS_SHAMAN &&
+                                pMember->GetClass() != CLASS_PALADIN &&
                                 CanTryToCastSpell(pMember, m_spells.paladin.pBlessingOfMight) &&
                                 IsWearingShield(pMember) &&
                                 (pMember != me))
@@ -3144,6 +3148,7 @@ void PartyBotAI::UpdateInCombatAI_Warrior()
 
         if (m_spells.warrior.pThunderClap &&
             (me->GetDistance(pVictim) <= 8.0f) &&
+            GetPartyLeader()->GetClass() != CLASS_WARRIOR &&
             CanTryToCastSpell(pVictim, m_spells.warrior.pThunderClap))
         {
             if (DoCastSpell(pVictim, m_spells.warrior.pThunderClap) == SPELL_CAST_OK)
@@ -3151,6 +3156,7 @@ void PartyBotAI::UpdateInCombatAI_Warrior()
         }
 
         if (m_spells.warrior.pDemoralizingShout &&
+            GetPartyLeader()->GetClass() != CLASS_WARRIOR &&
             CanTryToCastSpell(pVictim, m_spells.warrior.pDemoralizingShout))
         {
             if (DoCastSpell(pVictim, m_spells.warrior.pDemoralizingShout) == SPELL_CAST_OK)
