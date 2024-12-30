@@ -189,6 +189,198 @@ UPDATE `pool_template` SET `max_limit` = 10 WHERE `entry`=1200; -- Tanaris - Sil
 UPDATE `pool_template` SET `max_limit` = 16 WHERE `entry`=1203; -- Tanaris - Gold Vein / Mithril Deposit / Truesilver Deposit (Master Pool)
 UPDATE `pool_template` SET `max_limit` = 4 WHERE `entry`=1204; -- Small Thorium Veins - Tanaris
 
+-- Dustwallow Marsh
+UPDATE `pool_template` SET `max_limit` = 6 WHERE `entry` = 43520 AND `patch_min` = 7 AND `patch_max` = 10;
+UPDATE `pool_template` SET `max_limit` = 2 WHERE `entry` = 43521 AND `patch_min` = 7 AND `patch_max` = 10;
+UPDATE `pool_template` SET `max_limit` = 10 WHERE `entry`=1102;
+UPDATE `pool_template` SET `max_limit` = 14 WHERE `entry`=1104;
+UPDATE `pool_template` SET `max_limit` = 8 WHERE `entry`=1103;
+UPDATE `pool_template` SET `max_limit` = 8 WHERE `entry`=1328;
+UPDATE `pool_template` SET `max_limit` = 6 WHERE `entry`=1039;
+
+-- Badlands
+UPDATE `pool_template` SET `max_limit` = 6 WHERE `entry` = 1284;
+UPDATE `pool_template` SET `max_limit` = 5 WHERE `entry` = 1281;
+UPDATE `pool_template` SET `max_limit` = 5 WHERE `entry` = 1282;
+UPDATE `pool_template` SET `max_limit` = 3 WHERE `entry` = 1283;
+UPDATE `pool_template` SET `max_limit` = 4 WHERE `entry` = 1084;
+UPDATE `pool_template` SET `max_limit` = 2 WHERE `entry` = 1285;
+UPDATE `pool_template` SET `max_limit` = 1 WHERE `entry` = 1286;
+UPDATE `pool_template` SET `max_limit` = 11 WHERE `entry` = 1287;
+UPDATE `pool_template` SET `max_limit` = 10 WHERE `entry` = 1288;
+
+-- Alterac Mountains
+UPDATE `pool_template` SET `max_limit` = 10 WHERE `entry`=1068;
+UPDATE `pool_template` SET `max_limit` = 9 WHERE `entry`=1069;
+UPDATE `pool_template` SET `max_limit` = 1 WHERE `entry`=407;
+UPDATE `pool_template` SET `max_limit` = 8 WHERE `entry`=1058;
+UPDATE `pool_template` SET `max_limit` = 6 WHERE `entry`=1057;
+UPDATE `pool_template` SET `max_limit` = 6 WHERE `entry`=1059;
+UPDATE `pool_template` SET `max_limit` = 4 WHERE `entry`=1062;
+UPDATE `pool_template` SET `max_limit` = 3 WHERE `entry`=1071;
+UPDATE `pool_template` SET `max_limit` = 3 WHERE `entry`=1063;
+UPDATE `pool_template` SET `max_limit` = 2 WHERE `entry`=1056;
+
+-- Stranglethorn
+UPDATE `pool_template` SET `max_limit` = 15 WHERE `entry`=1175;
+UPDATE `pool_template` SET `max_limit` = 10 WHERE `entry`=1174;
+UPDATE `pool_template` SET `max_limit` = 16 WHERE `entry`=1171 AND `patch_min`=0 AND `patch_max`=10;
+UPDATE `pool_template` SET `max_limit` = 19 WHERE `entry`=1170;
+UPDATE `pool_template` SET `max_limit` = 11 WHERE `entry`=1173;
+UPDATE `pool_template` SET `max_limit` = 13 WHERE `entry`=1179;
+UPDATE `pool_template` SET `max_limit` = 11 WHERE `entry`=1169;
+UPDATE `pool_template` SET `max_limit` = 16 WHERE `entry`=1171 AND `patch_min`=0 AND `patch_max`=4;
+UPDATE `pool_template` SET `max_limit` = 3 WHERE `entry`=1199;
+UPDATE `pool_template` SET `max_limit` = 4 WHERE `entry`=1172;
+UPDATE `pool_template` SET `max_limit` = 3 WHERE `entry`=1178;
+UPDATE `pool_template` SET `max_limit` = 2 WHERE `entry`=1176;
+
+-- Searing Gorge
+UPDATE `pool_template` SET `max_limit` = 12 WHERE `entry`=1291;
+UPDATE `pool_template` SET `max_limit` = 3 WHERE `entry`=4350;
+UPDATE `pool_template` SET `max_limit` = 2 WHERE `entry`=4352;
+UPDATE `pool_template` SET `max_limit` = 8 WHERE `entry`=1338;
+UPDATE `pool_template` SET `max_limit` = 3 WHERE `entry`=4351;
+
+-- Stonetalon
+UPDATE `pool_template` SET `max_limit` = 14 WHERE `entry`=1086;
+UPDATE `pool_template` SET `max_limit` = 13 WHERE `entry`=1085;
+UPDATE `pool_template` SET `max_limit` = 11 WHERE `entry`=1088;
+UPDATE `pool_template` SET `max_limit` = 8 WHERE `entry`=1087;
+UPDATE `pool_template` SET `max_limit` = 4 WHERE `entry`=1082;
+UPDATE `pool_template` SET `max_limit` = 6 WHERE `entry`=1091;
+UPDATE `pool_template` SET `max_limit` = 15 WHERE `entry`=1090;
+UPDATE `pool_template` SET `max_limit` = 16 WHERE `entry`=1089;
+
+-- Redridge
+UPDATE `pool_template` SET `max_limit` = 22 WHERE `entry`=1128;
+UPDATE `pool_template` SET `max_limit` = 7 WHERE `entry`=400;
+UPDATE `pool_template` SET `max_limit` = 7 WHERE `entry`=1129;
+UPDATE `pool_template` SET `max_limit` = 8 WHERE `entry`=1126;
+UPDATE `pool_template` SET `max_limit` = 8 WHERE `entry`=1127;
+UPDATE `pool_template` SET `max_limit` = 12 WHERE `entry`=1124;
+UPDATE `pool_template` SET `max_limit` = 6 WHERE `entry`=1306;
+
+-- Darkshore
+UPDATE `pool_template` SET `max_limit` = 9 WHERE `entry`=1322 AND `patch_min`=5 AND `patch_max`=10;
+UPDATE `pool_template` SET `max_limit` = 10 WHERE `entry`=1097;
+UPDATE `pool_template` SET `max_limit` = 9 WHERE `entry`=1100;
+UPDATE `pool_template` SET `max_limit` = 11 WHERE `entry`=1095;
+UPDATE `pool_template` SET `max_limit` = 9 WHERE `entry`=1322 AND `patch_min`=0 AND `patch_max`=4;
+UPDATE `pool_template` SET `max_limit` = 10 WHERE `entry`=1094;
+UPDATE `pool_template` SET `max_limit` = 8 WHERE `entry`=1096;
+UPDATE `pool_template` SET `max_limit` = 4 WHERE `entry`=1101;
+UPDATE `pool_template` SET `max_limit` = 28 WHERE `entry`=1098;
+UPDATE `pool_template` SET `max_limit` = 11 WHERE `entry`=1099;
+
+-- Ashenvale
+UPDATE `pool_template` SET `max_limit` = 11 WHERE `entry` = 1075;
+UPDATE `pool_template` SET `max_limit` = 6 WHERE `entry` = 1080;
+UPDATE `pool_template` SET `max_limit` = 10 WHERE `entry` = 1078;
+UPDATE `pool_template` SET `max_limit` = 11 WHERE `entry` = 1072;
+UPDATE `pool_template` SET `max_limit` = 6 WHERE `entry` = 1076 AND `patch_min`=5 AND `patch_max`=10;
+UPDATE `pool_template` SET `max_limit` = 6 WHERE `entry` = 1074;
+UPDATE `pool_template` SET `max_limit` = 10 WHERE `entry` = 1073;
+UPDATE `pool_template` SET `max_limit` = 4 WHERE `entry` = 1351;
+UPDATE `pool_template` SET `max_limit` = 6 WHERE `entry` = 1076 AND `patch_min`=0 AND `patch_max`=4;
+UPDATE `pool_template` SET `max_limit` = 8 WHERE `entry` = 1077;
+UPDATE `pool_template` SET `max_limit` = 4 WHERE `entry` = 1079;
+UPDATE `pool_template` SET `max_limit` = 4 WHERE `entry` = 1325;
+
+-- Duskwood
+UPDATE `pool_template` SET `max_limit` = 10 WHERE `entry` = 1113;
+UPDATE `pool_template` SET `max_limit` = 6 WHERE `entry` = 399;
+UPDATE `pool_template` SET `max_limit` = 11 WHERE `entry` = 1119;
+UPDATE `pool_template` SET `max_limit` = 9 WHERE `entry` = 1115;
+UPDATE `pool_template` SET `max_limit` = 5 WHERE `entry` = 1117;
+UPDATE `pool_template` SET `max_limit` = 6 WHERE `entry` = 1120;
+UPDATE `pool_template` SET `max_limit` = 3 WHERE `entry` = 1116;
+UPDATE `pool_template` SET `max_limit` = 4 WHERE `entry` = 1114;
+UPDATE `pool_template` SET `max_limit` = 3 WHERE `entry` = 105;
+UPDATE `pool_template` SET `max_limit` = 6 WHERE `entry` = 18830;
+
+-- Barrens
+UPDATE `pool_template` SET `max_limit` = 22 WHERE `entry` = 1032;
+UPDATE `pool_template` SET `max_limit` = 18 WHERE `entry` = 1037;
+UPDATE `pool_template` SET `max_limit` = 16 WHERE `entry` = 1036;
+UPDATE `pool_template` SET `max_limit` = 16 WHERE `entry` = 1030;
+UPDATE `pool_template` SET `max_limit` = 14 WHERE `entry` = 1031;
+UPDATE `pool_template` SET `max_limit` = 11 WHERE `entry` = 1029;
+UPDATE `pool_template` SET `max_limit` = 12 WHERE `entry` = 1038;
+UPDATE `pool_template` SET `max_limit` = 6 WHERE `entry` = 1064 AND `patch_min`=5 AND `patch_max`=10;
+UPDATE `pool_template` SET `max_limit` = 6 WHERE `entry` = 1064 AND `patch_min`=0 AND `patch_max`=4;
+UPDATE `pool_template` SET `max_limit` = 4 WHERE `entry` = 1168;
+UPDATE `pool_template` SET `max_limit` = 3 WHERE `entry` = 3165;
+UPDATE `pool_template` SET `max_limit` = 9 WHERE `entry` = 2587;
+UPDATE `pool_template` SET `max_limit` = 9 WHERE `entry` = 1033;
+UPDATE `pool_template` SET `max_limit` = 28 WHERE `entry` = 4303;
+
+-- Westfall
+UPDATE `pool_template` SET `max_limit` = 27 WHERE `entry` = 1111;
+UPDATE `pool_template` SET `max_limit` = 10 WHERE `entry` = 1109;
+UPDATE `pool_template` SET `max_limit` = 7 WHERE `entry` = 1108;
+UPDATE `pool_template` SET `max_limit` = 7 WHERE `entry` = 1110;
+UPDATE `pool_template` SET `max_limit` = 9 WHERE `entry`=1122 AND `patch_min`=5 AND `patch_max`=10;
+UPDATE `pool_template` SET `max_limit` = 12 WHERE `entry` = 1106;
+UPDATE `pool_template` SET `max_limit` = 6 WHERE `entry` = 1105;
+UPDATE `pool_template` SET `max_limit` = 8 WHERE `entry` = 1107;
+UPDATE `pool_template` SET `max_limit` = 9 WHERE `entry` = 1112;
+
+-- Silverpine
+UPDATE `pool_template` SET `max_limit` = 23 WHERE `entry` = 1044;
+UPDATE `pool_template` SET `max_limit` = 10 WHERE `entry` = 1046;
+UPDATE `pool_template` SET `max_limit` = 10 WHERE `entry` = 1043;
+UPDATE `pool_template` SET `max_limit` = 19 WHERE `entry` = 1042;
+UPDATE `pool_template` SET `max_limit` = 13 WHERE `entry` = 1041;
+UPDATE `pool_template` SET `max_limit` = 4 WHERE `entry` = 1047;
+UPDATE `pool_template` SET `max_limit` = 4 WHERE `entry`=1065 AND `patch_min`=5 AND `patch_max`=10;
+UPDATE `pool_template` SET `max_limit` = 4 WHERE `entry`=1065 AND `patch_min`=0 AND `patch_max`=4;
+UPDATE `pool_template` SET `max_limit` = 5 WHERE `entry`=1045;
+UPDATE `pool_template` SET `max_limit` = 5 WHERE `entry`=1354;
+
+-- Wetlands
+UPDATE `pool_template` SET `max_limit` = 7 WHERE `entry` = 1156;
+UPDATE `pool_template` SET `max_limit` = 8 WHERE `entry` = 1348;
+UPDATE `pool_template` SET `max_limit` = 4 WHERE `entry` = 1355;
+UPDATE `pool_template` SET `max_limit` = 11 WHERE `entry`=1149 AND `patch_min`=5 AND `patch_max`=10;
+UPDATE `pool_template` SET `max_limit` = 11 WHERE `entry`=1149 AND `patch_min`=0 AND `patch_max`=4;
+UPDATE `pool_template` SET `max_limit` = 13 WHERE `entry` = 1155;
+UPDATE `pool_template` SET `max_limit` = 11 WHERE `entry` = 1151;
+UPDATE `pool_template` SET `max_limit` = 11 WHERE `entry` = 1153;
+UPDATE `pool_template` SET `max_limit` = 7 WHERE `entry` = 1150;
+UPDATE `pool_template` SET `max_limit` = 5 WHERE `entry` = 1154;
+UPDATE `pool_template` SET `max_limit` = 6 WHERE `entry` = 1152;
+
+-- Hillsbrad
+UPDATE `pool_template` SET `max_limit` = 11 WHERE `entry` = 1273;
+UPDATE `pool_template` SET `max_limit` = 7 WHERE `entry` = 1050;
+UPDATE `pool_template` SET `max_limit` = 7 WHERE `entry` = 1051;
+UPDATE `pool_template` SET `max_limit` = 6 WHERE `entry`=1123 AND `patch_min`=5 AND `patch_max`=10;
+UPDATE `pool_template` SET `max_limit` = 6 WHERE `entry`=1123 AND `patch_min`=0 AND `patch_max`=4;
+UPDATE `pool_template` SET `max_limit` = 8 WHERE `entry` = 1048;
+UPDATE `pool_template` SET `max_limit` = 11 WHERE `entry` = 1066;
+UPDATE `pool_template` SET `max_limit` = 4 WHERE `entry` = 1209;
+UPDATE `pool_template` SET `max_limit` = 4 WHERE `entry` = 1274;
+UPDATE `pool_template` SET `max_limit` = 2 WHERE `entry` = 1049;
+UPDATE `pool_template` SET `max_limit` = 2 WHERE `entry` = 322;
+UPDATE `pool_template` SET `max_limit` = 3 WHERE `entry` = 3310;
+UPDATE `pool_template` SET `max_limit` = 2 WHERE `entry` = 998;
+
+-- Arathi
+UPDATE `pool_template` SET `max_limit` = 4 WHERE `entry` = 18840;
+UPDATE `pool_template` SET `max_limit` = 4 WHERE `entry` = 1358;
+UPDATE `pool_template` SET `max_limit` = 8 WHERE `entry` = 406;
+UPDATE `pool_template` SET `max_limit` = 16 WHERE `entry` = 323;
+UPDATE `pool_template` SET `max_limit` = 10 WHERE `entry` = 1185;
+UPDATE `pool_template` SET `max_limit` = 10 WHERE `entry` = 1181;
+UPDATE `pool_template` SET `max_limit` = 8 WHERE `entry` = 1182;
+UPDATE `pool_template` SET `max_limit` = 6 WHERE `entry` = 1180;
+UPDATE `pool_template` SET `max_limit` = 5 WHERE `entry` = 1183;
+UPDATE `pool_template` SET `max_limit` = 4 WHERE `entry` = 1184;
+UPDATE `pool_template` SET `max_limit` = 2 WHERE `entry` = 298;
+UPDATE `pool_template` SET `max_limit` = 2 WHERE `entry` = 1052;
+UPDATE `pool_template` SET `max_limit` = 1 WHERE `entry` = 104;
+
 
 -- End of migration.
 END IF;
