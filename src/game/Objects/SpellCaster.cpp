@@ -1671,7 +1671,7 @@ void SpellCaster::SetCurrentCastedSpell(Spell* pSpell)
                     InterruptSpell(CURRENT_AUTOREPEAT_SPELL);
 
                 if (Unit* pUnit = ToUnit())
-                    pUnit->m_AutoRepeatFirstCast = true;
+                    pUnit->m_autoRepeatFirstCast = true;
             }
         }
         break;
@@ -1700,7 +1700,7 @@ void SpellCaster::SetCurrentCastedSpell(Spell* pSpell)
             }
             // special action: set first cast flag
             if (Unit* pUnit = ToUnit())
-                pUnit->m_AutoRepeatFirstCast = true;
+                pUnit->m_autoRepeatFirstCast = true;
         }
         break;
 
