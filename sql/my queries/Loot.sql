@@ -73,7 +73,7 @@ UPDATE mangos . creature_loot_template
 SET ChanceOrQuestChance = 1
 WHERE item IN(11186, 15747, 15779 ,15761, 14493, 16054, 15771, 15752, 16223, 16247, 16242, 16246, 16219, 11166, 11152, 
 11203, 21547, 13499, 13496, 13494, 15772, 15753, 15732, 15770, 15781, 16056, 16045, 16049, 15774, 14473, 14480, 14477, 
-13476, 15738, 13491);
+13476, 15738, 13491, 2265, 5109, 781);
 
 -- 5%
 UPDATE mangos . creature_loot_template
@@ -301,3 +301,35 @@ INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuest
 -- Red Dragonspawn
 INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (1045, 12726, 1); -- Plans: Enchanted Thorium Leggings
 
+-- Scourge Champion
+INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (8529, 21298, 0.1); -- Manual of Battle Shout VII
+
+-- Diseased Flayer
+-- INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (8532, 21293, 0.1); -- Tablet of Grace of Air Totem III
+
+-- Dread Weaver
+-- INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (8528, 21298, 0.1); -- Manual of Battle Shout VII
+
+-- Death Singer
+-- INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (8542, 21298, 0.1); -- Manual of Battle Shout VII
+
+-- Dark Adept <Cult of the Damned>
+-- INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (8546, 21298, 0.1); -- Manual of Battle Shout VII
+
+-- Crypt Slayer
+-- INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (8558, 21293, 0.1); -- Tablet of Grace of Air Totem III
+
+-- Crypt Horror
+-- INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (8557, 21293, 0.1); -- Tablet of Grace of Air Totem III
+
+-- Infected Mossflayer
+-- INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (12261, 21293, 0.1); -- Tablet of Grace of Air Totem III
+
+-- Mossflayer Scout
+-- INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (8560, 21293, 0.1); -- Tablet of Grace of Air Totem III
+
+-- Mossflayer Shadowhunter
+INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (8561, 21293, 0.1); -- Tablet of Grace of Air Totem III
+
+-- Mossflayer Cannibal
+-- INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (8562, 21293, 0.1); -- Tablet of Grace of Air Totem III

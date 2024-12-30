@@ -146,7 +146,8 @@ REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id
 REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id`, `quality`, `flags`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30071, 2, 12, 'Dreadmaul Orb', 16209, 1, 0, -1, -1, 1, 12, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 4, -1);
 REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id`, `quality`, `flags`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30072, 2, 12, 'Fel Artifact', 19316, 1, 0, -1, -1, 1, 12, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 4, -1);
 REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id`, `quality`, `flags`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30073, 2, 12, 'Shadowsworn Pendant', 15420, 1, 2048, -1, -1, 1, 150, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 4, -1);
--- NEXT 30074
+REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `stat_type1`, `stat_value1`, `stat_type2`, `stat_value2`, `delay`, `dmg_min1`, `dmg_max1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `sheath`, `max_durability`, `disenchant_id`) VALUES (30074, 2, 7, 'Whirlwind Shortsword', 20010, 4, 91277, 18255, 13, 1, -1, 44, 4, 7, 7, 7, 2200, 67, 87, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 1, 3, 90, 45);
+-- NEXT 30075
 -- flags 2048 = lootable by anyone
 
 -- Vendor Prices
@@ -6565,6 +6566,7 @@ WHERE entry IN(30007, 30016, 30017, 30018);
 -- TODO: Formula: Enchant Cloak - Subtlety (20735)
 -- TODO: Formula: Enchant Cloak - Dodge (20736)
 -- TODO: Formula: Enchant Weapon - Healing Power (18260)
+-- TODO: Formula: Enchant Chest - Greater Stats (16253)
 
 UPDATE mangos. item_template 
 SET required_reputation_faction = 476, -- Timbermaw Rep
