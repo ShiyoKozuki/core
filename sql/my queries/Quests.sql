@@ -28,7 +28,7 @@
 -- Ooze Ichor should stack to 10(it currently stacks to 5)
 
 -- Quest + Vendor + Repair npc flag = 
--- NEXT quest_template 30172
+-- NEXT quest_template 30175
 -- NEXT creature_template 90042
 
 --     QUEST_TYPE_ELITE               = 1,
