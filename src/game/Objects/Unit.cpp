@@ -2250,7 +2250,6 @@ MeleeHitOutcome Unit::RollMeleeOutcomeAgainst(Unit const* pVictim, WeaponAttackT
 
     // only players can't dodge if attacker is behind
     if ((!pVictim->IsPlayer() || !from_behind) && !victimIsTotem)
-    if (!pVictim->IsPlayer() || !fromBehind)
     {
         dodgeChance -= dodgeSkillBonus;
 
@@ -2268,8 +2267,7 @@ MeleeHitOutcome Unit::RollMeleeOutcomeAgainst(Unit const* pVictim, WeaponAttackT
 
     // parry chances
     // check if attack comes from behind, nobody can parry or block if attacker is behind
-    if ((!from_behind && (parry_chance > 0)) && !victimIsTotem)
-    if (!fromBehind && (parryChance > 0))
+    if (!fromBehind && (parryChance > 0) && !victimIsTotem)
     {
         if (pVictim->IsPlayer() || !((Creature*)pVictim)->HasExtraFlag(CREATURE_FLAG_EXTRA_NO_PARRY))
         {
