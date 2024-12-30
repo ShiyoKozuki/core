@@ -118,14 +118,14 @@ WHERE item IN(7068, 7070, 7067, 7069, 10286, 7972, 8150, 7307, 4096, 12431, 1243
 -- 20%
 UPDATE mangos . creature_loot_template
 SET ChanceOrQuestChance = 20
-WHERE item IN(12809, 20404, 20424, 12206, 12208, 12205, 12204, 12037, 12203, 12202, 3712, 3731, 3667, 3730, 1081, 1080, 2924, 2674, 3173, 2673, 5467, 5469, 
-729, 769, 12223, 2672, 3174, 2251, 5465, 3172, 3685, 12207, 3404, 4402, 12184, 5471, 5470, 723, 731, 2296, 730, 732, 6530, 12735, 4480, 4479, 4481, 3164, 
-9326, 4556, 21377, 18945, 12335, 12336, 12337);
+WHERE item IN(12809, 20404, 20424, 12206, 12208, 12205, 12204, 12037, 12203, 12202, 3712, 3731, 3667, 3730, 1081, 1080, 2924, 2674, 2673, 5469, 
+729, 12223, 3174, 2251, 3172, 3685, 12207, 3404, 4402, 12184, 5471, 5470, 723, 731, 2296, 730, 732, 6530, 12735, 4480, 4479, 4481, 3164, 
+9326, 4556, 21377, 18945, 12335, 12336, 12337, 5524, 5523, 7973);
 
 -- 45%
 UPDATE mangos . creature_loot_template
 SET ChanceOrQuestChance = 45
-WHERE item IN(6889, 5524, 7973, 5523);
+WHERE item IN(769, 2672, 6889, 5465, 2886, 5467, 3173);
 
 -- Argent Dawn Turn ins (Bone Fragments etc)
 UPDATE mangos . creature_loot_template
@@ -278,18 +278,26 @@ DELETE FROM `mangos`.`creature_loot_template` WHERE  `entry`=11456 AND `item`=14
 UPDATE `mangos`.`creature_template` SET `loot_id`=0 WHERE  `entry`=10387 AND `patch`=0;
 UPDATE `mangos`.`creature_loot_template` SET `ChanceOrQuestChance`=5 WHERE  `entry`=2337 AND `item`=5773 AND `groupid`=0 AND `patch_min`=0 AND `patch_max`=10; -- Robes of Arcane off Dark Strand Voidcaller
 
--- Lootable by anyone in party / alliance
-
-UPDATE mangos . item_template
-SET flags = 2112 
-WHERE entry IN(13873, 8444);
-
-UPDATE mangos . item_template
-SET flags = 3136 
-WHERE entry = 7741;
-
 -- Custom drops
 
 -- Scarlet Priest 
--- Pattern: Truefaith Vestments
-INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (10608, 14512, 1);
+INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (10608, 14512, 1); -- Pattern: Truefaith Vestments
+
+-- Scarlet Sentinel
+INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (1827, 12717, 1); -- Plans: Lionheart Helm
+INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (1827, 12727, 1); -- Plans: Enchanted Thorium Breastplate
+
+-- Scarlet Warder
+INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (9447, 22388, 1); -- Plans: Titanic Leggings
+INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (9447, 12725, 1); -- Plans: Enchanted Thorium Helm
+
+-- Cobalt Wyrmkin
+INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (7435, 12834, 1); -- Plans: Arcanite Champion
+INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (7435, 12720, 1); -- Plans: Stronghold Gauntlets
+
+-- Cobalt Scalebane
+INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (7436, 18418, 1); -- Pattern: Cloak of Warding
+
+-- Red Dragonspawn
+INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (1045, 12726, 1); -- Plans: Enchanted Thorium Leggings
+

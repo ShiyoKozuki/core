@@ -24,6 +24,15 @@ DELETE FROM `mangos`.`playercreateinfo_spell` WHERE  `race`=5 AND `class`=5 AND 
 DELETE FROM `mangos`.`playercreateinfo_spell` WHERE  `race`=5 AND `class`=8 AND `spell`=7744;
 DELETE FROM `mangos`.`playercreateinfo_spell` WHERE  `race`=5 AND `class`=9 AND `spell`=7744;
 
+-- Rend
+UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=19 WHERE  `entry`=772;
+UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=27 WHERE  `entry`=6546;
+UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=35 WHERE  `entry`=6547;
+UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=43 WHERE  `entry`=6548;
+UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=55 WHERE  `entry`=11572;
+UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=71 WHERE  `entry`=11573;
+UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=83 WHERE  `entry`=11574;
+
 -- Demon Skin / Demon Armor (HP Regen Tripled)
 UPDATE `mangos`.`spell_template` SET `effectBasePoints2`=8 WHERE  `entry`=687;
 UPDATE `mangos`.`spell_template` SET `effectBasePoints2`=14 WHERE  `entry`=696;
@@ -68,8 +77,6 @@ UPDATE `mangos`.`spell_template` SET `description`='Inflict searing pain on the 
 UPDATE `mangos`.`spell_template` SET `description`='Inflict searing pain on the enemy target, causing $s1 Fire damage.' WHERE  `entry`=17919 AND `build`=5086;
 UPDATE `mangos`.`spell_template` SET `description`='Inflict searing pain on the enemy target, causing $s1 Fire damage.' WHERE  `entry`=5676 AND `build`=5086;
 
-
-
 -- Rain of fire
 UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=83 WHERE  `entry`=5740;
 UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=191 WHERE  `entry`=6219;
@@ -81,8 +88,27 @@ UPDATE `mangos`.`spell_template` SET `manaCost`=0 WHERE  `entry`=1949;
 UPDATE `mangos`.`spell_template` SET `manaCost`=0 WHERE  `entry`=11683;
 UPDATE `mangos`.`spell_template` SET `manaCost`=0 WHERE  `entry`=11684;
 
+-- Drain Soul (Only usable on targets <= 20% HP, damage increased by 4x)
+UPDATE `mangos`.`spell_template` SET `targetAuraState`=2 WHERE  `entry`=1120;
+UPDATE `mangos`.`spell_template` SET `targetAuraState`=2 WHERE  `entry`=8288;
+UPDATE `mangos`.`spell_template` SET `targetAuraState`=2 WHERE  `entry`=8289;
+UPDATE `mangos`.`spell_template` SET `targetAuraState`=2 WHERE  `entry`=11675;
+UPDATE `mangos`.`spell_template` SET `effectBasePoints2`=87 WHERE  `entry`=1120;
+UPDATE `mangos`.`spell_template` SET `effectBasePoints2`=247 WHERE  `entry`=8288;
+UPDATE `mangos`.`spell_template` SET `effectBasePoints2`=471 WHERE  `entry`=8289;
+UPDATE `mangos`.`spell_template` SET `effectBasePoints2`=727 WHERE  `entry`=11675;
+
 -- Create Healthstone
 UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=3 WHERE NAME LIKE 'Create Healthstone%';
+
+-- Firebolt (Imp)
+UPDATE `mangos`.`spell_template` SET `manaCost`=2 WHERE  `entry`=3110;
+UPDATE `mangos`.`spell_template` SET `manaCost`=5 WHERE  `entry`=7799;
+UPDATE `mangos`.`spell_template` SET `manaCost`=7 WHERE  `entry`=7800;
+UPDATE `mangos`.`spell_template` SET `manaCost`=10 WHERE  `entry`=7801;
+UPDATE `mangos`.`spell_template` SET `manaCost`=15 WHERE  `entry`=7802;
+UPDATE `mangos`.`spell_template` SET `manaCost`=20 WHERE  `entry`=11762;
+UPDATE `mangos`.`spell_template` SET `manaCost`=25 WHERE  `entry`=11763;
 
 -- Torment (Voidwalker)
 UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=89 WHERE  `entry`=3716;
@@ -129,6 +155,15 @@ UPDATE `mangos`.`spell_template` SET `manaCost`=70 WHERE  `entry`=15264 AND `bui
 UPDATE `mangos`.`spell_template` SET `manaCost`=80 WHERE  `entry`=15265 AND `build`=5302;
 UPDATE `mangos`.`spell_template` SET `manaCost`=100 WHERE  `entry`=15266 AND `build`=5302;
 UPDATE `mangos`.`spell_template` SET `manaCost`=115 WHERE  `entry`=15267 AND `build`=5302;
+
+-- Stoneclaw Totem
+UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=199 WHERE  `entry`=5730;
+UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=599 WHERE  `entry`=6390;
+UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=879 WHERE  `entry`=6391;
+UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=1119 WHERE  `entry`=6392;
+UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=1559 WHERE  `entry`=10427;
+UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=1919 WHERE  `entry`=10428;
+
 
 -- Reforge Sword of Heroes
 INSERT IGNORE `mangos`.`spell_template` (`entry`, `build`, `castingTimeIndex`, `procChance`, `baseLevel`, `spellLevel`, `durationIndex`, `powerType`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (30000, 5302, 1, 101, 56, 56, 9, 3, 1, -1, -1, 6, 1, 1, 49, 0, -1, -1, 1, 99, 5800, 83, 50, 'Reforged Blade of Heroes', 2031678, 2031662, 'Increases attack power by $s1 for $d.', 2031678, 'Attack power increased by $s1.', 2031678, 133, 1500, 4, -1, 1, 1, 1);
