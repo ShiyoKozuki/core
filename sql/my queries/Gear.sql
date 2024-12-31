@@ -2083,7 +2083,9 @@ UPDATE mangos . item_template
 SET spellid_1 = 13667, -- +2% Parry
     spelltrigger_1 = 1,
     spellid_2 = 13670, -- 2% Dodge
-    spelltrigger_2 = 1
+    spelltrigger_2 = 1,
+    spellid_3 = 9778, -- When struck in combat has a 3% chance to heal you for 60 to 100. (Proc chance: 3%)
+    spelltrigger_3 = 1
 WHERE entry = 7939;
 
 -- Truesilver Gauntlets
@@ -4513,6 +4515,31 @@ WHERE entry = 18538;
 
 -- Quest Rewards
 
+-- Prismscale Hauberk (Tremors of the Earth)
+UPDATE mangos . item_template
+SET quality = 3,
+    stat_type1 = 3,
+    stat_value1 = 7,
+    stat_type2 = 4,
+    stat_value2 = 15,
+    stat_type3 = 5,
+    stat_value3 = 7,
+    spellid_1 = 9330, -- +18 Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 11194;
+
+-- Warforged Chestplate (Tremors of the Earth)
+UPDATE mangos . item_template
+SET quality = 3,
+    armor = 700,
+    stat_type1 = 4,
+    stat_value1 = 24,
+    stat_type2 = 7,
+    stat_value2 = 24
+WHERE entry = 11195;
+
+-- Blazewind Breastplate (Tremors of the Earth)
+
 -- Staff of Westfall (The Defias Brotherhood)
 UPDATE mangos . item_template
 SET spellid_1 = 9415, -- +9 Spell Damage
@@ -6117,6 +6144,998 @@ SET quality = 3,
     spellid_1 = 7680, -- +13 Healing
     spelltrigger_1 = 1
 WHERE entry = 4829;
+
+-- Random Drops
+
+-- Jousters Set
+UPDATE mangos . item_template
+SET stat_type3 = 5,
+    stat_value3 = 7
+WHERE entry = 8157;
+
+UPDATE mangos . item_template
+SET stat_type3 = 5,
+    stat_value3 = 4
+WHERE entry = 8160;
+
+UPDATE mangos . item_template
+SET stat_type3 = 5,
+    stat_value3 = 6
+WHERE entry = 8162;
+
+UPDATE mangos . item_template
+SET stat_type3 = 5,
+    stat_value3 = 5
+WHERE entry = 8163;
+
+UPDATE mangos . item_template
+SET stat_type3 = 5,
+    stat_value3 = 4
+WHERE entry = 8159;
+
+UPDATE mangos . item_template
+SET stat_type3 = 5,
+    stat_value3 = 7
+WHERE entry = 8161;
+
+UPDATE mangos . item_template
+SET stat_type3 = 5,
+    stat_value3 = 4
+WHERE entry = 8158;
+
+UPDATE mangos . item_template
+SET stat_type3 = 5,
+    stat_value3 = 3
+WHERE entry = 8156;
+
+-- Salstone Set
+UPDATE mangos . item_template
+SET spellid_1 = 7680, -- +13 Healing
+    spelltrigger_1 = 1
+WHERE entry = 14895;
+
+UPDATE mangos . item_template
+SET spellid_1 = 7680, -- +13 Healing
+    spelltrigger_1 = 1
+WHERE entry = 14901;
+
+UPDATE mangos . item_template
+SET spellid_1 = 7680, -- +13 Healing
+    spelltrigger_1 = 1
+WHERE entry = 14899;
+
+UPDATE mangos . item_template
+SET spellid_1 = 7680, -- +13 Healing
+    spelltrigger_1 = 1
+WHERE entry = 14897;
+
+UPDATE mangos . item_template
+SET spellid_1 = 7680, -- +13 Healing
+    spelltrigger_1 = 1
+WHERE entry = 14900;
+
+UPDATE mangos . item_template
+SET spellid_1 = 7680, -- +13 Healing
+    spelltrigger_1 = 1
+WHERE entry = 14896;
+
+UPDATE mangos . item_template
+SET spellid_1 = 7680, -- +13 Healing
+    spelltrigger_1 = 1
+WHERE entry = 14903;
+
+UPDATE mangos . item_template
+SET spellid_1 = 7680, -- +13 Healing
+    spelltrigger_1 = 1
+WHERE entry = 14898;
+
+UPDATE mangos . item_template
+SET spellid_1 = 7680, -- +13 Healing
+    spelltrigger_1 = 1
+WHERE entry = 14902;
+
+-- Tyrant's Set
+UPDATE mangos . item_template
+SET spellid_1 = 9142, -- +14 Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 14835;
+
+UPDATE mangos . item_template
+SET spellid_1 = 9142, -- +14 Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 14841;
+
+UPDATE mangos . item_template
+SET spellid_1 = 9142, -- +14 Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 14842;
+
+UPDATE mangos . item_template
+SET spellid_1 = 9142, -- +14 Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 14843;
+
+UPDATE mangos . item_template
+SET spellid_1 = 9142, -- +14 Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 14839;
+
+UPDATE mangos . item_template
+SET spellid_1 = 9142, -- +14 Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 14840;
+
+UPDATE mangos . item_template
+SET stat_type1 = 3,
+    stat_value2 = 9,
+    stat_type2 = 7,
+    stat_value2 = 9,
+    spellid_1 = 9142, -- +14 Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 14838;
+
+UPDATE mangos . item_template
+SET spellid_1 = 9142, -- +14 Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 14834;
+
+UPDATE mangos . item_template
+SET stat_type1 = 4,
+    stat_value2 = 12,
+    stat_type2 = 3,
+    stat_value2 = 4,
+    spellid_1 = 9142, -- +14 Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 14833;
+
+-- Symbolic Set
+UPDATE mangos . item_template
+SET spellid_1 = 21361, -- 3 MP/5
+    spelltrigger_1 = 1
+WHERE entry = 14821;
+
+UPDATE mangos . item_template
+SET spellid_1 = 21361, -- 3 MP/5
+    spelltrigger_1 = 1
+WHERE entry = 14825;
+
+UPDATE mangos . item_template
+SET spellid_1 = 21361, -- 3 MP/5
+    spelltrigger_1 = 1
+WHERE entry = 14831;
+
+UPDATE mangos . item_template
+SET spellid_1 = 21361, -- 3 MP/5
+    spelltrigger_1 = 1
+WHERE entry = 14827;
+
+UPDATE mangos . item_template
+SET spellid_1 = 21361, -- 3 MP/5
+    spelltrigger_1 = 1
+WHERE entry = 14829;
+
+UPDATE mangos . item_template
+SET spellid_1 = 21361, -- 3 MP/5
+    spelltrigger_1 = 1
+WHERE entry = 14828;
+
+UPDATE mangos . item_template
+SET spellid_1 = 21361, -- 3 MP/5
+    spelltrigger_1 = 1
+WHERE entry = 14832;
+
+UPDATE mangos . item_template
+SET spellid_1 = 21361, -- 3 MP/5
+    spelltrigger_1 = 1
+WHERE entry = 14830;
+
+UPDATE mangos . item_template
+SET spellid_1 = 21361, -- 3 MP/5
+    spelltrigger_1 = 1
+WHERE entry = 14826;
+
+-- Chromite Set
+
+UPDATE mangos . item_template
+SET spellid_1 = 13383, -- +5 Defense
+    spelltrigger_1 = 1
+WHERE entry = 8142;
+
+UPDATE mangos . item_template
+SET spellid_1 = 13383, -- +5 Defense
+    spelltrigger_1 = 1
+WHERE entry = 8144;
+
+UPDATE mangos . item_template
+SET spellid_1 = 13383, -- +5 Defense
+    spelltrigger_1 = 1
+WHERE entry = 8143;
+
+UPDATE mangos . item_template
+SET spellid_1 = 13383, -- +5 Defense
+    spelltrigger_1 = 1
+WHERE entry = 8138;
+
+UPDATE mangos . item_template
+SET spellid_1 = 13383, -- +5 Defense
+    spelltrigger_1 = 1
+WHERE entry = 8140;
+
+UPDATE mangos . item_template
+SET spellid_1 = 13383, -- +5 Defense
+    spelltrigger_1 = 1
+WHERE entry = 8135;
+
+UPDATE mangos . item_template
+SET spellid_1 = 13383, -- +5 Defense
+    spelltrigger_1 = 1
+WHERE entry = 8137;
+
+UPDATE mangos . item_template
+SET spellid_1 = 13383, -- +5 Defense
+    spelltrigger_1 = 1
+WHERE entry = 8141;
+
+UPDATE mangos . item_template
+SET spellid_1 = 13383, -- +5 Defense
+    spelltrigger_1 = 1
+WHERE entry = 8139;
+
+-- Sunscale Set
+UPDATE mangos . item_template
+SET spellid_1 = 9415, -- +9 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 14849;
+
+UPDATE mangos . item_template
+SET spellid_1 = 9415, -- +9 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 14851;
+
+UPDATE mangos . item_template
+SET spellid_1 = 9415, -- +9 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 14853;
+
+UPDATE mangos . item_template
+SET spellid_1 = 9415, -- +9 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 14852;
+
+UPDATE mangos . item_template
+SET spellid_1 = 9415, -- +9 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 14850;
+
+UPDATE mangos . item_template
+SET spellid_1 = 9415, -- +9 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 14847;
+
+UPDATE mangos . item_template
+SET spellid_1 = 9415, -- +9 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 14844;
+
+UPDATE mangos . item_template
+SET spellid_1 = 9415, -- +9 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 14848;
+
+UPDATE mangos . item_template
+SET spellid_1 = 9415, -- +9 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 14846;
+
+-- Overlords Set
+
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 13665, -- +1% Parry
+    spelltrigger_1 = 1
+WHERE entry = 9974;
+
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 13665, -- +1% Parry
+    spelltrigger_1 = 1
+WHERE entry = 10209;
+
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 13665, -- +1% Parry
+    spelltrigger_1 = 1
+WHERE entry = 10205;
+
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 13665, -- +1% Parry
+    spelltrigger_1 = 1
+WHERE entry = 10203;
+
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 13665, -- +1% Parry
+    spelltrigger_1 = 1
+WHERE entry = 10207;
+
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 13665, -- +1% Parry
+    spelltrigger_1 = 1
+WHERE entry = 10201;
+
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 13665, -- +1% Parry
+    spelltrigger_1 = 1
+WHERE entry = 10202;
+
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 13665, -- +1% Parry
+    spelltrigger_1 = 1
+WHERE entry = 10206;
+
+-- Jade Set
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 9408, -- +22 Healing
+    spelltrigger_1 = 1
+WHERE entry = 14915;
+
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 9408, -- +22 Healing
+    spelltrigger_1 = 1
+WHERE entry = 14913;
+
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 9408, -- +22 Healing
+    spelltrigger_1 = 1
+WHERE entry = 14920;
+
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 9408, -- +22 Healing
+    spelltrigger_1 = 1
+WHERE entry = 14914;
+
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 9408, -- +22 Healing
+    spelltrigger_1 = 1
+WHERE entry = 14919;
+
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 9408, -- +22 Healing
+    spelltrigger_1 = 1
+WHERE entry = 14917;
+
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 9408, -- +22 Healing
+    spelltrigger_1 = 1
+WHERE entry = 14921;
+
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 9408, -- +22 Healing
+    spelltrigger_1 = 1
+WHERE entry = 14918;
+
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 9408, -- +22 Healing
+    spelltrigger_1 = 1
+WHERE entry = 14916;
+
+-- High Chief's Armor
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 21363, -- 5 MP/5
+    spelltrigger_1 = 1
+WHERE entry = 14958;
+
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 21363, -- 5 MP/5
+    spelltrigger_1 = 1
+WHERE entry = 14961;
+
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 21363, -- 5 MP/5
+    spelltrigger_1 = 1
+WHERE entry = 14960;
+
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 21363, -- 5 MP/5
+    spelltrigger_1 = 1
+WHERE entry = 14963;
+
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 21363, -- 5 MP/5
+    spelltrigger_1 = 1
+WHERE entry = 14964;
+
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 21363, -- 5 MP/5
+    spelltrigger_1 = 1
+WHERE entry = 14962;
+
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 21363, -- 5 MP/5
+    spelltrigger_1 = 1
+WHERE entry = 14959;
+
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 21363, -- 5 MP/5
+    spelltrigger_1 = 1
+WHERE entry = 14957;
+
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 21363, -- 5 MP/5
+    spelltrigger_1 = 1
+WHERE entry = 14965;
+
+-- Alabaster Set
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 15465, -- +2% Physical Hit
+    spelltrigger_1 = 1
+WHERE entry = 8312;
+
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 15465, -- +2% Physical Hit
+    spelltrigger_1 = 1
+WHERE entry = 8319;
+
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 15465, -- +2% Physical Hit
+    spelltrigger_1 = 1
+WHERE entry = 8318;
+
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 15465, -- +2% Physical Hit
+    spelltrigger_1 = 1
+WHERE entry = 8317;
+
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 15464, -- +1% Physical Hit
+    spelltrigger_1 = 1
+WHERE entry = 8316;
+
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 15464, -- +1% Physical Hit
+    spelltrigger_1 = 1
+WHERE entry = 8314;
+
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 15464, -- +1% Physical Hit
+    spelltrigger_1 = 1
+WHERE entry = 8315;
+
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 15464, -- +1% Physical Hit
+    spelltrigger_1 = 1
+WHERE entry = 8311;
+
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 21991, -- When struck in combat inflicts 4 Nature damage to the attacker.
+    spelltrigger_1 = 1
+WHERE entry = 8320;
+
+-- Blackforge Set
+UPDATE mangos . item_template
+SET stat_type1 = 4,
+    stat_value1 = 7,
+    stat_type2 = 5,
+    stat_value2 = 7,
+    stat_type3 = 6,
+    stat_value3 = 7
+WHERE entry = 4083;
+
+UPDATE mangos . item_template
+SET stat_type1 = 4,
+    stat_value1 = 12,
+    stat_type2 = 5,
+    stat_value2 = 9,
+    stat_type3 = 6,
+    stat_value3 = 9
+WHERE entry = 4082;
+
+UPDATE mangos . item_template
+SET stat_type1 = 4,
+    stat_value1 = 6,
+    stat_type2 = 5,
+    stat_value2 = 6,
+    stat_type3 = 6,
+    stat_value3 = 6
+WHERE entry = 6424;
+
+UPDATE mangos . item_template
+SET stat_type1 = 4,
+    stat_value1 = 10,
+    stat_type2 = 5,
+    stat_value2 = 7,
+    stat_type3 = 6,
+    stat_value3 = 7
+WHERE entry = 4084;
+
+UPDATE mangos . item_template
+SET stat_type1 = 4,
+    stat_value1 = 7,
+    stat_type2 = 5,
+    stat_value2 = 7,
+    stat_type3 = 6,
+    stat_value3 = 7
+WHERE entry = 4733;
+
+UPDATE mangos . item_template
+SET stat_type1 = 4,
+    stat_value1 = 7,
+    stat_type2 = 5,
+    stat_value2 = 7,
+    stat_type3 = 6,
+    stat_value3 = 7
+WHERE entry = 4069;
+
+UPDATE mangos . item_template
+SET stat_type1 = 4,
+    stat_value1 = 7,
+    stat_type2 = 5,
+    stat_value2 = 7,
+    stat_type3 = 6,
+    stat_value3 = 7
+WHERE entry = 4080;
+
+UPDATE mangos . item_template
+SET stat_type1 = 4,
+    stat_value1 = 7,
+    stat_type2 = 5,
+    stat_value2 = 5,
+    stat_type3 = 6,
+    stat_value3 = 5
+WHERE entry = 6426;
+
+-- Brigade Set
+UPDATE mangos . item_template
+SET spellid_1 = 7680, -- +13 Healing
+    spelltrigger_1 = 1
+WHERE entry = 9926;
+
+UPDATE mangos . item_template
+SET spellid_1 = 7680, -- +13 Healing
+    spelltrigger_1 = 1
+WHERE entry = 9933;
+
+UPDATE mangos . item_template
+SET spellid_1 = 7680, -- +13 Healing
+    spelltrigger_1 = 1
+WHERE entry = 9928;
+
+UPDATE mangos . item_template
+SET spellid_1 = 7680, -- +13 Healing
+    spelltrigger_1 = 1
+WHERE entry = 9930;
+
+UPDATE mangos . item_template
+SET spellid_1 = 7680, -- +13 Healing
+    spelltrigger_1 = 1
+WHERE entry = 9927;
+
+UPDATE mangos . item_template
+SET spellid_1 = 7680, -- +13 Healing
+    spelltrigger_1 = 1
+WHERE entry = 9929;
+
+UPDATE mangos . item_template
+SET spellid_1 = 7680, -- +13 Healing
+    spelltrigger_1 = 1
+WHERE entry = 9934;
+
+UPDATE mangos . item_template
+SET spellid_1 = 7680, -- +13 Healing
+    spelltrigger_1 = 1
+WHERE entry = 9932;
+
+UPDATE mangos . item_template
+SET spellid_1 = 7680, -- +13 Healing
+    spelltrigger_1 = 1
+WHERE entry = 9918;
+
+UPDATE mangos . item_template
+SET spellid_1 = 7680, -- +13 Healing
+    spelltrigger_1 = 1
+WHERE entry = 9931;
+
+-- Khan's Set
+UPDATE mangos . item_template
+SET spellid_1 = 9415, -- +9 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 14780;
+
+UPDATE mangos . item_template
+SET spellid_1 = 9415, -- +9 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 14779;
+
+UPDATE mangos . item_template
+SET spellid_1 = 9415, -- +9 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 14785;
+
+UPDATE mangos . item_template
+SET spellid_1 = 9415, -- +9 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 14787;
+
+UPDATE mangos . item_template
+SET spellid_1 = 9415, -- +9 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 14786;
+
+UPDATE mangos . item_template
+SET spellid_1 = 9415, -- +9 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 14783;
+
+UPDATE mangos . item_template
+SET spellid_1 = 9415, -- +9 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 14784;
+
+UPDATE mangos . item_template
+SET spellid_1 = 9415, -- +9 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 14782;
+
+UPDATE mangos . item_template
+SET spellid_1 = 9415, -- +9 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 14778;
+
+UPDATE mangos . item_template
+SET spellid_1 = 9415, -- +9 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 14781;
+
+-- Bonelink Set
+UPDATE mangos . item_template
+SET spellid_1 = 21361, -- 3 MP/5
+    spelltrigger_1 = 1
+WHERE entry = 15615;
+
+UPDATE mangos . item_template
+SET spellid_1 = 21361, -- 3 MP/5
+    spelltrigger_1 = 1
+WHERE entry = 15610;
+
+UPDATE mangos . item_template
+SET spellid_1 = 21361, -- 3 MP/5
+    spelltrigger_1 = 1
+WHERE entry = 15617;
+
+UPDATE mangos . item_template
+SET spellid_1 = 21361, -- 3 MP/5
+    spelltrigger_1 = 1
+WHERE entry = 15614;
+
+UPDATE mangos . item_template
+SET spellid_1 = 21361, -- 3 MP/5
+    spelltrigger_1 = 1
+WHERE entry = 15612;
+
+UPDATE mangos . item_template
+SET spellid_1 = 21361, -- 3 MP/5
+    spelltrigger_1 = 1
+WHERE entry = 15613;
+
+UPDATE mangos . item_template
+SET spellid_1 = 21361, -- 3 MP/5
+    spelltrigger_1 = 1
+WHERE entry = 15609;
+
+UPDATE mangos . item_template
+SET spellid_1 = 21361, -- 3 MP/5
+    spelltrigger_1 = 1
+WHERE entry = 15616;
+
+UPDATE mangos . item_template
+SET spellid_1 = 21361, -- 3 MP/5
+    spelltrigger_1 = 1
+WHERE entry = 15618;
+
+UPDATE mangos . item_template
+SET spellid_1 = 21361, -- 3 MP/5
+    spelltrigger_1 = 1
+WHERE entry = 15611;
+
+-- Gryphon Mail set
+UPDATE mangos . item_template
+SET spellid_1 = 9142, -- +14 Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 15621;
+
+UPDATE mangos . item_template
+SET spellid_1 = 9142, -- +14 Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 15622;
+
+UPDATE mangos . item_template
+SET spellid_1 = 9142, -- +14 Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 15626;
+
+UPDATE mangos . item_template
+SET spellid_1 = 9142, -- +14 Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 15625;
+
+UPDATE mangos . item_template
+SET spellid_1 = 9142, -- +14 Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 15620;
+
+UPDATE mangos . item_template
+SET spellid_1 = 9142, -- +14 Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 15627;
+
+UPDATE mangos . item_template
+SET spellid_1 = 9142, -- +14 Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 15619;
+
+UPDATE mangos . item_template
+SET spellid_1 = 9142, -- +14 Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 15623;
+
+UPDATE mangos . item_template
+SET spellid_1 = 9142, -- +14 Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 15628;
+
+-- Warmongers set
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 9408, -- +22 Healing
+    spelltrigger_1 = 1
+WHERE entry = 9963;
+
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 9408, -- +22 Healing
+    spelltrigger_1 = 1
+WHERE entry = 9958;
+
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 9408, -- +22 Healing
+    spelltrigger_1 = 1
+WHERE entry = 9957;
+
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 9408, -- +22 Healing
+    spelltrigger_1 = 1
+WHERE entry = 9959;
+
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 9408, -- +22 Healing
+    spelltrigger_1 = 1
+WHERE entry = 9956;
+
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 9408, -- +22 Healing
+    spelltrigger_1 = 1
+WHERE entry = 9961;
+
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 9408, -- +22 Healing
+    spelltrigger_1 = 1
+WHERE entry = 9960;
+
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 9408, -- +22 Healing
+    spelltrigger_1 = 1
+WHERE entry = 9962;
+
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 9408, -- +22 Healing
+    spelltrigger_1 = 1
+WHERE entry = 9964;
+
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 9408, -- +22 Healing
+    spelltrigger_1 = 1
+WHERE entry = 9965;
+
+-- Champions set
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 9140, -- +10 Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 7544;
+
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 9140, -- +10 Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 18325;
+
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 7597, -- +1% Physical Crit
+    spelltrigger_1 = 1
+WHERE entry = 7541;
+
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 9331, -- +20 Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 7542;
+
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 9331, -- +20 Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 7546;
+
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 7597, -- +1% Physical Crit
+    spelltrigger_1 = 1
+WHERE entry = 7540;
+
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 7597, -- +1% Physical Crit
+    spelltrigger_1 = 1
+WHERE entry = 7543;
+
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 7597, -- +1% Physical Crit
+    spelltrigger_1 = 1
+WHERE entry = 7538;
+
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 7597, -- +1% Physical Crit
+    spelltrigger_1 = 1
+WHERE entry = 7536;
+
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 7597, -- +1% Physical Crit
+    spelltrigger_1 = 1
+WHERE entry = 7539;
+
+-- Myrmidon Set
+UPDATE mangos . item_template
+SET quality = 3,
+    stat_type1 = 4,
+    stat_value1 = 7,
+    stat_type2 = 5,
+    stat_value2 = 7,
+    spellid_1 = 21360, -- 2 MP/5
+    spelltrigger_1 = 1
+WHERE entry = 8125;
+
+UPDATE mangos . item_template
+SET quality = 3,
+    stat_type1 = 4,
+    stat_value1 = 12,
+    stat_type2 = 5,
+    stat_value2 = 7,
+    spellid_1 = 21360, -- 2 MP/5
+    spelltrigger_1 = 1
+WHERE entry = 8130;
+
+UPDATE mangos . item_template
+SET quality = 3,
+    stat_type1 = 4,
+    stat_value1 = 12,
+    stat_type2 = 5,
+    stat_value2 = 9,
+    spellid_1 = 21360, -- 2 MP/5
+    spelltrigger_1 = 1
+WHERE entry = 8133;
+
+UPDATE mangos . item_template
+SET quality = 3,
+    stat_type1 = 4,
+    stat_value1 = 12,
+    stat_type2 = 5,
+    stat_value2 = 12,
+    spellid_1 = 21360, -- 2 MP/5
+    spelltrigger_1 = 1
+WHERE entry = 8131;
+
+UPDATE mangos . item_template
+SET quality = 3,
+    stat_type1 = 4,
+    stat_value1 = 7,
+    stat_type2 = 5,
+    stat_value2 = 7,
+    spellid_1 = 21360, -- 2 MP/5
+    spelltrigger_1 = 1
+WHERE entry = 8129;
+
+UPDATE mangos . item_template
+SET quality = 3,
+    stat_type1 = 4,
+    stat_value1 = 9,
+    stat_type2 = 5,
+    stat_value2 = 9,
+    spellid_1 = 21360, -- 2 MP/5
+    spelltrigger_1 = 1
+WHERE entry = 8128;
+
+UPDATE mangos . item_template
+SET quality = 3,
+    stat_type1 = 4,
+    stat_value1 = 7,
+    stat_type2 = 5,
+    stat_value2 = 7,
+    spellid_1 = 21360, -- 2 MP/5
+    spelltrigger_1 = 1
+WHERE entry = 8127;
+
+UPDATE mangos . item_template
+SET quality = 3,
+    stat_type1 = 4,
+    stat_value1 = 7,
+    stat_type2 = 5,
+    stat_value2 = 7,
+    spellid_1 = 21360, -- 2 MP/5
+    spelltrigger_1 = 1
+WHERE entry = 8134;
+
+UPDATE mangos . item_template
+SET quality = 3,
+    stat_type1 = 4,
+    stat_value1 = 14,
+    stat_type2 = 5,
+    stat_value2 = 14,
+    spellid_1 = 21360, -- 2 MP/5
+    spelltrigger_1 = 1
+WHERE entry = 8132;
+
+UPDATE mangos . item_template
+SET quality = 3,
+    stat_type1 = 4,
+    stat_value1 = 17,
+    stat_type2 = 5,
+    stat_value2 = 15,
+    spellid_1 = 21361, -- 3 MP/5
+    spelltrigger_1 = 1
+WHERE entry = 8126;
 
 -- Zone Drops
 
