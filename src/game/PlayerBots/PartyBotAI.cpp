@@ -2865,6 +2865,7 @@ void PartyBotAI::UpdateOutOfCombatAI_Warrior()
     }
 
     if (m_spells.warrior.pBattleShout &&
+        GetPartyLeader()->GetClass() != CLASS_WARRIOR &&
        !me->HasAura(m_spells.warrior.pBattleShout->Id))
     {
         if (CanTryToCastSpell(me, m_spells.warrior.pBattleShout))
@@ -3069,7 +3070,7 @@ void PartyBotAI::UpdateInCombatAI_Warrior()
             if (m_spells.warrior.pDefensiveStance &&
                 (me->GetDistance(pVictim) <= 8.0f) &&
                 m_spells.warrior.pThunderClap &&
-                (pVictim->HasAura(m_spells.warrior.pThunderClap->Id)) &&
+                (!pVictim->HasAura(m_spells.warrior.pThunderClap->Id)) &&
                 CanTryToCastSpell(me, m_spells.warrior.pDefensiveStance))
             {
                 DoCastSpell(me, m_spells.warrior.pDefensiveStance);
@@ -3148,7 +3149,7 @@ void PartyBotAI::UpdateInCombatAI_Warrior()
 
         if (m_spells.warrior.pThunderClap &&
             (me->GetDistance(pVictim) <= 8.0f) &&
-            GetPartyLeader()->GetClass() != CLASS_WARRIOR &&
+            (!pVictim->HasAura(m_spells.warrior.pThunderClap->Id)) &&
             CanTryToCastSpell(pVictim, m_spells.warrior.pThunderClap))
         {
             if (DoCastSpell(pVictim, m_spells.warrior.pThunderClap) == SPELL_CAST_OK)
@@ -3163,6 +3164,36 @@ void PartyBotAI::UpdateInCombatAI_Warrior()
                 return;
         }
 
+        if (me->GetLevel() < 40 &&
+            m_role == ROLE_MELEE_DPS)
+        {
+            if (m_spells.warrior.pRend && CanTryToCastSpell(pVictim, m_spells.warrior.pRend))
+            {
+                if (DoCastSpell(pVictim, m_spells.warrior.pRend) == SPELL_CAST_OK)
+                    return;
+            }
+
+            if (me->GetPower(POWER_RAGE) >= 55)
+            {
+                if (m_spells.warrior.pCleave && me->GetEnemyCountInRadiusAround(pVictim, 8.0f) > 1)
+                {
+                    if (CanTryToCastSpell(pVictim, m_spells.warrior.pCleave))
+                    {
+                        if (DoCastSpell(pVictim, m_spells.warrior.pCleave) == SPELL_CAST_OK)
+                            return;
+                    }
+                }
+                else
+                {
+                    if (m_spells.warrior.pHeroicStrike && CanTryToCastSpell(pVictim, m_spells.warrior.pHeroicStrike))
+                    {
+                        if (DoCastSpell(pVictim, m_spells.warrior.pHeroicStrike) == SPELL_CAST_OK)
+                            return;
+                    }
+                }
+            }
+        }
+
         if (me->GetMotionMaster()->GetCurrentMovementGeneratorType() == IDLE_MOTION_TYPE
             && !me->CanReachWithMeleeAutoAttack(pVictim))
         {
@@ -3172,6 +3203,7 @@ void PartyBotAI::UpdateInCombatAI_Warrior()
     else // no victim
     {
         if (m_spells.warrior.pBattleShout &&
+            GetPartyLeader()->GetClass() != CLASS_WARRIOR &&
             CanTryToCastSpell(me, m_spells.warrior.pBattleShout))
         {
             if (DoCastSpell(me, m_spells.warrior.pBattleShout) == SPELL_CAST_OK)
