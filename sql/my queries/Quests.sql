@@ -10,7 +10,7 @@
 -- Winterspring
 -- Silithus
 -- WPL (Tomb in Sorrow Hill)
--- EPL
+-- EPL (Nathanos horde quests)
 -- Ashenvale (East - High level)
 -- Quests that start from random drops from mobs (5% drop chance)
 -- Quests that start from a drop from random named mobs (like TBC)

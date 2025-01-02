@@ -1027,9 +1027,68 @@ WHERE entry = 4253;
 
 -- Barbaric Bracers
 UPDATE mangos . item_template
-SET spellid_1 = 9140, -- +10 Attack Power
-    spelltrigger_1 = 1
+SET stat_type1 = 4,
+    stat_value1 = 7,
+    stat_type2 = 5,
+    stat_value2 = 7,
+    stat_type3 = 6,
+    stat_value3 = 7
 WHERE entry = 18948;
+
+-- Barbaric Shoulders
+UPDATE mangos . item_template
+SET quality = 3,
+    stat_type1 = 4,
+    stat_value1 = 7,
+    stat_type2 = 5,
+    stat_value2 = 7,
+    stat_type3 = 6,
+    stat_value3 = 7
+WHERE entry = 5964;
+
+-- Barbaric Leggings
+UPDATE mangos . item_template
+SET quality = 3,
+    stat_type1 = 4,
+    stat_value1 = 9,
+    stat_type2 = 5,
+    stat_value2 = 9,
+    stat_type3 = 6,
+    stat_value3 = 9
+WHERE entry = 5963;
+
+-- Barbaric Harness
+UPDATE mangos . item_template
+SET quality = 3,
+    stat_type1 = 4,
+    stat_value1 = 12,
+    stat_type2 = 5,
+    stat_value2 = 7,
+    stat_type3 = 6,
+    stat_value3 = 7
+WHERE entry = 5739;
+
+-- Barbaric Belt
+UPDATE mangos . item_template
+SET quality = 3,
+    stat_type1 = 4,
+    stat_value1 = 7,
+    stat_type2 = 5,
+    stat_value2 = 7,
+    stat_type3 = 6,
+    stat_value3 = 7
+WHERE entry = 4264;
+
+-- Barbaric Gloves
+UPDATE mangos . item_template
+SET quality = 3,
+    stat_type1 = 4,
+    stat_value1 = 7,
+    stat_type2 = 5,
+    stat_value2 = 7,
+    stat_type3 = 6,
+    stat_value3 = 7
+WHERE entry = 4254;
 
 -- Cloak of Warding
 UPDATE mangos . item_template
@@ -1214,16 +1273,122 @@ SET quality = 2,
     stat_value1 = 6
 WHERE entry = 2316;
 
+-- Fine Leather Pants
+UPDATE mangos . item_template
+SET quality = 3,
+    stat_type1 = 4,
+    stat_value1 = 3,
+    stat_type2 = 5,
+    stat_value2 = 3,
+    spellid_1 = 9395, -- +5 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 5958;
+
 -- Green Leather Set
 UPDATE mangos . item_template
 SET quality = 3,
-    stat_type1 = 3,
-    stat_value1 = 6,
+    stat_type1 = 4,
+    stat_value1 = 8,
     stat_type2 = 5,
-    stat_value2 = 6,
+    stat_value2 = 8,
     stat_type3 = 6,
-    stat_value3 = 6
+    stat_value3 = 8
 WHERE entry = 4255;
+
+-- Hillman's Belt
+UPDATE mangos . item_template
+SET quality = 3,
+    stat_type1 = 4,
+    stat_value1 = 5,
+    stat_type2 = 5,
+    stat_value2 = 5,
+    spellid_1 = 7680, -- +13 Healing
+    spelltrigger_1 = 1
+WHERE entry = 4250;
+
+-- Hillman's Leather Gloves
+UPDATE mangos . item_template
+SET stat_type1 = 4,
+    stat_value1 = 7,
+    stat_type2 = 5,
+    stat_value2 = 7
+WHERE entry = 4247;
+
+-- Hillman's Shoulders
+UPDATE mangos . item_template
+SET stat_type1 = 4,
+    stat_value1 = 7,
+    stat_type2 = 5,
+    stat_value2 = 7
+WHERE entry = 4251;
+
+-- Hillman's Cloak
+UPDATE mangos . item_template
+SET quality = 3,
+    stat_type1 = 4,
+    stat_value1 = 5,
+    stat_type2 = 5,
+    stat_value2 = 5,
+    spellid_1 = 7680, -- +13 Healing
+    spelltrigger_1 = 1
+WHERE entry = 3719;
+
+-- Green Leather Bracers
+UPDATE mangos . item_template
+SET quality = 3,
+    stat_type1 = 4,
+    stat_value1 = 5,
+    stat_type2 = 5,
+    stat_value2 = 5,
+    spellid_1 = 9395, -- +5 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 3719;
+
+-- Green Leather Belt
+UPDATE mangos . item_template
+SET quality = 3,
+    stat_type1 = 4,
+    stat_value1 = 7,
+    stat_type2 = 5,
+    stat_value2 = 7,
+    spellid_1 = 9397, -- +7 Spell damage
+    spelltrigger_1 = 1
+WHERE entry = 4257;
+
+-- Guardian Belt
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 9397, -- +7 Spell damage
+    spelltrigger_1 = 1
+WHERE entry = 4258;
+
+-- Guardian Cloak
+UPDATE mangos . item_template
+SET quality = 3,
+    stat_type1 = 5,
+    stat_value1 = 7,
+    spellid_1 = 9397, -- +7 Spell damage
+    spelltrigger_1 = 1
+WHERE entry = 5965;
+
+-- Raptor Hide Belt
+UPDATE mangos . item_template
+SET armor = 155
+WHERE entry = 4456;
+
+-- Raptor Hide Harness
+UPDATE mangos . item_template
+SET armor = 200,
+    stat_type2 = 4,
+    stat_value2 = 7
+WHERE entry = 4455;
+
+-- Frost Leather Cloak
+UPDATE mangos . item_template
+SET armor = 75,
+    stat_type1 = 4,
+    stat_value1 = 10
+WHERE entry = 7377;
 
 -- Dusky Leather Set
 -- boots
@@ -1292,6 +1457,73 @@ SET quality = 3,
     spellid_1 = 9140, -- +10 Attack Power
     spelltrigger_1 = 1
 WHERE entry = 8195;
+
+-- Tunic Scale Set
+
+-- Turtle Scale Helm
+UPDATE mangos . item_template
+SET quality = 3,
+    stat_type1 = 4,
+    stat_value1 = 7,
+    stat_type2 = 5,
+    stat_value2 = 7,
+    stat_type3 = 6,
+    stat_value3 = 7,
+    spellid_1 = 7680, -- +13 Healing
+    spelltrigger_1 = 1
+WHERE entry = 8191;
+
+-- Turtle Scale Gloves
+UPDATE mangos . item_template
+SET quality = 3,
+    stat_type1 = 4,
+    stat_value1 = 5,
+    stat_type2 = 5,
+    stat_value2 = 5,
+    stat_type3 = 6,
+    stat_value3 = 5,
+    spellid_1 = 7680, -- +13 Healing
+    spelltrigger_1 = 1
+WHERE entry = 8187;
+
+-- Turtle Scale Breastplate
+UPDATE mangos . item_template
+SET quality = 3,
+    stat_type1 = 4,
+    stat_value1 = 13,
+    stat_type2 = 5,
+    stat_value2 = 8,
+    stat_type3 = 6,
+    stat_value3 = 8,
+    spellid_1 = 7680, -- +13 Healing
+    spelltrigger_1 = 1
+WHERE entry = 8189;
+
+-- Turtle Scale Bracers
+UPDATE mangos . item_template
+SET quality = 3,
+    stat_type1 = 4,
+    stat_value1 = 4,
+    stat_type2 = 5,
+    stat_value2 = 4,
+    stat_type3 = 6,
+    stat_value3 = 4,
+    spellid_1 = 7680, -- +13 Healing
+    spelltrigger_1 = 1
+WHERE entry = 8198;
+
+-- Turtle Scale Leggings
+UPDATE mangos . item_template
+SET quality = 3,
+    stat_type1 = 4,
+    stat_value1 = 10,
+    stat_type2 = 5,
+    stat_value2 = 7,
+    stat_type3 = 6,
+    stat_value3 = 7,
+    spellid_1 = 7680, -- +13 Healing
+    spelltrigger_1 = 1
+WHERE entry = 8185;
 
 -- Runic Leather Set
 UPDATE mangos . item_template
@@ -1645,7 +1877,13 @@ WHERE entry = 21278;
 
 -- Dragonscale Gauntlets
 UPDATE mangos . item_template
-SET spellid_1 = 7219, -- Immune to disarm
+SET stat_type1 = 4, 
+    stat_value1 = 15,
+    stat_type2 = 5,
+    stat_value2 = 15,
+    stat_type3 = 6,
+    stat_value3 = 10,
+    spellid_1 = 7597, -- +1% Physical Crit
     spelltrigger_1 = 1
 WHERE entry = 8347;
 
@@ -2163,7 +2401,9 @@ SET stat_type1 = 7,
     spellid_1 = 21408, -- +12 Defense
     spelltrigger_1 = 1,
     spellid_2 = 9346, -- +18 Spell Damage
-    spelltrigger_2 = 1
+    spelltrigger_2 = 1,
+    spellid_3 = 16611, -- When struck has a 3% chance of stealing 120 life from the attacker over 4 sec.
+    spelltrigger_3 = 1
 WHERE entry = 12628;
 
 -- Fiery Plate Gauntlets
@@ -2981,8 +3221,9 @@ SET required_level = 60,
     required_skill_rank = 300,
     quality = 4,
     bonding = 1,
-    dmg_min1 = 80,
-    dmg_max1 = 120
+    delay = 1500,
+    dmg_min1 = 64,
+    dmg_max1 = 104
 WHERE entry = 19168;
 
 -- Frostguard
@@ -3175,8 +3416,8 @@ WHERE entry = 3491;
 -- Iridescent Hammer
 UPDATE mangos . item_template
 SET quality = 3,
-    dmg_min1 = 19,
-    dmg_max1 = 37
+    dmg_min1 = 22,
+    dmg_max1 = 42
 WHERE entry = 5541;
 
 -- Solid Iron Maul
@@ -3204,9 +3445,9 @@ WHERE entry = 3492;
 UPDATE mangos . item_template
 SET quality = 3,
     armor = 100,
-    delay = 1700,
-    dmg_min1 = 24,
-    dmg_max1 = 44
+    delay = 1500,
+    dmg_min1 = 20,
+    dmg_max1 = 40
 WHERE entry = 3849;
 
 -- Golden Iron Destroyer
@@ -3223,8 +3464,8 @@ WHERE entry = 3852;
 UPDATE mangos . item_template
 SET quality = 3,
     delay = 2700,
-    dmg_min1 = 39,
-    dmg_max1 = 69
+    dmg_min1 = 52,
+    dmg_max1 = 82
 WHERE entry = 3850;
 
 -- Moonsteel Broadsword
@@ -4538,7 +4779,29 @@ SET quality = 3,
     stat_value2 = 24
 WHERE entry = 11195;
 
--- Blazewind Breastplate (Tremors of the Earth)
+-- Bricksteel Gauntlets (Runecloth)
+UPDATE mangos . item_template
+SET quality = 3,
+    armor = 300,
+    stat_type1 = 4,
+    stat_value1 = 18,
+    stat_type2 = 5,
+    stat_value2 = 18,
+    spellid_1 = 21363, -- 5 MP/5
+    spelltrigger_1 = 1
+WHERE entry = 15823;
+
+-- Chelonian Cuffs (Tooga's Quest)
+UPDATE mangos . item_template
+SET quality = 3,
+    armor = 200,
+    stat_type1 = 4,
+    stat_value1 = 7,
+    stat_type2 = 5,
+    stat_value2 = 7,
+    spellid_1 = 21361, -- 3 MP/5
+    spelltrigger_1 = 1
+WHERE entry = 9638;
 
 -- Staff of Westfall (The Defias Brotherhood)
 UPDATE mangos . item_template
@@ -4548,9 +4811,9 @@ WHERE entry = 2042;
 
 -- Headbasher (The Fury Runs Deep)
 UPDATE mangos . item_template
-SET delay = 3800,
-    dmg_min1 = 80,
-    dmg_max1 = 110,
+SET delay = 2000,
+    dmg_min1 = 35,
+    dmg_max1 = 65,
     spellid_1 = 9343, -- +14 Spell Damage
     spelltrigger_1 = 1
 WHERE entry = 1264;
@@ -4655,8 +4918,9 @@ WHERE entry = 6194;
 -- Crescent of Forlorn Spirits
 UPDATE mangos . item_template
 SET quality = 3,
-    dmg_min1 = 22,
-    dmg_max1 = 42
+    delay = 1500,
+    dmg_min1 = 20,
+    dmg_max1 = 40
 WHERE entry = 2044;
 
 -- Haggard's Axe
@@ -4724,7 +4988,7 @@ WHERE entry = 6971;
 -- Fire Hardened Hauberk
 UPDATE mangos . item_template
 SET quality = 4,
-    armor = 300,
+    armor = 450,
     stat_type1 = 4,
     stat_value1 = 5,
     stat_type2 = 7,
@@ -5522,7 +5786,8 @@ WHERE entry = 10739;
 
 -- Dragonflight Leggings (Set Them Ablaze!)
 UPDATE mangos . item_template
-SET stat_type1 = 6,
+SET quality = 3,
+    stat_type1 = 6,
     stat_value1 = 12,
     stat_type2 = 0,
     stat_value2 = 0,
@@ -5531,6 +5796,27 @@ SET stat_type1 = 6,
     spellid_1 = 9343, -- +14 Spell Damage
     spelltrigger_1 = 1
 WHERE entry = 10742;
+
+-- Drakefire Headguard (Set Them Ablaze!)
+UPDATE mangos . item_template
+SET quality = 3,
+    stat_type1 = 4,
+    stat_value1 = 12,
+    stat_type2 = 5,
+    stat_value2 = 9,
+    stat_type3 = 6,
+    stat_value3 = 9,
+    spellid_1 = 9343, -- +14 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 10743;
+
+-- Axe of the Ebon Drake (Set Them Ablaze!)
+UPDATE mangos . item_template
+SET quality = 3,
+    delay = 1500,
+    dmg_min1 = 40,
+    dmg_max1 = 70
+WHERE entry = 10744;
 
 -- Ring of the Aristocrat (The Smoldering Ruins of Thaurissan)
 UPDATE mangos . item_template
@@ -6146,6 +6432,8 @@ SET quality = 3,
 WHERE entry = 4829;
 
 -- Random Drops
+
+-- Greens
 
 -- Jousters Set
 UPDATE mangos . item_template
@@ -7136,6 +7424,18 @@ SET quality = 3,
     spellid_1 = 21361, -- 3 MP/5
     spelltrigger_1 = 1
 WHERE entry = 8126;
+
+-- Blues
+
+-- Martyr's Chain
+UPDATE mangos . item_template
+SET stat_type1 = 4,
+    stat_value1 = 8,
+    stat_type2 = 5,
+    stat_value2 = 8,
+    stat_type3 = 6,
+    stat_value3 = 5
+WHERE entry = 3416;
 
 -- Zone Drops
 

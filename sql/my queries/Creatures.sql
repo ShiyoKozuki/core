@@ -37,6 +37,10 @@ UPDATE mangos . creature_display_info_addon
 SET combat_reach = 2
 WHERE display_id IN(59, 60, 12170);
 
+-- Razorfen Spearhide (Shouldn't be rare, Blizzard bug)
+UPDATE `mangos`.`creature_template` SET `rank`=1 WHERE  `entry`=4438 AND `patch`=0;
+
+
 -- Twilight Flamereaver
 UPDATE `mangos`.`creature_template` SET `spell_id1`=15732 WHERE  `entry`=15201 AND `patch`=6;
 
