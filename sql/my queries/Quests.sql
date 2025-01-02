@@ -28,7 +28,7 @@
 -- Ooze Ichor should stack to 10(it currently stacks to 5)
 
 -- Quest + Vendor + Repair npc flag = 
--- NEXT quest_template 30175
+-- NEXT quest_template 30177
 -- NEXT creature_template 90042
 
 --     QUEST_TYPE_ELITE               = 1,
@@ -814,6 +814,53 @@ REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLeve
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (5389, 30149);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (5389, 30149);
 
+-- Burning Steppes
+REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewXP`, `RewOrReqMoney`, `RewMoneyMaxLevel`, `CompleteEmote`) VALUES (30177, 46, 52, 54, 8, 'The Rise of the Machines', 'The machines made themselves known to us during our initial forays into the Searing Gorge. Upon further investigation we discovered that they were being imported from Burning Steppes, possibly Blackrock Depths. Recover elemental shards from the rock automatons and lesser rock creations of the region. Once you have collected a sufficient amount, return to me and I shall determine their source of origin.', 'Recover 10 Fractured Elemental Shards for Marshal Maxwell in Burning Steppes.', 'Interesting. Etched into the structural foundation of each of these fragments are... initials.', '', '', '', '', '', 11266, 10, 5450, 16500, 5450, 1);
+REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (9560, 30177);
+REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (9560, 30177);
+
+REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `NextQuestInChain`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewXP`, `RewOrReqMoney`, `RewMoneyMaxLevel`, `CompleteEmote`) VALUES (30178, 46, 52, 55, 8, 30179, 'Thaurissan Ruckus', 'The Thaurissan in the ruins to the south west seem up to no good. Take them out and see if you can find out what they are up to.', 'Recover the Titan Artifact for Marshal Maxwell in Burning Steppes.', 'They\'re trying to uncover the secrets of the titans!', '', '', '', '', '', 30075, 1, 5450, 2200, 5450, 1);
+REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (9560, 30178);
+REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (9560, 30178);
+REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (7036, 30075, -5);
+REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (7037, 30075, -5);
+REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (7038, 30075, -5);
+
+REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `PrevQuestId`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOId2`, `ReqCreatureOrGOId3`, `ReqCreatureOrGOCount1`, `ReqCreatureOrGOCount2`, `ReqCreatureOrGOCount3`, `RewXP`, `RewOrReqMoney`, `RewMoneyMaxLevel`, `CompleteEmote`) VALUES (30179, 46, 52, 55, 8, 30178, 'Thaurissan Ruckus', 'We cannot let the Thaurissan undercover the secrets of the Titans. Take them out to stop their plans.', 'Kill 20 Thaurissan Spy, 20 Thaurissan Firewalker and 20 Thaurissan Agent then return to Marshal Maxwell in Burning Steppes.', 'This should put an end to their plans.', '', '', '', '', '', 7036, 7037, 7038, 20, 20, 20, 5450, 25000, 5450, 1);
+REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (9560, 30179);
+REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (9560, 30179);
+
+REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewXP`, `RewOrReqMoney`, `RewMoneyMaxLevel`, `CompleteEmote`) VALUES (30180, 46, 55, 58, 8, 'Blackrock and Roll', 'This area is infested with the Blackrock clan. Kill as many as you can and bring me their heads.', 'Bring 50 Blackrock Heads to Marshal Maxwell in Burning Steppes.', 'This is a good collection of Orc heads!', '', '', '', '', '', 30076, 50, 6100, 15000, 6100, 1);
+REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (9560, 30180);
+REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (9560, 30180);
+REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (7025, 30076, -100);
+REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (7027, 30076, -100);
+REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (7028, 30076, -100);
+REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (7029, 30076, -100);
+
+REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewXP`, `RewOrReqMoney`, `RewMoneyMaxLevel`, `CompleteEmote`) VALUES (30181, 46, 55, 58, 8, 'Blackrockers', 'This area is infested with the Blackrock clan. Some of them carry medals made out of the finest metal known to man, I would like to melt them down and create weapons out of them. Get some for me.', 'Bring 12 Blackrock Medal to Marshal Maxwell in Burning Steppes.', 'This will do nicely.', '', '', '', '', '', 30077, 12, 6100, 17500, 6100, 1);
+REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (9560, 30181);
+REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (9560, 30181);
+REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (7025, 30077, -20);
+REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (7027, 30077, -20);
+REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (7028, 30077, -20);
+REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (7029, 30077, -20);
+
+REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOId2`, `ReqCreatureOrGOId3`, `ReqCreatureOrGOId4`, `ReqCreatureOrGOCount1`, `ReqCreatureOrGOCount2`, `ReqCreatureOrGOCount3`, `ReqCreatureOrGOCount4`, `RewXP`, `RewOrReqMoney`, `RewMoneyMaxLevel`, `CompleteEmote`) VALUES (30182, 46, 55, 58, 8, 'Blackrock Menance', 'This area is infested with the Blackrock clan. Kill as many of them for me as you can.', 'Kill 25 Blackrock Soldier, 25 Blackrock Warlock, 25 Blackrock Slayer and 25 Blackrock Battlemaster Marshal Maxwell in Burning Steppes.', 'Great!', '', '', '', '', '', 7025, 7028, 7029, 7027, 25, 25, 25, 25, 6100, 27500, 6100, 1);
+REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (9560, 30182);
+REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (9560, 30182);
+
+REPLACE`mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `NextQuestInChain`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOCount1`, `RewXP`, `RewOrReqMoney`, `RewMoneyMaxLevel`, `CompleteEmote`) VALUES (30183, 46, 50, 53, 8, 30184, 'Venom Tippers', 'I really don\'t like bugs, especially ones that can sting and kill me. Please kill the scorpids around this camp.', 'Kill 20 Venomtip Scorpid for Mayara Brightwing in Burning Steppes.', 'I feel better already.', '', '', '', '', '', 9691, 20, 5100, 7500, 5100, 1);
+REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (9565, 30183);
+REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (9565, 30183);
+
+REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `PrevQuestId`, `NextQuestInChain`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOCount1`, `RewXP`, `RewOrReqMoney`, `RewMoneyMaxLevel`, `CompleteEmote`) VALUES (30184, 46, 50, 55, 8, 30183, 30185, 'Deathly Lashers', 'There are even more terrifying bugs in this region. To the west of here are Deathlash Scorpid, kill them for me as will please.', 'Kill 20 Deathlash Scorpid for Mayara Brightwing in Burning Steppes.', 'I feel better already.', '', '', '', '', '', 9695, 20, 5100, 9500, 5100, 1);
+REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (9565, 30184);
+REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (9565, 30184);
+
+REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `PrevQuestId`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOCount1`, `RewXP`, `RewOrReqMoney`, `RewMoneyMaxLevel`, `CompleteEmote`) VALUES (30185, 46, 55, 57, 8, 30184, 'Burning Hot Scorpions', 'You have done well so far, and are very good at this. I have 1 more job for you. There are even scarier scorpions much further to the west near Blackrock Mountain that need to be taken care of.', 'Kill 20 Firetail Scorpid for Mayara Brightwing in Burning Steppes.', 'Finally, this area has been rid of those creepy crawlies!', '', '', '', '', '', 9698, 20, 5100, 12500, 5100, 1);
+REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (9565, 30185);
+REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (9565, 30185);
 
 -- Deadwind Pass
 REPLACE `mangos`.`faction` (`id`, `build`, `reputation_list_id`, `base_rep_race_mask1`, `base_rep_race_mask2`, `base_rep_race_mask3`, `base_rep_value1`, `base_rep_value2`, `base_rep_value3`, `reputation_flags1`, `reputation_flags2`, `name`, `description`) VALUES (477, 5302, 56, 73, 178, 4, 150, -42000, 500, 16, 22, 'Caretakers of Karazhan', 'Medivh\'s personal caretakers.');
@@ -877,3 +924,6 @@ REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (5479, 30173
 REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `Type`, `RequiredClasses`, `QuestFlags`, `PrevQuestId`, `NextQuestInChain`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOId2`, `ReqCreatureOrGOId3`, `ReqCreatureOrGOId4`, `ReqCreatureOrGOCount1`, `ReqCreatureOrGOCount2`, `ReqCreatureOrGOCount3`, `ReqCreatureOrGOCount4`, `CompleteEmote`) VALUES (30174, -81, 60, 60, 83, 1, 8, 30173, 30175, 'Relic Weapons (Warrior)', 'You have successfully completed the first step and have shown me you are worthy of taking on this task. In order for us to craft you a weapon of immense power you will need to gather materials and bring them to me to use to craft your weapon.', 'Bring 180 Arcanite Bar, 180 Mooncloth, 100 Nexus Crystal, and 50 Flask of Chromatic Resistance to to Wu Shen in Stormwind.', 'You have done well to be able to complete this step. It will however, continue to get harder from here.', '', '', '', '', '', 12360, 14342, 20725, 13513, 180, 180, 100, 50, 1);
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (5479, 30174);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (5479, 30174);
+
+-- 30175 (Legendary quest PH)
+-- 30176 (Legendary quest PH)
