@@ -1457,7 +1457,7 @@ SET quality = 3,
     stat_value2 = 5,
     spellid_1 = 9395, -- +5 Spell Damage
     spelltrigger_1 = 1
-WHERE entry = 3719;
+WHERE entry = 4259;
 
 -- Green Leather Belt
 UPDATE mangos . item_template
@@ -5095,7 +5095,7 @@ WHERE entry = 6970;
 -- Fire Hardened Coif
 UPDATE mangos . item_template
 SET quality = 3,
-    armor = 200,
+    armor = 300,
     spellid_1 = 9140, -- +10 Attack Power
     spelltrigger_1 = 1
 WHERE entry = 6971;
@@ -5118,7 +5118,7 @@ WHERE entry = 6972;
 -- Fire Hardened Leggings
 UPDATE mangos . item_template
 SET quality = 3,
-    armor = 230,
+    armor = 400,
     spellid_1 = 9140, -- +10 Attack Power
     spelltrigger_1 = 1
 WHERE entry = 6973;
@@ -5126,7 +5126,7 @@ WHERE entry = 6973;
 -- Fire Hardened Gauntlets
 UPDATE mangos . item_template
 SET quality = 3,
-    armor = 180,
+    armor = 300,
     spellid_1 = 9140, -- +10 Attack Power
     spelltrigger_1 = 1
 WHERE entry = 6974;
@@ -5491,6 +5491,12 @@ SET stat_type1 = 5,
     spelltrigger_1 = 1
 WHERE entry = 3560;
 
+-- Crest of Darkshire (Bride of the Embalmer)
+UPDATE mangos . item_template
+SET spellid_1 = 17350, -- Has a 1% chance when struck in combat of increasing chance to block by 50% for 10 sec.
+    spelltrigger_1 = 1
+WHERE entry = 11194;
+
 -- Night Watch Pantaloons (Morbent Fel)
 UPDATE mangos . item_template
 SET stat_type1 = 5,
@@ -5520,6 +5526,17 @@ SET stat_type1 = 6,
     spellid_2 = 21360, -- 2 MP/5
     spelltrigger_2 = 1
 WHERE entry = 2902;
+
+-- Shield of the Faith (Worgen in the Woods)
+UPDATE mangos . item_template
+SET quality = 3,
+    stat_type1 = 5,
+    stat_value1 = 5,
+    stat_type2 = 6,
+    stat_value2 = 5,
+    spellid_1 = 7680, -- +13 Healing
+    spelltrigger_1 = 1
+WHERE entry = 1547;
 
 -- Consecrated Wand (Worgen in the Woods)
 UPDATE mangos . item_template
@@ -7573,9 +7590,8 @@ SET stat_type1 = 4,
 WHERE entry = 5819;
 
 -- Grubbis Paws
--- Ravasaur Scale Boots
 UPDATE mangos . item_template
-SET armor = 250,
+SET armor = 300,
     stat_type1 = 7,
     stat_value1 = 15,
     stat_type2 = 0,
@@ -7612,7 +7628,7 @@ WHERE entry = 9409;
 
 -- Ravasaur Scale Boots
 UPDATE mangos . item_template
-SET armor = 250,
+SET armor = 300,
     stat_type1 = 7,
     stat_value1 = 15,
     stat_type2 = 0,
@@ -8222,3 +8238,19 @@ WHERE entry IN(20123, 20120, 20122, 20119, 20118, 20121, 20044, 20051, 20056, 20
 UPDATE mangos . item_template 
 SET bonding = 1 -- BOP
 WHERE entry IN(12717, 18418, 22388, 14512, 14513, 14514, 12834, 12825, 18260, 20730, 20727, 20728, 18259, 20731, 20735, 20736, 18260, 12720, 12725, 12726, 12727, 12696);
+
+-- Display IDs
+-- Fire Hardened Hauberk (Was 22480)
+UPDATE mangos . item_template 
+SET display_id = 25798
+WHERE entry = 6972;
+
+-- Fire Hardened Leggings (Was 22481)
+UPDATE mangos . item_template 
+SET display_id = 25796
+WHERE entry = 6973;
+
+-- Ravasaur Scale Boots (Was 28441)
+UPDATE mangos . item_template 
+SET display_id = 25793
+WHERE entry = 13124;
