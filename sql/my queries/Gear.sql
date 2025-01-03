@@ -391,8 +391,6 @@ SET spellid_1 = 17367, -- +32 Spell Damage
     shadow_res = 15
 WHERE entry = 12945;
 
--- 1
-
 -- Flying Tiger Goggles
 UPDATE mangos . item_template
 SET quality = 3,
@@ -6563,9 +6561,54 @@ SET quality = 3,
     spelltrigger_1 = 1
 WHERE entry = 4829;
 
+-- Rare mob drops
+-- Cloak of Rot (Lord Malathrom)
+UPDATE mangos . item_template
+SET stat_type1 = 5,
+    stat_value1 = -10,
+    stat_type2 = 7,
+    stat_value2 = -10, 
+    spellid_1 = 9324, -- +16 Shadow Damage
+    spelltrigger_1 = 1
+WHERE entry = 4462;
+
 -- Random Drops
 
 -- Greens
+
+-- Slayer's Set
+
+-- Slayer's Pants
+UPDATE mangos . item_template
+SET stat_type1 = 4,
+    stat_value1 = 11,
+    stat_type2 = 3,
+    stat_value2 = 11   
+WHERE entry = 14757;
+
+-- Slayer's Slippers
+UPDATE mangos . item_template
+SET stat_type1 = 4,
+    stat_value1 = 7,
+    stat_type2 = 3,
+    stat_value2 = 7  
+WHERE entry = 14756;
+
+-- Slayer's Cuffs
+UPDATE mangos . item_template
+SET stat_type1 = 4,
+    stat_value1 = 5,
+    stat_type2 = 3,
+    stat_value2 = 5  
+WHERE entry = 14750;
+
+-- Slayer's Gloves
+UPDATE mangos . item_template
+SET stat_type1 = 4,
+    stat_value1 = 7,
+    stat_type2 = 3,
+    stat_value2 = 7 
+WHERE entry = 14754;
 
 -- Jousters Set
 UPDATE mangos . item_template
