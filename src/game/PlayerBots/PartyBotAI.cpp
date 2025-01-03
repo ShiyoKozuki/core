@@ -2974,13 +2974,14 @@ void PartyBotAI::UpdateInCombatAI_Warrior()
                 return;
         }
 
-        if (m_spells.warrior.pExecute &&
-            (pVictim->GetHealthPercent() < 20.0f) &&
-            (me->GetLevel() < 40) &&
-            CanTryToCastSpell(pVictim, m_spells.warrior.pExecute))
+        if (me->GetLevel() < 40 || m_role == ROLE_MELEE_DPS)
         {
-            if (DoCastSpell(pVictim, m_spells.warrior.pExecute) == SPELL_CAST_OK)
-                return;
+            if (m_spells.warrior.pExecute && (pVictim->GetHealthPercent() < 20.0f) &&
+                CanTryToCastSpell(pVictim, m_spells.warrior.pExecute))
+            {
+                if (DoCastSpell(pVictim, m_spells.warrior.pExecute) == SPELL_CAST_OK)
+                    return;
+            }
         }
 
         if (me->GetShapeshiftForm() == FORM_DEFENSIVESTANCE &&
@@ -3080,6 +3081,7 @@ void PartyBotAI::UpdateInCombatAI_Warrior()
         {
             if (m_spells.warrior.pBerserkerStance &&
                 !IsWearingShield(me) &&
+                me->GetLevel() >= 36 && // Whirlwind level
                 CanTryToCastSpell(me, m_spells.warrior.pBerserkerStance))
             {
                 DoCastSpell(me, m_spells.warrior.pBerserkerStance);
