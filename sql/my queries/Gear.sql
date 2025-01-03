@@ -9,7 +9,6 @@
 -- ITEM_MOD_SPIRIT                   = 6,
 -- ITEM_MOD_STAMINA                  = 7,
 
--- spellid_1 = 9331, -- +20 Attack Power
 -- spellid_1 = 9397, -- +7 Spell damage
 
 -- DPS Calc: https://docs.google.com/spreadsheets/d/1R3A3AQiqE0aqhn4C9zdLSVr_wrecjtrpxPgg3UZ66y4/edit?gid=0#gid=0
@@ -4169,6 +4168,23 @@ WHERE entry = 7723;
 
 -- RFD
 
+-- Icemetal Barbute
+UPDATE mangos . item_template
+SET armor = 500,
+    stat_type1 = 7,
+    stat_value1 = 25,
+    stat_type2 = 0,
+    stat_value2 = 0,
+    stat_type3 = 0,
+    stat_value3 = 0
+WHERE entry = 10763;
+
+-- Arachnid Gloves
+UPDATE mangos . item_template
+SET spellid_1 = 21361, -- 3 MP/5
+    spelltrigger_1 = 1
+WHERE entry = 10777;
+
 -- Glowing Eye of Mordresh
 UPDATE mangos . item_template
 SET stat_type1 = 5,
@@ -4192,6 +4208,12 @@ SET stat_type1 = 5,
 WHERE entry = 10762;
 
 -- Uldaman
+
+-- Emissary Cuffs
+UPDATE mangos . item_template
+SET spellid_1 = 21361, -- 3 MP/5
+    spelltrigger_1 = 1
+WHERE entry = 9455;
 
 -- Grimlok's Tribal Vestments
 UPDATE mangos . item_template
@@ -4227,6 +4249,22 @@ WHERE entry = 11118;
 
 -- Zul Farrak
 
+-- Gahz'rilla Scale Armor
+UPDATE mangos . item_template
+SET spellid_1 = 9331, -- +20 Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 9469;
+
+-- Big Bad Pauldrons
+UPDATE mangos . item_template
+SET stat_type1 = 3,
+    stat_value1 = 8,
+    stat_type2 = 4,
+    stat_value2 = 12,
+    stat_type3 = 7,
+    stat_value3 = 12
+WHERE entry = 9476;
+
 -- Witch Doctor's Cane
 UPDATE mangos . item_template
 SET spellid_2 = 9318, -- +33 Healing
@@ -4254,6 +4292,14 @@ SET spellid_1 = 9406, -- +18 Healing
 WHERE entry = 12471;
 
 -- Maraudon
+
+-- Charstone Dirk
+UPDATE mangos . item_template
+SET spellid_1 = 9406, -- +18 Healing
+    spelltrigger_1 = 1,
+    spellid_3 = 15464, -- +1% Physical Hit
+    spelltrigger_3 = 1
+WHERE entry = 17710;
 
 -- Cloud Stone
 UPDATE mangos . item_template
@@ -4350,6 +4396,29 @@ SET spellid_2 = 9415, -- +9 Spell Damage
 WHERE entry = 17719;
 
 -- Sunken Temple
+-- Crest of Supremacy
+UPDATE mangos . item_template
+SET spellid_1 = 9417, -- +12 spell damage
+    spelltrigger_1 = 1 
+WHERE entry = 10835;
+
+-- Bloodshot Greaves
+UPDATE mangos . item_template
+SET stat_type1 = 5,
+    stat_value1 = 12,
+    stat_type2 = 7,
+    stat_value2 = 12,
+    stat_type3 = 0,
+    stat_value3 = 0,
+    spellid_1 = 9331, -- +20 Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 10846;
+
+-- Horns of Eranikus
+UPDATE mangos . item_template
+SET spellid_1 = 9408, -- +22 Healing
+    spelltrigger_1 = 1
+WHERE entry = 10833;
 
 -- Firebreather
 UPDATE mangos . item_template
@@ -4390,7 +4459,7 @@ WHERE entry = 12465;
 
 -- Dragon's Eye
 UPDATE mangos . item_template
-SET spellid_1 = 21624, -- 2 MP/5
+SET spellid_1 = 9406, -- +18 Healing
     spelltrigger_1 = 1
 WHERE entry = 10829;
 
@@ -4869,6 +4938,31 @@ WHERE entry = 18538;
 
 -- Quest Rewards
 
+-- Helm of Exile
+UPDATE mangos . item_template
+SET stat_type1 = 5,
+    stat_value1 = 18,
+    stat_type2 = 7,
+    stat_value2 = 18,
+    stat_type3 = 0,
+    stat_value3 = 0,
+    spellid_1 = 9336, -- +30 Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 11124;
+
+-- Avenguard Helm (The God Hakkar)
+UPDATE mangos . item_template
+SET armor = 600,
+    stat_type1 = 5,
+    stat_value1 = 10,
+    stat_type2 = 7,
+    stat_value2 = 25,
+    stat_type3 = 0,
+    stat_value3 = 0,
+    spellid_1 = 9408, -- +22 Healing
+    spelltrigger_1 = 1
+WHERE entry = 10749;
+
 -- Prismscale Hauberk (Tremors of the Earth)
 UPDATE mangos . item_template
 SET quality = 3,
@@ -5124,7 +5218,7 @@ WHERE entry = 6973;
 -- Fire Hardened Gauntlets
 UPDATE mangos . item_template
 SET quality = 3,
-    armor = 300,
+    armor = 250,
     spellid_1 = 9140, -- +10 Attack Power
     spelltrigger_1 = 1
 WHERE entry = 6974;
@@ -7600,7 +7694,283 @@ SET quality = 3,
     spelltrigger_1 = 1
 WHERE entry = 8126;
 
+-- Necklace of Harmony
+UPDATE mangos . item_template
+SET stat_type1 = 0,
+    stat_value1 = 0,
+    spellid_1 = 7680, -- +13 Healing
+    spelltrigger_1 = 1
+WHERE entry = 5180;
+
+-- Mark of the Kirin Tor NYI
+UPDATE mangos . item_template
+SET stat_type1 = 0,
+    stat_value1 = 0,
+    stat_type2 = 0,
+    stat_value2 = 0,
+    spellid_1 = 9395, -- +5 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 5004;
+
+-- Emberspark Pendant NYI
+UPDATE mangos . item_template
+SET stat_type1 = 0,
+    stat_value1 = 0,
+    stat_type2 = 0,
+    stat_value2 = 0,
+    spellid_1 = 9140, -- +10 Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 5005;
+
+-- Kodobone Necklace
+UPDATE mangos . item_template
+SET stat_type1 = 0,
+    stat_value1 = 0,
+    stat_type2 = 0,
+    stat_value2 = 0,
+    spellid_1 = 9140, -- +10 Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 15690;
+
+-- Fairy's Embrace NYI
+UPDATE mangos . item_template
+SET spellid_1 = 9397, -- +7 Spell damage
+    spelltrigger_1 = 1
+WHERE entry = 7549;
+
+-- Entwined Opaline Talisman
+UPDATE mangos . item_template
+SET spellid_1 = 9140, -- +10 Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 7551;
+
+-- Warrior's Honor NYI
+UPDATE mangos . item_template
+SET armor = 100
+WHERE entry = 7550;
+
+-- Heroic Commendation Medal
+UPDATE mangos . item_template
+SET spellid_1 = 13383, -- +5 Defense
+    spelltrigger_1 = 1
+WHERE entry = 15799;
+
+-- Opaline Medallion
+UPDATE mangos . item_template
+SET spellid_1 = 9408, -- +22 Healing
+    spelltrigger_1 = 1
+WHERE entry = 16623;
+
+
 -- Blues
+
+-- Gazlowe's Charm
+UPDATE mangos . item_template
+SET stat_type1 = 0,
+    stat_value1 = 0,
+    stat_type2 = 0,
+    stat_value2 = 0,
+    stat_type3 = 0,
+    stat_value3 = 0,
+    spellid_1 = 9330, -- +18 Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 15690;
+
+-- Necklace of Calisea
+UPDATE mangos . item_template
+SET spellid_1 = 7680, -- +13 Healing
+    spelltrigger_1 = 1
+WHERE entry = 1714;
+
+-- Talisman of the Naga Lord
+UPDATE mangos . item_template
+SET quality = 3,
+    stat_type1 = 7,
+    stat_value1 = 10,
+    stat_type2 = 0,
+    stat_value2 = 0,
+    spellid_1 = 9330, -- +18 Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 5029;
+
+-- Horizon Choker
+UPDATE mangos . item_template
+SET spellid_1 = 9417, -- +12 spell damage
+    spelltrigger_1 = 1
+WHERE entry = 13085;
+
+-- Lady Alizabeth's Pendant
+UPDATE mangos . item_template
+SET stat_type1 = 7,
+    stat_value1 = 20,
+    stat_type2 = 0,
+    stat_value2 = 0,
+    spellid_1 = 15464, -- +1% Physical Hit
+    spelltrigger_1 = 1
+WHERE entry = 13002;
+
+-- Mountainside Buckler
+UPDATE mangos . item_template
+SET spellid_1 = 9406, -- +18 Healing
+    spelltrigger_1 = 1
+WHERE entry = 13082;
+
+-- Starsight Tunic
+UPDATE mangos . item_template
+SET stat_type1 = 5,
+    stat_value1 = 8,
+    stat_type2 = 6,
+    stat_value2 = 8,
+    spellid_1 = 7680, -- +13 Healing
+    spelltrigger_1 = 1
+WHERE entry = 12988;
+
+-- Gloomshroud Armor
+UPDATE mangos . item_template
+SET stat_type1 = 3,
+    stat_value1 = 12,
+    stat_type2 = 4,
+    stat_value2 = 8
+WHERE entry = 1489;
+
+-- Drakewing Bands
+UPDATE mangos . item_template
+SET stat_type1 = 5,
+    stat_value1 = 4,
+    stat_type2 = 6,
+    stat_value2 = 4,
+    spellid_1 = 7680, -- +13 Healing
+    spelltrigger_1 = 1
+WHERE entry = 12999;
+
+-- Silver-lined Belt
+UPDATE mangos . item_template
+SET stat_type1 = 6,
+    stat_value1 = 15,
+    spellid_1 = 7680, -- +13 Healing
+    spelltrigger_1 = 1
+WHERE entry = 13011;
+
+-- Brawler Gloves
+UPDATE mangos . item_template
+SET armor = 150,
+    stat_type1 = 4,
+    stat_value1 = 9,
+    stat_type2 = 5,
+    stat_value2 = 9
+WHERE entry = 720;
+
+-- Troll's Bane Leggings
+UPDATE mangos . item_template
+SET stat_type1 = 5,
+    stat_value1 = 12,
+    stat_type2 = 6,
+    stat_value2 = 12,
+    spellid_1 = 9408, -- +22 Healing
+    spelltrigger_1 = 1
+WHERE entry = 13114;
+
+-- Petrolspill Leggings
+UPDATE mangos . item_template
+SET armor = 200,
+    stat_type1 = 4,
+    stat_value1 = 15,
+    stat_type2 = 5,
+    stat_value2 = 15
+WHERE entry = 9509;
+
+-- Harbinger Boots
+UPDATE mangos . item_template
+SET armor = 200,
+    stat_type1 = 4,
+    stat_value1 = 12,
+    stat_type2 = 5,
+    stat_value2 = 12,
+    stat_type2 = 6,
+    stat_value2 = 12
+WHERE entry = 7754;
+
+-- Watchman Pauldrons
+UPDATE mangos . item_template
+SET armor = 250,
+    stat_type1 = 4,
+    stat_value1 = 15,
+    stat_type2 = 5,
+    stat_value2 = 12,
+    stat_type2 = 6,
+    stat_value2 = 12
+WHERE entry = 7727;
+
+-- Enduring Cap
+UPDATE mangos . item_template
+SET stat_type1 = 5,
+    stat_value1 = 15,
+    stat_type2 = 6,
+    stat_value2 = 15,
+    spellid_1 = 9408, -- +22 Healing
+    spelltrigger_1 = 1
+WHERE entry = 3020;
+
+-- Ebon Vise
+UPDATE mangos . item_template
+SET armor = 200,
+    stat_type1 = 4,
+    stat_value1 = 9,
+    stat_type2 = 5,
+    stat_value2 = 9,
+    stat_type2 = 6,
+    stat_value2 = 9
+WHERE entry = 7690;
+
+-- Briar Tredders
+UPDATE mangos . item_template
+SET stat_type1 = 5,
+    stat_value1 = 12,
+    stat_type2 = 6,
+    stat_value2 = 12,
+    spellid_1 = 9408, -- +22 Healing
+    spelltrigger_1 = 1
+WHERE entry = 10582;
+
+-- Expert Goldminer's Helmet
+UPDATE mangos . item_template
+SET stat_type1 = 4,
+    stat_value1 = 12,
+    stat_type2 = 5,
+    stat_value2 = 12,
+    stat_type2 = 6,
+    stat_value2 = 12
+WHERE entry = 9375;
+
+-- Enchanted Kodo Bracers
+UPDATE mangos . item_template
+SET stat_type1 = 5,
+    stat_value1 = 4,
+    stat_type2 = 6,
+    stat_value2 = 4,
+    spellid_1 = 9408, -- +22 Healing
+    spelltrigger_1 = 1
+WHERE entry = 13119;
+
+-- Warchief Kilt
+UPDATE mangos . item_template
+SET stat_type1 = 5,
+    stat_value1 = 12,
+    stat_type2 = 6,
+    stat_value2 = 12,
+    spellid_1 = 9417, -- +12 spell damage
+    spelltrigger_1 = 1
+WHERE entry = 7760;
+
+-- Sheepshear Mantle
+UPDATE mangos . item_template
+SET stat_type1 = 5,
+    stat_value1 = 9,
+    stat_type2 = 6,
+    stat_value2 = 9,
+    spellid_1 = 9408, -- +22 Healing
+    spelltrigger_1 = 1
+WHERE entry = 13115;
 
 -- Martyr's Chain
 UPDATE mangos . item_template
@@ -7671,7 +8041,7 @@ WHERE entry = 9409;
 
 -- Ravasaur Scale Boots
 UPDATE mangos . item_template
-SET armor = 300,
+SET armor = 250,
     stat_type1 = 7,
     stat_value1 = 15,
     stat_type2 = 0,
@@ -7679,6 +8049,138 @@ SET armor = 300,
     stat_type3 = 0,
     stat_value3 = 0
 WHERE entry = 13124;
+
+-- Spaulders of a Lost Age
+UPDATE mangos . item_template
+SET stat_type1 = 5,
+    stat_value1 = 10,
+    stat_type2 = 7,
+    stat_value2 = 10,
+    spellid_1 = 9331, -- +20 Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 9430;
+
+-- Murkwater Gauntlets
+UPDATE mangos . item_template
+SET stat_type1 = 5,
+    stat_value1 = 10,
+    stat_type2 = 7,
+    stat_value2 = 10,
+    stat_type3 = 0,
+    stat_value3 = 0,
+    spellid_1 = 9331, -- +20 Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 10631;
+
+-- High Bergg Helm
+UPDATE mangos . item_template
+SET stat_type1 = 5,
+    stat_value1 = 15,
+    stat_type2 = 7,
+    stat_value2 = 15,
+    stat_type3 = 0,
+    stat_value3 = 0,
+    spellid_1 = 9331, -- +20 Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 13128;
+
+-- Belt of the Gladiator
+UPDATE mangos . item_template
+SET stat_type1 = 5,
+    stat_value1 = 10,
+    stat_type2 = 7,
+    stat_value2 = 10,
+    stat_type3 = 0,
+    stat_value3 = 0,
+    spellid_1 = 9331, -- +20 Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 13134;
+
+-- Slimescale Bracers
+UPDATE mangos . item_template
+SET stat_type1 = 5,
+    stat_value1 = 6,
+    stat_type2 = 6,
+    stat_value2 = 6,
+    stat_type3 = 0,
+    stat_value3 = 0,
+    spellid_1 = 7680, -- +13 Healing
+    spelltrigger_1 = 1
+WHERE entry = 10632;
+
+-- Battlecaller Gauntlets
+UPDATE mangos . item_template
+SET stat_type1 = 4,
+    stat_value1 = 12,
+    stat_type2 = 5,
+    stat_value2 = 12,
+    stat_type3 = 0,
+    stat_value3 = 0,
+    spellid_1 = 9408, -- +22 Healing
+    spelltrigger_1 = 1
+WHERE entry = 13126;
+
+-- Lordly Armguards
+UPDATE mangos . item_template
+SET spellid_2 = 9417, -- +12 spell damage
+    spelltrigger_2 = 1 
+WHERE entry = 13135;
+
+-- Enormous Ogre Belt
+UPDATE mangos . item_template
+SET armor = 250,
+    stat_type1 = 7,
+    stat_value1 = 15,
+    stat_type2 = 0,
+    stat_value2 = 0,
+    stat_type3 = 0,
+    stat_value3 = 0
+WHERE entry = 13145;
+
+-- Skullplate Bracers
+UPDATE mangos . item_template
+SET stat_type1 = 5,
+    stat_value1 = 6,
+    stat_type2 = 6,
+    stat_value2 = 6,
+    stat_type3 = 0,
+    stat_value3 = 0,
+    spellid_1 = 7680, -- +13 Healing
+    spelltrigger_1 = 1
+WHERE entry = 9432;
+
+-- Golem Shard Leggings
+UPDATE mangos . item_template
+SET armor = 550,
+    stat_type1 = 7,
+    stat_value1 = 22
+WHERE entry = 13074;
+
+-- Silvershell Leggings
+UPDATE mangos . item_template
+SET stat_type1 = 4,
+    stat_value1 = 15,
+    stat_type2 = 5,
+    stat_value2 = 15,
+    spellid_1 = 9408, -- +22 Healing
+    spelltrigger_1 = 1
+WHERE entry = 10633;
+
+-- Mugthol's Helm
+UPDATE mangos . item_template
+SET stat_type1 = 3,
+    stat_value1 = 10,
+    stat_type2 = 4,
+    stat_value2 = 17,
+    stat_type3 = 7,
+    stat_value3 = 17
+WHERE entry = 13073;
+
+-- Girdle of Uther
+UPDATE mangos . item_template
+SET spellid_1 = 9346, -- +18 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 13077;
 
 -- Zone Drops
 
