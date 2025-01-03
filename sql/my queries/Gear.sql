@@ -6670,6 +6670,41 @@ WHERE entry = 4462;
 
 -- Greens
 
+-- Tellurium Necklace
+UPDATE mangos . item_template
+SET spellid_1 = 9140, -- +10 Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 12023;
+
+-- Tellurium Necklace
+UPDATE mangos . item_template
+SET armor = 100
+WHERE entry = 7548;
+
+-- Tellurium Necklace
+UPDATE mangos . item_template
+SET spellid_1 = 13383, -- +5 Defense
+    spelltrigger_1 = 1
+WHERE entry = 12043;
+
+-- Onyx Choker
+UPDATE mangos . item_template
+SET spellid_1 = 9397, -- +7 Spell damage
+    spelltrigger_1 = 1
+WHERE entry = 12032;
+
+-- Onyx Choker
+UPDATE mangos . item_template
+SET spellid_1 = 7680, -- +13 Healing
+    spelltrigger_1 = 1
+WHERE entry = 12024;
+
+-- Arctic Pendant
+UPDATE mangos . item_template
+SET spellid_1 = 21361, -- 3 MP/5
+    spelltrigger_1 = 1
+WHERE entry = 12044;
+
 -- Slayer's Set
 
 -- Slayer's Pants
