@@ -533,6 +533,7 @@ REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLeve
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (7765, 30097);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (7765, 30097);
 REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `PrevQuestId`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOId2`, `ReqCreatureOrGOCount1`, `ReqCreatureOrGOCount2`, `RewChoiceItemId1`, `RewChoiceItemId2`, `RewChoiceItemCount1`, `RewChoiceItemCount2`, `RewRepFaction1`, `RewRepValue1`, `RewXP`) VALUES (30098, 357, 40, 50, 8, 30097, 'Camp Protection', 'Now that the nearby monsters have been taken care of, it\'s time for you to venture north and take out the harpy threat.', 'Kill 20 Northspring Slayer and 20 Northspring Windcaller then return to Rockbiter in Feralas.', 'Now our camp is much safer, for the time being.', 'Have you cleared the harpes yet?', '', '', '', '', '', 5364, 5366, 20, 20, 9666, 9665, 1, 1, 72, 100, 6700);
+UPDATE `mangos`.`quest_template` SET `RewChoiceItemId1`=9684, `RewChoiceItemId2`=9686, `RewChoiceItemId3`=9683, `RewChoiceItemId4`=10652, `RewChoiceItemCount3`=1, `RewChoiceItemCount4`=1 WHERE  `entry`=30098 AND `patch`=0;
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (7765, 30098);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (7765, 30098);
 

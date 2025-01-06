@@ -6006,6 +6006,44 @@ SET quality = 3,
     stat_value2 = 3
 WHERE entry = 11864;
 
+-- Force of the Hippogryph
+UPDATE mangos . item_template
+SET quality = 3,
+    dmg_min1 = 64,
+    dmg_max1 = 104,
+    stat_type1 = 0,
+    stat_value1 = 0,
+    spellid_1 = 9331, -- +20 Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 9684;
+
+-- Spirit of the Faerie Dragon
+UPDATE mangos . item_template
+SET quality = 3,
+    delay = 1500,
+    dmg_min1 = 37,
+    dmg_max1 = 67,
+    spellid_1 = 9415, -- +9 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 9686;
+
+-- Strength of the Treant
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 9318, -- +33 Healing
+    spelltrigger_1 = 1
+WHERE entry = 9683;
+
+-- Will of the Mountain Giant
+UPDATE mangos . item_template
+SET quality = 3,
+    delay = 1500,
+    dmg_min1 = 70,
+    dmg_max1 = 110,
+    spellid_1 = 10373, -- Chance on hit: Delivers a fatal wound for 250 to 350 damage.
+    spelltrigger_1 = 1
+WHERE entry = 10652;
+
 -- Lagrave's Seal
 UPDATE mangos . item_template
 SET quality = 3,
