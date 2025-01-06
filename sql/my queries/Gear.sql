@@ -5123,7 +5123,7 @@ SET quality = 3,
     delay = 2000,
     dmg_min1 = 55,
     dmg_max1 = 85,
-SET spellid_1 = 14127, -- +28 Spell Damage
+  spellid_1 = 14127, -- +28 Spell Damage
     spelltrigger_1 = 1
 WHERE entry = 4128;
 
