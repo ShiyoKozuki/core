@@ -30,6 +30,10 @@ int BasicAI::Permissible(Creature const* creature)
 
 bool BasicAI::IsProximityAggroAllowedFor(Unit* pTarget) const
 {
+    // Don't aggro totems
+    if (m_creature->IsTotem())
+        return false;
+
     // Don't aggro bots unless the zone is Alterac Valley
     if (pTarget->IsPlayer() &&
         static_cast<Player const*>(pTarget)->IsBot() &&

@@ -7470,7 +7470,9 @@ void Unit::SetDeathState(DeathState s)
         }
 
         RemoveAllAurasOnDeath();
-        UnsummonAllTotems();
+
+        if (IsPlayer())
+            UnsummonAllTotems();
 
         m_motionMaster.Clear(false, true);
         m_motionMaster.MoveIdle();
