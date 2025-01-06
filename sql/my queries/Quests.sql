@@ -522,7 +522,7 @@ REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (7879, 30094);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (7879, 30094);
 
 REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewOrReqMoney`) VALUES (30095, 357, 40, 45, 8, 'Zukk\'ash Infestation', 'From what scouting we have managed to muster, we believe that the foe south of the gnolls is an insect-like race. Frankly, it is irrelevant whether or not if they\'re sentient. If they are driving the gnolls to frenzy against us, then they are as big of a threat - if not more - than the gnolls. Drive deep into where these Zukk\'ash insects dwell; it is known as the Writhing Deep. Thin their numbers and report back to me what you find, bringing back their carapaces as evidence of your handiwork.', 'Bring 20 Zukk\'ash Carapaces to Quintis Jonespyre in Feralas.', 'Great work!', 'Have you killed the bugs yet?', '', '', '', '', '', 18961, 20, 72, 100, 4400, 4700);
-REPLACE `mangos`.`quest_template` SET `RewChoiceItemId1`=19038, `RewChoiceItemId2`=19037, `RewChoiceItemCount1`=1, `RewChoiceItemCount2`=1 WHERE  `entry`=30095 AND `patch`=0;
+UPDATE `mangos`.`quest_template` SET `RewChoiceItemId1`=19038, `RewChoiceItemId2`=19037, `RewChoiceItemCount1`=1, `RewChoiceItemCount2`=1 WHERE  `entry`=30095 AND `patch`=0;
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (7879, 30095);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (7879, 30095);
 
