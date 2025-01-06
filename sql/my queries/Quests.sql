@@ -11,14 +11,12 @@
 -- Quests that start from random drops from mobs (5% drop chance)
 -- Quests that start from a drop from random named mobs (like TBC)
 -- Quests that start at random clickable objects
--- Rune of the Guard Captain Elite troll quest in Hinterlands
--- buff 3 Tok'kar's weapons, 9649, 11859, 9660, 9658, 9666, 9665, 6482, 3759
 -- Add new custom item rewards to a lot of quests (especially end of chains missing rewards)
 -- Hydraxian waterlolrds rep vendor and killing stuff here gives rep? or just eles in general and https://www.wowhead.com/classic/quest=3507/betrayed 
 -- Desolace quest for https://www.wowhead.com/classic/npc=5760/lord-azrethoc (Flag quest as Elite)
 
 -- Quest + Vendor + Repair npc flag = 
--- NEXT quest_template 30177
+-- NEXT quest_template 30186
 -- NEXT creature_template 90042
 
 --     QUEST_TYPE_ELITE               = 1,
@@ -459,8 +457,6 @@ REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLeve
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (9540, 30172);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (9540, 30172);
 
-
-
 -- Feralas
 REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewOrReqMoney`) VALUES (30080, 357, 40, 45, 8, 'Hating the Hatecrest I', 'Push into the south island and wipe out as many naga as you can.', 'Kill 15 Hatecrest Serpent Guards for Latronicus Moonspear in Feathermoon Stronghold.', 'This should help slow down the naga.', 'Did you kill the nagas yet?', '', '', '', '', '', 5333, 20, 72, 100, 4100, 2250);
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (7877, 30080);
@@ -526,6 +522,7 @@ REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (7879, 30094);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (7879, 30094);
 
 REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewOrReqMoney`) VALUES (30095, 357, 40, 45, 8, 'Zukk\'ash Infestation', 'From what scouting we have managed to muster, we believe that the foe south of the gnolls is an insect-like race. Frankly, it is irrelevant whether or not if they\'re sentient. If they are driving the gnolls to frenzy against us, then they are as big of a threat - if not more - than the gnolls. Drive deep into where these Zukk\'ash insects dwell; it is known as the Writhing Deep. Thin their numbers and report back to me what you find, bringing back their carapaces as evidence of your handiwork.', 'Bring 20 Zukk\'ash Carapaces to Quintis Jonespyre in Feralas.', 'Great work!', 'Have you killed the bugs yet?', '', '', '', '', '', 18961, 20, 72, 100, 4400, 4700);
+REPLACE `mangos`.`quest_template` SET `RewChoiceItemId1`=19038, `RewChoiceItemId2`=19037, `RewChoiceItemCount1`=1, `RewChoiceItemCount2`=1 WHERE  `entry`=30095 AND `patch`=0;
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (7879, 30095);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (7879, 30095);
 
@@ -538,6 +535,14 @@ REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (7765, 30097
 REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `PrevQuestId`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOId2`, `ReqCreatureOrGOCount1`, `ReqCreatureOrGOCount2`, `RewChoiceItemId1`, `RewChoiceItemId2`, `RewChoiceItemCount1`, `RewChoiceItemCount2`, `RewRepFaction1`, `RewRepValue1`, `RewXP`) VALUES (30098, 357, 40, 50, 8, 30097, 'Camp Protection', 'Now that the nearby monsters have been taken care of, it\'s time for you to venture north and take out the harpy threat.', 'Kill 20 Northspring Slayer and 20 Northspring Windcaller then return to Rockbiter in Feralas.', 'Now our camp is much safer, for the time being.', 'Have you cleared the harpes yet?', '', '', '', '', '', 5364, 5366, 20, 20, 9666, 9665, 1, 1, 72, 100, 6700);
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (7765, 30098);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (7765, 30098);
+
+REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOId2`, `ReqCreatureOrGOCount1`, `ReqCreatureOrGOCount2`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewOrReqMoney`) VALUES (30186, 357, 40, 45, 8, 'Hippogryph Pruning I', 'East of here is a forest full of hippogryphs. Please take out as many as them as you can, as they are growing too big in numbers and starting to threaten the rest of the wildlife in the area.', 'Kill 15 Frayfeather Hippogryph and 15 Frayfeather Stagwing for Shandris Feathermoon in Feathermoon Stronghold.', 'This will help balance nature.', 'Did you kill the hippogryphs yet?', '', '', '', '', '', 5300, 5304, 15, 15, 72, 100, 4100, 2250);
+REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (3936, 30186);
+REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (3936, 30186);
+
+REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOId2`, `ReqCreatureOrGOCount1`, `ReqCreatureOrGOCount2`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewOrReqMoney`) VALUES (30187, 357, 40, 47, 8, 'Hippogryph Pruning II', 'East of here is a forest full of hippogryphs. Please take out as many as them as you can, as they are growing too big in numbers and starting to threaten the rest of the wildlife in the area.', 'Kill 15 Frayfeather Skystormer and 15 Frayfeather Patriarch for Shandris Feathermoon in Feathermoon Stronghold.', 'This will help balance nature.', 'Did you kill the hippogryphs yet?', '', '', '', '', '', 5305, 5306, 15, 15, 72, 100, 4100, 7500);
+REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (3936, 30187);
+REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (3936, 30187);
 
 -- Felwood
 REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOCount1`, `RewXP`, `RewOrReqMoney`, `RewMoneyMaxLevel`, `CompleteEmote`) VALUES (30154, 361, 45, 49, 8, 'Infected Wildlife I', 'The wildlife here is starting to get infected. I want you to slow down the infeciton by killing as much wildlife as you can.', 'Kill 25 Ironbeak Owl then return to Grazle in Felwood.', 'This should help slow down the epidemic.', '', '', '', '', '', 7097, 25, 5100, 5500, 5100, 1);
@@ -596,8 +601,8 @@ REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLeve
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (14301, 30103);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (14301, 30103);
 
--- Add custom gear rewards here
 REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `PrevQuestId`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemId2`, `ReqItemCount1`, `ReqItemCount2`, `RewXP`, `RewMoneyMaxLevel`, `DetailsEmote1`, `DetailsEmote2`, `IncompleteEmote`, `CompleteEmote`, `OfferRewardEmote1`, `OfferRewardEmote2`) VALUES (30104, 16, 45, 48, 8, 30103, 'At War with the Spitelash', 'The spitelash are back. It seems killing them was not enough. We will have to take up arms against them as well. Kill them, and gather their weapons for us to use against them.', 'Gather 6 Spitelash Spears and 6 Spitelash Maces then return to Brinna Valanaar in Azshara.', 'This is exactly what we need! Good job!', 'Have you gathered their weapons for us?', '', '', '', '', '', 30064, 30065, 6, 6, 4200, 2520, 1, 1, 6, 6, 1, 1);
+UPDATE `mangos`.`quest_template` SET `RewChoiceItemId1`=11862, `RewChoiceItemId2`=11863, `RewChoiceItemId3`=11864, `RewChoiceItemCount1`=1, `RewChoiceItemCount2`=1, `RewChoiceItemCount3`=1 WHERE  `entry`=30104 AND `patch`=0;
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (14301, 30104);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (14301, 30104);
 REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (6190, 30064, -20);
@@ -621,37 +626,40 @@ UPDATE `mangos`.`quest_template` SET `ReqCreatureOrGOId2`=0 WHERE  `entry`=30107
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (14301, 30107);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (14301, 30107);
 
--- Custom gear rewards from these quests
 REPLACE `mangos`.`creature_template` (`entry`, `patch`, `name`, `subname`, `level_min`, `level_max`, `faction`, `npc_flags`, `display_id1`, `display_probability1`, `display_total_probability`, `type`, `unit_class`, `health_multiplier`, `equipment_id`, `static_flags1`, `flags_extra`) VALUES (90037, 1, 'Kyuni', '', 45, 45, 80, 2, 4399, 1, 1, 7, 1, 1.2, 4190, 138936326, 2);
 REPLACE `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000039, 90037, 0, 0, 0, 0, 1, 2693.56, -3889.35, 109.274, 0.883703, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
 
 REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `Type`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOId2`, `RewXP`, `RewMoneyMaxLevel`, `DetailsEmote1`, `DetailsEmote2`, `IncompleteEmote`, `CompleteEmote`, `OfferRewardEmote1`, `OfferRewardEmote2`) VALUES (30108, 16, 48, 54, 1, 8, 'Azure Dragons Of Azshara I', 'The azure dragonkin have taken up camp in Azshara and are trying to summon their elder dragons into it. Rid them of this place before they can summon them.', 'Kill 20 Draconic Mageweavers for Kyuni in Azshara.', 'Hopefully this will interrupt their operations.', 'Have you killed the azure dragons?', '', '', '', '', '', 6131, 20, 6500, 5500, 1, 1, 6, 6, 1, 1);
 UPDATE `mangos`.`quest_template` SET `ReqCreatureOrGOCount1`=20 WHERE  `entry`=30108 AND `patch`=0;
 UPDATE `mangos`.`quest_template` SET `ReqCreatureOrGOId2`=0 WHERE  `entry`=30108 AND `patch`=0;
+UPDATE `mangos`.`quest_template` SET `RewItemId1`=12038, `RewItemCount1`=1 WHERE  `entry`=30108 AND `patch`=0;
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90037, 30108);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90037, 30108);
 
 REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `Type`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOId2`, `RewXP`, `RewMoneyMaxLevel`, `DetailsEmote1`, `DetailsEmote2`, `IncompleteEmote`, `CompleteEmote`, `OfferRewardEmote1`, `OfferRewardEmote2`) VALUES (30109, 16, 48, 54, 1, 8, 'Azure Dragons Of Azshara II', 'The azure dragonkin have taken up camp in Azshara and are trying to summon their elder dragons into it. Rid them of this place before they can summon them.', 'Kill 20 Blue Dragonspawns for Kyuni in Azshara.', 'Hopefully this will interrupt their operations.', 'Have you killed the azure dragons?', '', '', '', '', '', 193, 20, 6500, 5500, 1, 1, 6, 6, 1, 1);
 UPDATE `mangos`.`quest_template` SET `ReqCreatureOrGOCount1`=20 WHERE  `entry`=30109 AND `patch`=0;
 UPDATE `mangos`.`quest_template` SET `ReqCreatureOrGOId2`=0 WHERE  `entry`=30109 AND `patch`=0;
+UPDATE `mangos`.`quest_template` SET `RewItemId1`=12059, `RewItemCount1`=1 WHERE  `entry`=30109 AND `patch`=0;
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90037, 30109);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90037, 30109);
 
 REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `Type`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOId2`, `RewXP`, `RewMoneyMaxLevel`, `DetailsEmote1`, `DetailsEmote2`, `IncompleteEmote`, `CompleteEmote`, `OfferRewardEmote1`, `OfferRewardEmote2`) VALUES (30110, 16, 48, 54, 1, 8, 'Azure Dragons Of Azshara III', 'The azure dragonkin have taken up camp in Azshara and are trying to summon their elder dragons into it. Rid them of this place before they can summon them.', 'Kill 12 Blue Scalebanes for Kyuni in Azshara.', 'Hopefully this will interrupt their operations.', 'Have you killed the azure dragons?', '', '', '', '', '', 6130, 12, 6500, 7500, 1, 1, 6, 6, 1, 1);
 UPDATE `mangos`.`quest_template` SET `ReqCreatureOrGOCount1`=12 WHERE  `entry`=30110 AND `patch`=0;
 UPDATE `mangos`.`quest_template` SET `ReqCreatureOrGOId2`=0 WHERE  `entry`=30110 AND `patch`=0;
+UPDATE `mangos`.`quest_template` SET `RewItemId1`=12110, `RewItemCount1`=1 WHERE  `entry`=30110 AND `patch`=0;
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90037, 30110);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90037, 30110);
 
 REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `Type`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOId2`, `RewXP`, `RewMoneyMaxLevel`, `DetailsEmote1`, `DetailsEmote2`, `IncompleteEmote`, `CompleteEmote`, `OfferRewardEmote1`, `OfferRewardEmote2`) VALUES (30111, 16, 48, 54, 1, 8, 'Azure Dragons Of Azshara IV', 'The azure dragonkin have taken up camp in Azshara and are trying to summon their elder dragons into it. Rid them of this place before they can summon them.', 'Kill 6 Draconic Magelords for Kyuni in Azshara.', 'Hopefully this will interrupt their operations.', 'Have you killed the azure dragons?', '', '', '', '', '', 6129, 6, 7100, 12500, 1, 1, 6, 6, 1, 1);
 UPDATE `mangos`.`quest_template` SET `ReqCreatureOrGOCount1`=6 WHERE  `entry`=30111 AND `patch`=0;
 UPDATE `mangos`.`quest_template` SET `ReqCreatureOrGOId2`=0 WHERE  `entry`=30111 AND `patch`=0;
+UPDATE `mangos`.`quest_template` SET `RewItemId1`=12111, `RewItemCount1`=1 WHERE  `entry`=30111 AND `patch`=0;
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90037, 30111);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90037, 30111);
 
 
--- Custom gear reward
 REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `Type`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewXP`, `DetailsEmote1`, `DetailsEmote2`, `IncompleteEmote`, `CompleteEmote`, `OfferRewardEmote1`, `OfferRewardEmote2`) VALUES (30112, 16, 48, 53, 1, 8, 'Giant Medicine', 'There are many giants the size of mountains roaming around Azshara. They grow moss on their back with great medical properties. Take out these giants and collect their moss.', 'Gather 12 Mountain Giant Moss for Kyuni  in Azshara.', 'This is exactly what I need!', 'Have you gathered all the moss?', '', '', '', '', '', 30066, 6, 6500, 1, 1, 6, 6, 1, 1);
+UPDATE `mangos`.`quest_template` SET `RewChoiceItemId1`=19159, `RewChoiceItemId2`=19121, `RewChoiceItemCount1`=1, `RewChoiceItemCount2`=1 WHERE  `entry`=30112 AND `patch`=0;
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90037, 30112);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90037, 30112);
 REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (6148, 30066, -10);
@@ -664,11 +672,11 @@ REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLeve
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (8379, 30114);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (8379, 30114);
 
--- Custom gear reward
 REPLACE `mangos`.`creature_template` (`entry`, `name`, `level_min`, `level_max`, `faction`, `display_id1`, `type`, `unit_class`, `health_multiplier`, `loot_id`, `pickpocket_loot_id`, `gold_min`, `gold_max`, `spell_id1`, `spell_id2`, `spell_list_id`, `ai_name`, `equipment_id`, `static_flags1`) VALUES (90038, 'General Narka', 55, 55, 74, 11271, 7, 1, 1.3, 8408, 8408, 116, 632, 11976, 10968, 84080, 'EventAI', 8408, 268959744);
 REPLACE `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000040, 90038, 0, 0, 0, 0, 1, 3547.4, -5330.53, 134.253, 1.66993, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
 UPDATE `mangos`.`creature` SET `spawntimesecsmin`=600, `spawntimesecsmax`=600 WHERE  `guid`=2000040;
 REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOCount1`, `RewXP`, `RewOrReqMoney`, `DetailsEmote1`, `DetailsEmote2`, `IncompleteEmote`, `CompleteEmote`, `OfferRewardEmote1`, `OfferRewardEmote2`) VALUES (30115, 16, 50, 55, 8, 'Spitelash General', 'Adventurer, I can use your help removing General Narka from the Temple of Zin-Malor.', 'Kill General Narka in the Temple of Zin-Malor for Archmage Xylemin Azshara.', 'You have done well.', 'Have you killed the spitelash general?', '', '', '', '', '', 90038, 1, 7200, 15000, 1, 1, 6, 6, 1, 1);
+UPDATE `mangos`.`quest_template` SET `RewItemId1`=30078, `RewItemCount1`=1 WHERE  `entry`=30115 AND `patch`=0;
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (8379, 30115);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (8379, 30115);
 
@@ -699,11 +707,11 @@ REPLACE`mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (8420, 30124);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (8420, 30124);
 
--- Custom gear reward
 REPLACE `mangos`.`creature_template` (`entry`, `name`, `level_min`, `level_max`, `faction`, `display_id1`, `type`, `unit_class`, `health_multiplier`, `damage_multiplier`, `damage_variance`, `fire_res`, `loot_id`, `pickpocket_loot_id`, `gold_min`, `gold_max`, `spell_list_id`, `ai_name`, `equipment_id`, `static_flags1`) VALUES (90039, 'Shadrine Lightblood', 57, 57, 74, 7923, 7, 8, 2.6, 2.0, 0.16, 255, 6199, 6199, 88, 690, 61990, 'EventAI', 6199, 524288);
 REPLACE `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000041, 90039, 0, 0, 0, 0, 1, 4279.58, -6295.61, 95.5631, 0.258544, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
 UPDATE `mangos`.`creature` SET `spawntimesecsmin`=600, `spawntimesecsmax`=600 WHERE  `guid`=2000041;
 REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOCount1`, `RewXP`, `DetailsEmote1`, `DetailsEmote2`, `IncompleteEmote`, `CompleteEmote`, `OfferRewardEmote1`, `OfferRewardEmote2`) VALUES (30125, 16, 50, 57, 8, 'Shadrine Lightblood', 'The leader of these nearby Blood Elves is named Shadrine Lightblood. Find her, and take her out for me.', 'Kill Shadrine Lightblood for Kim\\\'jael in Azshara.', 'That\'s what I\'m talking about!', 'Did you kill Shadrine Lightblood yet?', '', '', '', '', '', 90039, 1, 6500, 1, 1, 6, 6, 1, 1);
+UPDATE `mangos`.`quest_template` SET `RewItemId1`=30079, `RewItemCount1`=1 WHERE  `entry`=30125 AND `patch`=0;
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (8420, 30125);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (8420, 30125);
 
@@ -771,16 +779,16 @@ REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLeve
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (14743, 30142);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (14743, 30142);
 
--- Custom gear reward
 REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewXP`, `RewMoneyMaxLevel`, `CompleteEmote`) VALUES (30143, 440, 45, 50, 8, 'Guardians of Uldum', 'The dune smashers to the south of here hold an ancient stone from Uldum. The key to accessing Uldum might be in that stone! Kill them and get the stone for me!', 'Bring the Uldum Stone to Prospector Gunstan in Tanaris.', 'With this the secrets of Uldum might be revealed!', '', '', '', '', '', 30070, 1, 6500, 6500, 1);
 UPDATE `mangos`.`quest_template` SET `Type`=1 WHERE  `entry`=30143 AND `patch`=0;
+UPDATE `mangos`.`quest_template` SET `RewItemId1`=19120, `RewItemCount1`=1 WHERE  `entry`=30143 AND `patch`=0;
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (5389, 30143);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (5389, 30143);
 REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (5469, 30070, -5);
 REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (5470, 30070, -5);
 
--- Custom gear reward
 REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `Type`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOId2`, `ReqCreatureOrGOCount1`, `ReqCreatureOrGOCount2`, `RewXP`, `RewMoneyMaxLevel`, `CompleteEmote`) VALUES (30144, 440, 45, 50, 1, 8, 'Ocean Giants', 'The east coast of Tanaris is home of giants that live in the ocean. I\'d like you to take them out for me.', 'Kill 15 Coast Strider and 15 Deep Dweller for Prospector Gunstan in Tanaris.', 'Thank you!', '', '', '', '', '', 5466, 5467, 15, 15, 6500, 6500, 1);
+UPDATE `mangos`.`quest_template` SET `RewChoiceItemId1`=18022, `RewChoiceItemId2`=17001, `RewChoiceItemCount1`=1, `RewChoiceItemCount2`=1 WHERE  `entry`=30144 AND `patch`=0;
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (5389, 30144);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (5389, 30144);
 

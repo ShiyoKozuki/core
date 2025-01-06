@@ -149,8 +149,11 @@ REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display
 REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id`, `quality`, `flags`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30075, 2, 12, 'Titan Artifact', 7148, 1, 2048, -1, -1, 1, 1, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 4, -1);
 REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id`, `quality`, `flags`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30076, 2, 12, 'Blackrock Head', 3914, 1, 0, -1, -1, 1, 50, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 4, -1);
 REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id`, `quality`, `flags`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30077, 2, 12, 'Blackrock Medal', 20219, 1, 0, -1, -1, 1, 12, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 4, -1);
-REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `delay`, `armor`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `random_property`, `max_durability`, `disenchant_id`) VALUES (30078, 4, 4, 'Pauldrons of the Scourge', 26342, 2, 70876, 14175, 3, -1, -1, 63, 58, 0, 448, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 2, 6, 1206, 70, 11);
--- NEXT 30079
+REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `delay`, `spellid_1`, `spellcooldown_1`, `spellcategory_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `disenchant_id`) VALUES (30078, 9, 4, 'Self Immolation Device', 21583, 2, 28000, 7000, 12, -1, -1, 61, 0, 11350, 300000, 1141, 10000, -1, -1, -1, -1, -1, -1, 0, 0, 1, 8, 11);
+REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `delay`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellid_2`, `spelltrigger_2`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `disenchant_id`) VALUES (30079, 9, 4, 'Shadrine\'s Magical Orb', 30690, 2, 28000, 7000, 12, -1, -1, 61, 0, 23727, 1, 0, 0, 9395, 1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 8, 11);
+REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `delay`, `armor`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `random_property`, `max_durability`, `disenchant_id`) VALUES (30080, 4, 4, 'Pauldrons of the Scourge', 26342, 2, 70876, 14175, 3, -1, -1, 63, 58, 0, 448, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 2, 6, 1206, 70, 11);
+
+-- NEXT 30081
 
 -- flags 2048 = lootable by anyone
 
@@ -4164,7 +4167,7 @@ WHERE entry = 7722;
 
 -- Mograine's Might
 UPDATE mangos . item_template
-SET spellid_1 = 9345, -- +16 Spell damage
+SET spellid_1 = 15714, -- +22 Spell Damage
     spelltrigger_1 = 1
 WHERE entry = 7723;
 
@@ -5887,6 +5890,64 @@ SET spellid_1 = 9408, -- +22 Healing
     spelltrigger_1 = 1
 WHERE entry = 9649;
 
+-- Jademoon Orb
+UPDATE mangos . item_template
+SET spellid_1 = 21361, -- 3 MP/5
+    spelltrigger_1 = 1
+WHERE entry = 11859;
+
+-- Stargazer Cloak
+UPDATE mangos . item_template
+SET quality = 3,
+    stat_type1 = 6,
+    stat_value1 = 5,
+    spellid_1 = 17106, -- Allows 5% of your Mana regeneration to continue while casting.
+    spelltrigger_1 = 1
+WHERE entry = 9660;
+
+-- Boots of the Maharishi
+UPDATE mangos . item_template
+SET quality = 3,
+    stat_type1 = 6,
+    stat_value1 = 5,
+    spellid_1 = 15604, -- Restores 30 mana every 1 sec for 10 sec. (300 mana total)
+    spelltrigger_1 = 0,
+    spellcooldown_1 = 900000 -- 15 minutes
+WHERE entry = 9658;
+
+-- Wingcrest Gloves
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 9417, -- +12 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 9665;
+
+-- Stronghorn Girdle
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 9331, -- +20 Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 9666;
+
+-- Firewalker Boots
+UPDATE mangos . item_template
+SET stat_type1 = 0,
+    stat_value1 = 0,
+    stat_type2 = 0,
+    stat_value2 = 0,
+    stat_type3 = 0,
+    stat_value3 = 0,
+    spellid_1 = 9395, -- +5 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 6482;
+
+-- Insulated Sage Gloves (Syndicate Assassins)
+UPDATE mangos . item_template
+SET stat_type1 = 0,
+    spellid_1 = 21360, -- 2 MP/5
+    spelltrigger_1 = 1
+WHERE entry = 3759;
+
 -- Coldwater Ring (Death From Below)
 UPDATE mangos . item_template
 SET stat_type1 = 5,
@@ -5896,6 +5957,94 @@ SET stat_type1 = 5,
     spellid_1 = 9397, -- +7 Spell damage
     spelltrigger_1 = 1
 WHERE entry = 4550;
+
+-- Tok'kar's Murloc Basher
+UPDATE mangos . item_template
+SET quality = 3,
+    delay = 2000,
+    dmg_min1 = 52,
+    dmg_max1 = 92,
+    spellid_1 = 15714, -- +22 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 9678;
+
+-- Tok'kar's Murloc Chopper
+UPDATE mangos . item_template
+SET quality = 3,
+    delay = 3800,
+    dmg_min1 = 116,
+    dmg_max1 = 156
+WHERE entry = 9679;
+
+-- Tok'kar's Murloc Shanker
+UPDATE mangos . item_template
+SET quality = 3,
+    dmg_min1 = 29,
+    dmg_max1 = 59
+WHERE entry = 9680;
+
+-- White Bone Band
+UPDATE mangos . item_template
+SET quality = 3
+WHERE entry = 11862;
+
+-- White Bone Shredder
+UPDATE mangos . item_template
+SET quality = 3,
+    dmg_min1 = 34,
+    dmg_max1 = 64
+WHERE entry = 11863;
+
+-- White Bone Spear
+UPDATE mangos . item_template
+SET quality = 3,
+    dmg_min1 = 101,
+    dmg_max1 = 141,
+    stat_type1 = 3,
+    stat_value1 = 21,
+    stat_type2 = 7,
+    stat_value2 = 3
+WHERE entry = 11864;
+
+-- Lagrave's Seal
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 9415, -- +9 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 12038;
+
+-- Ring of Subtlety
+UPDATE mangos . item_template
+SET name = 'Battlehealer\'s Ring',
+    stat_type1 = 4,
+    stat_value1 = 5,
+    stat_type2 = 5,
+    stat_value2 = 5   
+WHERE entry = 19038;
+
+-- Lavaplate Gauntlets
+UPDATE mangos . item_template
+SET quality = 3,
+    fire_res = 15,
+    spellid_1 = 7721, -- +4 Fire damage to weapon attacks
+    spelltrigger_1 = 1
+WHERE entry = 12111;
+
+-- Royal Seal of Alexis
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 9415, -- +9 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 18022;
+
+-- Elemental Circle
+UPDATE mangos . item_template
+SET quality = 3,
+    stat_type1 = 4,
+    stat_value1 = 7,
+    spellid_1 = 15464, -- +1% Physical Hit
+    spelltrigger_1 = 1
+WHERE entry = 17001;
 
 -- Medicine Blanket (Stranglethorn Fever)
 UPDATE mangos . item_template
@@ -6136,6 +6285,10 @@ WHERE entry = 6750;
 -- Mourning Shawl (Mortality Wanes)
 UPDATE mangos . item_template
 SET quality = 3,
+    stat_type1 = 7,
+    stat_value1 = -7,
+    stat_type2 = 6,
+    stat_value2 = -7,
     spellid_1 = 15464, -- +1% Physical Hit
     spelltrigger_1 = 1
 WHERE entry = 6751;
@@ -6752,6 +6905,300 @@ UPDATE mangos . item_template
 SET spellid_1 = 21361, -- 3 MP/5
     spelltrigger_1 = 1
 WHERE entry = 12044;
+
+-- Fire Opal Necklace
+UPDATE mangos . item_template
+SET spellid_1 = 13665, -- +1% Parry
+    spelltrigger_1 = 1
+WHERE entry = 11946;
+
+-- Marble Necklace
+UPDATE mangos . item_template
+SET spellid_1 = 21363, -- 5 MP/5
+    spelltrigger_1 = 1
+WHERE entry = 12034;
+
+-- Selenium Chain
+UPDATE mangos . item_template
+SET spellid_1 = 9345, -- +16 Spell damage
+    spelltrigger_1 = 1
+WHERE entry = 12025;
+
+-- Swamp Pendant
+UPDATE mangos . item_template
+SET spellid_1 = 15464, -- +1% Physical Hit
+    spelltrigger_1 = 1
+WHERE entry = 12045;
+
+-- Obsidian Pendant
+UPDATE mangos . item_template
+SET spellid_1 = 9315, -- +26 Healing
+    spelltrigger_1 = 1
+WHERE entry = 12035;
+
+-- Quicksilver Pendant 
+UPDATE mangos . item_template
+SET spellid_1 = 7597, -- +1% Physical Crit
+    spelltrigger_1 = 1,
+    spellid_2 = 15464, -- +1% Physical Hit
+    spelltrigger_2 = 1
+WHERE entry = 12026;
+
+-- Jungle Necklace
+UPDATE mangos . item_template
+SET spellid_1 = 23727, -- +1% Spell Hit
+    spelltrigger_1 = 1,
+    spellid_2 = 9345, -- +16 Spell damage
+    spelltrigger_2 = 1
+WHERE entry = 12046;
+
+-- Granite Necklace
+UPDATE mangos . item_template
+SET spellid_1 = 9315, -- +26 Healing
+    spelltrigger_1 = 1,
+    spellid_2 = 21363, -- 5 MP/5
+    spelltrigger_2 = 1
+WHERE entry = 12036;
+
+-- Tundra Ring
+UPDATE mangos . item_template
+SET stat_type1 = 7,
+    stat_value1 = 7
+WHERE entry = 12009;
+
+-- Spinel Ring
+UPDATE mangos . item_template
+SET stat_type1 = 7,
+    stat_value1 = 10 
+WHERE entry = 11970;
+
+-- Basalt Ring
+UPDATE mangos . item_template
+SET armor = 100
+WHERE entry = 11996;
+
+-- Cerulean Ring
+UPDATE mangos . item_template
+SET spellid_1 = 9397, -- +7 Spell damage
+    spelltrigger_1 = 1
+WHERE entry = 11985;
+
+-- Fen Ring
+UPDATE mangos . item_template
+SET spellid_1 = 9140, -- +10 Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 12010;
+
+-- Amethyst Band
+UPDATE mangos . item_template
+SET stat_type1 = 7,
+    stat_value1 = 12 
+WHERE entry = 11971;
+
+-- Greenstone Circle
+UPDATE mangos . item_template
+SET spellid_1 = 9140, -- +10 Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 11997;
+
+-- Thallium Hoop
+UPDATE mangos . item_template
+SET spellid_1 = 7680, -- +13 Healing
+    spelltrigger_1 = 1
+WHERE entry = 11986;
+
+-- Carnelian Loop
+UPDATE mangos . item_template
+SET stat_type1 = 7,
+    stat_value1 = 13 
+WHERE entry = 11972;
+
+-- Forest Hoop
+UPDATE mangos . item_template
+SET armor = 100
+WHERE entry = 12011;
+
+-- Jet Loop
+UPDATE mangos . item_template
+SET spellid_1 = 23172, -- Block Value +10
+    spelltrigger_1 = 1
+WHERE entry = 11998;
+
+-- Iridium Circle
+UPDATE mangos . item_template
+SET stat_type1 = 4,
+    stat_value1 = 7 
+WHERE entry = 11987;
+
+-- Hematite Link
+UPDATE mangos . item_template
+SET stat_type1 = 7,
+    stat_value1 = 14 
+WHERE entry = 11973;
+
+-- Marsh Ring
+UPDATE mangos . item_template
+SET spellid_1 = 7680, -- +13 Healing
+    spelltrigger_1 = 1
+WHERE entry = 12012;
+
+-- Onyx Ring
+UPDATE mangos . item_template
+SET spellid_1 = 9397, -- +7 Spell damage
+    spelltrigger_1 = 1
+WHERE entry = 12001;
+
+-- Aquamarine Ring
+UPDATE mangos . item_template
+SET stat_type1 = 7,
+    stat_value1 = 15 
+WHERE entry = 11974;
+
+-- Lodestone Hoop
+UPDATE mangos . item_template
+SET spellid_1 = 21361, -- 3 MP/5
+    spelltrigger_1 = 1
+WHERE entry = 11999;
+
+-- Tellurium Band
+UPDATE mangos . item_template
+SET spellid_1 = 9397, -- +7 Spell damage
+    spelltrigger_1 = 1
+WHERE entry = 11988;
+
+-- Desert Ring
+UPDATE mangos . item_template
+SET spellid_1 = 21361, -- 3 MP/5
+    spelltrigger_1 = 1
+WHERE entry = 12013;
+
+-- Topaz Ring
+UPDATE mangos . item_template
+SET stat_type1 = 7,
+    stat_value1 = 15 
+WHERE entry = 11975;
+
+-- Vanadium Loop
+UPDATE mangos . item_template
+SET spellid_1 = 9415, -- +9 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 11989;
+
+-- Sardonyx Knuckle
+UPDATE mangos . item_template
+SET stat_type1 = 7,
+    stat_value1 = 17 
+WHERE entry = 11976;
+
+-- Arctic Ring
+UPDATE mangos . item_template
+SET spellid_1 = 21363, -- 5 MP/5
+    spelltrigger_1 = 1
+WHERE entry = 12014;
+
+-- Dark Iron Ring
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 9415, -- +9 Spell Damage
+    spelltrigger_1 = 1,
+    spellid_2 = 15464, -- +1% Physical Hit
+    spelltrigger_2 = 1
+WHERE entry = 11945;
+
+-- Marble Circle
+UPDATE mangos . item_template
+SET spellid_1 = 23203, -- Block Value +15
+    spelltrigger_1 = 1
+WHERE entry = 12002;
+
+-- Serpentine Loop
+UPDATE mangos . item_template
+SET quality = 3,
+    armor = 150,
+    stat_type1 = 7,
+    stat_value1 = 18 
+WHERE entry = 11977;
+
+-- Selenium Loop
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 9417, -- +12 spell damage
+    spelltrigger_1 = 1
+WHERE entry = 11990;
+
+-- Swamp Ring
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 7597, -- +1% Physical Crit
+    spelltrigger_1 = 1
+WHERE entry = 12015;
+
+-- Jasper Link
+UPDATE mangos . item_template
+SET quality = 3,
+    armor = 175,
+    stat_type1 = 7,
+    stat_value1 = 20 
+WHERE entry = 11978;
+
+-- Quicksilver Ring
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 18384, -- +1% Spell Crit
+    spelltrigger_1 = 1
+WHERE entry = 11991;
+
+-- Peridot Circle
+UPDATE mangos . item_template
+SET quality = 3,
+    armor = 175,
+    stat_type1 = 7,
+    stat_value1 = 21,
+    spellid_1 = 13387, -- +8 Defense
+    spelltrigger_1 = 1
+WHERE entry = 11979;
+
+-- Jungle Ring
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 15464, -- +1% Physical Hit
+    spelltrigger_1 = 1
+WHERE entry = 12016;
+
+-- Granite Ring
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 15464, -- +1% Physical Hit
+    spelltrigger_1 = 1
+WHERE entry = 12005;
+
+-- Vermilion Band
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 9318, -- +33 Healing
+    spelltrigger_1 = 1
+WHERE entry = 11992;
+
+-- Opal Ring
+UPDATE mangos . item_template
+SET quality = 3,
+    armor = 175,
+    stat_type1 = 7,
+    stat_value1 = 22,
+    spellid_1 = 13387, -- +8 Defense
+    spelltrigger_1 = 1
+WHERE entry = 11980;
+
+-- Prismatic Band
+UPDATE mangos . item_template
+SET quality = 4,
+    spellid_1 = 15464, -- +1% Physical Hit
+    spelltrigger_1 = 1,
+    spellid_2 = 9318, -- +33 Healing
+    spelltrigger_2 = 1,
+    spellid_3 = 9336, -- +30 Attack Power
+    spelltrigger_3 = 1
+WHERE entry = 12017;
 
 -- Slayer's Set
 
