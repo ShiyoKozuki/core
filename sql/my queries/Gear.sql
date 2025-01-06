@@ -149,7 +149,9 @@ REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display
 REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id`, `quality`, `flags`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30075, 2, 12, 'Titan Artifact', 7148, 1, 2048, -1, -1, 1, 1, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 4, -1);
 REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id`, `quality`, `flags`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30076, 2, 12, 'Blackrock Head', 3914, 1, 0, -1, -1, 1, 50, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 4, -1);
 REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id`, `quality`, `flags`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30077, 2, 12, 'Blackrock Medal', 20219, 1, 0, -1, -1, 1, 12, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 4, -1);
--- NEXT 30078
+REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `delay`, `armor`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `random_property`, `max_durability`, `disenchant_id`) VALUES (30078, 4, 4, 'Pauldrons of the Scourge', 26342, 2, 70876, 14175, 3, -1, -1, 63, 58, 0, 448, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 2, 6, 1206, 70, 11);
+-- NEXT 30079
+
 -- flags 2048 = lootable by anyone
 
 -- Vendor Prices
@@ -5115,6 +5117,16 @@ SET quality = 3,
     dmg_max1 = 129
 WHERE entry = 3209;
 
+-- Silver Spade
+UPDATE mangos . item_template
+SET quality = 3,
+    delay = 2000,
+    dmg_min1 = 55,
+    dmg_max1 = 85,
+SET spellid_1 = 14127, -- +28 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 4128;
+
 -- Barreling Reaper
 UPDATE mangos . item_template
 SET quality = 3,
@@ -5129,6 +5141,16 @@ SET quality = 3,
     dmg_min1 = 20,
     dmg_max1 = 40
 WHERE entry = 2044;
+
+-- Belt of Corruption (Zanzil's Secret)
+UPDATE mangos . item_template
+SET stat_type1 = 5,
+    stat_value1 = -5,
+    stat_type2 = 7,
+    stat_value2 = -5,
+    spellid_1 = 9346, -- +18 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 4131;
 
 -- Haggard's Axe
 UPDATE mangos . item_template
@@ -5500,6 +5522,15 @@ SET stat_type1 = 5,
     spelltrigger_1 = 1
 WHERE entry = 5812;
 
+-- Fish Gutter (Stormwind Ho!) 3755
+UPDATE mangos . item_template
+SET delay = 2700,
+    dmg_min1 = 44,
+    dmg_max1 = 74,
+    stat_type1 = 5,
+    stat_value1 = 8
+WHERE entry = 3755;
+
 -- Ring of Iron Will (Howling in the Hills)
 UPDATE mangos . item_template
 SET armor = 30,
@@ -5786,6 +5817,12 @@ SET stat_type1 = 6,
     spellid_1 = 9395, -- +5 Spell Damage
     spelltrigger_1 = 1
 WHERE entry = 15864;
+
+-- Anchorhold Buckle(Ghost-o-plasm Round Up)
+UPDATE mangos . item_template
+SET spellid_1 = 7680, -- +13 Healing
+    spelltrigger_1 = 1
+WHERE entry = 15865;
 
 -- Gnomish Zapper (Sunken Treasure)
 UPDATE mangos . item_template
@@ -6670,6 +6707,17 @@ WHERE entry = 4462;
 
 -- Greens
 
+-- Stonecloth Gloves
+UPDATE mangos . item_template
+SET armor = 50,
+    stat_type1 = 7,
+    stat_value1 = 15,
+    stat_type2 = 0,
+    stat_value2 = 0,
+    spellid_1 = 21347, -- +4 HP/5
+    spelltrigger_1 = 1
+WHERE entry = 14411;
+
 -- Tellurium Necklace
 UPDATE mangos . item_template
 SET spellid_1 = 9140, -- +10 Attack Power
@@ -6738,6 +6786,40 @@ SET stat_type1 = 4,
     stat_type2 = 3,
     stat_value2 = 7 
 WHERE entry = 14754;
+
+-- Slayer's Sash
+UPDATE mangos . item_template
+SET stat_type1 = 4,
+    stat_value1 = 7,
+    stat_type2 = 3,
+    stat_value2 = 7 
+WHERE entry = 14755;
+
+-- Slayer's Cape
+UPDATE mangos . item_template
+SET stat_type1 = 4,
+    stat_value1 = 6,
+    stat_type2 = 3,
+    stat_value2 = 6 
+WHERE entry = 14752;
+
+-- Slayer's Surcoat
+UPDATE mangos . item_template
+SET stat_type1 = 4,
+    stat_value1 = 11,
+    stat_type2 = 3,
+    stat_value2 = 11,   
+    stat_type3 = 0,
+    stat_value3 = 0   
+WHERE entry = 14751;
+
+-- Slayer's Shield
+UPDATE mangos . item_template
+SET stat_type1 = 4,
+    stat_value1 = 7,
+    stat_type2 = 3,
+    stat_value2 = 7 
+WHERE entry = 15892;
 
 -- Jousters Set
 UPDATE mangos . item_template
@@ -8817,7 +8899,8 @@ WHERE entry IN(20123, 20120, 20122, 20119, 20118, 20121, 20044, 20051, 20056, 20
 -- Make items BOP
 UPDATE mangos . item_template 
 SET bonding = 1 -- BOP
-WHERE entry IN(12717, 18418, 22388, 14512, 14513, 14514, 12834, 12825, 18260, 20730, 20727, 20728, 18259, 20731, 20735, 20736, 18260, 12720, 12725, 12726, 12727, 12696);
+WHERE entry IN(12717, 18418, 22388, 14512, 14513, 14514, 12834, 12825, 18260, 20730, 20727, 20728, 18259, 20731, 20735, 20736, 18260, 12720, 12725, 12726, 12727, 12696, 
+15763, 15751, 15726, 15733);
 
 -- Display IDs
 -- Fire Hardened Hauberk (Was 22480)
@@ -8827,7 +8910,7 @@ WHERE entry = 6972;
 
 -- Fire Hardened Leggings (Was 22481)
 UPDATE mangos . item_template 
-SET display_id = 25796
+SET display_id = 22481
 WHERE entry = 6973;
 
 -- Ravasaur Scale Boots (Was 28441)

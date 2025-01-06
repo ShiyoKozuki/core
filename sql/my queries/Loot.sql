@@ -73,7 +73,7 @@ UPDATE mangos . creature_loot_template
 SET ChanceOrQuestChance = 1
 WHERE item IN(11186, 15747, 15779 ,15761, 14493, 16054, 15771, 15752, 16223, 16247, 16242, 16246, 16219, 11166, 11152, 
 11203, 21547, 13499, 13496, 13494, 15772, 15753, 15732, 15770, 15781, 16056, 16045, 16049, 15774, 14473, 14480, 14477, 
-13476, 15738, 13491, 2265, 5109, 781);
+13476, 15738, 13491, 2265, 5109, 781, 15763);
 
 -- 5%
 UPDATE mangos . creature_loot_template
@@ -300,6 +300,9 @@ INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuest
 
 -- Red Dragonspawn
 INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (1045, 12726, 1); -- Plans: Enchanted Thorium Leggings
+
+-- Red Wyrmkin
+INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (1046, 15733, 1); -- Pattern: Green Dragonscale Leggings
 
 -- Scourge Champion
 INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (8529, 21298, 0.1); -- Manual of Battle Shout VII

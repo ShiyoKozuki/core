@@ -5,7 +5,7 @@
 -- Deadwind Pass
 -- Winterspring
 -- Silithus
--- WPL (Tomb in Sorrow Hill)
+-- WPL (Tomb in Sorrow Hill, Weeping Cave [Slimes / Living Elementals])
 -- EPL (Nathanos horde quests)
 -- Ashenvale (East - High level)
 -- Quests that start from random drops from mobs (5% drop chance)
@@ -57,11 +57,11 @@ REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90034, 3015
 -- Rampaging Giants
 UPDATE `mangos`.`quest_template` SET `RewRepValue1`=200 WHERE  `entry`=5981 AND `patch`=0;
 
--- BFD add Outlaw Sabre to Blackfathom Villainy
+-- BFD - Add Outlaw Sabre to Blackfathom Villainy
 UPDATE `mangos`.`quest_template` SET `RewChoiceItemId3`=16886, `RewChoiceItemCount3`=1 WHERE  `entry`=1200 AND `patch`=0;
 
--- Whirlwind Weapon (WAR quest)
-UPDATE `mangos`.`quest_template` SET `RewChoiceItemId4`=30074, `RewChoiceItemCount4`=1, `RewItemId1`=30074, `RewItemCount1`=1 WHERE  `entry`=1792 AND `patch`=0;
+-- Whirlwind Weapon (WAR quest) - Add selectable 1h choice that gives two 1h
+UPDATE `mangos`.`quest_template` SET `RewChoiceItemId4`=30074, `RewChoiceItemCount4`=2 WHERE  `entry`=1792 AND `patch`=0;
 
 -- STV (North)
 REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `NextQuestInChain`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOId2`, `ReqCreatureOrGOCount1`, `ReqCreatureOrGOCount2`, `RewItemId1`, `RewItemCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewMoneyMaxLevel`) VALUES (30029, 33, 30, 37, 8, 202, 'Special Forces II', 'I want you to clear out any ogres you find in the Mizjah Ruins to the south.', 'Kill 10 Mosh\'Ogg Brute and 10 Mosh\'Ogg Witch Doctor then return to Lieutenant Doren at the rebel camp.', 'Brilliant!', 'Kill 10 Mosh\'Ogg Brute and 10 Mosh\'Ogg Witch Doctor then return to Lieutenant Doren at the rebel camp.', '', '', '', '', '', 1142, 1144, 10, 10, 4115, 1, 72, 100, 2850, 1740);

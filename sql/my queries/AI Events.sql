@@ -1,0 +1,9 @@
+-- 50000: Hostile Player Within 5 Yards Of The Target
+REPLACE `conditions` (`condition_entry`, `type`, `value1`, `value2`, `value3`, `value4`, `flags`) VALUES (50000, 56, 1, 5, 0, 0, 0);
+
+-- Events list for Torn Fin Tidehunter
+DELETE FROM `creature_ai_events` WHERE `creature_id`=2377;
+INSERT INTO `creature_ai_events` (`id`, `creature_id`, `condition_id`, `event_type`, `event_inverse_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `action1_script`, `action2_script`, `action3_script`, `comment`) VALUES
+(237701, 2377, 50000, 0, 0, 100, 13, 10000, 15000, 60000, 90000, 237701, 0, 0, 'Torn Fin Tidehunter - Cast Frost Nova'),
+(237702, 2377, 0, 2, 0, 100, 4, 15, 0, 0, 0, 237702, 0, 0, 'Torn Fin Tidehunter - Flee at 15% HP');
+
