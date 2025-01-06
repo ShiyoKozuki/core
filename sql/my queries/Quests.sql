@@ -8,6 +8,8 @@
 -- WPL (Tomb in Sorrow Hill, Weeping Cave [Slimes / Living Elementals])
 -- EPL (Nathanos horde quests)
 -- Ashenvale (East - High level)
+-- Use 9666 and 9665 for rewards somewhere
+-- Add rewards to Blasted Lands quests, end of ogre chain. Maybe some other chains
 -- Quests that start from random drops from mobs (5% drop chance)
 -- Quests that start from a drop from random named mobs (like TBC)
 -- Quests that start at random clickable objects
