@@ -30,6 +30,13 @@ int BasicAI::Permissible(Creature const* creature)
 
 bool BasicAI::IsProximityAggroAllowedFor(Unit* pTarget) const
 {
+    // Don't aggro totems
+    if (auto creature = dynamic_cast<Creature*>(pTarget))
+    {
+        if (creature->IsTotem())
+            return false;
+    }
+
     if (m_creature->HasStaticFlag(CREATURE_STATIC_FLAG_ONLY_ATTACK_PVP_ENABLING) &&
         !pTarget->IsPvP() && pTarget->IsCharmerOrOwnerPlayerOrPlayerItself())
         return false;
