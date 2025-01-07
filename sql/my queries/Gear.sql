@@ -5742,6 +5742,75 @@ SET quality = 3,
     spelltrigger_1 = 1
 WHERE entry = 5249;
 
+-- Rod of Sorrow (Wanted! Otto and Falconcrest)
+UPDATE mangos . item_template
+SET quality = 3,
+    dmg_min1 = 66,
+    dmg_max1 = 86,
+    spellid_1 = 9395, -- +5 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 5247;
+
+-- War Rider Bracers (Wanted! Otto and Falconcrest)
+UPDATE mangos . item_template
+SET quality = 3,
+    stat_type1 = 7,
+    stat_value1 = 5,
+    stat_type2 = 5,
+    stat_value2 = 5,
+    spellid_1 = 9140, -- +10 Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 4745;
+
+-- Vigilant Buckler (Malin's Request)
+UPDATE mangos . item_template
+SET quality = 3,
+    armor = 1350,
+    block = 19,
+    spellid_1 = 7680, -- +13 Healing
+    spelltrigger_1 = 1
+WHERE entry = 4975;
+
+-- Wingborne Boots (Malin's Request)
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 9415, -- +9 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 15104;
+
+-- Arcane Runed Bracers (Wanted! Marez Cowl)
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 9397, -- +7 Spell damage
+    spelltrigger_1 = 1
+WHERE entry = 4744;
+
+-- Blood-tinged Armor (Wanted! Marez Cowl)
+UPDATE mangos . item_template
+SET quality = 3,
+    stat_type1 = 7,
+    stat_value1 = 10,
+    stat_type2 = 5,
+    stat_value2 = 10,
+    stat_type3 = 6,
+    stat_value3 = 5,
+    spellid_1 = 9331, -- +20 Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 4508;
+
+-- Stromgarde Cavalry Leggings (Stromgarde Badges)
+UPDATE mangos . item_template
+SET quality = 3,
+    stat_type1 = 7,
+    stat_value1 = 10,
+    stat_type2 = 5,
+    stat_value2 = 10,
+    stat_type3 = 0,
+    stat_value3 = 0,
+    spellid_1 = 9336, -- +30 Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 4741;
+
 -- Reedknot Ring (Jarl Needs a Blade
 UPDATE mangos . item_template
 SET quality = 3,

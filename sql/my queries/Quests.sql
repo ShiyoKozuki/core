@@ -18,7 +18,7 @@
 -- Desolace quest for https://www.wowhead.com/classic/npc=5760/lord-azrethoc (Flag quest as Elite)
 
 -- Quest + Vendor + Repair npc flag = 
--- NEXT quest_template 30186
+-- NEXT quest_template 30188
 -- NEXT creature_template 90042
 
 --     QUEST_TYPE_ELITE               = 1,
@@ -136,6 +136,9 @@ REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (2263, 30070);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (2263, 30070);
 
 -- Arathi Highlands
+-- Wanted! Marez Cowl add Blood-tinged Armor as a reward
+UPDATE `mangos`.`quest_template` SET `RewChoiceItemId1`=4744, `RewChoiceItemId2`=4507, `RewChoiceItemCount1`=1, `RewChoiceItemCount2`=1, `RewItemId1`=0, `RewItemCount1`=0 WHERE  `entry`=684 AND `patch`=0;
+
 REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewMoneyMaxLevel`) VALUES (30039, 45, 30, 31, 8, 'Foul Magic', 'I have felt a strangeness in the air... a feeling that simmers in my blood. I had my suspicions. I set off to find the source of my unease and discovered to the west, at Northfold Manor, the residual traces of demonic summoning. As I got close, my blood began to boil and the rage within me grew.', 'Get 10 Bloodstone Amulets for Captain Nials at Refuge Pointe.', 'Very good, $N.  With the deaths of those Syndicate members we should have an easier time receiving supplies from Southshore.$B$BPerhaps our cause yet has hope.', 'Get 10 Bloodstone Amulets for Captain Nials at Refuge Pointe.', '', '', '', '', '', 4495, 10, 72, 100, 2650, 1500);
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (2700, 30039);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (2700, 30039);
@@ -928,3 +931,11 @@ REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (5479, 30174
 
 -- 30175 (Legendary quest PH)
 -- 30176 (Legendary quest PH)
+
+-- Leatherworking quests
+
+-- Pattern: Blue Dragonscale Breastplate
+REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `RequiredSkill`, `RequiredSkillValue`, `QuestFlags`, `PrevQuestId`, `NextQuestId`, `ExclusiveGroup`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemId2`, `ReqItemId3`, `ReqItemCount1`, `ReqItemCount2`, `ReqItemCount3`, `RewItemId1`, `RewItemCount1`, `RewXP`, `RewMoneyMaxLevel`, `DetailsEmote1`, `DetailsEmote2`, `IncompleteEmote`, `CompleteEmote`, `OfferRewardEmote1`, `OfferRewardEmote2`) VALUES (30188, -182, 30, 45, 165, 300, 8, 2847, 2853, -2848, 'Blue Dragonscale Breastplate', 'Blue Dragonscale Breastplates are worn by the mightiest of Shaman. For this pattern, I willl require you to bring me 12 Wicked Leather Bracers, 10 Wicked Leather Headband and 6 Wicked Leather Armor. ', 'Bring 12 Wicked Leather Bracers, 10 Wicked Leather Headband and 6 Wicked Leather Armor to Pratt McGrubben in Feathermoon Stronghold.', 'These are some very nice pieces here, $N. The craftsmanship and care put in to making these alone would fetch several silver more than the average piece made.$B$BYou\'ve filled my order, and with that comes your reward. The knowledge of making Wild Leather vests is now yours!', 'Do you have the 12 Wicked Leather Bracers, 10 Wicked Leather Headband and 6 Wicked Leather Armor I ordered? Also, don\'t forget the wildvine!$B$BEven with the earliest patterns, we learn that the fundamentals of shape translate well into more difficult garments. Though different items, the shape of the Turtle Scale breastplates prepares you for the detailing needed to make a Wild Leather vest.$B$BAnd the gloves... well, they\'re just for my own benefit. Remember, you\'re working for me!', '', '', '', '', '', 15084, 15086, 15085, 12, 10, 6, 15751, 1, 2900, 1740, 1, 1, 6, 6, 1, 1);
+
+-- Pattern: Green Dragonscale Breastplate
+REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `RequiredSkill`, `RequiredSkillValue`, `QuestFlags`, `PrevQuestId`, `NextQuestId`, `ExclusiveGroup`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemId2`, `ReqItemId3`, `ReqItemCount1`, `ReqItemCount2`, `ReqItemCount3`, `RewItemId1`, `RewItemCount1`, `RewXP`, `RewMoneyMaxLevel`, `DetailsEmote1`, `DetailsEmote2`, `IncompleteEmote`, `CompleteEmote`, `OfferRewardEmote1`, `OfferRewardEmote2`) VALUES (30189, -182, 30, 45, 165, 300, 8, 2847, 2853, -2848, 'Green Dragonscale Breastplate', 'Green Dragonscale Breastplates are worn by the mightiest of Shaman. For this pattern, I willl require you to bring me 12 Heavy Scorpid Bracers, 8 Heavy Scorpid Helm and 6 Heavy Scorpid Vest. ', 'Bring 12 Heavy Scorpid Bracers, 8 Heavy Scorpid Helm and 6 Heavy Scorpid Vest to Pratt McGrubben in Feathermoon Stronghold.', 'These are some very nice pieces here, $N. The craftsmanship and care put in to making these alone would fetch several silver more than the average piece made.$B$BYou\'ve filled my order, and with that comes your reward. The knowledge of making Wild Leather vests is now yours!', 'Do you have the 12 Heavy Scorpid Bracers, 8 Heavy Scorpid Helm and 6 Heavy Scorpid Vest I ordered? Also, don\'t forget the wildvine!$B$BEven with the earliest patterns, we learn that the fundamentals of shape translate well into more difficult garments. Though different items, the shape of the Turtle Scale breastplates prepares you for the detailing needed to make a Wild Leather vest.$B$BAnd the gloves... well, they\'re just for my own benefit. Remember, you\'re working for me!', '', '', '', '', '', 15077, 15080, 15076, 12, 10, 6, 15726, 1, 2900, 1740, 1, 1, 6, 6, 1, 1);
