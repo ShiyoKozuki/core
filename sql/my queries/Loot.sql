@@ -267,10 +267,11 @@ WHERE item = 12366;
 
 -- Max amount
 
--- Morning Glory Dew
+-- Food / Water
 UPDATE mangos . creature_loot_template
 SET maxcount = 1
-WHERE item = 8766;
+WHERE item IN (4537, 2287, 3770, 4538, 3771, 4544, 1707, 4539, 4607, 3927, 4608, 4599, 4601, 4602, 8932, 8952, 8953, 8948, 8950, 1708, 1645, 
+8766, 4540, 4541, 414, 4605, 422, 4542, 4606, 117, 4536, 2070, 4604, 159, 1179, 1205, 4656);
 
 -- Misc fixes
 DELETE FROM `mangos`.`creature_loot_template` WHERE  `entry`=10419 AND `item`=14227 AND `groupid`=0 AND `patch_min`=0 AND `patch_max`=10;

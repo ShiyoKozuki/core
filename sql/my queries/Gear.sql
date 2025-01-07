@@ -149,11 +149,15 @@ REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display
 REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id`, `quality`, `flags`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30075, 2, 12, 'Titan Artifact', 7148, 1, 2048, -1, -1, 1, 1, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 4, -1);
 REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id`, `quality`, `flags`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30076, 2, 12, 'Blackrock Head', 3914, 1, 0, -1, -1, 1, 50, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 4, -1);
 REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id`, `quality`, `flags`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30077, 2, 12, 'Blackrock Medal', 20219, 1, 0, -1, -1, 1, 12, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 4, -1);
-REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `delay`, `spellid_1`, `spellcooldown_1`, `spellcategory_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `disenchant_id`) VALUES (30078, 9, 4, 'Self Immolation Device', 21583, 2, 28000, 7000, 12, -1, -1, 61, 0, 11350, 300000, 1141, 10000, -1, -1, -1, -1, -1, -1, 0, 0, 1, 8, 11);
+REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `delay`, `spellid_1`, `spellcooldown_1`, `spellcategory_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `disenchant_id`) VALUES (30078, 9, 4, 'Self Immolation Device', 21583, 2, 28000, 7000, 12, -1, -1, 61, 0, 2601, 300000, 1141, 10000, -1, -1, -1, -1, -1, -1, 0, 0, 1, 8, 11);
 REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `delay`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellid_2`, `spelltrigger_2`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `disenchant_id`) VALUES (30079, 9, 4, 'Shadrine\'s Magical Orb', 30690, 2, 28000, 7000, 12, -1, -1, 61, 0, 23727, 1, 0, 0, 9395, 1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 8, 11);
 REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `delay`, `armor`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `random_property`, `max_durability`, `disenchant_id`) VALUES (30080, 4, 4, 'Pauldrons of the Scourge', 26342, 2, 70876, 14175, 3, -1, -1, 63, 58, 0, 448, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 2, 6, 1206, 70, 11);
-
--- NEXT 30081
+REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `delay`, `armor`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `max_durability`, `disenchant_id`) VALUES (30081, 4, 4, 'Breastplate of the Scourge', 19844, 2, 101850, 20370, 5, -1, -1, 65, 60, 0, 615, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 2, 6, 115, 11);
+REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `delay`, `armor`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `max_durability`, `disenchant_id`) VALUES (30082, 4, 4, 'Legplates of the Scourge', 19843, 2, 98854, 19770, 7, -1, -1, 64, 59, 0, 530, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 2, 6, 85, 11);
+REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `delay`, `armor`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `max_durability`, `disenchant_id`) VALUES (30083, 4, 4, 'Greaves of the Scourge', 26341, 2, 66239, 13247, 8, -1, -1, 62, 57, 0, 404, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 2, 6, 55, 11);
+REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `delay`, `armor`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `max_durability`, `disenchant_id`) VALUES (30084, 4, 4, 'Gauntlets of the Scourge', 26339, 2, 44329, 8865, 10, -1, -1, 62, 57, 0, 368, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 2, 6, 40, 11);
+REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `delay`, `armor`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `max_durability`, `disenchant_id`) VALUES (30085, 4, 4, 'Bascinet of the Scourge', 26257, 2, 70344, 14068, 1, -1, -1, 63, 58, 0, 485, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 2, 6, 70, 11);
+-- NEXT 30086
 
 -- flags 2048 = lootable by anyone
 
@@ -6258,6 +6262,20 @@ SET quality = 3,
     spelltrigger_1 = 1
 WHERE entry = 10743;
 
+-- Auric Bracers (Reagents for Reclaimers Inc - Final)
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 9415, -- +9 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 6793;
+
+-- Stormfire Gauntlets (Reagents for Reclaimers Inc - Final)
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 7680, -- +13 Healing
+    spelltrigger_1 = 1
+WHERE entry = 6794;
+
 -- Axe of the Ebon Drake (Set Them Ablaze!)
 UPDATE mangos . item_template
 SET quality = 3,
@@ -8376,7 +8394,7 @@ SET stat_type1 = 0,
     stat_value3 = 0,
     spellid_1 = 9330, -- +18 Attack Power
     spelltrigger_1 = 1
-WHERE entry = 15690;
+WHERE entry = 13088;
 
 -- Necklace of Calisea
 UPDATE mangos . item_template
@@ -9222,6 +9240,17 @@ SET dmg_min1 = 63.4,
     dmg_min2 = 1,
     dmg_max2 = 15
 WHERE entry = 30012;
+
+-- Pauldrons of the Scourge
+UPDATE mangos. item_template 
+SET quality = 3,
+    random_property = 0,
+    stat_type1 = 7,
+    stat_value1 = -25,
+    spellid_1 = 15465, -- +2% Physical Hit
+    spelltrigger_1 = 1
+WHERE entry = 30080;
+
 
 -- Custom quest item stack sizes
 UPDATE mangos . item_template
