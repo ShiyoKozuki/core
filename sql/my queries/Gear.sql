@@ -6258,6 +6258,16 @@ SET quality = 3,
     spelltrigger_1 = 1
 WHERE entry = 9642;
 
+-- Raptor Hunter Tunic (Raptor Mastery)
+UPDATE mangos . item_template
+SET stat_type1 = 3,
+    stat_value1 = 16,
+    stat_type2 = 4,
+    stat_value2 = 4,
+    stat_type3 = 7,
+    stat_value3 = 3
+WHERE entry = 4119;
+
 -- Mindburst Medallion (Tremors of the Earth)
 UPDATE mangos . item_template
 SET quality = 3,
