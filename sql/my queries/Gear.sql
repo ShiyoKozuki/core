@@ -4068,6 +4068,12 @@ WHERE entry = 6910;
 
 -- Gnomergan
 
+-- Toxic Revenger
+UPDATE mangos . item_template
+SET spellid_1 = 9357, -- +16 Nature Damage
+    spelltrigger_1 = 1
+WHERE entry = 9453;
+
 -- Manual Crowd Pummeler
 UPDATE mangos . item_template
 SET stat_type1 = 5,
@@ -4405,6 +4411,17 @@ SET spellid_2 = 9415, -- +9 Spell Damage
 WHERE entry = 17719;
 
 -- Sunken Temple
+
+-- Smoldering Claw
+UPDATE mangos . item_template
+SET stat_type1 = 4,
+    stat_value1 = 20,
+    spellid_1 = 7597, -- +1% Physical Crit
+    spelltrigger_1 = 1,
+    spellid_2 = 15464, -- +1% Physical Hit
+    spelltrigger_2 = 1
+WHERE entry = 12243;
+
 -- Crest of Supremacy
 UPDATE mangos . item_template
 SET spellid_1 = 9417, -- +12 spell damage
@@ -8462,6 +8479,26 @@ WHERE entry = 16623;
 
 
 -- Blues
+
+-- Evocator's Blade
+UPDATE mangos . item_template
+SET spellid_1 = 9415, -- +9 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 2567;
+
+-- Claw of the Shadowmancer
+UPDATE mangos . item_template
+SET spellid_1 = 9324, -- +16 Shadow Damage
+    spelltrigger_1 = 1
+WHERE entry = 2912;
+
+-- Zealot Blade
+UPDATE mangos . item_template
+SET spellid_1 = 9417, -- +12 spell damage
+    spelltrigger_1 = 1
+WHERE entry = 13033;
+
+-- Gar
 
 -- Gazlowe's Charm
 UPDATE mangos . item_template
