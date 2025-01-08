@@ -4151,6 +4151,95 @@ WHERE entry = 6689;
 
 -- Scarlet Monastery
 
+-- Scarlet Chestpiece
+UPDATE mangos . item_template
+SET stat_type1 = 5,
+    stat_value1 = 10,
+    stat_type2 = 6,
+    stat_value2 = 10,
+    spellid_1 = 9331, -- +20 Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 10328;
+
+-- Scarlet Leggings
+UPDATE mangos . item_template
+SET stat_type1 = 5,
+    stat_value1 = 10,
+    stat_type2 = 6,
+    stat_value2 = 10,
+    stat_type3 = 0,
+    stat_value3 = 0,
+    spellid_1 = 9336, -- +30 Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 10330;
+
+-- Scarlet Belt
+UPDATE mangos . item_template
+SET quality = 3,
+    stat_type1 = 5,
+    stat_value1 = 5,
+    stat_type2 = 7,
+    stat_value2 = 5,
+    spellid_1 = 9142, -- +14 Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 10329;
+
+-- Scarlet Boots
+UPDATE mangos . item_template
+SET stat_type1 = 5,
+    stat_value1 = 7,
+    stat_type2 = 7,
+    stat_value2 = 7,
+    spellid_1 = 9142, -- +14 Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 10332;
+
+-- Scarlet Wristguards
+UPDATE mangos . item_template
+SET quality = 3,
+    stat_type1 = 5,
+    stat_value1 = 4,
+    stat_type2 = 7,
+    stat_value2 = 4,
+    spellid_1 = 9142, -- +14 Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 10332;
+
+-- Scarlet Gauntlets
+UPDATE mangos . item_template
+SET quality = 3,
+    stat_type1 = 5,
+    stat_value1 = 7,
+    stat_type2 = 7,
+    stat_value2 = 7,
+    spellid_1 = 7597, -- +1% Physical Crit
+    spelltrigger_1 = 1
+WHERE entry = 10331;
+
+-- Raging Berserker's Helm
+UPDATE mangos . item_template
+SET stat_type1 = 5,
+    stat_value1 = 10,
+    stat_type2 = 7,
+    stat_value2 = 10
+WHERE entry = 7719;
+
+-- Herod's Shoulders
+UPDATE mangos . item_template
+SET stat_type1 = 5,
+    stat_value1 = 8,
+    stat_type2 = 7,
+    stat_value2 = 8,
+    spellid_1 = 9331, -- +20 Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 7718;
+
+-- Dusty Mail Boots
+UPDATE mangos . item_template
+SET spellid_1 = 21624, -- 2 MP/5
+    spelltrigger_1 = 1
+WHERE entry = 19509;
+
 -- Whitemane's Chapeau
 UPDATE mangos . item_template
 SET stat_type1 = 5,
@@ -7012,6 +7101,12 @@ WHERE entry = 4462;
 
 -- Greens
 
+-- Pressed Felt Robe
+UPDATE mangos . item_template
+SET spellid_1 = 9415, -- +9 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 1997;
+
 -- Stonecloth Gloves
 UPDATE mangos . item_template
 SET armor = 50,
@@ -7117,6 +7212,12 @@ UPDATE mangos . item_template
 SET stat_type1 = 7,
     stat_value1 = 7
 WHERE entry = 12009;
+
+-- Mindbender Loop
+UPDATE mangos . item_template
+SET spellid_1 = 9397, -- +7 Spell damage
+    spelltrigger_1 = 1
+WHERE entry = 5009;
 
 -- Spinel Ring
 UPDATE mangos . item_template
@@ -9526,13 +9627,15 @@ SET allowable_class = 68
 WHERE entry IN(20123, 20120, 20122, 20119, 20118, 20121, 20044, 20051, 20056, 20043, 20050, 20055);
 
 -- Custom changes
+
 -- Make items BOP
 UPDATE mangos . item_template 
 SET bonding = 1 -- BOP
 WHERE entry IN(12717, 18418, 22388, 14512, 14513, 14514, 12834, 12825, 18260, 20730, 20727, 20728, 18259, 20731, 20735, 20736, 18260, 12720, 12725, 12726, 12727, 12696, 
-15763, 15751, 15726, 15733);
+15763, 15751, 15726, 15733, 15730);
 
 -- Display IDs
+
 -- Fire Hardened Hauberk (Was 22480)
 UPDATE mangos . item_template 
 SET display_id = 25798

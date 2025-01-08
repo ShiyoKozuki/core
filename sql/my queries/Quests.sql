@@ -1,5 +1,4 @@
 -- Quests
--- Feralas - Add 1 more quest for hippogryphs
 -- South STV
 -- Azshara - Wildlife: (8759, 8762, 8760, 8761) Ooze: 8766 Turtles: (6352, 6369) Hippo: 6377 Cracklaws: (6135, 6370, 6350, 6137) Murloc: 6138 Hydra: 6348 Chimaera: (8763, 8764) Shark: 12125 Giant Strider: 6144
 -- Deadwind Pass
@@ -19,7 +18,7 @@
 
 -- Quest + Vendor + Repair npc flag = 
 -- NEXT quest_template 30188
--- NEXT creature_template 90042
+-- NEXT creature_template 90043
 
 --     QUEST_TYPE_ELITE               = 1,
 --     QUEST_TYPE_LIFE                = 21,
@@ -918,6 +917,106 @@ REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLeve
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90035, 30008);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90035, 30008);
 
+-- Class quests
+
+-- Professional quests
+
+-- Leatherworking quests
+
+-- Pattern: Blue Dragonscale Breastplate
+REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `RequiredSkill`, `RequiredSkillValue`, `QuestFlags`, `PrevQuestId`, `NextQuestId`, `ExclusiveGroup`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemId2`, `ReqItemId3`, `ReqItemCount1`, `ReqItemCount2`, `ReqItemCount3`, `RewItemId1`, `RewItemCount1`, `RewXP`, `RewMoneyMaxLevel`, `DetailsEmote1`, `DetailsEmote2`, `IncompleteEmote`, `CompleteEmote`, `OfferRewardEmote1`, `OfferRewardEmote2`) VALUES (30188, -182, 30, 45, 165, 300, 8, 5141, 0, -2848, 'Blue Dragonscale Breastplate', 'Blue Dragonscale Breastplates are worn by the mightiest of Shaman. For this pattern, I willl require you to bring me 12 Wicked Leather Bracers, 10 Wicked Leather Headband and 6 Wicked Leather Armor. ', 'Bring 12 Wicked Leather Bracers, 10 Wicked Leather Headband and 6 Wicked Leather Armor to Peter Galen in Azshara.', 'These are some very nice pieces here, $N. The craftsmanship and care put in to making these alone would fetch several silver more than the average piece made.$B$BYou\'ve filled my order, and with that comes your reward. The knowledge of making Wild Leather vests is now yours!', 'Do you have the 12 Wicked Leather Bracers, 10 Wicked Leather Headband and 6 Wicked Leather Armor I ordered? Also, don\'t forget the wildvine!$B$BEven with the earliest patterns, we learn that the fundamentals of shape translate well into more difficult garments. Though different items, the shape of the Turtle Scale breastplates prepares you for the detailing needed to make a Wild Leather vest.$B$BAnd the gloves... well, they\'re just for my own benefit. Remember, you\'re working for me!', '', '', '', '', '', 15084, 15086, 15085, 12, 10, 6, 15751, 1, 2900, 1740, 1, 1, 6, 6, 1, 1);
+REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (7866, 30188);
+REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (7866, 30188);
+
+-- Pattern: Green Dragonscale Breastplate
+REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `RequiredSkill`, `RequiredSkillValue`, `QuestFlags`, `PrevQuestId`, `NextQuestId`, `ExclusiveGroup`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemId2`, `ReqItemId3`, `ReqItemCount1`, `ReqItemCount2`, `ReqItemCount3`, `RewItemId1`, `RewItemCount1`, `RewXP`, `RewMoneyMaxLevel`, `DetailsEmote1`, `DetailsEmote2`, `IncompleteEmote`, `CompleteEmote`, `OfferRewardEmote1`, `OfferRewardEmote2`) VALUES (30189, -182, 30, 45, 165, 300, 8, 5141, 0, -2848, 'Green Dragonscale Breastplate', 'Green Dragonscale Breastplates are worn by the mightiest of Shaman. For this pattern, I willl require you to bring me 12 Heavy Scorpid Bracers, 8 Heavy Scorpid Helm and 6 Heavy Scorpid Vest. ', 'Bring 12 Heavy Scorpid Bracers, 8 Heavy Scorpid Helm and 6 Heavy Scorpid Vest to Peter Galen in Azshara.', 'These are some very nice pieces here, $N. The craftsmanship and care put in to making these alone would fetch several silver more than the average piece made.$B$BYou\'ve filled my order, and with that comes your reward. The knowledge of making Wild Leather vests is now yours!', 'Do you have the 12 Heavy Scorpid Bracers, 8 Heavy Scorpid Helm and 6 Heavy Scorpid Vest I ordered? Also, don\'t forget the wildvine!$B$BEven with the earliest patterns, we learn that the fundamentals of shape translate well into more difficult garments. Though different items, the shape of the Turtle Scale breastplates prepares you for the detailing needed to make a Wild Leather vest.$B$BAnd the gloves... well, they\'re just for my own benefit. Remember, you\'re working for me!', '', '', '', '', '', 15077, 15080, 15076, 12, 10, 6, 15726, 1, 2900, 1740, 1, 1, 6, 6, 1, 1);
+REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (7866, 30189);
+REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (7866, 30189);
+
+-- Pattern: Red Dragonscale Breastplate
+REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `RequiredSkill`, `RequiredSkillValue`, `QuestFlags`, `PrevQuestId`, `NextQuestId`, `ExclusiveGroup`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemId2`, `ReqItemId3`, `ReqItemCount1`, `ReqItemCount2`, `ReqItemCount3`, `RewItemId1`, `RewItemCount1`, `RewXP`, `RewMoneyMaxLevel`, `DetailsEmote1`, `DetailsEmote2`, `IncompleteEmote`, `CompleteEmote`, `OfferRewardEmote1`, `OfferRewardEmote2`) VALUES (30190, -182, 30, 45, 165, 300, 8, 5141, 0, -2848, 'Red Dragonscale Breastplate', 'Red Dragonscale Breastplates are worn by the mightiest of Shaman. For this pattern, I willl require you to bring me 12 Wicked Leather Bracers, 10 Wicked Leather Headband and 6 Wicked Leather Armor. ', 'Bring 20 Runic Leather Headband, 15 Runic Leather Gauntlets, and 15 Runic Leather Belt to Peter Galen in Azshara.', 'These are some very nice pieces here, $N. The craftsmanship and care put in to making these alone would fetch several silver more than the average piece made.$B$BYou\'ve filled my order, and with that comes your reward. The knowledge of making Wild Leather vests is now yours!', 'Do you have the  20 Runic Leather Headband, 15 Runic Leather Gauntlets, and 15 Runic Leather Belt  I ordered? Also, don\'t forget the wildvine!$B$BEven with the earliest patterns, we learn that the fundamentals of shape translate well into more difficult garments. Though different items, the shape of the Turtle Scale breastplates prepares you for the detailing needed to make a Wild Leather vest.$B$BAnd the gloves... well, they\'re just for my own benefit. Remember, you\'re working for me!', '', '', '', '', '', 15094, 15091, 15093, 20, 15, 15, 15730, 1, 2900, 1740, 1, 1, 6, 6, 1, 1);
+REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (7866, 30190);
+REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (7866, 30190);
+
+INSERT IGNORE `mangos`.`creature_template` (`entry`, `name`, `subname`, `level_min`, `level_max`, `faction`, `npc_flags`, `display_id1`, `display_probability1`, `display_total_probability`, `type`, `unit_class`, `health_multiplier`, `armor_multiplier`, `damage_multiplier`, `equipment_id`, `static_flags1`, `flags_extra`) VALUES (90042, 'Alyssa Schmidt', 'Crafting Trader', 55, 55, 12, 16390, 12923, 100, 100, 7, 1, 1.35, 2, 1.45, 12805, 4718598, 2);
+INSERT IGNORE `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000045, 90042, 0, 0, 0, 0, 0, -8862.36, 636.849, 96.1991, 1.84368, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
+
+-- TODO: `RequiredSkill`, `RequiredSkillValue`, for each
+-- Wicked Leather Headbands
+REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `SpecialFlags`, `PrevQuestId`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewOrReqMoney`, `CompleteEmote`) VALUES (30191, -182, 55, 57, 8, 1, 0, 'Wicked Leather Headbands', 'I am looking for as many Wicked Leather Headbands as you can possibly provide me with. I will buy as many as you bring, so bring them to me please', 'Bring a Wicked Leather Headband to in Stormwind.', 'Here you go, I will take anymore you can bring.', '', '', '', '', '', 15086, 1, 30000, 1);
+REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90042, 30191);
+REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90042, 30191);
+
+-- Cured Rugged Hide
+REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `SpecialFlags`, `PrevQuestId`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewOrReqMoney`, `CompleteEmote`) VALUES (30192, -182, 55, 57, 8, 1, 0, 'Cured Rugged Hides', 'Bring me as many Cured Rugged Hides as you can provide.', 'Bring Cured Rugged Hide to  in Stormwind.', 'Here you go, I will take anymore you can bring.', '', '', '', '', '', 15407, 1, 150000, 1);
+REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90042, 30192);
+REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90042, 30192);
+
+-- Mooncloth
+REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `SpecialFlags`, `PrevQuestId`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewOrReqMoney`, `CompleteEmote`) VALUES (30193, -264, 55, 57, 8, 1, 0, 'Mooncloth', 'Bring me as much Mooncloth as you can provide.', 'Bring Mooncloth to  in Stormwind.', 'Here you go, I will take anymore you can bring.', '', '', '', '', '', 14342, 1, 150000, 1);
+REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90042, 30193);
+REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90042, 30193);
+
+-- Runecloth Bag
+REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `SpecialFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewOrReqMoney`, `CompleteEmote`) VALUES (30194, -264, 55, 57, 8, 1, 'Runecloth Bags', 'Bring me as many Runecloth Bags as you can provide.', 'Bring Runecloth Bag to  in Stormwind.', 'Here you go, I will take anymore you can bring.', '', '', '', '', '', 14046, 1, 30000, 1);
+REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90042, 30194);
+REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90042, 30194);
+
+-- Thorium Shield Spike
+REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `SpecialFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewOrReqMoney`, `CompleteEmote`) VALUES (30195, -121, 55, 57, 8, 1, 'Thorium Shield Spikes', 'Bring me as many Thorium Shield Spikes as you can provide.', 'Bring Thorium Shield Spike to  in Stormwind.', 'Here you go, I will take anymore you can bring.', '', '', '', '', '', 12645, 1, 250000, 1);
+REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90042, 30195);
+REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90042, 30195);
+
+-- Steel Weapon Chain
+REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `SpecialFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewOrReqMoney`, `CompleteEmote`) VALUES (30196, -121, 55, 57, 8, 1, 'Steel Weapon Chains', 'Bring me as many Steel Weapon Chains as you can provide.', 'Bring Steel Weapon Chain to  in Stormwind.', 'Here you go, I will take anymore you can bring.', '', '', '', '', '', 6041, 1, 40000, 1);
+REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90042, 30196);
+REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90042, 30196);
+
+-- Mithril Spurs
+REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `SpecialFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewOrReqMoney`, `CompleteEmote`) VALUES (30197, -121, 55, 57, 8, 1, 'Mithril Spurs', 'Bring me as many Mithril Spurs as you can provide.', 'Bring Mithril Spurs to  in Stormwind.', 'Here you go, I will take anymore you can bring.', '', '', '', '', '', 7969, 1, 50000, 1);
+REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90042, 30197);
+REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90042, 30197);
+
+-- Elemental Sharpening Stone
+REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `SpecialFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewOrReqMoney`, `CompleteEmote`) VALUES (30198, -121, 55, 57, 8, 1, 'Elemental Sharpening Stones', 'Bring me as many Elemental Sharpening Stones as you can provide.', 'Bring Elemental Sharpening Stone to  in Stormwind.', 'Here you go, I will take anymore you can bring.', '', '', '', '', '', 18262, 1, 15000, 1);
+REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90042, 30198);
+REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90042, 30198);
+
+-- Arcanite Rods
+REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `SpecialFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewOrReqMoney`, `CompleteEmote`) VALUES (30199, -121, 55, 57, 8, 1, 'Arcanite Rods', 'Bring me as many Arcanite Rods as you can provide.', 'Bring Arcanite Rod to  in Stormwind.', 'Here you go, I will take anymore you can bring.', '', '', '', '', '', 16206, 1, 300000, 1);
+REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90042, 30199);
+REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90042, 30199);
+
+-- Truesilver Rods
+REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `SpecialFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewOrReqMoney`, `CompleteEmote`) VALUES (30200, -121, 55, 57, 8, 1, 'Truesilver Rods', 'Bring me as many Truesilver Rods as you can provide.', 'Bring Truesilver Rod to  in Stormwind.', 'Here you go, I will take anymore you can bring.', '', '', '', '', '', 11144, 1, 5000, 1);
+REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90042, 30200);
+REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90042, 30200);
+
+-- Truesilver Breastplates
+REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `SpecialFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewOrReqMoney`, `CompleteEmote`) VALUES (30201, -121, 55, 57, 8, 1, 'Truesilver Breastplates', 'Bring me as many Truesilver Breastplates as you can provide.', 'Bring Truesilver Breastplate to  in Stormwind.', 'Here you go, I will take anymore you can bring.', '', '', '', '', '', 7939, 1, 130000, 1);
+REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90042, 30201);
+REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90042, 30201);
+
+-- Truesilver Gauntlets
+REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `SpecialFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewOrReqMoney`, `CompleteEmote`) VALUES (30202, -121, 55, 57, 8, 1, 'Truesilver Gauntlets', 'Bring me as many Truesilver Gauntlets as you can provide.', 'Bring Truesilver Gauntlet to  in Stormwind.', 'Here you go, I will take anymore you can bring.', '', '', '', '', '', 7938, 1, 100000, 1);
+REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90042, 30202);
+REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90042, 30202);
+
+-- Truesilver Champions
+REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `SpecialFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewOrReqMoney`, `CompleteEmote`) VALUES (30203, -121, 55, 57, 8, 1, 'Truesilver Champions', 'Bring me as many Truesilver Champions as you can provide.', 'Bring Truesilver Champion to  in Stormwind.', 'Here you go, I will take anymore you can bring.', '', '', '', '', '', 7960, 1, 250000, 1);
+REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90042, 30203);
+REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90042, 30203);
+
+-- Phantom Blades
+REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `SpecialFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewOrReqMoney`, `CompleteEmote`) VALUES (30204, -121, 55, 57, 8, 1, 'Phantom Blades', 'Bring me as many Phantom Blades as you can provide.', 'Bring Phantom Blade to  in Stormwind.', 'Here you go, I will take anymore you can bring.', '', '', '', '', '', 7961, 1, 190000, 1);
+REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90042, 30204);
+REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90042, 30204);
+
+-- The Shatterer
+REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `SpecialFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewOrReqMoney`, `CompleteEmote`) VALUES (30205, -121, 55, 57, 8, 1, 'The Shatterers', 'Bring me as many The Shatterers as you can provide.', 'Bring The Shatterers to  in Stormwind.', 'Here you go, I will take anymore you can bring.', '', '', '', '', '', 7954, 1, 150000, 1);
+REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90042, 30205);
+REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90042, 30205);
+
 -- Legendary Quests
 
 -- Warrior
@@ -931,11 +1030,3 @@ REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (5479, 30174
 
 -- 30175 (Legendary quest PH)
 -- 30176 (Legendary quest PH)
-
--- Leatherworking quests
-
--- Pattern: Blue Dragonscale Breastplate
-REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `RequiredSkill`, `RequiredSkillValue`, `QuestFlags`, `PrevQuestId`, `NextQuestId`, `ExclusiveGroup`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemId2`, `ReqItemId3`, `ReqItemCount1`, `ReqItemCount2`, `ReqItemCount3`, `RewItemId1`, `RewItemCount1`, `RewXP`, `RewMoneyMaxLevel`, `DetailsEmote1`, `DetailsEmote2`, `IncompleteEmote`, `CompleteEmote`, `OfferRewardEmote1`, `OfferRewardEmote2`) VALUES (30188, -182, 30, 45, 165, 300, 8, 2847, 2853, -2848, 'Blue Dragonscale Breastplate', 'Blue Dragonscale Breastplates are worn by the mightiest of Shaman. For this pattern, I willl require you to bring me 12 Wicked Leather Bracers, 10 Wicked Leather Headband and 6 Wicked Leather Armor. ', 'Bring 12 Wicked Leather Bracers, 10 Wicked Leather Headband and 6 Wicked Leather Armor to Pratt McGrubben in Feathermoon Stronghold.', 'These are some very nice pieces here, $N. The craftsmanship and care put in to making these alone would fetch several silver more than the average piece made.$B$BYou\'ve filled my order, and with that comes your reward. The knowledge of making Wild Leather vests is now yours!', 'Do you have the 12 Wicked Leather Bracers, 10 Wicked Leather Headband and 6 Wicked Leather Armor I ordered? Also, don\'t forget the wildvine!$B$BEven with the earliest patterns, we learn that the fundamentals of shape translate well into more difficult garments. Though different items, the shape of the Turtle Scale breastplates prepares you for the detailing needed to make a Wild Leather vest.$B$BAnd the gloves... well, they\'re just for my own benefit. Remember, you\'re working for me!', '', '', '', '', '', 15084, 15086, 15085, 12, 10, 6, 15751, 1, 2900, 1740, 1, 1, 6, 6, 1, 1);
-
--- Pattern: Green Dragonscale Breastplate
-REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `RequiredSkill`, `RequiredSkillValue`, `QuestFlags`, `PrevQuestId`, `NextQuestId`, `ExclusiveGroup`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemId2`, `ReqItemId3`, `ReqItemCount1`, `ReqItemCount2`, `ReqItemCount3`, `RewItemId1`, `RewItemCount1`, `RewXP`, `RewMoneyMaxLevel`, `DetailsEmote1`, `DetailsEmote2`, `IncompleteEmote`, `CompleteEmote`, `OfferRewardEmote1`, `OfferRewardEmote2`) VALUES (30189, -182, 30, 45, 165, 300, 8, 2847, 2853, -2848, 'Green Dragonscale Breastplate', 'Green Dragonscale Breastplates are worn by the mightiest of Shaman. For this pattern, I willl require you to bring me 12 Heavy Scorpid Bracers, 8 Heavy Scorpid Helm and 6 Heavy Scorpid Vest. ', 'Bring 12 Heavy Scorpid Bracers, 8 Heavy Scorpid Helm and 6 Heavy Scorpid Vest to Pratt McGrubben in Feathermoon Stronghold.', 'These are some very nice pieces here, $N. The craftsmanship and care put in to making these alone would fetch several silver more than the average piece made.$B$BYou\'ve filled my order, and with that comes your reward. The knowledge of making Wild Leather vests is now yours!', 'Do you have the 12 Heavy Scorpid Bracers, 8 Heavy Scorpid Helm and 6 Heavy Scorpid Vest I ordered? Also, don\'t forget the wildvine!$B$BEven with the earliest patterns, we learn that the fundamentals of shape translate well into more difficult garments. Though different items, the shape of the Turtle Scale breastplates prepares you for the detailing needed to make a Wild Leather vest.$B$BAnd the gloves... well, they\'re just for my own benefit. Remember, you\'re working for me!', '', '', '', '', '', 15077, 15080, 15076, 12, 10, 6, 15726, 1, 2900, 1740, 1, 1, 6, 6, 1, 1);
