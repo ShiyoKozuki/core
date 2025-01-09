@@ -8718,7 +8718,7 @@ WHERE entry = 9509;
 
 -- Harbinger Boots
 UPDATE mangos . item_template
-SET armor = 200,
+SET armor = 150,
     stat_type1 = 4,
     stat_value1 = 12,
     stat_type2 = 5,
@@ -8729,13 +8729,13 @@ WHERE entry = 7754;
 
 -- Watchman Pauldrons
 UPDATE mangos . item_template
-SET armor = 250,
+SET armor = 150,
     stat_type1 = 4,
     stat_value1 = 15,
     stat_type2 = 5,
     stat_value2 = 12,
-    stat_type2 = 6,
-    stat_value2 = 12
+    stat_type3 = 6,
+    stat_value3 = 12
 WHERE entry = 7727;
 
 -- Enduring Cap
