@@ -17,7 +17,7 @@
 -- Desolace quest for https://www.wowhead.com/classic/npc=5760/lord-azrethoc (Flag quest as Elite)
 
 -- Quest + Vendor + Repair npc flag = 
--- NEXT quest_template 30188
+-- NEXT quest_template 30210
 -- NEXT creature_template 90043
 
 --     QUEST_TYPE_ELITE               = 1,
@@ -916,8 +916,31 @@ REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance
 REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `SuggestedPlayers`, `QuestFlags`, `SpecialFlags`, `ExclusiveGroup`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOId2`, `ReqCreatureOrGOId3`, `ReqCreatureOrGOCount1`, `ReqCreatureOrGOCount2`, `ReqCreatureOrGOCount3`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `DetailsEmote1`, `DetailsEmote2`, `DetailsEmote3`, `IncompleteEmote`, `CompleteEmote`, `OfferRewardEmote1`, `OfferRewardEmote2`, `OfferRewardEmote3`) VALUES (30008, 41, 58, 60, 5, 8, 1, 0, 'Ogre Round Up', 'Kill 20 Deadwind Warlocks, 10 Deadwind Maulers and 20 Deadwind Ogre Mages.', 'Kill 20 Deadwind Warlocks, 10 Deadwind Maulers and 20 Deadwind Ogre Mages.', 'Well done $N. Those Ogres must be pushed out of Deadwind Pass.', 'Karazhan is all I care about.', '', '', '', '', '', 7372, 7371, 7379, 20, 10, 20, 477, 250, 5800, 1, 1, 1, 5, 5, 1, 1, 5);
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90035, 30008);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90035, 30008);
-
 -- Class quests
+
+-- Warrior 
+
+-- Ring
+REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `NextQuestInChain`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemId2`, `ReqItemId3`, `ReqItemCount1`, `ReqItemCount2`, `ReqItemCount3`, `RewItemId1`, `RewItemCount1`, `CompleteEmote`) VALUES (30206, -1, 60, 60, 8, 30207, 'A Warriors Journey', 'You have made it to level 60, congratulations. However, your journey does not end there. I have another task for you if you are up for it. Please bring me 75 Abomination Cleaver, 100 Frostsaber Fang and 100 Dredge Crusher Venom.', 'Bring 75 Abomination Cleaver, 100 Frostsaber Fang and 100 Dredge Crusher Venom to Wu Shen in Stormwind.', 'Did you bring me the requested items?', '', '', '', '', '', 30086, 30087, 30088, 75, 100, 100, 30089, 1, 1);
+REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (5479, 30206);
+REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (5479, 30206);
+REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (7042, 30090, -20);
+REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (7043, 30090, -20);
+REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (7045, 30090, -20);
+
+REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (7429, 30091, -20);
+REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (7428, 30091, -20);
+
+REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (11440, 30092, -20);
+REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (11442, 30092, -20);
+REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (11443, 30092, -20);
+
+
+REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `PrevQuestId`, `NextQuestInChain`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemId2`, `ReqItemId3`, `ReqItemCount1`, `ReqItemCount2`, `ReqItemCount3`, `RewItemId1`, `RewItemCount1`, `CompleteEmote`) VALUES (30207, -1, 60, 60, 8, 30206, 30208, 'A Warriors Journey', 'You have done well, but there is much more for you to do. Bring me 100 Flamescale Heart, 100 Frostmaul Eye and 100 Gordok Artifact. ', 'Bring 100 Flamescale Heart, 100 Frostmaul Eye and 100 Gordok Artifact to Wu Shen in Stormwind.', 'Did you bring me the requested items?', '', '', '', '', '', 30090, 30091, 30092, 100, 100, 100, 30093, 1, 1);
+REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (5479, 30207);
+REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (5479, 30207);
+
+-- 30208, 30209 next parts of warrior ring quest chain
 
 -- Professional quests
 
@@ -941,79 +964,78 @@ REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (7866, 30190
 INSERT IGNORE `mangos`.`creature_template` (`entry`, `name`, `subname`, `level_min`, `level_max`, `faction`, `npc_flags`, `display_id1`, `display_probability1`, `display_total_probability`, `type`, `unit_class`, `health_multiplier`, `armor_multiplier`, `damage_multiplier`, `equipment_id`, `static_flags1`, `flags_extra`) VALUES (90042, 'Alyssa Schmidt', 'Crafting Trader', 55, 55, 12, 16390, 12923, 100, 100, 7, 1, 1.35, 2, 1.45, 12805, 4718598, 2);
 INSERT IGNORE `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000045, 90042, 0, 0, 0, 0, 0, -8862.36, 636.849, 96.1991, 1.84368, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
 
--- TODO: `RequiredSkill`, `RequiredSkillValue`, for each
 -- Wicked Leather Headbands
-REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `SpecialFlags`, `PrevQuestId`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewOrReqMoney`, `CompleteEmote`) VALUES (30191, -182, 55, 57, 8, 1, 0, 'Wicked Leather Headbands', 'I am looking for as many Wicked Leather Headbands as you can possibly provide me with. I will buy as many as you bring, so bring them to me please', 'Bring a Wicked Leather Headband to in Stormwind.', 'Here you go, I will take anymore you can bring.', '', '', '', '', '', 15086, 1, 30000, 1);
+REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `RequiredSkill`, `RequiredSkillValue`, `QuestFlags`, `SpecialFlags`, `PrevQuestId`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewOrReqMoney`, `CompleteEmote`) VALUES (30191, -182, 55, 57, 165, 300, 8, 1, 0, 'Wicked Leather Headbands', 'I am looking for as many Wicked Leather Headbands as you can possibly provide me with. I will buy as many as you bring, so bring them to me please', 'Bring a Wicked Leather Headband to Alyssa Schmidt in Stormwind.', 'Here you go, I will take anymore you can bring.', '', '', '', '', '', 15086, 1, 30000, 1);
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90042, 30191);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90042, 30191);
 
 -- Cured Rugged Hide
-REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `SpecialFlags`, `PrevQuestId`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewOrReqMoney`, `CompleteEmote`) VALUES (30192, -182, 55, 57, 8, 1, 0, 'Cured Rugged Hides', 'Bring me as many Cured Rugged Hides as you can provide.', 'Bring Cured Rugged Hide to  in Stormwind.', 'Here you go, I will take anymore you can bring.', '', '', '', '', '', 15407, 1, 150000, 1);
+REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `RequiredSkill`, `RequiredSkillValue`, `QuestFlags`, `SpecialFlags`, `PrevQuestId`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewOrReqMoney`, `CompleteEmote`) VALUES (30192, -182, 55, 57, 165, 300, 8, 1, 0, 'Cured Rugged Hides', 'Bring me as many Cured Rugged Hides as you can provide.', 'Bring Cured Rugged Hide to Alyssa Schmidt in Stormwind.', 'Here you go, I will take anymore you can bring.', '', '', '', '', '', 15407, 1, 150000, 1);
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90042, 30192);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90042, 30192);
 
 -- Mooncloth
-REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `SpecialFlags`, `PrevQuestId`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewOrReqMoney`, `CompleteEmote`) VALUES (30193, -264, 55, 57, 8, 1, 0, 'Mooncloth', 'Bring me as much Mooncloth as you can provide.', 'Bring Mooncloth to  in Stormwind.', 'Here you go, I will take anymore you can bring.', '', '', '', '', '', 14342, 1, 150000, 1);
+REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `RequiredSkill`, `RequiredSkillValue`, `QuestFlags`, `SpecialFlags`, `PrevQuestId`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewOrReqMoney`, `CompleteEmote`) VALUES (30193, -264, 55, 57, 197, 300, 8, 1, 0, 'Mooncloth', 'Bring me as much Mooncloth as you can provide.', 'Bring Mooncloth to Alyssa Schmidt in Stormwind.', 'Here you go, I will take anymore you can bring.', '', '', '', '', '', 14342, 1, 150000, 1);
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90042, 30193);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90042, 30193);
 
 -- Runecloth Bag
-REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `SpecialFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewOrReqMoney`, `CompleteEmote`) VALUES (30194, -264, 55, 57, 8, 1, 'Runecloth Bags', 'Bring me as many Runecloth Bags as you can provide.', 'Bring Runecloth Bag to  in Stormwind.', 'Here you go, I will take anymore you can bring.', '', '', '', '', '', 14046, 1, 30000, 1);
+REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `RequiredSkill`, `RequiredSkillValue`, `QuestFlags`, `SpecialFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewOrReqMoney`, `CompleteEmote`) VALUES (30194, -264, 55, 57, 197, 300, 8, 1, 'Runecloth Bags', 'Bring me as many Runecloth Bags as you can provide.', 'Bring Runecloth Bag to Alyssa Schmidt in Stormwind.', 'Here you go, I will take anymore you can bring.', '', '', '', '', '', 14046, 1, 30000, 1);
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90042, 30194);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90042, 30194);
 
 -- Thorium Shield Spike
-REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `SpecialFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewOrReqMoney`, `CompleteEmote`) VALUES (30195, -121, 55, 57, 8, 1, 'Thorium Shield Spikes', 'Bring me as many Thorium Shield Spikes as you can provide.', 'Bring Thorium Shield Spike to  in Stormwind.', 'Here you go, I will take anymore you can bring.', '', '', '', '', '', 12645, 1, 250000, 1);
+REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `RequiredSkill`, `RequiredSkillValue`, `QuestFlags`, `SpecialFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewOrReqMoney`, `CompleteEmote`) VALUES (30195, -121, 55, 57, 164, 300, 8, 1, 'Thorium Shield Spikes', 'Bring me as many Thorium Shield Spikes as you can provide.', 'Bring Thorium Shield Spike to Alyssa Schmidt in Stormwind.', 'Here you go, I will take anymore you can bring.', '', '', '', '', '', 12645, 1, 250000, 1);
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90042, 30195);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90042, 30195);
 
 -- Steel Weapon Chain
-REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `SpecialFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewOrReqMoney`, `CompleteEmote`) VALUES (30196, -121, 55, 57, 8, 1, 'Steel Weapon Chains', 'Bring me as many Steel Weapon Chains as you can provide.', 'Bring Steel Weapon Chain to  in Stormwind.', 'Here you go, I will take anymore you can bring.', '', '', '', '', '', 6041, 1, 40000, 1);
+REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `RequiredSkill`, `RequiredSkillValue`, `QuestFlags`, `SpecialFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewOrReqMoney`, `CompleteEmote`) VALUES (30196, -121, 55, 57, 164, 300, 8, 1, 'Steel Weapon Chains', 'Bring me as many Steel Weapon Chains as you can provide.', 'Bring Steel Weapon Chain to Alyssa Schmidt in Stormwind.', 'Here you go, I will take anymore you can bring.', '', '', '', '', '', 6041, 1, 40000, 1);
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90042, 30196);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90042, 30196);
 
 -- Mithril Spurs
-REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `SpecialFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewOrReqMoney`, `CompleteEmote`) VALUES (30197, -121, 55, 57, 8, 1, 'Mithril Spurs', 'Bring me as many Mithril Spurs as you can provide.', 'Bring Mithril Spurs to  in Stormwind.', 'Here you go, I will take anymore you can bring.', '', '', '', '', '', 7969, 1, 50000, 1);
+REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `RequiredSkill`, `RequiredSkillValue`, `QuestFlags`, `SpecialFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewOrReqMoney`, `CompleteEmote`) VALUES (30197, -121, 55, 57, 164, 300, 8, 1, 'Mithril Spurs', 'Bring me as many Mithril Spurs as you can provide.', 'Bring Mithril Spurs to Alyssa Schmidt in Stormwind.', 'Here you go, I will take anymore you can bring.', '', '', '', '', '', 7969, 1, 50000, 1);
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90042, 30197);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90042, 30197);
 
 -- Elemental Sharpening Stone
-REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `SpecialFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewOrReqMoney`, `CompleteEmote`) VALUES (30198, -121, 55, 57, 8, 1, 'Elemental Sharpening Stones', 'Bring me as many Elemental Sharpening Stones as you can provide.', 'Bring Elemental Sharpening Stone to  in Stormwind.', 'Here you go, I will take anymore you can bring.', '', '', '', '', '', 18262, 1, 15000, 1);
+REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `RequiredSkill`, `RequiredSkillValue`, `QuestFlags`, `SpecialFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewOrReqMoney`, `CompleteEmote`) VALUES (30198, -121, 55, 57, 164, 300, 8, 1, 'Elemental Sharpening Stones', 'Bring me as many Elemental Sharpening Stones as you can provide.', 'Bring Elemental Sharpening Stone to Alyssa Schmidt in Stormwind.', 'Here you go, I will take anymore you can bring.', '', '', '', '', '', 18262, 1, 15000, 1);
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90042, 30198);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90042, 30198);
 
 -- Arcanite Rods
-REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `SpecialFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewOrReqMoney`, `CompleteEmote`) VALUES (30199, -121, 55, 57, 8, 1, 'Arcanite Rods', 'Bring me as many Arcanite Rods as you can provide.', 'Bring Arcanite Rod to  in Stormwind.', 'Here you go, I will take anymore you can bring.', '', '', '', '', '', 16206, 1, 300000, 1);
+REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `RequiredSkill`, `RequiredSkillValue`, `QuestFlags`, `SpecialFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewOrReqMoney`, `CompleteEmote`) VALUES (30199, -121, 55, 57, 164, 300, 8, 1, 'Arcanite Rods', 'Bring me as many Arcanite Rods as you can provide.', 'Bring Arcanite Rod to Alyssa Schmidt in Stormwind.', 'Here you go, I will take anymore you can bring.', '', '', '', '', '', 16206, 1, 300000, 1);
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90042, 30199);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90042, 30199);
 
 -- Truesilver Rods
-REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `SpecialFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewOrReqMoney`, `CompleteEmote`) VALUES (30200, -121, 55, 57, 8, 1, 'Truesilver Rods', 'Bring me as many Truesilver Rods as you can provide.', 'Bring Truesilver Rod to  in Stormwind.', 'Here you go, I will take anymore you can bring.', '', '', '', '', '', 11144, 1, 5000, 1);
+REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `RequiredSkill`, `RequiredSkillValue`, `QuestFlags`, `SpecialFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewOrReqMoney`, `CompleteEmote`) VALUES (30200, -121, 55, 57, 164, 300, 8, 1, 'Truesilver Rods', 'Bring me as many Truesilver Rods as you can provide.', 'Bring Truesilver Rod to Alyssa Schmidt in Stormwind.', 'Here you go, I will take anymore you can bring.', '', '', '', '', '', 11144, 1, 5000, 1);
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90042, 30200);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90042, 30200);
 
 -- Truesilver Breastplates
-REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `SpecialFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewOrReqMoney`, `CompleteEmote`) VALUES (30201, -121, 55, 57, 8, 1, 'Truesilver Breastplates', 'Bring me as many Truesilver Breastplates as you can provide.', 'Bring Truesilver Breastplate to  in Stormwind.', 'Here you go, I will take anymore you can bring.', '', '', '', '', '', 7939, 1, 130000, 1);
+REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `RequiredSkill`, `RequiredSkillValue`, `QuestFlags`, `SpecialFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewOrReqMoney`, `CompleteEmote`) VALUES (30201, -121, 55, 57, 164, 300, 8, 1, 'Truesilver Breastplates', 'Bring me as many Truesilver Breastplates as you can provide.', 'Bring Truesilver Breastplate to Alyssa Schmidt in Stormwind.', 'Here you go, I will take anymore you can bring.', '', '', '', '', '', 7939, 1, 130000, 1);
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90042, 30201);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90042, 30201);
 
 -- Truesilver Gauntlets
-REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `SpecialFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewOrReqMoney`, `CompleteEmote`) VALUES (30202, -121, 55, 57, 8, 1, 'Truesilver Gauntlets', 'Bring me as many Truesilver Gauntlets as you can provide.', 'Bring Truesilver Gauntlet to  in Stormwind.', 'Here you go, I will take anymore you can bring.', '', '', '', '', '', 7938, 1, 100000, 1);
+REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `RequiredSkill`, `RequiredSkillValue`, `QuestFlags`, `SpecialFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewOrReqMoney`, `CompleteEmote`) VALUES (30202, -121, 55, 57, 164, 300, 8, 1, 'Truesilver Gauntlets', 'Bring me as many Truesilver Gauntlets as you can provide.', 'Bring Truesilver Gauntlet to Alyssa Schmidt in Stormwind.', 'Here you go, I will take anymore you can bring.', '', '', '', '', '', 7938, 1, 100000, 1);
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90042, 30202);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90042, 30202);
 
 -- Truesilver Champions
-REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `SpecialFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewOrReqMoney`, `CompleteEmote`) VALUES (30203, -121, 55, 57, 8, 1, 'Truesilver Champions', 'Bring me as many Truesilver Champions as you can provide.', 'Bring Truesilver Champion to  in Stormwind.', 'Here you go, I will take anymore you can bring.', '', '', '', '', '', 7960, 1, 250000, 1);
+REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `RequiredSkill`, `RequiredSkillValue`, `QuestFlags`, `SpecialFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewOrReqMoney`, `CompleteEmote`) VALUES (30203, -121, 55, 57, 164, 300, 8, 1, 'Truesilver Champions', 'Bring me as many Truesilver Champions as you can provide.', 'Bring Truesilver Champion to Alyssa Schmidt in Stormwind.', 'Here you go, I will take anymore you can bring.', '', '', '', '', '', 7960, 1, 250000, 1);
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90042, 30203);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90042, 30203);
 
 -- Phantom Blades
-REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `SpecialFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewOrReqMoney`, `CompleteEmote`) VALUES (30204, -121, 55, 57, 8, 1, 'Phantom Blades', 'Bring me as many Phantom Blades as you can provide.', 'Bring Phantom Blade to  in Stormwind.', 'Here you go, I will take anymore you can bring.', '', '', '', '', '', 7961, 1, 190000, 1);
+REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `RequiredSkill`, `RequiredSkillValue`, `QuestFlags`, `SpecialFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewOrReqMoney`, `CompleteEmote`) VALUES (30204, -121, 55, 57, 164, 300, 8, 1, 'Phantom Blades', 'Bring me as many Phantom Blades as you can provide.', 'Bring Phantom Blade to Alyssa Schmidt in Stormwind.', 'Here you go, I will take anymore you can bring.', '', '', '', '', '', 7961, 1, 190000, 1);
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90042, 30204);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90042, 30204);
 
 -- The Shatterer
-REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `SpecialFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewOrReqMoney`, `CompleteEmote`) VALUES (30205, -121, 55, 57, 8, 1, 'The Shatterers', 'Bring me as many The Shatterers as you can provide.', 'Bring The Shatterers to  in Stormwind.', 'Here you go, I will take anymore you can bring.', '', '', '', '', '', 7954, 1, 150000, 1);
+REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `RequiredSkill`, `RequiredSkillValue`, `QuestFlags`, `SpecialFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewOrReqMoney`, `CompleteEmote`) VALUES (30205, -121, 55, 57, 164, 300, 8, 1, 'The Shatterers', 'Bring me as many The Shatterers as you can provide.', 'Bring The Shatterers to Alyssa Schmidt in Stormwind.', 'Here you go, I will take anymore you can bring.', '', '', '', '', '', 7954, 1, 150000, 1);
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90042, 30205);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90042, 30205);
 

@@ -157,7 +157,15 @@ REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display
 REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `delay`, `armor`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `max_durability`, `disenchant_id`) VALUES (30083, 4, 4, 'Greaves of the Scourge', 26341, 2, 66239, 13247, 8, -1, -1, 62, 57, 0, 404, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 2, 6, 55, 11);
 REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `delay`, `armor`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `max_durability`, `disenchant_id`) VALUES (30084, 4, 4, 'Gauntlets of the Scourge', 26339, 2, 44329, 8865, 10, -1, -1, 62, 57, 0, 368, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 2, 6, 40, 11);
 REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `delay`, `armor`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `max_durability`, `disenchant_id`) VALUES (30085, 4, 4, 'Bascinet of the Scourge', 26257, 2, 70344, 14068, 1, -1, -1, 63, 58, 0, 485, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 2, 6, 70, 11);
--- NEXT 30086
+REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id`, `quality`, `flags`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30086, 2, 12, 'Abomination Cleaver', 8482, 1, 0, -1, -1, 1, 20, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 4, -1);
+REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id`, `quality`, `flags`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30087, 2, 12, 'Frostsaber Fang', 7886, 1, 0, -1, -1, 1, 20, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 4, -1);
+REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id`, `quality`, `flags`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30088, 2, 12, 'Dredge Crusher Venom', 6690, 1, 0, -1, -1, 1, 20, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 4, -1);
+REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `armor`, `name`, `display_id`, `quality`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `max_count`, `stat_type1`, `stat_value1`, `delay`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellid_2`, `spelltrigger_2`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellid_3`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `disenchant_id`) VALUES (30089, 7, 4, 150, 'Marauder\'s Ring', 33855, 3, 11, 1, -1, 65, 60, 1, 7, 20, 0, 15464, 1, -1, -1, 9336, 1, -1, -1, 9174, 600000, 1141, 15000, -1, 0, 0, 1, 4, 49);
+REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id`, `quality`, `flags`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30090, 2, 12, 'Flamescale Heart', 4826, 1, 0, -1, -1, 1, 20, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 4, -1);
+REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id`, `quality`, `flags`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30091, 2, 12, 'Frostmaul Eye', 35400, 1, 0, -1, -1, 1, 20, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 4, -1);
+REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id`, `quality`, `flags`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30092, 2, 12, 'Gordok Artifact', 32745, 1, 0, -1, -1, 1, 20, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 4, -1);
+REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `armor`, `name`, `display_id`, `quality`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `max_count`, `stat_type1`, `stat_value1`, `delay`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellid_2`, `spelltrigger_2`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellid_3`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `disenchant_id`) VALUES (30093, 7, 4, 200, 'Marauder\'s Ring +1', 33855, 4, 11, 1, -1, 71, 60, 1, 7, 25, 0, 15464, 1, -1, -1, 14049, 1, -1, -1, 9174, 300000, 1141, 15000, -1, 0, 0, 1, 4, 49);
+-- NEXT 30094
 
 -- flags 2048 = lootable by anyone
 
@@ -2688,9 +2696,9 @@ WHERE entry = 7933;
 UPDATE mangos . item_template
 SET quality = 3,
     stat_type2 = 6,
-    stat_value2 = 15,
+    stat_value2 = 10,
     stat_type3 = 4,
-    stat_value3 = 20
+    stat_value3 = 10
 WHERE entry = 7930;
 
 UPDATE mangos . item_template
@@ -7101,6 +7109,17 @@ WHERE entry = 4462;
 
 -- Greens
 
+-- TODO:
+-- Dragonscale Band
+-- Bloodlust Set
+-- Pridelord Set
+-- Elunarian Set
+-- Highborne / Highborn(?) Set
+-- Warleader's Set
+-- Warstrike Set
+-- Indomitable Set
+-- Vanguard Set
+
 -- Pressed Felt Robe
 UPDATE mangos . item_template
 SET spellid_1 = 9415, -- +9 Spell Damage
@@ -9635,6 +9654,8 @@ WHERE entry IN(12717, 18418, 22388, 14512, 14513, 14514, 12834, 12825, 18260, 20
 15763, 15751, 15726, 15733, 15730);
 
 -- Display IDs
+-- Skimpy plate armor: Vanguard Breastplate (display: 26846)
+-- Skimpy Leather: Pridelord Pants(display: 27651)
 
 -- Fire Hardened Hauberk (Was 22480)
 UPDATE mangos . item_template 
