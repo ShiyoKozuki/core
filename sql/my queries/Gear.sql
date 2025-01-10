@@ -4471,7 +4471,7 @@ SET stat_type1 = 5,
     stat_value1 = 15,
     stat_type2 = 6,
     stat_value2 = 15,
-    spellid_2 = 9346, -- +18 Spell Damage
+    spellid_2 = 15714, -- +22 Spell Damage
     spelltrigger_2 = 1
 WHERE entry = 17766;
 
@@ -5060,6 +5060,74 @@ SET delay = 3400,
 WHERE entry = 18538;
 
 -- Quest Rewards
+
+-- Duskwing Gloves
+UPDATE mangos . item_template
+SET quality = 3,
+    stat_type1 = 5,
+    stat_value1 = 15,
+    stat_type2 = 6,
+    stat_value2 = 15,
+    stat_type3 = 0,
+    stat_value3 = 0,
+    spellid_1 = 7597, -- +1% Physical Crit
+    spelltrigger_1 = 1,
+    spellid_2 = 15465, -- +2% Physical Hit
+    spelltrigger_2 = 1
+WHERE entry = 16994;
+
+-- Duskwing Mantle
+UPDATE mangos . item_template
+SET quality = 3,
+    stat_type1 = 5,
+    stat_value1 = 13,
+    stat_type2 = 6,
+    stat_value2 = 13,
+    stat_type3 = 0,
+    stat_value3 = 0,
+    spellid_1 = 9315, -- +26 Healing
+    spelltrigger_1 = 1
+WHERE entry = 16995;
+
+-- Ichor Spitter
+UPDATE mangos . item_template
+SET quality = 3,
+    delay = 1500,
+    dmg_min1 = 48,
+    dmg_max1 = 78,
+    stat_type1 = 5,
+    stat_value1 = 12,
+    stat_type2 = 5,
+    stat_value2 = 12,
+    spellid_1 = 17196, -- Lowers all stats by 20 and deals 20 Nature damage every 3 sec to all enemies within an 8 yard radius of the caster for 30 sec.
+    spellid_2 = 15873, -- Increased Axes +5
+    spelltrigger_2 = 1
+WHERE entry = 17002;
+
+-- Skullstone Hammer
+UPDATE mangos . item_template
+SET quality = 3,
+    armor = 150,
+    dmg_min1 = 98,
+    dmg_max1 = 128,
+    stat_type1 = 7,
+    stat_value1 = 15,
+    stat_type2 = 0,
+    stat_value2 = 0,
+    stat_type3 = 0,
+    stat_value3 = 0,
+    spellid_1 = 21466, -- 1% Shield Block
+    spelltrigger_1 = 1,
+    spellid_2 = 23203, -- Block Value +15
+    spelltrigger_2 = 1
+WHERE entry = 17003;
+
+-- Sarah's Guide
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 18049, -- +26 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 17004;
 
 -- Helm of Exile
 UPDATE mangos . item_template
@@ -7110,8 +7178,6 @@ WHERE entry = 4462;
 -- Greens
 
 -- TODO:
--- Dragonscale Band
--- Bloodlust Set
 -- Pridelord Set
 -- Elunarian Set
 -- Highborne / Highborn(?) Set
@@ -7119,6 +7185,216 @@ WHERE entry = 4462;
 -- Warstrike Set
 -- Indomitable Set
 -- Vanguard Set
+
+-- Warleader's Set
+-- Warleader's Breastplate
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 21466, -- 1% Shield Block
+    spelltrigger_1 = 1,
+    spellid_2 = 23203, -- Block Value +15
+    spelltrigger_2 = 1
+WHERE entry = 14862;
+
+-- Warleader's Crown
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 21466, -- 1% Shield Block
+    spelltrigger_1 = 1,
+    spellid_2 = 23203, -- Block Value +15
+    spelltrigger_2 = 1
+WHERE entry = 14866;
+
+-- Warleader's Shoulders
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 21466, -- 1% Shield Block
+    spelltrigger_1 = 1
+WHERE entry = 14868;
+
+-- Warleader's Bracers
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 20886, -- +3 Arcane Reflect
+    spelltrigger_1 = 1
+WHERE entry = 14869;
+
+-- Warleader's Bracers
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 13669, -- +1% Dodge
+    spelltrigger_1 = 1
+WHERE entry = 14869;
+
+-- Warleader's Leggings
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 21466, -- 1% Shield Block
+    spelltrigger_1 = 1,
+    spellid_2 = 23203, -- Block Value +15
+    spelltrigger_2 = 1
+WHERE entry = 14867;
+
+-- Warleader's Belt
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 13669, -- +1% Dodge
+    spelltrigger_1 = 1
+WHERE entry = 14864;
+
+-- Warleader's Gauntlets
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 21466, -- 1% Shield Block
+    spelltrigger_1 = 1
+WHERE entry = 14863;
+
+-- Warleader's Greaves
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 21466, -- 1% Shield Block
+    spelltrigger_1 = 1
+WHERE entry = 14865;
+
+-- Warleader's Shield
+UPDATE mangos . item_template
+SET quality = 3,
+    armor = 2000,
+    block = 36,
+    spellid_1 = 21363, -- 5 MP/5
+    spelltrigger_1 = 1
+WHERE entry = 15991;
+
+-- Bloodlust Set
+-- Bloodlust Breastplate
+UPDATE mangos . item_template
+SET quality = 3,
+    stat_type1 = 4,
+    stat_value1 = 12,
+    stat_type2 = 5,
+    stat_value2 = 12,
+    stat_type3 = 6,
+    stat_value3 = 10,
+    spellid_1 = 9346, -- +18 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 14798;
+
+-- Bloodlust Gauntlets
+UPDATE mangos . item_template
+SET quality = 3,
+    stat_type1 = 4,
+    stat_value1 = 7,
+    stat_type2 = 5,
+    stat_value2 = 7,
+    stat_type3 = 6,
+    stat_value3 = 7,
+    spellid_1 = 9417, -- +12 spell damage
+    spelltrigger_1 = 1
+WHERE entry = 14802;
+
+-- Bloodlust Boots
+UPDATE mangos . item_template
+SET quality = 3,
+    stat_type1 = 4,
+    stat_value1 = 7,
+    stat_type2 = 5,
+    stat_value2 = 7,
+    stat_type3 = 6,
+    stat_value3 = 7,
+    spellid_1 = 9417, -- +12 spell damage
+    spelltrigger_1 = 1
+WHERE entry = 14799;
+
+-- Bloodlust Helm
+UPDATE mangos . item_template
+SET quality = 3,
+    stat_type1 = 4,
+    stat_value1 = 9,
+    stat_type2 = 5,
+    stat_value2 = 9,
+    stat_type3 = 6,
+    stat_value3 = 8,
+    spellid_1 = 9345, -- +16 Spell damage
+    spelltrigger_1 = 1
+WHERE entry = 14804;
+
+-- Bloodlust Britches
+UPDATE mangos . item_template
+SET quality = 3,
+    stat_type1 = 4,
+    stat_value1 = 10,
+    stat_type2 = 5,
+    stat_value2 = 10,
+    stat_type3 = 6,
+    stat_value3 = 10,
+    spellid_1 = 9345, -- +16 Spell damage
+    spelltrigger_1 = 1
+WHERE entry = 14805;
+
+-- Bloodlust Epaulets
+UPDATE mangos . item_template
+SET quality = 3,
+    stat_type1 = 4,
+    stat_value1 = 9,
+    stat_type2 = 5,
+    stat_value2 = 8,
+    stat_type3 = 6,
+    stat_value3 = 7,
+    spellid_1 = 9417, -- +12 spell damage
+    spelltrigger_1 = 1
+WHERE entry = 14806;
+
+-- Bloodlust Belt
+UPDATE mangos . item_template
+SET quality = 3,
+    stat_type1 = 4,
+    stat_value1 = 9,
+    stat_type2 = 5,
+    stat_value2 = 8,
+    stat_type3 = 6,
+    stat_value3 = 7,
+    spellid_1 = 9417, -- +12 spell damage
+    spelltrigger_1 = 1
+WHERE entry = 14803;
+
+-- Bloodlust Bracers
+UPDATE mangos . item_template
+SET quality = 3,
+    stat_type1 = 4,
+    stat_value1 = 5,
+    stat_type2 = 5,
+    stat_value2 = 5,
+    stat_type3 = 6,
+    stat_value3 = 4,
+    spellid_1 = 9417, -- +12 spell damage
+    spelltrigger_1 = 1
+WHERE entry = 14807;
+
+-- Bloodlust Cape
+UPDATE mangos . item_template
+SET quality = 3,
+    stat_type1 = 4,
+    stat_value1 = 3,
+    stat_type2 = 5,
+    stat_value2 = 3,
+    stat_type3 = 6,
+    stat_value3 = 3,
+    spellid_1 = 9417, -- +12 spell damage
+    spelltrigger_1 = 1
+WHERE entry = 14801;
+
+-- Bloodlust Buckler
+UPDATE mangos . item_template
+SET quality = 3,
+    stat_type1 = 4,
+    stat_value1 = 9,
+    stat_type2 = 5,
+    stat_value2 = 8,
+    stat_type3 = 6,
+    stat_value3 = 7,
+    spellid_1 = 9417, -- +12 spell damage
+    spelltrigger_1 = 1
+WHERE entry = 14800;
 
 -- Dragonscale Band
 UPDATE mangos . item_template
@@ -7153,13 +7429,27 @@ WHERE entry = 6422;
 
 -- Nightsky Robe
 UPDATE mangos . item_template
-SET spellid_1 = 21360, -- 2 MP/5
-    spelltrigger_1 = 1
+SET stat_type1 = 6,
+    stat_value1 = 4,
+    stat_type2 = 0,
+    stat_value2 = 0,
+    stat_type3 = 0,
+    stat_value3 = 0,
+    spellid_1 = 9415, -- +9 Spell Damage
+    spelltrigger_1 = 1,
+    spellid_2 = 23727, -- +1% Spell Hit
+    spelltrigger_2 = 1
 WHERE entry = 4038;
 
 -- Pressed Felt Robe
 UPDATE mangos . item_template
-SET spellid_1 = 9415, -- +9 Spell Damage
+SET stat_type1 = 7,
+    stat_value1 = 15,
+    stat_type2 = 0,
+    stat_value2 = 0,
+    stat_type3 = 0,
+    stat_value3 = 0,
+    spellid_1 = 9415, -- +9 Spell Damage
     spelltrigger_1 = 1
 WHERE entry = 1997;
 
