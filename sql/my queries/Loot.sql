@@ -1,5 +1,8 @@
 -- Creature drops
 
+-- For grouped drops (I.e. bosses)
+-- SELECT * FROM reference_loot_template WHERE entry = 30135;
+
 -- Sterilize drops (20% base)
 UPDATE mangos . creature_loot_template
 SET ChanceOrQuestChance = 20

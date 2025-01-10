@@ -9654,6 +9654,7 @@ WHERE entry IN(12717, 18418, 22388, 14512, 14513, 14514, 12834, 12825, 18260, 20
 15763, 15751, 15726, 15733, 15730);
 
 -- Display IDs
+-- Cute Mail: Fortified chain
 -- Skimpy plate armor: Vanguard Breastplate (display: 26846)
 -- Skimpy Leather: Pridelord Pants(display: 27651)
 
