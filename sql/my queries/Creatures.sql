@@ -40,6 +40,9 @@ WHERE display_id IN(59, 60, 12170);
 -- Razorfen Spearhide (Shouldn't be rare, Blizzard bug)
 UPDATE `mangos`.`creature_template` SET `rank`=1 WHERE  `entry`=4438 AND `patch`=0;
 
+-- Archaedas HP adjusted due to 2x elite HP
+UPDATE `mangos`.`creature_template` SET `health_multiplier`=7 WHERE  `entry`=2748 AND `patch`=0;
+
 
 -- Twilight Flamereaver
 UPDATE `mangos`.`creature_template` SET `spell_id1`=15732 WHERE  `entry`=15201 AND `patch`=6;

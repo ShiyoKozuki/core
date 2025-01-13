@@ -10,6 +10,7 @@
 -- ITEM_MOD_STAMINA                  = 7,
 
 -- spellid_1 = 9397, -- +7 Spell damage
+-- spellid_1 = 16431, -- Bone Armor (Encases the caster in bone armor, absorbing 1388 to 1612 damage for 1 min. While the armor holds, spellcasting cannot be interrupted by Physical attacks)
 
 -- DPS Calc: https://docs.google.com/spreadsheets/d/1R3A3AQiqE0aqhn4C9zdLSVr_wrecjtrpxPgg3UZ66y4/edit?gid=0#gid=0
 
@@ -1592,51 +1593,55 @@ WHERE entry = 8195;
 -- Turtle Scale Helm
 UPDATE mangos . item_template
 SET quality = 3,
+    required_level = 47,
     stat_type1 = 4,
-    stat_value1 = 7,
+    stat_value1 = 15,
     stat_type2 = 5,
-    stat_value2 = 7,
+    stat_value2 = 12,
     stat_type3 = 6,
-    stat_value3 = 7,
-    spellid_1 = 7680, -- +13 Healing
+    stat_value3 = 12,
+    spellid_1 = 9315, -- +26 Healing
     spelltrigger_1 = 1
 WHERE entry = 8191;
 
 -- Turtle Scale Gloves
 UPDATE mangos . item_template
 SET quality = 3,
+    required_level = 47,
     stat_type1 = 4,
-    stat_value1 = 5,
+    stat_value1 = 10,
     stat_type2 = 5,
-    stat_value2 = 5,
+    stat_value2 = 8,
     stat_type3 = 6,
-    stat_value3 = 5,
-    spellid_1 = 7680, -- +13 Healing
+    stat_value3 = 8,
+    spellid_1 = 9315, -- +26 Healing
     spelltrigger_1 = 1
 WHERE entry = 8187;
 
 -- Turtle Scale Breastplate
 UPDATE mangos . item_template
 SET quality = 3,
+    required_level = 47,
     stat_type1 = 4,
-    stat_value1 = 13,
+    stat_value1 = 18,
     stat_type2 = 5,
-    stat_value2 = 8,
+    stat_value2 = 14,
     stat_type3 = 6,
-    stat_value3 = 8,
-    spellid_1 = 7680, -- +13 Healing
+    stat_value3 = 14,
+    spellid_1 = 9315, -- +26 Healing
     spelltrigger_1 = 1
 WHERE entry = 8189;
 
 -- Turtle Scale Bracers
 UPDATE mangos . item_template
 SET quality = 3,
+    required_level = 47,
     stat_type1 = 4,
-    stat_value1 = 4,
+    stat_value1 = 9,
     stat_type2 = 5,
-    stat_value2 = 4,
+    stat_value2 = 6,
     stat_type3 = 6,
-    stat_value3 = 4,
+    stat_value3 = 6,
     spellid_1 = 7680, -- +13 Healing
     spelltrigger_1 = 1
 WHERE entry = 8198;
@@ -1644,13 +1649,14 @@ WHERE entry = 8198;
 -- Turtle Scale Leggings
 UPDATE mangos . item_template
 SET quality = 3,
+    required_level = 47,
     stat_type1 = 4,
-    stat_value1 = 10,
+    stat_value1 = 17,
     stat_type2 = 5,
-    stat_value2 = 7,
+    stat_value2 = 14,
     stat_type3 = 6,
-    stat_value3 = 7,
-    spellid_1 = 7680, -- +13 Healing
+    stat_value3 = 14,
+    spellid_1 = 9315, -- +26 Healing
     spelltrigger_1 = 1
 WHERE entry = 8185;
 
@@ -2021,6 +2027,76 @@ UPDATE mangos . item_template
 SET spellid_1 = 7598, -- +2% Physical Crit
     spelltrigger_1 = 1
 WHERE entry = 8367;
+
+-- Black Dragonscale Set
+
+-- Body
+UPDATE mangos . item_template
+SET quality = 4,
+    bonding = 1,
+    required_skill = 165, -- Leatherworking
+    required_skill_rank = 300,
+    stat_type1 = 5,
+    stat_value1 = 10,
+    stat_type2 = 7,
+    stat_value2 = 10,
+    spellid_1 = 7597, -- +1% Physical Crit
+    spelltrigger_1 = 1,
+    spellid_2 = 15464, -- +1% Physical Hit
+    spelltrigger_2 = 1,
+    spellid_3 = 21365, -- 9 MP/5
+    spelltrigger_3 = 1
+WHERE entry = 15050;
+
+-- Shoulders
+UPDATE mangos . item_template
+SET quality = 4,
+    bonding = 1,
+    required_skill = 165, -- Leatherworking
+    required_skill_rank = 300,
+    stat_type1 = 5,
+    stat_value1 = 9,
+    stat_type2 = 7,
+    stat_value2 = 9,
+    spellid_1 = 15464, -- +1% Physical Hit
+    spelltrigger_1 = 1,
+    spellid_2 = 21363, -- 5 MP/5
+    spelltrigger_2 = 1
+WHERE entry = 15051;
+
+-- Legs
+UPDATE mangos . item_template
+SET quality = 4,
+    bonding = 1,
+    required_skill = 165, -- Leatherworking
+    required_skill_rank = 300,
+    stat_type1 = 5,
+    stat_value1 = 10,
+    stat_type2 = 7,
+    stat_value2 = 10,
+    spellid_1 = 7597, -- +1% Physical Crit
+    spelltrigger_1 = 1,
+    spellid_2 = 15464, -- +1% Physical Hit
+    spelltrigger_2 = 1,
+    spellid_3 = 21365, -- 9 MP/5
+    spelltrigger_3 = 1
+WHERE entry = 15052;
+
+-- Boots
+UPDATE mangos . item_template
+SET quality = 4,
+    bonding = 1,
+    required_skill = 165, -- Leatherworking
+    required_skill_rank = 300,
+    stat_type1 = 5,
+    stat_value1 = 9,
+    stat_type2 = 7,
+    stat_value2 = 9,
+    spellid_1 = 15464, -- +1% Physical Hit
+    spelltrigger_1 = 1,
+    spellid_2 = 21363, -- 5 MP/5
+    spelltrigger_2 = 1
+WHERE entry = 16984;
 
 -- Blue Dragonscale Set
 UPDATE mangos . item_template
@@ -3633,7 +3709,11 @@ SET quality = 3,
     delay = 1800,
     dmg_min1 = 42,
     dmg_max1 = 72,
-    spellid_1 = 13667, -- +2% Parry
+    stat_type1 = 5,
+    stat_value1 = 6,
+    stat_type2 = 7,
+    stat_value2 = 6,
+    spellid_1 = 21361, -- 3 MP/5
     spelltrigger_1 = 1
 WHERE entry = 7943;
 
@@ -4711,15 +4791,6 @@ SET delay = 3500,
     spelltrigger_1 = 2
 WHERE entry = 13285;
 
--- Pendulum of Doom
-UPDATE mangos . item_template
-SET delay = 3500,
-    dmg_min1 = 151,
-    dmg_max1 = 227,
-    spellid_1 = 16431, -- Bone Armor (Encases the caster in bone armor, absorbing 1388 to 1612 damage for 1 min. While the armor holds, spellcasting cannot be interrupted by Physical attacks)
-    spelltrigger_1 = 2
-WHERE entry = 9425;
-
 -- Relentless Scythe
 UPDATE mangos . item_template
 SET delay = 3500,
@@ -5060,6 +5131,56 @@ SET delay = 3400,
 WHERE entry = 18538;
 
 -- Quest Rewards
+
+-- Spirit Hunter Headdress
+UPDATE mangos . item_template
+SET stat_type1 = 5,
+    stat_value1 = 5,
+    stat_type2 = 6,
+    stat_value2 = 5,
+    spellid_1 = 9357, -- +16 Nature Damage
+    spelltrigger_1 = 1
+WHERE entry = 6720;
+
+-- Mantis Boots
+UPDATE mangos . item_template
+SET stat_type1 = 7,
+    stat_value1 = 10,
+    stat_type2 = 0,
+    stat_value2 = 0,
+    stat_type3 = 0,
+    stat_value3 = 0,
+    spellid_1 = 9397, -- +7 Spell damage
+    spelltrigger_1 = 1
+WHERE entry = 3764;
+
+-- Brigand's Pauldrons
+UPDATE mangos . item_template
+SET stat_type1 = 5,
+    stat_value1 = 8,
+    stat_type2 = 0,
+    stat_value2 = 0,
+    spellid_1 = 9331, -- +20 Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 3765;
+
+-- Lunar Buckler
+UPDATE mangos . item_template
+SET quality = 3,
+    armor = 1350,
+    block = 19,
+    spellid_1 = 21360, -- 2 MP/5
+    spelltrigger_1 = 1
+WHERE entry = 3763;
+
+-- Ryedol's Hammer
+UPDATE mangos . item_template
+SET quality = 3,
+    dmg_min1 = 57,
+    dmg_max1 = 87,
+    spellid_1 = 21363, -- 5 MP/5
+    spelltrigger_1 = 1
+WHERE entry = 4978;
 
 -- Duskwing Gloves
 UPDATE mangos . item_template
@@ -5807,7 +5928,7 @@ WHERE entry = 3560;
 UPDATE mangos . item_template
 SET spellid_1 = 17350, -- Has a 1% chance when struck in combat of increasing chance to block by 50% for 10 sec.
     spelltrigger_1 = 1
-WHERE entry = 11194;
+WHERE entry = 6223;
 
 -- Night Watch Pantaloons (Morbent Fel)
 UPDATE mangos . item_template
@@ -7163,6 +7284,23 @@ SET quality = 3,
 WHERE entry = 4829;
 
 -- Rare mob drops
+
+-- Tromping Miner's Boots (Digmaster Shovelphlange)
+UPDATE mangos . item_template
+SET stat_type1 = 4,
+    stat_value1 = 5,
+    stat_type2 = 5,
+    stat_value2 = 7,
+    stat_type3 = 7,
+    stat_value3 = 7
+WHERE entry = 9382;
+
+-- Shovelphlange's Mining Axe (Digmaster Shovelphlange)
+UPDATE mangos . item_template
+SET dmg_min1 = 69,
+    dmg_max1 = 99
+WHERE entry = 9378;
+
 -- Cloak of Rot (Lord Malathrom)
 UPDATE mangos . item_template
 SET stat_type1 = 5,
@@ -7181,10 +7319,34 @@ WHERE entry = 4462;
 -- Pridelord Set
 -- Elunarian Set
 -- Highborne / Highborn(?) Set
--- Warleader's Set
 -- Warstrike Set
 -- Indomitable Set
+-- Ghostwalker Set
+-- Ravager's Set
 -- Vanguard Set
+-- Windchaser Set
+-- Geomancer's Set
+-- Imperial Leather Set
+-- Jazeraint Set
+-- Sorcerer Drape(?) Set
+-- Gothic Set
+-- Trickster's Set
+-- Imperial Leather set
+-- Embossed Plate set
+-- Green shields
+-- Green / Blue offhands
+-- Blue necks / rings / trinkets
+-- Green / Blue Staves and Wands
+
+-- Enduring Boots
+UPDATE mangos . item_template
+SET stat_type1 = 4,
+    stat_value1 = 5,
+    stat_type2 = 5,
+    stat_value2 = 7,
+    stat_type3 = 7,
+    stat_value3 = 7
+WHERE entry = 14762;
 
 -- Warleader's Set
 -- Warleader's Breastplate
@@ -7440,6 +7602,18 @@ SET stat_type1 = 6,
     spellid_2 = 23727, -- +1% Spell Hit
     spelltrigger_2 = 1
 WHERE entry = 4038;
+
+-- Aurora Armor
+UPDATE mangos . item_template
+SET stat_type1 = 7,
+    stat_value1 = 18,
+    stat_type2 = 0,
+    stat_value2 = 0,
+    stat_type3 = 0,
+    stat_value3 = 0,
+    spellid_1 = 9415, -- +9 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 7112;
 
 -- Pressed Felt Robe
 UPDATE mangos . item_template
@@ -8057,7 +8231,11 @@ WHERE entry = 14826;
 -- Chromite Set
 
 UPDATE mangos . item_template
-SET spellid_1 = 13383, -- +5 Defense
+SET stat_type1 = 4,
+    stat_value1 = 12,
+    stat_type2 = 7,
+    stat_value2 = 12,
+    spellid_1 = 13383, -- +5 Defense
     spelltrigger_1 = 1
 WHERE entry = 8142;
 
@@ -8067,7 +8245,11 @@ SET spellid_1 = 13383, -- +5 Defense
 WHERE entry = 8144;
 
 UPDATE mangos . item_template
-SET spellid_1 = 13383, -- +5 Defense
+SET stat_type1 = 4,
+    stat_value1 = 12,
+    stat_type2 = 7,
+    stat_value2 = 13,
+    spellid_1 = 13383, -- +5 Defense
     spelltrigger_1 = 1
 WHERE entry = 8143;
 
@@ -8087,7 +8269,11 @@ SET spellid_1 = 13383, -- +5 Defense
 WHERE entry = 8135;
 
 UPDATE mangos . item_template
-SET spellid_1 = 13383, -- +5 Defense
+SET stat_type1 = 4,
+    stat_value1 = 4,
+    stat_type2 = 7,
+    stat_value2 = 8,
+    spellid_1 = 13383, -- +5 Defense
     spelltrigger_1 = 1
 WHERE entry = 8137;
 
@@ -8097,7 +8283,11 @@ SET spellid_1 = 13383, -- +5 Defense
 WHERE entry = 8141;
 
 UPDATE mangos . item_template
-SET spellid_1 = 13383, -- +5 Defense
+SET stat_type1 = 4,
+    stat_value1 = 4,
+    stat_type2 = 7,
+    stat_value2 = 12,
+    spellid_1 = 13383, -- +5 Defense
     spelltrigger_1 = 1
 WHERE entry = 8139;
 
@@ -9999,3 +10189,21 @@ WHERE entry = 6973;
 UPDATE mangos . item_template 
 SET display_id = 25793
 WHERE entry = 13124;
+
+-- Misc
+
+-- Disable new pvp gear and use old PvP gear
+-- Do patch - 10 to revert, and -10 for the NPC(12777) to also revert
+UPDATE item_template
+SET patch = patch + 10
+WHERE required_honor_rank >= 7 AND patch BETWEEN 3 AND 9;
+UPDATE creature_template
+SET patch = patch + 10
+WHERE entry = 12777 AND patch = 9;
+
+-- Do SET forbidden_items.patch = forbidden_items.patch - 10 to revert
+UPDATE forbidden_items
+JOIN item_template ON forbidden_items.entry = item_template.entry
+SET forbidden_items.patch = forbidden_items.patch + 10
+WHERE forbidden_items.patch <= 10
+	AND item_template.required_honor_rank > 10 AND item_template.required_honor_rank < 15
