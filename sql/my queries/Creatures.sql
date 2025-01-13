@@ -37,6 +37,11 @@ UPDATE mangos . creature_display_info_addon
 SET combat_reach = 2
 WHERE display_id IN(59, 60, 12170);
 
+-- Incorrect normal mobs, were elite in real vanilla. Changed in 2.3 (Classic WoW bug) 
+-- https://warcraft.wiki.gg/wiki/Patch_2.3.0
+-- patch - 10 to revert
+UPDATE `mangos`.`creature_template` SET patch = patch + 10 WHERE entry IN (742, 743, 744, 745, 746) AND patch = 10; -- Swamp of Sorrows Green Dragons
+
 -- Razorfen Spearhide (Shouldn't be rare, Blizzard bug)
 UPDATE `mangos`.`creature_template` SET `rank`=1 WHERE  `entry`=4438 AND `patch`=0;
 
