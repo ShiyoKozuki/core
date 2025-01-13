@@ -6340,8 +6340,8 @@ WHERE entry = 4550;
 UPDATE mangos . item_template
 SET quality = 3,
     delay = 2000,
-    dmg_min1 = 52,
-    dmg_max1 = 92,
+    dmg_min1 = 75,
+    dmg_max1 = 105,
     spellid_1 = 15714, -- +22 Spell Damage
     spelltrigger_1 = 1
 WHERE entry = 9678;
@@ -6350,15 +6350,15 @@ WHERE entry = 9678;
 UPDATE mangos . item_template
 SET quality = 3,
     delay = 3800,
-    dmg_min1 = 116,
-    dmg_max1 = 156
+    dmg_min1 = 146,
+    dmg_max1 = 196
 WHERE entry = 9679;
 
 -- Tok'kar's Murloc Shanker
 UPDATE mangos . item_template
 SET quality = 3,
-    dmg_min1 = 29,
-    dmg_max1 = 59
+    dmg_min1 = 41,
+    dmg_max1 = 71
 WHERE entry = 9680;
 
 -- White Bone Band
