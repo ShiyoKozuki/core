@@ -5544,7 +5544,7 @@ WHERE entry = 6972;
 -- Fire Hardened Leggings
 UPDATE mangos . item_template
 SET quality = 3,
-    armor = 400,
+    armor = 375,
     spellid_1 = 9140, -- +10 Attack Power
     spelltrigger_1 = 1
 WHERE entry = 6973;
@@ -10173,7 +10173,8 @@ WHERE entry IN(12717, 18418, 22388, 14512, 14513, 14514, 12834, 12825, 18260, 20
 15763, 15751, 15726, 15733, 15730);
 
 -- Display IDs
--- Cute Mail: Fortified chain
+-- Cute Mail: Fortified chain (display: 1019) Infantry Tunic (display: 3057)
+-- Cute Mail Legs: Infantry Leggings (Display: 3058)
 -- Skimpy plate armor: Vanguard Breastplate (display: 26846)
 -- Skimpy Leather: Pridelord Pants(display: 27651)
 
@@ -10191,6 +10192,17 @@ WHERE entry = 6973;
 UPDATE mangos . item_template 
 SET display_id = 25793
 WHERE entry = 13124;
+
+-- Heavy Mithril Breastplate (Was 16109)
+UPDATE mangos . item_template 
+SET display_id = 26846
+WHERE entry = 7930;
+
+-- Heavy Mithril Pants (Was 16092)
+UPDATE mangos . item_template 
+SET display_id = 3058
+WHERE entry = 7921;
+
 
 -- Misc
 

@@ -19,6 +19,7 @@
 -- Add loot rewards to Greatest Scott! (Horde badland quest rewards?)
 -- Swamp of Sorrows Stonard Explorer drop a quest item to turn into watcher biggs that starts Swamp Talker (and gives 3500 exp)
 -- Blasted Lands unused mine by Nethergarde Keep
+-- Tanaris Breadcrumb to Zalashji (8617) and also have him start a quest chain
 
 -- Quest + Vendor + Repair npc flag = 
 -- NEXT quest_template 30216
