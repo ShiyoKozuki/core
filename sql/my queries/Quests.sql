@@ -17,19 +17,17 @@
 -- Desolace quest for https://www.wowhead.com/classic/npc=5760/lord-azrethoc (Flag quest as Elite)
 -- Arathi Stormgarde quest add horde quest - > https://www.wowhead.com/classic/quest=680/the-real-threat#comments
 -- Add loot rewards to Greatest Scott! (Horde badland quest rewards?)
--- Swamp of Sorrows Stonard Explorer drop a quest item to turn into watcher biggs that starts Swamp Talker (and gives 3500 exp)
 -- Blasted Lands unused mine by Nethergarde Keep
 -- Tanaris Breadcrumb to Zalashji (8617) and also have him start a quest chain
 -- Tanaris add quest for scorpid hunter
 -- Tanaris add quest for blisterpaw hyena to goblin in middle of zone(or does one exist?)
 -- Tanaris add quest for glasshide gazer goblin in middle of zone(or does one exist?)
 -- Tanaris ground pounder drop a quest item for free 3000 exp
--- Feralas ferelas serpents changed to rogue vale screecher
--- WPL add custom rewards to final scarlet quest i made
 -- Timed quests (Timer on item, or timer on quest)
 -- how do distress beacon quests not replace item on starting? same with ship schedule
 
 -- Quest + Vendor + Repair npc flag = 
+-- 30025 FREE
 -- NEXT quest_template 30231
 -- NEXT creature_template 90045
 
@@ -42,6 +40,8 @@
 --     QUEST_TYPE_WORLD_EVENT         = 82,
 --     QUEST_TYPE_LEGENDARY           = 83,
 --     QUEST_TYPE_ESCORT              = 84,
+
+-- Faction = 35 to not make a friendly quest NPC not aggro creatures
 
 -- A Lack of Fear (Fear Ward Quest)
 UPDATE mangos . quest_template 
@@ -351,6 +351,7 @@ REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLeve
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (5476, 30220);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (5476, 30220);
 REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `NextQuestInChain`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewMoneyMaxLevel`, `OfferRewardEmote1`) VALUES (30228, 8, 40, 50, 8, 30010, 'Orc Documents', 'Documents that belong to the orcs. Watcher Biggs might want these.', 'Bring the Orc Documents to Watcher Briggs in Swamp of Sorrows.', 'These documents are very useful.', 'What?', '', '', '', '', '', 30095, 1, 72, 100, 2900, 2900, 4);
+UPDATE `mangos`.`quest_template` SET `SrcItemId`=30095, `SrcItemCount`=1 WHERE  `entry`=30228 AND `patch`=0;
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (5476, 30228);
 REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (862, 30095, 100);
 
@@ -367,19 +368,18 @@ REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLeve
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (1776, 30062);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (1776, 30062);
 
--- Custom gear reward for these 4 elite quests
-INSERT IGNORE `mangos`.`creature_template` (`entry`, `name`, `subname`, `level_min`, `level_max`, `faction`, `npc_flags`, `display_id1`, `display_probability1`, `display_total_probability`, `type`, `unit_class`, `health_multiplier`, `armor_multiplier`, `damage_multiplier`, `base_attack_time`, `fire_res`, `arcane_res`, `ai_name`, `equipment_id`, `static_flags1`) VALUES (90043, 'Watcher Kelly', '', 45, 45, 53, 2, 4322, 1, 1, 7, 1, 3, 2, 0.8, 1000, 100, 100, 'EventAI', 264, 138936326);
+REPLACE `mangos`.`creature_template` (`entry`, `name`, `subname`, `level_min`, `level_max`, `faction`, `npc_flags`, `display_id1`, `display_probability1`, `display_total_probability`, `type`, `unit_class`, `health_multiplier`, `armor_multiplier`, `damage_multiplier`, `base_attack_time`, `fire_res`, `arcane_res`, `ai_name`, `equipment_id`, `static_flags1`) VALUES (90043, 'Watcher Kelly', '', 45, 45, 35, 2, 4322, 1, 1, 7, 1, 3, 2, 0.8, 1000, 100, 100, 'EventAI', 264, 138936326);
 INSERT IGNORE `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000046, 90043, 0, 0, 0, 0, 0, -10532.5, -2839.42, 22.1424, 0.987671, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
 REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOId2`, `ReqCreatureOrGOCount1`, `ReqCreatureOrGOCount2`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewMoneyMaxLevel`, `OfferRewardEmote1`) VALUES (30014, 8, 33, 43, 8, 'Dragonkin Eradication I', 'I need your help in clearing the swamp of the Green Dragonkin.', 'Kill 20 Green Wyrmkin and 20 Wyrmkin Dreamwalker then return to Watcher Kelly in Swamp of Sorrows.', 'You have done well.', 'Kill 12 Green Wyrmkin and 20 Wyrmkin Dreamwalker in Swamp of Sorrows.', '', '', '', '', '', 742, 743, 12, 20, 72, 100, 6000, 1740, 4);
-UPDATE `mangos`.`quest_template` SET `Type`=1 WHERE  `entry`=30014 AND `patch`=0;
+UPDATE `mangos`.`quest_template` SET `Type`=1, `RewItemId1`=30111, `RewItemCount1`=1 WHERE  `entry`=30014 AND `patch`=0;
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90043, 30014);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90043, 30014);
 REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOId2`, `ReqCreatureOrGOId3`, `ReqCreatureOrGOCount1`, `ReqCreatureOrGOCount2`, `ReqCreatureOrGOCount3`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewOrReqMoney`, `RewMoneyMaxLevel`, `OfferRewardEmote1`) VALUES (30221, 8, 40, 45, 8, 'Dragonkin Eradication II', 'The dragonkin of this swamp are very hostile. Please take them out for me.', 'Kill 15 Green Scalebane, 12 Scalebane Captain and 8 Elder Dragonkin then return to Watcher Kelly in Swamp of Sorrows.', 'Thank you!', 'Did you kill the dragons yet?', '', '', '', '', '', 744, 745, 746, 15, 12, 8, 72, 100, 6000, 15000, 6000, 4);
-UPDATE `mangos`.`quest_template` SET `Type`=1 WHERE  `entry`=30221;
+UPDATE `mangos`.`quest_template` SET `Type`=1, `RewItemId1`=30112, `RewItemCount1`=1 WHERE  `entry`=30221 AND `patch`=0;
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90043, 30221);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90043, 30221);
 REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewOrReqMoney`, `RewMoneyMaxLevel`, `OfferRewardEmote1`) VALUES (30222, 8, 40, 45, 8, 'Dragonkin Plucking', 'The scales from green dragonkin here could be studied by our mages in storm', 'Collect 30 Green Scales for Watcher Kelly in Swamp of Sorrows.', 'Hopefully this can be of some use to our mages.', 'Did you get the scales yet?', '', '', '', '', '', 30094, 30, 72, 100, 6500, 22500, 4200, 4);
-UPDATE `mangos`.`quest_template` SET `Type`=1 WHERE  `entry`=30222;
+UPDATE `mangos`.`quest_template` SET `Type`=1, `RewChoiceItemId1`=30109, `RewChoiceItemId2`=30110, `RewChoiceItemCount1`=1, `RewChoiceItemCount2`=1 WHERE  `entry`=30222 AND `patch`=0;
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90043, 30222);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90043, 30222);
 REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (742, 30094, -100);
@@ -391,7 +391,7 @@ REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance
 INSERT IGNORE `mangos`.`creature_template` (`entry`, `name`, `subname`, `level_min`, `level_max`, `faction`, `display_id1`, `display_probability1`, `display_total_probability`, `speed_walk`, `detection_range`, `type`, `rank`, `unit_class`, `health_multiplier`, `armor_multiplier`, `damage_multiplier`, `nature_res`, `loot_id`, `skinning_loot_id`, `gold_min`, `gold_max`, `spell_id1`, `spell_id2`, `spell_id3`, `spell_list_id`, `ai_name`, `movement_type`, `inhabit_type`, `equipment_id`) VALUES (90044, 'General Aizen', '', 47, 47, 50, 7976, 1, 1, 0.888888, 20, 2, 1, 1, 6, 3.0, 3.0, 100, 745, 745, 295, 391, 9128, 13730, 12555, 7450, 'EventAI', 1, 1, 745);
 INSERT IGNORE `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000047, 90044, 0, 0, 0, 0, 0, -10149.7, -3727.43, 23.1354, 3.17341, 25, 25, 5, 100, 100, 1, 0, 0, 0, 10);
 REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewOrReqMoney`, `RewMoneyMaxLevel`, `OfferRewardEmote1`) VALUES (30223, 8, 40, 47, 8, 'Green Dragon General', 'The dragonkin here are led by General Aizen. Taking him out might be the key to interrupting their plans. Kill him then return to me.', 'Kill General Aizen then return to Watcher Kelly in Swamp of Sorrows.', 'Hopefully this will put a stop to the dragonkins plans for now.', 'Did you kill their general yet?', '', '', '', '', '', 90044, 1, 72, 100, 7500, 15000, 7500, 4);
-UPDATE `mangos`.`quest_template` SET `Type`=1 WHERE  `entry`=30223;
+UPDATE `mangos`.`quest_template` SET `Type`=1 , `RewChoiceItemId1`=30104, `RewChoiceItemId2`=30108, `RewChoiceItemCount1`=1, `RewChoiceItemCount2`=1 WHERE  `entry`=30223 AND `patch`=0;
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90043, 30223);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90043, 30223);
 
@@ -401,6 +401,7 @@ REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90043, 3022
 
 -- Custom gear reward
 REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewOrReqMoney`, `RewMoneyMaxLevel`, `OfferRewardEmote1`) VALUES (30227, 8, 40, 46, 8, 'Jarquia', 'The leader of the murlocs on the beach is named Jarquia. Killing him might put a dent in the murlocs plans. Take hi out.', 'Kill Jarquia then return to Watcher Kelly in Swamp of Sorrows.', 'You have done well!', 'Have you killed Jarquia yet?', '', '', '', '', '', 9916, 1, 72, 100, 4900, 15000, 4900, 4);
+UPDATE `mangos`.`quest_template` SET `RewItemId1`=30113, `RewItemCount1`=1 WHERE  `entry`=30227 AND `patch`=0;
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90043, 30227);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90043, 30227);
 
@@ -442,17 +443,21 @@ REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (11596, 3007
 
 -- Hinterlands
 REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOCount1`, `RewXP`, `RewMoneyMaxLevel`) VALUES (30023, 47, 44, 50, 8, 'Those darned Snapjaws', 'Those saltwater snapjaws are a menace. I can\'t fish for five minutes without getting a broken line from one of those oversized fish vacuums stealing my bait.', 'Thulfram the Hinterlands wants you to kill 15 Saltwater Snapjaw turtles. Return to him when you have completed this task.', 'Well met.', 'Thulfram the Hinterlands wants you to kill 15 Saltwater Snapjaw turtles. Return to him when you have completed this task.', '', '', '', '', '', 2505, 30, 4950, 1680);
+UPDATE `mangos`.`quest_template` SET `RewRepFaction1`=471, `RewRepValue1`=100 WHERE  `entry`=30023 AND `patch`=0;
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (7744, 30023);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (7744, 30023);
 REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOId2`, `ReqCreatureOrGOCount1`, `ReqCreatureOrGOCount2`, `RewXP`, `RewMoneyMaxLevel`) VALUES (30024, 47, 44, 48, 8, 'Stalking the Stalkers', 'The Silvermane wolves are one of the biggest threats to our hunters. They lay in wait, hiding amongst the bushes and landscape, then strike out when the opportunity presents itself.', 'Thulfram wants you to kill 15 Silvermane Stalkers and 15 Silvermane Howlers. Return to him once the task is complete.', 'I feel much safer now.', 'Thulfram wants you to kill 15 Silvermane Stalkers and 15 Silvermane Howlers. Return to him once the task is complete.', '', '', '', '', '', 2926, 2925, 20, 20, 4400, 1680);
+UPDATE `mangos`.`quest_template` SET `RewRepFaction1`=471, `RewRepValue1`=100 WHERE  `entry`=30024 AND `patch`=0;
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (7744, 30024);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (7744, 30024);
-REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (7744, 30025);
-REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (7744, 30025);
+DELETE FROM `mangos`.`creature_questrelation` WHERE  `id`=7744 AND `quest`=30025;
+DELETE FROM `mangos`.`creature_involvedrelation` WHERE  `id`=7744 AND `quest`=30025;
 REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOId2`, `ReqCreatureOrGOId3`, `ReqCreatureOrGOCount1`, `ReqCreatureOrGOCount2`, `ReqCreatureOrGOCount3`, `RewChoiceItemId1`, `RewChoiceItemCount1`, `RewXP`, `RewMoneyMaxLevel`) VALUES (30026, 47, 37, 47, 8, 'Owls of the Hinterlands', 'Please cull the Hinterlands of the ravage Owlbeasts. They are starting to cause trouble for us.', 'Kill 20 Vicious Owlbeasts, 20 Primitive Owlbeasts and 20 Savage Owlbeast then return to Thulfram in the Hinterlands.', 'The Owlbeasts numbers have been thinned.', 'Kill 20 Vicious Owlbeasts, 20 Primitive Owlbeasts and 20 Savage Owlbeast then return to Thulfram in the Hinterlands.', '', '', '', '', '', 2927, 2928, 2929, 20, 20, 20, 19118, 1, 4400, 1680);
+UPDATE `mangos`.`quest_template` SET `RewRepFaction1`=471, `RewRepValue1`=100 WHERE  `entry`=30026 AND `patch`=0;
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (7744, 30026);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (7744, 30026);
 REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewChoiceItemId1`, `RewChoiceItemId2`, `RewChoiceItemId3`, `RewChoiceItemCount1`, `RewChoiceItemCount2`, `RewChoiceItemCount3`, `RewXP`, `RewMoneyMaxLevel`) VALUES (30027, 47, 40, 45, 8, 'Undamaged Venom Sac', 'The gryphons here are getting sick. If I had more undaamged venom sacs from the Witherbark spiders to the south east. Could you get me some so we can save these gryphons?', 'Bring an Undamaged Venom Sac Thulfram in the Hinterlands. This venom sac disappears after 30 minutes.', 'This should help me create an antidote. Thank you, you saved the lives of some Gryphons!', 'Bring an Undamaged Venom Sac Thulfram in the Hinterlands. This venom sac disappears after 30 minutes.', '', '', '', '', '', 9322, 1, 9649, 9650, 10686, 1, 1, 1, 13000, 1680);
+UPDATE `mangos`.`quest_template` SET `RewRepFaction1`=471, `RewRepValue1`=100 WHERE  `entry`=30027 AND `patch`=0;
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (7744, 30027);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (7744, 30027);
 
@@ -605,7 +610,7 @@ REPLACE `quest_template` (`entry`, `patch`, `Method`, `ZoneOrSort`, `MinLevel`, 
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (4048, 30088);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (4048, 30088);
 
-REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`) VALUES (30089, 357, 39, 43, 8, 'Feralas Serpents', 'The wind serpents are known to be evil creatures used by the trolls for rituals. Clear out any you find.', 'Kill 20 Vale Screechers for Jer\'kai Moonweaver in Feralas.', 'The world is now a safer place.', 'Have you killed the serpents?', '', '', '', '', '', 5307, 15, 72, 100, 4100);
+REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`) VALUES (30089, 357, 39, 43, 8, 'Feralas Apes', 'The Groddoc Ape are making the roads here unsafe to travel. Clear out any you find.', 'Kill 20 Groddoc Ape for Jer\'kai Moonweaver in Feralas.', 'The world is now a safer place.', 'Have you killed the apes?', '', '', '', '', '', 5260, 15, 72, 100, 4100);
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (7957, 30089);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (7957, 30089);
 
@@ -693,11 +698,12 @@ REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLeve
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (11053, 30233);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (11053, 30233);
 REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewOrReqMoney`, `RewMoneyMaxLevel`, `OfferRewardEmote1`) VALUES (30234, 28, 52, 57, 8, 'Weeping Cave Oozling Sample', 'This is a very strange ooze sample...', 'Bring the Weeping Cave Oozling Sample High Priestess MacDonnell at Chillwind Camp in Western Plaguelands.', 'This should be of some use to my experiments.', 'This might help us in our fight against the Scourge.', '', '', '', '', '', 529, 100, 5600, 15000, 5600, 4);
-UPDATE `mangos`.`quest_template` SET `SrcItemId`=30104, `SrcItemCount`=1, `ReqItemId1`=30104, `ReqItemCount1`=1 WHERE  `entry`=30234 AND `patch`=0;
+UPDATE `mangos`.`quest_template` SET `SrcItemId`=30103, `SrcItemCount`=1, `ReqItemId1`=30103, `ReqItemCount1`=1 WHERE  `entry`=30234 AND `patch`=0;
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (11053, 30234);
 REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (12387, 30103, 100);
 
 REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `PrevQuestId`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewOrReqMoney`, `RewMoneyMaxLevel`, `OfferRewardEmote1`) VALUES (30235, 28, 52, 60, 8, 6025, 'Scarlet Investigation', 'From your findings there is some strange things going on inside of Hearthglen. Go there and take out High Protector Lorik. He seems to be one of the ring leaders behind all of this.', 'Go to Hearthglen and kill High Protector Lorik for Kirsta Deepshadow in Western Plaguelands.', 'You have done well.', 'Have you killed Lorik yet?', '', '', '', '', '', 1846, 1, 529, 100, 6100, 25000, 6100, 4);
+UPDATE `mangos`.`quest_template` SET `RewChoiceItemId1`=30105, `RewChoiceItemId2`=30106, `RewChoiceItemCount1`=1, `RewChoiceItemCount2`=1 WHERE  `entry`=30235 AND `patch`=0;
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (11610, 30235);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (11610, 30235);
 
