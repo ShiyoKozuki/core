@@ -7345,6 +7345,7 @@ WHERE entry = 4462;
 -- Trickster's Set
 -- Imperial Leather set
 -- Embossed Plate set
+-- Rageclaw Set
 -- Green shields
 -- Green / Blue offhands
 -- Blue necks / rings / trinkets

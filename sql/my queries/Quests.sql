@@ -20,6 +20,14 @@
 -- Swamp of Sorrows Stonard Explorer drop a quest item to turn into watcher biggs that starts Swamp Talker (and gives 3500 exp)
 -- Blasted Lands unused mine by Nethergarde Keep
 -- Tanaris Breadcrumb to Zalashji (8617) and also have him start a quest chain
+-- Tanaris add quest for scorpid hunter
+-- Tanaris add quest for blisterpaw hyena to goblin in middle of zone(or does one exist?)
+-- Tanaris add quest for glasshide gazer goblin in middle of zone(or does one exist?)
+-- Tanaris ground pounder drop a quest item for free 3000 exp
+-- Feralas ferelas serpents changed to rogue vale screecher
+-- WPL add custom rewards to final scarlet quest i made
+-- Timed quests (Timer on item, or timer on quest)
+-- how do distress beacon quests not replace item on starting? same with ship schedule
 
 -- Quest + Vendor + Repair npc flag = 
 -- NEXT quest_template 30231
