@@ -53,3 +53,15 @@ INSERT INTO `creature_ai_events` (`id`, `creature_id`, `condition_id`, `event_ty
 DELETE FROM `creature_ai_events` WHERE `creature_id`=5308;
 INSERT INTO `creature_ai_events` (`id`, `creature_id`, `condition_id`, `event_type`, `event_inverse_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `action1_script`, `action2_script`, `action3_script`, `comment`) VALUES
 (530801, 5308, 0, 9, 0, 100, 13, 0, 8, 40000, 60000, 530801, 0, 0, 'Rogue Vale Screecher - Cast Sonic Burst');
+
+-- Events list for Gordunni Brute
+DELETE FROM `creature_ai_events` WHERE `creature_id`=5232;
+INSERT INTO `creature_ai_events` (`id`, `creature_id`, `condition_id`, `event_type`, `event_inverse_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `action1_script`, `action2_script`, `action3_script`, `comment`) VALUES
+(523201, 5232, 0, 9, 0, 100, 13, 0, 8, 45000, 60000, 523201, 0, 0, 'Gordunni Brute - Cast Uppercut');
+
+-- Events list for Gordunni Shaman
+DELETE FROM `creature_ai_events` WHERE `creature_id`=5236;
+INSERT INTO `creature_ai_events` (`id`, `creature_id`, `condition_id`, `event_type`, `event_inverse_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `action1_script`, `action2_script`, `action3_script`, `comment`) VALUES
+(523601, 5236, 0, 1, 0, 100, 1, 1000, 1000, 600000, 600000, 523601, 0, 0, 'Gordunni Shaman - Cast Lightning Shield'),
+(523602, 5236, 0, 27, 0, 100, 1, 8134, 1, 30000, 45000, 523602, 0, 0, 'Gordunni Shaman - Cast Lightning Shield on Missing Buff'),
+(523603, 5236, 0, 14, 0, 100, 1, 1200, 40, 8000, 10000, 523603, 0, 0, 'Gordunni Shaman - Cast Healing Wave on Friendlies');

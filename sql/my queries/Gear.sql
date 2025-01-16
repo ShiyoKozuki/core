@@ -7345,6 +7345,7 @@ WHERE entry = 4462;
 -- Ghostwalker Set
 -- Ravager's Set
 -- Vanguard Set
+-- Warden's Set
 -- Windchaser Set
 -- Geomancer's Set
 -- Imperial Leather Set
