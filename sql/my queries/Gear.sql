@@ -124,7 +124,7 @@ REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id
 REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id`, `quality`, `flags`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30046, 2, 12, 'Bloodfen Claw', 3146, 1, 2048, -1, -1, 1, 10, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 4, -1);
 REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `required_reputation_faction`, `required_reputation_rank`, `stat_type1`, `stat_value1`, `stat_type2`, `stat_value2`, `delay`, `dmg_min1`, `dmg_max1`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `sheath`, `max_durability`, `disenchant_id`) VALUES (30047, 2, 10, 'Wildhammer Staff', 20379, 4, 153296, 25549, 17, -1, -1, 51, 47, 471, 5, 6, 15, 5, 12, 3000, 106, 160, 18049, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 2, 2, 90, 41);
 REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `required_reputation_faction`, `required_reputation_rank`, `delay`, `dmg_min1`, `dmg_max1`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellid_2`, `spelltrigger_2`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellid_3`, `spelltrigger_3`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `sheath`, `max_durability`, `disenchant_id`) VALUES (30048, 2, 1, 'Wildhammer Waraxe', 28719, 4, 153296, 25549, 17, -1, -1, 51, 47, 471, 5, 3700, 149, 225, 13665, 1, -1, -1, 7597, 1, -1, -1, 9336, 1, -1, -1, -1, -1, 0, 0, 1, 1, 1, 100, 48);
-REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `required_reputation_faction`, `required_reputation_rank`, `delay`, `dmg_min1`, `dmg_max1`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellid_2`, `spelltrigger_2`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `sheath`, `max_durability`, `disenchant_id`) VALUES (30049, 9, 2, 8, 'Wildhammer Blade', 30853, 4, 153296, 25549, 17, -1, -1, 51, 47, 471, 5, 3200, 138, 207, 7597, 1, -1, -1, 14052, 1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 1, 1, 100, 49);
+REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `required_reputation_faction`, `required_reputation_rank`, `delay`, `dmg_min1`, `dmg_max1`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellid_2`, `spelltrigger_2`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `sheath`, `max_durability`, `disenchant_id`) VALUES (30049, 9, 2, 8, 'Wildhammer Blade', 30853, 4, 153296, 25549, 17, -1, -1, 51, 47, 471, 5, 3200, 135, 185, 7597, 1, -1, -1, 14052, 1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 1, 1, 100, 49);
 REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `required_reputation_faction`, `required_reputation_rank`, `delay`, `dmg_min1`, `dmg_max1`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `sheath`, `max_durability`, `disenchant_id`) VALUES (30050, 2, 7, 'Wildhammer Sword', 21554, 4, 75532, 12588, 21, -1, -1, 51, 47, 471, 5, 2800, 81, 151, 8191, 2, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 2, 1, 3, 90, 49);
 REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `required_reputation_faction`, `required_reputation_rank`, `delay`, `dmg_min1`, `dmg_max1`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `sheath`, `max_durability`, `disenchant_id`) VALUES (30051, 2, 2, 15, 'Wildhammer Dagger', 20574, 4, 75532, 12588, 13, -1, -1, 51, 47, 471, 5, 1800, 51, 96, 9336, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 1, 3, 65, 49);
 REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `required_reputation_faction`, `required_reputation_rank`, `delay`, `dmg_min1`, `dmg_max1`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellid_2`, `spelltrigger_2`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `sheath`, `max_durability`, `disenchant_id`) VALUES (30053, 2, 2, 6, 'Wildhammer Spear', 31174, 4, 153296, 25549, 17, -1, -1, 51, 47, 471, 5, 3400, 137, 206, 7597, 1, -1, -1, 15814, 1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 2, 2, 100, 48);
@@ -174,7 +174,7 @@ REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display
 REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `delay`, `dmg_min1`, `dmg_max1`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `sheath`, `max_durability`) VALUES (30097, 2, 13, 'Gryphon Claws', 15720, 3, 19792, 3958, 13, -1, -1, 34, 2700, 75, 115, 18206, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 1, 7, 55);
 REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `stat_type1`, `stat_value1`, `stat_type2`, `stat_value2`, `delay`, `armor`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `max_durability`, `disenchant_id`) VALUES (30098, 4, 4, 'Gryphon Plate Mail', 27899, 3, 46227, 9245, 5, -1, -1, 50, 0, 5, 15, 7, 15, 0, 480, 15714, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 6, 115, 8);
 REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `stat_type1`, `stat_value1`, `stat_type2`, `stat_value2`, `delay`, `armor`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `max_durability`, `disenchant_id`) VALUES (30099, 4, 3, 'Gryphon Breastplate', 25932, 3, 49654, 9930, 5, -1, -1, 45, 0, 5, 15, 6, 15, 0, 248, 17988, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 5, 100, 7);
-REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `stat_type1`, `stat_value1`, `stat_type2`, `stat_value2`, `delay`, `armor`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellid_2`, `spelltrigger_2`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `max_durability`, `disenchant_id`) VALUES (30100, 4, 2, 'Gryphon Vest', 27914, 3, 45679, 9135, 5, -1, -1, 47, 0, 5, 15, 6, 15, 0, 126, 17988, 1, -1, -1, 17822, 1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 8, 85, 8);
+REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `stat_type1`, `stat_value1`, `stat_type2`, `stat_value2`, `delay`, `armor`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellid_2`, `spelltrigger_2`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `max_durability`, `disenchant_id`) VALUES (30100, 4, 2, 'Gryphon Vest', 27914, 3, 45679, 9135, 5, -1, -1, 47, 0, 5, 15, 6, 15, 0, 126, 17988, 1, -1, -1, 17826, 1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 8, 85, 8);
 REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `stat_type1`, `stat_value1`, `stat_type2`, `stat_value2`, `delay`, `dmg_min1`, `dmg_max1`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `sheath`, `max_durability`, `disenchant_id`) VALUES (30101, 2, 10, 'Troll Hunter\'s Stick', 20329, 3, 72885, 14577, 17, -1, -1, 38, 5, 10, 6, 10, 2800, 75, 113, 14248, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 2, 2, 100, 44);
 REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id`, `quality`, `flags`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30102, 2, 12, 'Living Sample', 3152, 1, 0, -1, -1, 1, 20, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 4, -1);
 REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `description`, `display_id`, `quality`, `flags`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `max_count`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `start_quest`, `material`) VALUES (30103, 12, 'Strange Sample', 'A sample of ooze from a large ooze in the Weeping Cave.', 33203, 1, 2048, 2047, 255, 15, 50, 1, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 30234, -1);
@@ -187,7 +187,8 @@ REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `subclass`, `name`,
 REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `max_count`, `stat_type1`, `stat_value1`, `stat_type2`, `stat_value2`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `sheath`, `disenchant_id`) VALUES (30111, 4, 'Woodsman Ring', 9834, 3, 17235, 4308, 11, -1, -1, 35, 1, 3, 7, 4, 7, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 5, 1, 43);
 REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `stat_type1`, `stat_value1`, `delay`, `block`, `armor`, `fire_res`, `nature_res`, `frost_res`, `shadow_res`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `sheath`, `max_durability`, `disenchant_id`) VALUES (30112, 4, 6, 'Heater Shield', 27339, 3, 56171, 11234, 14, -1, -1, 46, 7, 10, 0, 21, 1436, 7, 7, 7, 7, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 1, 4, 85, 28);
 REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `stat_type1`, `stat_value1`, `delay`, `armor`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `disenchant_id`) VALUES (30113, 4, 1, 'Cheviot Cape', 26228, 3, 37341, 7468, 16, -1, -1, 51, 7, 5, 0, 33, 20732, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 7, 9);
--- NEXT 30114
+REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `required_reputation_faction`, `required_reputation_rank`, `stat_type1`, `stat_value1`, `stat_type2`, `stat_value2`, `delay`, `dmg_min1`, `dmg_max1`, `fire_res`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellid_2`, `spelltrigger_2`, `spellppmrate_2`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `sheath`, `max_durability`, `disenchant_id`) VALUES (30114, 2, 5, 'Wildhammer Bludgeoner', 28677, 4, 175213, 35042, 17, -1, -1, 50, 45, 471, 5, 4, 20, 5, 20, 2200, 85, 135, 0, 18049, 1, -1, -1, 20667, 2, 15, -1, -1, -1, -1, -1, -1, 0, 0, 1, 2, 1, 100, 46);
+-- NEXT 30115
 
 -- flags 2048 = lootable by anyone
 
@@ -325,6 +326,7 @@ INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (56
 INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (5635, 30054, 0);
 INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (5635, 30055, 0);
 INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (5635, 30059, 0);
+INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (5635, 30114, 0);
 INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (5635, 20730, 0);
 
 -- Nethergarde Defenders Quartermaster
@@ -1762,7 +1764,7 @@ SET quality = 3,
     required_skill_rank = 300,
     spellid_1 = 17988, -- +24 Nature Damage
     spelltrigger_1 = 1,
-    spellid_2 = 17822, -- +24 Arcane Damage
+    spellid_2 = 17826, -- +24 Arcane Damage
     spelltrigger_2 = 1,
     arcane_res = 0,
     nature_res = 0
@@ -1775,7 +1777,7 @@ SET quality = 3,
     required_skill_rank = 300,
     spellid_1 = 17988, -- +24 Nature Damage
     spelltrigger_1 = 1,
-    spellid_2 = 17822, -- +24 Arcane Damage
+    spellid_2 = 17826, -- +24 Arcane Damage
     spelltrigger_2 = 1,
     arcane_res = 0,
     nature_res = 0
@@ -3151,32 +3153,50 @@ WHERE entry = 12428;
 UPDATE mangos . item_template
 SET required_skill = 164, -- Blacksmithing
     required_skill_rank = 300,
+    stat_type1 = 4,
+    stat_value1 = 17,
+    stat_type2 = 7,
+    stat_value2 = 27,
     spellid_2 = 15465, -- +2% Physical Hit
     spelltrigger_2 = 1,
-    spellid_3 = 13670, -- +2% Dodge
-    spelltrigger_3 = 1
+    spellid_3 = 21631, -- 9 MP/5
+    spelltrigger_3 = 1,
+    spellid_4 = 21471, -- 2% Shield Block
+    spelltrigger_4 = 1
 WHERE entry = 12620;
 
 UPDATE mangos . item_template
 SET required_skill = 164, -- Blacksmithing
     required_skill_rank = 300,
-    stat_type3 = 5,
-    stat_value3 = 20,
+    stat_type1 = 4,
+    stat_value1 = 17,
+    stat_type2 = 7,
+    stat_value2 = 30,
+    stat_type3 = 0,
+    stat_value3 = 0,
     spellid_2 = 15465, -- +2% Physical Hit
     spelltrigger_2 = 1,
-    spellid_3 = 21363, -- 5 MP/5
-    spelltrigger_3 = 1
+    spellid_3 = 21631, -- 9 MP/5
+    spelltrigger_3 = 1,
+    spellid_4 = 21471, -- 2% Shield Block
+    spelltrigger_4 = 1
 WHERE entry = 12618;
 
 UPDATE mangos . item_template
 SET required_skill = 164, -- Blacksmithing
     required_skill_rank = 300,
-    stat_type3 = 5,
-    stat_value3 = 20,
+    stat_type1 = 4,
+    stat_value1 = 17,
+    stat_type2 = 7,
+    stat_value2 = 29,
+    stat_type3 = 0,
+    stat_value3 = 0,
     spellid_2 = 15465, -- +2% Physical Hit
     spelltrigger_2 = 1,
-    spellid_3 = 21363, -- 5 MP/5
-    spelltrigger_3 = 1
+    spellid_3 = 21631, -- 9 MP/5
+    spelltrigger_3 = 1,
+    spellid_4 = 21471, -- 2% Shield Block
+    spelltrigger_4 = 1
 WHERE entry = 12619;
 
 -- Runic Armor Set
