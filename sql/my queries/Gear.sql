@@ -7375,6 +7375,7 @@ WHERE entry = 4462;
 -- Trickster's Set
 -- Imperial Leather set
 -- Embossed Plate set
+-- Bloodwoven Set (-stam and high spell damage?)
 -- Rageclaw Set
 -- Green shields
 -- Green / Blue offhands

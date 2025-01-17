@@ -48,6 +48,13 @@ UPDATE `mangos`.`creature_template` SET `rank`=1 WHERE  `entry`=4438 AND `patch`
 -- Archaedas HP adjusted due to 2x elite HP
 UPDATE `mangos`.`creature_template` SET `health_multiplier`=7 WHERE  `entry`=2748 AND `patch`=0;
 
+-- Divino Magic Rod mobs HP reduced due to DMG and HP multiplier on normal mobs
+UPDATE mangos.creature_template
+SET health_multiplier = 0.35, damage_multiplier = 0.6
+WHERE entry IN(8876, 7788, 8877);
+UPDATE mangos.creature_template
+SET health_multiplier = 0.3, damage_multiplier = 0.5
+WHERE entry = 7787;
 
 -- Twilight Flamereaver
 UPDATE `mangos`.`creature_template` SET `spell_id1`=15732 WHERE  `entry`=15201 AND `patch`=6;
