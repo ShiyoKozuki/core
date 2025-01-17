@@ -65,3 +65,8 @@ INSERT INTO `creature_ai_events` (`id`, `creature_id`, `condition_id`, `event_ty
 (523601, 5236, 0, 1, 0, 100, 1, 1000, 1000, 600000, 600000, 523601, 0, 0, 'Gordunni Shaman - Cast Lightning Shield'),
 (523602, 5236, 0, 27, 0, 100, 1, 8134, 1, 30000, 45000, 523602, 0, 0, 'Gordunni Shaman - Cast Lightning Shield on Missing Buff'),
 (523603, 5236, 0, 14, 0, 100, 1, 1200, 40, 8000, 10000, 523603, 0, 0, 'Gordunni Shaman - Cast Healing Wave on Friendlies');
+
+-- Anvilrage Captain (Demoralizing Shout)
+DELETE FROM `creature_ai_scripts` WHERE `id`=890301;
+INSERT INTO `creature_ai_scripts` (`id`, `delay`, `priority`, `command`, `datalong`, `datalong2`, `datalong3`, `datalong4`, `target_param1`, `target_param2`, `target_type`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `condition_id`, `comments`) VALUES
+(890301, 0, 0, 15, 27579, 0, 0, 0, 0, 0, 0, 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Anvilrage Captain - Cast Spell Demoralizing Shout');
