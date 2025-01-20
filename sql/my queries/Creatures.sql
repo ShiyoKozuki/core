@@ -48,8 +48,19 @@ UPDATE `mangos`.`creature_template` SET `rank`=1 WHERE  `entry`=4438 AND `patch`
 -- Archaedas HP adjusted due to 2x elite HP
 UPDATE `mangos`.`creature_template` SET `health_multiplier`=7 WHERE  `entry`=2748 AND `patch`=0;
 
--- Maraudon Larvae HP reduced due to DMG and HP multiplier on normal mobs
+-- Maraudon Larvae HP and damage reduced due to DMG and HP multiplier on normal mobs
 UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.3, `damage_multiplier`=0.3 WHERE  `entry`=12218 AND `patch`=0;
+
+-- Weapon Technician HP and damage reduced due to DMG and HP multiplier on normal mobs
+UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.4, `damage_multiplier`=0.9 WHERE  `entry`=8920 AND `patch`=0;
+
+-- Doomforge Arcanasmith HP and damage reduced due to DMG and HP multiplier on normal mobs
+UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.65, `damage_multiplier`=0.85 WHERE  `entry`=8900 AND `patch`=0;
+
+-- Anvilrage Reservist HP and damage reduced due to DMG and HP multiplier on normal mobs
+UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.10, `damage_multiplier`=0.4 WHERE  `entry`=8901 AND `patch`=0;
+
+
 
 -- Divino Magic Rod mobs HP reduced due to DMG and HP multiplier on normal mobs
 UPDATE mangos.creature_template

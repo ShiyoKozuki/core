@@ -5001,6 +5001,8 @@ WHERE entry = 11926;
 -- Spiderfang Carapace
 UPDATE mangos . item_template
 SET quality = 4,
+    stat_type4 = 3,
+    stat_value4 = 11,
     spellid_1 = 14047, -- +23 Spell Damage
     spelltrigger_1 = 1,
     spellid_2 = 21363, -- 5 MP/5
@@ -5013,25 +5015,654 @@ SET quality = 4,
     spellid_1 = 7598 -- +2% Physical Crit
 WHERE entry = 11678;
 
+-- Omnicast Boots
+UPDATE mangos . item_template
+SET quality = 4,
+    stat_type1 = 5,
+    stat_value1 = 12,
+    stat_type2 = 6,
+    stat_value2 = 15,
+    stat_type3 = 7,
+    stat_value3 = 12
+WHERE entry = 11822;
+
+-- High Priestess Boots
+UPDATE mangos . item_template
+SET quality = 4,
+    stat_type1 = 5,
+    stat_value1 = 12,
+    stat_type2 = 6,
+    stat_value2 = 15,
+    stat_type3 = 7,
+    stat_value3 = 12,
+    spellid_1 = 9408, -- +22 Healing
+    spelltrigger_1 = 1
+WHERE entry = 12556;
+
+-- Soot Encrusted Footwear
+UPDATE mangos . item_template
+SET quality = 4,
+    stat_type1 = 5,
+    stat_value1 = 12,
+    stat_type2 = 7,
+    stat_value2 = 15,
+    stat_type3 = 0,
+    stat_value3 = 0,
+    spellid_1 = 9408, -- +22 Healing
+    spelltrigger_1 = 1,
+    spellid_2 = 21363, -- 5 MP/5
+    spelltrigger_2 = 1
+WHERE entry = 22245;
+
+-- Shadefiend Boots
+UPDATE mangos . item_template
+SET quality = 4,
+    stat_type4 = 5,
+    stat_value4 = 8,
+    stat_type5 = 6,
+    stat_value5 = 8,
+    spellid_1 = 7680, -- +13 Healing
+    spelltrigger_1 = 1
+WHERE entry = 11675;
+
+-- Swiftwalker Boots
+UPDATE mangos . item_template
+SET quality = 4,
+    stat_type1 = 3,
+    stat_value1 = 26,
+    stat_type2 = 7,
+    stat_value2 = 18,
+    stat_type3 = 0,
+    stat_value3 = 0
+WHERE entry = 12553;
+
+-- Coal Miner Boots
+UPDATE mangos . item_template
+SET quality = 4,
+    armor = 200,
+    stat_type1 = 4,
+    stat_value1 = 18,
+    stat_type2 = 7,
+    stat_value2 = 26
+WHERE entry = 18043;
+
+-- Firemoss Boots
+UPDATE mangos . item_template
+SET quality = 4,
+    stat_type1 = 5,
+    stat_value1 = 12,
+    stat_type2 = 6,
+    stat_value2 = 15,
+    stat_type3 = 7,
+    stat_value3 = 12,
+    spellid_1 = 9406, -- +18 Healing
+    spelltrigger_1 = 1,
+    spellid_2 = 21361, -- 3 MP/5
+    spelltrigger_2 = 1
+WHERE entry = 22275;
+
+-- Fleetfoot Greaves
+UPDATE mangos . item_template
+SET quality = 4,
+    stat_type1 = 3,
+    stat_value1 = 28,
+    stat_type2 = 7,
+    stat_value2 = 14,
+    stat_type3 = 0,
+    stat_value3 = 0
+WHERE entry = 11627;
+
+-- Savage Gladiator Greaves
+UPDATE mangos . item_template
+SET quality = 4,
+    stat_type4 = 5,
+    stat_value4 = 8,
+    stat_type5 = 6,
+    stat_value5 = 8,
+    spellid_1 = 7680, -- +13 Healing
+    spelltrigger_1 = 1
+WHERE entry = 11731;
+
+-- Greaves of Withering Despair
+UPDATE mangos . item_template
+SET quality = 4,
+    stat_type1 = 5,
+    stat_value1 = 12,
+    stat_type2 = 6,
+    stat_value2 = 15,
+    stat_type3 = 7,
+    stat_value3 = 12,
+    spellid_1 = 14799, -- +20 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 22240;
+
+-- Shalehusk Boots
+UPDATE mangos . item_template
+SET quality = 4,
+    stat_type1 = 4,
+    stat_value1 = 15,
+    stat_type2 = 5,
+    stat_value2 = 26
+WHERE entry = 11787;
+
+-- Battlechaser's Greaves
+UPDATE mangos . item_template
+SET quality = 4,
+    stat_type1 = 3,
+    stat_value1 = 20,
+    stat_type2 = 4,
+    stat_value2 = 18,
+    stat_type3 = 5,
+    stat_value3 = 14
+WHERE entry = 12555;
+
+-- Entrenching Boots
+UPDATE mangos . item_template
+SET quality = 4,
+    stat_type1 = 3,
+    stat_value1 = 14,
+    stat_type2 = 4,
+    stat_value2 = 18,
+    stat_type3 = 5,
+    stat_value3 = 15,
+    stat_type4 = 7,
+    stat_value4 = 18,
+    spellid_1 = 9345, -- +16 Spell damage
+    spelltrigger_1 = 1
+WHERE entry = 22270;
+
+-- Naglering
+UPDATE mangos . item_template
+SET quality = 4,
+    armor = 100,
+    stat_type1 = 7,
+    stat_value1 = 20
+WHERE entry = 11669;
+
+-- Cyclopean Band
+UPDATE mangos . item_template
+SET quality = 4,
+    stat_type1 = 5,
+    stat_value1 = 12,
+    stat_type2 = 7,
+    stat_value2 = 12,
+    stat_type3 = 0,
+    stat_value3 = 0,
+    stat_type4 = 0,
+    stat_value4 = 0,
+    spellid_1 = 9336, -- +30 Attack Power
+    spelltrigger_1 = 1,
+    spellid_2 = 9346, -- +18 Spell Damage
+    spelltrigger_2 = 1
+WHERE entry = 11824;
+
+-- Emperor's Seal
+UPDATE mangos . item_template
+SET quality = 4,
+    spellid_1 = 18049, -- +26 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 11934;
+
+-- Magma Forged Band
+UPDATE mangos . item_template
+SET quality = 4,
+    spellid_1 = 7597, -- +1% Physical Crit
+    spelltrigger_1 = 1,
+    spellid_1 = 9331, -- +20 Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 22255;
+
+-- Bloodclot Band
+UPDATE mangos . item_template
+SET quality = 4,
+    spellid_1 = 18033, -- +46 Healing
+    spelltrigger_1 = 1
+WHERE entry = 22257;
+
+-- Silkweb Gloves
+UPDATE mangos . item_template
+SET quality = 4,
+    spellid_1 = 9406, -- +18 Healing
+    spelltrigger_1 = 1
+WHERE entry = 11634;
+
+-- Hands of the Exalted Herald
+UPDATE mangos . item_template
+SET quality = 4,
+    stat_type1 = 5,
+    stat_value1 = 15,
+    stat_type2 = 6,
+    stat_value2 = 15,
+    stat_type3 = 7,
+    stat_value3 = 10
+WHERE entry = 12554;
+
+-- Mana Shaping Handwraps
+UPDATE mangos . item_template
+SET quality = 4,
+    stat_type1 = 5,
+    stat_value1 = 15,
+    stat_type2 = 6,
+    stat_value2 = 15,
+    stat_type3 = 7,
+    stat_value3 = 10,
+    spellid_1 = 15714, -- +22 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 22256;
+
+-- Ogreseer Fists
+UPDATE mangos . item_template
+SET quality = 4,
+    stat_type1 = 5,
+    stat_value1 = 15,
+    stat_type2 = 6,
+    stat_value2 = 15,
+    stat_type3 = 7,
+    stat_value3 = 10,
+    spellid_1 = 15714, -- +22 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 11665;
+
+-- Mar Alom's Grip
+UPDATE mangos . item_template
+SET quality = 4,
+    stat_type1 = 5,
+    stat_value1 = 15,
+    stat_type2 = 6,
+    stat_value2 = 15,
+    stat_type3 = 7,
+    stat_value3 = 10,
+    spellid_1 = 9318, -- +33 Healing
+    spelltrigger_1 = 1
+WHERE entry = 12547;
+
+-- Savage Gladiator Grips
+UPDATE mangos . item_template
+SET quality = 4,
+    stat_type5 = 6,
+    stat_value5 = 8,
+    spellid_1 = 7680, -- +13 Healing
+    spelltrigger_1 = 1
+WHERE entry = 11730;
+
+-- Molten Fists
+UPDATE mangos . item_template
+SET quality = 4,
+    spellid_1 = 15465, -- +2% Physical Hit
+    spelltrigger_1 = 1
+WHERE entry = 11814;
+
+-- Fists of Phalanx
+UPDATE mangos . item_template
+SET quality = 4,
+    stat_type1 = 4,
+    stat_value1 = 27,
+    stat_type2 = 7,
+    stat_value2 = 13,
+    spellid_1 = 7597, -- +1% Physical Crit
+    spelltrigger_1 = 1
+WHERE entry = 11745;
+
+-- Circle of Flame
+UPDATE mangos . item_template
+SET spellid_1 = 18053, -- +36 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 11808;
+
+-- Chief Architect's Monocle
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 14798, -- +30 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 11839;
+
+-- Ragefury Eyepatch
+UPDATE mangos . item_template
+SET quality = 4,
+    armor = 200,
+    stat_type1 = 4,
+    stat_value1 = 27,
+    stat_type2 = 7,
+    stat_value2 = 20
+WHERE entry = 11735;
+
+-- Ghostshroud
+UPDATE mangos . item_template
+SET quality = 4,
+    spellid_1 = 7597, -- +1% Physical Crit
+    spelltrigger_1 = 1
+WHERE entry = 11925;
+
+-- Savage Gladiator Helm
+UPDATE mangos . item_template
+SET quality = 4,
+    stat_type1 = 3,
+    stat_value1 = 12,
+    stat_type2 = 4,
+    stat_value2 = 18,
+    stat_type3 = 5,
+    stat_value3 = 12,
+    stat_type4 = 6,
+    stat_value4 = 12,
+    stat_type5 = 7,
+    stat_value5 = 12,
+    spellid_1 = 9406, -- +18 Healing
+    spelltrigger_1 = 1
+WHERE entry = 11729;
+
+-- Braincage
+UPDATE mangos . item_template
+SET spellid_1 = 9408, -- +22 Healing
+    spelltrigger_1 = 1,
+    spellid_2 = 21361, -- 3 MP/5
+    spelltrigger_2 = 1
+WHERE entry = 12549;
+
+-- Golem Skull Helm
+UPDATE mangos . item_template
+SET quality = 4,
+    stat_type1 = 4,
+    stat_value1 = 15,
+    stat_type2 = 7,
+    stat_value2 = 35
+WHERE entry = 11746;
+
+-- Foreman's Head Protector
+UPDATE mangos . item_template
+SET quality = 4,
+    stat_type4 = 3,
+    stat_value4 = 11,
+    spellid_1 = 9346, -- +18 Spell Damage
+    spelltrigger_1 = 1,
+    spellid_2 = 21361, -- 3 MP/5
+    spelltrigger_2 = 1
+WHERE entry = 22223;
+
+-- Enthralled Sphere
+UPDATE mangos . item_template
+SET quality = 4,
+    spellid_1 = 9417, -- +12 spell damage
+    spelltrigger_1 = 1,
+    spellid_2 = 18384, -- +1% Spell Crit
+    spelltrigger_2 = 1
+WHERE entry = 11625;
+
+-- Thaurissan's Royal Scepter
+UPDATE mangos . item_template
+SET quality = 4,
+    stat_type1 = 5,
+    stat_value1 = 12,
+    stat_type2 = 6,
+    stat_value2 = 15,
+    stat_type3 = 7,
+    stat_value3 = 10
+WHERE entry = 11928;
+
+-- Magmus Stone
+UPDATE mangos . item_template
+SET quality = 4,
+    armor = 100,
+    stat_type1 = 3,
+    stat_value1 = 9,
+    stat_type2 = 4,
+    stat_value2 = 9,
+    stat_type3 = 5,
+    stat_value3 = 9,
+    stat_type3 = 6,
+    stat_value3 = 9,
+    stat_type3 = 7,
+    stat_value3 = 9
+WHERE entry = 11935;
+
+-- Senior Designer's Pantaloons
+UPDATE mangos . item_template
+SET quality = 4,
+    stat_type1 = 5,
+    stat_value1 = 20,
+    stat_type2 = 6,
+    stat_value2 = 22,
+    stat_type3 = 7,
+    stat_value3 = 15
+WHERE entry = 11841;
+
+-- Haunting Specter Legging
+UPDATE mangos . item_template
+SET quality = 4,
+    stat_type3 = 7,
+    stat_value3 = 15,
+    spellid_1 = 14798, -- +30 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 11929;
+
+-- Warstrife Leggings
+UPDATE mangos . item_template
+SET quality = 4,
+    stat_type1 = 4,
+    stat_value1 = 25,
+    stat_type2 = 7,
+    stat_value2 = 35,
+    stat_type3 = 0,
+    stat_value3 = 0
+WHERE entry = 11821;
+
+-- Luminary Kilt
+UPDATE mangos . item_template
+SET quality = 4,
+    stat_type1 = 5,
+    stat_value1 = 20,
+    stat_type2 = 6,
+    stat_value2 = 25,
+    stat_type3 = 7,
+    stat_value3 = 15,
+    spellid_1 = 14798, -- +30 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 11823;
+
+-- Leggings of Frenzied Magic
+UPDATE mangos . item_template
+SET quality = 4,
+    stat_type1 = 5,
+    stat_value1 = 25,
+    stat_type2 = 7,
+    stat_value2 = 20
+WHERE entry = 22271;
+
+-- Savage Gladiator Leggings
+UPDATE mangos . item_template
+SET quality = 4,
+    stat_type4 = 5,
+    stat_value4 = 12,
+    stat_type5 = 6,
+    stat_value5 = 12,
+    spellid_1 = 9315, -- +26 Healing
+    spelltrigger_1 = 1
+WHERE entry = 11728;
+
+-- Searingscale Leggings
+UPDATE mangos . item_template
+SET quality = 4,
+    stat_type1 = 5,
+    stat_value1 = 25,
+    stat_type2 = 7,
+    stat_value2 = 18,
+    stat_type3 = 0,
+    stat_value3 = 0,
+    stat_type4 = 0,
+    stat_value4 = 0,
+    spellid_1 = 15810, -- +44 Attack Power
+    spelltrigger_1 = 1,
+    spellid_2 = 15464, -- +1% Physical Hit
+    spelltrigger_2 = 1
+WHERE entry = 11749;
+
+-- Lavacrest Leggings
+UPDATE mangos . item_template
+SET quality = 4,
+    stat_type1 = 3,
+    stat_value1 = 20,
+    stat_type2 = 5,
+    stat_value2 = 20,
+    stat_type3 = 7,
+    stat_value3 = 20,
+    spellid_1 = 15464, -- +1% Physical Hit
+    spelltrigger_1 = 1
+WHERE entry = 11802;
+
+-- Legplates of the Eternal Guardian
+UPDATE mangos . item_template
+SET quality = 4,
+    stat_type1 = 4,
+    stat_value1 = 19,
+    stat_type2 = 7,
+    stat_value2 = 27
+WHERE entry = 11927;
+
+-- Barman Shanker
+UPDATE mangos . item_template
+SET quality = 4,
+    dmg_min1 = 70,
+    dmg_max1 = 130
+WHERE entry = 12791;
+
+-- Grizzle's Skinner
+UPDATE mangos . item_template
+SET quality = 4,
+    dmg_min1 = 90,
+    dmg_max1 = 150
+WHERE entry = 11702;
+
+-- Wraith Scythe
+UPDATE mangos . item_template
+SET quality = 4,
+    delay = 1500,
+    dmg_min1 = 45,
+    dmg_max1 = 105,
+    spellppmrate_1 = 15 
+WHERE entry = 11920;
+
+-- Ribsplitter
+UPDATE mangos . item_template
+SET quality = 4,
+    dmg_min1 = 91,
+    dmg_max1 = 151
+WHERE entry = 12527;
+
+-- Ironfoe
+UPDATE mangos . item_template
+SET quality = 4,
+    dmg_min1 = 102,
+    dmg_max1 = 162
+WHERE entry = 11684;
+
+-- Rubidium Hammer
+UPDATE mangos . item_template
+SET quality = 4,
+    dmg_min1 = 70,
+    dmg_max1 = 130,
+    spellid_1 = 15714, -- +22 Spell Damage
+    spelltrigger_1 = 1,
+    spellid_2 = 21365, -- 9 MP/5
+    spelltrigger_2 = 1,
+    spellid_3 = 10373, -- Chance on hit: AOE fire damage
+    spelltrigger_3 = 2
+WHERE entry = 11805;
+
+-- The Hammer of Grace
+UPDATE mangos . item_template
+SET quality = 4,
+    dmg_min1 = 79,
+    dmg_max1 = 162,
+    stat_type1 = 5,
+    stat_value1 = 10,
+    stat_type2 = 7,
+    stat_value2 = 10
+WHERE entry = 11923;
+
+-- Hurley's Tankard
+UPDATE mangos . item_template
+SET quality = 4,
+    dmg_min1 = 79,
+    dmg_max1 = 162,
+    spellid_1 = 15810, -- +44 Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 18044;
+
+-- Arbiter's Blade
+UPDATE mangos . item_template
+SET quality = 4,
+    dmg_min1 = 64,
+    dmg_max1 = 140,
+    stat_type1 = 5,
+    stat_value1 = 12,
+    stat_type2 = 7,
+    stat_value2 = 7,
+    spellid_1 = 18050, -- +33 Spell Damage
+    spelltrigger_1 = 1   
+WHERE entry = 11784;
+
+-- Lord General's Sword
+UPDATE mangos . item_template
+SET quality = 4,
+    dmg_min1 = 100,
+    dmg_max1 = 160,
+    stat_type1 = 3,
+    stat_value1 = 9,
+    stat_type2 = 4,
+    stat_value2 = 9
+WHERE entry = 11817;
+
+-- Hookfang Shanker
+UPDATE mangos . item_template
+SET quality = 4,
+    dmg_min1 = 45,
+    dmg_max1 = 95,
+    stat_type1 = 3,
+    stat_value1 = 9,
+    stat_type2 = 4,
+    stat_value2 = 9,
+    spellppmrate_1 = 15,
+    spellid_2 = 9331, -- +20 Attack Power
+    spelltrigger_2 = 1
+WHERE entry = 11635;
+
+-- Blood-etched Blade
+UPDATE mangos . item_template
+SET quality = 4,
+    dmg_min1 = 50,
+    dmg_max1 = 100,
+    stat_type1 = 5,
+    stat_value1 = 12,
+    stat_type2 = 7,
+    stat_value2 = 7,
+    spellid_1 = 15714, -- +22 Spell Damage
+    spelltrigger_1 = 1,
+    spellid_2 = 21365, -- 9 MP/5
+    spelltrigger_2 = 1
+WHERE entry = 11922;
+
+-- Flarethorn
+UPDATE mangos . item_template
+SET quality = 4,
+    dmg_min1 = 50,
+    dmg_max1 = 100,
+    stat_type1 = 5,
+    stat_value1 = 8,
+    stat_type2 = 6,
+    stat_value2 = 12,
+    spellid_1 = 15715, -- +25 Healing
+    spelltrigger_1 = 1,
+    spellid_2 = 21363, -- 5 MP/5
+    spelltrigger_2 = 1
+WHERE entry = 22266;
+
 -- Force of Magma
 UPDATE mangos . item_template
 SET spellid_1 = 15095, -- Molten Blast
     spelltrigger_1 = 2,
-    spellid_1 = 15714, -- +22 Spell Damage
-    spelltrigger_1 = 1
+    spellid_2 = 15714, -- +22 Spell Damage
+    spelltrigger_2 = 1
 WHERE entry = 11803;
 
--- Lord General's Sword
-UPDATE mangos . item_template
-SET dmg_min1 = 68,
-    dmg_max1 = 130
-WHERE entry = 11817;
-
--- Enthralled Sphere
-UPDATE mangos . item_template
-SET spellid_1 = 18384, -- +1% Spell Crit
-    spelltrigger_1 = 1
-WHERE entry = 11625;
 
 -- LBRS
 
