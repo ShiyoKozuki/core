@@ -1,5 +1,6 @@
--- 50000: Hostile Player Within 5 Yards Of The Target
-REPLACE `conditions` (`condition_entry`, `type`, `value1`, `value2`, `value3`, `value4`, `flags`) VALUES (50000, 56, 1, 5, 0, 0, 0);
+-- 50000: Hostile Player Within 5 Yards Of The Source
+UPDATE `conditions` SET `flags`=2 WHERE `condition_entry`=50000;
+
 
 -- Events list for Torn Fin Tidehunter
 DELETE FROM `creature_ai_events` WHERE `creature_id`=2377;
@@ -70,3 +71,40 @@ INSERT INTO `creature_ai_events` (`id`, `creature_id`, `condition_id`, `event_ty
 DELETE FROM `creature_ai_scripts` WHERE `id`=890301;
 INSERT INTO `creature_ai_scripts` (`id`, `delay`, `priority`, `command`, `datalong`, `datalong2`, `datalong3`, `datalong4`, `target_param1`, `target_param2`, `target_type`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `condition_id`, `comments`) VALUES
 (890301, 0, 0, 15, 27579, 0, 0, 0, 0, 0, 0, 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Anvilrage Captain - Cast Spell Demoralizing Shout');
+
+-- Events list for Vilebranch Aman'zasi Guard
+DELETE FROM `creature_ai_events` WHERE `creature_id`=2648;
+INSERT INTO `creature_ai_events` (`id`, `creature_id`, `condition_id`, `event_type`, `event_inverse_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `action1_script`, `action2_script`, `action3_script`, `comment`) VALUES
+(264801, 2648, 0, 9, 0, 100, 13, 0, 5, 30000, 45000, 264801, 0, 0, 'Vilebranch Aman\'zasi Guard - Cast Shield Slam'),
+(264802, 2648, 0, 2, 0, 100, 4, 15, 0, 0, 0, 264802, 0, 0, 'Vilebranch Aman\'zasi Guard - Flee at 15% HP');
+
+-- Events list for Hatecrest Serpent Guard
+DELETE FROM `creature_ai_events` WHERE `creature_id`=5333;
+INSERT INTO `creature_ai_events` (`id`, `creature_id`, `condition_id`, `event_type`, `event_inverse_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `action1_script`, `action2_script`, `action3_script`, `comment`) VALUES
+(533301, 5333, 50000, 0, 0, 100, 13, 7000, 15000, 35000, 45000, 533301, 0, 0, 'Hatecrest Serpent Guard - Cast Frost Shock'),
+(533302, 5333, 0, 2, 0, 100, 4, 15, 0, 0, 0, 533302, 0, 0, 'Hatecrest Serpent Guard - Flee at 15% HP');
+
+-- Events list for Ironfur Patriarch
+DELETE FROM `creature_ai_events` WHERE `creature_id`=5274;
+INSERT INTO `creature_ai_events` (`id`, `creature_id`, `condition_id`, `event_type`, `event_inverse_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `action1_script`, `action2_script`, `action3_script`, `comment`) VALUES
+(527401, 5274, 50000, 0, 0, 100, 13, 10000, 20000, 60000, 75000, 527401, 0, 0, 'Ironfur Patriarch - Cast Demoralizing Roar');
+
+-- Events list for Groddoc Thunderer
+DELETE FROM `creature_ai_events` WHERE `creature_id`=5262;
+INSERT INTO `creature_ai_events` (`id`, `creature_id`, `condition_id`, `event_type`, `event_inverse_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `action1_script`, `action2_script`, `action3_script`, `comment`) VALUES
+(526201, 5262, 50000, 0, 0, 100, 13, 15000, 20000, 35000, 45000, 526201, 0, 0, 'Groddoc Thunderer - Cast Thunderclap');
+
+-- Events list for Ferocious Rage Scar
+DELETE FROM `creature_ai_events` WHERE `creature_id`=5299;
+INSERT INTO `creature_ai_events` (`id`, `creature_id`, `condition_id`, `event_type`, `event_inverse_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `action1_script`, `action2_script`, `action3_script`, `comment`) VALUES
+(529901, 5299, 50000, 0, 0, 100, 13, 15000, 25000, 45000, 60000, 529901, 0, 0, 'Ferocious Rage Scar - Cast Rend Flesh');
+
+-- Events list for Barbed Lasher
+DELETE FROM `creature_ai_events` WHERE `creature_id`=12219;
+INSERT INTO `creature_ai_events` (`id`, `creature_id`, `condition_id`, `event_type`, `event_inverse_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `action1_script`, `action2_script`, `action3_script`, `comment`) VALUES
+(1221901, 12219, 50000, 0, 0, 100, 13, 12000, 20000, 50000, 75000, 1221901, 0, 0, 'Barbed Lasher - Cast Thorn Volley');
+
+-- Events list for Constrictor Vine
+DELETE FROM `creature_ai_events` WHERE `creature_id`=12220;
+INSERT INTO `creature_ai_events` (`id`, `creature_id`, `condition_id`, `event_type`, `event_inverse_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `action1_script`, `action2_script`, `action3_script`, `comment`) VALUES
+(1222001, 12220, 50000, 0, 0, 100, 13, 12000, 25000, 45000, 60000, 1222001, 0, 0, 'Constrictor Vine - Cast Entangling Roots');

@@ -48,6 +48,9 @@ UPDATE `mangos`.`creature_template` SET `rank`=1 WHERE  `entry`=4438 AND `patch`
 -- Archaedas HP adjusted due to 2x elite HP
 UPDATE `mangos`.`creature_template` SET `health_multiplier`=7 WHERE  `entry`=2748 AND `patch`=0;
 
+-- Maraudon Larvae HP reduced due to DMG and HP multiplier on normal mobs
+UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.3, `damage_multiplier`=0.3 WHERE  `entry`=12218 AND `patch`=0;
+
 -- Divino Magic Rod mobs HP reduced due to DMG and HP multiplier on normal mobs
 UPDATE mangos.creature_template
 SET health_multiplier = 0.35, damage_multiplier = 0.6
