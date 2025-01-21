@@ -108,3 +108,14 @@ INSERT INTO `creature_ai_events` (`id`, `creature_id`, `condition_id`, `event_ty
 DELETE FROM `creature_ai_events` WHERE `creature_id`=12220;
 INSERT INTO `creature_ai_events` (`id`, `creature_id`, `condition_id`, `event_type`, `event_inverse_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `action1_script`, `action2_script`, `action3_script`, `comment`) VALUES
 (1222001, 12220, 50000, 0, 0, 100, 13, 12000, 25000, 45000, 60000, 1222001, 0, 0, 'Constrictor Vine - Cast Entangling Roots');
+
+-- Events list for Subterranean Diemetradon
+DELETE FROM `creature_ai_events` WHERE `creature_id`=13323;
+INSERT INTO `creature_ai_events` (`id`, `creature_id`, `condition_id`, `event_type`, `event_inverse_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `action1_script`, `action2_script`, `action3_script`, `comment`) VALUES
+(1332301, 13323, 50000, 0, 0, 100, 13, 12000, 25000, 35000, 45000, 1332301, 0, 0, 'Subterranean Diemetradon - Cast Sonic Burst');
+
+-- Events list for Theradrim Guardian
+DELETE FROM `creature_ai_events` WHERE `creature_id`=11784;
+INSERT INTO `creature_ai_events` (`id`, `creature_id`, `condition_id`, `event_type`, `event_inverse_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `action1_script`, `action2_script`, `action3_script`, `comment`) VALUES
+(1178401, 11784, 0, 6, 0, 100, 0, 0, 0, 0, 0, 1178401, 0, 0, 'Theradrim Guardian - Summon Theradrim Shardling on Death'),
+(1178402, 11784, 50000, 0, 0, 100, 13, 12000, 20000, 45000, 60000, 1178402, 0, 0, 'Theradrim Guardian - Cast Knockdown');

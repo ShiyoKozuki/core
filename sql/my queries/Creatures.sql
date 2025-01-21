@@ -60,6 +60,14 @@ UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.65, `damage_multip
 -- Anvilrage Reservist HP and damage reduced due to DMG and HP multiplier on normal mobs
 UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.10, `damage_multiplier`=0.4 WHERE  `entry`=8901 AND `patch`=0;
 
+-- Theradrim Shardling HP and damage reduced due to DMG and HP multiplier on normal mobs
+UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.4, `damage_multiplier`=0.5 WHERE  `entry`=11783 AND `patch`=0;
+
+-- Theradrim Shardling HP and damage reduced due to DMG and HP multiplier on normal mobs
+UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.5, `damage_multiplier`=0.45 WHERE  `entry`=11789 AND `patch`=0;
+
+-- Princess Theradras adjusted due to 2x elite HP
+UPDATE `mangos`.`creature_template` SET `health_multiplier`=5 WHERE  `entry`=12201 AND `patch`=0;
 
 
 -- Divino Magic Rod mobs HP reduced due to DMG and HP multiplier on normal mobs

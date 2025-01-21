@@ -8365,6 +8365,7 @@ WHERE entry = 4462;
 -- Greens
 
 -- TODO:
+-- Lodestone Necklace
 -- Revengant Set
 -- Pridelord Set
 -- Elunarian Set
