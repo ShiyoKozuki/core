@@ -274,3 +274,6 @@ UPDATE mangos . spell_template
 SET effectBasePoints1 = 19,
     effectBasePoints2 = 19
 WHERE entry = 15017;
+
+-- Mace Spec (Warrior)
+UPDATE `spell_template` SET `effect2`=30, `effectDieSides2`=1, `effectBaseDice2`=1, `effectBasePoints2`=199, `effectBonusCoefficient2`=-1, `effectImplicitTargetA2`=1, `effectMiscValue2`=1 WHERE `entry`=5530

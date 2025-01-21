@@ -5655,6 +5655,151 @@ SET quality = 4,
     spelltrigger_2 = 1
 WHERE entry = 22266;
 
+-- Bloodfist
+UPDATE mangos . item_template
+SET quality = 4,
+    dmg_min1 = 50,
+    dmg_max1 = 100,
+    stat_type1 = 3,
+    stat_value1 = 9,
+    stat_type2 = 4,
+    stat_value2 = 9,
+    spellid_1 = 21170, -- Chance on hit: Steals 100 to 180 life from target enemy.
+    spelltrigger_1 = 2,
+    spellppmrate_1 = 10 
+WHERE entry = 11744;
+
+-- Rockfist
+UPDATE mangos . item_template
+SET quality = 4,
+    armor = 200,
+    dmg_min1 = 45,
+    dmg_max1 = 95,
+    stat_type1 = 7,
+    stat_value1 = 15,
+    stat_type2 = 0,
+    stat_value2 = 0,
+    spellid_1 = 17500, -- Chance on hit: Knocks target silly for 2 sec and increases Strength by 50 for 30 sec.
+    spelltrigger_1 = 2,
+    spellppmrate_1 = 10 
+WHERE entry = 11743;
+
+-- Lefty's Brass Knuckle
+UPDATE mangos . item_template
+SET quality = 4,
+    dmg_min1 = 50,
+    dmg_max1 = 100,
+    stat_type1 = 3,
+    stat_value1 = 9,
+    stat_type2 = 4,
+    stat_value2 = 9,
+    spellid_1 = 13533, -- Chance on hit: Increases your attack speed by 30% for 10 sec.
+    spelltrigger_1 = 2,
+    spellppmrate_1 = 10 
+WHERE entry = 22317;
+
+-- Houndmaster's Bow
+UPDATE mangos . item_template
+SET quality = 4,
+    delay = 2900,
+    dmg_min1 = 91,
+    dmg_max1 = 141,
+    spellid_1 = 9331, -- +20 Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 11628;
+
+-- Malgen's Long Bow
+UPDATE mangos . item_template
+SET quality = 4,
+    delay = 2900,
+    dmg_min1 = 91,
+    dmg_max1 = 141,
+    spellid_1 = 21440, -- +36 Ranged Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 22318;
+
+-- Houndmaster's Rifle
+UPDATE mangos . item_template
+SET quality = 4,
+    delay = 2900,
+    dmg_min1 = 91,
+    dmg_max1 = 141,
+    spellid_1 = 21440, -- +36 Ranged Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 11629;
+
+-- Pyric Caduceus
+UPDATE mangos . item_template
+SET quality = 4,
+    dmg_min1 = 106,
+    dmg_max1 = 156,
+    spellid_1 = 9345, -- +16 Spell damage
+    spelltrigger_1 = 1
+WHERE entry = 11748;
+
+-- Wand of Eternal Light
+UPDATE mangos . item_template
+SET quality = 4,
+    dmg_min1 = 84,
+    dmg_max1 = 134,
+    spellid_2 = 9318, -- +33 Healing
+    spelltrigger_1 = 2
+WHERE entry = 22254;
+
+-- Stoneshell Guard
+UPDATE mangos . item_template
+SET quality = 4,
+    armor = 2539,
+    block = 46,
+    stat_type1 = 7,
+    stat_value1 = 10,
+    stat_type2 = 0,
+    stat_value2 = 0,
+    spellid_1 = 22852, -- Block Value +23
+    spelltrigger_1 = 1,
+    spellid_2 = 21471, -- 2% Shield Block
+    spelltrigger_2 = 1
+WHERE entry = 11631;
+
+-- Rock Golem Bulwark
+UPDATE mangos . item_template
+SET quality = 4,
+    armor = 2539,
+    block = 46,
+    stat_type1 = 5,
+    stat_value1 = 15,
+    spellid_1 = 9318, -- +33 Healing
+    spelltrigger_1 = 1
+WHERE entry = 11785;
+
+-- Kentic Amice
+UPDATE mangos . item_template
+SET quality = 4,
+    stat_type1 = 5,
+    stat_value1 = 23,
+    stat_type2 = 6,
+    stat_value2 = 13,
+    stat_type3 = 7,
+    stat_value3 = 10,
+    spellid_1 = 9345, -- +16 Spell damage
+    spelltrigger_1 = 1
+WHERE entry = 11624;
+
+-- Boreal Mantle
+UPDATE mangos . item_template
+SET quality = 4,
+    stat_type1 = 5,
+    stat_value1 = 21,
+    stat_type2 = 6,
+    stat_value2 = 5,
+    stat_type3 = 7,
+    stat_value3 = 10,
+    spellid_2 = 21361, -- 3 MP/5
+    spelltrigger_2 = 1
+WHERE entry = 11782;
+
+-- Mantle of Lost Hope
+
 -- Force of Magma
 UPDATE mangos . item_template
 SET spellid_1 = 15095, -- Molten Blast
@@ -5770,7 +5915,7 @@ WHERE entry = 13163;
 
 -- Heart of the Scale
 UPDATE mangos . item_template
-SET spellid_2 = 22852, -- +23 Block Value
+SET spellid_2 = 22852, -- Block Value +23
     spelltrigger_2 = 1
 WHERE entry = 13164;
 
