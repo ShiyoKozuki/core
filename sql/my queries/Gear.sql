@@ -6636,6 +6636,50 @@ WHERE entry = 18538;
 
 -- Quest Rewards
 
+-- Manacle Cuffs (The Love Potion)
+UPDATE mangos . item_template
+SET quality = 4,
+    spellid_1 = 9417, -- +12 spell damage
+    spelltrigger_1 = 1,
+    spellid_2 = 23727, -- +1% Spell Hit
+    spelltrigger_2 = 1
+WHERE entry = 11962;
+
+-- Nagmara's Whipping Belt (Nagmara's Whipping Belt)
+UPDATE mangos . item_template
+SET quality = 4,
+    stat_type1 = 3,
+    stat_value1 = 10,
+    stat_type2 = 4,
+    stat_value2 = 12,
+    stat_type3 = 5,
+    stat_value3 = 10,
+    stat_type4 = 6,
+    stat_value4 = 10,
+    stat_type5 = 7,
+    stat_value5 = 10,
+    spellid_1 = 9406, -- +18 Healing
+    spelltrigger_1 = 1
+WHERE entry = 11866;
+
+-- Magni's Will (The Princess's Surprise)
+UPDATE mangos . item_template
+SET quality = 4,
+    stat_type1 = 4,
+    stat_value1 = 15,
+    stat_type2 = 7,
+    stat_value2 = 15
+WHERE entry = 12548;
+
+-- Songstone of Ironforge (The Princess's Surprise)
+UPDATE mangos . item_template
+SET quality = 4,
+    stat_type1 = 5,
+    stat_value1 = 15,
+    stat_type2 = 6,
+    stat_value2 = 15
+WHERE entry = 12543;
+
 -- Zorbin's Water Resistant Hat
 UPDATE mangos . item_template
 SET quality = 3,
