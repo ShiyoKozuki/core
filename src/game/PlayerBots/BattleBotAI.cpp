@@ -570,7 +570,7 @@ void BattleBotAI::DoGraveyardJump()
         timeOffset += point->timeDiff;
         me->m_Events.AddLambdaEventAtOffset([pBot, pAI, point, isLast]
         {
-            if (!pBot->HasUnitState(UNIT_STAT_NO_FREE_MOVE))
+            if (!pBot->HasUnitState(UNIT_STATE_NO_FREE_MOVE))
             {
                 pBot->SetUnitMovementFlags(point->moveFlags);
                 pBot->Relocate(point->position.x, point->position.y, point->position.z, point->position.o);
@@ -644,7 +644,7 @@ void BattleBotAI::UpdateWaypointMovement()
     if (!me->IsStopped())
         return;
 
-    if (me->HasUnitState(UNIT_STAT_CAN_NOT_MOVE))
+    if (me->HasUnitState(UNIT_STATE_CAN_NOT_MOVE))
         return;
 
     switch (me->GetMotionMaster()->GetCurrentMovementGeneratorType())
@@ -946,7 +946,7 @@ void BattleBotAI::UpdateAI(uint32 const diff)
         }
     }
 
-    if (me->HasUnitState(UNIT_STAT_CAN_NOT_REACT_OR_LOST_CONTROL))
+    if (me->HasUnitState(UNIT_STATE_CAN_NOT_REACT_OR_LOST_CONTROL))
         return;
 
     if (me->GetCurrentSpell(CURRENT_AUTOREPEAT_SPELL))
@@ -1202,7 +1202,7 @@ void BattleBotAI::UpdateAI(uint32 const diff)
             me->SendMovementPacket(MSG_MOVE_SET_FACING, false);
         }
 
-        if (!me->HasUnitState(UNIT_STAT_MELEE_ATTACKING) &&
+        if (!me->HasUnitState(UNIT_STATE_MELEE_ATTACKING) &&
            (m_role != ROLE_HEALER) &&
             IsValidHostileTarget(pVictim, ignoreCC) &&
             AttackStart(pVictim))
@@ -3039,11 +3039,11 @@ void BattleBotAI::UpdateInCombatAI_Mage()
                     return;
             }
 
-            if (!me->HasUnitState(UNIT_STAT_CAN_NOT_MOVE))
+            if (!me->HasUnitState(UNIT_STATE_CAN_NOT_MOVE))
             {
                 if (m_spells.mage.pFrostNova &&
-                    !pVictim->HasUnitState(UNIT_STAT_ROOT) &&
-                    !pVictim->HasUnitState(UNIT_STAT_CAN_NOT_REACT_OR_LOST_CONTROL) &&
+                    !pVictim->HasUnitState(UNIT_STATE_ROOT) &&
+                    !pVictim->HasUnitState(UNIT_STATE_CAN_NOT_REACT_OR_LOST_CONTROL) &&
                     CanTryToCastSpell(me, m_spells.mage.pFrostNova))
                 {
                     DoCastSpell(me, m_spells.mage.pFrostNova);
@@ -4187,7 +4187,7 @@ void BattleBotAI::UpdateInCombatAI_Warrior()
         }
 
         if (pVictim->IsMoving() &&
-           !pVictim->HasUnitState(UNIT_STAT_ROOT) &&
+           !pVictim->HasUnitState(UNIT_STATE_ROOT) &&
            !pVictim->HasAuraType(SPELL_AURA_MOD_DECREASE_SPEED))
         {
             if (m_spells.warrior.pHamstring &&
@@ -4621,7 +4621,7 @@ void BattleBotAI::UpdateInCombatAI_Rogue()
         }
 
         if (m_spells.rogue.pSprint &&
-           !me->HasUnitState(UNIT_STAT_ROOT) &&
+           !me->HasUnitState(UNIT_STATE_ROOT) &&
            !me->CanReachWithMeleeAutoAttack(pVictim) &&
             CanTryToCastSpell(me, m_spells.rogue.pSprint))
         {
