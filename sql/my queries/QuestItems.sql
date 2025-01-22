@@ -1,5 +1,10 @@
 -- Quest items
 
+-- If a quest item doesn't drop, remove the condition_id from the item in creature_loot_Template
+UPDATE mangos . creature_loot_template
+SET condition_id = 0
+WHERE item IN(12733) AND mincountOrRef = 1;
+
 -- 0% (Shouldn't drop)
 UPDATE mangos . creature_loot_template
 SET ChanceOrQuestChance = 0
@@ -8,7 +13,7 @@ WHERE item IN(20378) AND mincountOrRef = 1;
 -- 1%
 UPDATE mangos . creature_loot_template
 SET ChanceOrQuestChance = -1
-WHERE item IN(2607, 2939, 5366, 5233, 3349, 6065, 4612) AND mincountOrRef = 1;
+WHERE item IN(2607, 2939, 5366, 5233, 3349, 6065, 4612, 12733) AND mincountOrRef = 1;
 
 -- 5%
 UPDATE mangos . creature_loot_template
