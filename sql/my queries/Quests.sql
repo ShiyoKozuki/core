@@ -23,6 +23,7 @@
 -- Tanaris add quest for blisterpaw hyena to goblin in middle of zone(or does one exist?)
 -- Tanaris add quest for glasshide gazer goblin in middle of zone(or does one exist?)
 -- Tanaris ground pounder drop a quest item for free 3000 exp
+-- Azshara operation azshara part1 moshoof stag not courser
 -- Ferarlas Camp Protection part3 should be 4 different types of harpies 10-8 klls each not just 2 (Northspring  Roguefeather + Northspring Harpy)
 -- Timed quests (Timer on item, or timer on quest)
 -- how do distress beacon quests not replace item on starting? same with ship schedule

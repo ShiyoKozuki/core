@@ -119,3 +119,14 @@ DELETE FROM `creature_ai_events` WHERE `creature_id`=11784;
 INSERT INTO `creature_ai_events` (`id`, `creature_id`, `condition_id`, `event_type`, `event_inverse_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `action1_script`, `action2_script`, `action3_script`, `comment`) VALUES
 (1178401, 11784, 0, 6, 0, 100, 0, 0, 0, 0, 0, 1178401, 0, 0, 'Theradrim Guardian - Summon Theradrim Shardling on Death'),
 (1178402, 11784, 50000, 0, 0, 100, 13, 12000, 20000, 45000, 60000, 1178402, 0, 0, 'Theradrim Guardian - Cast Knockdown');
+
+-- Events list for Thunderhead Hippogryph
+DELETE FROM `creature_ai_events` WHERE `creature_id`=6375;
+INSERT INTO `creature_ai_events` (`id`, `creature_id`, `condition_id`, `event_type`, `event_inverse_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `action1_script`, `action2_script`, `action3_script`, `comment`) VALUES
+(637501, 6375, 50000, 0, 0, 100, 13, 7000, 12000, 15000, 30000, 637501, 0, 0, 'Thunderhead Hippogryph - Cast Shock');
+
+-- Events list for Thunderhead Stagwing
+DELETE FROM `creature_ai_events` WHERE `creature_id`=6377;
+INSERT INTO `creature_ai_events` (`id`, `creature_id`, `condition_id`, `event_type`, `event_inverse_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `action1_script`, `action2_script`, `action3_script`, `comment`) VALUES
+(637701, 6377, 50000, 0, 0, 100, 13, 7000, 15000, 20000, 30000, 637701, 0, 0, 'Thunderhead Stagwing - Cast Shock'),
+(637702, 6377, 0, 0, 0, 100, 13, 7000, 10000, 20000, 30000, 637702, 0, 0, 'Thunderhead Stagwing - Cast Wing Flap');

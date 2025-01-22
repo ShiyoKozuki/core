@@ -8519,6 +8519,7 @@ WHERE entry = 4462;
 -- Indomitable Set
 -- Ghostwalker Set
 -- Ravager's Set
+-- Valorous Set
 -- Vanguard Set
 -- Warden's Set
 -- Windchaser Set
