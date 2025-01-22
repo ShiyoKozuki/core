@@ -1386,13 +1386,13 @@ UPDATE `pool_gameobject`
 SET `description` = REPLACE(`description`, 'Stranglethorn', 'Stranglethorn Vale')
 WHERE `description` LIKE '%Stranglethorn';
 
-UPDATE pool_template
-SET description = REPLACE(description, 'Stranglethorn', 'Stranglethorn Vale')
-WHERE description LIKE '%Stranglethorn';
+UPDATE `pool_template`
+SET `description` = REPLACE(`description`, 'Stranglethorn', 'Stranglethorn Vale')
+WHERE `description` LIKE '%Stranglethorn';
 
-UPDATE pool_pool
-SET description = REPLACE(description, 'Stranglethorn', 'Stranglethorn Vale')
-WHERE description LIKE '%Stranglethorn';
+UPDATE `pool_pool`
+SET `description` = REPLACE(`description`, 'Stranglethorn', 'Stranglethorn Vale')
+WHERE `description` LIKE '%Stranglethorn';
 
 UPDATE `pool_template` SET `description`='Stranglethorn Vale - Oily Blackmouth School / Firefin Snapper School / Floating Wreckage (Master Pool)' WHERE `entry` IN (3193, 2974);
 
