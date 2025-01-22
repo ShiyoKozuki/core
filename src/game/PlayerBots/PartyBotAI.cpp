@@ -1759,7 +1759,7 @@ void PartyBotAI::UpdateInCombatAI_Paladin()
     }
 
     if (m_spells.paladin.pBlessingOfFreedom &&
-       (me->HasUnitState(UNIT_STAT_ROOT)) &&
+       (me->HasUnitState(UNIT_STATE_ROOT)) &&
         CanTryToCastSpell(me, m_spells.paladin.pBlessingOfFreedom))
     {
         if (DoCastSpell(me, m_spells.paladin.pBlessingOfFreedom) == SPELL_CAST_OK)
@@ -2199,7 +2199,7 @@ void PartyBotAI::UpdateInCombatAI_Mage()
             if ((GetRole() != ROLE_MELEE_DPS) &&
                 (me->GetMotionMaster()->GetCurrentMovementGeneratorType() != DISTANCING_MOTION_TYPE))
             {
-                if (!me->HasUnitState(UNIT_STAT_CAN_NOT_MOVE))
+                if (!me->HasUnitState(UNIT_STATE_CAN_NOT_MOVE))
                 {
                     if (m_spells.mage.pFrostNova &&
                        !pVictim->HasUnitState(UNIT_STATE_ROOT) &&

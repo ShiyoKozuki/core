@@ -404,7 +404,7 @@ enum UnitState
     // (can be removed temporary by stop command or another movement generator apply)
     // not use _MOVE versions for generic movegen state, it can be removed temporary for unit stop and etc
     UNIT_STATE_CONFUSED        = 0x00000200,                     // ConfusedMovementGenerator active/onstack
-    //UNIT_STAT_CONFUSED_MOVE   = 0x00000400,                   // No longer in use (Nostalrius)
+    //UNIT_STATE_CONFUSED_MOVE   = 0x00000400,                   // No longer in use (Nostalrius)
     UNIT_STATE_ROAMING         = 0x00000800,                     // RandomMovementGenerator/PointMovementGenerator/WaypointMovementGenerator active (now always set)
     UNIT_STATE_ROAMING_MOVE    = 0x00001000,
     UNIT_STATE_CHASE           = 0x00002000,                     // ChaseMovementGenerator active

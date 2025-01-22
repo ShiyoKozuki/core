@@ -2476,7 +2476,7 @@ Player* CombatBotBaseAI::SelectFreedomTarget() const
             {
                 if (me->IsValidHelpfulTarget(pMember) &&
                     !pMember->IsGameMaster() &&
-                    (pMember->HasUnitState(UNIT_STAT_ROOT)) &&
+                    (pMember->HasUnitState(UNIT_STATE_ROOT)) &&
                     IsPhysicalDamageClass(pMember->GetClass()) &&
                     me->IsWithinLOSInMap(pMember) &&
                     me->IsWithinDist(pMember, 30.0f))
