@@ -12,6 +12,7 @@
 -- spellid_1 = 9397, -- +7 Spell damage
 -- spellid_1 = 16431, -- Bone Armor (Encases the caster in bone armor, absorbing 1388 to 1612 damage for 1 min. While the armor holds, spellcasting cannot be interrupted by Physical attacks)
 -- Chance on hit = spelltrigger_1 = 2
+-- spellid_1 = 9344 -- +15 Spell Damage
 
 -- DPS Calc: https://docs.google.com/spreadsheets/d/1R3A3AQiqE0aqhn4C9zdLSVr_wrecjtrpxPgg3UZ66y4/edit?gid=0#gid=0
 
@@ -5323,7 +5324,9 @@ SET quality = 4,
     stat_type1 = 4,
     stat_value1 = 27,
     stat_type2 = 7,
-    stat_value2 = 20
+    stat_value2 = 20,
+    spellid_1 = 13387, -- +8 Defense
+    spelltrigger_1 = 1
 WHERE entry = 11735;
 
 -- Ghostshroud
@@ -5411,7 +5414,9 @@ SET quality = 4,
     stat_type3 = 6,
     stat_value3 = 9,
     stat_type3 = 7,
-    stat_value3 = 9
+    stat_value3 = 9,
+    spellid_1 = 13383, -- +5 Defense
+    spelltrigger_1 = 1
 WHERE entry = 11935;
 
 -- Senior Designer's Pantaloons
@@ -5799,14 +5804,398 @@ SET quality = 4,
 WHERE entry = 11782;
 
 -- Mantle of Lost Hope
+UPDATE mangos . item_template
+SET quality = 4,
+    stat_type1 = 5,
+    stat_value1 = 12,
+    stat_type2 = 7,
+    stat_value2 = 25
+WHERE entry = 22234;
+
+-- Ironweave Mantle
+UPDATE mangos . item_template
+SET quality = 4,
+    spellid_1 = 23727, -- +1% Spell Hit
+    spelltrigger_1 = 1,
+    spellid_1 = 26283, -- +20 Spell Penetration
+    spelltrigger_1 = 1
+WHERE entry = 22305;
+
+-- Splinthide Shoulders
+UPDATE mangos . item_template
+SET quality = 4,
+    stat_type4 = 3,
+    stat_value4 = 10,
+    stat_type5 = 6,
+    stat_value5 = 11
+WHERE entry = 11685;
+
+-- Dark Warder's Pauldrons
+UPDATE mangos . item_template
+SET quality = 4,
+    armor = 175,
+    stat_type1 = 4,
+    stat_value1 = 15,
+    stat_type2 = 7,
+    stat_value2 = 22,
+    stat_type3 = 0,
+    stat_value3 = 0,
+    spellid_1 = 13383, -- +5 Defense
+    spelltrigger_1 = 1
+WHERE entry = 22241;
+
+-- Dregmetal Spaulders
+UPDATE mangos . item_template
+SET quality = 4,
+    stat_type1 = 3,
+    stat_value1 = 10,
+    stat_type2 = 4,
+    stat_value2 = 11,
+    stat_type3 = 5,
+    stat_value3 = 10,
+    stat_type4 = 6,
+    stat_value4 = 10,
+    stat_type5 = 7,
+    stat_value5 = 10,
+    spellid_1 = 9406, -- +18 Healing
+    spelltrigger_1 = 1
+WHERE entry = 11722;
+
+-- Lead Surveyor's Mantle
+UPDATE mangos . item_template
+SET quality = 4,
+    stat_type1 = 5,
+    stat_value1 = 23,
+    stat_type2 = 6,
+    stat_value2 = 13,
+    spellid_1 = 9345, -- +16 Spell damage
+    spelltrigger_1 = 1
+WHERE entry = 11842;
+
+-- Golem Fitted Pauldrons
+UPDATE mangos . item_template
+SET quality = 4,
+    stat_type1 = 3,
+    stat_value1 = 27,
+    stat_type2 = 7,
+    stat_value2 = 14,
+    spellid_1 = 15465, -- +2% Physical Hit
+    spelltrigger_1 = 1
+WHERE entry = 22212;
+
+-- Earthslag Shoulders
+UPDATE mangos . item_template
+SET quality = 4,
+    stat_type4 = 3,
+    stat_value4 = 8,
+    spellid_1 = 9345, -- +16 Spell damage
+    spelltrigger_1 = 1
+WHERE entry = 11632;
+
+-- Ebonsteel Spaulders
+UPDATE mangos . item_template
+SET quality = 4,
+    stat_type1 = 4,
+    stat_value1 = 15,
+    stat_type2 = 7,
+    stat_value2 = 22,
+    stat_type3 = 0,
+    stat_value3 = 0,
+    spellid_1 = 13383, -- +5 Defense
+    spelltrigger_1 = 1
+WHERE entry = 12557;
+
+-- Force of Will
+UPDATE mangos . item_template
+SET quality = 4,
+    armor = 200,
+    stat_type1 = 7,
+    stat_value1 = 15
+WHERE entry = 11810;
+
+-- Hand of Justice
+UPDATE mangos . item_template
+SET quality = 4
+WHERE entry = 11815;
+
+-- Second Wind
+UPDATE mangos . item_template
+SET quality = 4,
+    spellid_3 = 21363, -- 5 MP/5
+    spelltrigger_2 = 3
+WHERE entry = 11819;
+
+-- Burst of Knowledge
+UPDATE mangos . item_template
+SET quality = 4,
+    spellid_2 = 23727, -- +1% Spell Hit
+    spelltrigger_2 = 1
+WHERE entry = 11832;
+
+-- Flame Wrath
+UPDATE mangos . item_template
+SET quality = 4,
+    delay = 2200,
+    dmg_min1 = 118,
+    dmg_max1 = 168,
+    spellid_2 = 15817, -- +64 Attack Power
+    spelltrigger_2 = 1,
+    spellid_3 = 7598, -- +2% Physical Crit
+    spelltrigger_3 = 1
+WHERE entry = 11809;
+
+-- Kindling Stave
+UPDATE mangos . item_template
+SET quality = 4,
+    stat_type1 = 5,
+    stat_value1 = 37,
+    stat_type2 = 6,
+    stat_value2 = 14,
+    stat_type3 = 7,
+    stat_value3 = 16,
+    spellid_1 = 18056, -- +40 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 11750;
+
+-- Angerforge's Battle Axe
+UPDATE mangos . item_template
+SET quality = 4,
+    delay = 2200,
+    dmg_min1 = 118,
+    dmg_max1 = 168,
+    spellid_1 = 16871, -- Chance on hit: Enemy is inflicted with the Bleakwood Curse that reduces their magic resistances by 25.  Can be applied up to 3 times.
+    spelltrigger_1 = 2,
+    spellppmrate_1 = 10 
+WHERE entry = 11816;
+
+-- Dreadforge Retaliator
+UPDATE mangos . item_template
+SET quality = 4,
+    delay = 2200,
+    dmg_min1 = 275,
+    dmg_max1 = 205
+WHERE entry = 11931;
+
+-- Guiding Stave of Wisdom
+UPDATE mangos . item_template
+SET quality = 4,
+    stat_type1 = 5,
+    stat_value1 = 14,
+    stat_type2 = 6,
+    stat_value2 = 37,
+    stat_type3 = 7,
+    stat_value3 = 16
+WHERE entry = 11932;
 
 -- Force of Magma
 UPDATE mangos . item_template
-SET spellid_1 = 15095, -- Molten Blast
+SET quality = 4,
+    delay = 3400,
+    dmg_min1 = 191,
+    dmg_max1 = 251,
+    spellid_1 = 15095, -- Molten Blast
     spelltrigger_1 = 2,
-    spellid_2 = 15714, -- +22 Spell Damage
+    spellppmrate_1 = 10, 
+    spellid_2 = 7598, -- +2% Physical Crit
     spelltrigger_2 = 1
 WHERE entry = 11803;
+
+-- Impervious Giant
+UPDATE mangos . item_template
+SET quality = 4,
+    armor = 300,
+    dmg_min1 = 145,
+    dmg_max1 = 205,
+    stat_type1 = 7,
+    stat_value1 = 30,
+    spellid_1 = 15464, -- +1% Physical Hit
+    spelltrigger_1 = 1,
+    spellid_2 = 21410, -- +14 Defense
+    spelltrigger_2 = 1
+WHERE entry = 11921;
+
+-- Lavastone Hammer
+UPDATE mangos . item_template
+SET quality = 4,
+    dmg_min1 = 191,
+    dmg_max1 = 251,
+    stat_type1 = 4,
+    stat_value1 = 15,
+    stat_type2 = 5,
+    stat_value2 = 25,
+    stat_type3 = 7,
+    stat_value3 = 15,
+    spellid_1 = 26158, -- +60 Spell Damage
+    spelltrigger_1 = 1,
+    spellid_2 = 21365, -- 9 MP/5
+    spelltrigger_2 = 1
+WHERE entry = 22208;
+
+-- Stone of the Earth
+UPDATE mangos . item_template
+SET quality = 4,
+    armor = 0,
+    dmg_min1 = 178,
+    dmg_max1 = 238,
+    spellid_1 = 10934, -- Smite an enemy for 384 to 429 Holy damage.
+    spelltrigger_1 = 2,
+    spellppmrate_1 = 5, 
+    spellid_2 = 15465, -- +2% Physical Hit
+    spelltrigger_2 = 1
+WHERE entry = 11786;
+
+-- Ban'thok Sash
+UPDATE mangos . item_template
+SET quality = 4,
+    stat_type1 = 5,
+    stat_value1 = 16,
+    stat_type2 = 7,
+    stat_value2 = 12,
+    spellid_1 = 23727, -- +1% Spell Hit
+    spelltrigger_1 = 1,
+    spellid_2 = 15715, -- +25 Spell Damage
+    spelltrigger_2 = 1
+WHERE entry = 11662;
+
+-- Sash of the Burning Heart
+UPDATE mangos . item_template
+SET quality = 4,
+    stat_type1 = 5,
+    stat_value1 = 16,
+    stat_type2 = 7,
+    stat_value2 = 12,
+    spellid_1 = 9318, -- +33 Healing
+    spelltrigger_1 = 1,
+    spellid_2 = 21618, -- +4 MP/5
+    spelltrigger_2 = 1
+WHERE entry = 11807;
+
+-- Girdle of Beastial Fury
+UPDATE mangos . item_template
+SET quality = 4,
+    armor = 150,
+    stat_type1 = 4,
+    stat_value1 = 12,
+    stat_type2 = 7,
+    stat_value2 = 20,
+    spellid_2 = 13383, -- +5 Defense
+    spelltrigger_2 = 1
+WHERE entry = 11686;
+
+-- Chillsteel Girdle
+UPDATE mangos . item_template
+SET quality = 4,
+    stat_type1 = 5,
+    stat_value1 = 20,
+    stat_type2 = 7,
+    stat_value2 = 8,
+    spellid_1 = 9318, -- +33 Healing
+    spelltrigger_1 = 1,
+    spellid_2 = 21618, -- +4 MP/5
+    spelltrigger_2 = 1
+WHERE entry = 11783;
+
+-- Sash of the Grand Hunt
+UPDATE mangos . item_template
+SET quality = 4,
+    spellid_4 = 7597, -- +1% Physical Crit
+    spelltrigger_4 = 1
+WHERE entry = 22207;
+
+-- Verek's Leash
+UPDATE mangos . item_template
+SET quality = 4,
+    spellid_1 = 9346, -- +18 Spell Damage
+    spelltrigger_1 = 1,
+    spellid_2 = 21618, -- +4 MP/5
+    spelltrigger_2 = 1
+WHERE entry = 22242;
+
+-- Stonewall Girdle
+UPDATE mangos . item_template
+SET quality = 4,
+    stat_type1 = 4,
+    stat_value1 = 15,
+    stat_type2 = 7,
+    stat_value2 = 21,
+    spellid_1 = 13383, -- +5 Defense
+    spelltrigger_1 = 1
+WHERE entry = 11703;
+
+-- Flameweave Cuffs
+UPDATE mangos . item_template
+SET quality = 4,
+    spellid_1 = 21363, -- 5 MP/5
+    spelltrigger_1 = 1
+WHERE entry = 11766;
+
+-- Incendic Bracers
+UPDATE mangos . item_template
+SET quality = 4,
+    stat_type1 = 5,
+    stat_value1 = 9,
+    stat_type2 = 7,
+    stat_value2 = 9,
+    spellid_2 = 14248, -- +21 Spell Damage
+    spelltrigger_2 = 1
+WHERE entry = 11768;
+
+-- Cinderhide Armsplints
+UPDATE mangos . item_template
+SET quality = 4,
+    spellid_1 = 21363, -- 5 MP/5
+    spelltrigger_1 = 1
+WHERE entry = 11764;
+
+-- Wristguards of Renown
+UPDATE mangos . item_template
+SET quality = 4,
+    spellid_1 = 9331, -- +20 Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 22204;
+
+-- Rubicund Armguards
+UPDATE mangos . item_template
+SET quality = 4,
+    stat_type3 = 5,
+    stat_value3 = 9,
+    spellid_1 = 9331, -- +20 Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 11679;
+
+-- Pyremail Wristguards
+UPDATE mangos . item_template
+SET quality = 4,
+    spellid_1 = 21363, -- 5 MP/5
+    spelltrigger_1 = 1
+WHERE entry = 11765;
+
+-- Emberplate Armguards
+UPDATE mangos . item_template
+SET quality = 4,
+    spellid_1 = 21363, -- 5 MP/5
+    spelltrigger_1 = 1
+WHERE entry = 11767;
+
+-- Runed Golem Shackles
+UPDATE mangos . item_template
+SET quality = 4,
+    stat_type1 = 4,
+    stat_value1 = 11,
+    stat_type2 = 7,
+    stat_value2 = 23
+WHERE entry = 12550;
+
+-- Black Steel Bindings
+UPDATE mangos . item_template
+SET quality = 4,
+    stat_type4 = 5,
+    stat_value4 = 10,
+    stat_type5 = 6,
+    stat_value5 = 7,
+    spellid_1 = 9343, -- +14 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 22205;
 
 
 -- LBRS
@@ -11011,7 +11400,8 @@ WHERE entry = 4478;
 
 -- Helm of Narv
 UPDATE mangos . item_template
-    SET spellid_1 = 7598 -- +2% Physical Crit
+SET spellid_1 = 7598, -- +2% Physical Crit
+    spelltrigger_1 = 1
 WHERE entry = 2245;
 
 -- Jeweled Amulet of Cainwyn
