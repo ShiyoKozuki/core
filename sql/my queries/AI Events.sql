@@ -130,3 +130,8 @@ DELETE FROM `creature_ai_events` WHERE `creature_id`=6377;
 INSERT INTO `creature_ai_events` (`id`, `creature_id`, `condition_id`, `event_type`, `event_inverse_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `action1_script`, `action2_script`, `action3_script`, `comment`) VALUES
 (637701, 6377, 50000, 0, 0, 100, 13, 7000, 15000, 20000, 30000, 637701, 0, 0, 'Thunderhead Stagwing - Cast Shock'),
 (637702, 6377, 0, 0, 0, 100, 13, 7000, 10000, 20000, 30000, 637702, 0, 0, 'Thunderhead Stagwing - Cast Wing Flap');
+
+-- Events list for Lingering Highborne
+DELETE FROM `creature_ai_events` WHERE `creature_id`=7864;
+INSERT INTO `creature_ai_events` (`id`, `creature_id`, `condition_id`, `event_type`, `event_inverse_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `action1_script`, `action2_script`, `action3_script`, `comment`) VALUES
+(786401, 7864, 50000, 0, 0, 100, 13, 12000, 30000, 180000, 183000, 786401, 0, 0, 'Lingering Highborne - Cast Enfeeble');

@@ -24,8 +24,17 @@
 -- Tanaris add quest for glasshide gazer goblin in middle of zone(or does one exist?)
 -- Tanaris ground pounder drop a quest item for free 3000 exp
 -- Azshara operation azshara part1 moshoof stag not courser
+-- Azshara Naga elite bosses in towers on the Beach
+-- Azshara General Narka Mortal Strike + 10s Disarm and higher wep dmg
+-- Azshara At War with the Spitelash say in quest specifically which Nagas to kill
+-- Azshara quest for Naga Myrmidons on beach
+-- Azshara FAR south east beach quests for level 54+ Spitelash (Enchantress / Battlemasters)
 -- Ferarlas Camp Protection part3 should be 4 different types of harpies 10-8 klls each not just 2 (Northspring  Roguefeather + Northspring Harpy)
 -- Timed quests (Timer on item, or timer on quest)
+-- More quests to click / interact / gather things sprinkled inside of kill x / loot x things from mob quest areas
+-- More quests for boss kills deep in caves / towers / etc far behind a ton of mobs
+-- Lots of quests to use item on a mob below 20% HP
+-- More 100% drop rate quests that need like 20+ drops
 -- how do distress beacon quests not replace item on starting? same with ship schedule
 
 -- Quest + Vendor + Repair npc flag = 
@@ -854,7 +863,7 @@ REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (8379, 30115
 REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewXP`, `DetailsEmote1`, `DetailsEmote2`, `IncompleteEmote`, `CompleteEmote`, `OfferRewardEmote1`, `OfferRewardEmote2`) VALUES (30116, 16, 45, 50, 8, 'Ghosts of Eldarath', 'Adventurer, I can use your help. There are Highborne ghosts still lingering in the Ruins of Eldarath. Find them and take their amulets for me.', 'Bring 12 Highborne Amulets to Archmage Xylemin Azshara.', 'Thank you for these amulets!', 'Have you gathered all the amulets?', '', '', '', '', '', 30067, 12, 5200, 1, 1, 6, 6, 1, 1);
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (8379, 30116);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (8379, 30116);
-REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (7864, 30067, -20);
+REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (7864, 30067, -100);
 REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOCount1`, `RewXP`, `DetailsEmote1`, `DetailsEmote2`, `IncompleteEmote`, `CompleteEmote`, `OfferRewardEmote1`, `OfferRewardEmote2`) VALUES (30119, 16, 50, 53, 8, 'Legashi Clean up I', 'Adventurer, I can use your help once more. To the north are Legashi camps. Wipe them out for me.', 'Kill 25 Legashi Rogue for Archmage Xylemin Azshara.', 'Good work!', 'Have you killed all the legashi?', '', '', '', '', '', 6201, 25, 5100, 1, 1, 6, 6, 1, 1);
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (8379, 30119);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (8379, 30119);
