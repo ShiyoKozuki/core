@@ -25,7 +25,6 @@
 -- Tanaris ground pounder drop a quest item for free 3000 exp
 -- Azshara operation azshara part1 moshoof stag not courser
 -- Azshara Naga elite bosses in towers on the Beach
--- Azshara General Narka Mortal Strike + 10s Disarm and higher wep dmg
 -- Azshara At War with the Spitelash say in quest specifically which Nagas to kill
 -- Azshara quest for Naga Myrmidons on beach
 -- Azshara FAR south east beach quests for level 54+ Spitelash (Enchantress / Battlemasters)
@@ -39,8 +38,8 @@
 
 -- Quest + Vendor + Repair npc flag = 
 -- 30025 FREE
--- NEXT quest_template 30231
--- NEXT creature_template 90045
+-- NEXT quest_template 30243
+-- NEXT creature_template 90046
 
 --     QUEST_TYPE_ELITE               = 1,
 --     QUEST_TYPE_LIFE                = 21,
@@ -749,6 +748,34 @@ UPDATE `mangos`.`quest_template` SET `RewItemId1`=15704, `RewItemCount1`=1 WHERE
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (10307, 30239);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (10307, 30239);
 
+-- Highborne
+REPLACE `mangos`.`quest_template` (`entry`, `patch`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `Type`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewMoneyMaxLevel`, `DetailsEmote1`, `DetailsEmote2`, `OfferRewardEmote1`) VALUES (30240, 5, 618, 53, 56, 0, 8, 'Bad News Bears', 'The bears here make it hard for me to gather herbs for medicine to heal the wounded. I would like your assistance in making it safer', 'Kill 25 Shardtooth Mauler for Jessica Redpath in Everlook.', 'You are good!', 'Have you killed the bears yet?!', 7443, 25, 81, 150, 6100, 6500, 1, 2, 2);
+REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (11629, 30240);
+REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (11629, 30240);
+
+REPLACE `mangos`.`quest_template` (`entry`, `patch`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `Type`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewMoneyMaxLevel`, `DetailsEmote1`, `DetailsEmote2`, `OfferRewardEmote1`) VALUES (30241, 5, 618, 53, 56, 1, 8, 'That was a Hoot', 'I am terrified of owls. They can turn their heads in strange ways and keep me up at night. Please kill them for me!', 'Kill 25 Winterspring Owl for Jessica Redpath in Everlook.', 'Great!', 'Have you killed the owls yet?!', 7455, 25, 81, 150, 6100, 6500, 1, 2, 2);
+REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (11629, 30241);
+REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (11629, 30241);
+
+-- Add Custom gear reward
+REPLACE`mangos`.`quest_template` (`entry`, `patch`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `Type`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `ReqItemId1`, `ReqItemCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewMoneyMaxLevel`, `DetailsEmote1`, `DetailsEmote2`, `OfferRewardEmote1`) VALUES (30242, 5, 618, 53, 56, 1, 8, 'Winterfall Menance', 'The Winterfall furbolgs constantly raid our villages and disrupt our supply caravans. They also make it hard to travel the roads and gather supplies. Please killl them and bring me their heads as proof.', 'Bring 60 Winterfall Heads to Jessica Redpath in Everlook.', 'Great!', 'Have you killed the owls yet?!', 30116, 60, 81, 150, 7100, 25500, 1, 2, 2);
+REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (11629, 30242);
+REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (11629, 30242);
+REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (7442, 30116, -100);
+REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (7441, 30116, -100);
+REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (7440, 30116, -100);
+REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (7439, 30116, -100);
+REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (10916, 30116, -100);
+REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (10738, 30116, -100);
+REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (10199, 30116, -100);
+REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (1851, 30116, -100);
+
+-- Add Custom gear reward
+REPLACE `mangos`.`creature_template` (`entry`, `name`, `level_min`, `level_max`, `faction`, `display_id1`, `speed_walk`, `type`, `unit_class`, `health_multiplier`, `armor_multiplier`, `damage_multiplier`, `loot_id`, `gold_min`, `gold_max`, `spell_id1`, `spell_list_id`, `movement_type`, `inhabit_type`, `mechanic_immune_mask`) VALUES (90045, 'Exalted Highborne', 58, 58, 21, 10701, 1.11111, 6, 2, 2.0, 2.2, 1.5, 7523, 102, 665, 14868, 75230, 0, 1, 8413718);
+REPLACE `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000048, 90045, 0, 0, 0, 0, 1, 6185.75, -4111.37, 748.028, 6.15475, 25, 25, 5, 100, 100, 1, 0, 0, 0, 10);
+REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (11629, 30243);
+REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (11629, 30243);
+
 
 -- Azshara
 UPDATE `mangos`.`quest_template` SET `NextQuestInChain`=30099 WHERE  `entry`=5536 AND `patch`=0;
@@ -853,6 +880,7 @@ REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (8379, 30114);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (8379, 30114);
 
 REPLACE `mangos`.`creature_template` (`entry`, `name`, `level_min`, `level_max`, `faction`, `display_id1`, `type`, `unit_class`, `health_multiplier`, `loot_id`, `pickpocket_loot_id`, `gold_min`, `gold_max`, `spell_id1`, `spell_id2`, `spell_list_id`, `ai_name`, `equipment_id`, `static_flags1`) VALUES (90038, 'General Narka', 55, 55, 74, 11271, 7, 1, 1.3, 8408, 8408, 116, 632, 11976, 10968, 84080, 'EventAI', 8408, 268959744);
+UPDATE `mangos`.`creature_template` SET `health_multiplier`=2.0, `armor_multiplier`=2.2, `damage_multiplier`=1.5 WHERE  `entry`=90038 AND `patch`=0;
 REPLACE `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000040, 90038, 0, 0, 0, 0, 1, 3547.4, -5330.53, 134.253, 1.66993, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
 UPDATE `mangos`.`creature` SET `spawntimesecsmin`=600, `spawntimesecsmax`=600 WHERE  `guid`=2000040;
 REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOCount1`, `RewXP`, `RewOrReqMoney`, `DetailsEmote1`, `DetailsEmote2`, `IncompleteEmote`, `CompleteEmote`, `OfferRewardEmote1`, `OfferRewardEmote2`) VALUES (30115, 16, 50, 55, 8, 'Spitelash General', 'Adventurer, I can use your help removing General Narka from the Temple of Zin-Malor.', 'Kill General Narka in the Temple of Zin-Malor for Archmage Xylemin Azshara.', 'You have done well.', 'Have you killed the spitelash general?', '', '', '', '', '', 90038, 1, 7200, 15000, 1, 1, 6, 6, 1, 1);

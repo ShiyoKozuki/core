@@ -1,4 +1,5 @@
 -- 50000: Hostile Player Within 5 Yards Of The Source
+-- NEXT SCRIPT 2090104
 UPDATE `conditions` SET `flags`=2 WHERE `condition_entry`=50000;
 
 
@@ -135,3 +136,17 @@ INSERT INTO `creature_ai_events` (`id`, `creature_id`, `condition_id`, `event_ty
 DELETE FROM `creature_ai_events` WHERE `creature_id`=7864;
 INSERT INTO `creature_ai_events` (`id`, `creature_id`, `condition_id`, `event_type`, `event_inverse_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `action1_script`, `action2_script`, `action3_script`, `comment`) VALUES
 (786401, 7864, 50000, 0, 0, 100, 13, 12000, 30000, 180000, 183000, 786401, 0, 0, 'Lingering Highborne - Cast Enfeeble');
+
+
+-- Events list for General Narka
+-- Events list for General Narka
+DELETE FROM `creature_ai_events` WHERE `creature_id`=90038;
+INSERT INTO `creature_ai_events` (`id`, `creature_id`, `condition_id`, `event_type`, `event_inverse_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `action1_script`, `action2_script`, `action3_script`, `comment`) VALUES
+(9003801, 90038, 50000, 0, 0, 100, 13, 7000, 15000, 20000, 30000, 2090102, 0, 0, 'General Narka - Cast Mortal Strike'),
+(9003802, 90038, 50000, 0, 0, 100, 13, 12000, 20000, 45000, 60000, 2090103, 0, 0, 'General Narka - Cast Disarm');
+DELETE FROM `creature_ai_scripts` WHERE `id`=2090102;
+INSERT INTO `creature_ai_scripts` (`id`, `delay`, `priority`, `command`, `datalong`, `datalong2`, `datalong3`, `datalong4`, `target_param1`, `target_param2`, `target_type`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `condition_id`, `comments`) VALUES
+(2090102, 0, 0, 15, 17547, 0, 0, 0, 0, 0, 1, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'General Narka - Cast Spell Mortal Strike');
+DELETE FROM `creature_ai_scripts` WHERE `id`=2090103;
+INSERT INTO `creature_ai_scripts` (`id`, `delay`, `priority`, `command`, `datalong`, `datalong2`, `datalong3`, `datalong4`, `target_param1`, `target_param2`, `target_type`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `condition_id`, `comments`) VALUES
+(2090103, 0, 0, 15, 8379, 0, 0, 0, 0, 0, 1, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'General Narka - Cast Spell Disarm');
