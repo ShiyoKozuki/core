@@ -658,7 +658,7 @@ UPDATE `pool_template` SET `max_limit` = 18 WHERE `entry`=1128;
 UPDATE `pool_template` SET `max_limit` = 5 WHERE `entry`=400;
 
 -- Silverpine Forest
-UPDATE `pool_template` SET `description` = 'Silverpine Forest - Tin Vein / Silver Vein (Master Pool)' WHERE `entry` = 1354;
+UPDATE `pool_template` SET `description` = 'Copper Veins - Silverpine Forest (Master Pool)' WHERE `entry` = 1044;
 -- Skittering Dark
 UPDATE `gameobject` SET `spawntimesecsmin` = 300, `spawntimesecsmax` = 900 WHERE `guid` IN (9767, 35490, 35534, 35540, 35549, 35535, 35616, 35443, 35617, 35536, 35596, 112682, 112680, 112679);
 DELETE FROM `pool_gameobject` WHERE `guid` IN (9767, 35490, 35534, 35540, 35549, 35535, 35616, 35443, 35617, 35536, 35596, 112682, 112680, 112679);
