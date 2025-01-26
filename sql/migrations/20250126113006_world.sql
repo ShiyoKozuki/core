@@ -748,6 +748,9 @@ INSERT INTO `pool_pool` (`pool_id`, `mother_pool`, `chance`, `description`, `fla
 (9713, @PTEMPLATE+101, 0, 'Silverpine Forest - Beren\'s Peril - Tin Vein / Silver Vein', 0),
 (9708, @PTEMPLATE+101, 0, 'Silverpine Forest - Beren\'s Peril - Tin Vein / Silver Vein', 0);
 
+UPDATE `pool_template` SET `max_limit` = 4 WHERE `entry` = 1354;
+UPDATE `pool_template` SET `max_limit` = 20 WHERE `entry` = 1044;
+
 UPDATE `pool_template` SET `description` = 'Copper Veins - Deadmines (Master Pool)' WHERE `entry` = 4486;
 UPDATE `pool_template` SET `description` = 'Copper Veins - Wailing Caverns (Master Pool)' WHERE `entry` = 4794;
 
