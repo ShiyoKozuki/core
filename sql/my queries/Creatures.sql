@@ -42,6 +42,37 @@ WHERE display_id IN(59, 60, 12170);
 -- patch - 10 to revert
 UPDATE `mangos`.`creature_template` SET patch = patch + 10 WHERE entry IN (742, 743, 744, 745, 746) AND patch = 10; -- Swamp of Sorrows Green Dragons
 
+-- Dune Smasher respawn rate
+UPDATE `mangos`.`creature` SET `spawntimesecsmin`=180, `spawntimesecsmax`=180 WHERE  `id`=5469;
+
+-- Coast Strider / Deep Dweller spawns
+REPLACE INTO `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000057, 5466, 0, 0, 0, 0, 1, -8723.12, -4855.07, -70.381, 5.44643, 300, 300, 25, 100, 100, 0, 0, 0, 0, 10);
+REPLACE INTO `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000058, 5466, 0, 0, 0, 0, 1, -8711.89, -4807.56, -34.8317, 0.931954, 300, 300, 25, 100, 100, 0, 0, 0, 0, 10);
+REPLACE INTO `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000059, 5466, 0, 0, 0, 0, 1, -8685.11, -4806.28, -23.8272, 5.554, 300, 300, 25, 100, 100, 0, 0, 0, 0, 10);
+
+REPLACE INTO `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000048, 5467, 0, 0, 0, 0, 1, -8919.61, -4739.92, -47.45, 0.103871, 300, 300, 0, 100, 100, 1, 0, 0, 0, 10);
+REPLACE INTO `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000049, 5467, 0, 0, 0, 0, 1, -8965.08, -4810.8, -66.2799, 4.30496, 300, 300, 0, 100, 100, 1, 0, 0, 0, 10);
+REPLACE INTO `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000050, 5467, 0, 0, 0, 0, 1, -8988.21, -4842.86, -74.9788, 4.24684, 300, 300, 0, 100, 100, 1, 0, 0, 0, 10);
+REPLACE INTO `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000051, 5467, 0, 0, 0, 0, 1, -8958.88, -4874.07, -77.1967, 5.51995, 300, 300, 0, 100, 100, 1, 0, 0, 0, 10);
+REPLACE INTO `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000052, 5467, 0, 0, 0, 0, 1, -8915.76, -4857.74, -68.7016, 1.54661, 300, 300, 0, 100, 100, 1, 0, 0, 0, 10);
+REPLACE INTO `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000053, 5467, 0, 0, 0, 0, 1, -8917.14, -4803.95, -63.9697, 1.12957, 300, 300, 0, 100, 100, 1, 0, 0, 0, 10);
+REPLACE INTO `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000054, 5467, 0, 0, 0, 0, 1, -8896.55, -4758.49, -55.3223, 0.285265, 300, 300, 0, 100, 100, 1, 0, 0, 0, 10);
+REPLACE INTO `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000055, 5467, 0, 0, 0, 0, 1, -8959.39, -4743.93, -47.7043, 5.23091, 300, 300, 0, 100, 100, 1, 0, 0, 0, 10);
+REPLACE INTO `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000056, 5467, 0, 0, 0, 0, 1, -8988.06, -4777.59, -57.7852, 4.11558, 300, 300, 0, 100, 100, 1, 0, 0, 0, 10);
+
+-- Coast Strider / Deep Dweller respawn rate
+UPDATE `mangos`.`creature` SET `spawntimesecsmin`=300, `spawntimesecsmax`=300 WHERE  `id`=5466;
+UPDATE `mangos`.`creature` SET `spawntimesecsmin`=300, `spawntimesecsmax`=300 WHERE  `id`=5467;
+
+-- Coast Strider / Deep Dweller wander distance
+UPDATE `mangos`.`creature` SET `wander_distance`=25 WHERE `id`=5466;
+UPDATE `mangos`.`creature` SET `wander_distance`=0 WHERE `id`=5467;
+
+-- Cost Strider / Deep Dweller attack speed/attack rate
+UPDATE `mangos`.`creature_template` SET `base_attack_time`=3000 WHERE  `entry`=5466 AND `patch`=0;
+UPDATE `mangos`.`creature_template` SET `base_attack_time`=3000 WHERE  `entry`=5467 AND `patch`=0;
+
+
 -- Razorfen Spearhide (Shouldn't be rare, Blizzard bug)
 UPDATE `mangos`.`creature_template` SET `rank`=1 WHERE  `entry`=4438 AND `patch`=0;
 
@@ -64,10 +95,21 @@ UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.10, `damage_multip
 UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.4, `damage_multiplier`=0.5 WHERE  `entry`=11783 AND `patch`=0;
 
 -- Theradrim Shardling HP and damage reduced due to DMG and HP multiplier on normal mobs
-UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.5, `damage_multiplier`=0.45 WHERE  `entry`=11789 AND `patch`=0;
+UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.6, `damage_multiplier`=0.6 WHERE  `entry`=8318 AND `patch`=0;
 
 -- Princess Theradras adjusted due to 2x elite HP
 UPDATE `mangos`.`creature_template` SET `health_multiplier`=5 WHERE  `entry`=12201 AND `patch`=0;
+
+-- Atal'ai Slave HP and damage reduced due to DMG and HP multiplier on normal mobs
+UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.5, `damage_multiplier`=0.45 WHERE  `entry`=11789 AND `patch`=0;
+
+-- Slime Maggot HP and damage reduced due to DMG and HP multiplier on normal mobs
+UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.3, `damage_multiplier`=0.6 WHERE  `entry`=8311 AND `patch`=0;
+
+-- Nightmare Whelp HP and damage reduced due to DMG and HP multiplier on normal mobs
+UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.5, `damage_multiplier`=0.7 WHERE  `entry`=8319 AND `patch`=0;
+-- Hakkari Minion HP and damage reduced due to DMG and HP multiplier on normal mobs
+UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.4, `damage_multiplier`=0.7 WHERE  `entry`=8437 AND `patch`=0;
 
 
 -- Divino Magic Rod mobs HP reduced due to DMG and HP multiplier on normal mobs

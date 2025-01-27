@@ -150,3 +150,87 @@ INSERT INTO `creature_ai_scripts` (`id`, `delay`, `priority`, `command`, `datalo
 DELETE FROM `creature_ai_scripts` WHERE `id`=2090103;
 INSERT INTO `creature_ai_scripts` (`id`, `delay`, `priority`, `command`, `datalong`, `datalong2`, `datalong3`, `datalong4`, `target_param1`, `target_param2`, `target_type`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `condition_id`, `comments`) VALUES
 (2090103, 0, 0, 15, 8379, 0, 0, 0, 0, 0, 1, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'General Narka - Cast Spell Disarm');
+
+-- Events list for Heavy War Golem
+DELETE FROM `creature_ai_events` WHERE `creature_id`=5854;
+INSERT INTO `creature_ai_events` (`id`, `creature_id`, `condition_id`, `event_type`, `event_inverse_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `action1_script`, `action2_script`, `action3_script`, `comment`) VALUES
+(585401, 5854, 50000, 0, 0, 100, 13, 12000, 20000, 30000, 50000, 585401, 0, 0, 'Heavy War Golem - Cast Stomp');
+
+-- Events list for Dark Iron Slaver
+DELETE FROM `creature_ai_events` WHERE `creature_id`=5844;
+INSERT INTO `creature_ai_events` (`id`, `creature_id`, `condition_id`, `event_type`, `event_inverse_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `action1_script`, `action2_script`, `action3_script`, `comment`) VALUES
+(584401, 5844, 0, 4, 0, 100, 0, 0, 0, 0, 0, 584401, 0, 0, 'Dark Iron Slaver - Call For Help on Aggro'),
+(584402, 5844, 50000, 0, 0, 100, 13, 7000, 15000, 45000, 60000, 584402, 0, 0, 'Dark Iron Slaver - Cast Rend'),
+(584403, 5844, 50000, 0, 0, 100, 13, 20000, 35000, 45000, 60000, 584403, 0, 0, 'Dark Iron Slaver - Cast Net');
+
+-- Events list for Dark Iron Steamsmith
+DELETE FROM `creature_ai_events` WHERE `creature_id`=5840;
+INSERT INTO `creature_ai_events` (`id`, `creature_id`, `condition_id`, `event_type`, `event_inverse_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `action1_script`, `action2_script`, `action3_script`, `comment`) VALUES
+(584001, 5840, 50000, 0, 0, 100, 13, 12000, 20000, 45000, 60000, 584001, 0, 0, 'Dark Iron Steamsmith - Cast Steam Jet');
+
+-- Events list for Magma Elemental
+DELETE FROM `creature_ai_events` WHERE `creature_id`=5855;
+INSERT INTO `creature_ai_events` (`id`, `creature_id`, `condition_id`, `event_type`, `event_inverse_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `action1_script`, `action2_script`, `action3_script`, `comment`) VALUES
+(585501, 5855, 50000, 0, 0, 100, 13, 12000, 20000, 20000, 30000, 585501, 0, 0, 'Magma Elemental - Cast Fire Nova');
+
+-- Events list for Inferno Elemental
+DELETE FROM `creature_ai_events` WHERE `creature_id`=5852;
+INSERT INTO `creature_ai_events` (`id`, `creature_id`, `condition_id`, `event_type`, `event_inverse_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `action1_script`, `action2_script`, `action3_script`, `comment`) VALUES
+(585201, 5852, 50000, 0, 0, 100, 13, 7000, 15000, 25000, 30000, 585201, 0, 0, 'Inferno Elemental - Cast Flame Spray');
+
+-- Obsidion (Doubling up on spells - does not need spell list)
+UPDATE `mangos`.`creature_template` SET `spell_list_id`=0 WHERE  `entry`=8400 AND `patch`=0;
+UPDATE `mangos`.`creature_template` SET `spell_list_id`=0 WHERE  `entry`=8400 AND `patch`=1;
+
+-- Events list for Obsidion
+DELETE FROM `creature_ai_events` WHERE `creature_id`=8400;
+INSERT INTO `creature_ai_events` (`id`, `creature_id`, `condition_id`, `event_type`, `event_inverse_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `action1_script`, `action2_script`, `action3_script`, `comment`) VALUES
+(840001, 8400, 50000, 0, 0, 100, 13, 45000, 60000, 60000, 90000, 840001, 0, 0, 'Obsidion - Cast Knock Away');
+
+-- Deep Dweller (Doubling up on spells - does not need spell list)
+UPDATE `mangos`.`creature_template` SET `spell_list_id`=0 WHERE  `entry`=5467 AND `patch`=0; -- Was 54670
+
+-- Events list for Nightmare Wanderer
+DELETE FROM `creature_ai_events` WHERE `creature_id`=5283;
+INSERT INTO `creature_ai_events` (`id`, `creature_id`, `condition_id`, `event_type`, `event_inverse_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `action1_script`, `action2_script`, `action3_script`, `comment`) VALUES
+(528302, 5283, 50000, 0, 0, 100, 13, 9000, 15000, 30000, 45000, 528302, 0, 0, 'Nightmare Wanderer - Cast Pierce Armor');
+
+-- Events list for Warpwood Moss Flayer
+DELETE FROM `creature_ai_events` WHERE `creature_id`=7100;
+INSERT INTO `creature_ai_events` (`id`, `creature_id`, `condition_id`, `event_type`, `event_inverse_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `action1_script`, `action2_script`, `action3_script`, `comment`) VALUES
+(710001, 7100, 50000, 0, 0, 100, 13, 7000, 15000, 25000, 35000, 710001, 0, 0, 'Warpwood Moss Flayer - Cast Entangling Roots');
+
+-- Events list for Jadefire Trickster
+DELETE FROM `creature_ai_events` WHERE `creature_id`=7107;
+INSERT INTO `creature_ai_events` (`id`, `creature_id`, `condition_id`, `event_type`, `event_inverse_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `action1_script`, `action2_script`, `action3_script`, `comment`) VALUES
+(710702, 7107, 50000, 0, 0, 100, 13, 12000, 20000, 150000, 180000, 710702, 0, 0, 'Jadefire Trickster - Cast Curse of Weakness');
+
+-- Events list for Angerclaw Mauler
+DELETE FROM `creature_ai_events` WHERE `creature_id`=8958;
+INSERT INTO `creature_ai_events` (`id`, `creature_id`, `condition_id`, `event_type`, `event_inverse_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `action1_script`, `action2_script`, `action3_script`, `comment`) VALUES
+(895801, 8958, 50000, 0, 0, 100, 13, 12000, 15000, 20000, 30000, 895801, 0, 0, 'Angerclaw Mauler - Cast Maul'),
+(895802, 8958, 0, 2, 0, 100, 5, 30, 0, 120000, 120000, 895802, 0, 0, 'Angerclaw Mauler - Cast Enrage at 30% HP');
+
+-- Events list for Warpwood Shredder
+DELETE FROM `creature_ai_events` WHERE `creature_id`=7101;
+INSERT INTO `creature_ai_events` (`id`, `creature_id`, `condition_id`, `event_type`, `event_inverse_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `action1_script`, `action2_script`, `action3_script`, `comment`) VALUES
+(710101, 7101, 0, 0, 0, 100, 13, 8000, 12000, 15000, 20000, 710101, 0, 0, 'Warpwood Shredder - Cast Thrash on Spawn'),
+(710102, 7101, 0, 4, 0, 100, 0, 0, 0, 0, 0, 710102, 0, 0, 'Warpwood Shredder - Set Phase 1 on Aggro'),
+(710103, 7101, 50000, 0, 5, 100, 13, 5000, 9000, 12000, 15000, 710103, 0, 0, 'Warpwood Shredder - Cast Sunder Armor (Phase 1)'),
+(710104, 7101, 0, 24, 5, 100, 1, 13444, 5, 5000, 5000, 710104, 0, 0, 'Warpwood Shredder - Set Phase 2 on Target Max Sunder Armor Aura Stack (Phase 1)'),
+(710105, 7101, 0, 28, 3, 100, 1, 13444, 1, 5000, 5000, 710105, 0, 0, 'Warpwood Shredder - Set Phase 1 on Target Missing Sunder Armor Aura Stack (Phase 2)'),
+(710106, 7101, 0, 7, 0, 100, 0, 0, 0, 0, 0, 710106, 0, 0, 'Warpwood Shredder - Set Phase to 0 on Evade');
+
+-- Events list for Angerclaw Grizzly
+DELETE FROM `creature_ai_events` WHERE `creature_id`=8957;
+INSERT INTO `creature_ai_events` (`id`, `creature_id`, `condition_id`, `event_type`, `event_inverse_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `action1_script`, `action2_script`, `action3_script`, `comment`) VALUES
+(895701, 8957, 50000, 0, 0, 100, 13, 12000, 20000, 25000, 35000, 895701, 0, 0, 'Angerclaw Grizzly - Cast Low Swipe'),
+(895702, 8957, 0, 2, 0, 100, 5, 30, 0, 120000, 120000, 895702, 0, 0, 'Angerclaw Grizzly - Cast Enrage at 30% HP');
+
+-- Events list for Jaedenar Adept
+DELETE FROM `creature_ai_events` WHERE `creature_id`=7115;
+INSERT INTO `creature_ai_events` (`id`, `creature_id`, `condition_id`, `event_type`, `event_inverse_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `action1_script`, `action2_script`, `action3_script`, `comment`) VALUES
+(711501, 7115, 0, 9, 0, 100, 13, 0, 5, 30000, 40000, 711501, 0, 0, 'Jaedenar Adept - Cast Blink'),
+(711502, 7115, 0, 2, 0, 100, 4, 15, 0, 0, 0, 711502, 0, 0, 'Jaedenar Adept - Flee at 15% HP');
+
+

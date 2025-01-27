@@ -29,6 +29,9 @@
 -- Azshara quest for Naga Myrmidons on beach
 -- Azshara FAR south east beach quests for level 54+ Spitelash (Enchantress / Battlemasters)
 -- Ferarlas Camp Protection part3 should be 4 different types of harpies 10-8 klls each not just 2 (Northspring  Roguefeather + Northspring Harpy)
+-- Felwood quest for overlord Ror? (Furbolg)
+-- Felwood quest for Chieftain Bloodmaw
+-- Felwood Ironbeak Screecher kill quest
 -- Timed quests (Timer on item, or timer on quest)
 -- More quests to click / interact / gather things sprinkled inside of kill x / loot x things from mob quest areas
 -- More quests for boss kills deep in caves / towers / etc far behind a ton of mobs
@@ -673,7 +676,7 @@ REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (3936, 30187);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (3936, 30187);
 
 -- Felwood
-REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOCount1`, `RewXP`, `RewOrReqMoney`, `RewMoneyMaxLevel`, `CompleteEmote`) VALUES (30154, 361, 45, 49, 8, 'Infected Wildlife I', 'The wildlife here is starting to get infected. I want you to slow down the infeciton by killing as much wildlife as you can.', 'Kill 25 Ironbeak Owl then return to Grazle in Felwood.', 'This should help slow down the epidemic.', '', '', '', '', '', 7097, 25, 5100, 5500, 5100, 1);
+REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOCount1`, `RewXP`, `RewOrReqMoney`, `RewMoneyMaxLevel`, `CompleteEmote`) VALUES (30154, 361, 45, 51, 8, 'Infected Wildlife I', 'The wildlife here is starting to get infected. I want you to slow down the infeciton by killing as much wildlife as you can.', 'Kill 15 Ironbeak Hunter then return to Grazle in Felwood.', 'This should help slow down the epidemic.', '', '', '', '', '', 7099, 15, 5100, 5500, 5100, 1);
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (11554, 30154);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (11554, 30154);
 
@@ -690,7 +693,7 @@ REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLeve
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (12578, 30157);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (12578, 30157);
 
-REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOCount1`, `RewXP`, `RewOrReqMoney`, `RewMoneyMaxLevel`, `CompleteEmote`) VALUES (30158, 361, 50, 52, 8, 'Infected Dogs', 'The bears up north have become infected. Please clear them out to stop it from spreading to Ashenvale.', 'Kill 25 Angerclaw Grizzly then return to Mishellena in Felwood.', 'Hopefully this helps protect the rest of the world from this infection.', '', '', '', '', '', 8957, 25, 5100, 5500, 5100, 1);
+REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOCount1`, `RewXP`, `RewOrReqMoney`, `RewMoneyMaxLevel`, `CompleteEmote`) VALUES (30158, 361, 50, 52, 8, 'Infected Bears', 'The bears up north have become infected. Please clear them out to stop it from spreading to Ashenvale.', 'Kill 25 Angerclaw Grizzly then return to Mishellena in Felwood.', 'Hopefully this helps protect the rest of the world from this infection.', '', '', '', '', '', 8957, 25, 5100, 5500, 5100, 1);
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (12578, 30158);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (12578, 30158);
 
