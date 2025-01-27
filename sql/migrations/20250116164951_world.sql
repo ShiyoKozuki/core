@@ -9,10 +9,9 @@ INSERT INTO `migrations` VALUES ('20250116164951');
 -- Add your query below.
 
 
+-- Badlands
 SET @OGUID = 94000;
 SET @PTEMPLATE = 5500;
-
--- Badlands
 DELETE FROM `gameobject` WHERE `guid` IN (1895, 1896, 1897, 25120, 25121, 25122, 25123, 25124, 25125, 25126, 25127, 25128, 25129, 25130, 25131, 25132, 25133, 25134, 25135, 25136, 25137, 25138, 25139, 25140, 25141, 25142, 25143, 25144, 25145, 25146, 25147, 25148, 25149, 25150, 25151, 25152, 25153, 25154, 25155, 25156, 25157, 25158, 25159, 25160, 25161, 25162, 25163, 25164, 25165, 25166, 25167, 25168, 25169, 25170, 25171, 25172, 25173, 25174, 25175, 25176, 25177, 25178, 25179, 25180, 25181, 25182, 25183, 25184, 25185, 25186, 25187, 25188, 25189, 25190, 25191, 25192, 25193, 25194, 25195, 25196, 25197, 25198, 25199, 25200, 25201, 25202, 25203, 25204, 25205, 25206, 25207, 25208, 25209, 25210, 25211, 25212, 25213, 25214, 25215, 25216, 25217, 25218, 25219, 25220, 25221, 25222, 25223, 25224, 25225, 25226, 25227, 25229, 31736, 31794, 31852, 85063, 85064);
 DELETE FROM `pool_gameobject` WHERE `guid` IN (1895, 1896, 1897, 25120, 25121, 25122, 25123, 25124, 25125, 25126, 25127, 25128, 25129, 25130, 25131, 25132, 25133, 25134, 25135, 25136, 25137, 25138, 25139, 25140, 25141, 25142, 25143, 25144, 25145, 25146, 25147, 25148, 25149, 25150, 25151, 25152, 25153, 25154, 25155, 25156, 25157, 25158, 25159, 25160, 25161, 25162, 25163, 25164, 25165, 25166, 25167, 25168, 25169, 25170, 25171, 25172, 25173, 25174, 25175, 25176, 25177, 25178, 25179, 25180, 25181, 25182, 25183, 25184, 25185, 25186, 25187, 25188, 25189, 25190, 25191, 25192, 25193, 25194, 25195, 25196, 25197, 25198, 25199, 25200, 25201, 25202, 25203, 25204, 25205, 25206, 25207, 25208, 25209, 25210, 25211, 25212, 25213, 25214, 25215, 25216, 25217, 25218, 25219, 25220, 25221, 25222, 25223, 25224, 25225, 25226, 25227, 25229, 31736, 31794, 31852, 85063, 85064);
 DELETE FROM `pool_template` WHERE `entry` IN (1288, 1756, 2164, 2165, 2166, 2167, 2168, 2169, 2170, 2171, 2172, 2173, 2174, 2175, 2176, 2177, 2178, 2179, 2180, 2181, 2182, 2183, 2184, 2185, 2186, 2187, 2188, 2189, 2190, 2191, 2192, 2193, 2194, 2195, 2196, 2197, 2198, 2199, 2200, 2201, 2202, 2203, 2204, 2205, 2206, 2207, 2208, 2209, 2210, 2211, 2212, 2213, 2214, 2215, 2216, 2217, 23050);
@@ -642,6 +641,772 @@ INSERT INTO `pool_pool` (`pool_id`, `mother_pool`, `chance`, `description`, `fla
 UPDATE `pool_gameobject` SET `chance` = 5 WHERE `description` = "Gold Vein / Mithril Deposit / Truesilver Deposit - Silithus" && `guid` IN (SELECT `guid` FROM `gameobject` WHERE `id` = 1734);
 UPDATE `pool_gameobject` SET `chance` = 90 WHERE `description` = "Gold Vein / Mithril Deposit / Truesilver Deposit - Silithus" && `guid` IN (SELECT `guid` FROM `gameobject` WHERE `id` = 2040);
 UPDATE `pool_gameobject` SET `chance` = 5 WHERE `description` = "Gold Vein / Mithril Deposit / Truesilver Deposit - Silithus" && `guid` IN (SELECT `guid` FROM `gameobject` WHERE `id` = 2047);
+
+-- Swamp of Sorrows
+SET @OGUID = 100111;
+SET @PTEMPLATE = 4254;
+
+DELETE FROM `gameobject` WHERE `guid` IN (23163, 23164, 23165, 23166, 23167, 23168, 23169, 23170, 23171, 23172, 23173, 23174, 23175, 23176, 23177, 23178, 23179, 23180, 23181, 23182, 23183, 23184, 23185, 23186, 23187, 23188);
+DELETE FROM `pool_gameobject` WHERE `guid` IN (23163, 23164, 23165, 23166, 23167, 23168, 23169, 23170, 23171, 23172, 23173, 23174, 23175, 23176, 23177, 23178, 23179, 23180, 23181, 23182, 23183, 23184, 23185, 23186, 23187, 23188);
+DELETE FROM `pool_template` WHERE `entry` IN (1314, 2832, 2831, 2833, 2834, 2835, 2836, 2837, 2838, 2839, 2840, 2841, 2842, 2843);
+DELETE FROM `pool_pool` WHERE `pool_id` IN (2832, 2831, 2833, 2834, 2835, 2836, 2837, 2838, 2839, 2840, 2841, 2842, 2843);
+
+INSERT INTO `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES
+(@OGUID+1, 1734, 0, -11014.2, -3703.78, 20.7102, 4.95674, 0, 0, -0.615661, 0.788011, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+2, 1734, 0, -10950.3, -3693.78, 26.4363, 4.20625, 0, 0, -0.861629, 0.507539, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+3, 1734, 0, -10941.8, -3645.35, 23.7057, 1.62316, 0, 0, 0.725374, 0.688355, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+4, 1734, 0, -10890, -3619.06, 15.7217, 5.8294, 0, 0, -0.224951, 0.97437, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+5, 1734, 0, -10876.7, -3720.67, 23.5593, 0.628317, 0, 0, 0.309016, 0.951057, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+6, 1734, 0, -10534.7, -3936.41, -12.4179, 3.9619, 0, 0, -0.91706, 0.39875, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+7, 1734, 0, -10500.5, -3711.9, -14.2691, 1.23918, 0, 0, 0.580703, 0.814116, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+8, 1734, 0, -10165.5, -2706.52, 38.9822, 3.10665, 0, 0, 0.999847, 0.0174693, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+9, 1734, 0, -10068.9, -3040.34, 33.9087, 2.28638, 0, 0, 0.909961, 0.414694, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+10, 1734, 0, -10056.8, -2949.12, 40.8129, 1.48353, 0, 0, 0.67559, 0.737278, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+11, 1734, 0, -10038.9, -3207.03, 33.9572, 2.74016, 0, 0, 0.979924, 0.19937, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+12, 1734, 0, -10028.4, -3339.57, 39.6986, 5.46288, 0, 0, -0.398748, 0.91706, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+13, 1734, 0, -9771.24, -3734.66, 28.7368, 0.174532, 0, 0, 0.0871553, 0.996195, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+14, 2040, 0, -11014.2, -3703.78, 20.7102, 4.95674, 0, 0, -0.615661, 0.788011, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+15, 2040, 0, -10950.3, -3693.78, 26.4363, 4.20625, 0, 0, -0.861629, 0.507539, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+16, 2040, 0, -10941.8, -3645.35, 23.7057, 1.62316, 0, 0, 0.725374, 0.688355, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+17, 2040, 0, -10890, -3619.06, 15.7217, 5.8294, 0, 0, -0.224951, 0.97437, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+18, 2040, 0, -10876.7, -3720.67, 23.5593, 0.628317, 0, 0, 0.309016, 0.951057, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+19, 2040, 0, -10534.7, -3936.41, -12.4179, 3.9619, 0, 0, -0.91706, 0.39875, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+20, 2040, 0, -10500.5, -3711.9, -14.2691, 1.23918, 0, 0, 0.580703, 0.814116, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+21, 2040, 0, -10165.5, -2706.52, 38.9822, 3.10665, 0, 0, 0.999847, 0.0174693, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+22, 2040, 0, -10068.9, -3040.34, 33.9087, 2.28638, 0, 0, 0.909961, 0.414694, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+23, 2040, 0, -10056.8, -2949.12, 40.8129, 1.48353, 0, 0, 0.67559, 0.737278, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+24, 2040, 0, -10038.9, -3207.03, 33.9572, 2.74016, 0, 0, 0.979924, 0.19937, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+25, 2040, 0, -10028.4, -3339.57, 39.6986, 5.46288, 0, 0, -0.398748, 0.91706, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+26, 2040, 0, -9771.24, -3734.66, 28.7368, 0.174532, 0, 0, 0.0871553, 0.996195, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+27, 2047, 0, -11014.2, -3703.78, 20.7102, 4.95674, 0, 0, -0.615661, 0.788011, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+28, 2047, 0, -10950.3, -3693.78, 26.4363, 4.20625, 0, 0, -0.861629, 0.507539, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+29, 2047, 0, -10941.8, -3645.35, 23.7057, 1.62316, 0, 0, 0.725374, 0.688355, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+30, 2047, 0, -10890, -3619.06, 15.7217, 5.8294, 0, 0, -0.224951, 0.97437, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+31, 2047, 0, -10876.7, -3720.67, 23.5593, 0.628317, 0, 0, 0.309016, 0.951057, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+32, 2047, 0, -10534.7, -3936.41, -12.4179, 3.9619, 0, 0, -0.91706, 0.39875, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+33, 2047, 0, -10500.5, -3711.9, -14.2691, 1.23918, 0, 0, 0.580703, 0.814116, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+34, 2047, 0, -10165.5, -2706.52, 38.9822, 3.10665, 0, 0, 0.999847, 0.0174693, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+35, 2047, 0, -10068.9, -3040.34, 33.9087, 2.28638, 0, 0, 0.909961, 0.414694, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+36, 2047, 0, -10056.8, -2949.12, 40.8129, 1.48353, 0, 0, 0.67559, 0.737278, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+37, 2047, 0, -10038.9, -3207.03, 33.9572, 2.74016, 0, 0, 0.979924, 0.19937, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+38, 2047, 0, -10028.4, -3339.57, 39.6986, 5.46288, 0, 0, -0.398748, 0.91706, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+39, 2047, 0, -9771.24, -3734.66, 28.7368, 0.174532, 0, 0, 0.0871553, 0.996195, 300, 300, 100, 1, 0, 0, 0, 10);
+
+INSERT INTO `pool_template` (`entry`, `max_limit`, `description`, `patch_max`) VALUES
+(@PTEMPLATE+1, 1, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Swamp of Sorrows', 10),
+(@PTEMPLATE+2, 1, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Swamp of Sorrows', 10),
+(@PTEMPLATE+3, 1, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Swamp of Sorrows', 10),
+(@PTEMPLATE+4, 1, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Swamp of Sorrows', 10),
+(@PTEMPLATE+5, 1, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Swamp of Sorrows', 10),
+(@PTEMPLATE+6, 1, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Swamp of Sorrows', 10),
+(@PTEMPLATE+7, 1, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Swamp of Sorrows', 10),
+(@PTEMPLATE+8, 1, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Swamp of Sorrows', 10),
+(@PTEMPLATE+9, 1, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Swamp of Sorrows', 10),
+(@PTEMPLATE+10, 1, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Swamp of Sorrows', 10),
+(@PTEMPLATE+11, 1, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Swamp of Sorrows', 10),
+(@PTEMPLATE+12, 1, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Swamp of Sorrows', 10),
+(@PTEMPLATE+13, 1, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Swamp of Sorrows', 10);
+
+INSERT INTO `pool_gameobject` (`guid`, `pool_entry`, `description`, `patch_max`) VALUES 
+(@OGUID+1, @PTEMPLATE+1, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Swamp of Sorrows', 10),
+(@OGUID+2, @PTEMPLATE+2, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Swamp of Sorrows', 10),
+(@OGUID+3, @PTEMPLATE+3, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Swamp of Sorrows', 10),
+(@OGUID+4, @PTEMPLATE+4, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Swamp of Sorrows', 10),
+(@OGUID+5, @PTEMPLATE+5, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Swamp of Sorrows', 10),
+(@OGUID+6, @PTEMPLATE+6, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Swamp of Sorrows', 10),
+(@OGUID+7, @PTEMPLATE+7, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Swamp of Sorrows', 10),
+(@OGUID+8, @PTEMPLATE+8, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Swamp of Sorrows', 10),
+(@OGUID+9, @PTEMPLATE+9, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Swamp of Sorrows', 10),
+(@OGUID+10, @PTEMPLATE+10, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Swamp of Sorrows', 10),
+(@OGUID+11, @PTEMPLATE+11, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Swamp of Sorrows', 10),
+(@OGUID+12, @PTEMPLATE+12, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Swamp of Sorrows', 10),
+(@OGUID+13, @PTEMPLATE+13, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Swamp of Sorrows', 10),
+(@OGUID+14, @PTEMPLATE+1, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Swamp of Sorrows', 10),
+(@OGUID+15, @PTEMPLATE+2, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Swamp of Sorrows', 10),
+(@OGUID+16, @PTEMPLATE+3, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Swamp of Sorrows', 10),
+(@OGUID+17, @PTEMPLATE+4, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Swamp of Sorrows', 10),
+(@OGUID+18, @PTEMPLATE+5, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Swamp of Sorrows', 10),
+(@OGUID+19, @PTEMPLATE+6, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Swamp of Sorrows', 10),
+(@OGUID+20, @PTEMPLATE+7, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Swamp of Sorrows', 10),
+(@OGUID+21, @PTEMPLATE+8, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Swamp of Sorrows', 10),
+(@OGUID+22, @PTEMPLATE+9, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Swamp of Sorrows', 10),
+(@OGUID+23, @PTEMPLATE+10, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Swamp of Sorrows', 10),
+(@OGUID+24, @PTEMPLATE+11, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Swamp of Sorrows', 10),
+(@OGUID+25, @PTEMPLATE+12, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Swamp of Sorrows', 10),
+(@OGUID+26, @PTEMPLATE+13, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Swamp of Sorrows', 10),
+(@OGUID+27, @PTEMPLATE+1, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Swamp of Sorrows', 10),
+(@OGUID+28, @PTEMPLATE+2, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Swamp of Sorrows', 10),
+(@OGUID+29, @PTEMPLATE+3, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Swamp of Sorrows', 10),
+(@OGUID+30, @PTEMPLATE+4, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Swamp of Sorrows', 10),
+(@OGUID+31, @PTEMPLATE+5, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Swamp of Sorrows', 10),
+(@OGUID+32, @PTEMPLATE+6, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Swamp of Sorrows', 10),
+(@OGUID+33, @PTEMPLATE+7, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Swamp of Sorrows', 10),
+(@OGUID+34, @PTEMPLATE+8, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Swamp of Sorrows', 10),
+(@OGUID+35, @PTEMPLATE+9, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Swamp of Sorrows', 10),
+(@OGUID+36, @PTEMPLATE+10, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Swamp of Sorrows', 10),
+(@OGUID+37, @PTEMPLATE+11, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Swamp of Sorrows', 10),
+(@OGUID+38, @PTEMPLATE+12, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Swamp of Sorrows', 10),
+(@OGUID+39, @PTEMPLATE+13, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Swamp of Sorrows', 10);
+
+INSERT INTO `pool_template` (`entry`, `max_limit`, `description`, `flags`, `instance`, `patch_min`, `patch_max`) VALUES
+(1314, 4, 'Swamp of Sorrows - Gold Vein / Mithril Deposit / Truesilver Deposit (Master Pool)', 0, 0, 0, 10);
+INSERT INTO `pool_pool` (`pool_id`, `mother_pool`, `chance`, `description`, `flags`) VALUES
+(@PTEMPLATE+1, 1314, 0, 'Swamp of Sorrows - Gold Vein / Mithril Deposit / Truesilver Deposit', 0),
+(@PTEMPLATE+2, 1314, 0, 'Swamp of Sorrows - Gold Vein / Mithril Deposit / Truesilver Deposit', 0),
+(@PTEMPLATE+3, 1314, 0, 'Swamp of Sorrows - Gold Vein / Mithril Deposit / Truesilver Deposit', 0),
+(@PTEMPLATE+4, 1314, 0, 'Swamp of Sorrows - Gold Vein / Mithril Deposit / Truesilver Deposit', 0),
+(@PTEMPLATE+5, 1314, 0, 'Swamp of Sorrows - Gold Vein / Mithril Deposit / Truesilver Deposit', 0),
+(@PTEMPLATE+6, 1314, 0, 'Swamp of Sorrows - Gold Vein / Mithril Deposit / Truesilver Deposit', 0),
+(@PTEMPLATE+7, 1314, 0, 'Swamp of Sorrows - Gold Vein / Mithril Deposit / Truesilver Deposit', 0),
+(@PTEMPLATE+8, 1314, 0, 'Swamp of Sorrows - Gold Vein / Mithril Deposit / Truesilver Deposit', 0),
+(@PTEMPLATE+9, 1314, 0, 'Swamp of Sorrows - Gold Vein / Mithril Deposit / Truesilver Deposit', 0),
+(@PTEMPLATE+10, 1314, 0, 'Swamp of Sorrows - Gold Vein / Mithril Deposit / Truesilver Deposit', 0),
+(@PTEMPLATE+11, 1314, 0, 'Swamp of Sorrows - Gold Vein / Mithril Deposit / Truesilver Deposit', 0),
+(@PTEMPLATE+12, 1314, 0, 'Swamp of Sorrows - Gold Vein / Mithril Deposit / Truesilver Deposit', 0),
+(@PTEMPLATE+13, 1314, 0, 'Swamp of Sorrows - Gold Vein / Mithril Deposit / Truesilver Deposit', 0);
+
+-- Add Chance
+-- Gold Vein / Mithril Deposit / Truesilver Deposit
+UPDATE `pool_gameobject` SET `chance` = 5 WHERE `description` = "Gold Vein / Mithril Deposit / Truesilver Deposit - Swamp of Sorrows" && `guid` IN (SELECT `guid` FROM `gameobject` WHERE `id` = 1734);
+UPDATE `pool_gameobject` SET `chance` = 90 WHERE `description` = "Gold Vein / Mithril Deposit / Truesilver Deposit - Swamp of Sorrows" && `guid` IN (SELECT `guid` FROM `gameobject` WHERE `id` = 2040);
+UPDATE `pool_gameobject` SET `chance` = 5 WHERE `description` = "Gold Vein / Mithril Deposit / Truesilver Deposit - Swamp of Sorrows" && `guid` IN (SELECT `guid` FROM `gameobject` WHERE `id` = 2047);
+
+-- Blasted Lands
+SET @OGUID = 100341;
+SET @PTEMPLATE = 14456;
+DELETE FROM `gameobject` WHERE `guid` IN (27174, 27175, 27176, 27177, 27178, 27179, 27180, 27181, 27182, 27183, 27184, 27185, 27186, 27187, 27188, 27189, 27190, 27191, 27192, 27193, 27194, 27195, 220435, 220436, 427401, 427402, 427404, 427405, 427406, 427407, 427570, 3996001, 3996002, 3996003, 3996004, 3996005, 3996006, 3996007, 3996008, 3996009, 3996010, 3996011, 3996012);
+DELETE FROM `pool_gameobject` WHERE `guid` IN (27174, 27175, 27176, 27177, 27178, 27179, 27180, 27181, 27182, 27183, 27184, 27185, 27186, 27187, 27188, 27189, 27190, 27191, 27192, 27193, 27194, 27195, 220435, 220436, 427401, 427402, 427404, 427405, 427406, 427407, 427570, 3996001, 3996002, 3996003, 3996004, 3996005, 3996006, 3996007, 3996008, 3996009, 3996010, 3996011, 3996012);
+DELETE FROM `pool_template` WHERE `entry` IN (1280, 1279, 8801, 8802, 8803, 17142, 21621, 21616, 21617, 21618, 21619, 21620, 21622, 21623, 21624, 21625, 21626, 17002, 17140);
+DELETE FROM `pool_pool` WHERE `pool_id` IN (8801, 8802, 8803, 17142, 21621, 21616, 21617, 21618, 21619, 21620, 21622, 21623, 21624, 21625, 21626, 17002, 17140);
+
+INSERT INTO `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES
+(@OGUID+1, 1734, 0, -11347.9, -2880.95, 12.63, 3.90954, 0, 0, -0.927183, 0.374608, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+2, 1734, 0, -11303.6, -3203.56, 30.4578, 1.25664, 0, 0, 0.587785, 0.809017, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+3, 1734, 0, -11286.7, -3423.87, 10.0321, 0.488692, 0, 0, 0.241922, 0.970296, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+4, 1734, 0, -11280.7, -3478.4, 7.66078, 2.04204, 0, 0, 0.85264, 0.522499, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+5, 1734, 0, -11253.7, -2698.1, 15.4379, 1.16937, 0, 0, 0.551936, 0.833886, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+6, 1734, 0, -11252, -3575.26, 9.13002, 0.645772, 0, 0, 0.317305, 0.948324, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+7, 1734, 0, -11864.1, -3352.51, 17.5933, 2.60054, 0, 0, 0.96363, 0.267241, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+8, 1734, 0, -11853.2, -2944.53, 18.2617, -1.74533, 0, 0, 0.766044, -0.642788, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+9, 1734, 0, -11733.5, -3170.78, -7.08996, 5.25344, 0, 0, -0.492423, 0.870356, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+10, 1734, 0, -11487.6, -3406.52, 18.8567, -1.01229, 0, 0, 0.48481, -0.87462, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+11, 1734, 0, -11387.7, -3348.58, 11.8879, -1.09956, 0, 0, 0.522499, -0.85264, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+12, 1734, 0, -11470.4, -3198.2, 24.3378, 5.95157, 0, 0, -0.165047, 0.986286, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+13, 1734, 0, -11705.4, -2752.12, 12.5473, 1.85005, 0, 0, 0.798635, 0.601815, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+14, 1734, 0, -11556.6, -3112.53, 12.1533, 0.698131, 0, 0, 0.34202, 0.939693, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+15, 1734, 0, -11180.9, -2909.93, 39.0139, -1.8675, 0, 0, 0.803857, -0.594823, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+16, 1734, 0, -11542.7, -2919.17, 14.5303, 4.11898, 0, 0, -0.882947, 0.469473, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+17, 1734, 0, -11126.9, -3365.38, 58.9554, 4.67748, 0, 0, -0.719339, 0.694659, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+18, 2040, 0, -11347.9, -2880.95, 12.63, 3.90954, 0, 0, -0.927183, 0.374608, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+19, 2040, 0, -11303.6, -3203.56, 30.4578, 1.25664, 0, 0, 0.587785, 0.809017, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+20, 2040, 0, -11286.7, -3423.87, 10.0321, 0.488692, 0, 0, 0.241922, 0.970296, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+21, 2040, 0, -11280.7, -3478.4, 7.66078, 2.04204, 0, 0, 0.85264, 0.522499, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+22, 2040, 0, -11253.7, -2698.1, 15.4379, 1.16937, 0, 0, 0.551936, 0.833886, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+23, 2040, 0, -11252, -3575.26, 9.13002, 0.645772, 0, 0, 0.317305, 0.948324, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+24, 2040, 0, -11864.1, -3352.51, 17.5933, 2.60054, 0, 0, 0.96363, 0.267241, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+25, 2040, 0, -11853.2, -2944.53, 18.2617, -1.74533, 0, 0, 0.766044, -0.642788, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+26, 2040, 0, -11733.5, -3170.78, -7.08996, 5.25344, 0, 0, -0.492423, 0.870356, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+27, 2040, 0, -11487.6, -3406.52, 18.8567, -1.01229, 0, 0, 0.48481, -0.87462, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+28, 2040, 0, -11387.7, -3348.58, 11.8879, -1.09956, 0, 0, 0.522499, -0.85264, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+29, 2040, 0, -11470.4, -3198.2, 24.3378, 5.95157, 0, 0, -0.165047, 0.986286, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+30, 2040, 0, -11705.4, -2752.12, 12.5473, 1.85005, 0, 0, 0.798635, 0.601815, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+31, 2040, 0, -11556.6, -3112.53, 12.1533, 0.698131, 0, 0, 0.34202, 0.939693, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+32, 2040, 0, -11180.9, -2909.93, 39.0139, -1.8675, 0, 0, 0.803857, -0.594823, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+33, 2040, 0, -11542.7, -2919.17, 14.5303, 4.11898, 0, 0, -0.882947, 0.469473, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+34, 2040, 0, -11126.9, -3365.38, 58.9554, 4.67748, 0, 0, -0.719339, 0.694659, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+35, 2047, 0, -11347.9, -2880.95, 12.63, 3.90954, 0, 0, -0.927183, 0.374608, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+36, 2047, 0, -11303.6, -3203.56, 30.4578, 1.25664, 0, 0, 0.587785, 0.809017, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+37, 2047, 0, -11286.7, -3423.87, 10.0321, 0.488692, 0, 0, 0.241922, 0.970296, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+38, 2047, 0, -11280.7, -3478.4, 7.66078, 2.04204, 0, 0, 0.85264, 0.522499, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+39, 2047, 0, -11253.7, -2698.1, 15.4379, 1.16937, 0, 0, 0.551936, 0.833886, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+40, 2047, 0, -11252, -3575.26, 9.13002, 0.645772, 0, 0, 0.317305, 0.948324, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+41, 2047, 0, -11864.1, -3352.51, 17.5933, 2.60054, 0, 0, 0.96363, 0.267241, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+42, 2047, 0, -11853.2, -2944.53, 18.2617, -1.74533, 0, 0, 0.766044, -0.642788, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+43, 2047, 0, -11733.5, -3170.78, -7.08996, 5.25344, 0, 0, -0.492423, 0.870356, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+44, 2047, 0, -11487.6, -3406.52, 18.8567, -1.01229, 0, 0, 0.48481, -0.87462, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+45, 2047, 0, -11387.7, -3348.58, 11.8879, -1.09956, 0, 0, 0.522499, -0.85264, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+46, 2047, 0, -11470.4, -3198.2, 24.3378, 5.95157, 0, 0, -0.165047, 0.986286, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+47, 2047, 0, -11705.4, -2752.12, 12.5473, 1.85005, 0, 0, 0.798635, 0.601815, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+48, 2047, 0, -11556.6, -3112.53, 12.1533, 0.698131, 0, 0, 0.34202, 0.939693, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+49, 2047, 0, -11180.9, -2909.93, 39.0139, -1.8675, 0, 0, 0.803857, -0.594823, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+50, 2047, 0, -11542.7, -2919.17, 14.5303, 4.11898, 0, 0, -0.882947, 0.469473, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+51, 2047, 0, -11126.9, -3365.38, 58.9554, 4.67748, 0, 0, -0.719339, 0.694659, 300, 300, 100, 1, 0, 0, 0, 10);
+
+INSERT INTO `pool_template` (`entry`, `max_limit`, `description`, `patch_max`) VALUES
+(@PTEMPLATE+1, 1, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands', 10),
+(@PTEMPLATE+2, 1, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands', 10),
+(@PTEMPLATE+3, 1, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands', 10),
+(@PTEMPLATE+4, 1, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands', 10),
+(@PTEMPLATE+5, 1, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands', 10),
+(@PTEMPLATE+6, 1, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands', 10),
+(@PTEMPLATE+7, 1, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands', 10),
+(@PTEMPLATE+8, 1, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands', 10),
+(@PTEMPLATE+9, 1, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands', 10),
+(@PTEMPLATE+10, 1, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands', 10),
+(@PTEMPLATE+11, 1, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands', 10),
+(@PTEMPLATE+12, 1, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands', 10),
+(@PTEMPLATE+13, 1, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands', 10),
+(@PTEMPLATE+14, 1, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands', 10),
+(@PTEMPLATE+15, 1, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands', 10),
+(@PTEMPLATE+16, 1, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands', 10),
+(@PTEMPLATE+17, 1, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands', 10);
+
+INSERT INTO `pool_gameobject` (`guid`, `pool_entry`, `description`, `patch_max`) VALUES 
+(@OGUID+1, @PTEMPLATE+1, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands', 10),
+(@OGUID+2, @PTEMPLATE+2, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands', 10),
+(@OGUID+3, @PTEMPLATE+3, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands', 10),
+(@OGUID+4, @PTEMPLATE+4, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands', 10),
+(@OGUID+5, @PTEMPLATE+5, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands', 10),
+(@OGUID+6, @PTEMPLATE+6, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands', 10),
+(@OGUID+7, @PTEMPLATE+7, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands', 10),
+(@OGUID+8 , @PTEMPLATE+8, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands', 10),
+(@OGUID+9, @PTEMPLATE+9, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands', 10),
+(@OGUID+10, @PTEMPLATE+10, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands', 10),
+(@OGUID+11, @PTEMPLATE+11, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands', 10),
+(@OGUID+12, @PTEMPLATE+12, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands', 10),
+(@OGUID+13, @PTEMPLATE+13, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands', 10),
+(@OGUID+14, @PTEMPLATE+14, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands', 10),
+(@OGUID+15, @PTEMPLATE+15, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands', 10),
+(@OGUID+16, @PTEMPLATE+16, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands', 10),
+(@OGUID+17, @PTEMPLATE+17, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands', 10),
+(@OGUID+18, @PTEMPLATE+1, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands', 10),
+(@OGUID+19, @PTEMPLATE+2, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands', 10),
+(@OGUID+20, @PTEMPLATE+3, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands', 10),
+(@OGUID+21, @PTEMPLATE+4, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands', 10),
+(@OGUID+22, @PTEMPLATE+5, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands', 10),
+(@OGUID+23, @PTEMPLATE+6, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands', 10),
+(@OGUID+24, @PTEMPLATE+7, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands', 10),
+(@OGUID+25, @PTEMPLATE+8, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands', 10),
+(@OGUID+26, @PTEMPLATE+9, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands', 10),
+(@OGUID+27, @PTEMPLATE+10, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands', 10),
+(@OGUID+28, @PTEMPLATE+11, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands', 10),
+(@OGUID+29, @PTEMPLATE+12, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands', 10),
+(@OGUID+30, @PTEMPLATE+13, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands', 10),
+(@OGUID+31, @PTEMPLATE+14, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands', 10),
+(@OGUID+32, @PTEMPLATE+15, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands', 10),
+(@OGUID+33, @PTEMPLATE+16, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands', 10),
+(@OGUID+34, @PTEMPLATE+17, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands', 10),
+(@OGUID+35, @PTEMPLATE+1, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands', 10),
+(@OGUID+36, @PTEMPLATE+2, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands', 10),
+(@OGUID+37, @PTEMPLATE+3, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands', 10),
+(@OGUID+38, @PTEMPLATE+4, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands', 10),
+(@OGUID+39, @PTEMPLATE+5, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands', 10),
+(@OGUID+40, @PTEMPLATE+6, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands', 10),
+(@OGUID+41, @PTEMPLATE+7, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands', 10),
+(@OGUID+42, @PTEMPLATE+8, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands', 10),
+(@OGUID+43, @PTEMPLATE+9, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands', 10),
+(@OGUID+44, @PTEMPLATE+10, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands', 10),
+(@OGUID+45, @PTEMPLATE+11, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands', 10),
+(@OGUID+46, @PTEMPLATE+12, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands', 10),
+(@OGUID+47, @PTEMPLATE+13, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands', 10),
+(@OGUID+48, @PTEMPLATE+14, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands', 10),
+(@OGUID+49, @PTEMPLATE+15, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands', 10),
+(@OGUID+50, @PTEMPLATE+16, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands', 10),
+(@OGUID+51, @PTEMPLATE+17, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands', 10);
+
+INSERT INTO `pool_template` (`entry`, `max_limit`, `description`, `flags`, `instance`, `patch_min`, `patch_max`) VALUES
+(1279, 8, 'Blasted Lands - Gold Vein / Mithril Deposit / Truesilver Deposit (Master Pool)', 0, 0, 0, 10);
+INSERT INTO `pool_pool` (`pool_id`, `mother_pool`, `chance`, `description`, `flags`) VALUES
+(@PTEMPLATE+1, 1279, 0, 'Blasted Lands - Gold Vein / Mithril Deposit / Truesilver Deposit', 0),
+(@PTEMPLATE+2, 1279, 0, 'Blasted Lands - Gold Vein / Mithril Deposit / Truesilver Deposit', 0),
+(@PTEMPLATE+3, 1279, 0, 'Blasted Lands - Gold Vein / Mithril Deposit / Truesilver Deposit', 0),
+(@PTEMPLATE+4, 1279, 0, 'Blasted Lands - Gold Vein / Mithril Deposit / Truesilver Deposit', 0),
+(@PTEMPLATE+5, 1279, 0, 'Blasted Lands - Gold Vein / Mithril Deposit / Truesilver Deposit', 0),
+(@PTEMPLATE+6, 1279, 0, 'Blasted Lands - Gold Vein / Mithril Deposit / Truesilver Deposit', 0),
+(@PTEMPLATE+7, 1279, 0, 'Blasted Lands - Gold Vein / Mithril Deposit / Truesilver Deposit', 0),
+(@PTEMPLATE+8, 1279, 0, 'Blasted Lands - Gold Vein / Mithril Deposit / Truesilver Deposit', 0),
+(@PTEMPLATE+9, 1279, 0, 'Blasted Lands - Gold Vein / Mithril Deposit / Truesilver Deposit', 0),
+(@PTEMPLATE+10, 1279, 0, 'Blasted Lands - Gold Vein / Mithril Deposit / Truesilver Deposit', 0),
+(@PTEMPLATE+11, 1279, 0, 'Blasted Lands - Gold Vein / Mithril Deposit / Truesilver Deposit', 0),
+(@PTEMPLATE+12, 1279, 0, 'Blasted Lands - Gold Vein / Mithril Deposit / Truesilver Deposit', 0),
+(@PTEMPLATE+13, 1279, 0, 'Blasted Lands - Gold Vein / Mithril Deposit / Truesilver Deposit', 0),
+(@PTEMPLATE+14, 1279, 0, 'Blasted Lands - Gold Vein / Mithril Deposit / Truesilver Deposit', 0),
+(@PTEMPLATE+15, 1279, 0, 'Blasted Lands - Gold Vein / Mithril Deposit / Truesilver Deposit', 0),
+(@PTEMPLATE+16, 1279, 0, 'Blasted Lands - Gold Vein / Mithril Deposit / Truesilver Deposit', 0),
+(@PTEMPLATE+17, 1279, 0, 'Blasted Lands - Gold Vein / Mithril Deposit / Truesilver Deposit', 0);
+
+-- Add Chance
+-- Gold Vein / Mithril Deposit / Truesilver Deposit
+UPDATE `pool_gameobject` SET `chance` = 5 WHERE `description` = "Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands" && `guid` IN (SELECT `guid` FROM `gameobject` WHERE `id` = 1734);
+UPDATE `pool_gameobject` SET `chance` = 90 WHERE `description` = "Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands" && `guid` IN (SELECT `guid` FROM `gameobject` WHERE `id` = 2040);
+UPDATE `pool_gameobject` SET `chance` = 5 WHERE `description` = "Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands" && `guid` IN (SELECT `guid` FROM `gameobject` WHERE `id` = 2047);
+UPDATE `pool_gameobject` SET `chance` = 95 WHERE `description` = "Truesilver Deposit / Small Thorium Vein - Blasted Lands" && `guid` IN (SELECT `guid` FROM `gameobject` WHERE `id` = 324);
+UPDATE `pool_gameobject` SET `chance` = 5 WHERE `description` = "Truesilver Deposit / Small Thorium Vein - Blasted Lands" && `guid` IN (SELECT `guid` FROM `gameobject` WHERE `id` = 2047);
+
+-- Garrison Armory
+SET @OGUID = 100392;
+SET @PTEMPLATE = 14473;
+DELETE FROM `gameobject` WHERE `guid` IN (49353, 49354, 49355, 49356, 49357, 49358, 49359, 49360, 49361, 49362, 49363, 49364, 49365, 49366, 49367, 50387, 50388, 50389, 50390, 50391, 50392, 50393, 50394, 50395, 50396, 50397, 50398, 50399, 50400, 50401, 50402, 50403, 50404, 50405, 50406, 50407, 50408, 50409, 50410, 50411, 50412, 50413, 50414);
+DELETE FROM `pool_gameobject` WHERE `guid` IN (49353, 49354, 49355, 49356, 49357, 49358, 49359, 49360, 49361, 49362, 49363, 49364, 49365, 49366, 49367, 50387, 50388, 50389, 50390, 50391, 50392, 50393, 50394, 50395, 50396, 50397, 50398, 50399, 50400, 50401, 50402, 50403, 50404, 50405, 50406, 50407, 50408, 50409, 50410, 50411, 50412, 50413, 50414);
+DELETE FROM `pool_template` WHERE `entry` IN (3956, 4250, 3942, 3943, 3944, 3945, 3946, 3947, 3948, 3949, 3950, 3951, 3952, 3953, 3954, 3955, 4245, 4246, 4247, 4248, 4249);
+DELETE FROM `pool_pool` WHERE `pool_id` IN (3942, 3943, 3944, 3945, 3946, 3947, 3948, 3949, 3950, 3951, 3952, 3953, 3954, 3955, 4245, 4246, 4247, 4248, 4249);
+
+INSERT INTO `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES
+(@OGUID+1, 150079, 0, -10857.4, -3167.36, 47.1372, 0.331611, 0, 0, 0.165047, 0.986286, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+2, 150079, 0, -10818.7, -3475.05, -21.4749, 5.65487, 0, 0, -0.309016, 0.951057, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+3, 150079, 0, -10801.7, -3064.23, 45.8933, 0.802851, 0, 0, 0.390731, 0.920505, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+4, 150079, 0, -10780.1, -3291.37, -10.1236, 3.78737, 0, 0, -0.948323, 0.317306, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+5, 150079, 0, -10741.1, -3678.92, -10.5593, 3.71755, 0, 0, -0.958819, 0.284016, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+6, 150079, 0, -10705.5, -3127.19, 29.0701, 4.34587, 0, 0, -0.824126, 0.566406, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+7, 150079, 0, -10684.2, -3692.6, -11.4256, 0.349065, 0, 0, 0.173648, 0.984808, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+8 , 150079, 0, -10678, -3063.91, 19.3301, 1.16937, 0, 0, 0.551936, 0.833886, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+9, 150079, 0, -10661.6, -3303.15, -9.63558, 4.60767, 0, 0, -0.743144, 0.669131, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+10, 150079, 0, -10659, -3390.33, -12.6527, 1.37881, 0, 0, 0.636078, 0.771625, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+11, 150079, 0, -10625, -3655, -15.6897, 3.64774, 0, 0, -0.968147, 0.250381, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+12, 150079, 0, -10613, -3328.92, -7.07186, 4.36332, 0, 0, -0.819152, 0.573577, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+13, 150079, 0, -10603.2, -3214.84, -2.70033, 2.87979, 0, 0, 0.991445, 0.130528, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+14, 150079, 0, -10554.8, -3591.63, -13.6239, 3.03684, 0, 0, 0.998629, 0.0523532, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+15, 150079, 0, -10530.1, -3547.74, -9.48959, 3.00195, 0, 0, 0.997563, 0.0697661, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+16, 150079, 0, -10503.3, -3453.36, -14.0034, 4.62512, 0, 0, -0.737277, 0.675591, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+17, 150079, 0, -10497.4, -3329.15, -4.38601, 1.01229, 0, 0, 0.484809, 0.87462, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+18, 150079, 0, -10494.9, -3214.97, -1.79457, 1.46608, 0, 0, 0.66913, 0.743145, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+19, 150079, 0, -10481.5, -3269.82, -4.87173, 0.0523589, 0, 0, 0.0261765, 0.999657, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+20, 150080, 0, -10857.4, -3167.36, 47.1372, 0.331611, 0, 0, 0.165047, 0.986286, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+21, 150080, 0, -10818.7, -3475.05, -21.4749, 5.65487, 0, 0, -0.309016, 0.951057, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+22, 150080, 0, -10801.7, -3064.23, 45.8933, 0.802851, 0, 0, 0.390731, 0.920505, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+23, 150080, 0, -10780.1, -3291.37, -10.1236, 3.78737, 0, 0, -0.948323, 0.317306, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+24, 150080, 0, -10741.1, -3678.92, -10.5593, 3.71755, 0, 0, -0.958819, 0.284016, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+25, 150080, 0, -10705.5, -3127.19, 29.0701, 4.34587, 0, 0, -0.824126, 0.566406, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+26, 150080, 0, -10684.2, -3692.6, -11.4256, 0.349065, 0, 0, 0.173648, 0.984808, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+27, 150080, 0, -10678, -3063.91, 19.3301, 1.16937, 0, 0, 0.551936, 0.833886, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+28, 150080, 0, -10661.6, -3303.15, -9.63558, 4.60767, 0, 0, -0.743144, 0.669131, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+29, 150080, 0, -10659, -3390.33, -12.6527, 1.37881, 0, 0, 0.636078, 0.771625, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+30, 150080, 0, -10625, -3655, -15.6897, 3.64774, 0, 0, -0.968147, 0.250381, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+31, 150080, 0, -10613, -3328.92, -7.07186, 4.36332, 0, 0, -0.819152, 0.573577, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+32, 150080, 0, -10603.2, -3214.84, -2.70033, 2.87979, 0, 0, 0.991445, 0.130528, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+33, 150080, 0, -10554.8, -3591.63, -13.6239, 3.03684, 0, 0, 0.998629, 0.0523532, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+34, 150080, 0, -10530.1, -3547.74, -9.48959, 3.00195, 0, 0, 0.997563, 0.0697661, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+35, 150080, 0, -10503.3, -3453.36, -14.0034, 4.62512, 0, 0, -0.737277, 0.675591, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+36, 150080, 0, -10497.4, -3329.15, -4.38601, 1.01229, 0, 0, 0.484809, 0.87462, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+37, 150080, 0, -10494.9, -3214.97, -1.79457, 1.46608, 0, 0, 0.66913, 0.743145, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+38, 150080, 0, -10481.5, -3269.82, -4.87173, 0.0523589, 0, 0, 0.0261765, 0.999657, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+39, 150081, 0, -10857.4, -3167.36, 47.1372, 0.331611, 0, 0, 0.165047, 0.986286, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+40, 150081, 0, -10818.7, -3475.05, -21.4749, 5.65487, 0, 0, -0.309016, 0.951057, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+41, 150081, 0, -10801.7, -3064.23, 45.8933, 0.802851, 0, 0, 0.390731, 0.920505, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+42, 150081, 0, -10780.1, -3291.37, -10.1236, 3.78737, 0, 0, -0.948323, 0.317306, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+43, 150081, 0, -10741.1, -3678.92, -10.5593, 3.71755, 0, 0, -0.958819, 0.284016, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+44, 150081, 0, -10705.5, -3127.19, 29.0701, 4.34587, 0, 0, -0.824126, 0.566406, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+45, 150081, 0, -10684.2, -3692.6, -11.4256, 0.349065, 0, 0, 0.173648, 0.984808, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+46, 150081, 0, -10678, -3063.91, 19.3301, 1.16937, 0, 0, 0.551936, 0.833886, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+47, 150081, 0, -10661.6, -3303.15, -9.63558, 4.60767, 0, 0, -0.743144, 0.669131, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+48, 150081, 0, -10659, -3390.33, -12.6527, 1.37881, 0, 0, 0.636078, 0.771625, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+49, 150081, 0, -10625, -3655, -15.6897, 3.64774, 0, 0, -0.968147, 0.250381, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+50, 150081, 0, -10613, -3328.92, -7.07186, 4.36332, 0, 0, -0.819152, 0.573577, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+51, 150081, 0, -10603.2, -3214.84, -2.70033, 2.87979, 0, 0, 0.991445, 0.130528, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+52, 150081, 0, -10554.8, -3591.63, -13.6239, 3.03684, 0, 0, 0.998629, 0.0523532, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+53, 150081, 0, -10530.1, -3547.74, -9.48959, 3.00195, 0, 0, 0.997563, 0.0697661, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+54, 150081, 0, -10503.3, -3453.36, -14.0034, 4.62512, 0, 0, -0.737277, 0.675591, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+55, 150081, 0, -10497.4, -3329.15, -4.38601, 1.01229, 0, 0, 0.484809, 0.87462, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+56, 150081, 0, -10494.9, -3214.97, -1.79457, 1.46608, 0, 0, 0.66913, 0.743145, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+57, 150081, 0, -10481.5, -3269.82, -4.87173, 0.0523589, 0, 0, 0.0261765, 0.999657, 300, 300, 100, 1, 0, 0, 0, 10);
+
+INSERT INTO `pool_template` (`entry`, `max_limit`, `description`, `patch_max`) VALUES
+(@PTEMPLATE+1, 1, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands - Garrison Armory', 10),
+(@PTEMPLATE+2, 1, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands - Garrison Armory', 10),
+(@PTEMPLATE+3, 1, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands - Garrison Armory', 10),
+(@PTEMPLATE+4, 1, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands - Garrison Armory', 10),
+(@PTEMPLATE+5, 1, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands - Garrison Armory', 10),
+(@PTEMPLATE+6, 1, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands - Garrison Armory', 10),
+(@PTEMPLATE+7, 1, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands - Garrison Armory', 10),
+(@PTEMPLATE+8, 1, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands - Garrison Armory', 10),
+(@PTEMPLATE+9, 1, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands - Garrison Armory', 10),
+(@PTEMPLATE+10, 1, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands - Garrison Armory', 10),
+(@PTEMPLATE+11, 1, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands - Garrison Armory', 10),
+(@PTEMPLATE+12, 1, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands - Garrison Armory', 10),
+(@PTEMPLATE+13, 1, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands - Garrison Armory', 10),
+(@PTEMPLATE+14, 1, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands - Garrison Armory', 10),
+(@PTEMPLATE+15, 1, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands - Garrison Armory', 10),
+(@PTEMPLATE+16, 1, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands - Garrison Armory', 10),
+(@PTEMPLATE+17, 1, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands - Garrison Armory', 10),
+(@PTEMPLATE+18, 1, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands - Garrison Armory', 10),
+(@PTEMPLATE+19, 1, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands - Garrison Armory', 10);
+
+INSERT INTO `pool_gameobject` (`guid`, `pool_entry`, `description`, `patch_max`) VALUES 
+(@OGUID+1, @PTEMPLATE+1, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands - Garrison Armory', 10),
+(@OGUID+2, @PTEMPLATE+2, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands - Garrison Armory', 10),
+(@OGUID+3, @PTEMPLATE+3, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands - Garrison Armory', 10),
+(@OGUID+4, @PTEMPLATE+4, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands - Garrison Armory', 10),
+(@OGUID+5, @PTEMPLATE+5, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands - Garrison Armory', 10),
+(@OGUID+6, @PTEMPLATE+6, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands - Garrison Armory', 10),
+(@OGUID+7, @PTEMPLATE+7, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands - Garrison Armory', 10),
+(@OGUID+8, @PTEMPLATE+8, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands - Garrison Armory', 10),
+(@OGUID+9, @PTEMPLATE+9, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands - Garrison Armory', 10),
+(@OGUID+10, @PTEMPLATE+10, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands - Garrison Armory', 10),
+(@OGUID+11, @PTEMPLATE+11, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands - Garrison Armory', 10),
+(@OGUID+12, @PTEMPLATE+12, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands - Garrison Armory', 10),
+(@OGUID+13, @PTEMPLATE+13, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands - Garrison Armory', 10),
+(@OGUID+14, @PTEMPLATE+14, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands - Garrison Armory', 10),
+(@OGUID+15, @PTEMPLATE+15, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands - Garrison Armory', 10),
+(@OGUID+16, @PTEMPLATE+16, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands - Garrison Armory', 10),
+(@OGUID+17, @PTEMPLATE+17, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands - Garrison Armory', 10),
+(@OGUID+18, @PTEMPLATE+18, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands - Garrison Armory', 10),
+(@OGUID+19, @PTEMPLATE+19, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands - Garrison Armory', 10),
+(@OGUID+20, @PTEMPLATE+1, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands - Garrison Armory', 10),
+(@OGUID+21, @PTEMPLATE+2, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands - Garrison Armory', 10),
+(@OGUID+22, @PTEMPLATE+3, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands - Garrison Armory', 10),
+(@OGUID+23, @PTEMPLATE+4, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands - Garrison Armory', 10),
+(@OGUID+24, @PTEMPLATE+5, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands - Garrison Armory', 10),
+(@OGUID+25, @PTEMPLATE+6, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands - Garrison Armory', 10),
+(@OGUID+26, @PTEMPLATE+7, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands - Garrison Armory', 10),
+(@OGUID+27, @PTEMPLATE+8, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands - Garrison Armory', 10),
+(@OGUID+28, @PTEMPLATE+9, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands - Garrison Armory', 10),
+(@OGUID+29, @PTEMPLATE+10, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands - Garrison Armory', 10),
+(@OGUID+30, @PTEMPLATE+11, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands - Garrison Armory', 10),
+(@OGUID+31, @PTEMPLATE+12, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands - Garrison Armory', 10),
+(@OGUID+32, @PTEMPLATE+13, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands - Garrison Armory', 10),
+(@OGUID+33, @PTEMPLATE+14, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands - Garrison Armory', 10),
+(@OGUID+34, @PTEMPLATE+15, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands - Garrison Armory', 10),
+(@OGUID+35, @PTEMPLATE+16, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands - Garrison Armory', 10),
+(@OGUID+36, @PTEMPLATE+17, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands - Garrison Armory', 10),
+(@OGUID+37, @PTEMPLATE+18, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands - Garrison Armory', 10),
+(@OGUID+38, @PTEMPLATE+19, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands - Garrison Armory', 10),
+(@OGUID+39, @PTEMPLATE+1, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands - Garrison Armory', 10),
+(@OGUID+40, @PTEMPLATE+2, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands - Garrison Armory', 10),
+(@OGUID+41, @PTEMPLATE+3, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands - Garrison Armory', 10),
+(@OGUID+42, @PTEMPLATE+4, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands - Garrison Armory', 10),
+(@OGUID+43, @PTEMPLATE+5, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands - Garrison Armory', 10),
+(@OGUID+44, @PTEMPLATE+6, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands - Garrison Armory', 10),
+(@OGUID+45, @PTEMPLATE+7, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands - Garrison Armory', 10),
+(@OGUID+46, @PTEMPLATE+8, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands - Garrison Armory', 10),
+(@OGUID+47, @PTEMPLATE+9, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands - Garrison Armory', 10),
+(@OGUID+48, @PTEMPLATE+10, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands - Garrison Armory', 10),
+(@OGUID+49, @PTEMPLATE+11, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands - Garrison Armory', 10),
+(@OGUID+50, @PTEMPLATE+12, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands - Garrison Armory', 10),
+(@OGUID+51, @PTEMPLATE+13, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands - Garrison Armory', 10),
+(@OGUID+52, @PTEMPLATE+14, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands - Garrison Armory', 10),
+(@OGUID+53, @PTEMPLATE+15, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands - Garrison Armory', 10),
+(@OGUID+54, @PTEMPLATE+16, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands - Garrison Armory', 10),
+(@OGUID+55, @PTEMPLATE+17, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands - Garrison Armory', 10),
+(@OGUID+56, @PTEMPLATE+18, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands - Garrison Armory', 10),
+(@OGUID+57, @PTEMPLATE+19, 'Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands - Garrison Armory', 10);
+
+INSERT INTO `pool_template` (`entry`, `max_limit`, `description`, `flags`, `instance`, `patch_min`, `patch_max`) VALUES
+(1280, 3, 'Blasted Lands - Garrison Armory - Gold Vein / Mithril Deposit / Truesilver Deposit (Master Pool)', 0, 0, 0, 10);
+INSERT INTO `pool_pool` (`pool_id`, `mother_pool`, `chance`, `description`, `flags`) VALUES
+(@PTEMPLATE+1, 1280, 0, 'Blasted Lands - Garrison Armory - Gold Vein / Mithril Deposit / Truesilver Deposit', 0),
+(@PTEMPLATE+2, 1280, 0, 'Blasted Lands - Garrison Armory - Gold Vein / Mithril Deposit / Truesilver Deposit', 0),
+(@PTEMPLATE+3, 1280, 0, 'Blasted Lands - Garrison Armory - Gold Vein / Mithril Deposit / Truesilver Deposit', 0),
+(@PTEMPLATE+4, 1280, 0, 'Blasted Lands - Garrison Armory - Gold Vein / Mithril Deposit / Truesilver Deposit', 0),
+(@PTEMPLATE+5, 1280, 0, 'Blasted Lands - Garrison Armory - Gold Vein / Mithril Deposit / Truesilver Deposit', 0),
+(@PTEMPLATE+6, 1280, 0, 'Blasted Lands - Garrison Armory - Gold Vein / Mithril Deposit / Truesilver Deposit', 0),
+(@PTEMPLATE+7, 1280, 0, 'Blasted Lands - Garrison Armory - Gold Vein / Mithril Deposit / Truesilver Deposit', 0),
+(@PTEMPLATE+8, 1280, 0, 'Blasted Lands - Garrison Armory - Gold Vein / Mithril Deposit / Truesilver Deposit', 0),
+(@PTEMPLATE+9, 1280, 0, 'Blasted Lands - Garrison Armory - Gold Vein / Mithril Deposit / Truesilver Deposit', 0),
+(@PTEMPLATE+10, 1280, 0, 'Blasted Lands - Garrison Armory - Gold Vein / Mithril Deposit / Truesilver Deposit', 0),
+(@PTEMPLATE+11, 1280, 0, 'Blasted Lands - Garrison Armory - Gold Vein / Mithril Deposit / Truesilver Deposit', 0),
+(@PTEMPLATE+12, 1280, 0, 'Blasted Lands - Garrison Armory - Gold Vein / Mithril Deposit / Truesilver Deposit', 0),
+(@PTEMPLATE+13, 1280, 0, 'Blasted Lands - Garrison Armory - Gold Vein / Mithril Deposit / Truesilver Deposit', 0),
+(@PTEMPLATE+14, 1280, 0, 'Blasted Lands - Garrison Armory - Gold Vein / Mithril Deposit / Truesilver Deposit', 0),
+(@PTEMPLATE+15, 1280, 0, 'Blasted Lands - Garrison Armory - Gold Vein / Mithril Deposit / Truesilver Deposit', 0),
+(@PTEMPLATE+16, 1280, 0, 'Blasted Lands - Garrison Armory - Gold Vein / Mithril Deposit / Truesilver Deposit', 0),
+(@PTEMPLATE+17, 1280, 0, 'Blasted Lands - Garrison Armory - Gold Vein / Mithril Deposit / Truesilver Deposit', 0),
+(@PTEMPLATE+18, 1280, 0, 'Blasted Lands - Garrison Armory - Gold Vein / Mithril Deposit / Truesilver Deposit', 0),
+(@PTEMPLATE+19, 1280, 0, 'Blasted Lands - Garrison Armory - Gold Vein / Mithril Deposit / Truesilver Deposit', 0);
+
+UPDATE `pool_gameobject` SET `chance` = 90 WHERE `description` = "Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands - Garrison Armory" && `guid` IN (SELECT `guid` FROM `gameobject` WHERE `id` = 150079);
+UPDATE `pool_gameobject` SET `chance` = 5 WHERE `description` = "Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands - Garrison Armory" && `guid` IN (SELECT `guid` FROM `gameobject` WHERE `id` = 150080);
+UPDATE `pool_gameobject` SET `chance` = 5 WHERE `description` = "Gold Vein / Mithril Deposit / Truesilver Deposit - Blasted Lands - Garrison Armory" && `guid` IN (SELECT `guid` FROM `gameobject` WHERE `id` = 150081);
+
+-- Redridge Mountains
+SET @OGUID = 151771;
+SET @PTEMPLATE = 9367;
+DELETE FROM `pool_gameobject` WHERE `guid` IN (34770, 34771, 40601, 40602, 40603, 40604, 40605, 40606, 40607, 40608, 40609, 40610, 40611, 40612, 40613, 40614, 40615, 40616, 40617, 40618, 40619, 40620, 40621, 40622, 40623, 40624, 40625, 40626, 40627, 40628, 40629, 251513, 251514, 251515, 251516, 251517, 251518, 389362);
+DELETE FROM `gameobject` WHERE `guid` IN (34770, 34771, 40601, 40602, 40603, 40604, 40605, 40606, 40607, 40608, 40609, 40610, 40611, 40612, 40613, 40614, 40615, 40616, 40617, 40618, 40619, 40620, 40621, 40622, 40623, 40624, 40625, 40626, 40627, 40628, 40629, 251513, 251514, 251515, 251516, 251517, 251518, 389362);
+DELETE FROM `pool_template` WHERE `entry` = 1129;
+
+INSERT INTO `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES
+(@OGUID+1, 1732, 0, -9681.26, -3114.55, 55.7525, 2.30383, 0, 0, 0.913545, 0.406738, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+2, 1732, 0, -9550.32, -3301.11, 50.2162, 2.74017, 0, 0, 0.979925, 0.199368, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+3, 1732, 0, -9533.11, -2925.66, 107.77, -1.78024, 0, 0, 0.777146, -0.62932, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+4, 1732, 0, -9470.41, -3442.23, 122.738, 1.8326, 0, 0, 0.793353, 0.608761, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+5, 1732, 0, -9423.47, -2985.06, 136.619, 0.733038, 0, 0, 0.358368, 0.93358, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+6, 1732, 0, -9315.86, -3138.06, 100.133, 1.0821, 0, 0, 0.515038, 0.857167, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+7, 1732, 0, -9254.95, -2870.78, 94.876, 3.14159, 0, 0, -1, 0, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+8, 1732, 0, -9140.93, -2028.65, 124.528, 0.436332, 0, 0, 0.216439, 0.976296, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+9, 1732, 0, -9110.86, -2796.44, 106.933, 4.97, 0, 0, 0.610266, -0.792197, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+10, 1732, 0, -8827.17, -2188.08, 179.982, 1.78023, 0, 0, 0.777145, 0.629321, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+11, 1732, 0, -8754.97, -2199.17, 154.057, 1.93731, 0, 0, 0.824126, 0.566406, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+12, 1732, 0, -8749.71, -2186.82, 163.259, 5.21854, 0, 0, -0.507538, 0.861629, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+13, 1732, 0, -8721.37, -2148.08, 161.364, -1.36136, 0, 0, 0.629321, -0.777146, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+14, 1732, 0, -8709.11, -2189.66, 154.599, 3.12412, 0, 0, 0.999962, 0.00873464, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+15, 1732, 0, -8704.96, -2174.29, 151.974, 4.86947, 0, 0, -0.649447, 0.760406, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+16, 1732, 0, -9701.02, -2719.39, 70.9252, 0.453785, 0, 0, 0.224951, 0.97437, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+17, 1732, 0, -9607.09, -2858.38, 65.9065, 0.331611, 0, 0, 0.165047, 0.986286, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+18, 1732, 0, -9603.3, -3099.33, 57.9278, 3.31614, 0, 0, -0.996194, 0.087165, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+19, 1732, 0, -9081.92, -2429.31, 128.663, 1.88495, 0, 0, 0.809016, 0.587786, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+20, 1732, 0, -8756.82, -2241.76, 152.626, 4.41568, 0, 0, -0.803857, 0.594823, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+21, 1732, 0, -8725.6, -2201.18, 152.555, 2.14675, 0, 0, 0.878817, 0.47716, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+22, 1732, 0, -8682.86, -2272.17, 155.088, 4.83456, 0, 0, -0.66262, 0.748956, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+23, 1732, 0, -8703.86, -2309.01, 162.106, -0.349066, 0, 0, 0.173648, -0.984808, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+24, 1732, 0, -9354.13, -2989.31, 135.666, -1.97222, 0, 0, 0.833886, -0.551937, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+25, 1732, 0, -9077.6, -3180.13, 115.942, 2.44346, 0, 0, 0.939692, 0.34202, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+26, 1732, 0, -8818.36, -2204.01, 137.801, 2.23402, 0, 0, 0.898793, 0.438373, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+27, 1732, 0, -8808.98, -2176.18, 143.724, 3.54302, 0, 0, -0.979924, 0.19937, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+28, 1732, 0, -8805.3, -2146, 154.329, 0.855211, 0, 0, 0.414693, 0.909961, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+29, 1732, 0, -8758.65, -2191.66, 139.589, 1.98967, 0, 0, 0.83867, 0.54464, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+30, 1732, 0, -8750, -2144, 156.404, 5.86431, 0, 0, -0.207911, 0.978148, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+31, 1732, 0, -9797.6, -3226.64, 61.2402, 0.977384, 0, 0, 0.469472, 0.882948, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+32, 1733, 0, -9681.26, -3114.55, 55.7525, 2.30383, 0, 0, 0.913545, 0.406738, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+33, 1733, 0, -9550.32, -3301.11, 50.2162, 2.74017, 0, 0, 0.979925, 0.199368, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+34, 1733, 0, -9533.11, -2925.66, 107.77, -1.78024, 0, 0, 0.777146, -0.62932, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+35, 1733, 0, -9470.41, -3442.23, 122.738, 1.8326, 0, 0, 0.793353, 0.608761, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+36, 1733, 0, -9423.47, -2985.06, 136.619, 0.733038, 0, 0, 0.358368, 0.93358, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+37, 1733, 0, -9315.86, -3138.06, 100.133, 1.0821, 0, 0, 0.515038, 0.857167, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+38, 1733, 0, -9254.95, -2870.78, 94.876, 3.14159, 0, 0, -1, 0, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+39, 1733, 0, -9140.93, -2028.65, 124.528, 0.436332, 0, 0, 0.216439, 0.976296, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+40, 1733, 0, -9110.86, -2796.44, 106.933, 4.97, 0, 0, 0.610266, -0.792197, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+41, 1733, 0, -8827.17, -2188.08, 179.982, 1.78023, 0, 0, 0.777145, 0.629321, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+42, 1733, 0, -8754.97, -2199.17, 154.057, 1.93731, 0, 0, 0.824126, 0.566406, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+43, 1733, 0, -8749.71, -2186.82, 163.259, 5.21854, 0, 0, -0.507538, 0.861629, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+44, 1733, 0, -8721.37, -2148.08, 161.364, -1.36136, 0, 0, 0.629321, -0.777146, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+45, 1733, 0, -8709.11, -2189.66, 154.599, 3.12412, 0, 0, 0.999962, 0.00873464, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+46, 1733, 0, -8704.96, -2174.29, 151.974, 4.86947, 0, 0, -0.649447, 0.760406, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+47, 1733, 0, -9701.02, -2719.39, 70.9252, 0.453785, 0, 0, 0.224951, 0.97437, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+48, 1733, 0, -9607.09, -2858.38, 65.9065, 0.331611, 0, 0, 0.165047, 0.986286, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+49, 1733, 0, -9603.3, -3099.33, 57.9278, 3.31614, 0, 0, -0.996194, 0.087165, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+50, 1733, 0, -9081.92, -2429.31, 128.663, 1.88495, 0, 0, 0.809016, 0.587786, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+51, 1733, 0, -8756.82, -2241.76, 152.626, 4.41568, 0, 0, -0.803857, 0.594823, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+52, 1733, 0, -8725.6, -2201.18, 152.555, 2.14675, 0, 0, 0.878817, 0.47716, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+53, 1733, 0, -8682.86, -2272.17, 155.088, 4.83456, 0, 0, -0.66262, 0.748956, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+54, 1733, 0, -8703.86, -2309.01, 162.106, -0.349066, 0, 0, 0.173648, -0.984808, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+55, 1733, 0, -9354.13, -2989.31, 135.666, -1.97222, 0, 0, 0.833886, -0.551937, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+56, 1733, 0, -9077.6, -3180.13, 115.942, 2.44346, 0, 0, 0.939692, 0.34202, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+57, 1733, 0, -8818.36, -2204.01, 137.801, 2.23402, 0, 0, 0.898793, 0.438373, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+58, 1733, 0, -8808.98, -2176.18, 143.724, 3.54302, 0, 0, -0.979924, 0.19937, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+59, 1733, 0, -8805.3, -2146, 154.329, 0.855211, 0, 0, 0.414693, 0.909961, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+60, 1733, 0, -8758.65, -2191.66, 139.589, 1.98967, 0, 0, 0.83867, 0.54464, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+61, 1733, 0, -8750, -2144, 156.404, 5.86431, 0, 0, -0.207911, 0.978148, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+62, 1733, 0, -9797.6, -3226.64, 61.2402, 0.977384, 0, 0, 0.469472, 0.882948, 300, 300, 100, 1, 0, 0, 0, 10);
+
+INSERT INTO `pool_template` (`entry`, `max_limit`, `description`, `patch_max`) VALUES
+(@PTEMPLATE+1, 1, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@PTEMPLATE+2, 1, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@PTEMPLATE+3, 1, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@PTEMPLATE+4, 1, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@PTEMPLATE+5, 1, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@PTEMPLATE+6, 1, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@PTEMPLATE+7, 1, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@PTEMPLATE+8, 1, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@PTEMPLATE+9, 1, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@PTEMPLATE+10, 1, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@PTEMPLATE+11, 1, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@PTEMPLATE+12, 1, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@PTEMPLATE+13, 1, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@PTEMPLATE+14, 1, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@PTEMPLATE+15, 1, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@PTEMPLATE+16, 1, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@PTEMPLATE+17, 1, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@PTEMPLATE+18, 1, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@PTEMPLATE+19, 1, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@PTEMPLATE+20, 1, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@PTEMPLATE+21, 1, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@PTEMPLATE+22, 1, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@PTEMPLATE+23, 1, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@PTEMPLATE+24, 1, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@PTEMPLATE+25, 1, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@PTEMPLATE+26, 1, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@PTEMPLATE+27, 1, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@PTEMPLATE+28, 1, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@PTEMPLATE+29, 1, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@PTEMPLATE+30, 1, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@PTEMPLATE+31, 1, 'Tin Vein / Silver Vein - Redridge Mountains', 10);
+
+INSERT INTO `pool_gameobject` (`guid`, `pool_entry`, `description`, `patch_max`) VALUES 
+(@OGUID+1, @PTEMPLATE+1, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@OGUID+2, @PTEMPLATE+2, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@OGUID+3, @PTEMPLATE+3, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@OGUID+4, @PTEMPLATE+4, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@OGUID+5, @PTEMPLATE+5, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@OGUID+6, @PTEMPLATE+6, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@OGUID+7, @PTEMPLATE+7, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@OGUID+8, @PTEMPLATE+8, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@OGUID+9, @PTEMPLATE+9, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@OGUID+10, @PTEMPLATE+10, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@OGUID+11, @PTEMPLATE+11, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@OGUID+12, @PTEMPLATE+12, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@OGUID+13, @PTEMPLATE+13, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@OGUID+14, @PTEMPLATE+14, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@OGUID+15, @PTEMPLATE+15, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@OGUID+16, @PTEMPLATE+16, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@OGUID+17, @PTEMPLATE+17, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@OGUID+18, @PTEMPLATE+18, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@OGUID+19, @PTEMPLATE+19, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@OGUID+20, @PTEMPLATE+20, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@OGUID+21, @PTEMPLATE+21, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@OGUID+22, @PTEMPLATE+22, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@OGUID+23, @PTEMPLATE+23, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@OGUID+24, @PTEMPLATE+24, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@OGUID+25, @PTEMPLATE+25, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@OGUID+26, @PTEMPLATE+26, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@OGUID+27, @PTEMPLATE+27, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@OGUID+28, @PTEMPLATE+28, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@OGUID+29, @PTEMPLATE+29, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@OGUID+30, @PTEMPLATE+30, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@OGUID+31, @PTEMPLATE+31, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@OGUID+32, @PTEMPLATE+1, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@OGUID+33, @PTEMPLATE+2, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@OGUID+34, @PTEMPLATE+3, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@OGUID+35, @PTEMPLATE+4, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@OGUID+36, @PTEMPLATE+5, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@OGUID+37, @PTEMPLATE+6, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@OGUID+38, @PTEMPLATE+7, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@OGUID+39, @PTEMPLATE+8, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@OGUID+40, @PTEMPLATE+9, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@OGUID+41, @PTEMPLATE+10, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@OGUID+42, @PTEMPLATE+11, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@OGUID+43, @PTEMPLATE+12, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@OGUID+44, @PTEMPLATE+13, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@OGUID+45, @PTEMPLATE+14, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@OGUID+46, @PTEMPLATE+15, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@OGUID+47, @PTEMPLATE+16, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@OGUID+48, @PTEMPLATE+17, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@OGUID+49, @PTEMPLATE+18, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@OGUID+50, @PTEMPLATE+19, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@OGUID+51, @PTEMPLATE+20, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@OGUID+52, @PTEMPLATE+21, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@OGUID+53, @PTEMPLATE+22, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@OGUID+54, @PTEMPLATE+23, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@OGUID+55, @PTEMPLATE+24, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@OGUID+56, @PTEMPLATE+25, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@OGUID+57, @PTEMPLATE+26, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@OGUID+58, @PTEMPLATE+27, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@OGUID+59, @PTEMPLATE+28, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@OGUID+60, @PTEMPLATE+29, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@OGUID+61, @PTEMPLATE+30, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@OGUID+62, @PTEMPLATE+31, 'Tin Vein / Silver Vein - Redridge Mountains', 10);
+
+INSERT INTO `pool_pool` (`pool_id`, `mother_pool`, `chance`, `description`, `flags`) VALUES
+(@PTEMPLATE+1, 400, 0, 'Redridge Mountains - Tin Vein / Silver Vein', 0),
+(@PTEMPLATE+2, 400, 0, 'Redridge Mountains - Tin Vein / Silver Vein', 0),
+(@PTEMPLATE+3, 400, 0, 'Redridge Mountains - Tin Vein / Silver Vein', 0),
+(@PTEMPLATE+4, 400, 0, 'Redridge Mountains - Tin Vein / Silver Vein', 0),
+(@PTEMPLATE+5, 400, 0, 'Redridge Mountains - Tin Vein / Silver Vein', 0),
+(@PTEMPLATE+6, 400, 0, 'Redridge Mountains - Tin Vein / Silver Vein', 0),
+(@PTEMPLATE+7, 400, 0, 'Redridge Mountains - Tin Vein / Silver Vein', 0),
+(@PTEMPLATE+8, 400, 0, 'Redridge Mountains - Tin Vein / Silver Vein', 0),
+(@PTEMPLATE+9, 400, 0, 'Redridge Mountains - Tin Vein / Silver Vein', 0),
+(@PTEMPLATE+10, 400, 0, 'Redridge Mountains - Tin Vein / Silver Vein', 0),
+(@PTEMPLATE+11, 400, 0, 'Redridge Mountains - Tin Vein / Silver Vein', 0),
+(@PTEMPLATE+12, 400, 0, 'Redridge Mountains - Tin Vein / Silver Vein', 0),
+(@PTEMPLATE+13, 400, 0, 'Redridge Mountains - Tin Vein / Silver Vein', 0),
+(@PTEMPLATE+14, 400, 0, 'Redridge Mountains - Tin Vein / Silver Vein', 0),
+(@PTEMPLATE+15, 400, 0, 'Redridge Mountains - Tin Vein / Silver Vein', 0),
+(@PTEMPLATE+16, 400, 0, 'Redridge Mountains - Tin Vein / Silver Vein', 0),
+(@PTEMPLATE+17, 400, 0, 'Redridge Mountains - Tin Vein / Silver Vein', 0),
+(@PTEMPLATE+18, 400, 0, 'Redridge Mountains - Tin Vein / Silver Vein', 0),
+(@PTEMPLATE+19, 400, 0, 'Redridge Mountains - Tin Vein / Silver Vein', 0),
+(@PTEMPLATE+20, 400, 0, 'Redridge Mountains - Tin Vein / Silver Vein', 0),
+(@PTEMPLATE+21, 400, 0, 'Redridge Mountains - Tin Vein / Silver Vein', 0),
+(@PTEMPLATE+22, 400, 0, 'Redridge Mountains - Tin Vein / Silver Vein', 0),
+(@PTEMPLATE+23, 400, 0, 'Redridge Mountains - Tin Vein / Silver Vein', 0),
+(@PTEMPLATE+24, 400, 0, 'Redridge Mountains - Tin Vein / Silver Vein', 0),
+(@PTEMPLATE+25, 400, 0, 'Redridge Mountains - Tin Vein / Silver Vein', 0),
+(@PTEMPLATE+26, 400, 0, 'Redridge Mountains - Tin Vein / Silver Vein', 0),
+(@PTEMPLATE+27, 400, 0, 'Redridge Mountains - Tin Vein / Silver Vein', 0),
+(@PTEMPLATE+28, 400, 0, 'Redridge Mountains - Tin Vein / Silver Vein', 0),
+(@PTEMPLATE+29, 400, 0, 'Redridge Mountains - Tin Vein / Silver Vein', 0),
+(@PTEMPLATE+30, 400, 0, 'Redridge Mountains - Tin Vein / Silver Vein', 0),
+(@PTEMPLATE+31, 400, 0, 'Redridge Mountains - Tin Vein / Silver Vein', 0);
+
+SET @OGUID = 93000;
+SET @PTEMPLATE = 9398;
+
+INSERT INTO `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES
+(@OGUID+1, 1733, 0, -8786.52, -2028.94, 130.408, 3.05433, 0, 0, 0.999048, 0.0436193, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+2, 1733, 0, -8901.02, -2016.14, 126.447, 1.46608, 0, 0, 0.66913, 0.743145, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+3, 1733, 0, -8759.31, -2013.18, 130.802, 5.5676, 0, 0, -0.350207, 0.936672, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+4, 1733, 0, -8962.55, -1990.87, 137.634, 0.261799, 0, 0, 0.130526, 0.991445, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+5, 1733, 0, -8817.11, -2061.81, 131.111, 0.139626, 0, 0, 0.0697565, 0.997564, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+6, 2054, 0, -8786.52, -2028.94, 130.408, 3.05433, 0, 0, 0.999048, 0.0436193, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+7, 2054, 0, -8901.02, -2016.14, 126.447, 1.46608, 0, 0, 0.66913, 0.743145, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+8, 2054, 0, -8759.31, -2013.18, 130.802, 5.5676, 0, 0, -0.350207, 0.936672, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+9, 2054, 0, -8962.55, -1990.87, 137.634, 0.261799, 0, 0, 0.130526, 0.991445, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+10, 2054, 0, -8817.11, -2061.81, 131.111, 0.139626, 0, 0, 0.0697565, 0.997564, 300, 300, 100, 1, 0, 0, 0, 10);
+
+INSERT INTO `pool_template` (`entry`, `max_limit`, `description`, `patch_max`) VALUES
+(@PTEMPLATE+1, 1, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@PTEMPLATE+2, 1, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@PTEMPLATE+3, 1, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@PTEMPLATE+4, 1, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@PTEMPLATE+5, 1, 'Tin Vein / Silver Vein - Redridge Mountains', 10);
+
+INSERT INTO `pool_gameobject` (`guid`, `pool_entry`, `description`, `patch_max`) VALUES 
+(@OGUID+1, @PTEMPLATE+1, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@OGUID+2, @PTEMPLATE+2, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@OGUID+3, @PTEMPLATE+3, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@OGUID+4, @PTEMPLATE+4, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@OGUID+5, @PTEMPLATE+5, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@OGUID+6, @PTEMPLATE+1, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@OGUID+7, @PTEMPLATE+2, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@OGUID+8, @PTEMPLATE+3, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@OGUID+9, @PTEMPLATE+4, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@OGUID+10, @PTEMPLATE+5, 'Tin Vein / Silver Vein - Redridge Mountains', 10);
+
+INSERT INTO `pool_pool` (`pool_id`, `mother_pool`, `chance`, `description`, `flags`) VALUES
+(@PTEMPLATE+1, 400, 0, 'Redridge Mountains - Tin Vein / Silver Vein', 0),
+(@PTEMPLATE+2, 400, 0, 'Redridge Mountains - Tin Vein / Silver Vein', 0),
+(@PTEMPLATE+3, 400, 0, 'Redridge Mountains - Tin Vein / Silver Vein', 0),
+(@PTEMPLATE+4, 400, 0, 'Redridge Mountains - Tin Vein / Silver Vein', 0),
+(@PTEMPLATE+5, 400, 0, 'Redridge Mountains - Tin Vein / Silver Vein', 0);
+
+SET @OGUID = 93010;
+SET @PTEMPLATE = 9403;
+
+INSERT INTO `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES
+(@OGUID+1, 1732, 0, -8778.13, -2251.59, 149.732, 1.64061, 0, 0, 0.731353, 0.681999, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+2, 1732, 0, -8932.18, -2079.43, 139.813, 4.7822, 0, 0, -0.681998, 0.731354, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+3, 1733, 0, -8778.13, -2251.59, 149.732, 1.64061, 0, 0, 0.731353, 0.681999, 300, 300, 100, 1, 0, 0, 0, 10),
+(@OGUID+4, 1733, 0, -8932.18, -2079.43, 139.813, 4.7822, 0, 0, -0.681998, 0.731354, 300, 300, 100, 1, 0, 0, 0, 10);
+
+INSERT INTO `pool_template` (`entry`, `max_limit`, `description`, `patch_max`) VALUES
+(@PTEMPLATE+1, 1, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@PTEMPLATE+2, 1, 'Tin Vein / Silver Vein - Redridge Mountains', 10);
+
+INSERT INTO `pool_gameobject` (`guid`, `pool_entry`, `description`, `patch_max`) VALUES 
+(@OGUID+1, @PTEMPLATE+1, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@OGUID+2, @PTEMPLATE+2, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@OGUID+3, @PTEMPLATE+1, 'Tin Vein / Silver Vein - Redridge Mountains', 10),
+(@OGUID+4, @PTEMPLATE+2, 'Tin Vein / Silver Vein - Redridge Mountains', 10);
+
+INSERT INTO `pool_pool` (`pool_id`, `mother_pool`, `chance`, `description`, `flags`) VALUES
+(@PTEMPLATE+1, 400, 0, 'Redridge Mountains - Tin Vein / Silver Vein', 0),
+(@PTEMPLATE+2, 400, 0, 'Redridge Mountains - Tin Vein / Silver Vein', 0);
+
+UPDATE `pool_gameobject`
+SET `description` = REPLACE(`description`, 'Redridge', 'Redridge Mountains')
+WHERE `description` LIKE '%Redridge';
+
+UPDATE `pool_template`
+SET `description` = REPLACE(`description`, 'Redridge', 'Redridge Mountains')
+WHERE `description` LIKE '%Redridge';
+
+UPDATE `pool_pool`
+SET `description` = REPLACE(`description`, 'Redridge', 'Redridge Mountains')
+WHERE `description` LIKE '%Redridge';
+
+UPDATE `pool_template` SET `description` = 'Copper Veins - Redridge Mountains (Master Pool)' WHERE `entry` = 1128;
+UPDATE `pool_gameobject` SET `chance` = 95 WHERE `description` = "Tin Vein / Silver Vein - Redridge Mountains" && `guid` IN (SELECT `guid` FROM `gameobject` WHERE `id` = 1732);
+UPDATE `pool_gameobject` SET `chance` = 95 WHERE `description` = "Tin Vein / Silver Vein - Redridge Mountains" && `guid` IN (SELECT `guid` FROM `gameobject` WHERE `id` = 2054);
+UPDATE `pool_gameobject` SET `chance` = 5 WHERE `description` = "Tin Vein / Silver Vein - Redridge Mountains" && `guid` IN (SELECT `guid` FROM `gameobject` WHERE `id` = 1733);
+UPDATE `pool_template` SET `description`='Redridge Mountains - Barrel of Melon Juice / Food Crate (Master Pool)' WHERE `entry` IN (211, 2723);
+
+-- Tidy Azshara
+UPDATE `pool_gameobject` SET `description` = 'Truesilver Deposit / Rich Thorium Vein - Azshara' WHERE `guid` IN (65944, 65940, 65945, 65941, 65946, 65942, 65911, 65943, 65947, 65948);
+UPDATE `pool_gameobject` SET `chance` = 5 WHERE `description` = "Gold Vein / Mithril Deposit / Truesilver Deposit - Azshara" && `guid` IN (SELECT `guid` FROM `gameobject` WHERE `id` = 1734);
+UPDATE `pool_gameobject` SET `chance` = 90 WHERE `description` = "Gold Vein / Mithril Deposit / Truesilver Deposit - Azshara" && `guid` IN (SELECT `guid` FROM `gameobject` WHERE `id` = 2040);
+UPDATE `pool_gameobject` SET `chance` = 5 WHERE `description` = "Gold Vein / Mithril Deposit / Truesilver Deposit - Azshara" && `guid` IN (SELECT `guid` FROM `gameobject` WHERE `id` = 2047);
+UPDATE `pool_gameobject` SET `chance` = 5 WHERE `description` = "Truesilver Deposit / Rich Thorium Vein - Azshara" && `guid` IN (SELECT `guid` FROM `gameobject` WHERE `id` = 2047);
+UPDATE `pool_gameobject` SET `chance` = 95 WHERE `description` = "Truesilver Deposit / Rich Thorium Vein - Azshara" && `guid` IN (SELECT `guid` FROM `gameobject` WHERE `id` = 175404);
+
+-- Tidy UnGoro
+UPDATE `pool_template` SET `description` = 'Mountain Silversage in Un\'Goro Crater' WHERE `entry` = 1218;
+UPDATE `pool_template` SET `description` = 'Dreamfoil in Un\'Goro Crater' WHERE `entry` = 1212;
+UPDATE `pool_template` SET `description` = 'Golden Sansam in Un\'Goro Crater' WHERE `entry` = 1214;
+UPDATE `pool_template` SET `description` = 'Sungrass in Un\'Goro Crater' WHERE `entry` = 1215;
+UPDATE `pool_template` SET `description` = 'Blindweed in Un\'Goro Crater' WHERE `entry` = 1216;
+UPDATE `pool_template` SET `description` = 'Un\'Goro Crater - Un\'Goro Dirt Pile' WHERE `entry` = 98;
+UPDATE `pool_template` SET `description` = 'Un\'Goro Crater - Dinosaur Bone' WHERE `entry` = 99;
+UPDATE `pool_template` SET `description` = 'Un\'Goro Crater - Bloodpetal Sprout' WHERE `entry` = 102;
 
 
 -- End of migration.
