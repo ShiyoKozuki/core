@@ -233,4 +233,10 @@ INSERT INTO `creature_ai_events` (`id`, `creature_id`, `condition_id`, `event_ty
 (711501, 7115, 0, 9, 0, 100, 13, 0, 5, 30000, 40000, 711501, 0, 0, 'Jaedenar Adept - Cast Blink'),
 (711502, 7115, 0, 2, 0, 100, 4, 15, 0, 0, 0, 711502, 0, 0, 'Jaedenar Adept - Flee at 15% HP');
 
+-- Events list for Lord Roccor
+DELETE FROM `creature_ai_events` WHERE `creature_id`=9025;
+INSERT INTO `creature_ai_events` (`id`, `creature_id`, `condition_id`, `event_type`, `event_inverse_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `action1_script`, `action2_script`, `action3_script`, `comment`) VALUES
+(902503, 9025, 50000, 0, 0, 100, 13, 7000, 15000, 20000, 30000, 902503, 0, 0, 'Lord Roccor - Cast Ground Tremor');
+
+
 

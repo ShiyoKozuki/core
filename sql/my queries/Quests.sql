@@ -1128,23 +1128,45 @@ REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90035, 3000
 
 -- Ring
 REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `NextQuestInChain`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemId2`, `ReqItemId3`, `ReqItemCount1`, `ReqItemCount2`, `ReqItemCount3`, `RewItemId1`, `RewItemCount1`, `CompleteEmote`) VALUES (30206, -1, 60, 60, 8, 30207, 'A Warriors Journey', 'You have made it to level 60, congratulations. However, your journey does not end there. I have another task for you if you are up for it. Please bring me 75 Abomination Cleaver, 100 Frostsaber Fang and 100 Dredge Crusher Venom.', 'Bring 75 Abomination Cleaver, 100 Frostsaber Fang and 100 Dredge Crusher Venom to Wu Shen in Stormwind.', 'Did you bring me the requested items?', '', '', '', '', '', 30086, 30087, 30088, 75, 100, 100, 30089, 1, 1);
+UPDATE `mangos`.`quest_template` SET `RequiredClasses`=1 WHERE  `entry`=30206 AND `patch`=0;
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (5479, 30206);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (5479, 30206);
 REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (7042, 30090, -20);
 REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (7043, 30090, -20);
 REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (7045, 30090, -20);
-
 REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (7429, 30091, -20);
 REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (7428, 30091, -20);
-
 REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (11440, 30092, -20);
 REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (11442, 30092, -20);
 REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (11443, 30092, -20);
 
 
 REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `PrevQuestId`, `NextQuestInChain`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemId2`, `ReqItemId3`, `ReqItemCount1`, `ReqItemCount2`, `ReqItemCount3`, `RewItemId1`, `RewItemCount1`, `CompleteEmote`) VALUES (30207, -1, 60, 60, 8, 30206, 30208, 'A Warriors Journey', 'You have done well, but there is much more for you to do. Bring me 100 Flamescale Heart, 100 Frostmaul Eye and 100 Gordok Artifact. ', 'Bring 100 Flamescale Heart, 100 Frostmaul Eye and 100 Gordok Artifact to Wu Shen in Stormwind.', 'Did you bring me the requested items?', '', '', '', '', '', 30090, 30091, 30092, 100, 100, 100, 30093, 1, 1);
+UPDATE `mangos`.`quest_template` SET `RequiredClasses`=64 WHERE  `entry`=30243 AND `patch`=0;
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (5479, 30207);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (5479, 30207);
+
+-- Shaman
+
+-- Ring
+REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `NextQuestInChain`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemId2`, `ReqItemId3`, `ReqItemId4`, `ReqItemCount1`, `ReqItemCount2`, `ReqItemCount3`, `ReqItemCount4`, `RewItemId1`, `RewItemCount1`, `CompleteEmote`) VALUES (30243, -1, 60, 60, 8, 30244, 'Elemental Meditation', 'You have made it to level 60, congratulations. However, your journey does not end there. I have another task for you if you are up for it. Please bring me 50 Fire Dragon Essence, 50 Wind Dragon Essence, 50 Earth Dragon Essence and 50 Frost Dragon Essence. You can find these on the blackrock orcs in Burning Steppes for fire, Spitelash Battlemasters and Spitelash Enchantress in Azshara for Wind, Berserk Owlbeast and Moontouched Owlbeast in Winterspring for frost, Rock Stalker and Stonelash Flayer in Silithus for Earth.', 'Bring 50 Fire Dragon Essence, 50 Wind Dragon Essence, 50 Earth Dragon Essence and 50 Frost Dragon Essence to Rin Tohsaka in Stormwind.', 'Did you bring me the requested items?', '', '', '', '', '', 30117, 30118, 30119, 30120, 50, 50, 50, 50, 30121, 1, 1);
+UPDATE `mangos`.`quest_template` SET `OfferRewardText`='You have done well, but there is still more to be done.', `RequestItemsText`='Did you bring me the requested items?' WHERE  `entry`=30243 AND `patch`=0;
+REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90034, 30243);
+REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90034, 30243);
+REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (7025, 30117, -100); -- 20%
+REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (7027, 30117, -100); -- 20%
+REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (7028, 30117, -100); -- 20%
+REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (7029, 30117, -100); -- 20%
+
+REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (7886, 30118, -100); -- 20%
+REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (7885, 30118, -100); -- 20%
+
+REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (7452, 30120, -100); -- 20%
+REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (7453, 30120, -100); -- 20%
+REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (7454, 30120, -100); -- 20%
+
+REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (11737, 30119, -100); -- 20%
+REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (11739, 30119, -100); -- 20%
 
 -- 30208, 30209 next parts of warrior ring quest chain
 
