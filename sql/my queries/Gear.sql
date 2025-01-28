@@ -12349,3 +12349,21 @@ JOIN item_template ON forbidden_items.entry = item_template.entry
 SET forbidden_items.patch = forbidden_items.patch + 10
 WHERE forbidden_items.patch <= 10
 	AND item_template.required_honor_rank > 10 AND item_template.required_honor_rank < 15
+
+-- TO REVERT ABOVE RUN THIS >>ONCE<<
+-- UPDATE forbidden_items
+-- JOIN item_template ON forbidden_items.entry = item_template.entry
+-- SET forbidden_items.patch = forbidden_items.patch - 10
+-- WHERE forbidden_items.patch > 10
+--   AND forbidden_items.patch <= 25
+--   AND item_template.required_honor_rank > 10 
+--   AND item_template.required_honor_rank < 15;
+
+-- Delete honor gear from forbidden items table
+DELETE forbidden_items
+FROM forbidden_items
+JOIN item_template ON forbidden_items.entry = item_template.entry
+WHERE forbidden_items.patch <= 10
+  AND item_template.required_honor_rank > 10 
+  AND item_template.required_honor_rank < 15;
+
