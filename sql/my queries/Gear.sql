@@ -11723,15 +11723,299 @@ WHERE entry = 833;
 -- Belt of Valor
 UPDATE mangos . item_template
 SET allowable_class = 1, -- Warrior
-    stat_type1 = 7,
-    stat_value1 = 21,
-    stat_type2 = 7,
-    stat_value2 = 15,
-    stat_type3 = 0,
-    stat_value3 = 0,
+    quality = 4,
+    armor = 500,
+    frost_res = 7,
+    stat_type1 = 3,
+    stat_value1 = 15,
+    stat_type2 = 4,
+    stat_value2 = 13,
+    stat_type3 = 7,
+    stat_value3 = 15,
     stat_type4 = 0,
     stat_value4 = 0,
+    spellid_1 = 13383, -- +5 Defense
+    spelltrigger_1 = 1
 WHERE entry = 16736;
+
+-- Boots of Valor
+UPDATE mangos . item_template
+SET allowable_class = 1, -- Warrior
+    quality = 4,
+    armor = 635,
+    frost_res = 7,
+    stat_type1 = 3,
+    stat_value1 = 15,
+    stat_type2 = 4,
+    stat_value2 = 13,
+    stat_type3 = 7,
+    stat_value3 = 15,
+    stat_type4 = 0,
+    stat_value4 = 0,
+    spellid_1 = 13383, -- +5 Defense
+    spelltrigger_1 = 1
+WHERE entry = 16734;
+
+-- Bracers of Valor
+UPDATE mangos . item_template
+SET allowable_class = 1, -- Warrior
+    quality = 4,
+    armor = 400,
+    stat_type1 = 3,
+    stat_value1 = 13,
+    stat_type2 = 4,
+    stat_value2 = 12,
+    stat_type3 = 7,
+    stat_value3 = 13,
+    stat_type4 = 0,
+    stat_value4 = 0,
+    spellid_1 = 13383, -- +5 Defense
+    spelltrigger_1 = 1
+WHERE entry = 16735;
+
+-- Helm of Valor
+UPDATE mangos . item_template
+SET allowable_class = 1, -- Warrior
+    quality = 4,
+    armor = 675,
+    shadow_res = 10,
+    stat_type1 = 3,
+    stat_value1 = 20,
+    stat_type2 = 4,
+    stat_value2 = 18,
+    stat_type3 = 7,
+    stat_value3 = 20,
+    stat_type4 = 0,
+    stat_value4 = 0,
+    spellid_1 = 13387, -- +8 Defense
+    spelltrigger_1 = 1
+WHERE entry = 16731;
+
+-- Breastplate of Valor
+UPDATE mangos . item_template
+SET allowable_class = 1, -- Warrior
+    quality = 4,
+    armor = 825,
+    shadow_res = 10,
+    stat_type1 = 3,
+    stat_value1 = 22,
+    stat_type2 = 4,
+    stat_value2 = 20,
+    stat_type3 = 7,
+    stat_value3 = 22,
+    stat_type4 = 0,
+    stat_value4 = 0,
+    spellid_1 = 13387, -- +8 Defense
+    spelltrigger_1 = 1
+WHERE entry = 16730;
+
+-- Spaulders of Valor
+UPDATE mangos . item_template
+SET allowable_class = 1, -- Warrior
+    quality = 4,
+    armor = 700,
+    arcane_res = 7,
+    stat_type1 = 3,
+    stat_value1 = 16,
+    stat_type2 = 4,
+    stat_value2 = 13,
+    stat_type3 = 7,
+    stat_value3 = 16,
+    stat_type4 = 0,
+    stat_value4 = 0,
+    spellid_1 = 13383, -- +5 Defense
+    spelltrigger_1 = 1
+WHERE entry = 16733;
+
+-- Legplates of Valor
+UPDATE mangos . item_template
+SET allowable_class = 1, -- Warrior
+    quality = 4,
+    armor = 730,
+    nature_res = 10,
+    stat_type1 = 3,
+    stat_value1 = 21,
+    stat_type2 = 4,
+    stat_value2 = 19,
+    stat_type3 = 7,
+    stat_value3 = 21,
+    stat_type4 = 0,
+    stat_value4 = 0,
+    spellid_1 = 13387, -- +8 Defense
+    spelltrigger_1 = 1
+WHERE entry = 16732;
+
+-- Gauntlets of Valor
+UPDATE mangos . item_template
+SET allowable_class = 1, -- Warrior
+    quality = 4,
+    armor = 515,
+    arcane_res = 7,
+    stat_type1 = 3,
+    stat_value1 = 15,
+    stat_type2 = 4,
+    stat_value2 = 13,
+    stat_type3 = 7,
+    stat_value3 = 15,
+    stat_type4 = 0,
+    stat_value4 = 0,
+    spellid_1 = 13383, -- +5 Defense
+    spelltrigger_1 = 1
+WHERE entry = 16737;
+
+-- The Elements
+
+-- Cord of Elements
+UPDATE mangos . item_template
+SET allowable_class = 64, -- Shaman
+    quality = 4,
+    shadow_res = 7,
+    stat_type1 = 5,
+    stat_value1 = 17,
+    stat_type2 = 6,
+    stat_value2 = 15,
+    stat_type3 = 7,
+    stat_value3 = 10,
+    stat_type4 = 0,
+    stat_value4 = 0,
+    spellid_1 = 9346, -- +18 Spell Damage
+    spelltrigger_1 = 1, 
+    spellid_2 = 21618, -- +4 MP/5
+    spelltrigger_2 = 1
+WHERE entry = 16673;
+
+-- Boots of Elements
+UPDATE mangos . item_template
+SET allowable_class = 64, -- Shaman
+    quality = 4,
+    arcane_res = 7,
+    stat_type1 = 5,
+    stat_value1 = 17,
+    stat_type2 = 6,
+    stat_value2 = 15,
+    stat_type3 = 7,
+    stat_value3 = 12,
+    stat_type4 = 0,
+    stat_value4 = 0,
+    spellid_1 = 9346, -- +18 Spell Damage
+    spelltrigger_1 = 1, 
+    spellid_2 = 21618, -- +4 MP/5
+    spelltrigger_2 = 1
+WHERE entry = 16670;
+
+-- Bindings of Elements
+UPDATE mangos . item_template
+SET allowable_class = 64, -- Shaman
+    quality = 4,
+    stat_type1 = 5,
+    stat_value1 = 15,
+    stat_type2 = 6,
+    stat_value2 = 12,
+    stat_type3 = 7,
+    stat_value3 = 8,
+    stat_type4 = 0,
+    stat_value4 = 0,
+    spellid_1 = 9343, -- +14 Spell Damage
+    spelltrigger_1 = 1, 
+    spellid_2 = 21618, -- +4 MP/5
+    spelltrigger_2 = 1
+WHERE entry = 16671;
+
+-- Coif of Elements
+UPDATE mangos . item_template
+SET allowable_class = 64, -- Shaman
+    quality = 4,
+    nature_res = 10,
+    stat_type1 = 5,
+    stat_value1 = 20,
+    stat_type2 = 6,
+    stat_value2 = 17,
+    stat_type3 = 7,
+    stat_value3 = 14,
+    stat_type4 = 0,
+    stat_value4 = 0,
+    spellid_1 = 14798, -- +30 Spell Damage
+    spelltrigger_1 = 1, 
+    spellid_2 = 21626, -- 6 MP/5
+    spelltrigger_2 = 1
+WHERE entry = 16667;
+
+-- Gauntlets of Elements
+UPDATE mangos . item_template
+SET allowable_class = 64, -- Shaman
+    quality = 4,
+    shadow_res = 7,
+    stat_type1 = 5,
+    stat_value1 = 17,
+    stat_type2 = 6,
+    stat_value2 = 15,
+    stat_type3 = 7,
+    stat_value3 = 12,
+    stat_type4 = 0,
+    stat_value4 = 0,
+    spellid_1 = 9346, -- +18 Spell Damage
+    spelltrigger_1 = 1, 
+    spellid_2 = 21618, -- +4 MP/5
+    spelltrigger_2 = 1
+WHERE entry = 16672;
+
+-- Kilt of Elements
+UPDATE mangos . item_template
+SET allowable_class = 64, -- Shaman
+    quality = 4,
+    nature_res = 10,
+    stat_type1 = 5,
+    stat_value1 = 22,
+    stat_type2 = 6,
+    stat_value2 = 18,
+    stat_type3 = 7,
+    stat_value3 = 15,
+    stat_type4 = 0,
+    stat_value4 = 0,
+    spellid_1 = 14798, -- +30 Spell Damage
+    spelltrigger_1 = 1, 
+    spellid_2 = 18384, -- +1% Spell Crit
+    spelltrigger_2 = 1
+WHERE entry = 16668;
+
+-- Pauldrons of Elements
+UPDATE mangos . item_template
+SET allowable_class = 64, -- Shaman
+    quality = 4,
+    shadow_res = 7,
+    stat_type1 = 5,
+    stat_value1 = 19,
+    stat_type2 = 6,
+    stat_value2 = 16,
+    stat_type3 = 7,
+    stat_value3 = 11,
+    stat_type4 = 0,
+    stat_value4 = 0,
+    spellid_1 = 9346, -- +18 Spell Damage
+    spelltrigger_1 = 1, 
+    spellid_2 = 21363, -- 5 MP/5
+    spelltrigger_2 = 1
+WHERE entry = 16669;
+
+-- Vest of Elements
+UPDATE mangos . item_template
+SET allowable_class = 64, -- Shaman
+    quality = 4,
+    frost_res = 10,
+    stat_type1 = 5,
+    stat_value1 = 24,
+    stat_type2 = 6,
+    stat_value2 = 20,
+    stat_type3 = 7,
+    stat_value3 = 16,
+    stat_type4 = 0,
+    stat_value4 = 0,
+    spellid_1 = 14047, -- +23 Spell Damage
+    spelltrigger_1 = 1, 
+    spellid_2 = 18384, -- +1% Spell Crit
+    spelltrigger_2 = 1
+WHERE entry = 16666;
+
 -- Conjured Items
 
 -- Soulshard
