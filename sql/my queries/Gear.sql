@@ -4822,7 +4822,9 @@ SET armor = 725,
     stat_type1 = 4,
     stat_value1 = 8,
     stat_type2 = 7,
-    stat_value2 = 24
+    stat_value2 = 24,
+    spellid_1 = 13667, -- +2% Parry
+    spelltrigger_1 = 1
 WHERE entry = 10845;
 
 -- Fist of the Damned

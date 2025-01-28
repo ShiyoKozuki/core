@@ -238,5 +238,22 @@ DELETE FROM `creature_ai_events` WHERE `creature_id`=9025;
 INSERT INTO `creature_ai_events` (`id`, `creature_id`, `condition_id`, `event_type`, `event_inverse_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `action1_script`, `action2_script`, `action3_script`, `comment`) VALUES
 (902503, 9025, 50000, 0, 0, 100, 13, 7000, 15000, 20000, 30000, 902503, 0, 0, 'Lord Roccor - Cast Ground Tremor');
 
+-- Events list for Jaedenar Legionnaire
+DELETE FROM `creature_ai_events` WHERE `creature_id`=9862;
+INSERT INTO `creature_ai_events` (`id`, `creature_id`, `condition_id`, `event_type`, `event_inverse_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `action1_script`, `action2_script`, `action3_script`, `comment`) VALUES
+(986201, 9862, 50000, 0, 0, 100, 13, 9000, 15000, 20000, 30000, 986201, 0, 0, 'Jaedenar Legionnaire - Cast Uppercut');
 
+-- Events list for Jaedenar Guardian
+DELETE FROM `creature_ai_events` WHERE `creature_id`=7113;
+INSERT INTO `creature_ai_events` (`id`, `creature_id`, `condition_id`, `event_type`, `event_inverse_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `action1_script`, `action2_script`, `action3_script`, `comment`) VALUES
+(711301, 7113, 50000, 0, 0, 100, 13, 9000, 15000, 25000, 35000, 711301, 0, 0, 'Jaedenar Guardian - Cast Shield Bash');
 
+-- Events list for Irontree Stomper
+DELETE FROM `creature_ai_events` WHERE `creature_id`=7139;
+INSERT INTO `creature_ai_events` (`id`, `creature_id`, `condition_id`, `event_type`, `event_inverse_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `action1_script`, `action2_script`, `action3_script`, `comment`) VALUES
+(713901, 7139, 50000, 0, 0, 100, 13, 7000, 12000, 15000, 25000, 713901, 0, 0, 'Irontree Stomper - Cast War Stomp');
+
+-- Events list for Draconic Mageweaver
+DELETE FROM `creature_ai_events` WHERE `creature_id`=6131;
+INSERT INTO `creature_ai_events` (`id`, `creature_id`, `condition_id`, `event_type`, `event_inverse_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `action1_script`, `action2_script`, `action3_script`, `comment`) VALUES
+(613101, 6131, 50000, 0, 0, 80, 13, 12000, 20000, 20000, 30000, 613101, 0, 0, 'Draconic Mageweaver - Cast Cone of Cold');

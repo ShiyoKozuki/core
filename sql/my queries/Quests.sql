@@ -32,6 +32,7 @@
 -- Felwood quest for overlord Ror? (Furbolg)
 -- Felwood quest for Chieftain Bloodmaw
 -- Felwood Ironbeak Screecher kill quest
+-- Felwood quest for Prince Xavalis
 -- Timed quests (Timer on item, or timer on quest)
 -- More quests to click / interact / gather things sprinkled inside of kill x / loot x things from mob quest areas
 -- More quests for boss kills deep in caves / towers / etc far behind a ton of mobs
@@ -853,7 +854,7 @@ UPDATE `mangos`.`quest_template` SET `RewItemId1`=12059, `RewItemCount1`=1 WHERE
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90037, 30109);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90037, 30109);
 
-REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `Type`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOId2`, `RewXP`, `RewMoneyMaxLevel`, `DetailsEmote1`, `DetailsEmote2`, `IncompleteEmote`, `CompleteEmote`, `OfferRewardEmote1`, `OfferRewardEmote2`) VALUES (30110, 16, 48, 54, 1, 8, 'Azure Dragons Of Azshara III', 'The azure dragonkin have taken up camp in Azshara and are trying to summon their elder dragons into it. Rid them of this place before they can summon them.', 'Kill 12 Blue Scalebanes for Kyuni in Azshara.', 'Hopefully this will interrupt their operations.', 'Have you killed the azure dragons?', '', '', '', '', '', 6130, 12, 6500, 7500, 1, 1, 6, 6, 1, 1);
+REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `Type`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOId2`, `RewXP`, `RewMoneyMaxLevel`, `DetailsEmote1`, `DetailsEmote2`, `IncompleteEmote`, `CompleteEmote`, `OfferRewardEmote1`, `OfferRewardEmote2`) VALUES (30110, 16, 48, 54, 1, 8, 'Azure Dragons Of Azshara III', 'The azure dragonkin have taken up camp in Azshara and are trying to summon their elder dragons into it. Rid them of this place before they can summon them.', 'Kill 20 Blue Scalebanes for Kyuni in Azshara.', 'Hopefully this will interrupt their operations.', 'Have you killed the azure dragons?', '', '', '', '', '', 6130, 20, 6500, 7500, 1, 1, 6, 6, 1, 1);
 UPDATE `mangos`.`quest_template` SET `ReqCreatureOrGOCount1`=12 WHERE  `entry`=30110 AND `patch`=0;
 UPDATE `mangos`.`quest_template` SET `ReqCreatureOrGOId2`=0 WHERE  `entry`=30110 AND `patch`=0;
 UPDATE `mangos`.`quest_template` SET `RewItemId1`=12110, `RewItemCount1`=1 WHERE  `entry`=30110 AND `patch`=0;
