@@ -11716,6 +11716,22 @@ SET spellid_3 = 14127, -- +28 Spell Damage
     spelltrigger_3 = 1
 WHERE entry = 833;
 
+-- Tier 0 Sets
+
+-- Battlegear of Valor
+
+-- Belt of Valor
+UPDATE mangos . item_template
+SET allowable_class = 1, -- Warrior
+    stat_type1 = 7,
+    stat_value1 = 21,
+    stat_type2 = 7,
+    stat_value2 = 15,
+    stat_type3 = 0,
+    stat_value3 = 0,
+    stat_type4 = 0,
+    stat_value4 = 0,
+WHERE entry = 16736;
 -- Conjured Items
 
 -- Soulshard
