@@ -5901,6 +5901,8 @@ SET quality = 4,
     stat_value2 = 25
 WHERE entry = 22234;
 
+-- Ironweave Set
+
 -- Ironweave Mantle
 UPDATE mangos . item_template
 SET quality = 4,
@@ -6073,7 +6075,9 @@ SET quality = 4,
     stat_type2 = 6,
     stat_value2 = 37,
     stat_type3 = 7,
-    stat_value3 = 16
+    stat_value3 = 16,
+    spellid_1 = 23264, -- +106 Healing
+    spelltrigger_1 = 1
 WHERE entry = 11932;
 
 -- Force of Magma
@@ -6289,11 +6293,226 @@ WHERE entry = 22205;
 
 -- LBRS
 
+-- Funeral Cuffs
+UPDATE mangos . item_template
+SET quality = 4,
+    spellid_1 = 14248, -- +21 Spell Damage
+    spelltrigger_1 = 1,
+    spellid_2 = 23727, -- +1% Spell Hit
+    spelltrigger_2 = 1
+WHERE entry = 12626;
+
+-- Battleborn Armbraces
+UPDATE mangos . item_template
+SET quality = 4,
+    stat_type1 = 4,
+    stat_value1 = 10
+WHERE entry = 12936;
+
+-- Blackmist Armguard
+UPDATE mangos . item_template
+SET spellid_2 = 9331, -- +20 Attack Power
+    spelltrigger_2 = 1
+WHERE entry = 12966;
+
+-- Bleak Howler Armguards
+UPDATE mangos . item_template
+SET spellid_1 = 9318, -- +33 Healing
+    spelltrigger_1 = 1
+WHERE entry = 13208;
+
+-- Brazecore Armguards
+UPDATE mangos . item_template
+SET spellid_2 = 9408, -- +22 Healing
+    spelltrigger_2 = 1
+WHERE entry = 13179;
+
+-- Slashclaw Bracers
+UPDATE mangos . item_template
+SET spellid_2 = 9331, -- +20 Attack Power
+    spelltrigger_2 = 1
+WHERE entry = 13211;
+
+-- Dustfeather Sash
+UPDATE mangos . item_template
+SET quality = 4,
+    spellid_1 = 18384, -- +1% Spell Crit
+    spelltrigger_1 = 1,
+    spellid_2 = 15715, -- +25 Spell Damage
+    spelltrigger_2 = 1
+WHERE entry = 12589;
+
+-- Crystallized Girdle
+UPDATE mangos . item_template
+SET quality = 4,
+    stat_type1 = 5,
+    stat_value1 = 16,
+    stat_type2 = 7,
+    stat_value2 = 12,
+    spellid_1 = 23727, -- +1% Spell Hit
+    spelltrigger_1 = 1,
+    spellid_2 = 15715, -- +25 Spell Damage
+    spelltrigger_2 = 1
+WHERE entry = 12606;
+
+-- Belt of the Trickster
+UPDATE mangos . item_template
+SET quality = 4,
+    spellid_1 = 7597, -- +1% Physical Crit
+    spelltrigger_1 = 1
+WHERE entry = 22325;
+
+-- Cloudrunner Girdle
+UPDATE mangos . item_template
+SET quality = 4,
+    stat_type1 = 3,
+    stat_value1 = 15,
+    stat_type2 = 7,
+    stat_value2 = 21,
+    spellid_1 = 13383, -- +5 Defense
+    spelltrigger_1 = 1
+WHERE entry = 13252;
+
+-- Feralsurge Girdle
+UPDATE mangos . item_template
+SET quality = 4,
+    stat_type1 = 3,
+    stat_value1 = 11,
+    stat_type2 = 4,
+    stat_value2 = 14,
+    stat_type3 = 5,
+    stat_value3 = 11,
+    stat_type4 = 6,
+    stat_value4 = 11,
+    stat_type5 = 7,
+    stat_value5 = 11,
+    spellid_1 = 9406, -- +18 Healing
+    spelltrigger_1 = 1
+WHERE entry = 18104;
+
+-- Brigam Girdle
+UPDATE mangos . item_template
+SET quality = 4,
+    stat_type1 = 3,
+    stat_value1 = 24,
+    stat_type2 = 7,
+    stat_value2 = 11,
+    spellid_2 = 7597, -- +1% Physical Crit
+    spelltrigger_2 = 1
+WHERE entry = 13142;
+
+-- Handcrafted Mastersmith Girdle
+UPDATE mangos . item_template
+SET quality = 4,
+    armor = 400,
+    stat_type1 = 3,
+    stat_value1 = 19,
+    stat_type2 = 5,
+    stat_value2 = 19,
+    stat_type3 = 7,
+    stat_value3 = 11,
+    spellid_1 = 7597, -- +1% Physical Crit
+    spelltrigger_1 = 1
+WHERE entry = 13502;
+
+-- Marksman's Girdle
+UPDATE mangos . item_template
+SET quality = 4,
+    spellid_1 = 7597, -- +1% Physical Crit
+    spelltrigger_1 = 1
+WHERE entry = 22232;
+
+-- Chiselbrand Girdle
+UPDATE mangos . item_template
+SET quality = 4,
+    spellid_2 = 7597, -- +1% Physical Crit
+    spelltrigger_2 = 1
+WHERE entry = 12634;
+
+-- Blackhand Doomsaw
+UPDATE mangos . item_template
+SET quality = 4,
+    dmg_min1 = 199,
+    dmg_max1 = 269
+WHERE entry = 12583;
+
+-- Seeping Willow
+UPDATE mangos . item_template
+SET quality = 4,
+    dmg_min1 = 199,
+    dmg_max1 = 269,
+    spellid_2 = 26158, -- +60 Spell Damage
+    spelltrigger_2 = 1,
+    spellid_3 = 21365, -- 9 MP/5
+    spelltrigger_3 = 1
+WHERE entry = 12969;
+
+-- Chillpike
+UPDATE mangos . item_template
+SET quality = 4,
+    delay = 2200,
+    dmg_min1 = 108,
+    dmg_max1 = 178,
+    spellppmrate_1 = 20,
+    spellid_2 = 15817, -- +64 Attack Power
+    spelltrigger_2 = 1,
+    spellid_3 = 7597, -- +1% Physical Crit
+    spelltrigger_3 = 1
+WHERE entry = 13148;
+
+-- Relentless Scythe
+UPDATE mangos . item_template
+SET quality = 4,
+    dmg_min1 = 179,
+    dmg_max1 = 249,
+    spellid_1 = 7597, -- +1% Physical Crit
+    spelltrigger_1 = 1
+WHERE entry = 13163;
+
 -- Fist of Omokk
 UPDATE mangos . item_template
-SET spellid_1 = 14798, -- +30 Spell Damage
-    spelltrigger_1 = 1
+SET quality = 4,
+    armor = 300,
+    dmg_min1 = 179,
+    dmg_max1 = 249,
+    stat_type1 = 5,
+    stat_value1 = 12,
+    stat_type2 = 7,
+    stat_value2 = 22,
+    spellid_1 = 7597, -- +1% Physical Crit
+    spelltrigger_1 = 1,
+    spellid_2 = 21410, -- +14 Defense
+    spelltrigger_2 = 1
 WHERE entry = 13167;
+
+-- The Blackrock Slicer
+UPDATE mangos . item_template
+SET quality = 4,
+    delay = 3800,
+    dmg_min1 = 212,
+    dmg_max1 = 282,
+    spellid_1 = 13445, -- Chance on hit: Rend
+    spelltrigger_1 = 2,
+    spellppmrate_1 = 10 
+WHERE entry = 13285;
+
+-- Lord Valthalak's Staff of Command
+UPDATE mangos . item_template
+SET quality = 4,
+    spellid_1 = 26158, -- +60 Spell Damage
+    spelltrigger_1 = 1,
+    spellid_2 = 23727, -- +1% Spell Hit
+    spelltrigger_2 = 1
+WHERE entry = 22335;
+
+-- Trindlehaven Staff
+UPDATE mangos . item_template
+SET quality = 4,
+    spellid_1 = 23264, -- +106 Healing
+    spelltrigger_1 = 1,
+    spellid_3 = 21365, -- 9 MP/5
+    spelltrigger_3 = 1
+WHERE entry = 13161;
 
 -- Demonic Runed Spaulders
 UPDATE mangos . item_template
@@ -6752,7 +6971,7 @@ SET quality = 3,
     dmg_min1 = 61,
     dmg_max1 = 111,
     spellid_1 = 20869, -- Blasts a target for 65 Frost damage.
-    spelltrigger_1 = 1,
+    spelltrigger_1 = 2,
     spellppmrate_1 = 20 
 WHERE entry = 19040;
 
@@ -6877,7 +7096,7 @@ SET quality = 3,
     dmg_min1 = 32,
     dmg_max1 = 52,
     spellid_1 = 20883, -- Blasts a target for 70 Arcane damage.
-    spelltrigger_1 = 1,
+    spelltrigger_1 = 2,
     spellppmrate_1 = 10 
 WHERE entry = 11856;
 
