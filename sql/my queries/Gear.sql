@@ -4823,7 +4823,7 @@ SET armor = 725,
     stat_value1 = 8,
     stat_type2 = 7,
     stat_value2 = 24,
-    spellid_1 = 13667, -- +2% Parry
+    spellid_1 = 21471, -- +2% Shield Block
     spelltrigger_1 = 1
 WHERE entry = 10845;
 
@@ -5851,7 +5851,7 @@ SET quality = 4,
     stat_value2 = 0,
     spellid_1 = 22852, -- Block Value +23
     spelltrigger_1 = 1,
-    spellid_2 = 21471, -- 2% Shield Block
+    spellid_2 = 21471, -- +2% Shield Block
     spelltrigger_2 = 1
 WHERE entry = 11631;
 
@@ -12344,11 +12344,11 @@ SET patch = patch + 10
 WHERE entry = 12777 AND patch = 9;
 
 -- Do SET forbidden_items.patch = forbidden_items.patch - 10 to revert
-UPDATE forbidden_items
-JOIN item_template ON forbidden_items.entry = item_template.entry
-SET forbidden_items.patch = forbidden_items.patch + 10
-WHERE forbidden_items.patch <= 10
-	AND item_template.required_honor_rank > 10 AND item_template.required_honor_rank < 15
+-- UPDATE forbidden_items
+-- JOIN item_template ON forbidden_items.entry = item_template.entry
+-- SET forbidden_items.patch = forbidden_items.patch + 10
+-- WHERE forbidden_items.patch <= 10
+-- 	AND item_template.required_honor_rank > 10 AND item_template.required_honor_rank < 15
 
 -- TO REVERT ABOVE RUN THIS >>ONCE<<
 -- UPDATE forbidden_items
@@ -12360,10 +12360,10 @@ WHERE forbidden_items.patch <= 10
 --   AND item_template.required_honor_rank < 15;
 
 -- Delete honor gear from forbidden items table
-DELETE forbidden_items
-FROM forbidden_items
-JOIN item_template ON forbidden_items.entry = item_template.entry
-WHERE forbidden_items.patch <= 10
-  AND item_template.required_honor_rank > 10 
-  AND item_template.required_honor_rank < 15;
+-- DELETE forbidden_items
+-- FROM forbidden_items
+-- JOIN item_template ON forbidden_items.entry = item_template.entry
+-- WHERE forbidden_items.patch <= 10
+--   AND item_template.required_honor_rank > 10 
+--   AND item_template.required_honor_rank < 15;
 
