@@ -266,8 +266,8 @@ DELETE FROM `pool_template` WHERE `entry` = 1235;
 
 -- Eastern Plaguelands
 -- Rich Thorium Pools
-UPDATE `gameobject` SET `spawntimesecsmin` = 300, `spawntimesecsmax` = 900 WHERE `guid` IN (SELECT `guid` FROM `pool_gameobject` WHERE `pool_entry` IN (1408, 1409, 1410, 1411, 1412, 3985, 14438, 1413, 1415, 1417, 1434, 1435, 1414, 1416, 1418, 1419, 1420, 1421, 1422, 1423, 3986, 1425, 1426, 1427, 1269, 1432, 1433));
-DELETE FROM `pool_pool` WHERE `pool_id` IN (1408, 1409, 1410, 1411, 1412, 3985, 14438, 1413, 1415, 1417, 1434, 1435, 1414, 1416, 1418, 1419, 1420, 1421, 1422, 1423, 3986, 1425, 1426, 1427, 1269, 1432, 1433);
+UPDATE `gameobject` SET `spawntimesecsmin` = 300, `spawntimesecsmax` = 900 WHERE `guid` IN (SELECT `guid` FROM `pool_gameobject` WHERE `pool_entry` IN (1429, 1408, 1409, 1410, 1411, 1412, 3985, 14438, 1413, 1415, 1417, 1434, 1435, 1414, 1416, 1418, 1419, 1420, 1421, 1422, 1423, 3986, 1425, 1426, 1427, 1269, 1432, 1433));
+DELETE FROM `pool_pool` WHERE `pool_id` IN (1429, 1408, 1409, 1410, 1411, 1412, 3985, 14438, 1413, 1415, 1417, 1434, 1435, 1414, 1416, 1418, 1419, 1420, 1421, 1422, 1423, 3986, 1425, 1426, 1427, 1269, 1432, 1433);
 -- Tyr's Hand
 UPDATE `pool_template` SET `description` = 'Truesilver Deposit / Rich Thorium Vein - Eastern Plaguelands - Tyr\'s Hand' WHERE `entry` IN (1408, 1409, 1410, 1411, 1412, 3985, 14438);
 UPDATE `pool_gameobject` SET `description` = 'Truesilver Deposit / Rich Thorium Vein - Eastern Plaguelands - Tyr\'s Hand' WHERE `pool_entry` IN (1408, 1409, 1410, 1411, 1412, 3985, 14438);
