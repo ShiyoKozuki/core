@@ -6514,117 +6514,356 @@ SET quality = 4,
     spelltrigger_3 = 1
 WHERE entry = 13161;
 
--- Demonic Runed Spaulders
+-- Blackblade of Shahram
 UPDATE mangos . item_template
-SET spellid_1 = 9408, -- +22 Healing
-    spelltrigger_1 = 1
-WHERE entry = 13257;
+SET dmg_min1 = 212,
+    dmg_max1 = 312
+WHERE entry = 12592;
 
--- Brazecore Armguards
+-- Flightblade Throwing Axe
 UPDATE mangos . item_template
-SET spellid_2 = 9415, -- +9 Spell Damage
+SET spellid_1 = 15807, -- +32 Attack Power
+    spelltrigger_1 = 1,
+    spellid_2 = 15464, -- +1% Physical Hit
     spelltrigger_2 = 1
-WHERE entry = 13179;
+WHERE entry = 13173;
 
--- Gilded Gauntlets
+-- Bonespike Shoulder
 UPDATE mangos . item_template
-SET spellid_2 = 9415, -- +9 Spell Damage
+SET quality = 4,
+    stat_type1 = 7,
+    stat_value1 = 10,
+    spellid_2 = 15465, -- +2% Physical Hit
+    spelltrigger_2 = 1,
+    spellid_3 = 15807, -- +32 Attack Power
+    spelltrigger_3 = 1
+WHERE entry = 12588;
+
+-- Truestrike Shoulders
+UPDATE mangos . item_template
+SET quality = 4,
+    stat_type1 = 7,
+    stat_value1 = 10,
+    spellid_2 = 15465, -- +2% Physical Hit
+    spelltrigger_2 = 1,
+    spellid_3 = 15807, -- +32 Attack Power
+    spelltrigger_3 = 1
+WHERE entry = 12927;
+
+-- Slamshot Shoulders
+UPDATE mangos . item_template
+SET quality = 4,
+    stat_type1 = 3,
+    stat_value1 = 27,
+    stat_type2 = 7,
+    stat_value2 = 14,
+    spellid_1 = 15464, -- +1% Physical Hit
+    spelltrigger_1 = 1,
+    spellid_2 = 7597, -- +1% Physical Crit
     spelltrigger_2 = 1
-WHERE entry = 13244;
-
--- Smolderweb's Eye
-UPDATE mangos . item_template
-SET stat_type1 = 3,
-    stat_value1 = 15
-WHERE entry = 13213;
-
--- Rhombeard Protector
-UPDATE mangos . item_template
-SET spellid_1 = 9415, -- +9 Spell Damage
-    spelltrigger_1 = 1
-WHERE entry = 13205;
+WHERE entry = 13166;
 
 -- Sunderseer Mantle
 UPDATE mangos . item_template
-SET spellid_1 = 9408, -- +22 Healing
-    spelltrigger_1 = 1
+SET quality = 4,
+    stat_type1 = 5,
+    stat_value1 = 23,
+    stat_type2 = 6,
+    stat_value2 = 13,
+    stat_type3 = 7,
+    stat_value3 = 10,
+    spellid_1 = 9345, -- +16 Spell damage
+    spelltrigger_1 = 1,
+    spellid_2 = 18384, -- +1% Spell Crit
+    spelltrigger_2 = 1
 WHERE entry = 13185;
 
--- Backusarian Gauntlets
+-- Demonic Runed Spaulders
 UPDATE mangos . item_template
-SET spellid_2 = 9408, -- +22 Healing
+SET quality = 4,
+    stat_type1 = 4,
+    stat_value1 = 14,
+    stat_type2 = 5,
+    stat_value2 = 14,
+    stat_type3 = 7,
+    stat_value3 = 19,
+    spellid_1 = 13383, -- +5 Defense
+    spelltrigger_1 = 1
+WHERE entry = 13257;
+
+-- Draconian Deflector
+UPDATE mangos . item_template
+SET quality = 4,
+    armor = 2539,
+    block = 46
+WHERE entry = 12602;
+
+-- Rhombeard Protector
+UPDATE mangos . item_template
+SET quality = 4,
+    armor = 2539,
+    block = 46,
+    stat_type1 = 5,
+    stat_value1 = 20,
+    stat_type2 = 0,
+    stat_value2 = 0,
+    spellid_1 = 9408, -- +22 Healing
+    spelltrigger_1 = 1,
+    spellid_2 = 21626, -- 6 MP/5
     spelltrigger_2 = 1
-WHERE entry = 12637;
+WHERE entry = 13205;
 
--- Butcher's Apron
+-- Draconian Aegis of the Legion
 UPDATE mangos . item_template
-SET spellid_1 = 9408, -- +22 Healing
-    spelltrigger_1 = 1
-WHERE entry = 12608;
+SET quality = 4,
+    armor = 2539,
+    block = 46,
+    stat_type1 = 5,
+    stat_value1 = 10,
+    stat_type2 = 7,
+    stat_value2 = 7
+WHERE entry = 22336;
 
--- Butcher's Apron
+-- Blackcrow
 UPDATE mangos . item_template
-SET spellid_1 = 9408, -- +22 Healing
-    spelltrigger_1 = 1
-WHERE entry = 12608;
+SET quality = 4,
+    dmg_min1 = 103,
+    dmg_max1 = 153,
+    spellid_2 = 21440, -- +36 Ranged Attack Power
+    spelltrigger_2 = 1
+WHERE entry = 12651;
 
--- Demonskin Gloves
+-- Riphook
 UPDATE mangos . item_template
-SET spellid_1 = 9408, -- +22 Healing
-    spelltrigger_1 = 1
-WHERE entry = 13181;
+SET quality = 4,
+    dmg_min1 = 63,
+    dmg_max1 = 113,
+    spellid_2 = 7597, -- +1% Physical Crit
+    spelltrigger_2 = 1
+WHERE entry = 12653;
+
+-- Voone's Twitchbow
+UPDATE mangos . item_template
+SET quality = 4,
+    dmg_min1 = 44,
+    dmg_max1 = 84,
+    spellid_1 = 6685, -- Chance on hit: Shoots at an enemy, inflicting normal damage and reducing the enemy's armor by for 15 sec.
+    spelltrigger_1 = 2,
+    spellppmrate_1 = 10, 
+    spellid_2 = 21440, -- +36 Ranged Attack Power
+    spelltrigger_2 = 1
+WHERE entry = 13175;
+
+-- Keris of Zul'Serak
+UPDATE mangos . item_template
+SET quality = 4,
+    dmg_min1 = 70,
+    dmg_max1 = 110,
+    spellppmrate_1 = 15, 
+    spellid_2 = 15717, -- Increased Daggers +6
+    spelltrigger_2 = 1
+WHERE entry = 12582;
 
 -- Phase Blade
 UPDATE mangos . item_template
-SET dmg_min1 = 57,
-    dmg_max1 = 107,
-    spellid_1 = 15807, -- +32 Attack Power
-    spelltrigger_1 = 1
+SET quality = 4,
+    delay = 1500,
+    dmg_min1 = 45,
+    dmg_max1 = 105,
+    spellid_1 = 21919, -- Thrash (Grants an extra attack on your next swing)
+    spelltrigger_1 = 2,
+    spellid_2 = 15896, -- Increased 1H Sword +5
+    spelltrigger_2 = 1
 WHERE entry = 13182;
 
--- Ogreseer Tower Boots
+-- Venomspitter
 UPDATE mangos . item_template
-SET spellid_1 = 9408, -- +22 Healing
+SET quality = 4,
+    delay = 2700,
+    dmg_min1 = 105,
+    dmg_max1 = 165,
+    spellid_1 = 25991, -- Chance on hit: Shoots poison at an enemy, inflicting Nature damage, then additional damage every 2 sec. for 10 sec.
+    spelltrigger_1 = 2,
+    spellppmrate_1 = 5
+WHERE entry = 13183;
+
+-- Fang of the Crystal Spider
+UPDATE mangos . item_template
+SET quality = 4,
+    dmg_min1 = 55,
+    dmg_max1 = 105,
+    spellid_1 = 5337, -- Chance on hit: Increases the time between an enemy's attacks by 50% for 8 sec.
+    spelltrigger_1 = 2,
+    spellppmrate_1 = 15
+WHERE entry = 13218;
+
+-- Hurd Smasher
+UPDATE mangos . item_template
+SET quality = 4,
+    dmg_min1 = 54,
+    dmg_max1 = 104,
+    stat_type1 = 5,
+    stat_value1 = 15,
+    stat_type2 = 7,
+    stat_value2 = 8,
+    spellid_1 = 18056, -- +40 Spell Damage
     spelltrigger_1 = 1
-WHERE entry = 13282;
+WHERE entry = 13198;
 
--- Magus Ring
+-- Bashguuder
 UPDATE mangos . item_template
-SET spellid_1 = 9346, -- +18 Spell Damage
-    spelltrigger_1 = 1
-WHERE entry = 13283;
+SET quality = 4,
+    dmg_min1 = 65,
+    dmg_max1 = 115
+WHERE entry = 13204;
 
--- The Nicker (The Blackrock Slicer)
+-- Rivenspike
 UPDATE mangos . item_template
-SET delay = 3500,
-    dmg_min1 = 151,
-    dmg_max1 = 227,
-    spellid_1 = 24680, -- Chain Lightning (875 DMG, 10 targets)
-    spelltrigger_1 = 2
-WHERE entry = 13285;
+SET quality = 4,
+    dmg_min1 = 105,
+    dmg_max1 = 185
+WHERE entry = 13286;
 
--- Relentless Scythe
+-- The Jaw Breaker
 UPDATE mangos . item_template
-SET delay = 3500,
-    dmg_min1 = 151,
-    dmg_max1 = 227
-WHERE entry = 13163;
+SET quality = 4,
+    dmg_min1 = 55,
+    dmg_max1 = 105,
+    stat_type1 = 4,
+    stat_value1 = 15,
+    stat_type2 = 7,
+    stat_value2 = 8,
+    spellid_2 = 13387, -- +8 Defense
+    spelltrigger_2 = 1
+WHERE entry = 22322;
+
+-- Dal'Rend's Sacred Charge
+UPDATE mangos . item_template
+SET quality = 4,
+    dmg_min1 = 115,
+    dmg_max1 = 165
+WHERE entry = 12940;
+
+-- Dal'Rend's Tribal Guardian
+UPDATE mangos . item_template
+SET quality = 4,
+    dmg_min1 = 65,
+    dmg_max1 = 115
+WHERE entry = 12940;
+
+-- Demonfork
+UPDATE mangos . item_template
+SET quality = 4,
+    delay = 1800,
+    armor = 250,
+    dmg_min1 = 65,
+    dmg_max1 = 115,
+    stat_type1 = 7,
+    stat_value1 = 20,
+    spellid_1 = 14110, -- Chance on hit: Blasts nearby enemies with thunder increasing the time between their attacks by 11% for 10 sec and doing 7 Nature damage to them.  Will affect up to 4 targets.
+    spelltrigger_1 = 2,
+    spellppmrate_1 = 15,
+    spellid_2 = 15873, -- Increased Axes +5
+    spelltrigger_2 = 1
+WHERE entry = 12621;
+
+-- Pip's Skinner
+UPDATE mangos . item_template
+SET quality = 4,
+    dmg_min1 = 40,
+    dmg_max1 = 90,
+    spellid_3 = 15810, -- +44 Attack Power
+    spelltrigger_3 = 1
+WHERE entry = 12709;
+
+-- Mastersmith's Hammer
+UPDATE mangos . item_template
+SET quality = 4,
+    delay = 1800,
+    dmg_min1 = 65,
+    dmg_max1 = 115,
+    stat_type1 = 5,
+    stat_value1 = 7,
+    stat_type2 = 7,
+    stat_value2 = 15,
+    spellid_1 = 14110, -- Chance on hit: Poisons an enemy for 30 sec. and drains its mana every 3 sec., transferring it to the caster.
+    spelltrigger_1 = 2,
+    spellppmrate_1 = 15,
+    spellid_2 = 21626, -- 6 MP/5
+    spelltrigger_2 = 1,
+    spellid_3 = 15714, -- +22 Spell Damage
+    spelltrigger_3 = 1
+WHERE entry = 18048;
+
+-- Emberfury Talisman
+UPDATE mangos . item_template
+SET quality = 4,
+    spellid_2 = 15808, -- +38 Attack Power
+    spelltrigger_2 = 1
+WHERE entry = 12929;
+
+-- Tooth of Gnarr
+UPDATE mangos . item_template
+SET quality = 4,
+    spellid_2 = 9318, -- +33 Healing
+    spelltrigger_2 = 1
+WHERE entry = 13141;
+
+-- Talisman of Evasion
+UPDATE mangos . item_template
+SET quality = 4,
+    armor = 250,
+    stat_type1 = 7,
+    stat_value1 = 15,
+    spellid_2 = 13387, -- +8 Defense
+    spelltrigger_2 = 1
+WHERE entry = 13177;
+
+-- Halycon's Spiked Collar
+UPDATE mangos . item_template
+SET quality = 4,
+    spellid_2 = 15808, -- +38 Attack Power
+    spelltrigger_2 = 1,
+    spellid_3 = 15464, -- +1% Physical Hit
+    spelltrigger_3 = 1
+WHERE entry = 13212;
+
+-- Pendant of Celerity
+UPDATE mangos . item_template
+SET quality = 4,
+    stat_type1 = 3,
+    stat_value1 = 20,
+    stat_type1 = 7,
+    stat_value1 = 10
+WHERE entry = 22340;
+
+-- Warmaster Legguards
+
+-- Smolderweb's Eye
+UPDATE mangos . item_template
+SET quality = 4,
+    stat_type1 = 3,
+    stat_value1 = 15
+WHERE entry = 13213;
 
 -- Heart of the Scale
 UPDATE mangos . item_template
-SET spellid_2 = 22852, -- Block Value +23
+SET quality = 4,
+    spellid_2 = 22852, -- Block Value +23
     spelltrigger_2 = 1
 WHERE entry = 13164;
 
 -- Heart of Wyrmthalak
 UPDATE mangos . item_template
-SET spellid_2 = 15807, -- +32 Attack Power
+SET quality = 4,
+    spellid_2 = 15807, -- +32 Attack Power
     spelltrigger_2 = 1
 WHERE entry = 22321;
 
 -- Mark of the Dragon Lord
 UPDATE mangos . item_template
-SET spellid_2 = 9316, -- +29 Healing
+SET quality = 4,
+    spellid_2 = 18041, -- +66 Healing
     spelltrigger_2 = 1
 WHERE entry = 13143;
 
@@ -6747,7 +6986,7 @@ SET quality = 3,
     dmg_min1 = 51,
     dmg_max1 = 101,
     spellid_1 = 21919, -- Thrash (Grants an extra attack on your next swing)
-    spelltrigger_1 = 1
+    spelltrigger_1 = 2
 WHERE entry = 18347;
 
 -- Gauntlets of Accuracy
