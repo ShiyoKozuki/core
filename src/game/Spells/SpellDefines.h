@@ -132,6 +132,12 @@ enum SpellPreventionType
 };
 
 // Indexes from SpellRange.dbc, listed only special and used in code
+//1	0	0y
+//2	0	5y
+//3	0	20y
+//4	0	30y
+//5	0	40y
+//6	0	100y
 enum SpellRangeIndex
 {
     SPELL_RANGE_IDX_SELF_ONLY = 1,                          // 0.0
