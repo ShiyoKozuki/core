@@ -9566,6 +9566,8 @@ WHERE entry = 4462;
 -- Greens
 
 -- TODO:
+-- Ring of the Heavens
+-- Stardust Band
 -- Lodestone Necklace
 -- Protector Set
 -- Lofty Set
@@ -9605,7 +9607,6 @@ WHERE entry = 4462;
 -- Merciless Set
 -- Ironhide Set
 -- Wolf Rider's Set
--- Stardust Band
 -- Venomshroud Boots
 -- Green shields
 -- Green / Blue offhands
