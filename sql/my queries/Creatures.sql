@@ -37,6 +37,31 @@ UPDATE mangos . creature_display_info_addon
 SET combat_reach = 2
 WHERE display_id IN(59, 60, 12170);
 
+-- AOE camp mobs
+
+    -- Hammerfall Peon
+    UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.5, `damage_multiplier`=0.5 WHERE  `entry`=2618 AND `patch`=0;
+
+    -- Southsea Swashbuckler
+    UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.6, `damage_multiplier`=0.4 WHERE  `entry`=7858 AND `patch`=0;
+    -- Southsea Pirate
+    UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.5, `damage_multiplier`=0.5 WHERE  `entry`=7855 AND `patch`=0;
+
+    -- Scarlet Lumberjack
+    UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.7, `damage_multiplier`=0.5 WHERE  `entry`=1884 AND `patch`=0;
+
+    -- Scarlet Worker
+    UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.7, `damage_multiplier`=0.5 WHERE  `entry`=1883 AND `patch`=0;
+
+    -- Blighted Zombie (Dalsons Tears)
+    UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.7, `damage_multiplier`=0.5 WHERE  `entry`=4475 AND `patch`=0;
+    -- Rotting Cadaver (Dalsons Tears)
+    UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.7, `damage_multiplier`=0.5 WHERE  `entry`=4474 AND `patch`=0;
+    -- Skeletal Terror (Dalsons Tears)
+    UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.7, `damage_multiplier`=0.5 WHERE  `entry`=1785 AND `patch`=0;
+
+
+
 -- Incorrect normal mobs, were elite in real vanilla. Changed in 2.3 (Classic WoW bug) 
 -- https://warcraft.wiki.gg/wiki/Patch_2.3.0
 -- patch - 10 to revert
