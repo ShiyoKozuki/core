@@ -23,6 +23,13 @@ UPDATE `mangos`.`game_event` SET `hardcoded`=0 WHERE  `entry`=17;
 -- Object Respawn Time
 UPDATE `mangos`.`gameobject` SET `spawntimesecsmin`=30, `spawntimesecsmax`=30 WHERE  `guid`=40688;
 
+
+-- Trainers
+    -- Paladin
+
+    -- Hand of Reckoning
+    INSERT IGNORE `mangos`.`npc_trainer_template` (`entry`, `spell`, `spellcost`, `reqlevel`) VALUES (29, 33394, 300, 10);
+
 -- Human Shaman
 
 REPLACE `mangos`.`creature_template` (`entry`, `name`, `subname`, `level_min`, `level_max`, `faction`, `npc_flags`, `display_id1`, `detection_range`, `rank`, `unit_class`, `trainer_class`, `type`, `flags_extra`) VALUES (90033, 'Illya Einzbern', 'Shaman Trainer', 60, 60, 35, 23, 5546, 20, 1, 8, 7, 1, 64);
