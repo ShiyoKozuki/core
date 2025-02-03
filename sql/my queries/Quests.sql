@@ -33,6 +33,7 @@
 -- Felwood quest for Chieftain Bloodmaw
 -- Felwood Ironbeak Screecher kill quest
 -- Felwood quest for Prince Xavalis
+-- Falling to Corruption to see how to code objects you can turn quests into (was a cauldron)
 -- Timed quests (Timer on item, or timer on quest)
 -- More quests to click / interact / gather things sprinkled inside of kill x / loot x things from mob quest areas
 -- More quests for boss kills deep in caves / towers / etc far behind a ton of mobs
@@ -42,7 +43,7 @@
 
 -- Quest + Vendor + Repair npc flag = 
 -- 30025 FREE
--- NEXT quest_template 30243
+-- NEXT quest_template 30245
 -- NEXT creature_template 90046
 
 --     QUEST_TYPE_ELITE               = 1,
@@ -739,6 +740,9 @@ REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (1855, 30211);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (1855, 30211);
 
 -- Winterspring
+-- Are We There, Yeti? Final rewards (Thralls Resolve and Eye of Orgrimmar)
+UPDATE `mangos`.`quest_template` SET `RewChoiceItemId1`=12544, `RewChoiceItemId2`=12545, `RewChoiceItemCount1`=1, `RewChoiceItemCount2`=1 WHERE  `entry`=5163 AND `patch`=0;
+
 REPLACE `mangos`.`quest_template` (`entry`, `patch`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `Type`, `QuestFlags`, `NextQuestInChain`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewMoneyMaxLevel`, `DetailsEmote1`, `DetailsEmote2`, `IncompleteEmote`, `CompleteEmote`, `OfferRewardEmote1`) VALUES (30237, 5, 618, 53, 56, 1, 8, 30238, 'Ursius of the Shardtooth', 'In the snowy mountains of Winterspring, to the northwest, a skilled hunter stalks his prey... I speak of Ursius of the shardtooth bears, an agile and clever beast.$B$BI send you now against him. He roams the sloping hills to the northwest of Everlook. Find and hunt him, before he discovers your intent.$B$BAll that have gone up against Ursius have quickly found themselves to be the prey, and he, the hunter. Stay on your guard.', 'Witch Doctor Mau\'ari at Everlook in Winterspring wants you to kill Ursius.', 'This was no easy task, yet you have excelled. But do not be too quick to think you have impressed me, $N.', 'Go now, $c. Seek out Ursius.', 10806, 1, 81, 100, 5800, 34800, 1, 2, 1, 1, 1);
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (10307, 30237);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (10307, 30237);
@@ -777,8 +781,11 @@ REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance
 -- Add Custom gear reward
 REPLACE `mangos`.`creature_template` (`entry`, `name`, `level_min`, `level_max`, `faction`, `display_id1`, `speed_walk`, `type`, `unit_class`, `health_multiplier`, `armor_multiplier`, `damage_multiplier`, `loot_id`, `gold_min`, `gold_max`, `spell_id1`, `spell_list_id`, `movement_type`, `inhabit_type`, `mechanic_immune_mask`) VALUES (90045, 'Exalted Highborne', 58, 58, 21, 10701, 1.11111, 6, 2, 2.0, 2.2, 1.5, 7523, 102, 665, 14868, 75230, 0, 1, 8413718);
 REPLACE `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000048, 90045, 0, 0, 0, 0, 1, 6185.75, -4111.37, 748.028, 6.15475, 25, 25, 5, 100, 100, 1, 0, 0, 0, 10);
-REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (11629, 30243);
-REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (11629, 30243);
+DELETE FROM `mangos`.`creature_questrelation` WHERE  `id`=11629 AND `quest`=30243;
+DELETE FROM `mangos`.`creature_involvedrelation` WHERE  `id`=11629 AND `quest`=30243;
+-- TODO: Kill quest for above monster(90045). Above monster(90045) should stand idle and never roam
+-- REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (11629, 30243);
+-- REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (11629, 30243);
 
 
 -- Azshara
@@ -1056,7 +1063,7 @@ REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance
 REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (7028, 30077, -20);
 REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (7029, 30077, -20);
 
-REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOId2`, `ReqCreatureOrGOId3`, `ReqCreatureOrGOId4`, `ReqCreatureOrGOCount1`, `ReqCreatureOrGOCount2`, `ReqCreatureOrGOCount3`, `ReqCreatureOrGOCount4`, `RewXP`, `RewOrReqMoney`, `RewMoneyMaxLevel`, `CompleteEmote`) VALUES (30182, 46, 55, 58, 8, 'Blackrock Menance', 'This area is infested with the Blackrock clan. Kill as many of them for me as you can.', 'Kill 25 Blackrock Soldier, 25 Blackrock Warlock, 25 Blackrock Slayer and 25 Blackrock Battlemaster Marshal Maxwell in Burning Steppes.', 'Great!', '', '', '', '', '', 7025, 7028, 7029, 7027, 25, 25, 25, 25, 6100, 27500, 6100, 1);
+REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOId2`, `ReqCreatureOrGOId3`, `ReqCreatureOrGOCount1`, `ReqCreatureOrGOCount2`, `ReqCreatureOrGOCount3`, `RewXP`, `RewOrReqMoney`, `RewMoneyMaxLevel`, `CompleteEmote`) VALUES (30182, 46, 55, 58, 8, 'Blackrock Menance', 'This area is infested with the Blackrock clan. Kill as many of them for me as you can.', 'Kill 25 Blackrock Warlock, 25 Blackrock Slayer and 25 Blackrock Battlemaster Marshal Maxwell in Burning Steppes.', 'Great!', '', '', '', '', '', 7028, 7029, 7027, 25, 25, 25, 6100, 27500, 6100, 1);
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (9560, 30182);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (9560, 30182);
 
@@ -1154,20 +1161,20 @@ REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLeve
 UPDATE `mangos`.`quest_template` SET `OfferRewardText`='You have done well, but there is still more to be done.', `RequestItemsText`='Did you bring me the requested items?' WHERE  `entry`=30243 AND `patch`=0;
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90034, 30243);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90034, 30243);
-REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (7025, 30117, -100); -- 20%
-REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (7027, 30117, -100); -- 20%
-REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (7028, 30117, -100); -- 20%
-REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (7029, 30117, -100); -- 20%
+REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (7025, 30117, -20);
+REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (7027, 30117, -20);
+REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (7028, 30117, -20);
+REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (7029, 30117, -20);
 
-REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (7886, 30118, -100); -- 20%
-REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (7885, 30118, -100); -- 20%
+REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (7886, 30118, -20);
+REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (7885, 30118, -20);
 
-REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (7452, 30120, -100); -- 20%
-REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (7453, 30120, -100); -- 20%
-REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (7454, 30120, -100); -- 20%
+REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (7452, 30120, -20);
+REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (7453, 30120, -20);
+REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (7454, 30120, -20);
 
-REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (11737, 30119, -100); -- 20%
-REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (11739, 30119, -100); -- 20%
+REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (11737, 30119, -20);
+REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (11739, 30119, -20);
 
 -- 30208, 30209 next parts of warrior ring quest chain
 

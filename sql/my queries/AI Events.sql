@@ -257,3 +257,14 @@ INSERT INTO `creature_ai_events` (`id`, `creature_id`, `condition_id`, `event_ty
 DELETE FROM `creature_ai_events` WHERE `creature_id`=6131;
 INSERT INTO `creature_ai_events` (`id`, `creature_id`, `condition_id`, `event_type`, `event_inverse_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `action1_script`, `action2_script`, `action3_script`, `comment`) VALUES
 (613101, 6131, 50000, 0, 0, 80, 13, 12000, 20000, 20000, 30000, 613101, 0, 0, 'Draconic Mageweaver - Cast Cone of Cold');
+
+-- Events list for Frostmaul Giant
+DELETE FROM `creature_ai_events` WHERE `creature_id`=7428;
+INSERT INTO `creature_ai_events` (`id`, `creature_id`, `condition_id`, `event_type`, `event_inverse_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `action1_script`, `action2_script`, `action3_script`, `comment`) VALUES
+(742801, 7428, 50000, 0, 0, 100, 13, 7000, 15000, 20000, 30000, 742801, 0, 0, 'Frostmaul Giant - Cast Strike'),
+(742802, 7428, 50000, 0, 0, 100, 13, 20000, 30000, 35000, 45000, 742802, 0, 0, 'Frostmaul Giant - Cast Knock Away');
+
+-- Events list for Slavering Ghoul
+DELETE FROM `creature_ai_events` WHERE `creature_id`=1791;
+INSERT INTO `creature_ai_events` (`id`, `creature_id`, `condition_id`, `event_type`, `event_inverse_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `action1_script`, `action2_script`, `action3_script`, `comment`) VALUES
+(179103, 1791, 50000, 0, 0, 100, 13, 7000, 15000, 150000, 170000, 179103, 0, 0, 'Slavering Ghoul - Cast Toxic Saliva');

@@ -7183,6 +7183,41 @@ WHERE entry = 18538;
 
 -- Quest Rewards
 
+-- Thrall's Resolve
+UPDATE mangos . item_template
+SET spellid_1 = 15464, -- +1% Physical Hit
+    spelltrigger_1 = 1
+WHERE entry = 12544;
+
+-- Eye of Orgrimmar
+UPDATE mangos . item_template
+SET spellid_2 = 21361, -- 3 MP/5
+    spelltrigger_2 = 1
+WHERE entry = 12545;
+
+-- Vest of the Den Watcher (Winterfall Activity)
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 15810, -- +44 Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 21320;
+
+-- Ursa's Embrace (Winterfall Activity)
+UPDATE mangos . item_template
+SET quality = 3,
+    armor = 750,
+    stat_type1 = 7,
+    stat_value1 = 27
+WHERE entry = 21322;
+
+-- Gloves of the Pathfinder (Winterfall Activity)
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 15464, -- +1% Physical Hit
+    spelltrigger_1 = 1
+WHERE entry = 21319;
+
+
 -- Steelsmith Greaves (Return to Tymor)
 UPDATE mangos . item_template
 SET quality = 3,
@@ -9086,9 +9121,37 @@ WHERE entry = 13986;
 
 -- Crystal Breeze Mantle (High Chief Winterfall)
 UPDATE mangos . item_template
-SET spellid_1 = 9415, -- +9 Spell Damage
+SET quality = 3,
+    spellid_1 = 9415, -- +9 Spell Damage
     spelltrigger_1 = 1
 WHERE entry = 15784;
+
+-- Fernpulse Jerkin (High Chief Winterfall)
+UPDATE mangos . item_template
+SET quality = 3,
+    armor = 220,
+    stat_type1 = 4,
+    stat_value1 = 15,
+    stat_type2 = 5,
+    stat_value2 = 12,
+    stat_type3 = 6,
+    stat_value3 = 12,
+    spellid_1 = 21363, -- 5 MP/5
+    spelltrigger_1 = 1
+WHERE entry = 15786;
+
+-- Willow Band Hauberk (High Chief Winterfall)
+UPDATE mangos . item_template
+SET quality = 3,
+    stat_type1 = 4,
+    stat_value1 = 15,
+    stat_type2 = 5,
+    stat_value2 = 12,
+    stat_type3 = 6,
+    stat_value3 = 12,
+    spellid_1 = 21363, -- 5 MP/5
+    spelltrigger_1 = 1
+WHERE entry = 15787;
 
 -- Wyrmthalak's Shackles (Maxwell's Mission)
 UPDATE mangos . item_template
@@ -9200,6 +9263,28 @@ SET armor = 120,
     spelltrigger_2 = 1
 WHERE entry = 20219;
 
+-- Blitzcleaver (Return to Tinkee)
+UPDATE mangos . item_template
+SET quality = 3,
+    delay = 2500,
+    dmg_min1 = 70,
+    dmg_max1 = 120
+WHERE entry = 15862;
+
+-- Grave Scepter (Return to Tinkee)
+UPDATE mangos . item_template
+SET quality = 3,
+    delay = 1500,
+    dmg_min1 = 42,
+    dmg_max1 = 72, 
+    stat_type1 = 5,
+    stat_value1 = 5,
+    stat_type2 = 7,
+    stat_value2 = 5,
+    spellid_1 = 14799, -- +20 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 15863;
+
 -- Plow Wood Spaulders (The Crystal of Zin-Malor)
 UPDATE mangos . item_template
 SET quality = 3,
@@ -9211,7 +9296,8 @@ WHERE entry = 15792;
 UPDATE mangos . item_template
 SET quality = 3,
     spellid_1 = 12051, -- Evocation
-    spelltrigger_1 = 0
+    spelltrigger_1 = 0,
+    spellcooldown_1 = 1800000 -- 30 minutes
 WHERE entry = 15791;
 
 -- Emerald Mist Gauntlets (The Crystal of Zin-Malor)
@@ -9570,10 +9656,15 @@ WHERE entry = 4462;
 -- Stardust Band
 -- Lodestone Necklace
 -- Protector Set
+-- Imbued Plate set
+-- Exalted set
+-- Hero's Set
 -- Lofty Set
 -- Revengant Set
 -- Pridelord Set
+-- Ebonhold Set
 -- Elunarian Set
+-- Heroic Set
 -- Highborne / Highborn(?) Set
 -- Warstrike Set
 -- Protector Set
@@ -9607,7 +9698,7 @@ WHERE entry = 4462;
 -- Merciless Set
 -- Ironhide Set
 -- Wolf Rider's Set
--- Venomshroud Boots
+-- Venomshroud Set
 -- Green shields
 -- Green / Blue offhands
 -- Blue necks / rings / trinkets
