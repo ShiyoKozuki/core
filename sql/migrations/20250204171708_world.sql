@@ -10,7 +10,7 @@ INSERT INTO `migrations` VALUES ('20250204171708');
 
 
 -- Ashenvale
-UPDATE `pool_template` SET `description` = 'Copper Veins (Master Pool) - Ashenvale' WHERE `entry` = 1075;
+UPDATE `pool_template` SET `description` = 'Copper Veins - Ashenvale (Master Pool)' WHERE `entry` = 1075;
 UPDATE `pool_gameobject` SET `description` = 'Copper Vein - Ashenvale' WHERE `guid` IN (55587, 55588);
 UPDATE `pool_gameobject` SET `description` = 'Tin Vein / Silver Vein - Ashenvale' WHERE `guid` IN (55767, 55816);
 
