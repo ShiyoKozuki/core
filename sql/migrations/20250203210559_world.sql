@@ -14,6 +14,7 @@ SET @PTEMPLATE = 4627;
 
 -- Arathi Highlands
 UPDATE `pool_template` SET `description` = 'Mithril Deposit / Truesilver Deposit - Hinterlands' WHERE `entry` = 17206;
+UPDATE `pool_pool` SET `mother_pool` = 1067 WHERE `pool_id` = 17206;
 UPDATE `pool_template` SET `description` = 'Lesser Bloodstone Deposits in Arathi Highlands (Master Pool)' WHERE `entry` = 298;
 INSERT INTO `pool_template` (`entry`, `max_limit`, `description`, `flags`, `instance`, `patch_min`, `patch_max`) VALUES
 (323, 16, 'Arathi Highlands - Silver Vein / Gold Vein / Iron Deposit (Master Pool)', 0, 0, 0, 10);
