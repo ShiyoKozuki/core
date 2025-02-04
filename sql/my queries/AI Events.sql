@@ -268,3 +268,27 @@ INSERT INTO `creature_ai_events` (`id`, `creature_id`, `condition_id`, `event_ty
 DELETE FROM `creature_ai_events` WHERE `creature_id`=1791;
 INSERT INTO `creature_ai_events` (`id`, `creature_id`, `condition_id`, `event_type`, `event_inverse_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `action1_script`, `action2_script`, `action3_script`, `comment`) VALUES
 (179103, 1791, 50000, 0, 0, 100, 13, 7000, 15000, 150000, 170000, 179103, 0, 0, 'Slavering Ghoul - Cast Toxic Saliva');
+
+-- Events list for Carrion Lurker
+DELETE FROM `creature_ai_events` WHERE `creature_id`=1821;
+INSERT INTO `creature_ai_events` (`id`, `creature_id`, `condition_id`, `event_type`, `event_inverse_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `action1_script`, `action2_script`, `action3_script`, `comment`) VALUES
+(182101, 1821, 0, 11, 0, 100, 0, 0, 0, 0, 0, 182101, 0, 0, 'Carrion Lurker - Cast Poison Proc on Spawn'),
+(182102, 1821, 50000, 0, 0, 100, 13, 9000, 20000, 30000, 45000, 182102, 0, 0, 'Carrion Lurker - Cast Web');
+
+-- Events list for Scarlet Knight
+DELETE FROM `creature_ai_events` WHERE `creature_id`=1833;
+INSERT INTO `creature_ai_events` (`id`, `creature_id`, `condition_id`, `event_type`, `event_inverse_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `action1_script`, `action2_script`, `action3_script`, `comment`) VALUES
+(183302, 1833, 50000, 0, 0, 100, 13, 9000, 15000, 25000, 35000, 183302, 0, 0, 'Scarlet Knight - Cast Shield Slam'),
+(183303, 1833, 0, 2, 0, 100, 4, 15, 0, 0, 0, 183303, 0, 0, 'Scarlet Knight - Flee at 15% HP');
+
+-- Events list for Soulless Ghoul
+DELETE FROM `creature_ai_events` WHERE `creature_id`=1794;
+INSERT INTO `creature_ai_events` (`id`, `creature_id`, `condition_id`, `event_type`, `event_inverse_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `action1_script`, `action2_script`, `action3_script`, `comment`) VALUES
+(179402, 1794, 50000, 0, 0, 100, 13, 10000, 20000, 20000, 30000, 179402, 0, 0, 'Soulless Ghoul - Cast Mana Burn'),
+(179403, 1794, 50000, 0, 0, 100, 13, 10000, 15000, 25000, 35000, 179403, 0, 0, 'Soulless Ghoul - Cast Shadow Bolt Volley');
+
+-- Events list for Skeletal Warlord
+DELETE FROM `creature_ai_events` WHERE `creature_id`=1788;
+INSERT INTO `creature_ai_events` (`id`, `creature_id`, `condition_id`, `event_type`, `event_inverse_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `action1_script`, `action2_script`, `action3_script`, `comment`) VALUES
+(178801, 1788, 50000, 0, 0, 100, 13, 7000, 15000, 35000, 45000, 178801, 0, 0, 'Skeletal Warlord - Cast Backhand');
+

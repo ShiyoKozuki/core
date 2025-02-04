@@ -7183,6 +7183,13 @@ WHERE entry = 18538;
 
 -- Quest Rewards
 
+-- Gold Link Belt
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 9336, -- +30 Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 15813;
+
 -- Thrall's Resolve
 UPDATE mangos . item_template
 SET spellid_1 = 15464, -- +1% Physical Hit
@@ -7216,7 +7223,6 @@ SET quality = 3,
     spellid_1 = 15464, -- +1% Physical Hit
     spelltrigger_1 = 1
 WHERE entry = 21319;
-
 
 -- Steelsmith Greaves (Return to Tymor)
 UPDATE mangos . item_template
@@ -9147,7 +9153,7 @@ SET quality = 3,
     stat_value1 = 15,
     stat_type2 = 5,
     stat_value2 = 12,
-    stat_type3 = 6,
+    stat_type3 = 7,
     stat_value3 = 12,
     spellid_1 = 21363, -- 5 MP/5
     spelltrigger_1 = 1
@@ -9656,6 +9662,7 @@ WHERE entry = 4462;
 -- Stardust Band
 -- Lodestone Necklace
 -- Protector Set
+-- Hyperion Set (LVL60!)
 -- Imbued Plate set
 -- Exalted set
 -- Hero's Set
