@@ -97,12 +97,17 @@ UPDATE `mangos`.`creature` SET `wander_distance`=0 WHERE `id`=5467;
 UPDATE `mangos`.`creature_template` SET `base_attack_time`=3000 WHERE  `entry`=5466 AND `patch`=0;
 UPDATE `mangos`.`creature_template` SET `base_attack_time`=3000 WHERE  `entry`=5467 AND `patch`=0;
 
+-- The Husk attack speed/attack rate and damage multiplier
+UPDATE `mangos`.`creature_template` SET `damage_multiplier`=4.0, `base_attack_time`=3000, `ranged_attack_time`=3000 WHERE  `entry`=1851 AND `patch`=0;
 
 -- Razorfen Spearhide (Shouldn't be rare, Blizzard bug)
 UPDATE `mangos`.`creature_template` SET `rank`=1 WHERE  `entry`=4438 AND `patch`=0;
 
 -- Archaedas HP adjusted due to 2x elite HP
 UPDATE `mangos`.`creature_template` SET `health_multiplier`=7 WHERE  `entry`=2748 AND `patch`=0;
+
+-- Oozeling HP and damage reduced due to DMG and HP multiplier on normal mobs
+UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.2, `damage_multiplier`=0.4 WHERE  `entry`=8257 AND `patch`=0;
 
 -- Maraudon Larvae HP and damage reduced due to DMG and HP multiplier on normal mobs
 UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.3, `damage_multiplier`=0.3 WHERE  `entry`=12218 AND `patch`=0;
