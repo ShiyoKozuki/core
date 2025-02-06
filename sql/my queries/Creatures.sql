@@ -103,6 +103,9 @@ UPDATE `mangos`.`creature_template` SET `damage_multiplier`=4.0, `base_attack_ti
 -- Razorfen Spearhide (Shouldn't be rare, Blizzard bug)
 UPDATE `mangos`.`creature_template` SET `rank`=1 WHERE  `entry`=4438 AND `patch`=0;
 
+-- Ghost of the Past (Trap spawns too many, so greatly reduce their power)
+UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.4, `damage_multiplier`=0.5 WHERE  `entry`=10940 AND `patch`=0;
+
 -- Archaedas HP adjusted due to 2x elite HP
 UPDATE `mangos`.`creature_template` SET `health_multiplier`=7 WHERE  `entry`=2748 AND `patch`=0;
 

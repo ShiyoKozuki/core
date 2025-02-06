@@ -9661,6 +9661,7 @@ WHERE entry = 4462;
 -- Ring of the Heavens
 -- Stardust Band
 -- Lodestone Necklace
+-- Emerald Set
 -- Protector Set
 -- Hyperion Set (LVL60!)
 -- Imbued Plate set
