@@ -12,7 +12,7 @@ INSERT INTO `migrations` VALUES ('20250205172158');
 -- Duskwood
 UPDATE `pool_template` SET `description` = 'Copper Veins - Duskwood (Master Pool)' WHERE `entry` = 1119;
 
--- Duskwood - Silver Vein / Gold Vein / Iron Deposit (Master Pool)
+-- Silver Vein / Gold Vein / Iron Deposit
 SET @OGUID = 98643;
 SET @PTEMPLATE = 6329;
 
