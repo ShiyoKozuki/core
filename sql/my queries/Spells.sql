@@ -179,7 +179,7 @@ UPDATE `spell_template` SET `effect3`=30, `effectDieSides3`=1, `effectBaseDice3`
 
 -- Judgement of the Crusader
 UPDATE `mangos`.`spell_template` SET 
-`effectBasePoints1`=19, `effectApplyAuraName1`=3, `effectAmplitude1`=3000, `durationIndex`=9, `effectBonusCoefficient1`=0.167, `auraDescription`='Taking $s1 holy damage every $t1 seconds.' WHERE  `entry`=21183;
+`effectBasePoints1`=9, `effectApplyAuraName1`=3, `effectAmplitude1`=3000, `durationIndex`=9, `effectBonusCoefficient1`=0.167, `auraDescription`='Taking $s1 holy damage every $t1 seconds.' WHERE  `entry`=21183;
 
 UPDATE `mangos`.`spell_template` SET 
 `effectBasePoints1`=27, `effectApplyAuraName1`=3, `effectAmplitude1`=3000, `durationIndex`=9, `effectBonusCoefficient1`=0.167, `auraDescription`='Taking $s1 holy damage every $t1 seconds.' 
