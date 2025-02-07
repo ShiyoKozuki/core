@@ -12902,7 +12902,7 @@ WHERE entry IN(12717, 18418, 22388, 14512, 14513, 14514, 12834, 12825, 18260, 20
 15763, 15751, 15726, 15733, 15730);
 
 -- Display IDs
--- Cute Mail: Fortified chain (display: 1019) Infantry Tunic (display: 3057)
+-- Cute Mail: Fortified chain (display: 1019) Infantry Tunic (display: 3057), Copper Chain Vest
 -- Cute Mail Legs: Infantry Leggings (Display: 3058)
 -- Skimpy plate armor: Vanguard Breastplate (display: 26846), Lord's Breastplate
 -- Skimpy Leather: Pridelord Pants(display: 27651)
