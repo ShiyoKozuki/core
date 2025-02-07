@@ -1,7 +1,7 @@
 -- Spells
 -- effectItemType -> (spellFamilyFlags? It's the enum I don't know why this was referenced to me) is enum ClassFlag in SpellClassMask.h
--- 33427 NEXT SPELL
--- 15048 NEXT SKILL_LINE_ABILITY
+-- 33429 NEXT SPELL
+-- 15049 NEXT SKILL_LINE_ABILITY
 
 -- Racials
 
@@ -406,12 +406,12 @@ UPDATE `mangos`.`spell_template` SET `reagent4`=7078, `reagent5`=7082, `reagent6
     REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`) VALUES (15044, 5875, 184, 33414, 2, 1);
 
     -- Spell Threat (Bonus threat)
-    REPLACE `mangos`.`spell_threat` (`entry`, `Threat`) VALUES (33409, 39);
-    REPLACE `mangos`.`spell_threat` (`entry`, `Threat`) VALUES (33410, 59);
-    REPLACE `mangos`.`spell_threat` (`entry`, `Threat`) VALUES (33411, 78);
-    REPLACE `mangos`.`spell_threat` (`entry`, `Threat`) VALUES (33412, 98);
-    REPLACE `mangos`.`spell_threat` (`entry`, `Threat`) VALUES (33413, 118);
-    REPLACE `mangos`.`spell_threat` (`entry`, `Threat`) VALUES (33414, 145);
+    REPLACE `mangos`.`spell_threat` (`entry`, `Threat`, `multiplier`) VALUES (33409, 39, 1);
+    REPLACE `mangos`.`spell_threat` (`entry`, `Threat`, `multiplier`) VALUES (33410, 59, 1);
+    REPLACE `mangos`.`spell_threat` (`entry`, `Threat`, `multiplier`) VALUES (33411, 78, 1);
+    REPLACE `mangos`.`spell_threat` (`entry`, `Threat`, `multiplier`) VALUES (33412, 98, 1);
+    REPLACE `mangos`.`spell_threat` (`entry`, `Threat`, `multiplier`) VALUES (33413, 118, 1);
+    REPLACE `mangos`.`spell_threat` (`entry`, `Threat`, `multiplier`) VALUES (33414, 145, 1);
 
 
     -- Learn spell(for trainer):
@@ -501,10 +501,31 @@ UPDATE `mangos`.`spell_template` SET `reagent4`=7078, `reagent5`=7082, `reagent6
     -- Trainer
     REPLACE `mangos`.`npc_trainer_template` (`entry`, `spell`, `spellcost`, `reqlevel`) VALUES (29, 33426, 20000, 40);
 
+-- Shield of the Righteous
+    -- Spell:
+    REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `category`, `attributes`, `attributesEx`, `castingTimeIndex`, `recoveryTime`, `procChance`, `baseLevel`, `spellLevel`, `durationIndex`, `manaCost`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effect2`, `effectDieSides1`, `effectDieSides2`, `effectBaseDice1`, `effectBaseDice2`, `effectBasePoints2`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectApplyAuraName2`, `effectMiscValue1`, `effectMiscValue2`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `customFlags`) 
+    VALUES (33427, 5464, 1, 971, 327696, 134218240, 1, 10000, 101, 30, 30, 1, 125, 2, 4, 64, 6, 2, 1, 1, 1, 1, 
+    19, 0, -1, -1, 1, 6, 101, 1, 1, 42, 2036, 'Shield of the Righteous', 4128830, 'Rank 1', 4128830, 'Slam the target with your shield, causing $s holy damage and increasing your armor by 20% for 10 seconds.  Also causes a high amount of threat.', 2031678, 4128812, 133, 1500, 4, 4328521728, 2, 2, 1, 1, 1, 128);
+
+    -- Skill line ability:
+    REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`) VALUES (15048, 5875, 267, 33427, 2, 1);
+   
+   -- Spell Threat (Bonus threat)
+    REPLACE `mangos`.`spell_threat` (`entry`, `Threat`, `multiplier`) VALUES (33427, 100, 1);
+    
+    -- Learn spell(for trainer):
+    REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `targets`, `castingTimeIndex`, `procChance`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `activeIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) 
+    VALUES (33428, 4222, 1, 262400, 256, 1, 101, 6, -1, -1, 36, 1, 1, -1, 0, -1, -1, 33427, 107, 2036, 122, 'Shield of the Righteous', 7274526, 'Rank 1', 7274526, 7274508, 983052, -1, 1, 1, 1);
+
+    -- Spell Chain
+    -- Trainer
+    REPLACE `mangos`.`npc_trainer_template` (`entry`, `spell`, `spellcost`, `reqlevel`) VALUES (29, 33428, 11000, 30);
+
 -- Template:
 -- Name
     -- Spell:
     -- Skill line ability:
+    -- Spell Threat (Bonus threat)
     -- Learn spell(for trainer):
     -- Spell Chain
     -- Trainer
