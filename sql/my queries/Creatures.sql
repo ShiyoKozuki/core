@@ -60,6 +60,14 @@ WHERE display_id IN(59, 60, 12170);
     -- Skeletal Terror (Dalsons Tears)
     UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.7, `damage_multiplier`=0.5 WHERE  `entry`=1785 AND `patch`=0;
 
+    -- Skeletal Sorcerer (Sorrow Hill / Felstone Field)
+    UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.7, `damage_multiplier`=0.5 WHERE  `entry`=1784 AND `patch`=0;
+    -- Skeletal Flayer (Sorrow Hill / Felstone Field)
+    UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.7, `damage_multiplier`=0.3 WHERE  `entry`=1783 AND `patch`=0;
+    -- Slavering Ghoul (Sorrow Hill / Felstone Field)
+    UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.7, `damage_multiplier`=0.4 WHERE  `entry`=1791 AND `patch`=0;
+
+
 
 
 -- Incorrect normal mobs, were elite in real vanilla. Changed in 2.3 (Classic WoW bug) 
