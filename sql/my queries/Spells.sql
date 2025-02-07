@@ -1,7 +1,7 @@
 -- Spells
 -- effectItemType -> (spellFamilyFlags? It's the enum I don't know why this was referenced to me) is enum ClassFlag in SpellClassMask.h
--- 33425 NEXT SPELL
--- 15047 NEXT SKILL_LINE_ABILITY
+-- 33427 NEXT SPELL
+-- 15048 NEXT SKILL_LINE_ABILITY
 
 -- Racials
 
