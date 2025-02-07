@@ -10,25 +10,29 @@ UPDATE mangos . spell_template SET procChance = 10 WHERE entry = 20136;
 UPDATE mangos . spell_template SET procChance = 10 WHERE entry = 20137;
 UPDATE mangos . spell_proc_event SET procEx = 3 WHERE entry = 20127;
 
-UPDATE mangos . spell_template SET effect2 = 6 WHERE entry = 20189;
-UPDATE mangos . spell_template SET effectImplicitTargetA2 = 1 WHERE entry = 20189;
-UPDATE mangos . spell_template SET effectDieSides2 = 1 WHERE entry = 20189;
-UPDATE mangos . spell_template SET effectBaseDice2 = 1 WHERE entry = 20189;
-UPDATE mangos . spell_template SET effectApplyAuraName2 = 55 WHERE entry = 20189;
+-- Precision (Paladin)
+    UPDATE mangos . spell_template SET effect2 = 6 WHERE entry = 20189;
+    UPDATE mangos . spell_template SET effectImplicitTargetA2 = 1 WHERE entry = 20189;
+    UPDATE mangos . spell_template SET effectDieSides2 = 1 WHERE entry = 20189;
+    UPDATE mangos . spell_template SET effectBaseDice2 = 1 WHERE entry = 20189;
+    UPDATE mangos . spell_template SET effectApplyAuraName2 = 55 WHERE entry = 20189;
+    UPDATE mangos . spell_template SET description = 'Increases your chance to hit with melee weapons and spells by $s1%.' WHERE  entry = 20189;
 
-UPDATE mangos . spell_template SET effect2 = 6 WHERE entry = 20192;
-UPDATE mangos . spell_template SET effectImplicitTargetA2 = 1 WHERE entry = 20192;
-UPDATE mangos . spell_template SET effectDieSides2 = 1 WHERE entry = 20192;
-UPDATE mangos . spell_template SET effectBaseDice2 = 1 WHERE entry = 20192;
-UPDATE mangos . spell_template SET effectBasePoints2 = 1 WHERE entry = 20192;
-UPDATE mangos . spell_template SET effectApplyAuraName2 = 55 WHERE entry = 20192;
+    UPDATE mangos . spell_template SET effect2 = 6 WHERE entry = 20192;
+    UPDATE mangos . spell_template SET effectImplicitTargetA2 = 1 WHERE entry = 20192;
+    UPDATE mangos . spell_template SET effectDieSides2 = 1 WHERE entry = 20192;
+    UPDATE mangos . spell_template SET effectBaseDice2 = 1 WHERE entry = 20192;
+    UPDATE mangos . spell_template SET effectBasePoints2 = 1 WHERE entry = 20192;
+    UPDATE mangos . spell_template SET effectApplyAuraName2 = 55 WHERE entry = 20192;
+    UPDATE mangos . spell_template SET description = 'Increases your chance to hit with melee weapons and spells by $s1%.' WHERE  entry = 20192;
 
-UPDATE mangos . spell_template SET effect2 = 6 WHERE entry = 20193;
-UPDATE mangos . spell_template SET effectImplicitTargetA2 = 1 WHERE entry = 20193;
-UPDATE mangos . spell_template SET effectDieSides2 = 1 WHERE entry = 20193;
-UPDATE mangos . spell_template SET effectBaseDice2 = 1 WHERE entry = 20193;
-UPDATE mangos . spell_template SET effectBasePoints2 = 2 WHERE entry = 20193;
-UPDATE mangos . spell_template SET effectApplyAuraName2 = 55 WHERE entry = 20193;
+    UPDATE mangos . spell_template SET effect2 = 6 WHERE entry = 20193;
+    UPDATE mangos . spell_template SET effectImplicitTargetA2 = 1 WHERE entry = 20193;
+    UPDATE mangos . spell_template SET effectDieSides2 = 1 WHERE entry = 20193;
+    UPDATE mangos . spell_template SET effectBaseDice2 = 1 WHERE entry = 20193;
+    UPDATE mangos . spell_template SET effectBasePoints2 = 2 WHERE entry = 20193;
+    UPDATE mangos . spell_template SET effectApplyAuraName2 = 55 WHERE entry = 20193;
+    UPDATE mangos . spell_template SET description = 'Increases your chance to hit with melee weapons and spells by $s1%.' WHERE  entry = 20193;
 
 -- Improved Moonfire
 DELETE FROM `mangos`.`spell_template` WHERE  `entry`=16821 AND `build`=5875;

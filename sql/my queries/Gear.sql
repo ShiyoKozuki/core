@@ -7189,6 +7189,43 @@ WHERE entry = 18538;
 
 -- Quest Rewards
 
+-- Ley Staff
+UPDATE mangos . item_template
+SET spellid_1 = 9395, -- +5 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 9513;
+
+-- Manaweave Robe
+UPDATE mangos . item_template
+SET spellid_1 = 9395, -- +5 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 7509;
+
+-- Astral Knot Robe
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 9415, -- +9 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 7511;
+
+-- Astral Knot Blouse
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 9415, -- +9 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 9516;
+
+-- Bastion of Stormwind
+UPDATE mangos . item_template
+SET quality = 3,
+    armor = 566,
+    block = 11,
+    stat_type1 = 5,
+    stat_value1 = 4
+    stat_type2 = 7,
+    stat_value2 = 4
+WHERE entry = 9607;
+
 -- Gold Link Belt
 UPDATE mangos . item_template
 SET quality = 3,
