@@ -177,6 +177,8 @@ UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=55 WHERE  `entry`=10461
 UPDATE `spell_template` SET `effect3`=30, `effectDieSides3`=1, `effectBaseDice3`=1, `effectBasePoints3`=249, `effectBonusCoefficient3`=-1, `effectImplicitTargetA3`=1, `effectMiscValue3`=0, `manaCostPercentage`=0, 
 `description`='Gives you an extra attack.  In addition, restores 300 mana and the next 2 sources of Nature damage dealt to the target are increased by $s2%.  Lasts $d.' WHERE `entry`=17364;
 
+-- Consecration (Made baseline)
+REPLACE `mangos`.`npc_trainer_template` (`entry`, `spell`, `spellcost`, `reqlevel`) VALUES (29, 26573, 4000, 20);
 
 -- Judgement of the Crusader
 UPDATE `mangos`.`spell_template` SET 

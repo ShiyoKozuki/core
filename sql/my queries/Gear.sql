@@ -7189,6 +7189,17 @@ WHERE entry = 18538;
 
 -- Quest Rewards
 
+-- Beastslayer
+UPDATE mangos . item_template
+SET delay = 3800,
+    dmg_min1 = 113,
+    dmg_max1 = 213,
+    stat_type1 = 4,
+    stat_value1 = 20,
+    spellid_2 = 15907, -- +5 2H Axe
+    spelltrigger_2 = 1
+WHERE entry = 11907;
+
 -- Ley Staff
 UPDATE mangos . item_template
 SET spellid_1 = 9395, -- +5 Spell Damage
