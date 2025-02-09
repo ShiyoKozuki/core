@@ -1,0 +1,9 @@
+crusader strike sometimes targets self and hits self unsure how or why. something about targeting self if no enemy targetted. flag to interrupt if no target? check targets in general? swap damage and mp restore order? (2 - > 1)
+you can use it without targetting a mob and itll target yourself for next auto
+is one of the target thing wrong? targets?
+
+check interrupt flags, maybe interrupt crusader strike on miss/parry/dodge and holy strike refund resource cost partially on miss
+
+add more librams at lower level (quests/boss drops)
+unsub from thing
+change hair color (blonde?)

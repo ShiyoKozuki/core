@@ -7189,6 +7189,16 @@ WHERE entry = 18538;
 
 -- Quest Rewards
 
+-- Leggings of the People's Militia
+UPDATE mangos . item_template
+SET stat_type1 = 0,
+    stat_value1 = 0,
+    stat_type2 = 0,
+    stat_value2 = 0,
+    spellid_1 = 9395, -- +5 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 12295;
+
 -- Beastslayer
 UPDATE mangos . item_template
 SET delay = 3800,
