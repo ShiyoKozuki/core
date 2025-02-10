@@ -179,8 +179,11 @@ UPDATE `spell_template` SET `effect3`=30, `effectDieSides3`=1, `effectBaseDice3`
 `description`='Gives you an extra attack.  In addition, restores 300 mana and the next 2 sources of Nature damage dealt to the target are increased by $s2%.  Lasts $d.' WHERE `entry`=17364;
 
 -- Repentance duration (made 1m + added usable against Demons, Dragonkin, Giants and Undead)
-UPDATE `mangos`.`spell_template` SET `durationIndex`=3, `targetCreatureType`=118, `description`='Puts the enemy target in a state of meditation, incapacitating them for up to $d.  Any damage caused will awaken the target. Usable against Demons, Dragonkin, Giants, Humanoids and Undead.'
+UPDATE `mangos`.`spell_template` SET `durationIndex`=3, `targetCreatureType`=118, `attributes`=1074855936, `description`='Puts the enemy target in a state of meditation, incapacitating them for up to $d.  Any damage caused will awaken the target. Usable against Demons, Dragonkin, Giants, Humanoids and Undead.'
 WHERE `entry`=20066 AND `build`=5086;
+
+-- Holy Shock 
+    -- Infusion of Light buff (EffectItemType: 0x00206000 for PLD healing spells)
 
 -- Judgement of the Crusader
 UPDATE `mangos`.`spell_template` SET 
