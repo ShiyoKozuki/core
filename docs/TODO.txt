@@ -1,0 +1,65 @@
+spell ai:
+    tunnel rat digger (sunder)
+    skullsplinter skullthumper (gouge)
+    loch crocolisk (Thrash)
+    defias looter (disarm - ~5s dura)
+    defias pathstalker (shield bash)
+    defias knuckleduster (pummel)
+    murloc tidehunter (frost nova)
+    Murloc coastrunner (Poisonous Stab)
+    dire condo (Swoop)
+    tarantula (poison) might be random proc on auto? its fine then
+
+weak aura for blessings/seal/righteous fury on self (For seals, just show judgement in middle of screen if it CANT be used, means no seal active)
+
+DO TAXES
+clean ac filters
+VANILLA TWEAKS + FIXES
+get estimate from junk company
+
+unyielding faith spellID for hand of reckoning and remove the new icon i added
+150+ food to give spell dmg str etc
+
+eternal flame to replace consc in talent(2s cast)
+add more librams at lower level (quests/boss drops)
+skill_line_ability superseded_by_spell for crusader strike
+
+Shield of righteous / crusader strike still don't overwrite ranks like war/rogue spells, investigate war/rogue spells
+also learning rank1 gave me all ranks
+Rank2 crusader strike no longer gets learned? I learn rank1 then when I learn rank2 it skips rank2 and learns 3-cap
+Learning rank2 holy strike also learns ALL ranks after
+UNLEARN ALL RANKS ON GM WHEN TESTING!!!!!!
+
+repentance 1m dura
+increase level of heavy copper broadsword to 17
+
+
+stonesplinter blade drop rate?
+gnoll war harness drop rate
+
+add more librams at lower level (quests/boss drops). Add to any quest that has a wand as the only weapon reward!
+Buff The Peoples Militia quest weapons
+buff Coral Claymore and make it blue (unique drop off Slark, a rare?)
+
+
+
+unsub from thing
+
+pull:
+https://github.com/vmangos/core/pull/2900
+
+tomorrow:
+    125+ herb
+    craft level21 gsword + FULL silvered bronze set. Check what leevl the pearl 2h hammer is, it might be better!
+    spider/wolf quest in duskwood around 20
+    take picture of antiques
+
+    start taking stuff out of room books etc
+    whats under my bed?
+    CALL JUNK COMPANY
+    UNLEARN ALL RANKS ON GM WHEN TESTING!!!!!!
+
+
+Copy into discord before sleep:
+    125+ herb
+    clean ac filters
