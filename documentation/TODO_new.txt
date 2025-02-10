@@ -21,11 +21,9 @@ unyielding faith spellID for hand of reckoning and remove the new icon i added
 150+ food to give spell dmg str etc
 
 NOW:
-    eternal flame to replace consc in talent(2s cast)
     add more librams at lower level (quests/boss drops)
-    skill_line_ability superseded_by_spell for crusader strike
     UNLEARN ALL RANKS ON GM WHEN TESTING!!!!!!
-    repentance 1m dura
+    Holy shock -50% MP cost of next spell? Copy inner focus. Or CAT/WOTLK infusion of light (need icon too)
     increase level of heavy copper broadsword to 17
 
 

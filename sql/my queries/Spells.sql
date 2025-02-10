@@ -178,6 +178,10 @@ UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=55 WHERE  `entry`=10461
 UPDATE `spell_template` SET `effect3`=30, `effectDieSides3`=1, `effectBaseDice3`=1, `effectBasePoints3`=249, `effectBonusCoefficient3`=-1, `effectImplicitTargetA3`=1, `effectMiscValue3`=0, `manaCostPercentage`=0, 
 `description`='Gives you an extra attack.  In addition, restores 300 mana and the next 2 sources of Nature damage dealt to the target are increased by $s2%.  Lasts $d.' WHERE `entry`=17364;
 
+-- Repentance duration (made 1m + added usable against Demons, Dragonkin, Giants and Undead)
+UPDATE `mangos`.`spell_template` SET `durationIndex`=3, `targetCreatureType`=118, `description`='Puts the enemy target in a state of meditation, incapacitating them for up to $d.  Any damage caused will awaken the target. Usable against Demons, Dragonkin, Giants, Humanoids and Undead.'
+WHERE `entry`=20066 AND `build`=5086;
+
 -- Judgement of the Crusader
 UPDATE `mangos`.`spell_template` SET 
 `effectBasePoints1`=9, `effectApplyAuraName1`=3, `effectAmplitude1`=3000, `durationIndex`=9, `effectBonusCoefficient1`=0.167, `auraDescription`='Taking $s1 holy damage every $t1 seconds.' WHERE  `entry`=21183;
