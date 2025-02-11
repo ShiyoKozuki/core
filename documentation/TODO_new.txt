@@ -21,10 +21,7 @@ NOW:
     UNLEARN ALL RANKS ON GM WHEN TESTING!!!!!!
     Judgement of Justice -10% attack speed for 30s
     Consecration higher coefficient scaling
-    Holy Shock 15s CD + 
-    check bloodthirst(23886) for how to apply the infusion of light aura, think need to make holy shock have another effect that uses 
-    effect2 (6) + effectApplyAuraName2 (42) [SPELL_AURA_PROC_TRIGGER_SPELL] +  effectTriggerSpell2 (33451 [Infusion of light]) for all holy shock spells
-
+    Hammer of the Righteous spell visual (copy HoJ?)
     increase level of heavy copper broadsword to 17
     spell damage to quest reward staves/offhands and very few sword/daggers
 
