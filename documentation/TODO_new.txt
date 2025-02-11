@@ -9,13 +9,9 @@ spell ai:
     Murloc coastrunner (Poisonous Stab)
     dire condo (Swoop)
     tarantula (poison) might be random proc on auto? its fine then
+    dark strand fanatic (curse of mending)
+    raging reef crawler (Thrash)
 
-weak aura for blessings/seal/righteous fury on self (For seals, just show judgement in middle of screen if it CANT be used, means no seal active)
-
-DO TAXES
-clean ac filters
-VANILLA TWEAKS + FIXES
-get estimate from junk company
 
 unyielding faith spellID for hand of reckoning and remove the new icon i added
 150+ food to give spell dmg str etc
@@ -23,8 +19,14 @@ unyielding faith spellID for hand of reckoning and remove the new icon i added
 NOW:
     add more librams at lower level (quests/boss drops)
     UNLEARN ALL RANKS ON GM WHEN TESTING!!!!!!
-    Holy shock -50% MP cost of next spell? Copy inner focus. Or CAT/WOTLK infusion of light (need icon too)
+    Judgement of Justice -10% attack speed for 30s
+    Consecration higher coefficient scaling
+    Holy Shock 15s CD + 
+    check bloodthirst(23886) for how to apply the infusion of light aura, think need to make holy shock have another effect that uses 
+    effect2 (6) + effectApplyAuraName2 (42) [SPELL_AURA_PROC_TRIGGER_SPELL] +  effectTriggerSpell2 (33451 [Infusion of light]) for all holy shock spells
+
     increase level of heavy copper broadsword to 17
+    spell damage to quest reward staves/offhands and very few sword/daggers
 
 
 stonesplinter blade drop rate?
@@ -41,8 +43,12 @@ tomorrow:
     craft level21 gsword + FULL silvered bronze set. Check what leevl the pearl 2h hammer is, it might be better!
     spider/wolf quest in duskwood around 20
     take picture of antiques
+    weak aura for blessings/seal/righteous fury on self (For seals, just show judgement in middle of screen if it CANT be used, means no seal active)
 
-    start taking stuff out of room books etc
+    DO TAXES
+    clean ac filters
+    VANILLA TWEAKS + FIXES
+    get estimate from junk company
     whats under my bed?
     CALL JUNK COMPANY
     UNLEARN ALL RANKS ON GM WHEN TESTING!!!!!!
@@ -50,8 +56,13 @@ tomorrow:
 
 Copy into discord before sleep:
     125+ herb
+    lvl bsm + level 26 2h hammer
     clean ac filters
-    unsub from thing
+    send corey to ask WTF the city of miramar wants
+    LEARN SPELLS
 
 pull:
 https://github.com/vmangos/core/pull/2900
+
+bugs:
+    Deep Ocean, Vast Sea looting lockboxes works properly duo, other stuff doesn't
