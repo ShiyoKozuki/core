@@ -183,8 +183,10 @@ UPDATE `mangos`.`spell_template` SET `durationIndex`=3, `targetCreatureType`=118
 WHERE `entry`=20066 AND `build`=5086;
 
 -- Holy Shock 
-    -- Infusion of Light buff 
-    UPDATE `mangos`.`spell_template` SET `categoryRecoveryTime`=15000, `effectTriggerSpell1`=33451 WHERE  `entry`=20473 AND `build`=5302;
+    -- Infusion of Light buff + 15s CD
+    UPDATE `mangos`.`spell_template` SET `categoryRecoveryTime`=15000, `effect2`=6, `effectApplyAuraName2`=42, effectTriggerSpell2`=33451 WHERE  `entry`=20473;
+    UPDATE `mangos`.`spell_template` SET `categoryRecoveryTime`=15000, `effect2`=6, `effectApplyAuraName2`=42, effectTriggerSpell2`=33451 WHERE  `entry`=20929;
+    UPDATE `mangos`.`spell_template` SET `categoryRecoveryTime`=15000, `effect2`=6, `effectApplyAuraName2`=42, effectTriggerSpell2`=33451 WHERE  `entry`=20930;
 
     -- Infusion of Light (EffectItemType: 0x00206000 for PLD healing spells)
     REPLACE `mangos`.`spell_template` (`entry`, `build`, `dispel`, `attributes`, `attributesEx2`, `stances`, `castingTimeIndex`, `procFlags`, `procChance`, `procCharges`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectItemType1`, `effectMiscValue1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `spellFamilyName`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`) 
