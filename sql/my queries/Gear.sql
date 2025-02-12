@@ -12925,9 +12925,19 @@ WHERE entry IN(12717, 18418, 22388, 14512, 14513, 14514, 12834, 12825, 18260, 20
 -- Display IDs
 -- Cute Mail: Fortified chain (display: 1019) Infantry Tunic (display: 3057), Copper Chain Vest
 -- Cute Mail Legs: Infantry Leggings (Display: 3058)
--- SUPER skimpy sexy Mail: Burnished Tunic
+-- SUPER skimpy sexy Mail: Burnished Tunic (Display: 25769)
 -- Skimpy plate armor: Vanguard Breastplate (display: 26846), Lord's Breastplate
 -- Skimpy Leather: Pridelord Pants(display: 27651)
+
+-- Silvered Bronze Breastplate (Was 9403)
+UPDATE mangos . item_template 
+SET display_id = 25769
+WHERE entry = 2869;
+
+-- Golden Scaled Cuirass (Was 9425)
+UPDATE mangos . item_template 
+SET display_id = 25769
+WHERE entry = 3845;
 
 -- Fire Hardened Hauberk (Was 22480)
 UPDATE mangos . item_template 

@@ -65,6 +65,7 @@ Copy into discord before sleep:
     call more junk companies for estimates
     call movers
     change silvered bronze breastplate and golden scale body to look like Burnished Tunic
+    windows update pc
 
 pull:
     https://github.com/vmangos/core/pull/2900
