@@ -24,6 +24,7 @@ NOW:
     Judgement of Justice -10% attack speed for 30s
     Consecration higher coefficient scaling
     one-hand weapon spec ALL damage (paladin)
+    Anticipation 2 points 5/10 defense
     Hammer of the Righteous:
         For holy damage:
             You can, check out this mob lash of pain spell https://www.wowhead.com/classic/spell=21987/lash-of-pain#see-also-other

@@ -1,14 +1,4 @@
 -- Talents
-UPDATE mangos . spell_template SET procCharges = 100 WHERE entry = 20925;
-UPDATE mangos . spell_template SET procCharges = 100 WHERE entry = 20927;
-UPDATE mangos . spell_template SET procCharges = 100 WHERE entry = 20928;
-
-UPDATE mangos . spell_template SET procChance = 10 WHERE entry = 20127;
-UPDATE mangos . spell_template SET procChance = 10 WHERE entry = 20130;
-UPDATE mangos . spell_template SET procChance = 10 WHERE entry = 20135;
-UPDATE mangos . spell_template SET procChance = 10 WHERE entry = 20136;
-UPDATE mangos . spell_template SET procChance = 10 WHERE entry = 20137;
-UPDATE mangos . spell_proc_event SET procEx = 3 WHERE entry = 20127;
 
 -- Precision (Paladin)
     UPDATE mangos . spell_template SET effect2 = 6 WHERE entry = 20189;
@@ -34,12 +24,79 @@ UPDATE mangos . spell_proc_event SET procEx = 3 WHERE entry = 20127;
     UPDATE mangos . spell_template SET effectApplyAuraName2 = 55 WHERE entry = 20193;
     UPDATE mangos . spell_template SET description = 'Increases your chance to hit with melee weapons and spells by $s1%.' WHERE  entry = 20193;
 
+-- Improved Devotion Aura TODO: Doesn't work.
+    -- UPDATE `mangos`.`spell_template` SET `effect2`=6, `effectDieSides2`=1, `effectBaseDice2`=1, `effectBasePoints2`=1, `effectImplicitTargetA2`=1, `effectApplyAuraName2`=118, `effectItemType2`=64, `description`='Increases the armor bonus of your Devotion Aura by $s1% and increases the amount healed on any target affected by $s2%.' WHERE  `entry`=20138;
+    UPDATE `mangos`.`spell_template` SET `effect2`=0, `effectDieSides2`=0, `effectBaseDice2`=0, `effectBasePoints2`=0, `effectImplicitTargetA2`=0, `effectApplyAuraName2`=0, `effectItemType2`=0, `description`='Increases the armor bonus of your Devotion Aura by $s1%.' WHERE  `entry`=20138;
+
+-- Redoubt
+    UPDATE mangos . spell_template SET procChance = 10 WHERE entry = 20127;
+    UPDATE mangos . spell_template SET procChance = 10 WHERE entry = 20130;
+    UPDATE mangos . spell_template SET procChance = 10 WHERE entry = 20135;
+    UPDATE mangos . spell_template SET procChance = 10 WHERE entry = 20136;
+    UPDATE mangos . spell_template SET procChance = 10 WHERE entry = 20137;
+
+    UPDATE mangos . spell_proc_event SET procEx = 67 WHERE entry = 20127; -- Proc on hit/crit taken and block (was on crit taken)
+    UPDATE mangos . spell_proc_event SET procEx = 67 WHERE entry = 20130; -- Proc on hit/crit taken and block (was on crit taken)
+    UPDATE mangos . spell_proc_event SET procEx = 67 WHERE entry = 20135; -- Proc on hit/crit taken and block (was on crit taken)
+    UPDATE mangos . spell_proc_event SET procEx = 67 WHERE entry = 20136; -- Proc on hit/crit taken and block (was on crit taken)
+    UPDATE mangos . spell_proc_event SET procEx = 67 WHERE entry = 20137; -- Proc on hit/crit taken and block (was on crit taken)
+
+    UPDATE `mangos`.`spell_template` SET `description`='Increases your chance to block attacks with your shield by $20128s1% after being hit or blocking($h% chance).  Lasts $20128d or $20128n blocks.' WHERE  `entry`=20127;
+    UPDATE `mangos`.`spell_template` SET `description`='Increases your chance to block attacks with your shield by $20131s1% after being hit or blocking($h% chance).  Lasts $20131d or $20131n blocks.' WHERE  `entry`=20130;
+    UPDATE `mangos`.`spell_template` SET `description`='Increases your chance to block attacks with your shield by $20132s1% after being hit or blocking($h% chance).  Lasts $20132d or $20132n blocks.' WHERE  `entry`=20135;
+    UPDATE `mangos`.`spell_template` SET `description`='Increases your chance to block attacks with your shield by $20133s1% after being hit or blocking($h% chance).  Lasts $20133d or $20133n blocks.' WHERE  `entry`=20136;
+    UPDATE `mangos`.`spell_template` SET `description`='Increases your chance to block attacks with your shield by $20134s1% after being hit or blocking($h% chance).  Lasts $20134d or $20134n blocks.' WHERE  `entry`=20137;
+
+-- Anticipation (Paladin)
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=4 WHERE  `entry`=20096;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=9 WHERE  `entry`=20097;
+
+-- Holy Shield
+    UPDATE mangos . spell_template SET procCharges = 100 WHERE entry = 20925;
+    UPDATE mangos . spell_template SET procCharges = 100 WHERE entry = 20927;
+    UPDATE mangos . spell_template SET procCharges = 100 WHERE entry = 20928;
+
+-- Reckoning
+    UPDATE mangos . spell_template SET procChance = 2 WHERE entry = 20177;
+    UPDATE mangos . spell_template SET procChance = 4 WHERE entry = 20179;
+    UPDATE mangos . spell_template SET procChance = 6 WHERE entry = 20181;
+    UPDATE mangos . spell_template SET procChance = 8 WHERE entry = 20180;
+    UPDATE mangos . spell_template SET procChance = 10 WHERE entry = 20182;
+
+    UPDATE mangos . spell_proc_event SET procEx = 67 WHERE entry = 20177; -- Proc on hit/crit taken and block (was on crit taken)
+    UPDATE mangos . spell_proc_event SET procEx = 67 WHERE entry = 20179; -- Proc on hit/crit taken and block (was on crit taken)
+    UPDATE mangos . spell_proc_event SET procEx = 67 WHERE entry = 20181; -- Proc on hit/crit taken and block (was on crit taken)
+    UPDATE mangos . spell_proc_event SET procEx = 67 WHERE entry = 20180; -- Proc on hit/crit taken and block (was on crit taken)
+    UPDATE mangos . spell_proc_event SET procEx = 67 WHERE entry = 20182; -- Proc on hit/crit taken and block (was on crit taken)
+
+    UPDATE `mangos`.`spell_template` SET `description`='Gives you a $h% chance to gain an extra attack after being hit or blocking.' WHERE  `entry`=20177;
+    UPDATE `mangos`.`spell_template` SET `description`='Gives you a $h% chance to gain an extra attack after being hit or blocking.' WHERE  `entry`=20179;
+    UPDATE `mangos`.`spell_template` SET `description`='Gives you a $h% chance to gain an extra attack after being hit or blocking.' WHERE  `entry`=20181;
+    UPDATE `mangos`.`spell_template` SET `description`='Gives you a $h% chance to gain an extra attack after being hit or blocking.' WHERE  `entry`=20180;
+    UPDATE `mangos`.`spell_template` SET `description`='Gives you a $h% chance to gain an extra attack after being hit or blocking.' WHERE  `entry`=20182;
+
+-- One handed weapon spec (Paladin)
+    UPDATE `mangos`.`spell_template` SET `effectMiscValue1`=3 WHERE  `entry`=20196;
+    UPDATE `mangos`.`spell_template` SET `effectMiscValue1`=3 WHERE  `entry`=20197;
+    UPDATE `mangos`.`spell_template` SET `effectMiscValue1`=3 WHERE  `entry`=20198;
+    UPDATE `mangos`.`spell_template` SET `effectMiscValue1`=3 WHERE  `entry`=20199;
+    UPDATE `mangos`.`spell_template` SET `effectMiscValue1`=3 WHERE  `entry`=20200;
+
+    UPDATE `mangos`.`spell_template` SET `description`='Increases phsysical and holy damage you deal with one-handed melee weapons by $s1%.' WHERE  `entry`=20196;
+    UPDATE `mangos`.`spell_template` SET `description`='Increases phsysical and holy damage you deal with one-handed melee weapons by $s1%.' WHERE  `entry`=20197;
+    UPDATE `mangos`.`spell_template` SET `description`='Increases phsysical and holy damage you deal with one-handed melee weapons by $s1%.' WHERE  `entry`=20198;
+    UPDATE `mangos`.`spell_template` SET `description`='Increases phsysical and holy damage you deal with one-handed melee weapons by $s1%.' WHERE  `entry`=20199;
+    UPDATE `mangos`.`spell_template` SET `description`='Increases phsysical and holy damage you deal with one-handed melee weapons by $s1%.' WHERE  `entry`=20200;
+
+
+
+
 -- Improved Moonfire
-DELETE FROM `mangos`.`spell_template` WHERE  `entry`=16821 AND `build`=5875;
-DELETE FROM `mangos`.`spell_template` WHERE  `entry`=16821 AND `build`=4222;
-INSERT INTO `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectDieSides2`, `effectBaseDice1`, `effectBaseDice2`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectApplyAuraName1`, `effectItemType1`, `effectItemType2`, `effectMiscValue1`, `effectMiscValue2`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `dmgMultiplier1`, `dmgMultiplier2`) VALUES (16821, 4222, 464, 1, 101, 21, 1, -1, 6, 1, 1, 1, 1, 3, 1, 1, -1, 1, 1, 57, 2, 2, 7, 8, 225, 'Improved Moonfire', 983070, 'Rank 2', 983070, 'Increases the damage and critical strike chance of your Moonfire spell by $s1%.', 983054, 983052, 7, 1, 1);
-UPDATE `mangos`.`spell_template` SET `nameSubtext`='Rank 1' WHERE  `entry`=16821 AND `build`=4222;
-UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=1 WHERE  `entry`=16821 AND `build`=4222;
+    DELETE FROM `mangos`.`spell_template` WHERE  `entry`=16821 AND `build`=5875;
+    DELETE FROM `mangos`.`spell_template` WHERE  `entry`=16821 AND `build`=4222;
+    INSERT INTO `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectDieSides2`, `effectBaseDice1`, `effectBaseDice2`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectApplyAuraName1`, `effectItemType1`, `effectItemType2`, `effectMiscValue1`, `effectMiscValue2`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `dmgMultiplier1`, `dmgMultiplier2`) VALUES (16821, 4222, 464, 1, 101, 21, 1, -1, 6, 1, 1, 1, 1, 3, 1, 1, -1, 1, 1, 57, 2, 2, 7, 8, 225, 'Improved Moonfire', 983070, 'Rank 2', 983070, 'Increases the damage and critical strike chance of your Moonfire spell by $s1%.', 983054, 983052, 7, 1, 1);
+    UPDATE `mangos`.`spell_template` SET `nameSubtext`='Rank 1' WHERE  `entry`=16821 AND `build`=4222;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=1 WHERE  `entry`=16821 AND `build`=4222;
 
 
 UPDATE mangos . spell_template 
