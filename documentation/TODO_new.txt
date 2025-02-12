@@ -11,17 +11,24 @@ spell ai:
     tarantula (poison) might be random proc on auto? its fine then
     dark strand fanatic (curse of mending)
     raging reef crawler (Thrash)
+    Wildthorn Stalker (web)
 
 
 unyielding faith spellID for hand of reckoning and remove the new icon i added
 150+ food to give spell dmg str etc
 
 NOW:
+    Ashenvale quests (copy TBC quests and also horde quests if needed)
     add more librams at lower level (quests/boss drops)
     UNLEARN ALL RANKS ON GM WHEN TESTING!!!!!!
     Judgement of Justice -10% attack speed for 30s
     Consecration higher coefficient scaling
-    Hammer of the Righteous spell visual (copy HoJ?)
+    one-hand weapon spec ALL damage (paladin)
+    Hammer of the Righteous:
+        For holy damage:
+            You can, check out this mob lash of pain spell https://www.wowhead.com/classic/spell=21987/lash-of-pain#see-also-other
+            this does non normalized weapon swing damage as a magical school
+
     increase level of heavy copper broadsword to 17
     spell damage to quest reward staves/offhands and very few sword/daggers
 
@@ -37,10 +44,9 @@ buff Coral Claymore and make it blue (unique drop off Slark, a rare?)
 
 tomorrow:
     125+ herb
-    craft level21 gsword + FULL silvered bronze set. Check what leevl the pearl 2h hammer is, it might be better!
-    spider/wolf quest in duskwood around 20
-    take picture of antiques
     weak aura for blessings/seal/righteous fury on self (For seals, just show judgement in middle of screen if it CANT be used, means no seal active)
+    You can, check out this mob lash of pain spell https://www.wowhead.com/classic/spell=21987/lash-of-pain#see-also-other
+    this does non normalized weapon swing damage as a magical school
 
     DO TAXES
     clean ac filters
@@ -52,14 +58,16 @@ tomorrow:
 
 
 Copy into discord before sleep:
-    125+ herb
     lvl bsm + level 26 2h hammer
     clean ac filters
-    send corey to ask WTF the city of miramar wants
-    LEARN SPELLS
+    call nina building officials assistant try to get permit renewed
+    call more junk companies for estimates
+    call movers
+    change silvered bronze breastplate and golden scale body to look like Burnished Tunic
 
 pull:
-https://github.com/vmangos/core/pull/2900
+    https://github.com/vmangos/core/pull/2900
+    + merge main repo in
 
 bugs:
     Deep Ocean, Vast Sea looting lockboxes works properly duo, other stuff doesn't
