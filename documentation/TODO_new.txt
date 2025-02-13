@@ -64,7 +64,11 @@ Copy into discord before sleep:
     call nina building officials assistant try to get permit renewed
     call more junk companies for estimates
     call movers
+    level 40+ BOE cloth greens add spell damage / healing
     change silvered bronze breastplate and golden scale body to look like Burnished Tunic
+    pull commits, build, and run queries
+    windows update pc
+   Remove cigar boxes/tent from room
 
 pull:
     https://github.com/vmangos/core/pull/2900
