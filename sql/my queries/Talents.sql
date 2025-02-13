@@ -25,8 +25,41 @@
     UPDATE mangos . spell_template SET description = 'Increases your chance to hit with melee weapons and spells by $s1%.' WHERE  entry = 20193;
 
 -- Improved Devotion Aura TODO: Doesn't work.
-    -- UPDATE `mangos`.`spell_template` SET `effect2`=6, `effectDieSides2`=1, `effectBaseDice2`=1, `effectBasePoints2`=1, `effectImplicitTargetA2`=1, `effectApplyAuraName2`=118, `effectItemType2`=64, `description`='Increases the armor bonus of your Devotion Aura by $s1% and increases the amount healed on any target affected by $s2%.' WHERE  `entry`=20138;
-    UPDATE `mangos`.`spell_template` SET `effect2`=0, `effectDieSides2`=0, `effectBaseDice2`=0, `effectBasePoints2`=0, `effectImplicitTargetA2`=0, `effectApplyAuraName2`=0, `effectItemType2`=0, `description`='Increases the armor bonus of your Devotion Aura by $s1%.' WHERE  `entry`=20138;
+    UPDATE `mangos`.`spell_template` SET `effect2`=35, `effectDieSides2`=1, `effectBaseDice2`=1, `effectBasePoints2`=-1, `effectImplicitTargetA2`=1, `effectApplyAuraName2`=118, `effectItemType2`=64 
+    WHERE  `entry`=465;
+
+    UPDATE `mangos`.`spell_template` SET `effect2`=35, `effectDieSides2`=1, `effectBaseDice2`=1, `effectBasePoints2`=-1, `effectImplicitTargetA2`=1, `effectApplyAuraName2`=118, `effectItemType2`=64 
+    WHERE  `entry`=10290;
+
+    UPDATE `mangos`.`spell_template` SET `effect2`=35, `effectDieSides2`=1, `effectBaseDice2`=1, `effectBasePoints2`=-1, `effectImplicitTargetA2`=1, `effectApplyAuraName2`=118, `effectItemType2`=64 
+    WHERE  `entry`=643;
+
+    UPDATE `mangos`.`spell_template` SET `effect2`=35, `effectDieSides2`=1, `effectBaseDice2`=1, `effectBasePoints2`=-1, `effectImplicitTargetA2`=1, `effectApplyAuraName2`=118, `effectItemType2`=64 
+    WHERE  `entry`=10291;
+
+    UPDATE `mangos`.`spell_template` SET `effect2`=35, `effectDieSides2`=1, `effectBaseDice2`=1, `effectBasePoints2`=-1, `effectImplicitTargetA2`=1, `effectApplyAuraName2`=118, `effectItemType2`=64 
+    WHERE  `entry`=1032;
+
+    UPDATE `mangos`.`spell_template` SET `effect2`=35, `effectDieSides2`=1, `effectBaseDice2`=1, `effectBasePoints2`=-1, `effectImplicitTargetA2`=1, `effectApplyAuraName2`=118, `effectItemType2`=64 
+    WHERE  `entry`=10292;
+
+    UPDATE `mangos`.`spell_template` SET `effect2`=35, `effectDieSides2`=1, `effectBaseDice2`=1, `effectBasePoints2`=-1, `effectImplicitTargetA2`=1, `effectApplyAuraName2`=118, `effectItemType2`=64 
+    WHERE  `entry`=10293;
+
+    UPDATE `mangos`.`spell_template` SET `effect2`=6, `effectDieSides2`=1, `effectBaseDice2`=1, `effectBasePoints2`=1, `effectImplicitTargetA2`=1, `effectApplyAuraName2`=107, `effectItemType2`=64, `effectMiscValue2`=8, 
+    `description`='Increases the armor bonus of your Devotion Aura by $s1% and increases the amount healed on any target affected by $s2%.' WHERE  `entry`=20138;
+
+    UPDATE `mangos`.`spell_template` SET `effect2`=6, `effectDieSides2`=1, `effectBaseDice2`=1, `effectBasePoints2`=3, `effectImplicitTargetA2`=1, `effectApplyAuraName2`=107, `effectItemType2`=64, `effectMiscValue2`=8, 
+    `description`='Increases the armor bonus of your Devotion Aura by $s1% and increases the amount healed on any target affected by $s2%.' WHERE  `entry`=20139;
+
+    UPDATE `mangos`.`spell_template` SET `effect2`=6, `effectDieSides2`=1, `effectBaseDice2`=1, `effectBasePoints2`=5, `effectImplicitTargetA2`=1, `effectApplyAuraName2`=107, `effectItemType2`=64, `effectMiscValue2`=8, 
+    `description`='Increases the armor bonus of your Devotion Aura by $s1% and increases the amount healed on any target affected by $s2%.' WHERE  `entry`=20140;
+
+    UPDATE `mangos`.`spell_template` SET `effect2`=6, `effectDieSides2`=1, `effectBaseDice2`=1, `effectBasePoints2`=7, `effectImplicitTargetA2`=1, `effectApplyAuraName2`=107, `effectItemType2`=64, `effectMiscValue2`=8, 
+    `description`='Increases the armor bonus of your Devotion Aura by $s1% and increases the amount healed on any target affected by $s2%.' WHERE  `entry`=20141;
+
+    UPDATE `mangos`.`spell_template` SET `effect2`=6, `effectDieSides2`=1, `effectBaseDice2`=1, `effectBasePoints2`=9, `effectImplicitTargetA2`=1, `effectApplyAuraName2`=107, `effectItemType2`=64, `effectMiscValue2`=8, 
+    `description`='Increases the armor bonus of your Devotion Aura by $s1% and increases the amount healed on any target affected by $s2%.' WHERE  `entry`=20142;
 
 -- Redoubt
     UPDATE mangos . spell_template SET procChance = 10 WHERE entry = 20127;
@@ -82,11 +115,11 @@
     UPDATE `mangos`.`spell_template` SET `effectMiscValue1`=3 WHERE  `entry`=20199;
     UPDATE `mangos`.`spell_template` SET `effectMiscValue1`=3 WHERE  `entry`=20200;
 
-    UPDATE `mangos`.`spell_template` SET `description`='Increases phsysical and holy damage you deal with one-handed melee weapons by $s1%.' WHERE  `entry`=20196;
-    UPDATE `mangos`.`spell_template` SET `description`='Increases phsysical and holy damage you deal with one-handed melee weapons by $s1%.' WHERE  `entry`=20197;
-    UPDATE `mangos`.`spell_template` SET `description`='Increases phsysical and holy damage you deal with one-handed melee weapons by $s1%.' WHERE  `entry`=20198;
-    UPDATE `mangos`.`spell_template` SET `description`='Increases phsysical and holy damage you deal with one-handed melee weapons by $s1%.' WHERE  `entry`=20199;
-    UPDATE `mangos`.`spell_template` SET `description`='Increases phsysical and holy damage you deal with one-handed melee weapons by $s1%.' WHERE  `entry`=20200;
+    UPDATE `mangos`.`spell_template` SET `description`='Increases physical and holy damage you deal with one-handed melee weapons by $s1%.' WHERE  `entry`=20196;
+    UPDATE `mangos`.`spell_template` SET `description`='Increases physical and holy damage you deal with one-handed melee weapons by $s1%.' WHERE  `entry`=20197;
+    UPDATE `mangos`.`spell_template` SET `description`='Increases physical and holy damage you deal with one-handed melee weapons by $s1%.' WHERE  `entry`=20198;
+    UPDATE `mangos`.`spell_template` SET `description`='Increases physical and holy damage you deal with one-handed melee weapons by $s1%.' WHERE  `entry`=20199;
+    UPDATE `mangos`.`spell_template` SET `description`='Increases physical and holy damage you deal with one-handed melee weapons by $s1%.' WHERE  `entry`=20200;
 
 
 
