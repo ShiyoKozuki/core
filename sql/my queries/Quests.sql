@@ -104,6 +104,8 @@ UPDATE `mangos`.`quest_template` SET `RewChoiceItemId4`=30074, `RewChoiceItemCou
 -- ST quests offer all rewards
 UPDATE `mangos`.`quest_template` SET `RewChoiceItemId1`=0, `RewChoiceItemId2`=0, `RewChoiceItemId3`=0, `RewChoiceItemCount1`=0, `RewChoiceItemCount2`=0, `RewChoiceItemCount3`=0, `RewItemId1`=20521, `RewItemId2`=20130, `RewItemId3`=20517, `RewItemCount1`=1, `RewItemCount2`=1, `RewItemCount3`=1 WHERE  `entry`=8425 AND `patch`=6;
 
+-- Retrieval for Mauren add Minor Libram of Consecration as a reward
+UPDATE `mangos`.`quest_template` SET `RewChoiceItemId1`=6677, `RewChoiceItemId2`=30129, `RewChoiceItemCount1`=1, `RewChoiceItemCount2`=1, `RewItemId1`=0, `RewItemCount1`=0 WHERE  `entry`=1078 AND `patch`=0;
 
 -- STV (North)
 REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `NextQuestInChain`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOId2`, `ReqCreatureOrGOCount1`, `ReqCreatureOrGOCount2`, `RewItemId1`, `RewItemCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewMoneyMaxLevel`) VALUES (30029, 33, 30, 37, 8, 0, 'Special Forces II', 'I want you to clear out any ogres you find in the Mizjah Ruins to the south.', 'Kill 10 Mosh\'Ogg Brute and 10 Mosh\'Ogg Witch Doctor then return to Lieutenant Doren at the rebel camp.', 'Brilliant!', 'Kill 10 Mosh\'Ogg Brute and 10 Mosh\'Ogg Witch Doctor then return to Lieutenant Doren at the rebel camp.', '', '', '', '', '', 1142, 1144, 10, 10, 4115, 1, 72, 100, 2850, 1740);
@@ -189,6 +191,10 @@ UPDATE `mangos`.`quest_template` SET `RewChoiceItemId1`=4744, `RewChoiceItemId2`
 -- Hints of a New Plague add Barbarians Sword as a reward
 UPDATE `mangos`.`quest_template` SET `RewChoiceItemId3`=30124, `RewChoiceItemCount3`=1 WHERE  `entry`=661 AND `patch`=0;
 
+-- Wanted! Otto and Falconcrestadd Lesser Libram of Consecration as a reward
+UPDATE `mangos`.`quest_template` SET `RewChoiceItemId3`=30130, `RewChoiceItemCount3`=1 WHERE  `entry`=685 AND `patch`=0;
+
+
 REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewMoneyMaxLevel`) VALUES (30039, 45, 30, 31, 8, 'Foul Magic', 'I have felt a strangeness in the air... a feeling that simmers in my blood. I had my suspicions. I set off to find the source of my unease and discovered to the west, at Northfold Manor, the residual traces of demonic summoning. As I got close, my blood began to boil and the rage within me grew.', 'Get 10 Bloodstone Amulets for Captain Nials at Refuge Pointe.', 'Very good, $N.  With the deaths of those Syndicate members we should have an easier time receiving supplies from Southshore.$B$BPerhaps our cause yet has hope.', 'Get 10 Bloodstone Amulets for Captain Nials at Refuge Pointe.', '', '', '', '', '', 4495, 10, 72, 100, 2650, 1500);
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (2700, 30039);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (2700, 30039);
@@ -243,6 +249,7 @@ INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuest
 INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (4414, 30045, -10);
 
 REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewChoiceItemId1`, `RewChoiceItemId2`, `RewChoiceItemCount1`, `RewChoiceItemCount2`, `RewXP`, `RewMoneyMaxLevel`) VALUES (30015, 15, 35, 45, 8, 'Deadmire', 'Me need giant Crocodile tooth. You bring.', 'Bring Deadmire\'s Tooth to Mudcrush Durtfeet in Dustwallow Marsh.', 'Me like. Me no eat you.', 'Me need Crocodile tooth.', '', '', '', '', '', 5945, 1, 10703, 10704, 1, 1, 3900, 1680);
+UPDATE `mangos`.`quest_template` SET `RewChoiceItemId3`=30131, `RewChoiceItemCount3`=1 WHERE  `entry`=30015 AND `patch`=0;
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (4503, 30015);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (4503, 30015);
 REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemId2`, `ReqItemCount1`, `ReqItemCount2`, `RewChoiceItemId1`, `RewChoiceItemId2`, `RewChoiceItemCount1`, `RewChoiceItemCount2`, `RewItemCount1`, `RewItemCount2`, `RewXP`, `RewMoneyMaxLevel`) VALUES (30016, 15, 38, 43, 8, 'Identifying the Brood', 'Me hate dragon. Me collect dragon parts. You bring.', 'Mudcrush Durtfeet would like you to bring him 15 Searing Tongues and 15 Searing Hearts.', 'Me best friend is you! Me never eat you.', 'Me hate dragon, want parts. ', '', '', '', '', '', 5840, 5841, 15, 15, 9703, 9704, 1, 1, 1, 1, 5350, 1680);
@@ -480,6 +487,7 @@ REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (7744, 30024
 DELETE FROM `mangos`.`creature_questrelation` WHERE  `id`=7744 AND `quest`=30025;
 DELETE FROM `mangos`.`creature_involvedrelation` WHERE  `id`=7744 AND `quest`=30025;
 REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOId2`, `ReqCreatureOrGOId3`, `ReqCreatureOrGOCount1`, `ReqCreatureOrGOCount2`, `ReqCreatureOrGOCount3`, `RewItemId1`, `RewItemId2`, `RewItemCount1`, `RewItemCount2`, `RewXP`, `RewMoneyMaxLevel`) VALUES (30026, 47, 37, 47, 8, 'Owls of the Hinterlands', 'Please cull the Hinterlands of the ravage Owlbeasts. They are starting to cause trouble for us.', 'Kill 20 Vicious Owlbeasts, 20 Primitive Owlbeasts and 20 Savage Owlbeast then return to Thulfram in the Hinterlands.', 'The Owlbeasts numbers have been thinned.', 'Kill 20 Vicious Owlbeasts, 20 Primitive Owlbeasts and 20 Savage Owlbeast then return to Thulfram in the Hinterlands.', '', '', '', '', '', 2927, 2928, 2929, 10, 10, 10, 19118, 12469, 1, 1, 4400, 1680);
+UPDATE `mangos`.`quest_template` SET `RewChoiceItemId1`=19118, `RewChoiceItemId2`=12469, `RewChoiceItemCount1`=1, `RewChoiceItemCount2`=1, `RewItemId1`=0, `RewItemId2`=0, `RewItemCount1`=0, `RewItemCount2`=0 WHERE  `entry`=30026 AND `patch`=0;
 UPDATE `mangos`.`quest_template` SET `RewRepFaction1`=471, `RewRepValue1`=100 WHERE  `entry`=30026 AND `patch`=0;
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (7744, 30026);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (7744, 30026);
@@ -763,7 +771,7 @@ REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (1855, 30211
 -- Are We There, Yeti? Final rewards (Thralls Resolve and Eye of Orgrimmar)
 UPDATE `mangos`.`quest_template` SET `RewChoiceItemId1`=12544, `RewChoiceItemId2`=12545, `RewChoiceItemCount1`=1, `RewChoiceItemCount2`=1 WHERE  `entry`=5163 AND `patch`=0;
 
--- Wildkin of Elune add Algol quest reward
+-- Wildkin of Elune add Nodachi quest reward
 UPDATE `mangos`.`quest_template` SET `RewChoiceItemId3`=30128, `RewChoiceItemCount3`=1 WHERE  `entry`=4902 AND `patch`=0;
 
 REPLACE `mangos`.`quest_template` (`entry`, `patch`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `Type`, `QuestFlags`, `NextQuestInChain`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewMoneyMaxLevel`, `DetailsEmote1`, `DetailsEmote2`, `IncompleteEmote`, `CompleteEmote`, `OfferRewardEmote1`) VALUES (30237, 5, 618, 53, 56, 1, 8, 30238, 'Ursius of the Shardtooth', 'In the snowy mountains of Winterspring, to the northwest, a skilled hunter stalks his prey... I speak of Ursius of the shardtooth bears, an agile and clever beast.$B$BI send you now against him. He roams the sloping hills to the northwest of Everlook. Find and hunt him, before he discovers your intent.$B$BAll that have gone up against Ursius have quickly found themselves to be the prey, and he, the hunter. Stay on your guard.', 'Witch Doctor Mau\'ari at Everlook in Winterspring wants you to kill Ursius.', 'This was no easy task, yet you have excelled. But do not be too quick to think you have impressed me, $N.', 'Go now, $c. Seek out Ursius.', 10806, 1, 81, 100, 5800, 34800, 1, 2, 1, 1, 1);
