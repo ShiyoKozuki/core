@@ -9,7 +9,7 @@ INSERT INTO `migrations` VALUES ('20250202161500');
 -- Add your query below.
 
 
-SET @PTEMPLATE = 8137;
+SET @PTEMPLATE = 8138;
 -- Kingsblood / Grave Moss - Scarlet Monastery Graveyard
 UPDATE `pool_template` SET `description` = 'Kingsblood / Grave Moss - Scarlet Monastery Graveyard' WHERE `entry` IN (2250, 2251, 2253, 2256, 2257, 2258, 2259, 2260, 2252, 2261, 2254, 2255);
 
@@ -260,7 +260,7 @@ DELETE FROM `pool_template` WHERE  `entry` = 1220;
 UPDATE `pool_template` SET `max_limit` = 9 WHERE `entry` = 1219;
 
 -- Desolace
-UPDATE `mangos`.`pool_template` SET `description`='Copper Veins - Desolace (Master Pool)' WHERE  `entry`=1139 AND `patch_min`=0 AND `patch_max`=10;
+UPDATE `pool_template` SET `description` = 'Copper Veins - Desolace (Master Pool)' WHERE  `entry` = 1139;
 -- Maraudon Entrance
 UPDATE `gameobject` SET `spawntimesecsmin` = 600, `spawntimesecsmax` = 2700 WHERE `guid` IN (SELECT `guid` FROM `pool_gameobject` WHERE `pool_entry` IN (5408, 5417, 5112, 5108, 5113, 5104, 5125, 5404, 5123, 5122, 5419, 5135, 5136, 5137, 5406, 5124));
 DELETE FROM `pool_pool` WHERE `pool_id` IN (5408, 5417, 5112, 5108, 5113, 5104, 5125, 5404, 5123, 5122, 5419, 5135, 5136, 5137, 5406, 5124);
