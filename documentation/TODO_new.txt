@@ -12,6 +12,11 @@ spell ai:
     dark strand fanatic (curse of mending)
     raging reef crawler (Thrash)
     Wildthorn Stalker (web)
+    rabid shadowhide gnoll (poison and rabies)
+    black widow hatchling (infected bite)
+
+Mage:
+    31 point arcane enchanted quickness or whatever Defias Enchanters cast
 
 
 unyielding faith spellID for hand of reckoning and remove the new icon i added
@@ -44,31 +49,30 @@ buff Coral Claymore and make it blue (unique drop off Slark, a rare?)
 
 
 tomorrow:
-    125+ herb
     weak aura for blessings/seal/righteous fury on self (For seals, just show judgement in middle of screen if it CANT be used, means no seal active)
-    You can, check out this mob lash of pain spell https://www.wowhead.com/classic/spell=21987/lash-of-pain#see-also-other
-    this does non normalized weapon swing damage as a magical school
 
     DO TAXES
     clean ac filters
     VANILLA TWEAKS + FIXES
     get estimate from junk company
     whats under my bed?
-    CALL JUNK COMPANY
-    UNLEARN ALL RANKS ON GM WHEN TESTING!!!!!!
+    reduce MP cost of holy strike rank2+
 
 
 Copy into discord before sleep:
-    lvl bsm + level 26 2h hammer
     clean ac filters
     call nina building officials assistant try to get permit renewed
     call more junk companies for estimates
     call movers
     level 40+ BOE cloth greens add spell damage / healing
-    change silvered bronze breastplate and golden scale body to look like Burnished Tunic
     pull commits, build, and run queries
-    windows update pc
+    retrieval for mauren stonetalon quests when I do ashenvale
    Remove cigar boxes/tent from room
+   sell remaining gun
+   see if salvation army will come pick up my furniture i dont want  https://satruck.org/schedule-pickup
+   retape box
+   DO TAXES
+   buff spellcrafter wand dps slightly and add 5 spell damage
 
 pull:
     https://github.com/vmangos/core/pull/2900
