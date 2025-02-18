@@ -14,9 +14,39 @@ spell ai:
     Wildthorn Stalker (web)
     rabid shadowhide gnoll (poison and rabies)
     black widow hatchling (infected bite)
-
+    skeletal raider (Slow poison)
+    Shadowthicket Wood Shaper (entangle)
+    deepmoss webspinner (Web)
+    blackened basilisk (crystalline slumber)
+    singed basilisk (crystalline slumber)
+    scorched basilisk (crystalline slumber)
+    bloodfury windcaller (enveloping winds)
+    bloodfury ambusher (earth shock?)
+    Crazed Ancient (Curse of thorns)
+    Withered Ancient (Curse of thorns)
+    Rotting Slime (diseased slime)
+    Forsaken Intruder should not stealth mid fighting (phasing stealth)
+    Forsaken Infiltrator should not stealth mid fighting (phasing stealth)
+    Vengeful Ancient attack speed(and maybe dmg?)
+    dragonmaw raider (net)
+    dragonmaw centurion (shield bash)
+    nightbane dark runner (Exploit weakness)
+    plague spreader(wandering plague)
+    brain eater (plague mind)
+    bone chewer (pierce armor)
+    splinter fist enslaver (net)
+    mudsnout gnoll (sling mud)
+    daggerspine shorestalker (pummel)
+    daggerspine screamer (scream)
+    scorpid terror (terrify)
+    sparkleshell snapper (head butt)
+    
 Mage:
     31 point arcane enchanted quickness or whatever Defias Enchanters cast
+    31 point arcane talents give mage healing spells
+
+Warlock:
+    +20% swim speed on underwater breathing
 
 
 unyielding faith spellID for hand of reckoning and remove the new icon i added
@@ -24,19 +54,23 @@ unyielding faith spellID for hand of reckoning and remove the new icon i added
 
 NOW:
     Ashenvale quests (copy TBC quests and also horde quests if needed)
+    Ashenvale quest for Ghostpaw Alpha and Elder Shadowhorn Stag
+    Ashenvale quests for the legion(east of forest song) start from Forest Song
+    Ashenvale Warsong Outrider drop a quest for turn in for 2200 exp
+    Stonetalon More charred vale quests off the chims earth eles, fire eles, treants(charred/blackened ancient), etc. Maybe copy horde quests too? Start at the town with a FP
+
     add more librams at lower level (quests/boss drops)
     UNLEARN ALL RANKS ON GM WHEN TESTING!!!!!!
     Judgement of Justice -10% attack speed for 30s
     Consecration higher coefficient scaling
-    one-hand weapon spec ALL damage (paladin)
-    Anticipation 2 points 5/10 defense
-    Hammer of the Righteous:
-        For holy damage:
-            You can, check out this mob lash of pain spell https://www.wowhead.com/classic/spell=21987/lash-of-pain#see-also-other
-            this does non normalized weapon swing damage as a magical school
+    Benediction -15% MP cost to ALL instant spells? How did WOTLK do it? Or copy priest talent?
 
     increase level of heavy copper broadsword to 17
     spell damage to quest reward staves/offhands and very few sword/daggers
+    New food, edit existing 150+ food
+    Rotting Slime (3928) level 26-28
+    Create a Patch and DBC the holy strike MP change and commit it
+    BACK UP CHARS
 
 
 stonesplinter blade drop rate?
@@ -65,6 +99,7 @@ Copy into discord before sleep:
     call more junk companies for estimates
     call movers
     level 40+ BOE cloth greens add spell damage / healing
+    BOE blue staves (add spell damage or make good for melee dps)
     pull commits, build, and run queries
     retrieval for mauren stonetalon quests when I do ashenvale
    Remove cigar boxes/tent from room
@@ -72,7 +107,20 @@ Copy into discord before sleep:
    see if salvation army will come pick up my furniture i dont want  https://satruck.org/schedule-pickup
    retape box
    DO TAXES
-   buff spellcrafter wand dps slightly and add 5 spell damage
+   buff spellcrafter wand dps to ~25 and add 5 spell damage
+   spell_proc_event and spell_????
+   staff of horrors drop rate
+   125+ mining
+   level alch/bsm + craft golden scale set - > 46 steel bars 14 gold bars 15 heavy grinding stone 2 citrine, 2 jade
+   https://www.craigslist.org/about/moving_tips
+   High level ashenvale quests!
+   Craft azure silk stuff
+   pull from repo + build
+   call pawn shop for eric, say have guns, also ask if they buy tool boxes, tools, knives, ammo
+   LEARN silk bandage
+   LEARN SKILLS
+   BACK UP CHARS
+   BACK UP AI PICS
 
 pull:
     https://github.com/vmangos/core/pull/2900
@@ -80,3 +128,6 @@ pull:
 
 bugs:
     Deep Ocean, Vast Sea looting lockboxes works properly duo, other stuff doesn't
+
+
+yui hatano

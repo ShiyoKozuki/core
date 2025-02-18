@@ -213,7 +213,7 @@ REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display
 REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `delay`, `dmg_min1`, `dmg_max1`, `shadow_res`, `spellid_1`, `spelltrigger_1`, `spellppmrate_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellid_2`, `spelltrigger_2`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `sheath`, `max_durability`, `disenchant_id`) VALUES (30126, 2, 8, 'Demonic Sword', 28598, 3, 114557, 22911, 17, -1, -1, 44, 3400, 102, 162, -20, 18214, 2, 10, -1, -1, 15810, 1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 1, 1, 100, 45);
 REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `delay`, `dmg_min1`, `dmg_max1`, `frost_res`, `shadow_res`, `spellid_1`, `spelltrigger_1`, `spellppmrate_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellid_2`, `spelltrigger_2`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `sheath`, `max_durability`, `disenchant_id`) VALUES (30127, 2, 8, 'Chaosbringer', 20189, 3, 146225, 29245, 17, 1535, -1, 48, 3400, 106, 186, 20, 20, 16411, 2, 10, -1, -1, 15810, 1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 1, 1, 100, 46);
 REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `stat_type1`, `stat_value1`, `stat_value3`, `delay`, `dmg_min1`, `dmg_max1`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `sheath`, `max_durability`, `disenchant_id`) VALUES (30128, 2, 8, 'Nodachi', 20149, 3, 68773, 13754, 17, -1, -1, 37, 7, 10, 5, 3400, 126, 226, 15813, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 1, 1, 100, 44);
-REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `max_count`, `delay`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `disenchant_id`) VALUES (30129, 8, 4, 7, 'Minor Libram of the Consecrated', 34960, 3, 85394, 17078, 28, 32767, -1, 25, 25, 1, 0, 33454, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 2, 49);
+REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `max_count`, `delay`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `disenchant_id`) VALUES (30129, 8, 4, 7, 'Minor Libram of the Consecrated', 34960, 2, 85394, 17078, 28, 32767, -1, 25, 25, 1, 0, 33454, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 2, 49);
 REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `max_count`, `delay`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `disenchant_id`) VALUES (30130, 8, 4, 7, 'Lesser Libram of the Consecrated', 34960, 3, 85394, 17078, 28, 32767, -1, 35, 35, 1, 0, 33455, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 2, 49);
 REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `max_count`, `delay`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `disenchant_id`) VALUES (30131, 8, 4, 7, 'Greater Libram of the Consecrated', 34960, 3, 85394, 17078, 28, 32767, -1, 45, 45, 1, 0, 33456, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 2, 49);
 REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `max_count`, `delay`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `disenchant_id`) VALUES (30132, 8, 4, 7, 'Major Libram of the Consecrated', 34960, 3, 85394, 17078, 28, 32767, -1, 55, 55, 1, 0, 33457, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 2, 49);
@@ -400,6 +400,48 @@ INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (10
 INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`) VALUES (8157, 28, 13517, 1, 3600, 3);
 
 -- Drops
+
+-- Ogremage Staff
+UPDATE mangos . item_template
+SET spellid_1 = 9415, -- +9 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 2226;
+
+-- Staff of Horrors
+UPDATE mangos . item_template
+SET spellid_2 = 9324, -- +16 Shadow Damage
+    spelltrigger_2 = 1
+WHERE entry = 880;
+
+-- Twisted Chanter's Staff
+UPDATE mangos . item_template
+SET spellid_1 = 9415, -- +9 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 890;
+
+-- Staff of the Friar
+UPDATE mangos . item_template
+SET spellid_1 = 9408, -- +22 Healing
+    spelltrigger_1 = 1
+WHERE entry = 3415;
+
+-- Gnarled Ash Staff
+UPDATE mangos . item_template
+SET spellid_1 = 9417, -- +12 spell damage
+    spelltrigger_1 = 1
+WHERE entry = 791;
+
+-- Soulkeeper
+UPDATE mangos . item_template
+SET spellid_1 = 18049, -- +26 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 1607;
+
+-- Staff of Hale Magefire
+UPDATE mangos . item_template
+SET spellid_1 = 18041, -- +66 Healing
+    spelltrigger_1 = 1
+WHERE entry = 13000;
 
 -- Sul'thraze the Lasher
 UPDATE mangos . item_template
@@ -3718,6 +3760,7 @@ WHERE entry = 3489;
 -- Heavy Copper Broadsword
 UPDATE mangos . item_template
 SET quality = 3,
+    required_level = 17,
     delay = 3400,
     dmg_min1 = 47,
     dmg_max1 = 70
@@ -3875,6 +3918,25 @@ SET quality = 3,
     stat_value1 = 15
 WHERE entry = 7942;
 
+-- Shadow Crescent Axe
+UPDATE mangos . item_template
+SET quality = 3,
+    required_level = 40,
+    delay = 3800,
+    dmg_min1 = 115,
+    dmg_max1 = 175,
+    spellid_2 = 9081,
+    spelltrigger_2 = 2
+WHERE entry = 3856;
+
+-- Frost Tiger Blade
+UPDATE mangos . item_template
+SET quality = 3,
+    dmg_min1 = 110,
+    dmg_max1 = 165,
+    spellppmrate_2 = 3 
+WHERE entry = 3854;
+
 -- Wicked Mithril Blade
 UPDATE mangos . item_template
 SET quality = 3,
@@ -3925,23 +3987,6 @@ SET quality = 3,
     dmg_min1 = 66,
     dmg_max1 = 96
 WHERE entry = 7941;
-
--- Frost Tiger Blade
-UPDATE mangos . item_template
-SET quality = 3,
-    dmg_min1 = 110,
-    dmg_max1 = 165
-WHERE entry = 3854;
-
--- Shadow Crescent Axe
-UPDATE mangos . item_template
-SET quality = 3,
-    delay = 3800,
-    dmg_min1 = 115,
-    dmg_max1 = 175,
-    spellid_2 = 9081,
-    spelltrigger_2 = 2
-WHERE entry = 3856;
 
 -- Big Black Mace
 UPDATE mangos . item_template
@@ -7193,6 +7238,27 @@ WHERE entry = 18538;
 
 -- Quest Rewards
 
+-- Emil's Brand
+UPDATE mangos . item_template
+SET delay = 2200,
+    dmg_min1 = 39,
+    dmg_max1 = 79
+WHERE entry = 5813;
+
+-- Glacial Stone
+UPDATE mangos . item_template
+SET dmg_min1 = 65,
+    dmg_max1 = 115
+WHERE entry = 5815;
+
+-- Spellcrafter Wand
+UPDATE mangos . item_template
+SET dmg_min1 = 32,
+    dmg_max1 = 52,
+    spellid_1 = 9395, -- +5 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 6677;
+
 -- Leggings of the People's Militia
 UPDATE mangos . item_template
 SET stat_type1 = 0,
@@ -7910,10 +7976,11 @@ WHERE entry = 6976;
 UPDATE mangos . item_template
 SET quality = 3,
     delay = 3600,
-    dmg_min1 = 79,
-    dmg_max1 = 129,
-    stat_type1 = 4,
-    stat_value1 = 15
+    dmg_min1 = 83,
+    dmg_max1 = 133,
+    stat_type1 = 0,
+    stat_value1 = 0,
+    spellppmrate_1 = 3 
 WHERE entry = 2000;
 
 -- Linken's Sword of Mastery
@@ -8253,7 +8320,8 @@ WHERE entry = 3560;
 
 -- Crest of Darkshire (Bride of the Embalmer)
 UPDATE mangos . item_template
-SET spellid_1 = 17350, -- Has a 1% chance when struck in combat of increasing chance to block by 50% for 10 sec.
+SET quality = 3,
+    spellid_1 = 17350, -- Has a 1% chance when struck in combat of increasing chance to block by 50% for 10 sec.
     spelltrigger_1 = 1
 WHERE entry = 6223;
 
@@ -9144,7 +9212,7 @@ WHERE entry = 13249;
 
 -- Archlight Talisman (Hidden Treasures)
 UPDATE mangos . item_template
-SET spellid_1 = 9415, -- +9 Spell Damage
+SET spellid_1 = 9415, -- +1 Damage
     spelltrigger_1 = 1
 WHERE entry = 15856;
 
@@ -9479,6 +9547,15 @@ SET dmg_min1 = 95,
 WHERE entry = 22656;
 
 -- Vendors
+
+-- Staff of Protection
+UPDATE mangos . item_template
+SET quality = 3,
+    stat_type1 = 7,
+    stat_value1 = 15,
+    spellid_1 = 13383, -- +5 Defense
+    spelltrigger_1 = 1
+WHERE entry = 12252;
 
 -- Daring Dirk
 UPDATE mangos . item_template

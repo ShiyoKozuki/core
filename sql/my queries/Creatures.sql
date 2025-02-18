@@ -117,6 +117,9 @@ UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.4, `damage_multipl
 -- Archaedas HP adjusted due to 2x elite HP
 UPDATE `mangos`.`creature_template` SET `health_multiplier`=7 WHERE  `entry`=2748 AND `patch`=0;
 
+-- Eliza's Guard HP and damage reduced due to DMG and HP multiplier on normal mobs
+UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.45, `damage_multiplier`=0.5 WHERE  `entry`=1871 AND `patch`=0;
+
 -- Oozeling HP and damage reduced due to DMG and HP multiplier on normal mobs
 UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.2, `damage_multiplier`=0.4 WHERE  `entry`=8257 AND `patch`=0;
 
