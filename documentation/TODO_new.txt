@@ -70,7 +70,6 @@ NOW:
     New food, edit existing 150+ food
     Rotting Slime (3928) level 26-28
     Create a Patch and DBC the holy strike MP change and commit it
-    BACK UP CHARS
 
 
 stonesplinter blade drop rate?
@@ -86,7 +85,6 @@ tomorrow:
     weak aura for blessings/seal/righteous fury on self (For seals, just show judgement in middle of screen if it CANT be used, means no seal active)
 
     DO TAXES
-    clean ac filters
     VANILLA TWEAKS + FIXES
     get estimate from junk company
     whats under my bed?
@@ -94,7 +92,6 @@ tomorrow:
 
 
 Copy into discord before sleep:
-    clean ac filters
     call nina building officials assistant try to get permit renewed
     call more junk companies for estimates
     call movers
@@ -103,24 +100,17 @@ Copy into discord before sleep:
     pull commits, build, and run queries
     retrieval for mauren stonetalon quests when I do ashenvale
    Remove cigar boxes/tent from room
-   sell remaining gun
-   see if salvation army will come pick up my furniture i dont want  https://satruck.org/schedule-pickup
+   sell remaining guns
    retape box
    DO TAXES
    buff spellcrafter wand dps to ~25 and add 5 spell damage
-   spell_proc_event and spell_????
-   staff of horrors drop rate
-   125+ mining
    level alch/bsm + craft golden scale set - > 46 steel bars 14 gold bars 15 heavy grinding stone 2 citrine, 2 jade
    https://www.craigslist.org/about/moving_tips
    High level ashenvale quests!
    Craft azure silk stuff
    pull from repo + build
    call pawn shop for eric, say have guns, also ask if they buy tool boxes, tools, knives, ammo
-   LEARN silk bandage
    LEARN SKILLS
-   BACK UP CHARS
-   BACK UP AI PICS
 
 pull:
     https://github.com/vmangos/core/pull/2900
