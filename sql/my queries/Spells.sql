@@ -1,8 +1,21 @@
 -- Spells
 -- effectItemType -> (spellFamilyFlags? It's the enum I don't know why this was referenced to me) is enum ClassFlag in SpellClassMask.h
--- 33458 NEXT SPELL
+-- 33484 NEXT SPELL
 -- 15061 NEXT SKILL_LINE_ABILITY
 -- *****MUST UNLEARN ALL RANKS OF SPELLS(NOT JUST LOWEST) WHEN TESTING!!*****
+
+-- Used with aurName HandleAuraModStat(29)
+-- Value for effetMiscValue
+-- enum Stats
+-- {
+--     STAT_STRENGTH                      = 0,
+--     STAT_AGILITY                       = 1,
+--     STAT_STAMINA                       = 2,
+--     STAT_INTELLECT                     = 3,
+--     STAT_SPIRIT                        = 4
+-- };
+
+-- For effectAuraName1 13 and 135 all damage and healing is effectMiscValue1 126 (mask for all magic schools (non-physical))
 
 -- Racials
 
@@ -839,6 +852,215 @@ UPDATE `mangos`.`spell_template` SET `reagent4`=7078, `reagent5`=7082, `reagent6
     -- Proc (This is the actual buff)
         REPLACE `spell_template` (`entry`, `build`, `school`, `category`, `castUI`, `dispel`, `mechanic`, `attributes`, `attributesEx`, `attributesEx2`, `attributesEx3`, `attributesEx4`, `stances`, `stancesNot`, `targets`, `targetCreatureType`, `requiresSpellFocus`, `casterAuraState`, `targetAuraState`, `castingTimeIndex`, `recoveryTime`, `categoryRecoveryTime`, `interruptFlags`, `auraInterruptFlags`, `channelInterruptFlags`, `procFlags`, `procChance`, `procCharges`, `maxLevel`, `baseLevel`, `spellLevel`, `durationIndex`, `powerType`, `manaCost`, `manCostPerLevel`, `manaPerSecond`, `manaPerSecondPerLevel`, `rangeIndex`, `speed`, `modelNextSpell`, `stackAmount`, `totem1`, `totem2`, `reagent1`, `reagent2`, `reagent3`, `reagent4`, `reagent5`, `reagent6`, `reagent7`, `reagent8`, `reagentCount1`, `reagentCount2`, `reagentCount3`, `reagentCount4`, `reagentCount5`, `reagentCount6`, `reagentCount7`, `reagentCount8`, `equippedItemClass`, `equippedItemSubClassMask`, `equippedItemInventoryTypeMask`, `effect1`, `effect2`, `effect3`, `effectDieSides1`, `effectDieSides2`, `effectDieSides3`, `effectBaseDice1`, `effectBaseDice2`, `effectBaseDice3`, `effectDicePerLevel1`, `effectDicePerLevel2`, `effectDicePerLevel3`, `effectRealPointsPerLevel1`, `effectRealPointsPerLevel2`, `effectRealPointsPerLevel3`, `effectBasePoints1`, `effectBasePoints2`, `effectBasePoints3`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectMechanic1`, `effectMechanic2`, `effectMechanic3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectImplicitTargetA3`, `effectImplicitTargetB1`, `effectImplicitTargetB2`, `effectImplicitTargetB3`, `effectRadiusIndex1`, `effectRadiusIndex2`, `effectRadiusIndex3`, `effectApplyAuraName1`, `effectApplyAuraName2`, `effectApplyAuraName3`, `effectAmplitude1`, `effectAmplitude2`, `effectAmplitude3`, `effectMultipleValue1`, `effectMultipleValue2`, `effectMultipleValue3`, `effectChainTarget1`, `effectChainTarget2`, `effectChainTarget3`, `effectItemType1`, `effectItemType2`, `effectItemType3`, `effectMiscValue1`, `effectMiscValue2`, `effectMiscValue3`, `effectTriggerSpell1`, `effectTriggerSpell2`, `effectTriggerSpell3`, `effectPointsPerComboPoint1`, `effectPointsPerComboPoint2`, `effectPointsPerComboPoint3`, `spellVisual1`, `spellVisual2`, `spellIconId`, `activeIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `manaCostPercentage`, `startRecoveryCategory`, `startRecoveryTime`, `minTargetLevel`, `maxTargetLevel`, `spellFamilyName`, `spellFamilyFlags`, `maxAffectedTargets`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `minFactionId`, `minReputation`, `requiredAuraVision`, `customFlags`, `script_name`) VALUES (33459, 5302, 1, 0, 0, 1, 0, 671088640, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 101, 0, 0, 40, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1, -1, 0, 6, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 49, 0, 0, 0, 0, -1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 99, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 126, 126, 0, 0, 0, 0, 0, 0, 0, 969, 0, 1677, 0, 0, 'Libram of Judgement', 2031678, '', 2031628, 'Increases attack power by $s1, stacking up to 4 times.', 2031678, 'Increases attack power by $s1, stacking up to 4 times.', 2031678, 0, 0, 0, 0, 0, 10, 0, 0, 1, 0, -1, 1, 1, 1, 0, 0, 0, 0, '');
 
+
+-- Food
+
+-- Heavy Crocolisk Stew
+    -- Item
+    UPDATE `mangos`.`item_template` SET `spellid_1`=33460 WHERE `entry`=20074;
+
+    -- Spell (This is the 10 second eating "channel")
+    REPLACE `mangos`.`spell_template` (`entry`, `build`, `category`, `attributes`, `attributesEx2`, `castingTimeIndex`, `categoryRecoveryTime`, `interruptFlags`, `auraInterruptFlags`, `procChance`, `baseLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effect2`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectApplyAuraName1`, `effectApplyAuraName2`, `effectAmplitude2`, `effectMultipleValue1`, `effectTriggerSpell2`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) 
+    VALUES (33460, 5464, 11, 402653440, 2147483648, 1, 60000, 1, 262272, 101, 35, 205, 1, -1, 6, 6, 1, 1, 161, 0, 1, -1, 1, 1, 84, 23, 10000, 1,
+    33461, 51, 358, 50, 'Food', 4128830, 4128828, 
+    'Restores $o1 health over $d.  Must remain seated while eating.  If you spend at least 10 seconds eating you will become well fed and gain $33461s1 Strength and Stamina for $33461d.', 4128830, 'Restores $/5;s1 health per second.', 4128830, -1, 1, 1, 1);
+
+    -- Buff (This is the actual buff applied)
+    REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `attributesEx2`, `castingTimeIndex`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effect2`, `effectDieSides1`, `effectDieSides2`, `effectBaseDice1`, `effectBaseDice2`, `effectBasePoints1`, `effectBasePoints2`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectApplyAuraName1`, `effectApplyAuraName2`, `effectMiscValue1`, `effectMiscValue2`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `dmgMultiplier1`, `dmgMultiplier2`) 
+    VALUES (33461, 4222, 134217984, 2147483648, 1, 101, 347, 1, -1, 6, 6, 1, 1, 1, 1, 
+    7, 7, 1, 1, -1, 1, 1, 29, 29, 
+    0, 2, 59, 'Well Fed', 983070, 983052, 983052,
+    'Strength and Stamina increased by $s1.', 983070, 1, 1);
+
+-- Tasty Lion Steak
+    -- Item
+    UPDATE `mangos`.`item_template` SET `spellid_1`=33462 WHERE `entry`=3728;
+
+    -- Spell (This is the 10 second eating "channel")
+        REPLACE `mangos`.`spell_template` (`entry`, `build`, `category`, `attributes`, `attributesEx2`, `castingTimeIndex`, `categoryRecoveryTime`, `interruptFlags`, `auraInterruptFlags`, `procChance`, `baseLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effect2`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectApplyAuraName1`, `effectApplyAuraName2`, `effectAmplitude2`, `effectMultipleValue1`, `effectTriggerSpell2`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) 
+        VALUES (33462, 5464, 11, 402653440, 2147483648, 1, 60000, 1, 262272, 101, 35, 205, 1, -1, 6, 6, 1, 1, 161, 0, 1, -1, 1, 1, 84, 23, 10000, 1,
+        33463, 51, 358, 50, 'Food', 4128830, 4128828, 
+        'Restores $o1 health over $d.  Must remain seated while eating.  If you spend at least 10 seconds eating you will become well fed and gain $33463s1 Agility and Stamina for $33463d.', 4128830, 'Restores $/5;s1 health per second.', 4128830, -1, 1, 1, 1);
+
+    -- Buff (This is the actual buff applied)
+        REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `attributesEx2`, `castingTimeIndex`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effect2`, `effectDieSides1`, `effectDieSides2`, `effectBaseDice1`, `effectBaseDice2`, `effectBasePoints1`, `effectBasePoints2`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectApplyAuraName1`, `effectApplyAuraName2`, `effectMiscValue1`, `effectMiscValue2`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `dmgMultiplier1`, `dmgMultiplier2`) 
+        VALUES (33463, 4222, 134217984, 2147483648, 1, 101, 347, 1, -1, 6, 6, 1, 1, 1, 1, 
+        7, 7, 1, 1, -1, 1, 1, 29, 29, 
+        1, 2, 59, 'Well Fed', 983070, 983052, 983052,
+        'Agility and Stamina increased by $s1.', 983070, 1, 1);
+
+-- Giant Clam Scorcho
+    -- Item
+    UPDATE `mangos`.`item_template` SET `spellid_1`=33464 WHERE `entry`=6038;
+
+    -- Spell (This is the 10 second eating "channel")
+        REPLACE `mangos`.`spell_template` (`entry`, `build`, `category`, `attributes`, `attributesEx2`, `castingTimeIndex`, `categoryRecoveryTime`, `interruptFlags`, `auraInterruptFlags`, `procChance`, `baseLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effect2`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectApplyAuraName1`, `effectApplyAuraName2`, `effectAmplitude2`, `effectMultipleValue1`, `effectTriggerSpell2`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) 
+        VALUES (33464, 5464, 11, 402653440, 2147483648, 1, 60000, 1, 262272, 101, 35, 205, 1, -1, 6, 6, 1, 1, 161, 0, 1, -1, 1, 1, 84, 23, 10000, 1,
+        33465, 51, 358, 50, 'Food', 4128830, 4128828, 
+        'Restores $o1 health over $d.  Must remain seated while eating.  If you spend at least 10 seconds eating you will become well fed and Regenerate $33465s1 health every 5 sec and gain $33465s2 Stamina for $33465d.', 4128830, 'Restores $/5;s1 health per second.', 4128830, -1, 1, 1, 1);
+
+    -- Buff (This is the actual buff applied)
+        REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `attributesEx2`, `castingTimeIndex`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effect2`, `effectDieSides1`, `effectDieSides2`, `effectBaseDice1`, `effectBaseDice2`, `effectBasePoints1`, `effectBasePoints2`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectApplyAuraName1`, `effectApplyAuraName2`, `effectMiscValue1`, `effectMiscValue2`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `dmgMultiplier1`, `dmgMultiplier2`) 
+        VALUES (33465, 4222, 134217984, 2147483648, 1, 101, 347, 1, -1, 6, 6, 1, 1, 1, 1, 
+        19, 7, 1, 1, -1, 1, 1, 161, 29, 
+        0, 2, 59, 'Well Fed', 983070, 983052, 983052,
+        'Regenerate $s1 health every 5 sec and Stamina increased by $s2.', 983070, 1, 1);
+
+-- Hot Wolf Ribs
+    -- Item
+    UPDATE `mangos`.`item_template` SET `spellid_1`=33466 WHERE `entry`=13851;
+
+    -- Spell (This is the 10 second eating "channel")
+        REPLACE `mangos`.`spell_template` (`entry`, `build`, `category`, `attributes`, `attributesEx2`, `castingTimeIndex`, `categoryRecoveryTime`, `interruptFlags`, `auraInterruptFlags`, `procChance`, `baseLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effect2`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectApplyAuraName1`, `effectApplyAuraName2`, `effectAmplitude2`, `effectMultipleValue1`, `effectTriggerSpell2`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) 
+        VALUES (33466, 5464, 11, 402653440, 2147483648, 1, 60000, 1, 262272, 101, 35, 205, 1, -1, 6, 6, 1, 1, 161, 0, 1, -1, 1, 1, 84, 23, 10000, 1,
+        33467, 51, 358, 50, 'Food', 4128830, 4128828, 
+        'Restores $o1 health over $d.  Must remain seated while eating.  If you spend at least 10 seconds eating you will become well fed and gain increased damage and healing done by magical spells and effects by up to $33467s1 for $33467d.', 4128830, 'Restores $/5;s1 health per second.', 4128830, -1, 1, 1, 1);
+
+    -- Buff (This is the actual buff applied)
+        REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `attributesEx2`, `castingTimeIndex`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effect2`, `effectDieSides1`, `effectDieSides2`, `effectBaseDice1`, `effectBaseDice2`, `effectBasePoints1`, `effectBasePoints2`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectApplyAuraName1`, `effectApplyAuraName2`, `effectMiscValue1`, `effectMiscValue2`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `dmgMultiplier1`, `dmgMultiplier2`) 
+        VALUES (33467, 4222, 134217984, 2147483648, 1, 101, 347, 1, -1, 6, 6, 1, 1, 1, 1, 
+        11, 11, 1, 1, -1, 1, 1, 13, 135, 
+        126, 126, 59, 'Well Fed', 983070, 983052, 983052,
+        'Increases damage and healing done by magical spells and effects by up to $s1.', 983070, 1, 1);
+
+-- Jungle Stew
+    -- Item
+    UPDATE `mangos`.`item_template` SET `spellid_1`=33468 WHERE `entry`=12212;
+
+    -- Spell (This is the 10 second eating "channel")
+        REPLACE `mangos`.`spell_template` (`entry`, `build`, `category`, `attributes`, `attributesEx2`, `castingTimeIndex`, `categoryRecoveryTime`, `interruptFlags`, `auraInterruptFlags`, `procChance`, `baseLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effect2`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectApplyAuraName1`, `effectApplyAuraName2`, `effectAmplitude2`, `effectMultipleValue1`, `effectTriggerSpell2`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) 
+        VALUES (33468, 5464, 11, 402653440, 2147483648, 1, 60000, 1, 262272, 101, 35, 205, 1, -1, 6, 6, 1, 1, 161, 0, 1, -1, 1, 1, 84, 23, 10000, 1,
+        33469, 51, 358, 50, 'Food', 4128830, 4128828, 
+        'Restores $o1 health over $d.  Must remain seated while eating.  If you spend at least 10 seconds eating you will become well fed and gain $33469s1 increased armor and $33469s2 Stamina for $33469d.', 4128830, 'Restores $/5;s1 health per second.', 4128830, -1, 1, 1, 1);
+
+    -- Buff (This is the actual buff applied)
+        REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `attributesEx2`, `castingTimeIndex`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effect2`, `effectDieSides1`, `effectDieSides2`, `effectBaseDice1`, `effectBaseDice2`, `effectBasePoints1`, `effectBasePoints2`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectApplyAuraName1`, `effectApplyAuraName2`, `effectMiscValue1`, `effectMiscValue2`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `dmgMultiplier1`, `dmgMultiplier2`) 
+        VALUES (33469, 4222, 134217984, 2147483648, 1, 101, 347, 1, -1, 6, 6, 1, 1, 1, 1, 
+        249, 7, 1, 1, -1, 1, 1, 22, 29, 
+        1, 2, 59, 'Well Fed', 983070, 983052, 983052,
+        'Armor increased by $s1 and Stamina increased by $s2.', 983070, 1, 1);
+
+-- Roast Raptor
+    -- Item
+    UPDATE `mangos`.`item_template` SET `spellid_1`=33470 WHERE `entry`=12210;
+
+    -- Spell (This is the 10 second eating "channel")
+        REPLACE `mangos`.`spell_template` (`entry`, `build`, `category`, `attributes`, `attributesEx2`, `castingTimeIndex`, `categoryRecoveryTime`, `interruptFlags`, `auraInterruptFlags`, `procChance`, `baseLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effect2`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectApplyAuraName1`, `effectApplyAuraName2`, `effectAmplitude2`, `effectMultipleValue1`, `effectTriggerSpell2`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) 
+        VALUES (33470, 5464, 11, 402653440, 2147483648, 1, 60000, 1, 262272, 101, 35, 205, 1, -1, 6, 6, 1, 1, 161, 0, 1, -1, 1, 1, 84, 23, 10000, 1,
+        33471, 51, 358, 50, 'Food', 4128830, 4128828, 
+        'Restores $o1 health over $d.  Must remain seated while eating.  If you spend at least 10 seconds eating you will become well fed and gain $33471s1 increased resistance to all schools of magic and $33471s2 Stamina for $33471d.', 4128830, 'Restores $/5;s1 health per second.', 4128830, -1, 1, 1, 1);
+
+    -- Buff (This is the actual buff applied)
+        REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `attributesEx2`, `castingTimeIndex`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effect2`, `effectDieSides1`, `effectDieSides2`, `effectBaseDice1`, `effectBaseDice2`, `effectBasePoints1`, `effectBasePoints2`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectApplyAuraName1`, `effectApplyAuraName2`, `effectMiscValue1`, `effectMiscValue2`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `dmgMultiplier1`, `dmgMultiplier2`) 
+        VALUES (33471, 4222, 134217984, 2147483648, 1, 101, 347, 1, -1, 6, 6, 1, 1, 1, 1, 
+        14, 7, 1, 1, -1, 1, 1, 143, 29, 
+        126, 2, 59, 'Well Fed', 983070, 983052, 983052,
+        'All resistances increased by $s1 and Stamina increased by $s2.', 983070, 1, 1);
+
+-- Soothing Turtle Bisque
+    -- Item
+    UPDATE `mangos`.`item_template` SET `spellid_1`=33472 WHERE `entry`=3729;
+
+    -- Spell (This is the 10 second eating "channel")
+        REPLACE `mangos`.`spell_template` (`entry`, `build`, `category`, `attributes`, `attributesEx2`, `castingTimeIndex`, `categoryRecoveryTime`, `interruptFlags`, `auraInterruptFlags`, `procChance`, `baseLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effect2`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectApplyAuraName1`, `effectApplyAuraName2`, `effectAmplitude2`, `effectMultipleValue1`, `effectTriggerSpell2`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) 
+        VALUES (33472, 5464, 11, 402653440, 2147483648, 1, 60000, 1, 262272, 101, 35, 205, 1, -1, 6, 6, 1, 1, 161, 0, 1, -1, 1, 1, 84, 23, 10000, 1,
+        33473, 51, 358, 50, 'Food', 4128830, 4128828, 
+        'Restores $o1 health over $d.  Must remain seated while eating.  If you spend at least 10 seconds eating you will become well fed and allow $33473s1% of your Mana regeneration to continue while casting and gain $33473s2 Stamina for $33473d.', 4128830, 'Restores $/5;s1 health per second.', 4128830, -1, 1, 1, 1);
+
+    -- Buff (This is the actual buff applied)
+        REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `attributesEx2`, `castingTimeIndex`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effect2`, `effectDieSides1`, `effectDieSides2`, `effectBaseDice1`, `effectBaseDice2`, `effectBasePoints1`, `effectBasePoints2`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectApplyAuraName1`, `effectApplyAuraName2`, `effectMiscValue1`, `effectMiscValue2`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `dmgMultiplier1`, `dmgMultiplier2`) 
+        VALUES (33473, 4222, 134217984, 2147483648, 1, 101, 347, 1, -1, 6, 6, 1, 1, 1, 1, 
+        4, 7, 1, 1, -1, 1, 1, 134, 29, 
+        0, 2, 59, 'Well Fed', 983070, 983052, 983052, 'Allows $s1% of your Mana regeneration to continue while casting and Stamina increased by $s2.', 983070, 1, 1);
+
+-- Spider Sausage
+    -- Item
+    UPDATE `mangos`.`item_template` SET `spellid_1`=33474 WHERE `entry`=17222;
+
+    -- Spell (This is the 10 second eating "channel")
+        REPLACE `mangos`.`spell_template` (`entry`, `build`, `category`, `attributes`, `attributesEx2`, `castingTimeIndex`, `categoryRecoveryTime`, `interruptFlags`, `auraInterruptFlags`, `procChance`, `baseLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effect2`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectApplyAuraName1`, `effectApplyAuraName2`, `effectAmplitude2`, `effectMultipleValue1`, `effectTriggerSpell2`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) 
+        VALUES (33474, 5464, 11, 402653440, 2147483648, 1, 60000, 1, 262272, 101, 35, 205, 1, -1, 6, 6, 1, 1, 161, 0, 1, -1, 1, 1, 84, 23, 10000, 1,
+        33475, 51, 358, 50, 'Food', 4128830, 4128828, 
+        'Restores $o1 health over $d.  Must remain seated while eating.  If you spend at least 10 seconds eating you will become well fed and gain $33475s1 Attack power $33475s2 Stamina for $33475d.', 4128830, 'Restores $/5;s1 health per second.', 4128830, -1, 1, 1, 1);
+
+    -- Buff (This is the actual buff applied)
+        REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `attributesEx2`, `castingTimeIndex`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effect2`, `effectDieSides1`, `effectDieSides2`, `effectBaseDice1`, `effectBaseDice2`, `effectBasePoints1`, `effectBasePoints2`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectApplyAuraName1`, `effectApplyAuraName2`, `effectMiscValue1`, `effectMiscValue2`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `dmgMultiplier1`, `dmgMultiplier2`) 
+        VALUES (33475, 4222, 134217984, 2147483648, 1, 101, 347, 1, -1, 6, 6, 1, 1, 1, 1, 
+        49, 11, 1, 1, -1, 1, 1, 99, 29, 
+        0, 2, 59, 'Well Fed', 983070, 983052, 983052, 'Attack power increased by $s1 and Stamina increased by $s2.', 983070, 1, 1);
+
+-- Monster Omelet
+    -- Item
+    UPDATE `mangos`.`item_template` SET `spellid_1`=33476 WHERE `entry`=12218;
+
+    -- Spell (This is the 10 second eating "channel")
+        REPLACE `mangos`.`spell_template` (`entry`, `build`, `category`, `attributes`, `attributesEx2`, `castingTimeIndex`, `categoryRecoveryTime`, `interruptFlags`, `auraInterruptFlags`, `procChance`, `baseLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effect2`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectApplyAuraName1`, `effectApplyAuraName2`, `effectAmplitude2`, `effectMultipleValue1`, `effectTriggerSpell2`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) 
+        VALUES (33476, 5464, 11, 402653440, 2147483648, 1, 60000, 1, 262272, 101, 35, 205, 1, -1, 6, 6, 1, 1, 161, 0, 1, -1, 1, 1, 84, 23, 10000, 1,
+        33477, 51, 358, 50, 'Food', 4128830, 4128828, 
+        'Restores $o1 health over $d.  Must remain seated while eating.  If you spend at least 10 seconds eating you will become well fed and gain increased damage and healing done by magical spells and effects by up to $33477s1 for $33477d.', 4128830, 'Restores $/5;s1 health per second.', 4128830, -1, 1, 1, 1);
+
+    -- Buff (This is the actual buff applied)
+        REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `attributesEx2`, `castingTimeIndex`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effect2`, `effectDieSides1`, `effectDieSides2`, `effectBaseDice1`, `effectBaseDice2`, `effectBasePoints1`, `effectBasePoints2`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectApplyAuraName1`, `effectApplyAuraName2`, `effectMiscValue1`, `effectMiscValue2`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `dmgMultiplier1`, `dmgMultiplier2`) 
+        VALUES (33477, 4222, 134217984, 2147483648, 1, 101, 347, 1, -1, 6, 6, 1, 1, 1, 1, 
+        24, 24, 1, 1, -1, 1, 1, 13, 135, 
+        126, 126, 59, 'Well Fed', 983070, 983052, 983052,
+        'Increases damage and healing done by magical spells and effects by up to $s1.', 983070, 1, 1);
+
+-- Spiced Chili Crab
+    -- Item
+    UPDATE `mangos`.`item_template` SET `spellid_1`=33478 WHERE `entry`=12216;
+
+    -- Spell (This is the 10 second eating "channel")
+        REPLACE `mangos`.`spell_template` (`entry`, `build`, `category`, `attributes`, `attributesEx2`, `castingTimeIndex`, `categoryRecoveryTime`, `interruptFlags`, `auraInterruptFlags`, `procChance`, `baseLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effect2`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectApplyAuraName1`, `effectApplyAuraName2`, `effectAmplitude2`, `effectMultipleValue1`, `effectTriggerSpell2`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) 
+        VALUES (33478, 5464, 11, 402653440, 2147483648, 1, 60000, 1, 262272, 101, 35, 205, 1, -1, 6, 6, 1, 1, 161, 0, 1, -1, 1, 1, 84, 23, 10000, 1,
+        33479, 51, 358, 50, 'Food', 4128830, 4128828, 
+        'Restores $o1 health over $d.  Must remain seated while eating.  If you spend at least 10 seconds eating you will become well fed and gain $33479s1 increased armor and $33479s2 Stamina for $33479d.', 4128830, 'Restores $/5;s1 health per second.', 4128830, -1, 1, 1, 1);
+
+    -- Buff (This is the actual buff applied)
+        REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `attributesEx2`, `castingTimeIndex`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effect2`, `effectDieSides1`, `effectDieSides2`, `effectBaseDice1`, `effectBaseDice2`, `effectBasePoints1`, `effectBasePoints2`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectApplyAuraName1`, `effectApplyAuraName2`, `effectMiscValue1`, `effectMiscValue2`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `dmgMultiplier1`, `dmgMultiplier2`) 
+        VALUES (33479, 4222, 134217984, 2147483648, 1, 101, 347, 1, -1, 6, 6, 1, 1, 1, 1, 
+        449, 11, 1, 1, -1, 1, 1, 22, 29, 
+        1, 2, 59, 'Well Fed', 983070, 983052, 983052,
+        'Armor increased by $s1 and Stamina increased by $s2.', 983070, 1, 1);
+
+-- Tender Wolf Steak
+    -- Item
+    UPDATE `mangos`.`item_template` SET `spellid_1`=33480 WHERE `entry`=18045;
+
+    -- Spell (This is the 10 second eating "channel")
+        REPLACE `mangos`.`spell_template` (`entry`, `build`, `category`, `attributes`, `attributesEx2`, `castingTimeIndex`, `categoryRecoveryTime`, `interruptFlags`, `auraInterruptFlags`, `procChance`, `baseLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effect2`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectApplyAuraName1`, `effectApplyAuraName2`, `effectAmplitude2`, `effectMultipleValue1`, `effectTriggerSpell2`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) 
+        VALUES (33480, 5464, 11, 402653440, 2147483648, 1, 60000, 1, 262272, 101, 35, 205, 1, -1, 6, 6, 1, 1, 161, 0, 1, -1, 1, 1, 84, 23, 10000, 1,
+        33481, 51, 358, 50, 'Food', 4128830, 4128828, 
+        'Restores $o1 health over $d.  Must remain seated while eating.  If you spend at least 10 seconds eating you will become well fed and gain $33481s1 increased resistance to all schools of magic and $33481s2 Stamina for $33481d.', 4128830, 'Restores $/5;s1 health per second.', 4128830, -1, 1, 1, 1);
+
+    -- Buff (This is the actual buff applied)
+        REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `attributesEx2`, `castingTimeIndex`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effect2`, `effectDieSides1`, `effectDieSides2`, `effectBaseDice1`, `effectBaseDice2`, `effectBasePoints1`, `effectBasePoints2`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectApplyAuraName1`, `effectApplyAuraName2`, `effectMiscValue1`, `effectMiscValue2`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `dmgMultiplier1`, `dmgMultiplier2`) 
+        VALUES (33481, 4222, 134217984, 2147483648, 1, 101, 347, 1, -1, 6, 6, 1, 1, 1, 1, 
+        24, 11, 1, 1, -1, 1, 1, 143, 29, 
+        126, 2, 59, 'Well Fed', 983070, 983052, 983052,
+        'All resistances increased by $s1 and Stamina increased by $s2.', 983070, 1, 1);
+
+-- Undermine Clam Chowder
+    -- Item
+    UPDATE `mangos`.`item_template` SET `spellid_1`=33482 WHERE `entry`=16766;
+
+    -- Spell (This is the 10 second eating "channel")
+        REPLACE `mangos`.`spell_template` (`entry`, `build`, `category`, `attributes`, `attributesEx2`, `castingTimeIndex`, `categoryRecoveryTime`, `interruptFlags`, `auraInterruptFlags`, `procChance`, `baseLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effect2`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectApplyAuraName1`, `effectApplyAuraName2`, `effectAmplitude2`, `effectMultipleValue1`, `effectTriggerSpell2`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) 
+        VALUES (33482, 5464, 11, 402653440, 2147483648, 1, 60000, 1, 262272, 101, 35, 205, 1, -1, 6, 6, 1, 1, 161, 0, 1, -1, 1, 1, 84, 23, 10000, 1,
+        33483, 51, 358, 50, 'Food', 4128830, 4128828, 
+        'Restores $o1 health over $d.  Must remain seated while eating.  If you spend at least 10 seconds eating you will become well fed and Regenerate $33483s1 health every 5 sec and gain $33483s2 Stamina for $33483d.', 4128830, 'Restores $/5;s1 health per second.', 4128830, -1, 1, 1, 1);
+
+    -- Buff (This is the actual buff applied)
+        REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `attributesEx2`, `castingTimeIndex`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effect2`, `effectDieSides1`, `effectDieSides2`, `effectBaseDice1`, `effectBaseDice2`, `effectBasePoints1`, `effectBasePoints2`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectApplyAuraName1`, `effectApplyAuraName2`, `effectMiscValue1`, `effectMiscValue2`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `dmgMultiplier1`, `dmgMultiplier2`) 
+        VALUES (33483, 4222, 134217984, 2147483648, 1, 101, 347, 1, -1, 6, 6, 1, 1, 1, 1, 
+        39, 11, 1, 1, -1, 1, 1, 161, 29, 
+        0, 2, 59, 'Well Fed', 983070, 983052, 983052,
+        'Regenerate $s1 health every 5 sec and Stamina increased by $s2.', 983070, 1, 1);
+
+-- Template
+    -- Item
+    -- Spell (This is the 10 second eating "channel")
+    -- Buff (This is the actual buff applied)
 
 -- Reforge Sword of Heroes
     INSERT IGNORE `mangos`.`spell_template` (`entry`, `build`, `castingTimeIndex`, `procChance`, `baseLevel`, `spellLevel`, `durationIndex`, `powerType`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (30000, 5302, 1, 101, 56, 56, 9, 3, 1, -1, -1, 6, 1, 1, 49, 0, -1, -1, 1, 99, 5800, 83, 50, 'Reforged Blade of Heroes', 2031678, 2031662, 'Increases attack power by $s1 for $d.', 2031678, 'Attack power increased by $s1.', 2031678, 133, 1500, 4, -1, 1, 1, 1);
