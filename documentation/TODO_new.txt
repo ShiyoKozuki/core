@@ -118,6 +118,3 @@ pull:
 
 bugs:
     Deep Ocean, Vast Sea looting lockboxes works properly duo, other stuff doesn't
-
-
-yui hatano

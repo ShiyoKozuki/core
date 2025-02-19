@@ -9772,6 +9772,13 @@ WHERE entry = 4829;
 
 -- Rare mob drops
 
+-- Silithid Ripper (Silithid Ravager)
+UPDATE mangos . item_template
+SET dmg_min1 = 37,
+    dmg_max1 = 77,
+    spellppmrate_1 = 3 
+WHERE entry = 8224;
+
 -- Tromping Miner's Boots (Digmaster Shovelphlange)
 UPDATE mangos . item_template
 SET stat_type1 = 4,
