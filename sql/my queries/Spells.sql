@@ -1,6 +1,6 @@
 -- Spells
 -- effectItemType -> (spellFamilyFlags? It's the enum I don't know why this was referenced to me) is enum ClassFlag in SpellClassMask.h
--- 33484 NEXT SPELL
+-- 33492 NEXT SPELL
 -- 15061 NEXT SKILL_LINE_ABILITY
 -- *****MUST UNLEARN ALL RANKS OF SPELLS(NOT JUST LOWEST) WHEN TESTING!!*****
 
