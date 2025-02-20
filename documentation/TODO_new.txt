@@ -119,6 +119,7 @@ Copy into discord before sleep:
     Mage trinket(or ring?), pyroblast ???
     Mage trinket(or ring?), frostbolt has 10% chance of making next fireball instant
     Mage trinket(or ring?), blizzard has a chance to make next flamestrike instant
+    Mage trinket(or ring?), arcane explosion 4x dmg but 30s cd
 
 pull:
     https://github.com/vmangos/core/pull/2900
