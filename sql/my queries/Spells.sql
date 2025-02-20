@@ -864,7 +864,7 @@ UPDATE `mangos`.`spell_template` SET `reagent4`=7078, `reagent5`=7082, `reagent6
         REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `dispel`, `attributes`, `castingTimeIndex`, `procChance`, `baseLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectMiscValue1`, `effectMiscValue2`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `spellFamilyName`, `dmgClass`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) 
         VALUES (33485, 5302, 1, 1, 671088640, 1, 101, 40, 9, 1, -1, -1, 6, 1, 1, 19, 0, 0, -1, 1, 85, 0, 0, 4370, 1754, 'Libram of Mending', 2031678, 2031628, 'Your Holy Light grants $s1 mana per 5 sec. for 30 sec.', 2031678, 'Regenerate $s1 mana per 5 sec.', 2031678, 10, 1, -1, 1, 1, 1);
 
--- Burning Heart (Fire Blast Spirit)
+-- Burning Heart (Fire Blast Spirit buff)
 
     -- Spell (This is the aura that procs the acutal buff)
     REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `castingTimeIndex`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectItemType1`, `effectTriggerSpell1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `dmgMultiplier1`) 
@@ -873,6 +873,17 @@ UPDATE `mangos`.`spell_template` SET `reagent4`=7078, `reagent5`=7082, `reagent6
     -- Proc (This is the actual buff)
     REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `dispel`, `attributes`, `castingTimeIndex`, `procChance`, `baseLevel`, `durationIndex`, `rangeIndex`, `stackAmount`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectMiscValue1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `spellFamilyName`, `dmgClass`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) 
     VALUES (33487, 5302, 2, 1, 671088640, 1, 101, 40, 9, 1, 5, -1, -1, 6, 1, 1, 9, 0, 0, -1, 1, 29, 4, 969, 876, 'Burning Heart', 2031678, 2031628, 'Your Fire Blast spell grants $s1 Spirit for 30 seconds, stacking up to 5 times.', 2031678, 'Spirit increased by $s1.', 2031678, 10, 1, -1, 1, 1, 1);
+
+-- Arcane Brand (Arcane Missles +Spell dmg taken % debuff)
+
+    -- Spell (This is the aura that procs the acutal buff)
+        REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `castingTimeIndex`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectItemType1`, `effectTriggerSpell1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `dmgMultiplier1`) 
+        VALUES (33488, 4695, 6, 64, 1, 101, 21, 1, -1, 6, 1, 1, 99, 1, -1, -1, 1, 109, 2048, 33489, 156, 'Arcane Brand', 2031678, 2031628, 'Your Arcane Missles spell causes the target to take $33489s1% additional spell damage for 60 seconds.', 2031646, 2031628, 3, 1);
+
+    -- Proc (This is the actual buff)
+        REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `dispel`, `attributes`, `castingTimeIndex`, `procChance`, `baseLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectMiscValue1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `spellFamilyName`, `dmgClass`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) 
+        VALUES (33489, 5302, 6, 1, 671088640, 1, 101, 40, 3, 1, -1, -1, 6, 1, 1, 9, 0, 0, -1, 6, 87, 126, 969, 191, 'Arcane Branding', 2031678, 2031628, 'Your Arcane Missles spell causes the target to take $s1% additional spell damage for 60 seconds.', 2031678, 'Spell damage taken increased by $s1%.', 2031678, 10, 1, -1, 1, 1, 1);
+
 
 -- Food
 
