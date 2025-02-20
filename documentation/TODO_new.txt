@@ -113,8 +113,6 @@ Copy into discord before sleep:
    Libram of Mending and Libram of Cleansing that does something for cleanse/purify
    Libram of Wrath, restore 10% of HP and MP if hammer of wrath gets a killing blow
    New gear for classes that change classes rotations or something to upkeep(like libram of judgement). Mainly for mage and paladin
-    Mage trinket(or ring?), Arcane Missles causes enemy to take +5% magic damage taken for 30s
-    Mage trinket(or ring?), fireblast gives you a 10 spirit for 1m stacking up to 5 times
     Mage trinket(or ring?), scorch gives you a 20 spellpower buff for 1m, stacking up to 5 times for 1m
     Mage trinket(or ring?), pyroblast ???
     Mage trinket(or ring?), frostbolt has 10% chance of making next fireball instant
