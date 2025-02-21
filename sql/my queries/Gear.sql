@@ -8715,7 +8715,10 @@ WHERE entry = 6482;
 
 -- Insulated Sage Gloves (Syndicate Assassins)
 UPDATE mangos . item_template
-SET stat_type1 = 0,
+SET stat_type1 = 5,
+    stat_value1 = 6,
+    stat_type2 = 7,
+    stat_value2 = 7,
     spellid_1 = 21360, -- 2 MP/5
     spelltrigger_1 = 1
 WHERE entry = 3759;
@@ -13014,7 +13017,7 @@ WHERE entry IN(12717, 18418, 22388, 14512, 14513, 14514, 12834, 12825, 18260, 20
 -- Display IDs
 -- Cute Mail: Fortified chain (display: 1019) Infantry Tunic (display: 3057), Copper Chain Vest
 -- Cute Mail Legs: Infantry Leggings (Display: 3058)
--- SUPER skimpy sexy Mail: Burnished Tunic (Display: 25769)
+-- SUPER skimpy sexy Mail: Burnished Tunic (Display: 25769), Glimmering Mail Breastplate
 -- Skimpy plate armor: Vanguard Breastplate (display: 26846), Lord's Breastplate
 -- Skimpy Leather: Pridelord Pants(display: 27651)
 

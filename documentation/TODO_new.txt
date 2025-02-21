@@ -40,6 +40,7 @@ spell ai:
     daggerspine screamer (scream)
     scorpid terror (terrify)
     sparkleshell snapper (head butt)
+    Darkfang Spider (web)
     
 Mage:
     31 point arcane enchanted quickness or whatever Defias Enchanters cast
@@ -99,25 +100,38 @@ Copy into discord before sleep:
     BOE blue staves (add spell damage or make good for melee dps)
     pull commits, build, and run queries
     retrieval for mauren stonetalon quests when I do ashenvale
-   Remove cigar boxes/tent from room
-   sell remaining guns
-   retape box
-   DO TAXES
-   buff spellcrafter wand dps to ~25 and add 5 spell damage
-   level alch/bsm + craft golden scale set - > 46 steel bars 14 gold bars 15 heavy grinding stone 2 citrine, 2 jade
-   https://www.craigslist.org/about/moving_tips
-   High level ashenvale quests!
-   Craft azure silk stuff
-   pull from repo + build
-   death cert for rick and mike - > https://www.vitalchek.com/v/?ScenarioName=AdEospNT
-   Libram of Mending and Libram of Cleansing that does something for cleanse/purify
-   Libram of Wrath, restore 10% of HP and MP if hammer of wrath gets a killing blow
-   New gear for classes that change classes rotations or something to upkeep(like libram of judgement). Mainly for mage and paladin
-    Mage trinket(or ring?), scorch gives you a 20 spellpower buff for 1m, stacking up to 5 times for 1m
-    Mage trinket(or ring?), pyroblast ???
-    Mage trinket(or ring?), frostbolt has 10% chance of making next fireball instant
-    Mage trinket(or ring?), blizzard has a chance to make next flamestrike instant
-    Mage trinket(or ring?), arcane explosion 4x dmg but 30s cd
+    Remove cigar boxes/tent from room
+    sell remaining guns
+    retape box
+    DO TAXES
+    buff spellcrafter wand dps to ~25 and add 5 spell damage
+    https://www.craigslist.org/about/moving_tips
+    High level ashenvale quests!
+    Crusader strike should proc a spell on successful physical hit that restores mana via energize instead of current implementation
+    Libram of Mending and Libram of Cleansing that does something for cleanse/purify
+    Libram of Wrath, restore 10% of HP and MP if hammer of wrath gets a killing blow
+    New gear for classes that change classes rotations or something to upkeep(like libram of judgement). Mainly for mage and paladin
+        Mage trinket(or ring?), scorch gives you a 20 spellpower buff for 1m, stacking up to 5 times for 1m
+        Mage trinket(or ring?), pyroblast ???
+        Mage trinket(or ring?), frostbolt has 10% chance of making next fireball instant
+        Mage trinket(or ring?), blizzard has a chance to make next flamestrike instant
+        Mage trinket(or ring?), arcane explosion 4x dmg but 30s cd
+
+    Skillchain "combos" via debuffs being applied from certain skills (i.e. Holy Strike debuffs enemy so that any fire spell afterwards within 5 seconds "sets it on fire" to burn for fire damage over x seconds)
+        Lower targets armor
+        Lower targets damage
+        Lower targets resistances
+        Increased spell damage taken
+        Target takes x DoT damage over time (Holy Strike + Fire Spell)
+        AoE mana % regen buff to allies (Shield of the Righteous + Frost Spell)
+
+    Cooked fish buff stats
+    Hammer of the Righteous require 1h weapon
+    buff barbarians sword to be better than acheus (~35 dps?) for SoR and rename
+    https://www.wowhead.com/spell=184575/blade-of-justice icon for holy strike
+    need new 2h, level bsm?
+    call places to get rid of books
+    ELITE DUSTWALLOW DRAGONS/CROCS BY ONYXIAS LAIR
 
 pull:
     https://github.com/vmangos/core/pull/2900
