@@ -72,8 +72,12 @@ WHERE display_id IN(59, 60, 12170);
 
 -- Incorrect normal mobs, were elite in real vanilla. Changed in 2.3 (Classic WoW bug) 
 -- https://warcraft.wiki.gg/wiki/Patch_2.3.0
+
+-- Swamp of Sorrows elite dragons reverted back to being elite, they were changed in 1.10ish
 -- patch - 10 to revert
-UPDATE `mangos`.`creature_template` SET patch = patch + 10 WHERE entry IN (742, 743, 744, 745, 746) AND patch = 10; -- Swamp of Sorrows Green Dragons
+UPDATE `mangos`.`creature_template` SET patch = patch + 10 WHERE entry IN (742, 743, 744, 745, 746) AND patch = 10; -- Swamp of Sorrows Green Dragons reverted back to being elite, they were changed in 1.10ish
+UPDATE `mangos`.`creature_template` SET patch = patch + 10 WHERE entry IN (4328, 4329, 4331, 4334, 4345) AND patch = 10; -- Dustwallow Mrash elite dragons and crocs reverted back to elite, they were changed in 1.10ish
+UPDATE `mangos`.`creature_template` SET patch = patch + 10 WHERE entry IN (4324) AND patch = 6; -- Dustwallow Mrash Searing Whelp reverted back to elite, they were changed in 1.10ish
 
 -- Dune Smasher respawn rate
 UPDATE `mangos`.`creature` SET `spawntimesecsmin`=180, `spawntimesecsmax`=180 WHERE  `id`=5469;

@@ -127,11 +127,9 @@ Copy into discord before sleep:
 
     Cooked fish buff stats
     Hammer of the Righteous require 1h weapon
-    buff barbarians sword to be better than acheus (~35 dps?) for SoR and rename
     https://www.wowhead.com/spell=184575/blade-of-justice icon for holy strike
     need new 2h, level bsm?
     call places to get rid of books
-    ELITE DUSTWALLOW DRAGONS/CROCS BY ONYXIAS LAIR
 
 pull:
     https://github.com/vmangos/core/pull/2900
