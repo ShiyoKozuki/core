@@ -3934,8 +3934,8 @@ WHERE entry = 3856;
 UPDATE mangos . item_template
 SET quality = 3,
     required_level = 41,
-    dmg_min1 = 110,
-    dmg_max1 = 165,
+    dmg_min1 = 104,
+    dmg_max1 = 174,
     spellppmrate_2 = 3 
 WHERE entry = 3854;
 
