@@ -41,6 +41,13 @@ spell ai:
     scorpid terror (terrify)
     sparkleshell snapper (head butt)
     Darkfang Spider (web)
+    darkmist spider (Poison)
+    Darkmist Silkspinner (web)
+    hatefury shadowstalker (gouge and exploit weakness)
+    hatefury hellcaller (rain of fire)
+    Slitherblade Razortail (localized toxin)
+    Slitherblade sea witch (Blizzard)
+    Carrion Horror (Infected wound)
     
 Mage:
     31 point arcane enchanted quickness or whatever Defias Enchanters cast
@@ -93,9 +100,6 @@ tomorrow:
 
 
 Copy into discord before sleep:
-    call nina building officials assistant try to get permit renewed
-    call more junk companies for estimates
-    call movers
     level 40+ BOE cloth greens add spell damage / healing
     BOE blue staves (add spell damage or make good for melee dps)
     pull commits, build, and run queries
@@ -126,10 +130,15 @@ Copy into discord before sleep:
         AoE mana % regen buff to allies (Shield of the Righteous + Frost Spell)
 
     Cooked fish buff stats
+    prince kellen (14225) insane dmg or delay
+    Add Frostbolt / Fireball proc necks to custom level 40 mage quest (Fireball one should only be 50% damage)
     Hammer of the Righteous require 1h weapon
     https://www.wowhead.com/spell=184575/blade-of-justice icon for holy strike
     need new 2h, level bsm?
-    call places to get rid of books
+    call places to get rid of books (Church here # (954) 987-7050)
+    call about safe
+    ORDER TWO+ USB TO USB CABLES OR A CONVERTER FROM POWER TO USB MONOPRICE
+    LEARN SKILLS
 
 pull:
     https://github.com/vmangos/core/pull/2900
