@@ -1,6 +1,6 @@
 -- Spells
 -- effectItemType -> (spellFamilyFlags? It's the enum I don't know why this was referenced to me) is enum ClassFlag in SpellClassMask.h
--- 33494 NEXT SPELL
+-- 33496 NEXT SPELL
 -- 15061 NEXT SKILL_LINE_ABILITY
 -- *****MUST UNLEARN ALL RANKS OF SPELLS(NOT JUST LOWEST) WHEN TESTING!!*****
 
@@ -935,11 +935,20 @@ UPDATE `mangos`.`spell_template` SET `reagent4`=7078, `reagent5`=7082, `reagent6
 -- Freezing Desire (Fireball proc to make next Frostbolt deal 100% more damage)
     -- Spell (This is the aura that procs the acutal buff)
     REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `attributesEx3`, `castingTimeIndex`, `procFlags`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectItemType1`, `effectTriggerSpell1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `stanceBarOrder`, `dmgMultiplier1`) 
-    VALUES (33492, 5464, 4, 464, 67108864, 1, 87376, 10, 21, 1, -1, 6, 1, 1, -1, 0, -1, -1, 1, 42, 1, 33493, 173, 'Freezing Desire', 4128830, '0', 4128830, 'Your Fireball spell has a $h% chance to increase the damage of your next Frostbolt spell by 100%.', 4128830, 4128828, 3, -1, 1);
+    VALUES (33492, 5464, 4, 464, 67108864, 1, 87376, 10, 21, 1, -1, 6, 1, 1, -1, 0, -1, -1, 1, 42, 1, 33493, 173, 'Freezing Desire', 4128830, '0', 4128830, 'Your Fireball spell has a $h% chance to increase the damage of your next Frostbolt spell by $33493s1%', 4128830, 4128828, 3, -1, 1);
 
     -- Proc (This is the actual buff)
     REPLACE`mangos`.`spell_template` (`entry`, `build`, `school`, `dispel`, `attributes`, `castingTimeIndex`, `procFlags`, `procChance`, `procCharges`, `baseLevel`, `spellLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectItemType1`, `effectMiscValue1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `spellFamilyName`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) 
     VALUES (33493, 5464, 4, 1, 327680, 1, 87376, 100, 1, 10, 10, 8, 6, -1, -1, 6, 1, 1, 99, 0, -1, -1, 1, 108, 32, 8, 2736, 154, 'Freezing Desire', 4128830, 4128828, 4128828, 'Your next Frostbolt spell deals $s1% increased damage.', 4128830, 3, 1, 1, -1, 1, 1, 1);
+
+-- Burning Desire (Frostbolt proc to make next Fireball deal 50% more damage)
+    -- Spell (This is the aura that procs the acutal buff)
+    REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `attributesEx3`, `castingTimeIndex`, `procFlags`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectItemType1`, `effectTriggerSpell1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `stanceBarOrder`, `dmgMultiplier1`) 
+    VALUES (33494, 5464, 2, 464, 67108864, 1, 87376, 10, 21, 1, -1, 6, 1, 1, -1, 0, -1, -1, 1, 42, 32, 33495, 173, 'Burning Desire', 4128830, '0', 4128830, 'Your Frostbolt spell has a $h% chance to increase the damage of your next Fireball spell by $33495s1%.', 4128830, 4128828, 3, -1, 1);
+
+    -- Proc (This is the actual buff)
+    REPLACE`mangos`.`spell_template` (`entry`, `build`, `school`, `dispel`, `attributes`, `castingTimeIndex`, `procFlags`, `procChance`, `procCharges`, `baseLevel`, `spellLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectItemType1`, `effectMiscValue1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `spellFamilyName`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) 
+    VALUES (33495, 5464, 2, 1, 327680, 1, 87376, 100, 1, 10, 10, 8, 6, -1, -1, 6, 1, 1, 49, 0, -1, -1, 1, 108, 1, 8, 2736, 1137, 'Burning Desire', 4128830, 4128828, 4128828, 'Your next Fireball spell deals $s1% increased damage.', 4128830, 3, 1, 1, -1, 1, 1, 1);
 
 
 -- Template:
