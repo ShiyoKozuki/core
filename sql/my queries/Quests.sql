@@ -43,7 +43,6 @@
 -- how do distress beacon quests not replace item on starting? same with ship schedule
 
 -- Quest + Vendor + Repair npc flag = 
--- 30025 FREE
 -- NEXT quest_template 30245
 -- NEXT creature_template 90047
 
@@ -91,6 +90,10 @@ REPLACE `mangos`.`quest_template` (`entry`, `patch`, `ZoneOrSort`, `MinLevel`, `
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90034, 30214);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90034, 30214);
 
+-- Custom Mage Class quests
+REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `RequiredClasses`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemId2`, `ReqItemId3`, `ReqItemCount1`, `ReqItemCount2`, `ReqItemCount3`, `RewItemId1`, `RewItemId2`, `RewItemCount1`, `RewItemCount2`, `RewXP`, `RewMoneyMaxLevel`, `DetailsEmote1`, `IncompleteEmote`, `CompleteEmote`, `OfferRewardEmote1`) VALUES (30025, -161, 40, 40, 128, 'Wizard\'s Cloak', 'You have come very far on your journey. I think you are ready for one of the pieces of your attire. Bring me 10 Bolts of Mageweave, 4 Thick Leather and 2 Silken Thread and I will create them for you.', 'Bring 10 Bolts of Mageweave, 4 Thick Leather and 2 Silken Thread to Jennea Cannon in Stormwind.', 'Here we go.  May it serve you well.', 'Did you bring me the 10 Bolts of Mageweave, 4 Thick Leather and 2 Silken Thread?', '', '', '', '', '', 4339, 4304, 4291, 10, 4, 2, 30135, 30136, 1, 1, 4100, 5500, 1, 6, 6, 1);
+REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (5497, 30025);
+REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (5497, 30025);
 
 -- Rampaging Giants
 UPDATE `mangos`.`quest_template` SET `RewRepValue1`=200 WHERE  `entry`=5981 AND `patch`=0;
