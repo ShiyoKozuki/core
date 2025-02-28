@@ -4,6 +4,7 @@
 -- Deadwind Pass
 -- Winterspring
 -- Silithus
+-- Alterac Mountains Lord Aliden Perenolde quest should be alterac mountains for zone
 -- WPL (Tomb in Sorrow Hill, Weeping Cave [Slimes / Living Elementals])
 -- EPL (Nathanos horde quests)
 -- Ashenvale (East - High level)
@@ -182,7 +183,7 @@ REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLeve
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (2263, 30070);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (2263, 30070);
 
-REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOCount1`, `RewChoiceItemId1`, `RewChoiceItemId2`, `RewChoiceItemCount1`, `RewChoiceItemCount2`, `RewXP`, `RewMoneyMaxLevel`) VALUES (30215, 267, 29, 42, 8, 'Lord Aliden Perenolde', 'Lord Aliden Perenolde in the ALterac Mountains is a spy for the horde. Take him out.', 'Kill Lord Aliden Perenolde then return to Loremaster Dibbs in Southshore.', 'Great job!', 'Have you killed him yet?', '', '', '', '', '', 2423, 1, 3764, 3765, 1, 1, 8200, 2580);
+REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOCount1`, `RewChoiceItemId1`, `RewChoiceItemId2`, `RewChoiceItemCount1`, `RewChoiceItemCount2`, `RewXP`, `RewMoneyMaxLevel`) VALUES (30215, 36, 29, 42, 8, 'Lord Aliden Perenolde', 'Lord Aliden Perenolde in the Alterac Mountains is a spy for the horde. Take him out.', 'Kill Lord Aliden Perenolde then return to Loremaster Dibbs in Southshore.', 'Great job!', 'Have you killed him yet?', '', '', '', '', '', 2423, 1, 3764, 3765, 1, 1, 8200, 2580);
 
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (2277, 30215);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (2277, 30215);
@@ -269,6 +270,7 @@ REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLeve
 REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (4343, 30044, -20);
 REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (4344, 30044, -20);
 REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (4345, 30044, -20);
+REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (14233, 30044, -20);
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (6546, 30020);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (6546, 30020);
 REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewXP`, `RewMoneyMaxLevel`) VALUES (30021, 15, 31, 41, 8, 'Mixology Ingredients III', 'I am running out of ingredients for mixology. Bring me 10 Ooze Ichor from oozes in Dustwallow Marsh.', 'Bring Tabetha in Dustwallow Marsh 10 Ooze Ichor from Swamp Ooze in Dustwallow Marsh.', 'I am pleased.', 'Bring Tabetha in Dustwallow Marsh 10 Ooze Ichor..', '', '', '', '', '', 30043, 10, 3150, 1680);

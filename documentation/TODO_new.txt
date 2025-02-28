@@ -48,6 +48,13 @@ spell ai:
     Slitherblade Razortail (localized toxin)
     Slitherblade sea witch (Blizzard)
     Carrion Horror (Infected wound)
+    rumbling exile (ground tremor)
+    lashtail raptor (lash or dropped weapon)
+    murkgill forager (rend and poison)
+    acidic swamp ooze (Corrosive Ooze)
+    Corrosive swamp ooze (Corrosive Ooze)
+    darkfang creeper (slowing poison)
+    drywallow daggermaw (pierce armor)
     
 Mage:
     31 point arcane enchanted quickness or whatever Defias Enchanters cast
@@ -112,6 +119,7 @@ Copy into discord before sleep:
     https://www.craigslist.org/about/moving_tips
     High level ashenvale quests!
     Crusader strike should proc a spell on successful physical hit that restores mana via energize instead of current implementation
+    Wake of Ashes scale damage per level up to 60
     Libram of Mending and Libram of Cleansing that does something for cleanse/purify
     Libram of Wrath, restore 10% of HP and MP if hammer of wrath gets a killing blow
     New gear for classes that change classes rotations or something to upkeep(like libram of judgement). Mainly for mage and paladin
@@ -120,6 +128,8 @@ Copy into discord before sleep:
         Mage trinket(or ring?), frostbolt has 10% chance of making next fireball instant
         Mage trinket(or ring?), blizzard has a chance to make next flamestrike instant
         Mage trinket(or ring?), arcane explosion 4x dmg but 30s cd
+        Mage bracer, Arcane Bolt, increases spell crit rate by 5% for 10s, 30-60s CD
+        Mage bracer, Frostfire Bolt(500 fire damage, 500 frost damage), increases spell crit rate by 5% for 10s, 30-60s CD
 
     Skillchain "combos" via debuffs being applied from certain skills (i.e. Holy Strike debuffs enemy so that any fire spell afterwards within 5 seconds "sets it on fire" to burn for fire damage over x seconds)
         Lower targets armor
@@ -130,14 +140,18 @@ Copy into discord before sleep:
         AoE mana % regen buff to allies (Shield of the Righteous + Frost Spell)
 
     Cooked fish buff stats
+    headhunting spear drop rate / stats
     prince kellen (14225) insane dmg or delay
+    Hayoc insane damage (also gave 0  exp? exp_multiplier column?)
     Add Frostbolt / Fireball proc necks to custom level 40 mage quest (Fireball one should only be 50% damage)
     Hammer of the Righteous require 1h weapon
     https://www.wowhead.com/spell=184575/blade-of-justice icon for holy strike
-    need new 2h, level bsm?
     call places to get rid of books (Church here # (954) 987-7050)
     call about safe
-    ORDER TWO+ USB TO USB CABLES OR A CONVERTER FROM POWER TO USB MONOPRICE
+    call electricians 
+    Clothes to goodwill
+    Uhaul hitch + trailer rental
+    alterac >  desolace > arathi sea quests
     LEARN SKILLS
 
 pull:
@@ -146,3 +160,11 @@ pull:
 
 bugs:
     Deep Ocean, Vast Sea looting lockboxes works properly duo, other stuff doesn't
+
+
+agi pots from bank send to bank char
+searing hatchling never elite?
+plans: blue glittering axe drop rate
+consecration sigil vendor costs 
+crushridge brute damage too high
+lord aliden perenolde should be alterac mountains for quest zone
