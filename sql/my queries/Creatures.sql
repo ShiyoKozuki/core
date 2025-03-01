@@ -105,9 +105,18 @@ UPDATE `mangos`.`creature` SET `spawntimesecsmin`=300, `spawntimesecsmax`=300 WH
 UPDATE `mangos`.`creature` SET `wander_distance`=25 WHERE `id`=5466;
 UPDATE `mangos`.`creature` SET `wander_distance`=0 WHERE `id`=5467;
 
--- Cost Strider / Deep Dweller attack speed/attack rate
+-- Coast Strider / Deep Dweller attack speed/attack rate
 UPDATE `mangos`.`creature_template` SET `base_attack_time`=3000 WHERE  `entry`=5466 AND `patch`=0;
 UPDATE `mangos`.`creature_template` SET `base_attack_time`=3000 WHERE  `entry`=5467 AND `patch`=0;
+
+-- Crushridge Brute damage multiplier
+UPDATE `mangos`.`creature_template` SET `damage_multiplier`=1.256 WHERE  `entry`=2253 AND `patch`=0;
+
+-- Prince Kellen attack speed/attack rate and damage multiplier
+UPDATE `mangos`.`creature_template` SET `damage_multiplier`=2.5, `base_attack_time`=3000, `ranged_attack_time`=3000 WHERE  `entry`=14225 AND `patch`=0;
+
+-- Hayoc attack speed/attack rate and damage multiplier
+UPDATE `mangos`.`creature_template` SET `damage_multiplier`=2.5, `base_attack_time`=3000, `ranged_attack_time`=3000 WHERE  `entry`=14234 AND `patch`=0;
 
 -- The Husk attack speed/attack rate and damage multiplier
 UPDATE `mangos`.`creature_template` SET `damage_multiplier`=4.0, `base_attack_time`=3000, `ranged_attack_time`=3000 WHERE  `entry`=1851 AND `patch`=0;

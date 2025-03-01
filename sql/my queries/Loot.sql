@@ -64,7 +64,7 @@ WHERE item IN(7912) AND maxcount > 1;
 -- 0.1%
 UPDATE mangos . creature_loot_template
 SET ChanceOrQuestChance = 0.1
-WHERE item IN(13490);
+WHERE item IN(13490, 7992);
 
 -- 0.5%
 UPDATE mangos . creature_loot_template
