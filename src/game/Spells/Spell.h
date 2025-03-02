@@ -361,7 +361,7 @@ class Spell
         SpellCastResult CheckCasterAuras() const;
 
         float CalculateDamage(SpellEffectIndex i, Unit* target) { return m_caster->CalculateSpellEffectValue(target, m_spellInfo, i, &m_currentBasePoints[i], this); }
-        static uint32 CalculatePowerCost(SpellEntry const* spellInfo, Unit* caster, Spell* spell = nullptr, Item* castItem = nullptr, bool casting = true);
+        static uint32 CalculatePowerCost(SpellEntry const* spellInfo, Unit* caster, Spell* spell = nullptr, Item* castItem = nullptr, bool dropModCharge = true);
 
         bool HaveTargetsForEffect(SpellEffectIndex effect) const;
         void Delayed();
@@ -473,7 +473,7 @@ class Spell
 
         void AddChanneledAuraHolder(SpellAuraHolder* holder);
         void RemoveChanneledAuraHolder(SpellAuraHolder* holder, AuraRemoveMode mode);
-
+        void UpdateCastStartPosition();
         void Delete() const;
 
         bool HasModifierApplied(SpellModifier* mod);
@@ -498,7 +498,6 @@ class Spell
         void SendLoot(ObjectGuid guid, LootType loottype, LockType lockType);
         bool IgnoreItemRequirements() const;                // some item use spells have unexpected reagent data
         void UpdateOriginalCasterPointer();
-        void UpdateCastStartPosition();
 
         ObjectGuid m_originalCasterGUID;                    // real source of cast (aura caster/etc), used for spell targets selection
                                                             // e.g. damage around area spell trigered by victim aura and damage enemies of aura caster
