@@ -141,13 +141,15 @@ Copy into discord before sleep:
     call places to get rid of books (Church here # (954) 987-7050)
     call about safe
     call electricians 
-    Clothes to goodwill
-    Uhaul hitch + trailer rental
-    alterac >  desolace > arathi sea quests
+
+
+    arathi sea quests - > badlands - > STV
     add hitch
     call uhaul for hith + how long i have to reserve in advance for what I want and ask about if car can tow the trailer 
-    call library
+    call salvation army nearby if they take canned food
+    pull repo and update   
     clean ac filters
+    put away pizza
 
 pull:
     https://github.com/vmangos/core/pull/2900
