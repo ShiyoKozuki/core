@@ -3921,6 +3921,14 @@ SET quality = 3,
     stat_value1 = 15
 WHERE entry = 7942;
 
+-- Massive Iron Axe
+UPDATE mangos . item_template
+SET quality = 3,
+    required_level = 35,
+    dmg_min1 = 92,
+    dmg_max1 = 152
+WHERE entry = 3855;
+
 -- Shadow Crescent Axe
 UPDATE mangos . item_template
 SET quality = 3,
@@ -7242,6 +7250,48 @@ SET delay = 3400,
 WHERE entry = 18538;
 
 -- Quest Rewards
+
+-- Guerrilla Cleaver
+UPDATE mangos . item_template
+SET dmg_min1 = 54,
+    dmg_max1 = 114
+WHERE entry = 4126;
+
+-- Grom'gol Buckler
+UPDATE mangos . item_template
+SET armor = 920,
+    block = 17
+WHERE entry = 4115;
+
+-- Rock Pulverizer
+UPDATE mangos . item_template
+SET quality = 3,
+    dmg_min1 = 113,
+    dmg_max1 = 183
+WHERE entry = 4983;
+
+-- Razzeric's Customized Seatbelt
+UPDATE mangos . item_template
+SET quality = 3,
+    stat_type1 = 6,
+    stat_value1 = 6,
+    stat_type2 = 0,
+    stat_value2 = 0,
+    spellid_1 = 9417, -- +12 spell damage
+    spelltrigger_1 = 1
+WHERE entry = 6726;
+
+-- Razzeric's Racing Grips
+UPDATE mangos . item_template
+SET spellid_1 = 15464, -- +1% Physical Hit
+    spelltrigger_1 = 1
+WHERE entry = 6727;
+
+-- Dustfall Robes
+UPDATE mangos . item_template
+SET spellid_1 = 7680, -- +13 Healing
+    spelltrigger_1 = 1
+WHERE entry = 15455;
 
 -- Sanguine Pauldrons
 UPDATE mangos . item_template
