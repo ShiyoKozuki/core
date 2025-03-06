@@ -48,6 +48,78 @@
 --     MAX_SPELLMOD                    = 29,
 -- };
 
+-- EquippedItemClass
+
+-- enum ItemClass
+-- {
+--     ITEM_CLASS_CONSUMABLE                       = 0,
+--     ITEM_CLASS_CONTAINER                        = 1,
+--     ITEM_CLASS_WEAPON                           = 2,
+--     ITEM_CLASS_GEM                              = 3,
+--     ITEM_CLASS_ARMOR                            = 4,
+--     ITEM_CLASS_REAGENT                          = 5,
+--     ITEM_CLASS_PROJECTILE                       = 6,
+--     ITEM_CLASS_TRADE_GOODS                      = 7,
+--     ITEM_CLASS_GENERIC                          = 8,
+--     ITEM_CLASS_RECIPE                           = 9,
+--     ITEM_CLASS_MONEY                            = 10,
+--     ITEM_CLASS_QUIVER                           = 11,
+--     ITEM_CLASS_QUEST                            = 12,
+--     ITEM_CLASS_KEY                              = 13,
+--     ITEM_CLASS_PERMANENT                        = 14,
+--     ITEM_CLASS_JUNK                             = 15
+-- };
+
+-- EquippedItemSubClassMask
+
+-- enum ItemSubclassWeapon
+-- {
+--     ITEM_SUBCLASS_WEAPON_AXE                    = 0,
+--     ITEM_SUBCLASS_WEAPON_AXE2                   = 1,
+--     ITEM_SUBCLASS_WEAPON_BOW                    = 2,
+--     ITEM_SUBCLASS_WEAPON_GUN                    = 3,
+--     ITEM_SUBCLASS_WEAPON_MACE                   = 4,
+--     ITEM_SUBCLASS_WEAPON_MACE2                  = 5,
+--     ITEM_SUBCLASS_WEAPON_POLEARM                = 6,
+--     ITEM_SUBCLASS_WEAPON_SWORD                  = 7,
+--     ITEM_SUBCLASS_WEAPON_SWORD2                 = 8,
+--     ITEM_SUBCLASS_WEAPON_obsolete               = 9,
+--     ITEM_SUBCLASS_WEAPON_STAFF                  = 10,
+--     ITEM_SUBCLASS_WEAPON_EXOTIC                 = 11,
+--     ITEM_SUBCLASS_WEAPON_EXOTIC2                = 12,
+--     ITEM_SUBCLASS_WEAPON_FIST                   = 13,
+--     ITEM_SUBCLASS_WEAPON_MISC                   = 14,
+--     ITEM_SUBCLASS_WEAPON_DAGGER                 = 15,
+--     ITEM_SUBCLASS_WEAPON_THROWN                 = 16,
+--     ITEM_SUBCLASS_WEAPON_SPEAR                  = 17,
+--     ITEM_SUBCLASS_WEAPON_CROSSBOW               = 18,
+--     ITEM_SUBCLASS_WEAPON_WAND                   = 19,
+--     ITEM_SUBCLASS_WEAPON_FISHING_POLE           = 20
+-- };
+
+-- enum ItemSubclassArmor
+-- {
+--     ITEM_SUBCLASS_ARMOR_MISC                    = 0,
+--     ITEM_SUBCLASS_ARMOR_CLOTH                   = 1,
+--     ITEM_SUBCLASS_ARMOR_LEATHER                 = 2,
+--     ITEM_SUBCLASS_ARMOR_MAIL                    = 3,
+--     ITEM_SUBCLASS_ARMOR_PLATE                   = 4,
+--     ITEM_SUBCLASS_ARMOR_BUCKLER                 = 5,
+--     ITEM_SUBCLASS_ARMOR_SHIELD                  = 6,
+--     ITEM_SUBCLASS_ARMOR_LIBRAM                  = 7,
+--     ITEM_SUBCLASS_ARMOR_IDOL                    = 8,
+--     ITEM_SUBCLASS_ARMOR_TOTEM                   = 9
+-- };
+
+-- enum ItemSubclassProjectile
+-- {
+--     ITEM_SUBCLASS_WAND                          = 0,        // ABS
+--     ITEM_SUBCLASS_BOLT                          = 1,        // ABS
+--     ITEM_SUBCLASS_ARROW                         = 2,
+--     ITEM_SUBCLASS_BULLET                        = 3,
+--     ITEM_SUBCLASS_THROWN                        = 4         // ABS
+-- };
+
 -- For effectApplyAuraName1 13 and 135 all damage and healing is effectMiscValue1 126 (mask for all magic schools (non-physical))
 -- MP/5s is SPELL_AURA_MOD_POWER_REGEN = 85
 
@@ -857,7 +929,7 @@ UPDATE `mangos`.`spell_template` SET `reagent4`=7078, `reagent5`=7082, `reagent6
     -- VALUES (33453, 5464, 1, 1, 65536, 512, 67108864, 1, 8000, 139944, 100, 2, 40, 40, 2, -1, 19, 0, 0, -1, 6, 8, 7660, 2044, 'Hammer of the Righteous', 4128830, 'Rank 1', 4128830, 'Gives you an extra attack that deals Holy damage.', 4128830, 4128830, 133, 1500, 2, 2, 1, 1, 128);
 
     REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `castingTimeIndex`, `recoveryTime`, `procChance`, `baseLevel`, `spellLevel`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectRealPointsPerLevel1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `manaCostPercentage`, `startRecoveryCategory`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) 
-    VALUES (33453, 4297, 1, 262160, 1, 8000, 101, 1, 1, 2, -1, -1, 58, 1, 1, 2, 1, 1, -1, -1, 6, 322, 2044, 'Hammer of the Righteous', 983070, 983068, 'Gives you an extra attack that deals Holy damage.', 983070, 983068, 12 , 133, 1, 1, -1, 1, 1, 1);
+    VALUES (33453, 4297, 1, 262160, 1, 8000, 101, 1, 1, 2, 2, 41105, 58, 1, 1, 2, 1, 1, -1, -1, 6, 322, 2044, 'Hammer of the Righteous', 983070, 983068, 'Gives you an extra attack that deals Holy damage.', 983070, 983068, 12 , 133, 1, 1, -1, 1, 1, 1);
     UPDATE `mangos`.`spell_template` SET `nameSubtext`='Rank 1' WHERE  `entry`=33453;
     UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.30 WHERE  `entry`=33453;
 
