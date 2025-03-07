@@ -43,6 +43,7 @@ spell ai:
     Darkfang Spider (web)
     darkmist spider (Poison)
     Darkmist Silkspinner (web)
+    sorrow spinner (Web)
     hatefury shadowstalker (gouge and exploit weakness)
     hatefury hellcaller (rain of fire)
     Slitherblade Razortail (localized toxin)
@@ -56,10 +57,12 @@ spell ai:
     darkfang creeper (slowing poison)
     drywallow daggermaw (pierce armor)
     doomwarder captain(ignite)
+    woodpaw mongrel (contagion of rot)
+    woodpaw trapper (net)
     
 Mage:
-    31 point arcane enchanted quickness or whatever Defias Enchanters cast
-    31 point arcane talents give mage healing spells
+    Arcane:
+        31 point arcane talents give mage healing spells
 
 Warlock:
     +20% swim speed on underwater breathing
@@ -115,18 +118,22 @@ Copy into discord before sleep:
     High level ashenvale quests!
     More 2h maces from quests rewards 20+
     Crusader strike should proc a spell on successful physical hit that restores mana via energize instead of current implementation
+    Holy Wrath instant cast
     Libram of Cleansing that does something for cleanse/purify
-    Libram of Wrath, restore 10% of HP and MP if hammer of wrath gets a killing blow
+    Libram of Wrath, restore 10% of HP and MP if hammer of wrath gets a killing blow (Check the rogue on kill talent for +40% crit on ss/backstab)
     Libram for Judgement of Justice that increases it's duration to 1m and makes it reduce enemies attack speed by 15%
     New gear for classes that change classes rotations or something to upkeep(like libram of judgement). Mainly for mage and paladin
         Mage trinket(or ring?), scorch gives you a 20 spellpower buff for 1m, stacking up to 5 times for 1m
-        Mage trinket(or ring?), pyroblast ???
         Mage trinket(or ring?), frostbolt has 10% chance of making next fireball instant
-        Mage trinket(or ring?), blizzard has a chance to make next flamestrike instant
+        Mage trinket(or ring?), blizzard reduces the cast time of your flamestrike by 25%
         Mage trinket(or ring?), arcane explosion 4x dmg but 30s cd
-        Mage bracer, Arcane Bolt, increases spell crit rate by 5% for 10s, 30-60s CD
-        Mage bracer, Frostfire Bolt(500 fire damage, 500 frost damage), increases spell crit rate by 5% for 10s, 30-60s CD
-
+        Mage trinket(or ring?), cone of cold increases the damage of your next blizzard by 20%, stacking up to 5 times, infinite duration
+        Mage wand, Frostfire Bolt(500 fire damage, 500 frost damage), increases spell crit rate by 5% for 10s, 30-60s CD
+        Mage wand grants Arcane Bolt, 30s CD 700-900 damage and lowers enemies resistances to fire, frost, and arcane by 200 for 15s
+        Mage ring, Fireball increases the DoT damage of your nect pyroblast by 50% stacking up to 4 times, infinite duration
+        Mage ring, using a mana gem gives spell dmg for x seconds.
+        Mage weapon, grants arcane enchanted quickness or whatever Defias Enchanters cast
+        Mage bracer with 5% mana regen while combat(copy stargazer cloak?), fireblast gives 10 spiri stacking up to 5 times. 30 second duration. 
     Skillchain "combos" via debuffs being applied from certain skills (i.e. Holy Strike debuffs enemy so that any fire spell afterwards within 5 seconds "sets it on fire" to burn for fire damage over x seconds)
         Lower targets armor
         Lower targets damage
@@ -137,20 +144,18 @@ Copy into discord before sleep:
 
     Cooked fish buff stats
     Hammer of the Righteous require 1h weapon
-    https://www.wowhead.com/spell=184575/blade-of-justice icon for holy strike
-    call places to get rid of books (Church here # (954) 987-7050)
-    call about safe
-    call electricians 
-    PUT OUT TRASH
 
-
-    arathi sea quests - > badlands - > STV
-    add hitch
-    call uhaul for hith + how long i have to reserve in advance for what I want and ask about if car can tow the trailer 
-    call salvation army nearby if they take canned food
+    badlands - > swamp of sorrows - > STV
     pull repo and update   
     clean ac filters
-    put away pizza
+    edit tirisfal whiskey - custom all stat buff (Custom icon too?)
+    Nerf rank2+ Judgement of the Crusader by ~10%
+    craft azure shoulderpads
+    50 mage quest for fireball bracers
+    when do i lose dumpster?
+    take water out of fridge
+    call for someone to come thursday
+    LEARN SKILLS
 
 pull:
     https://github.com/vmangos/core/pull/2900
@@ -158,3 +163,17 @@ pull:
 
 bugs:
     Deep Ocean, Vast Sea looting lockboxes works properly duo, other stuff doesn't
+
+Uhaul:
+    U-Haul Moving & Storage of West Park Fl, 2033 S State Rd 7, West Park, FL 33023
+    Maryann Creasy
+    wed 12th 11 am hitch
+    $525 (hitch)
+    $399 (trailer)
+    $926 total
+
+
+    11th by 6 pm will call me
+    do check in with app
+
+
