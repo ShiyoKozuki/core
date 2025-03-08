@@ -541,27 +541,27 @@ UPDATE `mangos`.`spell_template` SET `reagent4`=7078, `reagent5`=7082, `reagent6
     -- Spell:
     REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `attributesEx`, `attributesEx3`, `castingTimeIndex`, `procChance`, `baseLevel`, `spellLevel`, `manaCost`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `customFlags`) 
     VALUES (33409, 4695, 1, 327700, 134217728, 1024, 1, 101, 6, 6, 40, 2, 2, 173555, 58, 1, 1, 
-    10, 1, -1, -1, 6, 39, 2045, 50, 'Holy Strike', 2031678, 'Rank 1', 2031678, 'A strong attack that converts your attack into holy damage and adds $s1 holy damage.', 2031678, 2031644, 4, 64, 2, 2, -1, 1, 1, 1, 128);
+    10, 1, -1, -1, 6, 39, 2045, 50, 'Holy Strike', 2031678, 'Rank 1', 2031678, 'A strong attack that converts your attack into Holy damage and adds $s1 Holy damage.', 2031678, 2031644, 4, 64, 2, 2, -1, 1, 1, 1, 128);
 
     REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `attributesEx`, `attributesEx3`, `castingTimeIndex`, `procChance`, `baseLevel`, `spellLevel`, `manaCost`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `customFlags`) 
     VALUES (33410, 4695, 1, 327700, 134217728, 1024, 1, 101, 16, 16, 50, 2, 2, 173555, 58, 1, 1, 
-    15, 1, -1, -1, 6, 39, 2045, 50, 'Holy Strike', 2031678, 'Rank 2', 2031678, 'A strong attack that converts your attack into holy damage and adds $s1 holy damage.', 2031678, 2031644, 4, 64, 2, 2, -1, 1, 1, 1, 128);
+    15, 1, -1, -1, 6, 39, 2045, 50, 'Holy Strike', 2031678, 'Rank 2', 2031678, 'A strong attack that converts your attack into Holy damage and adds $s1 Holy damage.', 2031678, 2031644, 4, 64, 2, 2, -1, 1, 1, 1, 128);
 
     REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `attributesEx`, `attributesEx3`, `castingTimeIndex`, `procChance`, `baseLevel`, `spellLevel`, `manaCost`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `customFlags`) 
     VALUES (33411, 4695, 1, 327700, 134217728, 1024, 1, 101, 26, 26, 60, 2, 2, 173555, 58, 1, 1, 
-    21, 1, -1, -1, 6, 39, 2045, 50, 'Holy Strike', 2031678, 'Rank 3', 2031678, 'A strong attack that converts your attack into holy damage and adds $s1 holy damage.', 2031678, 2031644, 4, 64, 2, 2, -1, 1, 1, 1, 128);
+    21, 1, -1, -1, 6, 39, 2045, 50, 'Holy Strike', 2031678, 'Rank 3', 2031678, 'A strong attack that converts your attack into Holy damage and adds $s1 Holy damage.', 2031678, 2031644, 4, 64, 2, 2, -1, 1, 1, 1, 128);
 
     REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `attributesEx`, `attributesEx3`, `castingTimeIndex`, `procChance`, `baseLevel`, `spellLevel`, `manaCost`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `customFlags`) 
     VALUES (33412, 4695, 1, 327700, 134217728, 1024, 1, 101, 36, 36, 70, 2, 2, 173555, 58, 1, 1, 
-    28, 1, -1, -1, 6, 39, 2045, 50, 'Holy Strike', 2031678, 'Rank 4', 2031678, 'A strong attack that converts your attack into holy damage and adds $s1 holy damage.', 2031678, 2031644, 4, 64, 2, 2, -1, 1, 1, 1, 128);
+    28, 1, -1, -1, 6, 39, 2045, 50, 'Holy Strike', 2031678, 'Rank 4', 2031678, 'A strong attack that converts your attack into Holy damage and adds $s1 Holy damage.', 2031678, 2031644, 4, 64, 2, 2, -1, 1, 1, 1, 128);
 
     REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `attributesEx`, `attributesEx3`, `castingTimeIndex`, `procChance`, `baseLevel`, `spellLevel`, `manaCost`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `customFlags`) 
     VALUES (33413, 4695, 1, 327700, 134217728, 1024, 1, 101, 46, 46, 140, 2, 2, 173555, 58, 1, 1, 
-    54, 1, -1, -1, 6, 39, 2045, 50, 'Holy Strike', 2031678, 'Rank 5', 2031678, 'A strong attack that converts your attack into holy damage and adds $s1 holy damage.', 2031678, 2031644, 4, 64, 2, 2, -1, 1, 1, 1, 128);
+    54, 1, -1, -1, 6, 39, 2045, 50, 'Holy Strike', 2031678, 'Rank 5', 2031678, 'A strong attack that converts your attack into Holy damage and adds $s1 Holy damage.', 2031678, 2031644, 4, 64, 2, 2, -1, 1, 1, 1, 128);
 
     REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `attributesEx`, `attributesEx3`, `castingTimeIndex`, `procChance`, `baseLevel`, `spellLevel`, `manaCost`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `customFlags`) 
     VALUES (33414, 4695, 1, 327700, 134217728, 1024, 1, 101, 56, 56, 150, 2, 2, 173555, 58, 1, 1, 
-    68, 1, -1, -1, 6, 39, 2045, 50, 'Holy Strike', 2031678, 'Rank 6', 2031678, 'A strong attack that converts your attack into holy damage and adds $s1 holy damage.', 2031678, 2031644, 4, 64, 2, 2, -1, 1, 1, 1, 128);
+    68, 1, -1, -1, 6, 39, 2045, 50, 'Holy Strike', 2031678, 'Rank 6', 2031678, 'A strong attack that converts your attack into Holy damage and adds $s1 Holy damage.', 2031678, 2031644, 4, 64, 2, 2, -1, 1, 1, 1, 128);
 
     -- Skill line ability:
     REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`) VALUES (15039, 5875, 184, 33409, 2, 1);
@@ -686,7 +686,7 @@ UPDATE `mangos`.`spell_template` SET `reagent4`=7078, `reagent5`=7082, `reagent6
         VALUES (
             33427, 5464, 1, 971, 327696, 134218240, 1, 10000, 101, 30, 30, 1, 125, 2, 4, 64,
             6, 2, 1, 1, 1, 1, 19, 0, -1, -1, 1, 6, 101, 0, 1, 1, 42, 2036, 'Shield of the Righteous', 
-            4128830, 'Rank 1', 4128830, 'Slam the target with your shield, causing $s2 holy damage, modified by your shield block value and increasing your armor by 20% for 10 seconds.', 
+            4128830, 'Rank 1', 4128830, 'Slam the target with your shield, causing $s2 Holy damage, modified by your shield block value and increasing your armor by 20% for 10 seconds.', 
             2031678, 4128812, 133, 1500, 4, 4328521728, 2, 2, 1, 1, 1, 128
         );
         UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=19, `effectBasePoints2`=149, `effectMiscValue2`=0, `auraDescription`='Armor increaed by $s1%.' WHERE  `entry`=33427 AND `build`=5464;
@@ -707,7 +707,7 @@ UPDATE `mangos`.`spell_template` SET `reagent4`=7078, `reagent5`=7082, `reagent6
         VALUES (
             33429, 5464, 1, 971, 327696, 134218240, 1, 10000, 101, 38, 38, 1, 150, 2, 4, 64,
             6, 2, 1, 1, 1, 1, 19, 0, -1, -1, 1, 6, 101, 0, 1, 1, 42, 2036, 'Shield of the Righteous', 
-            4128830, 'Rank 2', 4128830, 'Slam the target with your shield, causing $s2 holy damage, modified by your shield block value and increasing your armor by 20% for 10 seconds.', 
+            4128830, 'Rank 2', 4128830, 'Slam the target with your shield, causing $s2 Holy damage, modified by your shield block value and increasing your armor by 20% for 10 seconds.', 
             2031678, 4128812, 133, 1500, 4, 4328521728, 2, 2, 1, 1, 1, 128
         );
         UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=19, `effectBasePoints2`=199, `effectMiscValue2`=0, `auraDescription`='Armor increaed by $s1%.' WHERE  `entry`=33429 AND `build`=5464;
@@ -728,7 +728,7 @@ UPDATE `mangos`.`spell_template` SET `reagent4`=7078, `reagent5`=7082, `reagent6
         VALUES (
             33430, 5464, 1, 971, 327696, 134218240, 1, 10000, 101, 46, 46, 1, 175, 2, 4, 64,
             6, 2, 1, 1, 1, 1, 19, 0, -1, -1, 1, 6, 101, 0, 1, 1, 42, 2036, 'Shield of the Righteous', 
-            4128830, 'Rank 3', 4128830, 'Slam the target with your shield, causing $s2 holy damage, modified by your shield block value and increasing your armor by 20% for 10 seconds.', 
+            4128830, 'Rank 3', 4128830, 'Slam the target with your shield, causing $s2 Holy damage, modified by your shield block value and increasing your armor by 20% for 10 seconds.', 
             2031678, 4128812, 133, 1500, 4, 4328521728, 2, 2, 1, 1, 1, 128
         );
         UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=19, `effectBasePoints2`=249, `effectMiscValue2`=0, `auraDescription`='Armor increaed by $s1%.' WHERE  `entry`=33430 AND `build`=5464;
@@ -749,7 +749,7 @@ UPDATE `mangos`.`spell_template` SET `reagent4`=7078, `reagent5`=7082, `reagent6
         VALUES (
             33431, 5464, 1, 971, 327696, 134218240, 1, 10000, 101, 52, 52, 1, 200, 2, 4, 64,
             6, 2, 1, 1, 1, 1, 19, 0, -1, -1, 1, 6, 101, 0, 1, 1, 42, 2036, 'Shield of the Righteous', 
-            4128830, 'Rank 4', 4128830, 'Slam the target with your shield, causing $s2 holy damage, modified by your shield block value and increasing your armor by 20% for 10 seconds.', 
+            4128830, 'Rank 4', 4128830, 'Slam the target with your shield, causing $s2 Holy damage, modified by your shield block value and increasing your armor by 20% for 10 seconds.', 
             2031678, 4128812, 133, 1500, 4, 4328521728, 2, 2, 1, 1, 1, 128
         );
         UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=19, `effectBasePoints2`=299, `effectMiscValue2`=0, `auraDescription`='Armor increaed by $s1%.' WHERE  `entry`=33431 AND `build`=5464;
@@ -770,7 +770,7 @@ UPDATE `mangos`.`spell_template` SET `reagent4`=7078, `reagent5`=7082, `reagent6
         VALUES (
             33432, 5464, 1, 971, 327696, 134218240, 1, 10000, 101, 58, 58, 1, 225, 2, 4, 64,
             6, 2, 1, 1, 1, 1, 19, 0, -1, -1, 1, 6, 101, 0, 1, 1, 42, 2036, 'Shield of the Righteous', 
-            4128830, 'Rank 5', 4128830, 'Slam the target with your shield, causing $s2 holy damage, modified by your shield block value and increasing your armor by 20% for 10 seconds.', 
+            4128830, 'Rank 5', 4128830, 'Slam the target with your shield, causing $s2 Holy damage, modified by your shield block value and increasing your armor by 20% for 10 seconds.', 
             2031678, 4128812, 133, 1500, 4, 4328521728, 2, 2, 1, 1, 1, 128
         );
         UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=19, `effectBasePoints2`=349, `effectMiscValue2`=0, `auraDescription`='Armor increaed by $s1%.' WHERE  `entry`=33432 AND `build`=5464;
