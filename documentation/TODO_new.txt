@@ -59,6 +59,9 @@ spell ai:
     doomwarder captain(ignite)
     woodpaw mongrel (contagion of rot)
     woodpaw trapper (net)
+    hatecrest wave rider (casts geyser thing without distance check)
+    hatecrest siren (dominate mind, casts very early)
+    hatecrest myrmidon (net)
     
 Mage:
     Arcane:
@@ -150,12 +153,12 @@ Copy into discord before sleep:
     clean ac filters
     edit tirisfal whiskey - custom all stat buff (Custom icon too?)
     Nerf rank2+ Judgement of the Crusader by ~10%
-    craft azure shoulderpads
     50 mage quest for fireball bracers
-    when do i lose dumpster?
-    take water out of fridge
+    make spectrum acct
     call for someone to come thursday
+    send boss hours
     LEARN SKILLS
+    American Family insurance- his name is Vince Bellante, vbellant@amfam.com
 
 pull:
     https://github.com/vmangos/core/pull/2900
