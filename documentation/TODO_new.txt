@@ -176,13 +176,11 @@ Copy into discord before sleep:
     close shed in back
     dl ffxi char back up
     change the one moose quest to be different ones in azshara its in quests.sql
-    change spectrum 4 digit code thing
-    PUT TRASH OUT WITH MORE CANS
-    plug in freezer
-    commit stuff in all git repos including the ffxi mob editor one very important!
-    make sure internet is being shipped
-    make account at WE anergies and check stuff
     add level 50 mage bracer quest with fireblast bonus
+
+    make sure internet is being shipped on 15th
+    make account at WE anergies and check stuff
+    back up stuff onto HDD's, back up pws onto keypass, back up char cards
 
 
 pull:
