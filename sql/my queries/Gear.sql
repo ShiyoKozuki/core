@@ -7251,6 +7251,70 @@ WHERE entry = 18538;
 
 -- Quest Rewards
 
+-- Southsea Head Bucket
+UPDATE mangos . item_template
+SET armor = 520
+WHERE entry = 20640;
+
+-- Shizzle's Muzzle (Shizzle's Flyer)
+UPDATE mangos . item_template
+SET armor = 150,
+    stat_type1 = 3,
+    stat_value1 = 6,
+    stat_type2 = 4,
+    stat_value2 = 6,
+    stat_type3 = 5,
+    stat_value3 = 6,
+    stat_type4 = 6,
+    stat_value4 = 6,
+    stat_type5 = 7,
+    stat_value5 = 6
+WHERE entry = 11916;
+
+-- Shizzle's Nozzle Wiper (Shizzle's Flyer) 11917
+UPDATE mangos . item_template
+SET stat_type1 = 5,
+    stat_value1 = 7,
+    stat_type2 = 6,
+    stat_value2 = 5,
+    stat_type3 = 0,
+    stat_value3 = 0,
+    spellid_1 = 9417, -- +12 spell damage
+    spelltrigger_1 = 1
+WHERE entry = 11917;
+
+-- Sentinel's Guard
+UPDATE mangos . item_template
+SET stat_type1 = 4,
+    stat_value1 = 9,
+    stat_type2 = 6,
+    stat_value2 = 6,
+    stat_type3 = 7,
+    stat_value3 = 12
+WHERE entry = 9664;
+
+-- Maddening Gauntlets
+UPDATE mangos . item_template
+SET quality = 3,
+    stat_type1 = 5,
+    stat_value1 = 9,
+    stat_type2 = 0,
+    stat_value2 = 0,
+    spellid_1 = 15807, -- +32 Attack Power
+    spelltrigger_1 = 1,
+    spellid_2 = 15464, -- +1% Physical Hit
+    spelltrigger_2 = 1
+WHERE entry = 11867;
+
+-- Choking Band
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 21363, -- 5 MP/5
+    spelltrigger_1 = 1,
+    spellid_2 = 9331, -- +20 Attack Power
+    spelltrigger_2 = 1
+WHERE entry = 11868;
+
 -- Guerrilla Cleaver
 UPDATE mangos . item_template
 SET dmg_min1 = 54,

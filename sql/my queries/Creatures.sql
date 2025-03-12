@@ -46,6 +46,10 @@ WHERE display_id IN(59, 60, 12170);
     UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.6, `damage_multiplier`=0.4 WHERE  `entry`=7858 AND `patch`=0;
     -- Southsea Pirate
     UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.5, `damage_multiplier`=0.5 WHERE  `entry`=7855 AND `patch`=0;
+    -- Southsea Dock Worker
+    UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.6, `damage_multiplier`=0.45 WHERE  `entry`=7857 AND `patch`=0;
+    -- Southsea Freebooter
+    UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.6, `damage_multiplier`=0.5 WHERE  `entry`=7856 AND `patch`=0;
 
     -- Scarlet Lumberjack
     UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.7, `damage_multiplier`=0.5 WHERE  `entry`=1884 AND `patch`=0;

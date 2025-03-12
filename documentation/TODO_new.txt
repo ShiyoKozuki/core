@@ -100,6 +100,7 @@ gnoll war harness drop rate
 add more librams at lower level (quests/boss drops). Add to any quest that has a wand as the only weapon reward!
 Buff The Peoples Militia quest weapons
 buff Coral Claymore and make it blue (unique drop off Slark, a rare?)
+Greater Firebird Crimson Fury(?). Was enfire effect!
 
 
 
@@ -137,6 +138,21 @@ Copy into discord before sleep:
         Mage ring, using a mana gem gives spell dmg for x seconds.
         Mage weapon, grants arcane enchanted quickness or whatever Defias Enchanters cast
         Mage bracer with 5% mana regen while combat(copy stargazer cloak?), fireblast gives 10 spiri stacking up to 5 times. 30 second duration. 
+
+    Weapon effects:
+        2h Axe with Ravager proc on use
+        2h Sword with cleaving bleed
+        2h Mace with cast time physical attack (like slam) that ends with AOE physical damage
+        1h Sword physical attack that generates rage/energy
+        1h Axe +20% attack speed buff not 100% uptime
+        1h Axe "boomerang" attack that hits twice
+        1h Mace AOE HP/mana/energy/rage restore
+        Dagger attack with Kingsbane (+poison proc and +poison dmg for x seconds) 1-2m CD
+        Dagger life drain attack that has low base spell damage but 100% coefficient scaling
+        Fist attack with physical attack that hits 8 times (channeled?)
+        Polearm with buff that increases parry/dodge/max hp (100% uptime)?
+        Staff with ???
+    
     Skillchain "combos" via debuffs being applied from certain skills (i.e. Holy Strike debuffs enemy so that any fire spell afterwards within 5 seconds "sets it on fire" to burn for fire damage over x seconds)
         Lower targets armor
         Lower targets damage
@@ -155,10 +171,19 @@ Copy into discord before sleep:
     Nerf rank2+ Judgement of the Crusader by ~10%
     50 mage quest for fireball bracers
     make spectrum acct
-    call for someone to come thursday
-    send boss hours
-    LEARN SKILLS
+    call craigslist people to come thursday
     American Family insurance- his name is Vince Bellante, vbellant@amfam.com
+    close shed in back
+    dl ffxi char back up
+    change the one moose quest to be different ones in azshara its in quests.sql
+    change spectrum 4 digit code thing
+    PUT TRASH OUT WITH MORE CANS
+    plug in freezer
+    commit stuff in all git repos including the ffxi mob editor one very important!
+    make sure internet is being shipped
+    make account at WE anergies and check stuff
+    add level 50 mage bracer quest with fireblast bonus
+
 
 pull:
     https://github.com/vmangos/core/pull/2900
@@ -179,4 +204,7 @@ Uhaul:
     11th by 6 pm will call me
     do check in with app
 
+WE Energies:
+    15 digit acct number
+        074688338100001
 
