@@ -34,7 +34,7 @@
 #include "Utilities/TypeList.h"
 #include "vmap/DynamicTree.h"
 #include "MoveSplineInitArgs.h"
-#include "WorldSession.h"
+#include "PacketProcessing.h"
 #include "SQLStorages.h"
 #include "ScriptCommands.h"
 #include "CreatureLinkingMgr.h"
@@ -47,6 +47,7 @@
 
 using Movement::Vector3;
 
+struct AreaTriggerEntry;
 struct CreatureInfo;
 class Creature;
 class Unit;
@@ -486,6 +487,8 @@ class Map : public GridRefManager<NGridType>
         bool ScriptCommandStartDirect(ScriptInfo const& script, WorldObject* source, WorldObject* target);
         // Removes all parts of script from the queue.
         void TerminateScript(ScriptAction const& step);
+        // Checks cooldown and starts script from areatrigger_scripts table.
+        void StartAreaTriggerScript(AreaTriggerEntry const* pTrigger, Player* pPlayer);
 
         // must called with AddToWorld
         void AddToActive(WorldObject* obj);
@@ -564,9 +567,9 @@ class Map : public GridRefManager<NGridType>
         GameObjectModel const* FindDynamicObjectCollisionModel(float x1, float y1, float z1, float x2, float y2, float z2);
 
         void Balance() { m_dynamicTree.balance(); }
-        void RemoveGameObjectModel(const GameObjectModel& model);
-        void InsertGameObjectModel(const GameObjectModel& model);
-        bool ContainsGameObjectModel(const GameObjectModel& model) const;
+        void RemoveGameObjectModel(GameObjectModel const& model);
+        void InsertGameObjectModel(GameObjectModel const& model);
+        bool ContainsGameObjectModel(GameObjectModel const& model) const;
         bool GetDynamicObjectHitPos(Vector3 start, Vector3 end, Vector3& out, float finalDistMod) const;
         float GetDynamicTreeHeight(float x, float y, float z, float maxSearchDist) const;
         bool CheckDynamicTreeLoS(float x1, float y1, float z1, float x2, float y2, float z2, bool ignoreM2Model) const;
@@ -721,6 +724,7 @@ class Map : public GridRefManager<NGridType>
         typedef std::multimap<time_t, ScriptAction> ScriptScheduleMap;
         mutable MapMutexType      m_scriptSchedule_lock;
         ScriptScheduleMap m_scriptSchedule;
+        std::unordered_map<uint32, time_t> m_areaTriggerCooldowns;
 
         InstanceData* m_data = nullptr;
         uint32 m_scriptId = 0;

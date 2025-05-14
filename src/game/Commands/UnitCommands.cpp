@@ -1416,8 +1416,9 @@ bool ChatHandler::HandleModifyStrengthCommand(char *args)
 
     PSendSysMessage(LANG_YOU_CHANGE_STR, pTarget->GetName(), amount);
 
-    if (needReportToTarget(pTarget->ToPlayer()))
-        ChatHandler(pTarget->ToPlayer()).PSendSysMessage(LANG_YOURS_STR_CHANGED, GetNameLink().c_str(), amount);
+    if (Player* pPlayer = pTarget->ToPlayer())
+        if (needReportToTarget(pPlayer))
+            pPlayer->PSendSysMessage(LANG_YOURS_STR_CHANGED, GetNameLink().c_str(), amount);
 
     return true;
 }
@@ -1452,8 +1453,9 @@ bool ChatHandler::HandleModifyAgilityCommand(char *args)
 
     PSendSysMessage(LANG_YOU_CHANGE_AGI, pTarget->GetName(), amount);
 
-    if (needReportToTarget(pTarget->ToPlayer()))
-        ChatHandler(pTarget->ToPlayer()).PSendSysMessage(LANG_YOURS_AGI_CHANGED, GetNameLink().c_str(), amount);
+    if (Player* pPlayer = pTarget->ToPlayer())
+        if (needReportToTarget(pTarget->ToPlayer()))
+            pPlayer->PSendSysMessage(LANG_YOURS_AGI_CHANGED, GetNameLink().c_str(), amount);
 
     return true;
 }
@@ -1491,8 +1493,9 @@ bool ChatHandler::HandleModifyStaminaCommand(char *args)
 
     PSendSysMessage(LANG_YOU_CHANGE_STA, pTarget->GetName(), amount);
 
-    if (needReportToTarget(pTarget->ToPlayer()))
-        ChatHandler(pTarget->ToPlayer()).PSendSysMessage(LANG_YOURS_STA_CHANGED, GetNameLink().c_str(), amount);
+    if (Player* pPlayer = pTarget->ToPlayer())
+        if (needReportToTarget(pTarget->ToPlayer()))
+            pPlayer->PSendSysMessage(LANG_YOURS_STA_CHANGED, GetNameLink().c_str(), amount);
 
     return true;
 }
@@ -1527,8 +1530,9 @@ bool ChatHandler::HandleModifyIntellectCommand(char *args)
 
     PSendSysMessage(LANG_YOU_CHANGE_INT, pTarget->GetName(), amount);
 
-    if (needReportToTarget(pTarget->ToPlayer()))
-        ChatHandler(pTarget->ToPlayer()).PSendSysMessage(LANG_YOURS_INT_CHANGED, GetNameLink().c_str(), amount);
+    if (Player* pPlayer = pTarget->ToPlayer())
+        if (needReportToTarget(pTarget->ToPlayer()))
+            pPlayer->PSendSysMessage(LANG_YOURS_INT_CHANGED, GetNameLink().c_str(), amount);
 
     return true;
 }
@@ -1563,8 +1567,9 @@ bool ChatHandler::HandleModifySpiritCommand(char *args)
 
     PSendSysMessage(LANG_YOU_CHANGE_SPI, pTarget->GetName(), amount);
 
-    if (needReportToTarget(pTarget->ToPlayer()))
-        ChatHandler(pTarget->ToPlayer()).PSendSysMessage(LANG_YOURS_SPI_CHANGED, GetNameLink().c_str(), amount);
+    if (Player* pPlayer = pTarget->ToPlayer())
+        if (needReportToTarget(pTarget->ToPlayer()))
+            pPlayer->PSendSysMessage(LANG_YOURS_SPI_CHANGED, GetNameLink().c_str(), amount);
 
     return true;
 }
@@ -1598,8 +1603,9 @@ bool ChatHandler::HandleModifyArmorCommand(char *args)
 
     PSendSysMessage(LANG_YOU_CHANGE_ARMOR, pTarget->GetName(), amount);
 
-    if (needReportToTarget(pTarget->ToPlayer()))
-        ChatHandler(pTarget->ToPlayer()).PSendSysMessage(LANG_YOURS_ARMOR_CHANGED, GetNameLink().c_str(), amount);
+    if (Player* pPlayer = pTarget->ToPlayer())
+        if (needReportToTarget(pTarget->ToPlayer()))
+            pPlayer->PSendSysMessage(LANG_YOURS_ARMOR_CHANGED, GetNameLink().c_str(), amount);
 
     return true;
 }
@@ -1626,8 +1632,9 @@ bool ChatHandler::HandleModifyHolyCommand(char *args)
 
     PSendSysMessage(LANG_YOU_CHANGE_HOLY, pTarget->GetName(), amount);
 
-    if (needReportToTarget(pTarget->ToPlayer()))
-        ChatHandler(pTarget->ToPlayer()).PSendSysMessage(LANG_YOURS_HOLY_CHANGED, GetNameLink().c_str(), amount);
+    if (Player* pPlayer = pTarget->ToPlayer())
+        if (needReportToTarget(pTarget->ToPlayer()))
+            pPlayer->PSendSysMessage(LANG_YOURS_HOLY_CHANGED, GetNameLink().c_str(), amount);
 
     return true;
 }
@@ -1654,8 +1661,9 @@ bool ChatHandler::HandleModifyFireCommand(char *args)
 
     PSendSysMessage(LANG_YOU_CHANGE_FIRE, pTarget->GetName(), amount);
 
-    if (needReportToTarget(pTarget->ToPlayer()))
-        ChatHandler(pTarget->ToPlayer()).PSendSysMessage(LANG_YOURS_FIRE_CHANGED, GetNameLink().c_str(), amount);
+    if (Player* pPlayer = pTarget->ToPlayer())
+        if (needReportToTarget(pTarget->ToPlayer()))
+            pPlayer->PSendSysMessage(LANG_YOURS_FIRE_CHANGED, GetNameLink().c_str(), amount);
 
     return true;
 }
@@ -1682,8 +1690,9 @@ bool ChatHandler::HandleModifyNatureCommand(char *args)
 
     PSendSysMessage(LANG_YOU_CHANGE_NATURE, pTarget->GetName(), amount);
 
-    if (needReportToTarget(pTarget->ToPlayer()))
-        ChatHandler(pTarget->ToPlayer()).PSendSysMessage(LANG_YOURS_NATURE_CHANGED, GetNameLink().c_str(), amount);
+    if (Player* pPlayer = pTarget->ToPlayer())
+        if (needReportToTarget(pTarget->ToPlayer()))
+            pPlayer->PSendSysMessage(LANG_YOURS_NATURE_CHANGED, GetNameLink().c_str(), amount);
 
     return true;
 }
@@ -1710,8 +1719,9 @@ bool ChatHandler::HandleModifyFrostCommand(char *args)
 
     PSendSysMessage(LANG_YOU_CHANGE_FROST, pTarget->GetName(), amount);
 
-    if (needReportToTarget(pTarget->ToPlayer()))
-        ChatHandler(pTarget->ToPlayer()).PSendSysMessage(LANG_YOURS_FROST_CHANGED, GetNameLink().c_str(), amount);
+    if (Player* pPlayer = pTarget->ToPlayer())
+        if (needReportToTarget(pTarget->ToPlayer()))
+            pPlayer->PSendSysMessage(LANG_YOURS_FROST_CHANGED, GetNameLink().c_str(), amount);
 
     return true;
 }
@@ -1738,8 +1748,9 @@ bool ChatHandler::HandleModifyShadowCommand(char *args)
 
     PSendSysMessage(LANG_YOU_CHANGE_SHADOW, pTarget->GetName(), amount);
 
-    if (needReportToTarget(pTarget->ToPlayer()))
-        ChatHandler(pTarget->ToPlayer()).PSendSysMessage(LANG_YOURS_SHADOW_CHANGED, GetNameLink().c_str(), amount);
+    if (Player* pPlayer = pTarget->ToPlayer())
+        if (needReportToTarget(pTarget->ToPlayer()))
+            pPlayer->PSendSysMessage(LANG_YOURS_SHADOW_CHANGED, GetNameLink().c_str(), amount);
 
     return true;
 }
@@ -1766,8 +1777,9 @@ bool ChatHandler::HandleModifyArcaneCommand(char *args)
 
     PSendSysMessage(LANG_YOU_CHANGE_ARCANE, pTarget->GetName(), amount);
 
-    if (needReportToTarget(pTarget->ToPlayer()))
-        ChatHandler(pTarget->ToPlayer()).PSendSysMessage(LANG_YOURS_ARCANE_CHANGED, GetNameLink().c_str(), amount);
+    if (Player* pPlayer = pTarget->ToPlayer())
+        if (needReportToTarget(pTarget->ToPlayer()))
+            pPlayer->PSendSysMessage(LANG_YOURS_ARCANE_CHANGED, GetNameLink().c_str(), amount);
 
     return true;
 }
@@ -1803,8 +1815,9 @@ bool ChatHandler::HandleModifyMeleeApCommand(char *args)
 
     PSendSysMessage(LANG_YOU_CHANGE_MELEEAP, pTarget->GetName(), amount);
 
-    if (needReportToTarget(pTarget->ToPlayer()))
-        ChatHandler(pTarget->ToPlayer()).PSendSysMessage(LANG_YOURS_MELEEAP_CHANGED, GetNameLink().c_str(), amount);
+    if (Player* pPlayer = pTarget->ToPlayer())
+        if (needReportToTarget(pTarget->ToPlayer()))
+            pPlayer->PSendSysMessage(LANG_YOURS_MELEEAP_CHANGED, GetNameLink().c_str(), amount);
 
     return true;
 }
@@ -1839,8 +1852,9 @@ bool ChatHandler::HandleModifyRangedApCommand(char *args)
 
     PSendSysMessage(LANG_YOU_CHANGE_RANGEDAP, pTarget->GetName(), amount);
 
-    if (needReportToTarget(pTarget->ToPlayer()))
-        ChatHandler(pTarget->ToPlayer()).PSendSysMessage(LANG_YOURS_RANGEDAP_CHANGED, GetNameLink().c_str(), amount);
+    if (Player* pPlayer = pTarget->ToPlayer())
+        if (needReportToTarget(pTarget->ToPlayer()))
+            pPlayer->PSendSysMessage(LANG_YOURS_RANGEDAP_CHANGED, GetNameLink().c_str(), amount);
 
     return true;
 }
@@ -1876,8 +1890,9 @@ bool ChatHandler::HandleModifySpellPowerCommand(char *args)
 
     PSendSysMessage(LANG_YOU_CHANGE_SP, pTarget->GetName(), amount);
 
-    if (needReportToTarget(pTarget->ToPlayer()))
-        ChatHandler(pTarget->ToPlayer()).PSendSysMessage(LANG_YOURS_SP_CHANGED, GetNameLink().c_str(), amount);
+    if (Player* pPlayer = pTarget->ToPlayer())
+        if (needReportToTarget(pTarget->ToPlayer()))
+            pPlayer->PSendSysMessage(LANG_YOURS_SP_CHANGED, GetNameLink().c_str(), amount);
 
     return true;
 }
@@ -1911,8 +1926,9 @@ bool ChatHandler::HandleModifyMainSpeedCommand(char *args)
 
     PSendSysMessage(LANG_YOU_CHANGE_MHSPD, pTarget->GetName(), amount);
 
-    if (needReportToTarget(pTarget->ToPlayer()))
-        ChatHandler(pTarget->ToPlayer()).PSendSysMessage(LANG_YOURS_MHSPD_CHANGED, GetNameLink().c_str(), amount);
+    if (Player* pPlayer = pTarget->ToPlayer())
+        if (needReportToTarget(pTarget->ToPlayer()))
+            pPlayer->PSendSysMessage(LANG_YOURS_MHSPD_CHANGED, GetNameLink().c_str(), amount);
 
     return true;
 }
@@ -1946,8 +1962,9 @@ bool ChatHandler::HandleModifyOffSpeedCommand(char *args)
 
     PSendSysMessage(LANG_YOU_CHANGE_OHSPD, pTarget->GetName(), amount);
 
-    if (needReportToTarget(pTarget->ToPlayer()))
-        ChatHandler(pTarget->ToPlayer()).PSendSysMessage(LANG_YOURS_OHSPD_CHANGED, GetNameLink().c_str(), amount);
+    if (Player* pPlayer = pTarget->ToPlayer())
+        if (needReportToTarget(pTarget->ToPlayer()))
+            pPlayer->PSendSysMessage(LANG_YOURS_OHSPD_CHANGED, GetNameLink().c_str(), amount);
 
     return true;
 }
@@ -1981,8 +1998,9 @@ bool ChatHandler::HandleModifyRangedSpeedCommand(char *args)
 
     PSendSysMessage(LANG_YOU_CHANGE_RSPD, pTarget->GetName(), amount);
 
-    if (needReportToTarget(pTarget->ToPlayer()))
-        ChatHandler(pTarget->ToPlayer()).PSendSysMessage(LANG_YOURS_RSPD_CHANGED, GetNameLink().c_str(), amount);
+    if (Player* pPlayer = pTarget->ToPlayer())
+        if (needReportToTarget(pTarget->ToPlayer()))
+            pPlayer->PSendSysMessage(LANG_YOURS_RSPD_CHANGED, GetNameLink().c_str(), amount);
 
     return true;
 }
@@ -2021,8 +2039,9 @@ bool ChatHandler::HandleModifyCastSpeedCommand(char *args)
 
     PSendSysMessage(LANG_YOU_CHANGE_CSPD, pTarget->GetName(), amount);
 
-    if (needReportToTarget(pTarget->ToPlayer()))
-        ChatHandler(pTarget->ToPlayer()).PSendSysMessage(LANG_YOURS_CSPD_CHANGED, GetNameLink().c_str(), amount);
+    if (Player* pPlayer = pTarget->ToPlayer())
+        if (needReportToTarget(pTarget->ToPlayer()))
+            pPlayer->PSendSysMessage(LANG_YOURS_CSPD_CHANGED, GetNameLink().c_str(), amount);
 
     return true;
 }
@@ -2253,7 +2272,7 @@ bool ChatHandler::HandleModifyScaleCommand(char* args)
 
         PSendSysMessage(LANG_YOU_CHANGE_SIZE, Scale, GetNameLink((Player*)target).c_str());
         if (needReportToTarget((Player*)target))
-            ChatHandler((Player*)target).PSendSysMessage(LANG_YOURS_SIZE_CHANGED, GetNameLink().c_str(), Scale);
+            ((Player*)target)->PSendSysMessage(LANG_YOURS_SIZE_CHANGED, GetNameLink().c_str(), Scale);
     }
 
     target->SetObjectScale(Scale);
@@ -2295,8 +2314,10 @@ bool ChatHandler::HandleModifyHPCommand(char* args)
         return false;
 
     PSendSysMessage(LANG_YOU_CHANGE_HP, chr->ToPlayer() ? GetNameLink(chr->ToPlayer()).c_str() : "<creature>", hp, hpm);
-    if (chr->GetTypeId() == TYPEID_PLAYER && needReportToTarget(chr->ToPlayer()))
-        ChatHandler(chr->ToPlayer()).PSendSysMessage(LANG_YOURS_HP_CHANGED, GetNameLink().c_str(), hp, hpm);
+
+    if (Player* pPlayer = chr->ToPlayer())
+        if (needReportToTarget(pPlayer))
+            pPlayer->PSendSysMessage(LANG_YOURS_HP_CHANGED, GetNameLink().c_str(), hp, hpm);
 
     chr->SetMaxHealth(hpm);
     chr->SetHealth(hp);
@@ -2337,8 +2358,9 @@ bool ChatHandler::HandleModifyManaCommand(char* args)
         return false;
 
     PSendSysMessage(LANG_YOU_CHANGE_MANA, chr->ToPlayer() ? GetNameLink(chr->ToPlayer()).c_str() : "<creature>", mana, manam);
-    if (chr->GetTypeId() == TYPEID_PLAYER && needReportToTarget(chr->ToPlayer()))
-        ChatHandler(chr->ToPlayer()).PSendSysMessage(LANG_YOURS_MANA_CHANGED, GetNameLink().c_str(), mana, manam);
+    if (Player* pPlayer = chr->ToPlayer())
+        if (needReportToTarget(pPlayer))
+            pPlayer->PSendSysMessage(LANG_YOURS_MANA_CHANGED, GetNameLink().c_str(), mana, manam);
 
     chr->SetMaxPower(POWER_MANA, manam);
     chr->SetPower(POWER_MANA, mana);

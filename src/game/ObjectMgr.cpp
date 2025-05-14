@@ -40,7 +40,6 @@
 #include "PoolManager.h"
 #include "GameEventMgr.h"
 #include "Spell.h"
-#include "Chat.h"
 #include "AccountMgr.h"
 #include "MapPersistentStateMgr.h"
 #include "SpellAuras.h"
@@ -309,6 +308,19 @@ void ObjectMgr::LoadAllIdentifiers()
             fields = result->Fetch();
             uint32 id = fields[0].GetUInt32();
             m_GossipMenuIdSet.insert(id);
+        } while (result->NextRow());
+    }
+
+    m_ConditionIdSet.clear();
+    result = WorldDatabase.Query("SELECT DISTINCT `condition_entry` FROM `conditions`");
+
+    if (result)
+    {
+        do
+        {
+            fields = result->Fetch();
+            uint32 id = fields[0].GetUInt32();
+            m_ConditionIdSet.insert(id);
         } while (result->NextRow());
     }
 
@@ -6734,6 +6746,48 @@ void ObjectMgr::ReturnOrDeleteOldMails(bool serverUp)
         CharacterDatabase.AsyncPQueryUnsafe(cb, &OldMailsReturner::Callback, "SELECT `id`, `message_type`, `sender_guid`, `receiver_guid`, `item_text_id`, `has_items`, `expire_time`, `cod`, `checked`, `mail_template_id` FROM `mail` WHERE `expire_time` < '" UI64FMTD "' ORDER BY `expire_time`", (uint64)basetime);
 }
 
+bool IsPointInAreaTriggerZone(AreaTriggerEntry const* atEntry, uint32 mapid, float x, float y, float z, float delta)
+{
+    if (mapid != atEntry->map_id)
+        return false;
+
+    if (atEntry->radius > 0)
+    {
+        // if we have radius check it
+        float dist2 = (x - atEntry->x) * (x - atEntry->x) + (y - atEntry->y) * (y - atEntry->y) + (z - atEntry->z) * (z - atEntry->z);
+        if (dist2 > (atEntry->radius + delta) * (atEntry->radius + delta))
+            return false;
+    }
+    else
+    {
+        // we have only extent
+
+        // rotate the players position instead of rotating the whole cube, that way we can make a simplified
+        // is-in-cube check and we have to calculate only one point instead of 4
+
+        // 2PI = 360, keep in mind that ingame orientation is counter-clockwise
+        double rotation = 2 * M_PI - atEntry->box_orientation;
+        double sinVal = sin(rotation);
+        double cosVal = cos(rotation);
+
+        float playerBoxDistX = x - atEntry->x;
+        float playerBoxDistY = y - atEntry->y;
+
+        float dx = float(playerBoxDistX * cosVal - playerBoxDistY * sinVal);
+        float dy = float(playerBoxDistY * cosVal + playerBoxDistX * sinVal);
+
+        // box edges are parallel to coordiante axis, so we can treat every dimension independently :D
+        float dz = z - atEntry->z;
+
+        if ((fabs(dx) > atEntry->box_x / 2 + delta) ||
+                (fabs(dy) > atEntry->box_y / 2 + delta) ||
+                (fabs(dz) > atEntry->box_z / 2 + delta))
+            return false;
+    }
+
+    return true;
+}
+
 void ObjectMgr::LoadAreaTriggers()
 {
     std::unique_ptr<QueryResult> result(WorldDatabase.PQuery("SELECT * FROM `areatrigger_template` t1 WHERE `build`=(SELECT max(`build`) FROM `areatrigger_template` t2 WHERE t1.`id`=t2.`id` && `build` <= %u)", SUPPORTED_CLIENT_BUILD));
@@ -6759,16 +6813,45 @@ void ObjectMgr::LoadAreaTriggers()
         uint32 triggerId = fields[0].GetUInt32();
 
         areaTrigger.id = triggerId;
-        areaTrigger.mapid = fields[2].GetUInt32();
-        areaTrigger.x = fields[3].GetFloat();
-        areaTrigger.y = fields[4].GetFloat();
-        areaTrigger.z = fields[5].GetFloat();
-        areaTrigger.radius = fields[6].GetFloat();
-        areaTrigger.box_x = fields[7].GetFloat();
-        areaTrigger.box_y = fields[8].GetFloat();
-        areaTrigger.box_z = fields[9].GetFloat();
-        areaTrigger.box_orientation = fields[10].GetFloat();
+        areaTrigger.name = fields[2].GetCppString();
+        areaTrigger.map_id = fields[3].GetUInt32();
+        areaTrigger.x = fields[4].GetFloat();
+        areaTrigger.y = fields[5].GetFloat();
+        areaTrigger.z = fields[6].GetFloat();
+        areaTrigger.radius = fields[7].GetFloat();
+        areaTrigger.box_x = fields[8].GetFloat();
+        areaTrigger.box_y = fields[9].GetFloat();
+        areaTrigger.box_z = fields[10].GetFloat();
+        areaTrigger.box_orientation = fields[11].GetFloat();
+        areaTrigger.cooldown = fields[12].GetUInt32();
+        areaTrigger.condition_id = fields[13].GetUInt32();
+        areaTrigger.script_id = fields[14].GetUInt32();
+        char const* scriptName = fields[15].GetString();
+        areaTrigger.script_name = GetScriptId(scriptName);
 
+        if (areaTrigger.condition_id)
+        {
+            if (!IsExistingConditionId(areaTrigger.condition_id))
+            {
+                sLog.Out(LOG_DBERROR, LOG_LVL_ERROR, "AreaTrigger %u has non-existing condition %u assigned.", areaTrigger.id, areaTrigger.condition_id);
+                areaTrigger.condition_id = 0;
+            }
+            
+            if (!areaTrigger.script_id && !areaTrigger.script_name)
+            {
+                sLog.Out(LOG_DBERROR, LOG_LVL_ERROR, "AreaTrigger %u has condition %u assigned but no script.", areaTrigger.id, areaTrigger.condition_id);
+                areaTrigger.condition_id = 0;
+            }
+        }
+
+        if (areaTrigger.cooldown)
+        {
+            if (!areaTrigger.script_id && !areaTrigger.script_name)
+            {
+                sLog.Out(LOG_DBERROR, LOG_LVL_ERROR, "AreaTrigger %u has cooldown %u assigned but no script.", areaTrigger.id, areaTrigger.cooldown);
+                areaTrigger.cooldown = 0;
+            }
+        }
 
         m_AreaTriggersMap[triggerId] = areaTrigger;
 
@@ -7417,7 +7500,7 @@ AreaTriggerTeleport const* ObjectMgr::GetGoBackTrigger(uint32 map_id) const
         if (itr.second.destination.mapId == uint32(mapEntry->ghostEntranceMap))
         {
             AreaTriggerEntry const* atEntry = GetAreaTrigger(itr.first);
-            if (atEntry && atEntry->mapid == map_id)
+            if (atEntry && atEntry->map_id == map_id)
                 return &itr.second;
         }
     }
@@ -8140,6 +8223,35 @@ uint32 ObjectMgr::GeneratePetNumber()
     return m_NextPetNumber++;
 }
 
+static std::string GeneratePlayerName()
+{
+    static char const vowels[] = { 'a', 'e', 'i', 'o', 'u' };
+    static char const consonants[] = { 'b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'y', 'z' };
+
+    uint32 const length = urand(sWorld.getConfig(CONFIG_UINT32_MIN_PLAYER_NAME), MAX_PLAYER_NAME);
+    std::string name;
+    name.resize(length);
+
+    bool useVowel = urand(0, 1) != 0;
+    for (uint32 i = 0; i < length; ++i)
+    {
+        name[i] = useVowel ? vowels[urand(0, sizeof(vowels) - 1)] : consonants[urand(0, sizeof(consonants) - 1)];
+        useVowel = !useVowel;
+    }
+
+    return name;
+};
+
+std::string ObjectMgr::GenerateFreePlayerName()
+{
+    std::string name;
+    do
+    {
+        name = GeneratePlayerName();
+    } while (sObjectMgr.GetPlayerGuidByName(name));
+    return name;
+}
+
 std::string ObjectMgr::GeneratePetName(uint32 entry)
 {
     std::vector<std::string>& list0 = m_PetHalfNameMap0[entry];
@@ -8163,7 +8275,7 @@ void ObjectMgr::LoadCorpses()
     //                                                                            0       1                       2                      3                      4                      5                       6
     std::unique_ptr<QueryResult> result(CharacterDatabase.Query("SELECT `corpse`.`guid`, `player_guid`, `corpse`.`position_x`, `corpse`.`position_y`, `corpse`.`position_z`, `corpse`.`orientation`, `corpse`.`map`, "
     //                      7       8                       9           10        11      12       13      14      15            16            17             18                 19          20
-                          "`time`, `corpse_type`, `corpse`.`instance`, `gender`, `race`, `class`, `skin`, `face`, `hair_style`, `hair_color`, `facial_hair`, `equipment_cache`, `guild_id`, `player_flags` FROM `corpse` "
+                          "`time`, `corpse_type`, `corpse`.`instance`, `gender`, `race`, `class`, `skin`, `face`, `hair_style`, `hair_color`, `facial_hair`, `equipment_cache`, `guild_id`, `character_flags` FROM `corpse` "
                           "JOIN `characters` ON `player_guid` = `characters`.`guid` "
                           "LEFT JOIN `guild_member` ON `player_guid`=`guild_member`.`guid` WHERE `corpse_type` <> 0"));
 
@@ -10772,7 +10884,7 @@ bool ObjectMgr::IsVendorItemValid(bool isTemplate, char const* tableName, uint32
         if (!cInfo)
         {
             if (pl)
-                ChatHandler(pl).SendSysMessage(LANG_COMMAND_VENDORSELECTION);
+                pl->SendSysMessage(LANG_COMMAND_VENDORSELECTION);
             else if (!IsExistingCreatureId(vendor_entry))
                 sLog.Out(LOG_DBERROR, LOG_LVL_ERROR, "Table `%s` has data for nonexistent creature (Entry: %u), ignoring", tableName, vendor_entry);
             return false;
@@ -10784,7 +10896,7 @@ bool ObjectMgr::IsVendorItemValid(bool isTemplate, char const* tableName, uint32
     else
     {
         if (pl)
-            ChatHandler(pl).PSendSysMessage(LANG_ITEM_NOT_FOUND, item_id);
+            pl->PSendSysMessage(LANG_ITEM_NOT_FOUND, item_id);
         else if (!IsExistingItemId(item_id))
             sLog.Out(LOG_DBERROR, LOG_LVL_MINIMAL, "Table `%s` for %s %u contain nonexistent item (%u), ignoring",
                             tableName, idStr, vendor_entry, item_id);
@@ -10794,7 +10906,7 @@ bool ObjectMgr::IsVendorItemValid(bool isTemplate, char const* tableName, uint32
     if (maxcount > 0 && incrtime == 0)
     {
         if (pl)
-            ChatHandler(pl).PSendSysMessage("MaxCount!=0 (%u) but IncrTime==0", maxcount);
+            pl->PSendSysMessage("MaxCount!=0 (%u) but IncrTime==0", maxcount);
         else
             sLog.Out(LOG_DBERROR, LOG_LVL_MINIMAL, "Table `%s` has `maxcount` (%u) for item %u of %s %u but `incrtime`=0, ignoring",
                             tableName, maxcount, item_id, idStr, vendor_entry);
@@ -10803,7 +10915,7 @@ bool ObjectMgr::IsVendorItemValid(bool isTemplate, char const* tableName, uint32
     else if (maxcount == 0 && incrtime > 0)
     {
         if (pl)
-            ChatHandler(pl).PSendSysMessage("MaxCount==0 but IncrTime<>=0");
+            pl->PSendSysMessage("MaxCount==0 but IncrTime<>=0");
         else
             sLog.Out(LOG_DBERROR, LOG_LVL_MINIMAL, "Table `%s` has `maxcount`=0 for item %u of %s %u but `incrtime`<>0, ignoring",
                             tableName, item_id, idStr, vendor_entry);
@@ -10825,7 +10937,7 @@ bool ObjectMgr::IsVendorItemValid(bool isTemplate, char const* tableName, uint32
     if (vItems && vItems->FindItem(item_id))
     {
         if (pl)
-            ChatHandler(pl).PSendSysMessage(LANG_ITEM_ALREADY_IN_LIST, item_id);
+            pl->PSendSysMessage(LANG_ITEM_ALREADY_IN_LIST, item_id);
         else
             sLog.Out(LOG_DBERROR, LOG_LVL_MINIMAL, "Table `%s` has duplicate items %u for %s %u, ignoring",
                             tableName, item_id, idStr, vendor_entry);
@@ -10839,7 +10951,7 @@ bool ObjectMgr::IsVendorItemValid(bool isTemplate, char const* tableName, uint32
         if (tItems && tItems->GetItem(item_id))
         {
             if (pl)
-                ChatHandler(pl).PSendSysMessage(LANG_ITEM_ALREADY_IN_LIST, item_id);
+                pl->PSendSysMessage(LANG_ITEM_ALREADY_IN_LIST, item_id);
             else
             {
                 if (!cInfo->vendor_id)
@@ -10859,7 +10971,7 @@ bool ObjectMgr::IsVendorItemValid(bool isTemplate, char const* tableName, uint32
     if (countItems >= UINT8_MAX)
     {
         if (pl)
-            ChatHandler(pl).SendSysMessage(LANG_COMMAND_ADDVENDORITEMITEMS);
+            pl->SendSysMessage(LANG_COMMAND_ADDVENDORITEMITEMS);
         else
             sLog.Out(LOG_DBERROR, LOG_LVL_MINIMAL, "Table `%s` has too many items (%u >= %i) for %s %u, ignoring",
                             tableName, countItems, UINT8_MAX, idStr, vendor_entry);
