@@ -206,3 +206,273 @@ WE Energies:
     15 digit acct number
         074688338100001
 
+
+***WOW***
+Mobs with lower HP specifically designed to AOE grind on
+Wyrmkin Dreamwalker thorns aura spell add to other mobs to make them anti-melee
+Allow exalted argent dawn farming 58-60 normal mobs in EPL (Maybe from the scourgestones quest?)
+Stamina / Int / Spirit scrolls on reagent vendor as strong as fort/AI
+custom totems/librams/idols in all low level dungeons and crafted
+Crazed = attack speed buff
+
+update every rare mobs special drops start with mail/leather 1-40 and plate/mail 40+(plate/mail for 40+)
+update special named greens 40+ and make them blue (start with plate/mail)
+select * from creature_template where rank=2 or rank=4;
+Random vendors with blue/epic items deep in elite caves/areas/rarely visited locations
+buff imperial plate set to be really good and epic (and do same for some mail set for shaman)
+add insane mat requirements like 25+ essences per piece (and do same for some mail set for shaman)
+fishliver oil as a sellable consumable from rep reward or zone wide reward etc
+
+Add more cooked fish recipes that give stats (can even be unique stats)
+Custom enchants / LW kits
+item 30045 and 30046 with -30045 or -30046 need their drop rates changed(to 10 AND NOT - or something? dunno what it was)
+succubus quest before BFD
+spellauras.cpp ln 6042 or 6414 for drain soul 4x dmg?
+Buff mob specific drops like Blackrock boots etc. Can add new ones to level 58+ mobs
+All level 55+ mobs should have their own blue full sets of gear (Or at least, specific drops FROM a mob, kinda like Grim Dawn?)
+Add real gear to stockades, a cloth robe, mail body and leather gloves/boots or something
+Food buffs that are after x seconds don't work, instant ones work. Did it break from one of the PR's and it edited my database attributes/flags for the food or well fed buff?
+Buff random greens from vendors with limited quality to blue quality(like traveling merchants, one in darkshore/menethil, one in secret place in wetlands, etc)
+Lvl ~45 rep reward gear on Wildhammer vendor. Increase Troll Tribal Necklace reputation turn ins by like 10x
+Gear Rep Rewards from major factions (i.e IF). Usable at all levels (i.e. friendly gives levl 20 gear)
+nerf Lady Moongazer damage multi a TON
+Deep Ocean, Vast Sea needs better quest rewards?
+More quests in level 40+ zones
+Elite quest added to SoS
+Move raid and dungeon crafted recipes to random mobs and new reps (craft/gather turn in reps?)
+AQ20 skill rank books off elite mobs in open world all over, from tyrs to hearthglen to frost giants in winterspring, mobs outside grim batol etc
+Buff low level tailor / eng crafted gear to green with stats(random stats? look at bsm body)
+Blues / Epics off rare mobs in level 40+ zones
+Expensive blues/epics of limited quality on random NPCs in level 40+ zones
+Ores / Ingots / Stones / Cloth / Bolts stack to 250
+Pink Hair on human females
+Add high elves from the TWOW DBC (patch-A?)
+Make classes have better PvE gameplay
+Make crafted gear BIS by a lot, nerf dungeon/quest gear?
+Custom OW bosses that drop insane loot at all levels? Like Leaping Lizzy / Valkurm Emperor?
+BG repeatable "daily"(Have to code logic maybe...) that gives a huge amount of rep
+Repeatable quests that give good gold? (Mob drops - can be quest items and custom)
+Queue BGs from anywhere button
+Buff dungeon gear
+Buff t0.5 gear and set bonuses(?)
+
+Drops:
+    Black Oozes(and all slimes?) still drop up to 4 healing potions and multiple mana potions
+    Mobs dropping multiple sweet nectar(up to 4). Fix all food / water to only drop singles 
+    Better lockboxes for rogues to open
+
+Quests:
+    Warlock / Priest level 60 class quests
+    Put quests on random doodads all over the world (Look at how The Weathered Grave did it)
+    Add blue gear rewards to https://www.wowhead.com/classic/quest=335/a-noble-brew (Take items from some level 30 horde quest?)
+    Nethergarde keep quest continuation of the breadcrumb that starts in Stormwind
+    Long quest chains at 60 (or even leveling) like the missing diplomat/legend of stalvan taking you all over the world for legendaries (at 60)
+    New quests that start in major cities for quests in the underused zones (azshara etc)
+    Long epic quest chains to kill World Bosses and elemetnal bosses and rares etc for Legendaries or very strong epic armor/weapons
+    New ashenvale quests (TBC alliance quests, maybe horde ones too)
+    Camerick Jongleur quest to go to 1k needles or something
+
+Crafting:
+    Buff Polished Steel Boots (and other steel gear?)
+    Fish required in most recipes, especially alchemy ones (and add custom recipes that use fish)
+    Enchanting Staff recipes for casters/hunter/druid
+    Enchanting offhand recipes
+    New whetstones/oils/poisons (Seems to be an aura placed on caster that gives proc chance to do things?)
+    Add new crafting recipes, adjust reagent cost of some recipes
+    All gray level 1-10 stuff turned into greens? (With random stats? Check how the one bsm armor does that)
+    Buff crafting gear more, it should be better than dungeon gear while leveling and what you need to grind for at 60
+    Repeatable quest to turn in crafted gear,  add reputation for this with rewards
+
+Gathering:
+    Repeatable quest to turn in ingots, add reputation for this with rewards
+
+Blacksmithing:
+    Throwing weapons
+    Shield recipes
+    Low level caster dagger/swords
+
+Cooking:
+    Cooked sagefish restore MP instead of HP(and other fish too, one for each tier of water including level60 water)
+    Buff all food recipes to give stats
+    Buff level 225+ food to give more stam/spirit
+    Cooked mid tier fish worth 3s+
+
+Fishing:
+    Increase vendor price of high level fish to a lot of gold/hr (item_template sell_price) - > https://www.wowhead.com/classic/guide/best-fishing-pools-farming-locations-classic-wow
+    Repeatable quests that give tokens for something?
+    Fishing rep, repeatable fishing turn ins, gives insane gear including +Fishing skill items
+
+Limited quantity vendor greens (<Rare Goods>):
+    whispering vest
+    solstice robe
+    wise man's belt
+    Wolf / Bear / Owl Bracers
+    Fireproof ORb
+    Strength of Wood
+
+Mobs:
+    Reuse arcane nullifiers AOE reflection shield spell. They have some self full dispel too
+    Reuse boulderfist ogres +100 phys dmg -move speed spell!
+
+Dungeons:
+    Lvl 50+ dungeons extremely hard, require farming bis crafted/rep(new rep)/open world BOE's/open world boss gear first. Also require full consumables/buffs
+    T1:
+        Sunken Temple + BRD + LBRS
+    T2: 
+        Strath + scholo
+    T3:
+        Diremaul 
+    T4:
+        UBRS
+
+Warrior: 
+    Uncap thunderclap?
+    Thunderclap in any stance?
+    Arms:
+        Improved Thunderclap increase slow by 3/6%/10%
+        Combine weapon specs all into 1 talent
+        Mace spec proc chance doubled
+    Protection:
+            Anticipation +1% dodge per point
+
+Shaman:
+    Quadruple stoneclaw totems taunt
+
+Rogue:
+    Less burst, more focus on finishers
+    Garrote usable out of stealth, doesn't require being behind, generates energy
+    Rupture dmg buffed by 2x
+    2x the combo points generated ?
+    1m CD thistle tea as a skill?
+    Counterattack on parry/dodge
+
+Warlock:
+    Demonic Sacrifice allow petless warlock to be tanky, saccing a VW gives you +300% armor and HP regen?
+    Warlock talents suck in general and don't feel exciting to get. Warror for example the entire time 10-60 has exciting talents to look forward to. Fix this, esp for affl
+    Imp COA talent replaced with also applying CoW to target or a -attack speed/-dmg debuff
+    imp CoW replaced with "potent afflcitions" or something that adds another debuff to corruption (attack speed?)
+    Warlock needs another dot/rotational spell at 30, 40, and 50
+    Reduce all succubus spell MP costs
+    Reduce imp firebolt MP cost
+    Siphon Life damage x2, maybe higher coefficient too?
+    Quadruple Health Funnels healing
+    Unholy Power buffed to 10% per talent and works on ALL pets
+    Soul Link work on ALL pets
+    Fel intellect give pet MP5 instead of int (just change aura type?)
+    Improved Enslave Demon 8% per rank
+    31 demo make Infernal only 5m cd(Look at improved lash of pain?) and Curse of Doom 100% proc rate
+    Infernal stone 20s cost
+    Drain soul same DPS as shadowbolt
+    Consume Shadows restore MP also(VW pet spell)
+    Better AOE, double rain of fires damage? 
+    Fel Int give pet armor (Copy from hunter?)
+    Improved Enslave Demon changed to pet attack speed (Copy from hunter?)
+    Affliction:
+        Drain soul only usable on targets below 20% hp, double it's damage
+        Imp Drain Soul: Add +100% Drain Soul damage
+
+Priest:
+    Smite debuff enemy with a debuff you want to keep up (-attack speed? -dmg? -hit rate?)
+    Improved renew scale based on healing magic and not just base renew power
+    Buff regen, maybe give resource regen per tick? 1 fury/energy/5 MP
+    Vampiric embrace give AOE mp regen
+
+Paladin:
+    Why does rank3 Seal of Righteousness do more damage than higher rank? Due to coefficient? Fix higher ranks coeffcients then then
+    Blessing of Sanctuary restore MP on block
+    Seal/Judgment of Righteousness coefficient buffed as ranks are upgraded
+    Consecration coefficient buffed as ranks are upgraded
+    Consecration level 6(?) default
+    Hammer of Righteousness at like level40 instant AOE weapon damage converted to holy + holy (like cleave)
+    Revenge clone. HOLY DAMAGE. Requires shield. Restores MP. - > INSTEAD how about a shield bash?
+    Shield Bash that requires a shield and does holy damage + bonus threat? Copy Shield Slam
+    Judgement of The Crusader put a holy DOT on enemy
+    Judgment of Command +3% crit rate chance on target debuff?
+    Judgement of Justice -10% attack speed debuff
+    Add 30 yard range taunt
+    Reduce Judgment MP cost by 75%
+    Reduce MP cost of Exorcism / Holy Wrath by 75%
+    Reduce cast time of Holy Wrath by 100%(instant)
+    Reduce MP cost of Consecration by 75%
+    Double Seal of Wisdoms power
+    Quadruple Seal of Lights power
+    Quadruple Judgment of Lights power
+    Protection:
+            Anticipation +1% dodge per point
+    Retribution:
+        Vindication 1 point
+        Something deep(21+) makes judgment give AOE mana restore(to entire party)
+
+Mage:
+    Need more things to look forward to entire 1-60 journey. Warror for example the entire time 10-60 has exciting talents to look forward to. 
+    Frsotfire bolt level 30, pyroblast damage, 30s CD guaranteed crit 2s cast
+    Scorch castable while moving
+    Scorch 4x damage below 25% HP
+    Mana rubies buffed by 4x
+    Evocation 4m CD
+    Ice Block default
+    Fire:
+        Improved Fireblast: 1 point -50% damage, +100% crit rate to Fireblast
+        Imp Scorch 1 point for 100%
+        Combustion: 15s cooldown, consumes ignite effect on target to instantly deal x damage (Like conflag)
+    Frost:
+        Ray of frost at 40-50? Copy mind flay just make frost damage + icon
+        Add another frost spell, pyroblast level damage/coefficient + instantly applies 5 stacks of winter chill to target, 1m CD
+        Winter's Chill 1 point for 100%
+        Ice Barrier where Ice Block is
+        Ice Barrier replaced by <PH>, consumes winter chill stacks to deal x frost damage to target
+        ~25s CD frost nuke that slows targets cast and attack speed for 10-15s
+    Arcane:
+        Clearcast: Also increases Arcane Missle damage by 100%
+        Make it a healer, 21/31 point talents give heals (21 - Renew? 31 - Holy Light)
+        Spells like GW1/2 mesmer
+
+Druid:
+    Innervate 3m cd
+    Bres 5m cd
+    Moonfire / Insect swarm in cat/bear form(Need to keep it up for optimal DPS)
+
+Hunter:
+    Buff melee, make survival AND beastmastery both melee focused specs (dw for beast mastery, survival uses 2h axe/2h sword/spear)
+
+Spell AI:
+    Barbed Laser (12219)
+    Noxxion spell AI
+    splinterbone centurion thunderclap
+    freezing spirit frost nova
+    boneflayer ghoul cleave
+    frozen soul silence
+    amnenar coldbringer frost nova
+    cresting exile frost nova
+    rumbing exile aoe stun
+    scarlet champion(cath) holy strike
+    Scarlet wizard (cath) arcane explosion 
+    Grimtotem raider net
+    Woodpaw Trapper net
+
+Misc:
+    Curse of the Tribes from Gelk -15% damage done
+    Crushridge Mage has 30% attack speed bloodlust
+    Crazed spell is +20% Attack speed
+    Unused area in Dwarven Down in Stormwind (Bank in retail)
+    For food, effectTriggerSpell2 is what procs the spell that gives a buff. i.e. 18194 for nightfin soup
+    Aura effect applied/buff applied is effectapplyauraname1 in spell_template which is defined enum AuraType
+    SPELL_AURA_MOD_DAMAGE_DONE = 13 for spell damage gear
+    Target for effectapplyauraname1 is effectImplicitTargetA1 which is defined in enum SpellTarget in SpellDefines.h
+    captured servant of azora vendor items
+    Kara Adams vendor items
+
+Bots:
+    Warbot at low level sits in zerker stance even though doesn't have whirlwind and won't use rage on anything. 
+    Also doesn't properly taunt. Only zerker stance if has whirlwind. Also why is she going into zerker at all?
+    I think she will zerker stance if enemy is lower levle than her, remove this logic entirely if role is tank
+
+    PLDbot BOW lock pets
+    Pldbot BOM hunter pets
+    warbot overpower and execute(if below level 40)
+
+Bugs:
+    Dark Iron land mines move
+    Warlock pet being MCed changes order of spells on pet bar
+    searing totem/chickens/etc shouldnt be aggressive
+    Murlocs in Redridge drop level 35+ food (they are a level 16-20 mob)
