@@ -10317,6 +10317,16 @@ SET quality = 3,
     spelltrigger_1 = 1
 WHERE entry = 15939;
 
+-- High Councillor's Set
+-- High Councillor's Circlet
+UPDATE mangos . item_template
+SET quality = 4,
+    spellid_1 = 14127, -- +28 Spell Damage
+    spelltrigger_1 = 1,
+    spellid_2 = 23727, -- +1% Spell Hit
+    spelltrigger_2 = 1
+WHERE entry = 10139;
+
 -- Hibernal Armor
 UPDATE mangos . item_template
 SET quality = 3,

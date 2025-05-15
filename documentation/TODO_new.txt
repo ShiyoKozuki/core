@@ -108,6 +108,9 @@ tomorrow:
     weak aura for blessings/seal/righteous fury on self (For seals, just show judgement in middle of screen if it CANT be used, means no seal active)
 
 Copy into discord before sleep:
+    Mow Grass
+    Dust chair and closet
+    Clean AC filter
     level 40+ BOE cloth greens add spell damage / healing
     BOE blue staves (add spell damage or make good for melee dps)
     High level ashenvale quests!
@@ -165,6 +168,7 @@ Copy into discord before sleep:
 
 
 pull:
+    https://github.com/vmangos/core/pull/2997 - fixes chest opening!
     https://github.com/vmangos/core/pull/2900
     + merge main repo in
 
