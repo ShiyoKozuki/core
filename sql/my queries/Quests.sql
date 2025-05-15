@@ -96,6 +96,10 @@ REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLeve
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (5497, 30025);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (5497, 30025);
 
+REPLACE INTO `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `RequiredClasses`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemId2`, `ReqItemId3`, `ReqItemCount1`, `ReqItemCount2`, `ReqItemCount3`, `RewItemId1`, `RewItemId2`, `RewItemCount1`, `RewItemCount2`, `RewXP`, `RewMoneyMaxLevel`, `DetailsEmote1`, `IncompleteEmote`, `CompleteEmote`, `OfferRewardEmote1`) VALUES (30246, -161, 50, 50, 128, 'Wizard\'s Hat', 'You have a cape, now you need a hat! A wizard is nothing without their fancy wizard hat! Bring me 10 Bolts of Runecloth, 8 Rugged Leather and 4 Heavy Silken Thread and I will create them for you.', ' Bring me 10 Bolts of Runecloth, 8 Rugged Leather and 4 Heavy Silken Thread and I will create them for you.', 'Now you\'re looking more like a Wizard!', 'Did you bring me the 10 Bolts of Runecloth, 8 Rugged Leather and 4 Heavy Silken Thread?', '', '', '', '', '', 14048, 8170, 8343, 10, 8, 4, 30137, 0, 1, 0, 7100, 7100, 1, 6, 6, 1);
+REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (5497, 30246);
+REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (5497, 30246);
+
 -- Rampaging Giants
 UPDATE `mangos`.`quest_template` SET `RewRepValue1`=200 WHERE  `entry`=5981 AND `patch`=0;
 

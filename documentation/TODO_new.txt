@@ -107,18 +107,9 @@ Greater Firebird Crimson Fury(?). Was enfire effect!
 tomorrow:
     weak aura for blessings/seal/righteous fury on self (For seals, just show judgement in middle of screen if it CANT be used, means no seal active)
 
-    DO TAXES
-    VANILLA TWEAKS + FIXES
-    get estimate from junk company
-    whats under my bed?
-    reduce MP cost of holy strike rank2+
-
-
 Copy into discord before sleep:
     level 40+ BOE cloth greens add spell damage / healing
     BOE blue staves (add spell damage or make good for melee dps)
-    retape box
-    https://www.craigslist.org/about/moving_tips
     High level ashenvale quests!
     More 2h maces from quests rewards 20+
     Crusader strike should proc a spell on successful physical hit that restores mana via energize instead of current implementation
@@ -166,21 +157,11 @@ Copy into discord before sleep:
 
     badlands - > swamp of sorrows - > STV
     pull repo and update   
-    clean ac filters
     edit tirisfal whiskey - custom all stat buff (Custom icon too?)
     Nerf rank2+ Judgement of the Crusader by ~10%
-    50 mage quest for fireball bracers
-    make spectrum acct
-    call craigslist people to come thursday
-    American Family insurance- his name is Vince Bellante, vbellant@amfam.com
-    close shed in back
-    dl ffxi char back up
     change the one moose quest to be different ones in azshara its in quests.sql
     add level 50 mage bracer quest with fireblast bonus
 
-    make sure internet is being shipped on 15th
-    make account at WE anergies and check stuff
-    back up stuff onto HDD's, back up pws onto keypass, back up char cards
 
 
 pull:
@@ -189,19 +170,6 @@ pull:
 
 bugs:
     Deep Ocean, Vast Sea looting lockboxes works properly duo, other stuff doesn't
-
-Uhaul:
-    U-Haul Moving & Storage of West Park Fl, 2033 S State Rd 7, West Park, FL 33023
-    Maryann Creasy
-    wed 12th 11 am hitch
-    $525 (hitch)
-    $399 (trailer)
-    $926 total
-
-
-    11th by 6 pm will call me
-    do check in with app
-
 WE Energies:
     15 digit acct number
         074688338100001

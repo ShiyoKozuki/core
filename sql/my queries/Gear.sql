@@ -221,7 +221,8 @@ REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `subclass`, `name`,
 REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `max_count`, `delay`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `disenchant_id`) VALUES (30134, 8, 4, 7, 'Libram of Mending', 6672, 3, 85394, 17078, 28, 32767, -1, 55, 55, 1, 0, 33484, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 2, 49);
 REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `stat_type1`, `stat_value1`, `stat_type2`, `stat_value2`, `delay`, `armor`, `fire_res`, `frost_res`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellid_2`, `spelltrigger_2`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `disenchant_id`) VALUES (30135, 4, 1, 'Wizard\'s Flaming Cloak', 15273, 3, 18941, 3788, 16, 128, -1, 40, 5, 6, 6, 6, 0, 29, 15, -15, 9415, 1, -1, -1, 33492, 1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 7, 44);
 REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `stat_type1`, `stat_value1`, `stat_type2`, `stat_value2`, `delay`, `armor`, `fire_res`, `frost_res`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellid_2`, `spelltrigger_2`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `disenchant_id`) VALUES (30136, 4, 1, 'Wizard\'s Freezing Cloak', 15273, 3, 18941, 3788, 16, 128, -1, 40, 5, 6, 6, 6, 0, 29, -15, 15, 9415, 1, -1, -1, 33494, 1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 7, 44);
--- NEXT 30137
+REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `stat_type1`, `stat_value1`, `stat_type2`, `stat_value2`, `delay`, `armor`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellid_2`, `spelltrigger_2`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `max_durability`, `disenchant_id`) VALUES (30137, 4, 1, 'Burning Wizard Hat', 15912, 3, 13601, 2720, 1, 128, -1, 37, 32, 5, 10, 6, 9, 0, 40, 9415, 1, -1, -1, 33486, 1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 7, 45, 6);
+-- NEXT 30138
 
 -- flags 2048 = lootable by anyone
 
@@ -9995,6 +9996,326 @@ WHERE entry = 4462;
 -- Green / Blue offhands
 -- Blue necks / rings / trinkets
 -- Green / Blue Staves and Wands
+
+-- Regal Set
+-- Regal Wizard Hat
+UPDATE mangos . item_template
+SET spellid_1 = 9415, -- +9 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 7470;
+
+-- Regal Mantle
+UPDATE mangos . item_template
+SET spellid_1 = 9415, -- +9 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 7473;
+
+-- Regal Robe
+UPDATE mangos . item_template
+SET spellid_1 = 9417, -- +12 spell damage
+    spelltrigger_1 = 1
+WHERE entry = 7468;
+
+-- Regal Armor
+UPDATE mangos . item_template
+SET spellid_1 = 9406, -- +18 Healing
+    spelltrigger_1 = 1
+WHERE entry = 7332;
+
+-- Regal Gloves
+UPDATE mangos . item_template
+SET spellid_1 = 9415, -- +9 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 7471;
+
+-- Regal Leggings
+UPDATE mangos . item_template
+SET spellid_1 = 9417, -- +12 spell damage
+    spelltrigger_1 = 1
+WHERE entry = 7469;
+
+-- Regal Boots
+UPDATE mangos . item_template
+SET spellid_1 = 9415, -- +9 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 7472;
+
+-- Regal Cloak
+UPDATE mangos . item_template
+SET spellid_1 = 9397, -- +7 Spell damage
+    spelltrigger_1 = 1
+WHERE entry = 7474;
+
+-- Regal Sash
+UPDATE mangos . item_template
+SET spellid_1 = 9397, -- +7 Spell damage
+    spelltrigger_1 = 1
+WHERE entry = 7476;
+
+-- Regal Cuffs
+UPDATE mangos . item_template
+SET spellid_1 = 9397, -- +7 Spell damage
+    spelltrigger_1 = 1
+WHERE entry = 7475;
+
+
+-- Bloodwoven Set
+-- Bloodwoven Mask
+UPDATE mangos . item_template
+SET spellid_1 = 9415, -- +9 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 14263;
+
+-- Bloodwoven Pads
+UPDATE mangos . item_template
+SET spellid_1 = 9415, -- +9 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 14266;
+
+-- Bloodwoven Wraps
+UPDATE mangos . item_template
+SET spellid_1 = 9417, -- +12 spell damage
+    spelltrigger_1 = 1
+WHERE entry = 14265;
+
+-- Bloodwoven Mitts
+UPDATE mangos . item_template
+SET spellid_1 = 9415, -- +9 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 14262;
+
+-- Bloodwoven Pants
+UPDATE mangos . item_template
+SET spellid_1 = 9417, -- +12 spell damage
+    spelltrigger_1 = 1
+WHERE entry = 14264;
+
+-- Bloodwoven Boots
+UPDATE mangos . item_template
+SET spellid_1 = 9415, -- +9 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 14259;
+
+-- Bloodwoven Cord
+UPDATE mangos . item_template
+SET spellid_1 = 9397, -- +7 Spell damage
+    spelltrigger_1 = 1
+WHERE entry = 14258;
+
+-- Bloodwoven Bracers
+UPDATE mangos . item_template
+SET spellid_1 = 9397, -- +7 Spell damage
+    spelltrigger_1 = 1
+WHERE entry = 14260;
+
+-- Bloodwoven Cloak
+UPDATE mangos . item_template
+SET spellid_1 = 9397, -- +7 Spell damage
+    spelltrigger_1 = 1
+WHERE entry = 14261;
+
+-- Bloodwoven Rod
+UPDATE mangos . item_template
+SET spellid_1 = 9415, -- +9 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 15982;
+
+-- Opulent Crown
+UPDATE mangos . item_template
+SET spellid_1 = 9417, -- +12 spell damage
+    spelltrigger_1 = 1
+WHERE entry = 14281;
+
+-- Opulent Mantle
+UPDATE mangos . item_template
+SET spellid_1 = 9417, -- +12 spell damage
+    spelltrigger_1 = 1
+WHERE entry = 14278;
+
+-- Opulent Robes
+UPDATE mangos . item_template
+SET spellid_1 = 9343, -- +14 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 14284;
+
+-- Opulent Gloves
+UPDATE mangos . item_template
+SET spellid_1 = 9417, -- +12 spell damage
+    spelltrigger_1 = 1
+WHERE entry = 14282;
+
+-- Opulent Leggings
+UPDATE mangos . item_template
+SET spellid_1 = 9343, -- +14 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 14283;
+
+-- Opulent Boots
+UPDATE mangos . item_template
+SET spellid_1 = 9417, -- +12 spell damage
+    spelltrigger_1 = 1
+WHERE entry = 14285;
+
+-- Opulent Belt
+UPDATE mangos . item_template
+SET spellid_1 = 9415, -- +9 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 14286;
+
+-- Opulent Bracers
+UPDATE mangos . item_template
+SET spellid_1 = 9415, -- +9 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 14279;
+
+-- Opulent Cape
+UPDATE mangos . item_template
+SET spellid_1 = 9415, -- +9 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 14280;
+
+-- Opulent Scepter
+UPDATE mangos . item_template
+SET spellid_1 = 9417, -- +12 spell damage
+    spelltrigger_1 = 1
+WHERE entry = 15984;
+
+-- Bonecaster's Crown
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 9346, -- +18 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 14307;
+
+-- Bonecaster's Spaulders
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 9346, -- +18 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 14298;
+
+-- Bonecaster's Shroud
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 15714, -- +22 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 14303;
+
+-- Bonecaster's Gloves
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 9346, -- +18 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 14302;
+
+-- Bonecaster's Sarong
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 15714, -- +22 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 14305;
+
+-- Bonecaster's Boots
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 9346, -- +18 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 14299;
+
+-- Bonecaster's Cape
+UPDATE mangos . item_template
+SET spellid_1 = 9417, -- +12 spell damage
+    spelltrigger_1 = 1
+WHERE entry = 14300;
+
+-- Bonecaster's Bindings
+UPDATE mangos . item_template
+SET spellid_1 = 9417, -- +12 spell damage
+    spelltrigger_1 = 1
+WHERE entry = 14301;
+
+-- Bonecaster's Belt
+UPDATE mangos . item_template
+SET spellid_1 = 9417, -- +12 spell damage
+    spelltrigger_1 = 1
+WHERE entry = 14304;
+
+-- Bonecaster's Star
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 9346, -- +18 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 15986;
+
+-- Councillor's Circlet
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 9316, -- +29 Healing
+    spelltrigger_1 = 1
+WHERE entry = 10097;
+
+-- Councillor's Shoulders
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 9316, -- +29 Healing
+    spelltrigger_1 = 1
+WHERE entry = 10100;
+
+-- Councillor's Robes
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 18030, -- +37 Healing
+    spelltrigger_1 = 1
+WHERE entry = 10102;
+
+-- Councillor's Gloves
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 9316, -- +29 Healing
+    spelltrigger_1 = 1
+WHERE entry = 10099;
+
+-- Councillor's Pants
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 18030, -- +37 Healing
+    spelltrigger_1 = 1
+WHERE entry = 10101;
+
+-- Councillor's Boots
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 9316, -- +29 Healing
+    spelltrigger_1 = 1
+WHERE entry = 10095;
+
+-- Councillor's Cuffs
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 15715, -- +25 Healing
+    spelltrigger_1 = 1
+WHERE entry = 10096;
+
+-- Councillor's Sash
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 15715, -- +25 Healing
+    spelltrigger_1 = 1
+WHERE entry = 10103;
+
+-- Councillor's Cloak
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 15715, -- +25 Healing
+    spelltrigger_1 = 1
+WHERE entry = 10098;
+
+-- Councillor's Scepter
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 9316, -- +29 Healing
+    spelltrigger_1 = 1
+WHERE entry = 15939;
 
 -- Hibernal Armor
 UPDATE mangos . item_template
