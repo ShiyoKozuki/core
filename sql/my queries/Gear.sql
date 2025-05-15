@@ -10327,6 +10327,33 @@ SET quality = 4,
     spelltrigger_2 = 1
 WHERE entry = 10139;
 
+-- High Councillor's Mantle
+UPDATE mangos . item_template
+SET quality = 4,
+    spellid_1 = 14127, -- +28 Spell Damage
+    spelltrigger_1 = 1,
+    spellid_2 = 23727, -- +1% Spell Hit
+    spelltrigger_2 = 1
+WHERE entry = 10142;
+
+-- High Councillor's Robe
+UPDATE mangos . item_template
+SET quality = 4,
+    spellid_1 = 17367, -- +32 Spell Damage
+    spelltrigger_1 = 1,
+    spellid_2 = 23727, -- +1% Spell Hit
+    spelltrigger_2 = 1
+WHERE entry = 10143;
+
+-- High Councillor's Gloves
+UPDATE mangos . item_template
+SET quality = 4,
+    spellid_1 = 15714, -- +22 Spell Damage
+    spelltrigger_1 = 1,
+    spellid_2 = 23727, -- +1% Spell Hit
+    spelltrigger_2 = 1
+WHERE entry = 10143;
+
 -- Hibernal Armor
 UPDATE mangos . item_template
 SET quality = 3,
