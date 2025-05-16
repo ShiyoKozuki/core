@@ -8207,6 +8207,18 @@ SET stat_type1 = 3,
     spelltrigger_1 = 1
 WHERE entry = 1832;
 
+-- Edge of the People's Militia (The People's Militia)
+UPDATE mangos . item_template
+SET dmg_min1 = 34,
+    dmg_max1 = 64
+WHERE entry = 1566;
+
+-- Fist of the People's Militia (The People's Militia)
+UPDATE mangos . item_template
+SET dmg_min1 = 13,
+    dmg_max1 = 27
+WHERE entry = 1480;
+
 -- Spark of the People's Militia (The People's Militia)
 UPDATE mangos . item_template
 SET dmg_min1 = 26,
@@ -9905,6 +9917,13 @@ WHERE entry = 4829;
 
 -- Rare mob drops
 
+-- Coral Claymore (Slark)
+UPDATE mangos . item_template
+SET quality = 3,
+    dmg_min1 = 27,
+    dmg_max1 = 57
+WHERE entry = 3188;
+
 -- Silithid Ripper (Silithid Ravager)
 UPDATE mangos . item_template
 SET dmg_min1 = 37,
@@ -10352,7 +10371,152 @@ SET quality = 4,
     spelltrigger_1 = 1,
     spellid_2 = 23727, -- +1% Spell Hit
     spelltrigger_2 = 1
-WHERE entry = 10143;
+WHERE entry = 10140;
+
+-- High Councillor's Pants
+UPDATE mangos . item_template
+SET quality = 4,
+    spellid_1 = 17367, -- +32 Spell Damage
+    spelltrigger_1 = 1,
+    spellid_2 = 23727, -- +1% Spell Hit
+    spelltrigger_2 = 1
+WHERE entry = 10141;
+
+-- High Councillor's Boots
+UPDATE mangos . item_template
+SET quality = 4,
+    spellid_1 = 15714, -- +22 Spell Damage
+    spelltrigger_1 = 1,
+    spellid_2 = 23727, -- +1% Spell Hit
+    spelltrigger_2 = 1
+WHERE entry = 10137;
+
+-- High Councillor's Sash
+UPDATE mangos . item_template
+SET quality = 4,
+    spellid_1 = 9345, -- +16 Spell damage
+    spelltrigger_1 = 1,
+    spellid_2 = 23727, -- +1% Spell Hit
+    spelltrigger_2 = 1
+WHERE entry = 10144;
+
+-- High Councillor's Bracers
+UPDATE mangos . item_template
+SET quality = 4,
+    spellid_1 = 9345, -- +16 Spell damage
+    spelltrigger_1 = 1,
+    spellid_2 = 23727, -- +1% Spell Hit
+    spelltrigger_2 = 1
+WHERE entry = 10136;
+
+-- High Councillor's Cloak
+UPDATE mangos . item_template
+SET quality = 4,
+    spellid_1 = 9345, -- +16 Spell damage
+    spelltrigger_1 = 1,
+    spellid_2 = 23727, -- +1% Spell Hit
+    spelltrigger_2 = 1
+WHERE entry = 10138;
+
+-- High Councillor's Scepter
+UPDATE mangos . item_template
+SET quality = 4,
+    spellid_1 = 15714, -- +22 Spell Damage
+    spelltrigger_1 = 1,
+    spellid_2 = 23727, -- +1% Spell Hit
+    spelltrigger_2 = 1
+WHERE entry = 15941;
+
+-- Master's Set
+-- Master's Hat
+UPDATE mangos . item_template
+SET quality = 4,
+    spellid_1 = 18030, -- +37 Healing 
+    spelltrigger_1 = 1,
+    spellid_2 = 21361, -- 3 MP/5
+    spelltrigger_2 = 1
+WHERE entry = 10250;
+
+-- Master's Mantle
+UPDATE mangos . item_template
+SET quality = 4,
+    spellid_1 = 18030, -- +37 Healing 
+    spelltrigger_1 = 1,
+    spellid_2 = 21361, -- 3 MP/5
+    spelltrigger_2 = 1
+WHERE entry = 10253;
+
+-- Master's Robe
+UPDATE mangos . item_template
+SET quality = 4,
+    spellid_1 = 18032, -- +42 Healing
+    spelltrigger_1 = 1,
+    spellid_2 = 21361, -- 3 MP/5
+    spelltrigger_2 = 1
+WHERE entry = 10254;
+
+-- Master's Gloves
+UPDATE mangos . item_template
+SET quality = 4,
+    spellid_1 = 18030, -- +37 Healing 
+    spelltrigger_1 = 1,
+    spellid_2 = 21361, -- 3 MP/5
+    spelltrigger_2 = 1
+WHERE entry = 10251;
+
+-- Master's Leggings
+UPDATE mangos . item_template
+SET quality = 4,
+    spellid_1 = 18032, -- +42 Healing
+    spelltrigger_1 = 1,
+    spellid_2 = 21361, -- 3 MP/5
+    spelltrigger_2 = 1
+WHERE entry = 10252;
+
+-- Master's Boots
+UPDATE mangos . item_template
+SET quality = 4,
+    spellid_1 = 18030, -- +37 Healing 
+    spelltrigger_1 = 1,
+    spellid_2 = 21361, -- 3 MP/5
+    spelltrigger_2 = 1
+WHERE entry = 10247;
+
+-- Master's Belt
+UPDATE mangos . item_template
+SET quality = 4,
+    spellid_1 = 9316, -- +29 Healing
+    spelltrigger_1 = 1,
+    spellid_2 = 21361, -- 3 MP/5
+    spelltrigger_2 = 1
+WHERE entry = 10255;
+
+-- Master's Bracers
+UPDATE mangos . item_template
+SET quality = 4,
+    spellid_1 = 9316, -- +29 Healing
+    spelltrigger_1 = 1,
+    spellid_2 = 21361, -- 3 MP/5
+    spelltrigger_2 = 1
+WHERE entry = 10248;
+
+-- Master's Cloak
+UPDATE mangos . item_template
+SET quality = 4,
+    spellid_1 = 9316, -- +29 Healing
+    spelltrigger_1 = 1,
+    spellid_2 = 21361, -- 3 MP/5
+    spelltrigger_2 = 1
+WHERE entry = 10249;
+
+-- Master's Rod
+UPDATE mangos . item_template
+SET quality = 4,
+    spellid_1 = 18030, -- +37 Healing 
+    spelltrigger_1 = 1,
+    spellid_2 = 21361, -- 3 MP/5
+    spelltrigger_2 = 1
+WHERE entry = 15942;
 
 -- Hibernal Armor
 UPDATE mangos . item_template
