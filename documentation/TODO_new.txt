@@ -75,6 +75,8 @@ unyielding faith spellID for hand of reckoning and remove the new icon i added
 150+ food to give spell dmg str etc
 
 NOW:
+    Shield recipes added to Blacksmithing (including bop versions)
+    Staff / Bow / Wand / Offhand recipes added to enchanting (including bop versions)
     Ashenvale quests (copy TBC quests and also horde quests if needed)
     Ashenvale quest for Ghostpaw Alpha and Elder Shadowhorn Stag
     Ashenvale quests for the legion(east of forest song) start from Forest Song
@@ -82,33 +84,20 @@ NOW:
     Stonetalon More charred vale quests off the chims earth eles, fire eles, treants(charred/blackened ancient), etc. Maybe copy horde quests too? Start at the town with a FP
 
     add more librams at lower level (quests/boss drops)
-    UNLEARN ALL RANKS ON GM WHEN TESTING!!!!!!
-    Judgement of Justice -10% attack speed for 30s
-    Consecration higher coefficient scaling
-    Benediction -15% MP cost to ALL instant spells? How did WOTLK do it? Or copy priest talent?
 
-    increase level of heavy copper broadsword to 17
     spell damage to quest reward staves/offhands and very few sword/daggers
     New food, edit existing 150+ food
     Rotting Slime (3928) level 26-28
-    Create a Patch and DBC the holy strike MP change and commit it
+    https://github.com/ratkosrb/vmangos_qa_menu
 
 
-stonesplinter blade drop rate?
-gnoll war harness drop rate
 
-add more librams at lower level (quests/boss drops). Add to any quest that has a wand as the only weapon reward!
-Buff The Peoples Militia quest weapons
-buff Coral Claymore and make it blue (unique drop off Slark, a rare?)
 Greater Firebird Crimson Fury(?). Was enfire effect!
-
-
 
 tomorrow:
     weak aura for blessings/seal/righteous fury on self (For seals, just show judgement in middle of screen if it CANT be used, means no seal active)
 
 Copy into discord before sleep:
-    Mow Grass
     Dust chair and closet
     Clean AC filter
     level 40+ BOE cloth greens add spell damage / healing
