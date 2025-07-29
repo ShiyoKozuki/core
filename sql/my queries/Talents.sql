@@ -1,5 +1,153 @@
 -- Talents
 
+-- Druid
+    -- Brutal Impact (2-4% Phys and magic hit rate)
+    UPDATE `mangos`.`spell_template` SET `effectBaseDice2`=1, `effectBasePoints1`=1, `effectBasePoints2`=1, `effectApplyAuraName1`=54, `effectApplyAuraName2`=55, `description`='Increases your chance to hit with phyical attacks and spells by $s1%.' WHERE  `entry`=16940 AND `build`=4878;
+    UPDATE `mangos`.`spell_template` SET `effectBaseDice2`=1, `effectBasePoints1`=3, `effectBasePoints2`=3, `effectApplyAuraName1`=54, `effectApplyAuraName2`=55, `description`='Increases your chance to hit with phyical attacks and spells by $s1%.' WHERE  `entry`=16941 AND `build`=4878;
+
+    -- Moonglow ()
+    UPDATE mangos . spell_template 
+    SET effectBasePoints1 = -11
+    WHERE entry = 16845;
+
+    UPDATE mangos . spell_template 
+    SET effectBasePoints1 = -21
+    WHERE entry = 16846;
+
+    UPDATE mangos . spell_template 
+    SET effectBasePoints1 = -31
+    WHERE entry = 16847;
+
+    -- TODO: Dreamstate MP regen doesn't woork
+    -- TODO: Omen of Clarity doesn't work
+
+    -- Improved Moonfire (2-10% spell crit, renamed Moon Empowerment)
+    UPDATE `mangos`.`spell_template` SET `effectApplyAuraName1`=71, `effectMiscValue1`=-1, `name`='Moon Empowerment', `description`='Increases the critical strike chance of your spells by $s1%.' WHERE  `entry`=16821 AND `build`=4222;
+    UPDATE `mangos`.`spell_template` SET `effectApplyAuraName1`=71, `effectMiscValue1`=-1, `name`='Moon Empowerment', `description`='Increases the critical strike chance of your spells by $s1%.' WHERE  `entry`=16822 AND `build`=4222;
+    UPDATE `mangos`.`spell_template` SET `effectApplyAuraName1`=71, `effectMiscValue1`=-1, `name`='Moon Empowerment', `description`='Increases the critical strike chance of your spells by $s1%.' WHERE  `entry`=16823 AND `build`=4222;
+    UPDATE `mangos`.`spell_template` SET `effectApplyAuraName1`=71, `effectMiscValue1`=-1, `name`='Moon Empowerment', `description`='Increases the critical strike chance of your spells by $s1%.' WHERE  `entry`=16824 AND `build`=4222;
+    UPDATE `mangos`.`spell_template` SET `effectApplyAuraName1`=71, `effectMiscValue1`=-1, `name`='Moon Empowerment', `description`='Increases the critical strike chance of your spells by $s1%.' WHERE  `entry`=16825 AND `build`=4222;
+
+    -- Moonfury (3-15%)
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=2 WHERE  `entry`=16896 AND `build`=4878;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=5 WHERE  `entry`=16897 AND `build`=4878;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=8 WHERE  `entry`=16899 AND `build`=4878;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=11 WHERE  `entry`=16900 AND `build`=4878;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=14 WHERE  `entry`=16901 AND `build`=4878;
+
+    -- Natural Weapons (5-25% melee damage in all forms)
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=4 WHERE  `entry`=16902 AND `build`=5086;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=9 WHERE  `entry`=16903 AND `build`=5086;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=14 WHERE  `entry`=16904 AND `build`=5086;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=19 WHERE  `entry`=16905 AND `build`=5086;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=24 WHERE  `entry`=16906 AND `build`=5086;
+
+    -- Thick Hide (3/6/10%)
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=2 WHERE  `entry`=16929 AND `build`=5086;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=5 WHERE  `entry`=16930 AND `build`=5086;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=9 WHERE  `entry`=16931 AND `build`=5086;
+
+    -- Improved Mark of the Wild (17%/35%)
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=16 WHERE  `entry`=17050 AND `build`=4222;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=34 WHERE  `entry`=17051 AND `build`=4222;
+
+    -- Reflection (5-25% Mana regen in combat)
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=19 WHERE  `entry`=17109 AND `build`=4878;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=24, `name`='Reflection' WHERE  `entry`=17110 AND `build`=5086;
+
+    -- Improved Entangling Roots (Renamed Dreamstate)
+    UPDATE `mangos`.`spell_template` SET `effectRealPointsPerLevel1`=0.5, `effectBasePoints1`=-1, `effectApplyAuraName1`=85, `effectMiscValue1`=0, `name`='Dreamstate',
+        `description`='Regenerate $s1 mana per 5 sec. This amount increases with your level.' 
+    WHERE  `entry`=16918 AND `build`=4222;
+
+    UPDATE `mangos`.`spell_template` SET `effectRealPointsPerLevel1`=0.75, `effectBasePoints1`=-1, `effectApplyAuraName1`=85, `effectMiscValue1`=0, `name`='Dreamstate',
+        `description`='Regenerate $s1 mana per 5 sec. This amount increases with your level.' 
+    WHERE  `entry`=16919 AND `build`=4222;
+
+    UPDATE `mangos`.`spell_template` SET `effectRealPointsPerLevel1`=1, `effectBasePoints1`=-1, `effectApplyAuraName1`=85, `effectMiscValue1`=0, `name`='Dreamstate',
+        `description`='Regenerate $s1 mana per 5 sec. This amount increases with your level.' 
+    WHERE  `entry`=16920 AND `build`=4222;
+
+    -- Feral Aggression (Renamed to Druidic Insight)
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=1, `effectApplyAuraName1`=137, `effectApplyAuraName2`=0, `effectMiscValue1`=-1, 
+        `name`='Druidic Insight', `description`='Increases your total stats by $s1%.' 
+    WHERE  `entry`=16858;
+
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=3, `effectApplyAuraName1`=137, `effectApplyAuraName2`=0, `effectMiscValue1`=-1, 
+        `name`='Druidic Insight', `description`='Increases your total stats by $s1%.' 
+    WHERE  `entry`=16859;
+
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=5, `effectApplyAuraName1`=137, `effectApplyAuraName2`=0, `effectMiscValue1`=-1, 
+        `name`='Druidic Insight', `description`='Increases your total stats by $s1%.' 
+    WHERE  `entry`=16860;
+
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=7, `effectApplyAuraName1`=137, `effectApplyAuraName2`=0, `effectMiscValue1`=-1, 
+        `name`='Druidic Insight', `description`='Increases your total stats by $s1%.' 
+    WHERE  `entry`=16861;
+
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=9, `effectApplyAuraName1`=137, `effectApplyAuraName2`=0, `effectMiscValue1`=-1, 
+        `name`='Druidic Insight', `description`='Increases your total stats by $s1%.' 
+    WHERE  `entry`=16862;
+
+    -- Improved Thorns (24-70% spell interrupt reduction Renamed to Barkskin)
+    UPDATE `mangos`.`spell_template` SET `effectApplyAuraName1`=149, `effectApplyAuraName2`=117, `effectApplyAuraName3`=117, `effectMiscValue1`=127, `effectMiscValue2`=26, `effectMiscValue3`=9, 
+        `name`='Barkskin', `description`='Gives a  $s1% chance to ignore spell interruption when damaged.' 
+    WHERE  `entry`=16836 AND `build`=4878;
+
+    UPDATE `mangos`.`spell_template` SET `effectApplyAuraName1`=149, `effectApplyAuraName2`=117, `effectApplyAuraName3`=117, `effectMiscValue1`=127, `effectMiscValue2`=26, `effectMiscValue3`=9, 
+        `name`='Barkskin', `description`='Gives a  $s1% chance to ignore spell interruption when damaged.' 
+    WHERE  `entry`=16839 AND `build`=4878;
+
+    UPDATE `mangos`.`spell_template` SET `effectApplyAuraName1`=149, `effectApplyAuraName2`=117, `effectApplyAuraName3`=117, `effectMiscValue1`=127, `effectMiscValue2`=26, `effectMiscValue3`=9, 
+        `name`='Barkskin', `description`='Gives a  $s1% chance to ignore spell interruption when damaged.' 
+    WHERE  `entry`=16840 AND `build`=4878;
+
+    -- Omen of Clarity (Procs on any melee attack, ability OR offensive spell)
+    UPDATE `mangos`.`spell_template` SET `procFlags`=4116, 
+        `auraDescription`='Each melee attack, melee ability, or offensive spell has a chance of causing the caster to enter a Clearcasting state.' ,
+        `description`='Imbues the Druid with natural energy.  Each of the Druid\'s melee attacks, melee ability,  or offensive spell has a chance of causing the caster to enter a Clearcasting state.  The Clearcasting state reduces the Mana, Rage or Energy cost of your next damage or healing spell or offensive ability by $16870s1%.  Lasts $d.'
+    WHERE  `entry`=16864 AND `build`=5464;
+
+    -- Nature's Focus (35%/40%)
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=34 WHERE  `entry`=17063 AND `build`=4878;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=69 WHERE  `entry`=17065 AND `build`=4878;
+
+    -- Improved Starfire (-2/-4/-6/-8/-10% spell damage taken Renamed Celestial Alignment)
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=-3, `effectBasePoints2`=0, `effectApplyAuraName1`=87, `effectApplyAuraName2`=0, `effectMiscValue1`=126, `effectMiscValue2`=0, 
+        `name`='Celestial Alignment', `description`='Reduces all spell damage taken by $s1%.' WHERE  
+    `entry`=16850 AND `build`=5302;
+
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=-5, `effectBasePoints2`=0, `effectApplyAuraName1`=87, `effectApplyAuraName2`=0, `effectMiscValue1`=126, `effectMiscValue2`=0, 
+        `name`='Celestial Alignment', `description`='Reduces all spell damage taken by $s1%.' WHERE  
+    `entry`=16923 AND `build`=5302;
+
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=-7, `effectBasePoints2`=0, `effectApplyAuraName1`=87, `effectApplyAuraName2`=0, `effectMiscValue1`=126, `effectMiscValue2`=0, 
+        `name`='Celestial Alignment', `description`='Reduces all spell damage taken by $s1%.' WHERE  
+    `entry`=16924 AND `build`=5302;
+
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=-9, `effectBasePoints2`=0, `effectApplyAuraName1`=87, `effectApplyAuraName2`=0, `effectMiscValue1`=126, `effectMiscValue2`=0, 
+        `name`='Celestial Alignment', `description`='Reduces all spell damage taken by $s1%.' WHERE  
+    `entry`=16925 AND `build`=5302;
+
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=-11, `effectBasePoints2`=0, `effectApplyAuraName1`=87, `effectApplyAuraName2`=0, `effectMiscValue1`=126, `effectMiscValue2`=0, 
+        `name`='Celestial Alignment', `description`='Reduces all spell damage taken by $s1%.' WHERE  
+    `entry`=16926 AND `build`=5302;
+
+    -- Insect Swarm
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=20, `effectBonusCoefficient1`=0.167 WHERE  `entry`=5570 AND `build`=5302;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=44, `effectBonusCoefficient1`=0.167 WHERE  `entry`=24974 AND `build`=5302;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=56, `effectBonusCoefficient1`=0.167 WHERE  `entry`=24975 AND `build`=5302;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=86, `effectBonusCoefficient1`=0.167 WHERE  `entry`=24976 AND `build`=5302;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=106, `effectBonusCoefficient1`=0.167 WHERE  `entry`=24977 AND `build`=5302;
+
+    -- Improved Rejuvenation (10%/20%/30%)
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=9 WHERE  `entry`=17111 AND `build`=4878;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=19 WHERE  `entry`=17112 AND `build`=4878;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=29 WHERE  `entry`=17113 AND `build`=4878;
+
+    -- Swiftmend (1.5s cast)
+    UPDATE `mangos`.`spell_template` SET `castingTimeIndex`=16 WHERE  `entry`=18562 AND `build`=5464;
+
 -- Precision (Paladin)
     UPDATE mangos . spell_template SET effect2 = 6 WHERE entry = 20189;
     UPDATE mangos . spell_template SET effectImplicitTargetA2 = 1 WHERE entry = 20189;
@@ -24,7 +172,7 @@
     UPDATE mangos . spell_template SET effectApplyAuraName2 = 55 WHERE entry = 20193;
     UPDATE mangos . spell_template SET description = 'Increases your chance to hit with melee weapons and spells by $s1%.' WHERE  entry = 20193;
 
--- Improved Devotion Aura TODO: Doesn't work.
+-- Improved Devotion Aura
     UPDATE `mangos`.`spell_template` SET `effect2`=35, `effectDieSides2`=1, `effectBaseDice2`=1, `effectBasePoints2`=-1, `effectImplicitTargetA2`=1, `effectApplyAuraName2`=118, `effectItemType2`=64 
     WHERE  `entry`=465;
 
@@ -122,16 +270,6 @@
     UPDATE `mangos`.`spell_template` SET `description`='Increases physical and holy damage you deal with one-handed melee weapons by $s1%.' WHERE  `entry`=20200;
 
 
-
-
--- Improved Moonfire
-    DELETE FROM `mangos`.`spell_template` WHERE  `entry`=16821 AND `build`=5875;
-    DELETE FROM `mangos`.`spell_template` WHERE  `entry`=16821 AND `build`=4222;
-    INSERT INTO `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectDieSides2`, `effectBaseDice1`, `effectBaseDice2`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectApplyAuraName1`, `effectItemType1`, `effectItemType2`, `effectMiscValue1`, `effectMiscValue2`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `dmgMultiplier1`, `dmgMultiplier2`) VALUES (16821, 4222, 464, 1, 101, 21, 1, -1, 6, 1, 1, 1, 1, 3, 1, 1, -1, 1, 1, 57, 2, 2, 7, 8, 225, 'Improved Moonfire', 983070, 'Rank 2', 983070, 'Increases the damage and critical strike chance of your Moonfire spell by $s1%.', 983054, 983052, 7, 1, 1);
-    UPDATE `mangos`.`spell_template` SET `nameSubtext`='Rank 1' WHERE  `entry`=16821 AND `build`=4222;
-    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=1 WHERE  `entry`=16821 AND `build`=4222;
-
-
 UPDATE mangos . spell_template 
 SET effect2 = 0, 
     effect3 = 0, 
@@ -171,19 +309,6 @@ SET effect2 = 0,
     effectBasePoints2 = 0,
     effectBasePoints3 = 0
 WHERE entry = 16825;
-
--- Moonglow
-UPDATE mangos . spell_template 
-SET effectBasePoints1 = -11
-WHERE entry = 16845;
-
-UPDATE mangos . spell_template 
-SET effectBasePoints1 = -21
-WHERE entry = 16846;
-
-UPDATE mangos . spell_template 
-SET effectBasePoints1 = -31
-WHERE entry = 16847;
 
 -- Vile Poisons
 UPDATE mangos . spell_template 
