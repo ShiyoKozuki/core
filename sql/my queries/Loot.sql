@@ -169,10 +169,10 @@ SET ChanceOrQuestChance = 5
 WHERE item IN(8153) AND ChanceOrQuestChance > 5;
 
 -- Bags
--- 0.01%
+-- 0.5%
 UPDATE mangos . creature_loot_template
-SET ChanceOrQuestChance = 0.01
-WHERE item IN(4500, 3914, 1725, 5572, 804, 5575, 856, 5573, 5574, 805, 828, 857, 5571);
+SET ChanceOrQuestChance = 0.5
+WHERE item IN(4500, 3914, 1725, 5572, 804, 5575, 856, 5573, 5574, 805, 828, 857, 5571, 4496);
 
 -- High Value (10s+) Gray mob drops
 UPDATE mangos . creature_loot_template

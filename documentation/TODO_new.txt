@@ -67,14 +67,22 @@ Mage:
     Arcane:
         31 point arcane talents give mage healing spells
 
-Warlock:
-    +20% swim speed on underwater breathing
 
 
 unyielding faith spellID for hand of reckoning and remove the new icon i added
 150+ food to give spell dmg str etc
 
 NOW:
+    NE racial dagger skill + polearm skill + bow skill
+    Raid buffs / debuffs
+    Rogue axes, Druid Polearm. Axes added to sword spec
+    Theramore bank, AH, all class/crafting trainers, all vendors
+    Weapons that give a new skill that can be upgraded (increases the level of the skill) by killing world bosses (below)
+    World bosses that can be duo'd (Like legion pre-event ones) drop the upgrade mats. Hard/challenging fights
+    Zones to AoE farm for gold, ton more uses for gold.
+    Zones to AoE farm that drop very good BOE'S
+    Low level mats valuable via a quest so you can AOE farm low level zones
+    Need to replace 1.12 honor gear with old in battlebot templates
     Shield recipes added to Blacksmithing (including bop versions)
     Staff / Bow / Wand / Offhand recipes added to enchanting (including bop versions)
     Ashenvale quests (copy TBC quests and also horde quests if needed)
@@ -306,8 +314,25 @@ Rogue:
     2x the combo points generated ?
     1m CD thistle tea as a skill?
     Counterattack on parry/dodge
+    +Stealth talent changed to 10% per point
+    Envenom 31 point assassination
+    Prep removed
+    Evasion / Sprint / Vanish / Blind 2m CD
+    Poison talents merged into 1
+    imp backstab and imp rupture change places
+    Buff garrote / rupture base dmg
+    Improved ambush cause ambush to apply defense down for 10 seconds (Ambush needs 0 or -1 effectDieSides1 armor down effect)
+    Combat = tank spec. Counter on dodge etc
+    Add Ghostly Strike to combat, make 100% uptimeable
+    Set up moved to combat
+
+Druid: 
+    Buff rip
+
 
 Warlock:
+    Rain of Fire no longer channeled
+    +20% swim speed on underwater breathing
     Demonic Sacrifice allow petless warlock to be tanky, saccing a VW gives you +300% armor and HP regen?
     Warlock talents suck in general and don't feel exciting to get. Warror for example the entire time 10-60 has exciting talents to look forward to. Fix this, esp for affl
     Imp COA talent replaced with also applying CoW to target or a -attack speed/-dmg debuff
