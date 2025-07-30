@@ -18,7 +18,6 @@
     SET effectBasePoints1 = -31
     WHERE entry = 16847;
 
-    -- TODO: Dreamstate MP regen doesn't woork
     -- TODO: Omen of Clarity doesn't work
 
     -- Improved Moonfire (2-10% spell crit, renamed Moon Empowerment)
@@ -107,6 +106,8 @@
         `auraDescription`='Each melee attack, melee ability, or offensive spell has a chance of causing the caster to enter a Clearcasting state.' ,
         `description`='Imbues the Druid with natural energy.  Each of the Druid\'s melee attacks, melee ability,  or offensive spell has a chance of causing the caster to enter a Clearcasting state.  The Clearcasting state reduces the Mana, Rage or Energy cost of your next damage or healing spell or offensive ability by $16870s1%.  Lasts $d.'
     WHERE  `entry`=16864 AND `build`=5464;
+
+    UPDATE `mangos`.`spell_proc_event` SET `procFlags`=4116 WHERE  `entry`=16864 AND `build_min`=4878 AND `build_max`=5875;
 
     -- Nature's Focus (35%/40%)
     UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=34 WHERE  `entry`=17063 AND `build`=4878;
@@ -312,18 +313,18 @@ WHERE entry = 16825;
 
 -- Vile Poisons
 UPDATE mangos . spell_template 
-SET effectBasePoints1 = 7,
-    effectBasePoints2 = 7 
+SET effectBasePoints1 = 32,
+    effectBasePoints2 = 32
 WHERE entry = 16513;
 
 UPDATE mangos . spell_template 
-SET effectBasePoints1 = 15, 
-    effectBasePoints2 = 15 
+SET effectBasePoints1 = 65, 
+    effectBasePoints2 = 65 
 WHERE entry = 16514;
 
 UPDATE mangos . spell_template 
-SET effectBasePoints1 = 23, 
-    effectBasePoints2 = 23 
+SET effectBasePoints1 = 99, 
+    effectBasePoints2 = 99 
 WHERE entry = 16515;
 
 UPDATE mangos . spell_template 
@@ -336,88 +337,88 @@ SET effectBasePoints1 = 39,
     effectBasePoints2 = 39 
 WHERE entry = 16720;
 
--- Deadliness
-UPDATE mangos . spell_template 
-SET effectBasePoints1 = 4
-WHERE entry = 30902;
+-- Rogue
 
-UPDATE mangos . spell_template 
-SET effectBasePoints1 = 9
-WHERE entry = 30903;
+    -- Premeditation (20s CD)
+    UPDATE `mangos`.`spell_template` SET `recoveryTime`=20000 WHERE  `entry`=14183 AND `build`=5875;
+    
+    -- Blade Flurry (60s CD)
+    UPDATE `mangos`.`spell_template` SET `recoveryTime`=60000 WHERE  `entry`=13877 AND `build`=5302;
 
-UPDATE mangos . spell_template 
-SET effectBasePoints1 = 14
-WHERE entry = 30904;
+    -- Improved Poisons (10%/20%)
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=9 WHERE  `entry`=14113 AND `build`=5875;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=19 WHERE  `entry`=14114 AND `build`=5875;
 
-UPDATE mangos . spell_template 
-SET effectBasePoints1 = 19
-WHERE entry = 30905;
+    -- Deadliness
+    UPDATE mangos . spell_template 
+    SET effectBasePoints1 = 4
+    WHERE entry = 30902;
 
-UPDATE mangos . spell_template 
-SET effectBasePoints1 = 24
-WHERE entry = 30906;
+    UPDATE mangos . spell_template 
+    SET effectBasePoints1 = 9
+    WHERE entry = 30903;
 
--- Skill Line Abiity
--- Improved Backstab
-UPDATE mangos . skill_line_ability
-SET skill_id = 253
-WHERE spell_id = 13733;
+    UPDATE mangos . spell_template 
+    SET effectBasePoints1 = 14
+    WHERE entry = 30904;
 
-UPDATE mangos . skill_line_ability
-SET skill_id = 253
-WHERE spell_id = 13865;
+    UPDATE mangos . spell_template 
+    SET effectBasePoints1 = 19
+    WHERE entry = 30905;
 
-UPDATE mangos . skill_line_ability
-SET skill_id = 253
-WHERE spell_id = 13866;
+    UPDATE mangos . spell_template 
+    SET effectBasePoints1 = 24
+    WHERE entry = 30906;
 
--- Dagger Spec
-UPDATE mangos . skill_line_ability
-SET skill_id = 253
-WHERE spell_id = 13706;
+    -- Skill Line Abiity
 
-UPDATE mangos . skill_line_ability
-SET skill_id = 253
-WHERE spell_id = 13804;
+    -- Sleight of Hand
+    UPDATE mangos . skill_line_ability
+    SET skill_id = 253
+    WHERE spell_id IN (30892, 30893);
 
-UPDATE mangos . skill_line_ability
-SET skill_id = 253
-WHERE spell_id = 13805;
+    -- Improved Backstab
+    UPDATE mangos . skill_line_ability
+    SET skill_id = 39
+    WHERE spell_id IN (13733, 13865, 13866);
 
-UPDATE mangos . skill_line_ability
-SET skill_id = 253
-WHERE spell_id = 13806;
+    -- Dagger Spec
+    UPDATE mangos . skill_line_ability
+    SET skill_id = 38
+    WHERE spell_id IN (13706, 13804, 13805, 13806, 13807);
 
-UPDATE mangos . skill_line_ability
-SET skill_id = 253
-WHERE spell_id = 13807;
+    -- Improved Gouge
+    UPDATE mangos . skill_line_ability
+    SET skill_id = 39
+    WHERE spell_id IN (13741, 13793, 13792);
 
--- Improved Kidney Shot
-UPDATE mangos . skill_line_ability
-SET skill_id = 38
-WHERE spell_id = 14174;
+    -- Improved Kidney Shot
+    UPDATE mangos . skill_line_ability
+    SET skill_id = 38
+    WHERE spell_id = 14174;
 
-UPDATE mangos . skill_line_ability
-SET skill_id = 38
-WHERE spell_id = 14175;
+    UPDATE mangos . skill_line_ability
+    SET skill_id = 38
+    WHERE spell_id = 14175;
 
-UPDATE mangos . skill_line_ability
-SET skill_id = 38
-WHERE spell_id = 14176;
+    UPDATE mangos . skill_line_ability
+    SET skill_id = 38
+    WHERE spell_id = 14176;
 
--- Improved Slice n Dice
-UPDATE mangos . skill_line_ability
-SET skill_id = 38
-WHERE spell_id = 14165;
+    -- Improved Slice n Dice
+    UPDATE mangos . skill_line_ability
+    SET skill_id = 38
+    WHERE spell_id = 14165;
 
-UPDATE mangos . skill_line_ability
-SET skill_id = 38
-WHERE spell_id = 14166;
+    UPDATE mangos . skill_line_ability
+    SET skill_id = 38
+    WHERE spell_id = 14166;
 
-UPDATE mangos . skill_line_ability
-SET skill_id = 38
-WHERE spell_id = 14167;
+    UPDATE mangos . skill_line_ability
+    SET skill_id = 38
+    WHERE spell_id = 14167;
 
+-- Warlock
 -- Demonic Sacrifice
 UPDATE mangos . skill_line_ability
 SET skill_id = 355
