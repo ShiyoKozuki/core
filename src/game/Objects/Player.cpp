@@ -7457,7 +7457,7 @@ void Player::CastItemUseSpell(Item* item, SpellCastTargets const& targets)
 
         RemoveAurasWithInterruptFlags(AURA_INTERRUPT_ITEM_USE_CANCELS, 0, false, spellInfo->HasAttribute(SPELL_ATTR_EX_ALLOW_WHILE_STEALTHED));
 
-        Spell* spell = new Spell(this, spellInfo, ((count > 0) || proto->HasExtraFlag(ITEM_EXTRA_CAST_AS_TRIGGERED)));
+        Spell* spell = new Spell(this, spellInfo, (count > 0));
         spell->SetCastItem(item);
         spell->prepare(targets);
 
@@ -15485,10 +15485,10 @@ bool Player::_LoadInventory(std::unique_ptr<QueryResult> result, uint32 timediff
         //NOTE2: the "order by `slot`" is needed because mainhand weapons are (wrongly?)
         //expected to be equipped before offhand items (TODO: fixme)
 
-        std::set<uint32> itemGuids;
+        std::unordered_set<uint32> itemGuids;
         uint32 zone = GetZoneId();
 
-        std::list<Item*> problematicItems;
+        std::vector<Item*> problematicItems;
 
         // prevent items from being added to the queue when stored
         m_itemUpdateQueueBlocked = true;
@@ -15678,8 +15678,8 @@ bool Player::_LoadInventory(std::unique_ptr<QueryResult> result, uint32 timediff
 
             for (int i = 0; !problematicItems.empty() && i < MAX_MAIL_ITEMS; ++i)
             {
-                Item* item = problematicItems.front();
-                problematicItems.pop_front();
+                Item* item = problematicItems.back();
+                problematicItems.pop_back();
 
                 draft.AddItem(item);
             }
@@ -16837,8 +16837,7 @@ void Player::_SaveQuestStatus()
             static SqlStatementID deleteQuestStatus ;
             SqlStatement stmt = CharacterDatabase.CreateStatement(deleteQuestStatus, "DELETE FROM `character_queststatus` WHERE `guid` = ? AND `quest` = ?");
             stmt.PExecute(GetGUIDLow(), i->first);
-            mQuestStatus.erase(i);
-            i = mQuestStatus.begin();
+            i = mQuestStatus.erase(i);
             continue;
         }
         switch (i->second.uState)

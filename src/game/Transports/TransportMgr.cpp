@@ -46,14 +46,15 @@ TransportTemplate* TransportMgr::GetTransportTemplate(uint32 entry)
 
 void TransportMgr::LoadTransportTemplates()
 {
-    for (uint32 entry = 1; entry <= sGOStorage.GetMaxEntry(); ++entry)
+    for (auto const& itr : sObjectMgr.GetGameObjectInfoMap())
     {
-        auto data = sGOStorage.LookupEntry<GameObjectInfo>(entry);
+        uint32 entry = itr.first;
+        auto const& data = itr.second;
         if (data && data->type == GAMEOBJECT_TYPE_MO_TRANSPORT)
         {
             TransportTemplate& transportTemplate = m_transportTemplates[entry];
             transportTemplate.entry = entry;
-            if (!GenerateWaypoints(data, transportTemplate))
+            if (!GenerateWaypoints(data.get(), transportTemplate))
                 m_transportTemplates.erase(entry);
         }
     }
@@ -335,7 +336,7 @@ TransportAnimationEntry const* TransportAnimation::GetNextAnimNode(uint32 time) 
     return nullptr;
 }
 
-Transport* TransportMgr::CreateTransport(uint32 entry, Map* map /*= nullptr*/)
+ShipTransport* TransportMgr::CreateTransport(uint32 entry, Map* map /*= nullptr*/)
 {
     // instance case, execute GetGameObjectEntry hook
     if (map && !entry)
@@ -349,7 +350,7 @@ Transport* TransportMgr::CreateTransport(uint32 entry, Map* map /*= nullptr*/)
     }
 
     // create transport...
-    Transport* trans = new Transport(*tInfo);
+    ShipTransport* trans = new ShipTransport(*tInfo);
 
     // ...at first waypoint
     TaxiPathNodeEntry const* startNode = tInfo->keyFrames.begin()->Node;
@@ -381,7 +382,7 @@ Transport* TransportMgr::CreateTransport(uint32 entry, Map* map /*= nullptr*/)
     trans->SetMap(map ? map : sMapMgr.CreateMap(mapId, trans));
 
     // Passengers will be loaded once a player is near
-    trans->GetMap()->Add<Transport>(trans);
+    trans->GetMap()->Add<ShipTransport>(trans);
     return trans;
 }
 
@@ -392,7 +393,7 @@ void TransportMgr::SpawnContinentTransports()
 
     uint32 oldMSTime = WorldTimer::getMSTime();
 
-    std::unique_ptr<QueryResult> result = WorldDatabase.Query("SELECT `entry`, `period` FROM `transports`");
+    std::unique_ptr<QueryResult> result = WorldDatabase.PQuery("SELECT `entry`, `period` FROM `transports` t1 WHERE `build`=(SELECT max(`build`) FROM `transports` t2 WHERE t1.`entry`=t2.`entry` && `build` <= %u)", SUPPORTED_CLIENT_BUILD);
 
     uint32 count = 0;
     if (result)
