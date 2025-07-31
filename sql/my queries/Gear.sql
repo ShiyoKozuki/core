@@ -6818,7 +6818,7 @@ UPDATE mangos . item_template
 SET quality = 4,
     dmg_min1 = 65,
     dmg_max1 = 115
-WHERE entry = 12940;
+WHERE entry = 12939;
 
 -- Demonfork
 UPDATE mangos . item_template

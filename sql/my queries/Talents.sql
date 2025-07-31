@@ -1,3 +1,4 @@
+-- NEXT talent ID is 1713
 -- Talents
 
 -- Druid
@@ -17,8 +18,6 @@
     UPDATE mangos . spell_template 
     SET effectBasePoints1 = -31
     WHERE entry = 16847;
-
-    -- TODO: Omen of Clarity doesn't work
 
     -- Improved Moonfire (2-10% spell crit, renamed Moon Empowerment)
     UPDATE `mangos`.`spell_template` SET `effectApplyAuraName1`=71, `effectMiscValue1`=-1, `name`='Moon Empowerment', `description`='Increases the critical strike chance of your spells by $s1%.' WHERE  `entry`=16821 AND `build`=4222;
@@ -88,24 +87,26 @@
         `name`='Druidic Insight', `description`='Increases your total stats by $s1%.' 
     WHERE  `entry`=16862;
 
-    -- Improved Thorns (24-70% spell interrupt reduction Renamed to Barkskin)
+    -- Improved Thorns (24-70% spell interrupt reduction Renamed to Forest\'s Protection)
+    -- TODO: Balance spells only
     UPDATE `mangos`.`spell_template` SET `effectApplyAuraName1`=149, `effectApplyAuraName2`=117, `effectApplyAuraName3`=117, `effectMiscValue1`=127, `effectMiscValue2`=26, `effectMiscValue3`=9, 
-        `name`='Barkskin', `description`='Gives a  $s1% chance to ignore spell interruption when damaged.' 
+        `name`='Forest\'s Protection', `description`='Gives a $s1% chance to ignore spell interruption when damaged.' 
     WHERE  `entry`=16836 AND `build`=4878;
 
     UPDATE `mangos`.`spell_template` SET `effectApplyAuraName1`=149, `effectApplyAuraName2`=117, `effectApplyAuraName3`=117, `effectMiscValue1`=127, `effectMiscValue2`=26, `effectMiscValue3`=9, 
-        `name`='Barkskin', `description`='Gives a  $s1% chance to ignore spell interruption when damaged.' 
+        `name`='Forest\'s Protection', `description`='Gives a $s1% chance to ignore spell interruption when damaged.' 
     WHERE  `entry`=16839 AND `build`=4878;
 
     UPDATE `mangos`.`spell_template` SET `effectApplyAuraName1`=149, `effectApplyAuraName2`=117, `effectApplyAuraName3`=117, `effectMiscValue1`=127, `effectMiscValue2`=26, `effectMiscValue3`=9, 
-        `name`='Barkskin', `description`='Gives a  $s1% chance to ignore spell interruption when damaged.' 
+        `name`='Forest\'s Protection', `description`='Gives a $s1% chance to ignore spell interruption when damaged.' 
     WHERE  `entry`=16840 AND `build`=4878;
 
-    -- Omen of Clarity (Procs on any melee attack, ability OR offensive spell)
+    -- Omen of Clarity (Procs on any melee attack, ability OR offensive spell and 30m duration)
     UPDATE `mangos`.`spell_template` SET `procFlags`=4116, 
         `auraDescription`='Each melee attack, melee ability, or offensive spell has a chance of causing the caster to enter a Clearcasting state.' ,
         `description`='Imbues the Druid with natural energy.  Each of the Druid\'s melee attacks, melee ability,  or offensive spell has a chance of causing the caster to enter a Clearcasting state.  The Clearcasting state reduces the Mana, Rage or Energy cost of your next damage or healing spell or offensive ability by $16870s1%.  Lasts $d.'
     WHERE  `entry`=16864 AND `build`=5464;
+    UPDATE `mangos`.`spell_template` SET `durationIndex`=30 WHERE  `entry`=16864 AND `build`=5464;
 
     UPDATE `mangos`.`spell_proc_event` SET `procFlags`=4116 WHERE  `entry`=16864 AND `build_min`=4878 AND `build_max`=5875;
 
@@ -133,6 +134,9 @@
     UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=-11, `effectBasePoints2`=0, `effectApplyAuraName1`=87, `effectApplyAuraName2`=0, `effectMiscValue1`=126, `effectMiscValue2`=0, 
         `name`='Celestial Alignment', `description`='Reduces all spell damage taken by $s1%.' WHERE  
     `entry`=16926 AND `build`=5302;
+
+    -- Moonkin Form (Remove transform)
+    UPDATE `mangos`.`spell_template` SET `effectApplyAuraName1`=36 WHERE  `entry`=24858 AND `build`=5464;
 
     -- Insect Swarm
     UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=20, `effectBonusCoefficient1`=0.167 WHERE  `entry`=5570 AND `build`=5302;
@@ -341,13 +345,82 @@ WHERE entry = 16720;
 
     -- Premeditation (20s CD)
     UPDATE `mangos`.`spell_template` SET `recoveryTime`=20000 WHERE  `entry`=14183 AND `build`=5875;
-    
+
     -- Blade Flurry (60s CD)
     UPDATE `mangos`.`spell_template` SET `recoveryTime`=60000 WHERE  `entry`=13877 AND `build`=5302;
 
     -- Improved Poisons (10%/20%)
     UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=9 WHERE  `entry`=14113 AND `build`=5875;
     UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=19 WHERE  `entry`=14114 AND `build`=5875;
+
+    -- Opportunity (10%/20%)
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=9, `effectBasePoints2`=9 WHERE  `entry`=14057 AND `build`=4222;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=19, `effectBasePoints2`=19 WHERE  `entry`=14072 AND `build`=4222;
+
+    -- Improved Sap (45%/90% chance, 2%/4% spell hit)
+    UPDATE `mangos`.`spell_template` SET `effect2`=6, `effectBaseDice2`=1, `effectBasePoints1`=44, `effectBasePoints2`=0, `effectApplyAuraName2`=55, `effectImplicitTargetA2`=1,
+        `description`='Gives you a $s1% chance to return to stealth mode after using your Sap ability and increases your chance to hit with spells by $s2%.' 
+        WHERE  `entry`=14076 AND `build`=5302;
+    UPDATE `mangos`.`spell_template` SET `effect2`=6, `effectBaseDice2`=1, `effectBasePoints1`=89, `effectBasePoints2`=1, `effectApplyAuraName2`=55, `effectImplicitTargetA2`=1,
+        `description`='Gives you a $s1% chance to return to stealth mode after using your Sap ability and increases your chance to hit with spells by $s2%.' 
+        WHERE  `entry`=14094 AND `build`=5302;
+
+    -- Sleight of Hand (-5%/-10% Crit Rate)
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints2`=-6, `effectBasePoints3`=-6 WHERE  `entry`=30892 AND `build`=5875;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints2`=-11, `effectBasePoints3`=-11 WHERE  `entry`=30893 AND `build`=5875;
+
+    -- Serrated Blades (-5, -10, -16.66 armor per level)
+    UPDATE `mangos`.`spell_template` SET `effectRealPointsPerLevel2`=-6 WHERE  `entry`=14171 AND `build`=5875;
+    UPDATE `mangos`.`spell_template` SET `effectRealPointsPerLevel2`=-10 WHERE  `entry`=14172 AND `build`=5875;
+    UPDATE `mangos`.`spell_template` SET `effectRealPointsPerLevel2`=-17.66 WHERE  `entry`=14173 AND `build`=5875;
+
+    -- Initiative (33%/66%/100%)
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=32 WHERE  `entry`=13976 AND `build`=5875;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=65 WHERE  `entry`=13979 AND `build`=5875;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=99 WHERE  `entry`=13980 AND `build`=5875;
+
+    -- Hemorrhage (+4% Physical damage taken debuff)
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints3`=3, `effectApplyAuraName3`=87, `effectMiscValue1`=1, 
+        `description`='An instant strike that damages the opponent and causes the target to hemorrhage, increasing any Physical damage dealt to the target by $s3%.  Lasts $n charges or $d.  Awards $s2 combo $lpoint:points;.'
+    WHERE  `entry`=16511;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints3`=3, `effectApplyAuraName3`=87, `effectMiscValue1`=1 ,
+        `description`='An instant strike that damages the opponent and causes the target to hemorrhage, increasing any Physical damage dealt to the target by $s3%.  Lasts $n charges or $d.  Awards $s2 combo $lpoint:points;.'
+        WHERE  `entry`=17347;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints3`=3, `effectApplyAuraName3`=87, `effectMiscValue1`=1, 
+        `description`='An instant strike that damages the opponent and causes the target to hemorrhage, increasing any Physical damage dealt to the target by $s3%.  Lasts $n charges or $d.  Awards $s2 combo $lpoint:points;.'
+    WHERE  `entry`=17348;
+
+    -- Lightning Reflexes (2%/4%/6%/8%/10%)
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=1 WHERE  `entry`=13712;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=3 WHERE  `entry`=13788;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=5 WHERE  `entry`=13789;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=7 WHERE  `entry`=13790;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=9 WHERE  `entry`=13791;
+
+    -- Ghostly Strike (20s duration)
+    UPDATE `mangos`.`spell_template` SET `durationIndex`=18 WHERE  `entry`=14278 AND `build`=5875;
+
+    -- Heightened Senses (-5/-10 Cost of Backstab Renamed Shadow Efficiency)
+    UPDATE `mangos`.`spell_template` SET `effect2`=0, `effect3`=0, `effectBasePoints1`=-6, `effectBasePoints2`=0, `effectBasePoints3`=0, `effectApplyAuraName1`=107, `effectApplyAuraName2`=0, `effectApplyAuraName3`=0, 
+        `effectItemType1`=4, `effectMiscValue1`=14, `spellFamilyName`=8,
+        `name`='Shadow Efficiency', `description`='Reduces the Energy cost of Backstab by $s1.' 
+    WHERE  `entry`=30894 AND `build`=5875;
+
+    UPDATE `mangos`.`spell_template` SET `effect2`=0, `effect3`=0, `effectBasePoints1`=-11, `effectBasePoints2`=0, `effectBasePoints3`=0, `effectApplyAuraName1`=107, `effectApplyAuraName2`=0, `effectApplyAuraName3`=0,
+        `effectItemType1`=4, `effectMiscValue1`=14,  `spellFamilyName`=8,
+        `name`='Shadow Efficiency', `description`='Reduces the Energy cost of Backstab by $s1.' 
+    WHERE  `entry`=30895 AND `build`=5875;
+
+    -- Stance with +100% threat like RF. Next to Blade Flurry
+    -- Counter (Counterattack on dodge Button to press AFTER dodging, copy Setup) Next to Blade Flurry.
+    -- Rogue overpower clone on MISS
+    -- NE racials
+    -- Rep rewards for major cities
+    -- Sap code from my bug report
+
+    -- Dirty Deeds (Added Ambush)
+    UPDATE `mangos`.`spell_template` SET `effectItemType1`=1792, `description`='Reduces the Energy cost of your Cheap Shot, Ambush and Garrote abilities by $s1.' WHERE  `entry`=14082 AND `build`=5875;
+    UPDATE `mangos`.`spell_template` SET `effectItemType1`=1792, `description`='Reduces the Energy cost of your Cheap Shot, Ambush and Garrote abilities by $s1.' WHERE  `entry`=14083 AND `build`=5875;
 
     -- Deadliness
     UPDATE mangos . spell_template 
