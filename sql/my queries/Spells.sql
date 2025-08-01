@@ -1,6 +1,6 @@
 
--- 33510 NEXT SPELL
--- 15068 NEXT SKILL_LINE_ABILITY
+-- 33513 NEXT SPELL
+-- 15010 NEXT SKILL_LINE_ABILITY
 
 -- Spells
 -- effectItemType -> (spellFamilyFlags? It's the enum I don't know why this was referenced to me) is enum ClassFlag in SpellClassMask.h
@@ -141,6 +141,9 @@
 
 -- SPELL_AURA_ADD_PCT_MODIFIER = 108
 -- For % damage, effectMiscValue1 has to be 8
+
+-- SPELL_AURA_ADD_FLAT_MODIFIER = 107
+-- For cooldown reduction effectMiscValue1 has to be 11
 
 -- Behind target: attributesEx2 = 1048576 
 -- SPELL_ATTR_EX2_INITIATE_COMBAT_POST_CAST    = 0x00100000,            // 20 Client will send CMSG_ATTACK_SWING after SMSG_SPELL_GO
@@ -314,11 +317,11 @@ UPDATE `mangos`.`spell_template` SET `manaCost`=100 WHERE `entry`=17752;
     UPDATE `mangos`.`spell_template` SET `categoryRecoveryTime`=180000 WHERE  `entry`=5277 AND `build`=4222;
 
     -- Deadly Poison
-    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=16 WHERE  `entry`=2818;
-    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=24 WHERE  `entry`=2819;
-    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=38 WHERE  `entry`=11353;
-    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=52 WHERE  `entry`=11354;
-    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=66 WHERE  `entry`=25349;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=8 WHERE  `entry`=2818;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=12 WHERE  `entry`=2819;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=19 WHERE  `entry`=11353;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=26 WHERE  `entry`=11354;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=33 WHERE  `entry`=25349;
 
     -- Vigor (Rank2, +20)
     REPLACE `mangos`.`spell_template` (`entry`, `attributes`, `castingTimeIndex`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`) 
@@ -327,11 +330,11 @@ UPDATE `mangos`.`spell_template` SET `manaCost`=100 WHERE `entry`=17752;
     
     -- Nerves of Steel
     REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `stanceBarOrder`, `dmgMultiplier1`) 
-    VALUES (33506, 5302, 464, 1, 101, 21, 1, -1, 6, 1, 1, -6, 0, -1, -1, 1, 87, 1, 1880, 'Nerves of Steel', 2031678, 'Rank 1', 2031678, 'Reduces physical damage taken by $s1%.', 2031678, 2031628, 8, -1, 1);
+    VALUES (33506, 5302, 464, 1, 101, 21, 1, -1, 6, 1, 1, -6, 0, -1, -1, 1, 87, 1, 180, 'Nerves of Steel', 2031678, 'Rank 1', 2031678, 'Reduces physical damage taken by $s1%.', 2031678, 2031628, 8, -1, 1);
     REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`) VALUES (15065, 5875, 38, 33506, 8, 1);
 
     REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `stanceBarOrder`, `dmgMultiplier1`) 
-    VALUES (33507, 5302, 464, 1, 101, 21, 1, -1, 6, 1, 1, -11, 0, -1, -1, 1, 87, 1, 1880, 'Nerves of Steel', 2031678, 'Rank 2', 2031678, 'Reduces physical damage taken by $s1%.', 2031678, 2031628, 8, -1, 1);
+    VALUES (33507, 5302, 464, 1, 101, 21, 1, -1, 6, 1, 1, -11, 0, -1, -1, 1, 87, 1, 180, 'Nerves of Steel', 2031678, 'Rank 2', 2031678, 'Reduces physical damage taken by $s1%.', 2031678, 2031628, 8, -1, 1);
     REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`) VALUES (15066, 5875, 38, 33507, 8, 1);
 
     -- Counter
@@ -345,7 +348,23 @@ UPDATE `mangos`.`spell_template` SET `manaCost`=100 WHERE `entry`=17752;
     -- Counterattack(Counters spell proc)
     REPLACE `mangos`.`spell_template` (`entry`, `build`, `category`, `attributes`, `attributesEx`, `attributesEx3`, `castingTimeIndex`, `procChance`, `baseLevel`, `spellLevel`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBaseDice2`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `customFlags`) 
     VALUES (33509, 4878, 40, 327696, 134218240, 1024, 1, 101, 38, 38, 2, 2, 173555, 31, 1, 1, 1, 149, 1, 0, -1, 6, 6, 253, 130, 'Counter-Attack', 2031678, '0', 2031678, 'An instant strike that causes $s1 damage in addition to your normal weapon damage.', 2031678, 2031676, 133, 1000, 8, 8388610, 2, 2, -1, 1, 1, 1, 128);
+    
+    -- Bandit's Shroud (+threat stance)
+    REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `dispel`, `attributes`, `castingTimeIndex`, `procChance`, `baseLevel`, `spellLevel`, `durationIndex`, `powerType`, `manaCost`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectMiscValue1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) 
+    VALUES (33510, 5302, 1, 1, 327680, 1, 101, 16, 16, 30, 3, 15, 1, -1, -1, 6, 1, 1, 149, 1, -1, -1, 1, 10, 1, 298, 301, 
+    'Bandit\'s Shroud', 2031678, 2031660, 'Increases the threat generated by your Physical attacks by $s1%.  Lasts $d.', 2031678, 'Increases threat generated by Physical attacks by $s1%.', 2031678, 133, 1000, 8, 1, 1, 1, -1, 1, 1, 1);
+    UPDATE `mangos`.`spell_template` SET `dispel`=0, `effect2`=0, `effect3`=0, `effectDieSides2`=0, `effectDieSides3`=0, `effectBaseDice2`=0, `effectBaseDice3`=0, `effectBasePoints2`=0, `effectBasePoints3`=0, `effectImplicitTargetA2`=0, `effectImplicitTargetA3`=0, `effectApplyAuraName2`=0, `effectApplyAuraName3`=0, `effectMiscValue2`=1 WHERE  `entry`=33510 AND `build`=5302;
+    UPDATE `mangos`.`spell_template` SET `spellIconId`=140 ,`effectApplyAuraName3`=79, `effectMiscValue1`=127 WHERE  `entry`=33510 AND `build`=5302;
+    -- Skillline Ability
+    REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`) VALUES (15068, 5875, 38, 33510, 8, 1);
 
+    -- Learn spell(for trainer):
+    REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `targets`, `castingTimeIndex`, `procChance`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `activeIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) 
+    VALUES (33511, 4222, 1, 262400, 256, 1, 101, 6, -1, -1, 36, 1, 1, -1, 0, -1, -1, 33510, 107, 2040, 0, 'Bandit\'s Shroud', 7274526, 'Rank 1', 7274526, 7274508, 983052, -1, 1, 1, 1);
+    UPDATE `mangos`.`spell_template` SET `spellIconId`=140 WHERE  `entry`=33511 AND `build`=4222;
+
+    -- Trainer
+    REPLACE `mangos`.`npc_trainer_template` (`entry`, `spell`, `spellcost`, `reqlevel`) VALUES (26, 33511, 300, 10);
 
 -- Smite
 UPDATE `mangos`.`spell_template` SET `manaCost`=10 WHERE  `entry`=585 AND `build`=5302;
@@ -491,10 +510,9 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
     UPDATE `mangos`.`spell_template` SET `effectMiscValue1`=22 WHERE  `entry`=33499 AND `build`=4222;
 
     -- Mutilate
-    -- TODO: Rank 1-2
-    -- TODO: Imp mutilate: Target takes 4% more dmg next to mutilate in talents
+    -- TODO: Rank 1-2?
     REPLACE`mangos`.`spell_template` (`entry`, `build`, `attributes`, `attributesEx`, `attributesEx2`, `attributesEx3`, `castingTimeIndex`, `procChance`, `baseLevel`, `spellLevel`, `powerType`, `manaCost`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effect2`, `effect3`, `effectDieSides1`, `effectDieSides2`, `effectDieSides3`, `effectBaseDice1`, `effectBaseDice2`, `effectBaseDice3`, `effectBasePoints1`, `effectBasePoints2`, `effectBasePoints3`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectImplicitTargetA3`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `customFlags`) 
-    VALUES (33500, 4878, 327696, 134218240, 0, 1024, 1, 101, 44, 44, 3, 60, 2, 2, 32768, 121, 31, 80, 1, 1, 1, 1, 1, 1, 89, 149, 1, 1, 1, 0, 6, 6, 6, 155, 243, 50, 'Mutilate', 2031678, 'Rank 1', 2031678, 'Instantly attacks with both weapons for $s2% weapon damage plus 135 to the target.  Requires a dagger in the main hand.  Awards $s3 combo $lpoint:points;.', 2031678, 2031676, 133, 1000, 8, 8388612, 2, 2, -1, 1, 1, 1, 128);
+    VALUES (33500, 4878, 327696, 134218240, 0, 1024, 1, 101, 44, 44, 3, 60, 2, 2, 32768, 121, 31, 80, 1, 1, 1, 1, 1, 1, 89, 199, 1, 1, 1, 0, 6, 6, 6, 155, 434, 50, 'Mutilate', 2031678, 'Rank 1', 2031678, 'Instantly attacks with both weapons for $s2% weapon damage plus 135 to the target.  Requires a dagger in the main hand.  Awards $s3 combo $lpoint:points;.', 2031678, 2031676, 133, 1000, 8, 8388612, 2, 2, -1, 1, 1, 1, 128);
     REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`) VALUES (15061, 5875, 253, 33500, 8, 1);
     -- Rank2 33501
     -- Rank3 33502
@@ -503,8 +521,10 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
     REPLACE`mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `castingTimeIndex`, `interruptFlags`, `procChance`, `baseLevel`, `spellLevel`, `durationIndex`, `powerType`, `manaCost`, `rangeIndex`, `equippedItemClass`, `effect1`, `effect2`, `effectDieSides1`, `effectDieSides2`, `effectBaseDice1`, `effectBaseDice2`, `effectBasePoints1`, `effectBasePoints2`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectRadiusIndex1`, `effectRadiusIndex2`, `effectApplyAuraName1`, `effectApplyAuraName2`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `preventionType`, `dmgMultiplier1`, `dmgMultiplier2`) 
     VALUES (33503, 5464, 6, 65536, 1, 8, 101, 40, 40, 30, 0, 0, 1, -1, 35, 35, 1, 1, 1, 1, 9, 9, 0, 0, -1, 1, 1, 11, 11, 140, 9, 5839, 247, 'Swiftblade\'s Cunning', 4128830, 'Rank 1', 4128830, 'Increases the melee and ranged attack speed of party members within $a1 yards by $s1%.  Lasts $d.', 4128830, 'Melee and ranged attack speed increased by $s1%.', 4128830, 133, 1500, 1, 1, 1);
     REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`) VALUES (15062, 5875, 39, 33503, 8, 1);
+    UPDATE `mangos`.`spell_template` SET `startRecoveryTime`=1000 WHERE  `entry`=33503 AND `build`=5464;
 
     -- Axes added to rogue
+    -- TODO: Doesn't work?
     UPDATE `mangos`.`skill_line_ability` SET `class_mask`=79 WHERE  `id`=248 AND `build`=4544;
     UPDATE `mangos`.`skill_line_ability` SET `class_mask`=79 WHERE  `id`=248 AND `build`=4695;
     UPDATE `mangos`.`skill_line_ability` SET `class_mask`=79 WHERE  `id`=248 AND `build`=4878;
@@ -514,6 +534,13 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
     UPDATE `mangos`.`skill_line_ability` SET `class_mask`=79 WHERE  `id`=248 AND `build`=5875;
 
 -- Druid
+    -- Swipe (3 - > 5 targets. Weapon damage + X instead of flat damage)
+    UPDATE `mangos`.`spell_template` SET `effect1`=121, `effectBasePoints1`=4, `effectChainTarget1`=5 WHERE  `entry`=779;
+    UPDATE `mangos`.`spell_template` SET `effect1`=121, `effectBasePoints1`=9, `effectChainTarget1`=5 WHERE  `entry`=780;
+    UPDATE `mangos`.`spell_template` SET `effect1`=121, `effectBasePoints1`=17, `effectChainTarget1`=5 WHERE  `entry`=769;
+    UPDATE `mangos`.`spell_template` SET `effect1`=121, `effectBasePoints1`=31, `effectChainTarget1`=5 WHERE  `entry`=9754;
+    UPDATE `mangos`.`spell_template` SET `effect1`=121, `effectBasePoints1`=49, `effectChainTarget1`=5 WHERE  `entry`=9908;
+
     -- Starfall (TODO: NYI and missing skill line ability)
     REPLACE `mangos`.`spell_template` (`entry`, `school`, `category`, `attributes`, `attributesEx`, `attributesEx2`, `stances`, `targets`, `castingTimeIndex`, `categoryRecoveryTime`, `interruptFlags`, `channelInterruptFlags`, `procChance`, `maxLevel`, `baseLevel`, `spellLevel`, `durationIndex`, `manaCost`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effect2`, `effectDieSides1`, `effectDieSides2`, `effectBaseDice1`, `effectBaseDice2`, `effectRealPointsPerLevel1`, `effectBasePoints1`, `effectBasePoints2`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectRadiusIndex1`, `effectRadiusIndex2`, `effectApplyAuraName1`, `effectApplyAuraName2`, `effectAmplitude1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) 
     VALUES (33496, 3, 571, 65536, 140, 4718592, 1073741824, 64, 1, 90000, 1, 31756, 101, 46, 40, 40, 1, 880, 4, -1, -1, 27, 27, 1, 1, 1, 1, 0.2, 69, -26, 0.03, 0, -1, 28, 28, 14, 14, 3, 138, 1000, 4346, 220, 'Starfall', 4128894, 'Rank 1', 4128894, 'You summon a flurry of stars from the sky dealing $s1 Arcane damage to enemies every $t1 sec.  Lasts $d.', 4128894, '$s1 damage every $t1 seconds.', 4128894, 133, 1500, 7, 4194304, 1, 1, -1, 1, 1, 1);
@@ -522,7 +549,15 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
     REPLACE `mangos`.`spell_template` (`entry`, `school`, `dispel`, `mechanic`, `attributes`, `attributesEx`, `attributesEx2`, `targetCreatureType`, `castingTimeIndex`, `interruptFlags`, `auraInterruptFlags`, `procChance`, `baseLevel`, `spellLevel`, `durationIndex`, `manaCost`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectDieSides3`, `effectBaseDice1`, `effectBaseDice3`, `effectBasePoints1`, `effectBasePoints3`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectImplicitTargetA3`, `effectApplyAuraName1`, `effectMiscValue2`, `effectMiscValue3`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `customFlags`) 
     VALUES (33505, 6, 1, 17, 1074855936, 262144, 64, 96, 16, 15, 524290, 101, 20, 20, 9, 90, 4, -1, -1, 6, 1, 1, 1, 1, -1, 9, 0, 0, 0, 6, 6, 6, 5, 16372, 21, 131, 82, 50, 'Cyclone', 4128894, 'Rank 1', 4128894, 'Tosses the enemy target into the air, disorienting them for up to $d. Any damage caused will remove the effect. Only one target can be affected by your Cyclone at a time. Only works on Undead and Humanoids.', 4128894, 'Cannot attack or cast spells.', 4128894, 133, 1500, 7, 3238264832, 1, 1, -1, 1, 1, 1, 256);
     UPDATE `mangos`.`spell_template` SET `spellVisual1`=805, `spellIconId`=141 WHERE  `entry`=33505 AND `build`=5875;
-    REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`) VALUES (15064, 5875, 574, 33505, 7, 1);
+    REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`) VALUES (15064, 5875, 574, 33505, 1024, 1);
+
+    -- Blessing of the Forest (Druid res)
+    REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `attributesEx`, `stancesNot`, `targets`, `castingTimeIndex`, `interruptFlags`, `procChance`, `baseLevel`, `spellLevel`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectMiscValue1`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `manaCostPercentage`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) 
+    VALUES (33512, 4449, 1, 268500992, 131072, 134217728, 32768, 7, 15, 101, 10, 10, 4, -1, 113, 1, 1, 499, 1, -1, -1, 135, 41, 111, 50, 
+    'Blessing of the Forest', 2031646, 'Rank 1', 2031646, 'Brings a dead player back to life with $s1 health and $q1 mana.  Cannot be cast when in combat.', 2031646, 2031644, 75, 133, 1500, 7, 1, 1, -1, 1, 1, 1);
+    UPDATE `mangos`.`spell_template` SET `effectMiscValue1`=750, `spellVisual1`=344 WHERE  `entry`=33512 AND `build`=4449;
+    
+    REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`) VALUES (15069, 5875, 573, 33512, 1024, 1);
 
     -- Thorns (30m dura)
 UPDATE `mangos`.`spell_template` SET `durationIndex`=30 WHERE  `entry`=467 AND `build`=4878;
