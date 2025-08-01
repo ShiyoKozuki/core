@@ -4550,7 +4550,16 @@ float Aura::CalculateDotDamage() const
                 // $AP * min(0.06*$cp, 0.24)/6 [Yes, there is no difference, whether 4 or 5 CPs are being used]
                 if (caster->GetTypeId() == TYPEID_PLAYER)
                 {
-                    damage += caster->GetTotalAttackPowerValue(BASE_ATTACK) * 0.25f;
+                    damage += caster->GetTotalAttackPowerValue(BASE_ATTACK) * 0.15f;
+                }
+            }
+            // Rake
+            if (spellProto->IsFitToFamilyMask<CF_DRUID_RAKE_CLAW>())
+            {
+                // Damage scales AP * 0.25
+                if (caster->GetTypeId() == TYPEID_PLAYER)
+                {
+                    damage += caster->GetTotalAttackPowerValue(BASE_ATTACK) * 0.15f;
                 }
             }
 #endif
