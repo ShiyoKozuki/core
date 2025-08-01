@@ -325,6 +325,7 @@ Rogue:
     Combat = tank spec. Counter on dodge etc
     Add Ghostly Strike to combat, make 100% uptimeable
     Set up moved to combat
+    Weapon expertise also gives axe skill
 
 Druid: 
     Buff rip
@@ -438,6 +439,7 @@ Spell AI:
 
 Misc:
     Curse of the Tribes from Gelk -15% damage done
+    Curse of Mending unique mechanic
     Crushridge Mage has 30% attack speed bloodlust
     Crazed spell is +20% Attack speed
     Unused area in Dwarven Down in Stormwind (Bank in retail)

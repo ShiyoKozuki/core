@@ -40,36 +40,35 @@ WHERE display_id IN(59, 60, 12170);
 -- AOE camp mobs
 
     -- Hammerfall Peon
-    UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.5, `damage_multiplier`=0.5 WHERE  `entry`=2618 AND `patch`=0;
+    UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.5, `damage_multiplier`=1.0 WHERE  `entry`=2618 AND `patch`=0;
 
     -- Southsea Swashbuckler
-    UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.6, `damage_multiplier`=0.4 WHERE  `entry`=7858 AND `patch`=0;
+    UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.6, `damage_multiplier`=1.0 WHERE  `entry`=7858 AND `patch`=0;
     -- Southsea Pirate
-    UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.5, `damage_multiplier`=0.5 WHERE  `entry`=7855 AND `patch`=0;
+    UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.5, `damage_multiplier`=1.0 WHERE  `entry`=7855 AND `patch`=0;
     -- Southsea Dock Worker
-    UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.6, `damage_multiplier`=0.45 WHERE  `entry`=7857 AND `patch`=0;
+    UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.6, `damage_multiplier`=0.9 WHERE  `entry`=7857 AND `patch`=0;
     -- Southsea Freebooter
-    UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.6, `damage_multiplier`=0.5 WHERE  `entry`=7856 AND `patch`=0;
+    UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.6, `damage_multiplier`=1.0 WHERE  `entry`=7856 AND `patch`=0;
 
     -- Scarlet Lumberjack
-    UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.7, `damage_multiplier`=0.5 WHERE  `entry`=1884 AND `patch`=0;
+    UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.7, `damage_multiplier`=1.0 WHERE  `entry`=1884 AND `patch`=0;
 
     -- Scarlet Worker
-    UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.7, `damage_multiplier`=0.5 WHERE  `entry`=1883 AND `patch`=0;
+    UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.7, `damage_multiplier`=1.0 WHERE  `entry`=1883 AND `patch`=0;
 
     -- Blighted Zombie (Dalsons Tears)
-    UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.7, `damage_multiplier`=0.5 WHERE  `entry`=4475 AND `patch`=0;
+    UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.7, `damage_multiplier`=1.0 WHERE  `entry`=4475 AND `patch`=0;
     -- Rotting Cadaver (Dalsons Tears)
-    UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.7, `damage_multiplier`=0.5 WHERE  `entry`=4474 AND `patch`=0;
+    UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.7, `damage_multiplier`=1.0 WHERE  `entry`=4474 AND `patch`=0;
     -- Skeletal Terror (Dalsons Tears)
-    UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.7, `damage_multiplier`=0.5 WHERE  `entry`=1785 AND `patch`=0;
+    UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.7, `damage_multiplier`=1.0 WHERE  `entry`=1785 AND `patch`=0;
 
     -- Skeletal Sorcerer (Sorrow Hill / Felstone Field)
-    UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.7, `damage_multiplier`=0.5 WHERE  `entry`=1784 AND `patch`=0;
+    UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.7, `damage_multiplier`=1.0 WHERE  `entry`=1784 AND `patch`=0;
     -- Skeletal Flayer (Sorrow Hill / Felstone Field)
-    UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.7, `damage_multiplier`=0.3 WHERE  `entry`=1783 AND `patch`=0;
+    UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.7, `damage_multiplier`=0.6 WHERE  `entry`=1783 AND `patch`=0;
     -- Slavering Ghoul (Sorrow Hill / Felstone Field)
-    UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.7, `damage_multiplier`=0.4 WHERE  `entry`=1791 AND `patch`=0;
 
 
 
@@ -100,6 +99,9 @@ REPLACE INTO `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `posit
 REPLACE INTO `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000054, 5467, 0, 0, 0, 0, 1, -8896.55, -4758.49, -55.3223, 0.285265, 300, 300, 0, 100, 100, 1, 0, 0, 0, 10);
 REPLACE INTO `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000055, 5467, 0, 0, 0, 0, 1, -8959.39, -4743.93, -47.7043, 5.23091, 300, 300, 0, 100, 100, 1, 0, 0, 0, 10);
 REPLACE INTO `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000056, 5467, 0, 0, 0, 0, 1, -8988.06, -4777.59, -57.7852, 4.11558, 300, 300, 0, 100, 100, 1, 0, 0, 0, 10);
+
+-- Lady Moongazer damage
+UPDATE `mangos`.`creature_template` SET `damage_multiplier`=1.0 WHERE  `entry`=2184 AND `patch`=0;
 
 -- Coast Strider / Deep Dweller respawn rate
 UPDATE `mangos`.`creature` SET `spawntimesecsmin`=300, `spawntimesecsmax`=300 WHERE  `id`=5466;
@@ -135,50 +137,50 @@ UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.4, `damage_multipl
 UPDATE `mangos`.`creature_template` SET `health_multiplier`=7 WHERE  `entry`=2748 AND `patch`=0;
 
 -- Eliza's Guard HP and damage reduced due to DMG and HP multiplier on normal mobs
-UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.45, `damage_multiplier`=0.5 WHERE  `entry`=1871 AND `patch`=0;
+UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.45, `damage_multiplier`=1.0 WHERE  `entry`=1871 AND `patch`=0;
 
 -- Oozeling HP and damage reduced due to DMG and HP multiplier on normal mobs
-UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.2, `damage_multiplier`=0.4 WHERE  `entry`=8257 AND `patch`=0;
+UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.2, `damage_multiplier`=0.9 WHERE  `entry`=8257 AND `patch`=0;
 
 -- Maraudon Larvae HP and damage reduced due to DMG and HP multiplier on normal mobs
-UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.3, `damage_multiplier`=0.3 WHERE  `entry`=12218 AND `patch`=0;
+UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.3, `damage_multiplier`=0.6 WHERE  `entry`=12218 AND `patch`=0;
 
 -- Weapon Technician HP and damage reduced due to DMG and HP multiplier on normal mobs
-UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.4, `damage_multiplier`=0.9 WHERE  `entry`=8920 AND `patch`=0;
+UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.4, `damage_multiplier`=1.8 WHERE  `entry`=8920 AND `patch`=0;
 
 -- Doomforge Arcanasmith HP and damage reduced due to DMG and HP multiplier on normal mobs
-UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.65, `damage_multiplier`=0.85 WHERE  `entry`=8900 AND `patch`=0;
+UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.65, `damage_multiplier`=1.7 WHERE  `entry`=8900 AND `patch`=0;
 
 -- Anvilrage Reservist HP and damage reduced due to DMG and HP multiplier on normal mobs
-UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.10, `damage_multiplier`=0.4 WHERE  `entry`=8901 AND `patch`=0;
+UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.10, `damage_multiplier`=0.8 WHERE  `entry`=8901 AND `patch`=0;
 
 -- Theradrim Shardling HP and damage reduced due to DMG and HP multiplier on normal mobs
-UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.4, `damage_multiplier`=0.5 WHERE  `entry`=11783 AND `patch`=0;
+UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.4, `damage_multiplier`=1.0 WHERE  `entry`=11783 AND `patch`=0;
 
 -- Theradrim Shardling HP and damage reduced due to DMG and HP multiplier on normal mobs
-UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.6, `damage_multiplier`=0.6 WHERE  `entry`=8318 AND `patch`=0;
+UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.6, `damage_multiplier`=1.2 WHERE  `entry`=8318 AND `patch`=0;
 
 -- Princess Theradras adjusted due to 2x elite HP
 UPDATE `mangos`.`creature_template` SET `health_multiplier`=5 WHERE  `entry`=12201 AND `patch`=0;
 
 -- Atal'ai Slave HP and damage reduced due to DMG and HP multiplier on normal mobs
-UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.5, `damage_multiplier`=0.45 WHERE  `entry`=11789 AND `patch`=0;
+UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.5, `damage_multiplier`=0.9 WHERE  `entry`=11789 AND `patch`=0;
 
 -- Slime Maggot HP and damage reduced due to DMG and HP multiplier on normal mobs
-UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.3, `damage_multiplier`=0.6 WHERE  `entry`=8311 AND `patch`=0;
+UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.3, `damage_multiplier`=1.2 WHERE  `entry`=8311 AND `patch`=0;
 
 -- Nightmare Whelp HP and damage reduced due to DMG and HP multiplier on normal mobs
-UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.5, `damage_multiplier`=0.7 WHERE  `entry`=8319 AND `patch`=0;
+UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.5, `damage_multiplier`=1.4 WHERE  `entry`=8319 AND `patch`=0;
 -- Hakkari Minion HP and damage reduced due to DMG and HP multiplier on normal mobs
-UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.4, `damage_multiplier`=0.7 WHERE  `entry`=8437 AND `patch`=0;
+UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.4, `damage_multiplier`=1.4 WHERE  `entry`=8437 AND `patch`=0;
 
 
 -- Divino Magic Rod mobs HP reduced due to DMG and HP multiplier on normal mobs
 UPDATE mangos.creature_template
-SET health_multiplier = 0.35, damage_multiplier = 0.6
+SET health_multiplier = 0.35, damage_multiplier = 1.2
 WHERE entry IN(8876, 7788, 8877);
 UPDATE mangos.creature_template
-SET health_multiplier = 0.3, damage_multiplier = 0.5
+SET health_multiplier = 0.3, damage_multiplier = 1.0
 WHERE entry = 7787;
 
 -- Twilight Flamereaver
