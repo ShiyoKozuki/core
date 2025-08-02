@@ -112,8 +112,8 @@ UPDATE `mangos`.`quest_template` SET `RewChoiceItemId4`=30074, `RewChoiceItemCou
 -- ST quests offer all rewards
 UPDATE `mangos`.`quest_template` SET `RewChoiceItemId1`=0, `RewChoiceItemId2`=0, `RewChoiceItemId3`=0, `RewChoiceItemCount1`=0, `RewChoiceItemCount2`=0, `RewChoiceItemCount3`=0, `RewItemId1`=20521, `RewItemId2`=20130, `RewItemId3`=20517, `RewItemCount1`=1, `RewItemCount2`=1, `RewItemCount3`=1 WHERE  `entry`=8425 AND `patch`=6;
 
--- Retrieval for Mauren add Minor Libram of Consecration and Idol of as a reward
-UPDATE `mangos`.`quest_template` SET `RewChoiceItemId1`=6677, `RewChoiceItemId2`=30129, `RewChoiceItemCount1`=1, `RewChoiceItemCount2`=1, `RewItemId1`=0, `RewItemCount1`=0 WHERE  `entry`=1078 AND `patch`=0;
+-- Retrieval for Mauren add Minor Libram of Consecration and Minor Idol Elune of as a reward
+UPDATE `mangos`.`quest_template` SET `RewChoiceItemId1`=6677, `RewChoiceItemId2`=30129, `RewChoiceItemId3`=30138, `RewChoiceItemCount1`=1, `RewChoiceItemCount2`=1, `RewChoiceItemCount3`=1, `RewItemId1`=0, `RewItemCount1`=0 WHERE  `entry`=1078 AND `patch`=0;
 
 -- STV (North)
 REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `NextQuestInChain`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOId2`, `ReqCreatureOrGOCount1`, `ReqCreatureOrGOCount2`, `RewItemId1`, `RewItemCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewMoneyMaxLevel`) VALUES (30029, 33, 30, 37, 8, 0, 'Special Forces II', 'I want you to clear out any ogres you find in the Mizjah Ruins to the south.', 'Kill 10 Mosh\'Ogg Brute and 10 Mosh\'Ogg Witch Doctor then return to Lieutenant Doren at the rebel camp.', 'Brilliant!', 'Kill 10 Mosh\'Ogg Brute and 10 Mosh\'Ogg Witch Doctor then return to Lieutenant Doren at the rebel camp.', '', '', '', '', '', 1142, 1144, 10, 10, 4115, 1, 72, 100, 2850, 1740);
@@ -199,9 +199,8 @@ UPDATE `mangos`.`quest_template` SET `RewChoiceItemId1`=4744, `RewChoiceItemId2`
 -- Hints of a New Plague add Barbarians Sword as a reward
 UPDATE `mangos`.`quest_template` SET `RewChoiceItemId3`=30124, `RewChoiceItemCount3`=1 WHERE  `entry`=661 AND `patch`=0;
 
--- Wanted! Otto and Falconcrestadd Lesser Libram of Consecration as a reward
-UPDATE `mangos`.`quest_template` SET `RewChoiceItemId3`=30130, `RewChoiceItemCount3`=1 WHERE  `entry`=685 AND `patch`=0;
-
+-- Wanted! Otto and Falconcrestadd Lesser Libram of Consecration and Lesser Idol of Elune as a reward
+UPDATE `mangos`.`quest_template` SET `RewChoiceItemId3`=30130, `RewChoiceItemId4`=30139, `RewChoiceItemCount3`=1, `RewChoiceItemCount4`=1 WHERE  `entry`=685 AND `patch`=0;
 
 REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewMoneyMaxLevel`) VALUES (30039, 45, 30, 31, 8, 'Foul Magic', 'I have felt a strangeness in the air... a feeling that simmers in my blood. I had my suspicions. I set off to find the source of my unease and discovered to the west, at Northfold Manor, the residual traces of demonic summoning. As I got close, my blood began to boil and the rage within me grew.', 'Get 10 Bloodstone Amulets for Captain Nials at Refuge Pointe.', 'Very good, $N.  With the deaths of those Syndicate members we should have an easier time receiving supplies from Southshore.$B$BPerhaps our cause yet has hope.', 'Get 10 Bloodstone Amulets for Captain Nials at Refuge Pointe.', '', '', '', '', '', 4495, 10, 72, 100, 2650, 1500);
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (2700, 30039);

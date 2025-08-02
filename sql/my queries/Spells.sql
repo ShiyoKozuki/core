@@ -1223,9 +1223,21 @@ UPDATE `mangos`.`spell_template` SET `reagent4`=7078, `reagent5`=7082, `reagent6
         VALUES (33513, 5464, 4, 464, 67108864, 1, 87376, 10, 21, 1, -1, 6, 1, 1, -1, 0, -1, -1, 1, 42, 
         1, 33517, 87, 'Idol of Elune', 4128830, '0', 4128830, 'Your Wrath spell has a $h% chance to reduce the cast time of your next Starfire spell by $33493s1%. Stacks up to 5 times.', 4128830, 4128828, 7, -1, 1);
 
+        REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `attributesEx3`, `castingTimeIndex`, `procFlags`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectItemType1`, `effectTriggerSpell1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `stanceBarOrder`, `dmgMultiplier1`) 
+        VALUES (33514, 5464, 4, 464, 67108864, 1, 87376, 15, 21, 1, -1, 6, 1, 1, -1, 0, -1, -1, 1, 42, 
+        1, 33517, 87, 'Idol of Elune', 4128830, '0', 4128830, 'Your Wrath spell has a $h% chance to reduce the cast time of your next Starfire spell by $33493s1%. Stacks up to 5 times.', 4128830, 4128828, 7, -1, 1);
+
+        REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `attributesEx3`, `castingTimeIndex`, `procFlags`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectItemType1`, `effectTriggerSpell1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `stanceBarOrder`, `dmgMultiplier1`) 
+        VALUES (33515, 5464, 4, 464, 67108864, 1, 87376, 20, 21, 1, -1, 6, 1, 1, -1, 0, -1, -1, 1, 42, 
+        1, 33517, 87, 'Idol of Elune', 4128830, '0', 4128830, 'Your Wrath spell has a $h% chance to reduce the cast time of your next Starfire spell by $33493s1%. Stacks up to 5 times.', 4128830, 4128828, 7, -1, 1);
+
+        REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `attributesEx3`, `castingTimeIndex`, `procFlags`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectItemType1`, `effectTriggerSpell1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `stanceBarOrder`, `dmgMultiplier1`) 
+        VALUES (33516, 5464, 4, 464, 67108864, 1, 87376, 25, 21, 1, -1, 6, 1, 1, -1, 0, -1, -1, 1, 42, 
+        1, 33517, 87, 'Idol of Elune', 4128830, '0', 4128830, 'Your Wrath spell has a $h% chance to reduce the cast time of your next Starfire spell by $33493s1%. Stacks up to 5 times.', 4128830, 4128828, 7, -1, 1);
+
         -- Proc (This is the actual buff)
         REPLACE`mangos`.`spell_template` (`entry`, `build`, `school`, `dispel`, `attributes`, `castingTimeIndex`, `procFlags`, `procChance`, `procCharges`, `baseLevel`, `spellLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectItemType1`, `effectMiscValue1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `spellFamilyName`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) 
-        VALUES (33517, 5464, 4, 1, 327680, 1, 87376, 100, 1, 10, 10, 9, 6, -1, -1, 6, 1, 1, 
+        VALUES (33517, 5464, 4, 1, 327680, 1, 87376, 100, 1, 10, 10, 3, 6, -1, -1, 6, 1, 1, 
         -501, 0, -1, -1, 1, 107,  4, 10, 2736, 87, 'Idol of Elune', 4128830, 4128828, 4128828, 'Your next Starfire spell has 0.5 reduced cast time.', 4128830, 3, 1, 1, -1, 1, 1, 1);
         UPDATE `mangos`.`spell_template` SET `stackAmount`=5 WHERE  `entry`=33517 AND `build`=5464;
 
