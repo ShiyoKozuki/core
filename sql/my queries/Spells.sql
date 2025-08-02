@@ -1,5 +1,5 @@
 
--- 33518 NEXT SPELL
+-- 33519 NEXT SPELL
 -- 15010 NEXT SKILL_LINE_ABILITY
 
 -- Spells
@@ -365,6 +365,30 @@ UPDATE `mangos`.`spell_template` SET `manaCost`=100 WHERE `entry`=17752;
 
     -- Trainer
     REPLACE `mangos`.`npc_trainer_template` (`entry`, `spell`, `spellcost`, `reqlevel`) VALUES (26, 33511, 300, 10);
+
+    -- Improved Ambush (Defense Down proc)
+    UPDATE `mangos`.`spell_template` SET `procFlags`=87376, `procChance`=33, `effect2`=6, `effectDieSides2`=1, `effectBaseDice2`=1, `effectImplicitTargetA2`=1, `effectApplyAuraName2`=42, `effectTriggerSpell2`=33518, 
+        `description`='Increases the critical strike chance of your Ambush ability by $s1% and has a $h% chance to lower the target\'s armor by 20% for 20 sec.' 
+    WHERE  `entry`=14079 AND `build`=4222;
+    REPLACE `mangos`.`spell_proc_event` (`entry`, `SpellFamilyMask0`, `SpellFamilyMask1`, `SpellFamilyMask2`) VALUES (14079, 512, 512, 512);
+
+    UPDATE `mangos`.`spell_template` SET `procFlags`=87376, `procChance`=66, `effect2`=6, `effectDieSides2`=1, `effectBaseDice2`=1, `effectImplicitTargetA2`=1, `effectApplyAuraName2`=42, `effectTriggerSpell2`=33518, 
+        `description`='Increases the critical strike chance of your Ambush ability by $s1% and has a $h% chance to lower the target\'s armor by 20% for 20 sec.' 
+    WHERE  `entry`=14080 AND `build`=4222;
+    REPLACE `mangos`.`spell_proc_event` (`entry`, `SpellFamilyMask0`, `SpellFamilyMask1`, `SpellFamilyMask2`) VALUES (14079, 512, 512, 512);
+
+    UPDATE `mangos`.`spell_template` SET `procFlags`=87376, `procChance`=100, `effect2`=6, `effectDieSides2`=1, `effectBaseDice2`=1, `effectImplicitTargetA2`=1, `effectApplyAuraName2`=42, `effectTriggerSpell2`=33518, 
+        `description`='Increases the critical strike chance of your Ambush ability by $s1% and has a $h% chance to lower the target\'s armor by 20% for 20 sec.' 
+    WHERE  `entry`=14081 AND `build`=4222;
+    REPLACE `mangos`.`spell_proc_event` (`entry`, `SpellFamilyMask0`, `SpellFamilyMask1`, `SpellFamilyMask2`) VALUES (14079, 512, 512, 512);
+
+
+    -- Proc (This is the actual debuff)
+    REPLACE `mangos`.`spell_template` (`entry`, `build`, `category`, `attributes`, `castingTimeIndex`, `procChance`, `baseLevel`, `spellLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectMiscValue1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES 
+    (33518, 5086, 36, 263184, 1, 101, 1, 1, 18, 2, -1, 6, 1, 1, -21, 0, -1, -1, 6, 101, 1, 843, 559, 'Shred Armor', 2031678, 2031676, 
+    'Reduces an enemy\'s armor by $s1% for $d.', 2031678, 'Armor reduced by $s1%.', 2031678, 2, 2, -1, 1, 1, 1);
+    
+    -- Improved Distract (-25% hit rate for 10s)
 
 -- Smite
 UPDATE `mangos`.`spell_template` SET `manaCost`=10 WHERE  `entry`=585 AND `build`=5302;
