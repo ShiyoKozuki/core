@@ -1622,7 +1622,7 @@ void PartyBotAI::UpdateInCombatAI_Paladin()
         // Only dispel DOTS / CC
 
         float selfHealPercent = 20.0f;
-        float targetHealPercent = 40.0f;
+        float targetHealPercent = 60.0f;
         float selfHOTPercent = 50.0f;
         float dpsHOTPercent = 75.0f;
 
@@ -1937,7 +1937,7 @@ void PartyBotAI::UpdateInCombatAI_Shaman()
         // Only dispel DOTS / CC
 
         float selfHealPercent = 20.0f;
-        float targetHealPercent = 40.0f;
+        float targetHealPercent = 60.0f;
         float selfHOTPercent = 50.0f;
         float dpsHOTPercent = 75.0f;
 
@@ -2570,7 +2570,7 @@ void PartyBotAI::UpdateInCombatAI_Priest()
         // Only dispel DOTS / CC
 
         float selfHealPercent = 20.0f;
-        float targetHealPercent = 40.0f;
+        float targetHealPercent = 60.0f;
         float selfHOTPercent = 50.0f;
         float dpsHOTPercent = 75.0f;
 
@@ -3725,7 +3725,7 @@ void PartyBotAI::UpdateInCombatAI_Druid()
         // Only dispel DOTS / CC
 
         float selfHealPercent = 20.0f;
-        float targetHealPercent = 40.0f;
+        float targetHealPercent = 60.0f;
         float selfHOTPercent = 50.0f;
         float dpsHOTPercent = 75.0f;
 
