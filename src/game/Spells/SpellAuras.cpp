@@ -4550,7 +4550,7 @@ float Aura::CalculateDotDamage() const
                 // $AP * min(0.06*$cp, 0.24)/6 [Yes, there is no difference, whether 4 or 5 CPs are being used]
                 if (caster->GetTypeId() == TYPEID_PLAYER)
                 {
-                    damage += caster->GetTotalAttackPowerValue(BASE_ATTACK) * 0.15f;
+                    damage += caster->GetTotalAttackPowerValue(BASE_ATTACK) * 0.1f;
                 }
             }
             // Rake
@@ -4559,7 +4559,7 @@ float Aura::CalculateDotDamage() const
                 // Damage scales AP * 0.25
                 if (caster->GetTypeId() == TYPEID_PLAYER)
                 {
-                    damage += caster->GetTotalAttackPowerValue(BASE_ATTACK) * 0.15f;
+                    damage += caster->GetTotalAttackPowerValue(BASE_ATTACK) * 0.10f;
                 }
             }
 #endif
@@ -4575,14 +4575,14 @@ float Aura::CalculateDotDamage() const
                 // Dmg/tick = $AP*min(0.01*$cp, 0.03) [Like Rip: only the first three CP increase the contribution from AP]
                 if (caster->IsPlayer())
                 {
-                    damage += caster->GetTotalAttackPowerValue(BASE_ATTACK) * 0.25f;
+                    damage += caster->GetTotalAttackPowerValue(BASE_ATTACK) * 0.10f;
                 }
             }
             // World of Warcraft Client Patch 1.12.0 (2006-08-22)
             // - Garrote: The damage from this ability has been increased. In
             //   addition, Garrote now increases in potency with greater attack power.
             else if (spellProto->IsFitToFamilyMask<CF_ROGUE_GARROTE>())
-                damage += caster->GetTotalAttackPowerValue(BASE_ATTACK) * 0.25f;
+                damage += caster->GetTotalAttackPowerValue(BASE_ATTACK) * 0.10f;
 #endif
             break;
         }
