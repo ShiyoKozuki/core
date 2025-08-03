@@ -295,12 +295,12 @@ UPDATE `mangos`.`spell_template` SET `manaCost`=100 WHERE `entry`=17752;
 
 -- Rogue
 
-    -- Camouflage (10-50% stealth movement speed)
-    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=9 WHERE  `entry`=13975 AND `build`=5875;
-    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=19 WHERE  `entry`=14062 AND `build`=5875;
-    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=29 WHERE  `entry`=14063 AND `build`=5875;
-    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=39 WHERE  `entry`=14064 AND `build`=5875;
-    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=49 WHERE  `entry`=14065 AND `build`=5875;
+    -- Camouflage (8-30% stealth movement speed)
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=5 WHERE  `entry`=13975 AND `build`=5875;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=11 WHERE  `entry`=14062 AND `build`=5875;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=17 WHERE  `entry`=14063 AND `build`=5875;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=23 WHERE  `entry`=14064 AND `build`=5875;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=29 WHERE  `entry`=14065 AND `build`=5875;
 
     -- Sprint (3m CD)
     UPDATE `mangos`.`spell_template` SET `categoryRecoveryTime`=180000 WHERE  `entry`=2983 AND `build`=4222;
@@ -533,6 +533,9 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
     VALUES (33499, 4222, 464, 1, 101, 21, 1, -1, 6, 1, 1, 29, 1, -1, -1, 1, 108, 256, 498, 'Improved Garrote', 983070, 'Rank 2', 983070, 'Increases the damage done by your Garrote ability by $s1%.', 983070, 983052, 8, -1, 1);
     UPDATE `mangos`.`spell_template` SET `effectMiscValue1`=22 WHERE  `entry`=33499 AND `build`=4222;
 
+    -- Blind (60s duration)
+    UPDATE `mangos`.`spell_template` SET `durationIndex`=3 WHERE  `entry`=2094 AND `build`=5464;
+
     -- Mutilate
     -- TODO: Rank 1-2?
     REPLACE`mangos`.`spell_template` (`entry`, `build`, `attributes`, `attributesEx`, `attributesEx2`, `attributesEx3`, `castingTimeIndex`, `procChance`, `baseLevel`, `spellLevel`, `powerType`, `manaCost`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effect2`, `effect3`, `effectDieSides1`, `effectDieSides2`, `effectDieSides3`, `effectBaseDice1`, `effectBaseDice2`, `effectBaseDice3`, `effectBasePoints1`, `effectBasePoints2`, `effectBasePoints3`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectImplicitTargetA3`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `customFlags`) 
@@ -547,8 +550,7 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
     REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`) VALUES (15062, 5875, 39, 33503, 8, 1);
     UPDATE `mangos`.`spell_template` SET `startRecoveryTime`=1000 WHERE  `entry`=33503 AND `build`=5464;
 
-    -- Axes added to rogue
-    -- TODO: Doesn't work?
+    -- Axes added to rogue (Also have to edit SkillRaceClassInfo and add another entry for rogue as classmask)
     UPDATE `mangos`.`skill_line_ability` SET `class_mask`=79 WHERE  `id`=248 AND `build`=4544;
     UPDATE `mangos`.`skill_line_ability` SET `class_mask`=79 WHERE  `id`=248 AND `build`=4695;
     UPDATE `mangos`.`skill_line_ability` SET `class_mask`=79 WHERE  `id`=248 AND `build`=4878;
@@ -601,6 +603,20 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
     UPDATE `mangos`.`spell_template` SET `durationIndex`=30 WHERE  `entry`=8914 AND `build`=4878;
     UPDATE `mangos`.`spell_template` SET `durationIndex`=30 WHERE  `entry`=9756 AND `build`=4878;
     UPDATE `mangos`.`spell_template` SET `durationIndex`=30 WHERE  `entry`=9910 AND `build`=4878;
+
+    -- Add Poelarms to druid (Also have to edit SkillRaceClassInfo and add another entry for druids as classmask)
+    UPDATE `mangos`.`skill_line_ability` SET `class_mask`=1031 WHERE  `id`=2928 AND `build`=4222;
+    UPDATE `mangos`.`skill_line_ability` SET `class_mask`=1031 WHERE  `id`=2928 AND `build`=4297;
+    UPDATE `mangos`.`skill_line_ability` SET `class_mask`=1031 WHERE  `id`=2928 AND `build`=4375;
+    UPDATE `mangos`.`skill_line_ability` SET `class_mask`=1031 WHERE  `id`=2928 AND `build`=4449;
+    UPDATE `mangos`.`skill_line_ability` SET `class_mask`=1031 WHERE  `id`=2928 AND `build`=4544;
+    UPDATE `mangos`.`skill_line_ability` SET `class_mask`=1031 WHERE  `id`=2928 AND `build`=4695;
+    UPDATE `mangos`.`skill_line_ability` SET `class_mask`=1031 WHERE  `id`=2928 AND `build`=4878;
+    UPDATE `mangos`.`skill_line_ability` SET `class_mask`=1031 WHERE  `id`=2928 AND `build`=5086;
+    UPDATE `mangos`.`skill_line_ability` SET `class_mask`=1031 WHERE  `id`=2928 AND `build`=5302;
+    UPDATE `mangos`.`skill_line_ability` SET `class_mask`=1031 WHERE  `id`=2928 AND `build`=5464;
+    UPDATE `mangos`.`skill_line_ability` SET `class_mask`=1031 WHERE  `id`=2928 AND `build`=5875;
+
 
 -- Crafting recipes
 

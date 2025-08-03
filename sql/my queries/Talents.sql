@@ -380,11 +380,11 @@ WHERE entry = 16720;
     UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=9, `effectBasePoints2`=9 WHERE  `entry`=14057 AND `build`=4222;
     UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=19, `effectBasePoints2`=19 WHERE  `entry`=14072 AND `build`=4222;
 
-    -- Improved Sap (45%/90% chance, 2%/4% spell hit)
-    UPDATE `mangos`.`spell_template` SET `effect2`=6, `effectDieSides2`=1 , `effectBaseDice2`=1, `effectBasePoints1`=44, `effectBasePoints2`=1, `effectApplyAuraName2`=55, `effectImplicitTargetA2`=1,
+    -- Improved Sap (45%/90% chance, 4%/8% spell hit)
+    UPDATE `mangos`.`spell_template` SET `effect2`=6, `effectDieSides2`=1 , `effectBaseDice2`=1, `effectBasePoints1`=44, `effectBasePoints2`=3, `effectApplyAuraName2`=55, `effectImplicitTargetA2`=1,
         `description`='Gives you a $s1% chance to return to stealth mode after using your Sap ability and increases your chance to hit with spells by $s2%.' 
         WHERE  `entry`=14076 AND `build`=5302;
-    UPDATE `mangos`.`spell_template` SET `effect2`=6, `effectDieSides2`=1 , `effectBaseDice2`=1, `effectBasePoints1`=89, `effectBasePoints2`=3, `effectApplyAuraName2`=55, `effectImplicitTargetA2`=1,
+    UPDATE `mangos`.`spell_template` SET `effect2`=6, `effectDieSides2`=1 , `effectBaseDice2`=1, `effectBasePoints1`=89, `effectBasePoints2`=7, `effectApplyAuraName2`=55, `effectImplicitTargetA2`=1,
         `description`='Gives you a $s1% chance to return to stealth mode after using your Sap ability and increases your chance to hit with spells by $s2%.' 
         WHERE  `entry`=14094 AND `build`=5302;
 
