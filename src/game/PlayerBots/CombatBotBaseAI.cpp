@@ -2183,10 +2183,7 @@ Unit* CombatBotBaseAI::SelectHealTarget(float selfHealPercent, float groupHealPe
 
                 // Check if we should heal party member.
                 if ((IsValidHealTarget(pMember, groupHealPercent) &&
-                    healthPercent > pMember->GetHealthPercent()) ||
-                    // Or a pet if there are no injured players.
-                    (!pTarget && (pMember = pMember->GetPet()) &&
-                      IsValidHealTarget(pMember, groupHealPercent)))
+                    healthPercent > pMember->GetHealthPercent()))
                 {
                     healthPercent = pMember->GetHealthPercent();
                     pTarget = pMember;
@@ -2334,6 +2331,11 @@ bool CombatBotBaseAI::IsValidDispelTarget(Unit const* pTarget, SpellEntry const*
             SpellAuraHolder* holder = aura.second;
             if ((1 << holder->GetSpellProto()->Dispel) & dispelMask)
             {
+                // Only dispel DoTs and CC spells
+                if (!holder->GetSpellProto()->IsSpellAppliesPeriodicAura() &&
+                    !holder->GetSpellProto()->IsCCSpell())
+                        return false;
+
                 if (holder->GetSpellProto()->Dispel == DISPEL_MAGIC ||
                     holder->GetSpellProto()->Dispel == DISPEL_DISEASE ||
                     holder->GetSpellProto()->Dispel == DISPEL_POISON)

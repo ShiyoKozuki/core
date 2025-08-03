@@ -1617,25 +1617,45 @@ void PartyBotAI::UpdateInCombatAI_Paladin()
 
     if (GetRole() == ROLE_HEALER)
     {
-        if (m_spells.paladin.pHolyShock &&
-            me->GetHealthPercent() < 50.0f &&
-            CanTryToCastSpell(me, m_spells.paladin.pHolyShock))
-        {
-            if (m_spells.paladin.pDivineFavor &&
-                CanTryToCastSpell(me, m_spells.paladin.pDivineFavor))
-            {
-                DoCastSpell(me, m_spells.paladin.pDivineFavor);
-            }
+        // TODO:
+        // Respect 5s rule?
+        // Only dispel DOTS / CC
 
-            if (DoCastSpell(me, m_spells.paladin.pHolyShock) == SPELL_CAST_OK)
-                return;
+        float selfHealPercent = 20.0f;
+        float targetHealPercent = 40.0f;
+        float selfHOTPercent = 50.0f;
+        float dpsHOTPercent = 75.0f;
+
+        if (me->GetPowerPercent(POWER_MANA) < 25.0f)
+        {
+            targetHealPercent = 25.0f;
         }
 
-        if (FindAndHealInjuredAlly(80.0f, 90.0f))
-            return;
+        if (Unit* pTarget = SelectHealTarget(selfHealPercent, targetHealPercent))
+        {
+            Unit* pVictim = pTarget->GetVictim();
 
-        if (FindAndPreHealTarget())
-            return;
+            // Tank Logic - Direct Heal
+            if (pVictim && pVictim->GetVictim() == pTarget)
+            {
+                if (HealInjuredTargetDirect(pTarget))
+                    return;
+            }
+            else // DPS logic
+            {
+                // If HP is over 25%, put a HOT on them
+                if (pTarget->GetHealthPercent() > 25.0f)
+                {
+                    if (HealInjuredTargetPeriodic(pTarget))
+                        return;
+                }
+                else // Below 25%, use a direct heal
+                {
+                    if (HealInjuredTargetDirect(pTarget))
+                        return;
+                }
+            }
+        }
     }
     else
     {
@@ -1912,11 +1932,45 @@ void PartyBotAI::UpdateInCombatAI_Shaman()
 
     if (GetRole() == ROLE_HEALER)
     {
-        if (FindAndHealInjuredAlly(50.0f, 90.0f))
-            return;
+        // TODO:
+        // Respect 5s rule?
+        // Only dispel DOTS / CC
 
-        if (FindAndPreHealTarget())
-            return;
+        float selfHealPercent = 20.0f;
+        float targetHealPercent = 40.0f;
+        float selfHOTPercent = 50.0f;
+        float dpsHOTPercent = 75.0f;
+
+        if (me->GetPowerPercent(POWER_MANA) < 25.0f)
+        {
+            targetHealPercent = 25.0f;
+        }
+
+        if (Unit* pTarget = SelectHealTarget(selfHealPercent, targetHealPercent))
+        {
+            Unit* pVictim = pTarget->GetVictim();
+
+            // Tank Logic - Direct Heal
+            if (pVictim && pVictim->GetVictim() == pTarget)
+            {
+                if (HealInjuredTargetDirect(pTarget))
+                    return;
+            }
+            else // DPS logic
+            {
+                // If HP is over 25%, put a HOT on them
+                if (pTarget->GetHealthPercent() > 25.0f)
+                {
+                    if (HealInjuredTargetPeriodic(pTarget))
+                        return;
+                }
+                else // Below 25%, use a direct heal
+                {
+                    if (HealInjuredTargetDirect(pTarget))
+                        return;
+                }
+            }
+        }
     }
     else if (me->GetHealthPercent() < 20.0f)
         HealInjuredTarget(me);
@@ -2511,11 +2565,45 @@ void PartyBotAI::UpdateInCombatAI_Priest()
 
     if (GetRole() == ROLE_HEALER || (!me->GetVictim() && me->GetShapeshiftForm() == FORM_NONE))
     {
+        // TODO:
+        // Respect 5s rule?
+        // Only dispel DOTS / CC
 
-        // Direct heal more seriously injured.
-        if (Unit* pTarget = SelectHealTarget(60.0f, 80.0f))
-            if (HealInjuredTargetDirect(pTarget))
-                return;
+        float selfHealPercent = 20.0f;
+        float targetHealPercent = 40.0f;
+        float selfHOTPercent = 50.0f;
+        float dpsHOTPercent = 75.0f;
+
+        if (me->GetPowerPercent(POWER_MANA) < 25.0f)
+        {
+            targetHealPercent = 25.0f;
+        }
+
+        if (Unit* pTarget = SelectHealTarget(selfHealPercent, targetHealPercent))
+        {
+            Unit* pVictim = pTarget->GetVictim();
+
+            // Tank Logic - Direct Heal
+            if (pVictim && pVictim->GetVictim() == pTarget)
+            {
+                if (HealInjuredTargetDirect(pTarget))
+                    return;
+            }
+            else // DPS logic
+            {
+                // If HP is over 25%, put a HOT on them
+                if (pTarget->GetHealthPercent() > 25.0f)
+                {
+                    if (HealInjuredTargetPeriodic(pTarget))
+                        return;
+                }
+                else // Below 25%, use a direct heal
+                {
+                    if (HealInjuredTargetDirect(pTarget))
+                        return;
+                }
+            }
+        }
 
         // Dispels
         if (m_spells.priest.pDispelMagic)
@@ -2540,22 +2628,6 @@ void PartyBotAI::UpdateInCombatAI_Priest()
                 }
             }
         }
-
-        // Shield allies being attacked.
-        if (m_spells.priest.pPowerWordShield)
-        {
-            if (Player* pTarget = SelectShieldTarget())
-            {
-                if (CanTryToCastSpell(pTarget, m_spells.priest.pPowerWordShield))
-                {
-                    if (DoCastSpell(pTarget, m_spells.priest.pPowerWordShield) == SPELL_CAST_OK)
-                        return;
-                }
-            }
-        }
-
-        if (GetRole() == ROLE_HEALER && FindAndPreHealTarget())
-            return;
     }
     else if (Unit* pVictim = me->GetVictim())
     {
@@ -2633,12 +2705,6 @@ void PartyBotAI::UpdateInCombatAI_Priest()
                     return;
             }
         }
-
-        if (me->HasSpell(PB_SPELL_SHOOT_WAND) &&
-           !me->IsMoving() &&
-           (me->GetPowerPercent(POWER_MANA) < 10.0f) &&
-           !me->GetCurrentSpell(CURRENT_AUTOREPEAT_SPELL))
-            me->CastSpell(pVictim, PB_SPELL_SHOOT_WAND, false);
     }
 }
 
@@ -3654,15 +3720,45 @@ void PartyBotAI::UpdateInCombatAI_Druid()
             }
         }
 
-        // Prioritize applying HoTs.
-        if (Unit* pTarget = SelectPeriodicHealTarget(80.0f, 90.0f))
-            if (HealInjuredTargetPeriodic(pTarget))
-                return;
+        // TODO:
+        // Respect 5s rule?
+        // Only dispel DOTS / CC
 
-        // Direct heal.
-        if (Unit* pTarget = SelectHealTarget(60.0f, 70.0f))
-            if (HealInjuredTargetDirect(pTarget))
-                return;
+        float selfHealPercent = 20.0f;
+        float targetHealPercent = 40.0f;
+        float selfHOTPercent = 50.0f;
+        float dpsHOTPercent = 75.0f;
+
+        if (me->GetPowerPercent(POWER_MANA) < 25.0f)
+        {
+            targetHealPercent = 25.0f;
+        }
+
+        if (Unit* pTarget = SelectHealTarget(selfHealPercent, targetHealPercent))
+        {
+            Unit* pVictim = pTarget->GetVictim();
+
+            // Tank Logic - Direct Heal
+            if (pVictim && pVictim->GetVictim() == pTarget)
+            {
+                if (HealInjuredTargetDirect(pTarget))
+                    return;
+            }
+            else // DPS logic
+            {
+                // If HP is over 25%, put a HOT on them
+                if (pTarget->GetHealthPercent() > 25.0f)
+                {
+                    if (HealInjuredTargetPeriodic(pTarget))
+                        return;
+                }
+                else // Below 25%, use a direct heal
+                {
+                    if (HealInjuredTargetDirect(pTarget))
+                        return;
+                }
+            }
+        }
 
         // Dispels
         SpellEntry const* pDispelSpell = m_spells.druid.pAbolishPoison ?
@@ -3700,9 +3796,6 @@ void PartyBotAI::UpdateInCombatAI_Druid()
             if (DoCastSpell(me, m_spells.druid.pInnervate) == SPELL_CAST_OK)
                 return;
         }
-
-        if (GetRole() == ROLE_HEALER && FindAndPreHealTarget())
-            return;
 
         if (EnterCombatDruidForm())
             return;
