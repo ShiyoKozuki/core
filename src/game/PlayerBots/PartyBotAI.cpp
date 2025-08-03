@@ -1305,6 +1305,8 @@ void PartyBotAI::UpdateOutOfCombatAI_Paladin()
     // Blessings logic
     // TODO: Kings logic (Need to track that the current blessing aura checking wasn't casted by you)
     // TODO: BoSanc logic for tanks. Kept spamming wisdom after kings on self as a prot paladin
+    // TODO: LEvel 60 feral druid stuff using below TODO logic
+    // TODO: Refactor so that the blessing is changed via a var and then the DoCastSpell return logic is only run once using that var
     if (me->GetLevel() == 60)
     {
         if (m_spells.paladin.pBlessingOfSalvation)
@@ -1317,6 +1319,8 @@ void PartyBotAI::UpdateOutOfCombatAI_Paladin()
                 {
                     if (Player* pMember = itr->getSource())
                     {
+                        bool pMemberIsFeralDruid = pMember->GetShapeshiftForm() == FORM_CAT || pMember->GetShapeshiftForm() == FORM_BEAR || pMember->GetShapeshiftForm() == FORM_DIREBEAR;
+
                         if (me->IsValidHelpfulTarget(pMember) &&
                             !pMember->IsGameMaster() &&
                             IsValidBuffTarget(pMember, pSpellEntry) &&
@@ -1324,7 +1328,8 @@ void PartyBotAI::UpdateOutOfCombatAI_Paladin()
                             me->IsWithinDist(pMember, 30.0f) &&
                             CanTryToCastSpell(pMember, m_spells.paladin.pBlessingOfSalvation) &&
                             (IsPureDPSClass(pMember->GetClass())) &&
-                            !IsWearingShield(pMember))
+                            !IsWearingShield(pMember) &&
+                            !pMemberIsFeralDruid)
                         {
                             //here's where it'd return..
                             if (DoCastSpell(pMember, m_spells.paladin.pBlessingOfSalvation) == SPELL_CAST_OK)
@@ -1352,6 +1357,8 @@ void PartyBotAI::UpdateOutOfCombatAI_Paladin()
                 {
                     if (Player* pMember = itr->getSource())
                     {
+                        bool isDPS = IsPureDPSClass(pMember->GetClass()) || pMember->GetShapeshiftForm() == FORM_CAT || pMember->GetShapeshiftForm() == FORM_BEAR || pMember->GetShapeshiftForm() == FORM_DIREBEAR;
+
                         if (me->IsValidHelpfulTarget(pMember) &&
                             !pMember->IsGameMaster() &&
                             IsValidBuffTarget(pMember, pSpellEntry) &&
@@ -1360,7 +1367,7 @@ void PartyBotAI::UpdateOutOfCombatAI_Paladin()
                             pMember->GetClass() != CLASS_SHAMAN &&
                             pMember->GetClass() != CLASS_PALADIN &&
                             CanTryToCastSpell(pMember, m_spells.paladin.pBlessingOfMight) &&
-                            (IsPureDPSClass(pMember->GetClass())) &&
+                            isDPS &&
                             !IsWearingShield(pMember))
                         {
                             //here's where it'd return..
@@ -1388,13 +1395,16 @@ void PartyBotAI::UpdateOutOfCombatAI_Paladin()
             {
                 if (Player* pMember = itr->getSource())
                 {
+                    bool pMemberIsFeralDruid = pMember->GetShapeshiftForm() == FORM_CAT || pMember->GetShapeshiftForm() == FORM_BEAR || pMember->GetShapeshiftForm() == FORM_DIREBEAR;
+
                     if (me->IsValidHelpfulTarget(pMember) &&
                         !pMember->IsGameMaster() &&
                         IsValidBuffTarget(pMember, pSpellEntry) &&
                         me->IsWithinLOSInMap(pMember) &&
                         me->IsWithinDist(pMember, 30.0f) &&
                         CanTryToCastSpell(pMember, m_spells.paladin.pBlessingOfWisdom) &&
-                        (IsHealerClass(pMember->GetClass())))
+                        (IsHealerClass(pMember->GetClass()) &&
+                        !pMemberIsFeralDruid))
                     {
                         //here's where it'd return..
                         if (DoCastSpell(pMember, m_spells.paladin.pBlessingOfWisdom) == SPELL_CAST_OK)
@@ -1621,7 +1631,7 @@ void PartyBotAI::UpdateInCombatAI_Paladin()
         // Respect 5s rule?
         // Only dispel DOTS / CC
 
-        float selfHealPercent = 20.0f;
+        float selfHealPercent = 60.0f;
         float targetHealPercent = 60.0f;
         float selfHOTPercent = 50.0f;
         float dpsHOTPercent = 75.0f;
@@ -1813,8 +1823,7 @@ void PartyBotAI::UpdateOutOfCombatAI_Shaman()
             return;
     }
 
-    if (m_role == ROLE_HEALER &&
-        FindAndHealInjuredAlly())
+    if (m_role == ROLE_HEALER && FindAndHealInjuredAlly(90.0f, 90.0f))
         return;
 
     if (me->GetVictim())
@@ -1936,7 +1945,7 @@ void PartyBotAI::UpdateInCombatAI_Shaman()
         // Respect 5s rule?
         // Only dispel DOTS / CC
 
-        float selfHealPercent = 20.0f;
+        float selfHealPercent = 60.0f;
         float targetHealPercent = 60.0f;
         float selfHOTPercent = 50.0f;
         float dpsHOTPercent = 75.0f;
@@ -2399,7 +2408,7 @@ void PartyBotAI::UpdateInCombatAI_Mage()
 void PartyBotAI::UpdateOutOfCombatAI_Priest()
 {
     if (m_role == ROLE_HEALER &&
-        FindAndHealInjuredAlly(70.0f, 70.0f))
+        FindAndHealInjuredAlly(90.0f, 90.0f))
         return;
 
     if (m_spells.priest.pPrayerofFortitude && 
@@ -2569,7 +2578,7 @@ void PartyBotAI::UpdateInCombatAI_Priest()
         // Respect 5s rule?
         // Only dispel DOTS / CC
 
-        float selfHealPercent = 20.0f;
+        float selfHealPercent = 60.0f;
         float targetHealPercent = 60.0f;
         float selfHOTPercent = 50.0f;
         float dpsHOTPercent = 75.0f;
@@ -3612,6 +3621,9 @@ void PartyBotAI::UpdateOutOfCombatAI_Druid()
         return;
     }
 
+    if (m_role == ROLE_HEALER && FindAndHealInjuredAlly(90.0f, 90.0f))
+        return;
+
     if (m_spells.druid.pGiftoftheWild)
     {
         if (Player* pTarget = SelectBuffTarget(m_spells.druid.pGiftoftheWild))
@@ -3724,7 +3736,7 @@ void PartyBotAI::UpdateInCombatAI_Druid()
         // Respect 5s rule?
         // Only dispel DOTS / CC
 
-        float selfHealPercent = 20.0f;
+        float selfHealPercent = 60.0f;
         float targetHealPercent = 60.0f;
         float selfHOTPercent = 50.0f;
         float dpsHOTPercent = 75.0f;
