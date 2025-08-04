@@ -472,8 +472,8 @@ WHERE entry = 16720;
     -- Sap code from my bug report
 
     -- Dirty Deeds (Added Ambush)
-    UPDATE `mangos`.`spell_template` SET `effectItemType1`=1792, `description`='Reduces the Energy cost of your Cheap Shot, Ambush and Garrote abilities by $s1.' WHERE  `entry`=14082 AND `build`=5875;
-    UPDATE `mangos`.`spell_template` SET `effectItemType1`=1792, `description`='Reduces the Energy cost of your Cheap Shot, Ambush and Garrote abilities by $s1.' WHERE  `entry`=14083 AND `build`=5875;
+    UPDATE `mangos`.`spell_template` SET `effectItemType1`=1792  WHERE  `entry`=14082 AND `build`=5875;
+    UPDATE `mangos`.`spell_template` SET `effectItemType1`=1792 WHERE  `entry`=14083 AND `build`=5875;
 
     -- Deadliness
     UPDATE mangos . spell_template 

@@ -77,6 +77,26 @@ SpellScript* GetScript_RogueVanish(SpellEntry const*)
     return new RogueVanishScript();
 }
 
+struct RogueCloakAndDaggerScript : SpellScript
+{
+    bool OnEffectExecute(Spell* spell, SpellEffectIndex effIdx) const final
+    {
+        if (effIdx == EFFECT_INDEX_1 && spell->GetCaster())
+        {
+            if (Player* pPlayer = spell->GetCaster()->ToPlayer())
+                pPlayer->CastHighestStealthRank();
+
+            return false;
+        }
+        return true;
+    }
+};
+
+SpellScript* GetScript_RogueCloakAndDagger(SpellEntry const*)
+{
+    return new RogueCloakAndDaggerScript();
+}
+
 void AddSC_rogue_spell_scripts()
 {
     Script* newscript;
@@ -89,5 +109,10 @@ void AddSC_rogue_spell_scripts()
     newscript = new Script;
     newscript->Name = "spell_rogue_vanish";
     newscript->GetSpellScript = &GetScript_RogueVanish;
+    newscript->RegisterSelf();
+
+    newscript = new Script;
+    newscript->Name = "spell_rogue_cloak_and_dagger";
+    newscript->GetSpellScript = &GetScript_RogueCloakAndDagger;
     newscript->RegisterSelf();
 }
