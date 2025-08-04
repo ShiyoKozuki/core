@@ -9826,11 +9826,11 @@ WHERE entry = 12257;
 -- Antiquated Cloak
 UPDATE mangos . item_template
 SET quality = 3,
-    stat_type1 = 3,
+    stat_type1 = 4,
     stat_value1 = 4,
-    stat_type2 = 4,
+    stat_type2 = 5,
     stat_value2 = 4,
-    stat_type3 = 5,
+    stat_type3 = 7,
     stat_value3 = 4
 WHERE entry = 4799;
 

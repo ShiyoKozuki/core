@@ -90,7 +90,7 @@ UPDATE mangos . creature_loot_template
 SET ChanceOrQuestChance = 15
 WHERE item IN(15775, 14513);
 
--- 20%
+-- 25%
 
 -- Craft materials / Skill books / Cards (Essences, meats, legs, librams, etc)
 
@@ -118,10 +118,10 @@ UPDATE mangos . creature_loot_template
 SET ChanceOrQuestChance = 10
 WHERE item IN(7068, 7070, 7067, 7069, 10286, 7972, 8150, 7307, 4096, 12431, 12436, 12432, 12434, 12430, 12433, 12435, 20406, 20407, 20408);
 
--- 20%
+-- 25%
 UPDATE mangos . creature_loot_template
-SET ChanceOrQuestChance = 20
-WHERE item IN(12809, 20404, 20424, 12206, 12208, 12205, 12204, 12037, 12203, 12202, 3712, 3731, 3667, 3730, 1081, 1080, 2924, 2674, 2673, 5469, 
+SET ChanceOrQuestChance = 25
+WHERE item IN(1468, 12809, 20404, 20424, 12206, 12208, 12205, 12204, 12037, 12203, 12202, 3712, 3731, 3667, 3730, 1081, 1080, 2924, 2674, 2673, 5469, 
 729, 12223, 3174, 2251, 3172, 3685, 12207, 3404, 4402, 12184, 5471, 5470, 723, 731, 2296, 730, 732, 6530, 12735, 4480, 4479, 4481, 3164, 
 9326, 4556, 21377, 18945, 12335, 12336, 12337, 5524, 5523, 7973);
 
@@ -169,7 +169,7 @@ SET ChanceOrQuestChance = 5
 WHERE item IN(8153) AND ChanceOrQuestChance > 5;
 
 -- Bags
-    -- 6-8 Slots 0.05%
+    -- 6-8 Slots 0.02%
     UPDATE mangos . creature_loot_template
     SET ChanceOrQuestChance = 0.5
     WHERE item IN(4500, 3914, 1725, 5572, 804, 5575, 856, 5573, 5574, 805, 828, 857, 5571, 4496);
