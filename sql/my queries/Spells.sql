@@ -583,21 +583,21 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
     UPDATE `mangos`.`skill_line_ability` SET `class_mask`=79 WHERE  `id`=248 AND `build`=5875;
 
 -- Druid
-    -- Swipe (3 - > 5 targets. Weapon damage + X instead of flat damage)
-    UPDATE `mangos`.`spell_template` SET `attributes`=1044 , `attributesEx`=134218240, `effect1`=58, `effectBasePoints1`=4, `effectChainTarget1`=5, 
+    -- Swipe (Weapon damage + X instead of flat damage)
+    UPDATE `mangos`.`spell_template` SET `attributes`=1044 , `attributesEx`=134218240, `effect1`=58, `effectBasePoints1`=1, `effectChainTarget1`=3, 
         `description`='Swipe $x1 nearby enemies with your next attack, inflicting $s1 damage.'
     WHERE  `entry`=779;
 
-    UPDATE `mangos`.`spell_template` SET `attributes`=1044 , `attributesEx`=134218240, `effect1`=58, `effectBasePoints1`=9, `effectChainTarget1`=5,
+    UPDATE `mangos`.`spell_template` SET `attributes`=1044 , `attributesEx`=134218240, `effect1`=58, `effectBasePoints1`=3, `effectChainTarget1`=3,
         `description`='Swipe $x1 nearby enemies with your next attack, inflicting $s1 damage.' 
     WHERE  `entry`=780;
-    UPDATE `mangos`.`spell_template` SET `attributes`=1044 , `attributesEx`=134218240, `effect1`=58, `effectBasePoints1`=17, `effectChainTarget1`=5,
+    UPDATE `mangos`.`spell_template` SET `attributes`=1044 , `attributesEx`=134218240, `effect1`=58, `effectBasePoints1`=6, `effectChainTarget1`=3,
         `description`='Swipe $x1 nearby enemies with your next attack, inflicting $s1 damage.' 
     WHERE  `entry`=769;
-    UPDATE `mangos`.`spell_template` SET `attributes`=1044 , `attributesEx`=134218240, `effect1`=58, `effectBasePoints1`=31, `effectChainTarget1`=5,
+    UPDATE `mangos`.`spell_template` SET `attributes`=1044 , `attributesEx`=134218240, `effect1`=58, `effectBasePoints1`=9, `effectChainTarget1`=3,
         `description`='Swipe $x1 nearby enemies with your next attack, inflicting $s1 damage.' 
     WHERE  `entry`=9754;
-    UPDATE `mangos`.`spell_template` SET `attributes`=1044 , `attributesEx`=134218240, `effect1`=58, `effectBasePoints1`=49, `effectChainTarget1`=5,
+    UPDATE `mangos`.`spell_template` SET `attributes`=1044 , `attributesEx`=134218240, `effect1`=58, `effectBasePoints1`=18, `effectChainTarget1`=3,
         `description`='Swipe $x1 nearby enemies with your next attack, inflicting $s1 damage.'
     WHERE  `entry`=9908;
 

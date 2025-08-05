@@ -451,8 +451,8 @@ WHERE entry = 16720;
     UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=7 WHERE  `entry`=13790;
     UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=9 WHERE  `entry`=13791;
 
-    -- Ghostly Strike (20s duration)
-    UPDATE `mangos`.`spell_template` SET `durationIndex`=18 WHERE  `entry`=14278 AND `build`=5875;
+    -- Ghostly Strike (+25% dodge, 20s duration)
+    UPDATE `mangos`.`spell_template` SET `durationIndex`=18, `effectBasePoints2`=24 WHERE  `entry`=14278 AND `build`=5875;
 
     -- Heightened Senses (-5/-10 Cost of Backstab Renamed Shadow Efficiency)
     UPDATE `mangos`.`spell_template` SET `effect2`=0, `effect3`=0, `effectBasePoints1`=-6, `effectBasePoints2`=0, `effectBasePoints3`=0, `effectApplyAuraName1`=107, `effectApplyAuraName2`=0, `effectApplyAuraName3`=0, 
