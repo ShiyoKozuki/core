@@ -976,6 +976,9 @@ bool Player::CheckMirrorTimerDeactivation(MirrorTimer::Type timer) const
 
 void Player::OnMirrorTimerExpirationPulse(MirrorTimer::Type timer)
 {
+    if (IsBot())
+        return;
+
     switch (timer)
     {
         case MirrorTimer::FATIGUE:
