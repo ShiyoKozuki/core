@@ -1638,7 +1638,7 @@ void PartyBotAI::UpdateInCombatAI_Paladin()
 
         if (me->GetPowerPercent(POWER_MANA) < 25.0f)
         {
-            targetHealPercent = 25.0f;
+            dpsHOTPercent = 40.0f;
         }
 
         if (Unit* pTarget = SelectHealTarget(selfHealPercent, targetHealPercent))
@@ -1952,7 +1952,7 @@ void PartyBotAI::UpdateInCombatAI_Shaman()
 
         if (me->GetPowerPercent(POWER_MANA) < 25.0f)
         {
-            targetHealPercent = 25.0f;
+            dpsHOTPercent = 40.0f;
         }
 
         if (Unit* pTarget = SelectHealTarget(selfHealPercent, targetHealPercent))
@@ -2487,29 +2487,53 @@ void PartyBotAI::UpdateOutOfCombatAI_Priest()
         }
     }
 
-    if (m_spells.priest.pPrayerofShadowProtection && 
-        !me->HasAura(m_spells.priest.pPrayerofShadowProtection->Id))
+    if (me->GetLevel() == 60)
     {
-        if (Player* pTarget = SelectBuffTarget(m_spells.priest.pPrayerofShadowProtection))
+        if (m_spells.priest.pPrayerofShadowProtection &&
+            m_spells.priest.pShadowProtection &&
+            !me->HasAura(m_spells.priest.pPrayerofShadowProtection->Id) &&
+            !me->HasAura(m_spells.priest.pShadowProtection->Id))
         {
-            if (CanTryToCastSpell(pTarget, m_spells.priest.pPrayerofShadowProtection))
+            if (Player* pTarget = SelectBuffTarget(m_spells.priest.pPrayerofShadowProtection))
             {
-                if (DoCastSpell(pTarget, m_spells.priest.pPrayerofShadowProtection) == SPELL_CAST_OK)
+                if (CanTryToCastSpell(pTarget, m_spells.priest.pPrayerofShadowProtection))
                 {
-                    m_isBuffing = true;
-                    me->ClearTarget();
-                    return;
+                    if (DoCastSpell(pTarget, m_spells.priest.pPrayerofShadowProtection) == SPELL_CAST_OK)
+                    {
+                        m_isBuffing = true;
+                        me->ClearTarget();
+                        return;
+                    }
                 }
             }
         }
     }
-    else if (m_spells.priest.pShadowProtection)
+    else
     {
-        if (Player* pTarget = SelectBuffTarget(m_spells.priest.pShadowProtection))
+        if (m_spells.priest.pShadowProtection)
         {
-            if (CanTryToCastSpell(pTarget, m_spells.priest.pShadowProtection))
+            if (Player* pTarget = SelectBuffTarget(m_spells.priest.pShadowProtection))
             {
-                if (DoCastSpell(pTarget, m_spells.priest.pShadowProtection) == SPELL_CAST_OK)
+                if (CanTryToCastSpell(pTarget, m_spells.priest.pShadowProtection))
+                {
+                    if (DoCastSpell(pTarget, m_spells.priest.pShadowProtection) == SPELL_CAST_OK)
+                    {
+                        m_isBuffing = true;
+                        me->ClearTarget();
+                        return;
+                    }
+                }
+            }
+        }
+    }
+
+    if (m_spells.priest.pFearWard)
+    {
+        if (Player* pTarget = SelectBuffTarget(m_spells.priest.pFearWard))
+        {
+            if (CanTryToCastSpell(pTarget, m_spells.priest.pFearWard))
+            {
+                if (DoCastSpell(pTarget, m_spells.priest.pFearWard) == SPELL_CAST_OK)
                 {
                     m_isBuffing = true;
                     me->ClearTarget();
@@ -2585,7 +2609,7 @@ void PartyBotAI::UpdateInCombatAI_Priest()
 
         if (me->GetPowerPercent(POWER_MANA) < 25.0f)
         {
-            targetHealPercent = 25.0f;
+            dpsHOTPercent = 40.0f;
         }
 
         if (Unit* pTarget = SelectHealTarget(selfHealPercent, targetHealPercent))
@@ -2719,6 +2743,63 @@ void PartyBotAI::UpdateInCombatAI_Priest()
 
 void PartyBotAI::UpdateOutOfCombatAI_Warlock()
 {
+    if (m_spells.warlock.pDemonArmor &&
+        CanTryToCastSpell(me, m_spells.warlock.pDemonArmor))
+    {
+        if (DoCastSpell(me, m_spells.warlock.pDemonArmor) == SPELL_CAST_OK)
+        {
+            m_isBuffing = true;
+            me->ClearTarget();
+            return;
+        }
+    }
+
+    if (m_spells.warlock.pSoulstone)
+    {
+        Player* selectedTarget = nullptr;
+        Player* fallbackTarget = nullptr;
+
+        Group* pGroup = me->GetGroup();
+        if (pGroup)
+        {
+            for (GroupReference* itr = pGroup->GetFirstMember(); itr != nullptr; itr = itr->next())
+            {
+                if (Player* pMember = itr->getSource())
+                {
+                    if (me->IsValidHelpfulTarget(pMember) &&
+                        !pMember->IsGameMaster() &&
+                        !pMember->IsBot() &&
+                        IsValidBuffTarget(pMember, m_spells.warlock.pSoulstone) &&
+                        me->IsWithinLOSInMap(pMember) &&
+                        me->IsWithinDist(pMember, 30.0f))
+                    {
+                        if (IsHealerClass(pMember->GetClass()))
+                        {
+                            selectedTarget = pMember; // prefer healer
+                            break;
+                        }
+                        else if (!fallbackTarget)
+                        {
+                            fallbackTarget = pMember; // fallback to first non-healer
+                        }
+                    }
+                }
+            }
+        }
+
+        if (!selectedTarget)
+            selectedTarget = fallbackTarget;
+
+        if (selectedTarget &&
+            CanTryToCastSpell(selectedTarget, m_spells.warlock.pSoulstone) &&
+            DoCastSpell(selectedTarget, m_spells.warlock.pSoulstone) == SPELL_CAST_OK)
+        {
+            m_isBuffing = true;
+            me->ClearTarget();
+            return;
+        }
+    }
+
     if (m_spells.warlock.pDetectInvisibility)
     {
         if (Player* pTarget = SelectBuffTarget(m_spells.warlock.pDetectInvisibility))
@@ -2735,14 +2816,19 @@ void PartyBotAI::UpdateOutOfCombatAI_Warlock()
         }
     }
 
-    if (m_spells.warlock.pDemonArmor &&
-        CanTryToCastSpell(me, m_spells.warlock.pDemonArmor))
+    if (m_spells.warlock.pUnendingBreath)
     {
-        if (DoCastSpell(me, m_spells.warlock.pDemonArmor) == SPELL_CAST_OK)
+        if (Player* pTarget = SelectBuffTarget(m_spells.warlock.pUnendingBreath))
         {
-            m_isBuffing = true;
-            me->ClearTarget();
-            return;
+            if (CanTryToCastSpell(pTarget, m_spells.warlock.pUnendingBreath))
+            {
+                if (DoCastSpell(pTarget, m_spells.warlock.pUnendingBreath) == SPELL_CAST_OK)
+                {
+                    m_isBuffing = true;
+                    me->ClearTarget();
+                    return;
+                }
+            }
         }
     }
 
@@ -3743,7 +3829,7 @@ void PartyBotAI::UpdateInCombatAI_Druid()
 
         if (me->GetPowerPercent(POWER_MANA) < 25.0f)
         {
-            targetHealPercent = 25.0f;
+            dpsHOTPercent = 40.0f;
         }
 
         if (Unit* pTarget = SelectHealTarget(selfHealPercent, targetHealPercent))

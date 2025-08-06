@@ -516,8 +516,10 @@ public:
         struct
         {
             SpellEntry const* pDemonArmor;
-            SpellEntry const* pDeathCoil;
+            SpellEntry const* pSoulstone;
+            SpellEntry const* pUnendingBreath;
             SpellEntry const* pDetectInvisibility;
+            SpellEntry const* pDeathCoil;
             SpellEntry const* pShadowWard;
             SpellEntry const* pShadowBolt;
             SpellEntry const* pCorruption;

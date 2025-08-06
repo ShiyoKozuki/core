@@ -937,6 +937,11 @@ void CombatBotBaseAI::PopulateSpellData()
                     if (IsHigherRankSpell(m_spells.priest.pInnerFire))
                         m_spells.priest.pInnerFire = pSpellEntry;
                 }
+                else if (pSpellEntry->SpellName[0].find("Fear Ward") != std::string::npos)
+                {
+                    if (IsHigherRankSpell(m_spells.priest.pFearWard))
+                        m_spells.priest.pFearWard = pSpellEntry;
+                }
                 else if (pSpellEntry->SpellName[0].find("Shadow Protection") != std::string::npos)
                 {
                     if (IsHigherRankSpell(m_spells.priest.pShadowProtection))
@@ -1056,15 +1061,25 @@ void CombatBotBaseAI::PopulateSpellData()
                     if (IsHigherRankSpell(m_spells.warlock.pDemonArmor))
                         m_spells.warlock.pDemonArmor = pSpellEntry;
                 }
+                else if (pSpellEntry->SpellName[0].find("Soulstone Resurrection") != std::string::npos)
+                {
+                    if (IsHigherRankSpell(m_spells.warlock.pSoulstone))
+                        m_spells.warlock.pSoulstone = pSpellEntry;
+                }
+                else if (pSpellEntry->SpellName[0].find("Unending Breath") != std::string::npos)
+                {
+                    if (IsHigherRankSpell(m_spells.warlock.pUnendingBreath))
+                        m_spells.warlock.pUnendingBreath = pSpellEntry;
+                }
+                else if (pSpellEntry->SpellName[0].find("Detect") != std::string::npos && pSpellEntry->SpellName[0].find("Invisibility") != std::string::npos)
+                {
+                    if (IsHigherRankSpell(m_spells.warlock.pDetectInvisibility))
+                        m_spells.warlock.pDetectInvisibility = pSpellEntry;
+                }
                 else if (pSpellEntry->SpellName[0].find("Death Coil") != std::string::npos)
                 {
                     if (IsHigherRankSpell(m_spells.warlock.pDeathCoil))
                         m_spells.warlock.pDeathCoil = pSpellEntry;
-                }
-                else if (pSpellEntry->SpellName[0].find("Detect Greater Invisibility") != std::string::npos)
-                {
-                    if (IsHigherRankSpell(m_spells.warlock.pDetectInvisibility))
-                        m_spells.warlock.pDetectInvisibility = pSpellEntry;
                 }
                 else if (pSpellEntry->SpellName[0].find("Shadow Ward") != std::string::npos)
                 {
