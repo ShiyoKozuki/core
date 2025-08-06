@@ -1,6 +1,8 @@
 
--- 33525 NEXT SPELL
--- 15013 NEXT SKILL_LINE_ABILITY
+-- 33527 NEXT SPELL
+-- 15014 NEXT SKILL_LINE_ABILITY
+
+-- Use recoveryTime NOT categoryrecoveryTime for cooldowns!!
 
 -- Spells
 -- effectItemType -> (spellFamilyFlags? It's the enum I don't know why this was referenced to me) is enum ClassFlag in SpellClassMask.h
@@ -550,6 +552,9 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
     -- Swiftblade's Cunning
     REPLACE`mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `castingTimeIndex`, `interruptFlags`, `procChance`, `baseLevel`, `spellLevel`, `durationIndex`, `powerType`, `manaCost`, `rangeIndex`, `equippedItemClass`, `effect1`, `effect2`, `effectDieSides1`, `effectDieSides2`, `effectBaseDice1`, `effectBaseDice2`, `effectBasePoints1`, `effectBasePoints2`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectRadiusIndex1`, `effectRadiusIndex2`, `effectApplyAuraName1`, `effectApplyAuraName2`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `preventionType`, `dmgMultiplier1`, `dmgMultiplier2`) 
     VALUES (33503, 5464, 6, 65536, 1, 8, 101, 40, 40, 30, 0, 0, 1, -1, 35, 35, 1, 1, 1, 1, 9, 9, 0, 0, -1, 1, 1, 11, 11, 140, 9, 5839, 247, 'Swiftblade\'s Cunning', 4128830, 'Rank 1', 4128830, 'Increases the melee and ranged attack speed of party members within $a1 yards by $s1%.  Lasts $d.', 4128830, 'Melee and ranged attack speed increased by $s1%.', 4128830, 133, 1500, 1, 1, 1);
+
+    -- Don't remove stealth on use
+    UPDATE `mangos`.`spell_template` SET `attributesEx`=32, `attributesEx2`=268451840 WHERE  `entry`=33503 AND `build`=5464; 
     
     REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`) VALUES (15062, 5875, 39, 33503, 8, 1);
     UPDATE `mangos`.`spell_template` SET `startRecoveryTime`=1000 WHERE  `entry`=33503 AND `build`=5464;
@@ -565,10 +570,13 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
 
     -- Cloak and Dagger
     -- TODO: Should deal damage MAYBE
-    REPLACE `mangos`.`spell_template` (`entry`, `build`, `category`, `attributes`, `attributesEx`, `attributesEx2`, `castingTimeIndex`, `categoryRecoveryTime`, `auraInterruptFlags`, `procChance`, `maxLevel`, `baseLevel`, `spellLevel`, `powerType`, `rangeIndex`, `reagent1`, `reagentCount1`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effect2`, `effect3`, `effectDieSides1`, `effectDieSides2`, `effectDieSides3`, `effectBaseDice1`, `effectBaseDice2`, `effectBaseDice3`, `effectBasePoints1`, `effectBasePoints2`, `effectBasePoints3`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectImplicitTargetA3`, `effectTriggerSpell1`, `effectTriggerSpell2`, `spellVisual1`, `spellIconId`, `activeIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `spellFamilyName`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `script_name`) VALUES (33524, 4449, 39, 135594000, 32, 2, 1, 600000, 15367, 101, 41, 22, 22, 3, 1, 5140, 1, -1, -1, 64, 64, 79, 1, 1, 1, 1, 1, 1, -1, -1, -1, 0, 0, 0, 1, 1, 1, 11327, 18461, 155, 1501, 30, 'Cloak and Dagger', 8323102, 'Rank 1', 8323102, 'Swings on the target, sending you into stealth, and turns off your attack.', 2031646, 'Improved stealth.', 2031646, 8, -1, 1, 1, 1, 'spell_rogue_cloak_and_dagger');
+    REPLACE `mangos`.`spell_template` (`entry`, `build`, `category`, `attributes`, `attributesEx`, `attributesEx2`, `castingTimeIndex`, `categoryRecoveryTime`, `auraInterruptFlags`, `procChance`, `maxLevel`, `baseLevel`, `spellLevel`, `powerType`, `rangeIndex`, `reagent1`, `reagentCount1`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effect2`, `effect3`, `effectDieSides1`, `effectDieSides2`, `effectDieSides3`, `effectBaseDice1`, `effectBaseDice2`, `effectBaseDice3`, `effectBasePoints1`, `effectBasePoints2`, `effectBasePoints3`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectImplicitTargetA3`, `effectTriggerSpell1`, `effectTriggerSpell2`, `spellVisual1`, `spellIconId`, `activeIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `spellFamilyName`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `script_name`) VALUES (33524, 4449, 39, 135594000, 32, 2, 1, 300000, 15367, 101, 41, 40, 40, 3, 1, 5140, 1, -1, -1, 64, 64, 79, 1, 1, 1, 1, 1, 1, -1, -1, -1, 0, 0, 0, 1, 1, 1, 11327, 18461, 155, 1501, 30, 'Cloak and Dagger', 8323102, 'Rank 1', 8323102, 'Swings on the target, sending you into stealth, and turns off your attack.', 2031646, 'Improved stealth.', 2031646, 8, -1, 1, 1, 1, 'spell_rogue_cloak_and_dagger');
     
-    UPDATE `mangos`.`spell_template` SET `categoryRecoveryTime`=60000, `rangeIndex`=2, `reagent1`=0, `effect2`=58, `effect3`=0, `effectDieSides3`=0, `effectBaseDice3`=0, `effectBasePoints2`=15, `effectBasePoints3`=0, `effectImplicitTargetA2`=6, `effectImplicitTargetA3`=0, `effectTriggerSpell1`=0, `effectTriggerSpell1`=11327, `effectTriggerSpell2`=0 WHERE  `entry`=33524 AND `build`=4449;
+    UPDATE `mangos`.`spell_template` SET `category`=0, `recoveryTime`=30000, `categoryRecoveryTime`=0, `rangeIndex`=2, `reagent1`=0, `effect2`=58, `effect3`=0, `effectDieSides3`=0, `effectBaseDice3`=0, `effectBasePoints2`=15, `effectBasePoints3`=0, `effectImplicitTargetA2`=6, `effectImplicitTargetA3`=0, `effectTriggerSpell1`=0, `effectTriggerSpell1`=11327, `effectTriggerSpell2`=0 WHERE  `entry`=33524 AND `build`=4449;
 
+    -- +40 energy proc
+    REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `dispel`, `castingTimeIndex`, `procChance`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectMiscValue1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `dmgClass`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33525, 5302, 1, 1, 1, 101, 1, -1, -1, 30, 1, 1, 39, 1, -1, -1, 1, 3, 86, 1677, 'Cloak and Dagger Energize', 2031678, 2031628, 'Restores 40 energy.', 2031678, 'You gain 40 energy.', 2031678, 1, -1, 1, 1, 1);
+    UPDATE `mangos`.`spell_template` SET `effectTriggerSpell2`=33525 WHERE  `entry`=33524 AND `build`=4449;
 
     REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`) VALUES (15012, 5875, 39, 33524, 8, 1);
 
@@ -658,6 +666,12 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
     -- Trainer
     REPLACE `mangos`.`npc_trainer_template` (`entry`, `spell`, `spellcost`, `reqlevel`) VALUES (17, 33521, 14000, 40);
     REPLACE `mangos`.`npc_trainer_template` (`entry`, `spell`, `spellcost`, `reqlevel`) VALUES (17, 33522, 26000, 52);
+
+    -- Ironfur (-50% damage taken for 10s, 15m cd)
+    REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `stances`, `castingTimeIndex`, `categoryRecoveryTime`, `procChance`, `baseLevel`, `spellLevel`, `durationIndex`, `powerType`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectMiscValue1`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33526, 5464, 262400, 144, 1, 900000, 101, 40, 40, 1, 1, 1, -1, -1, 6, 1, 1, -51, 0, -1, -1, 1, 87, 127, 345, 1558, 50, 'Ironfur', 4128830, 4128828, 'Reduces the damage taken from melee attacks, ranged attacks and spells by $s1% for $d.', 4128830, 'Damage reduced by $s1%.', 4128830, 133, 1500, 8, 2, 2, -1, 1, 1, 1);
+    UPDATE `mangos`.`spell_template` SET `category`=0, `recoveryTime`=900000, `categoryRecoveryTime`=0 WHERE  `entry`=33526;
+
+    REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`) VALUES (15013, 5875, 134, 33526, 1024, 1);
 
     -- Add Polearms to druid (Also have to edit SkillRaceClassInfo and add another entry for druids as classmask)
     UPDATE `mangos`.`skill_line_ability` SET `class_mask`=1031 WHERE  `id`=2928 AND `build`=4222;

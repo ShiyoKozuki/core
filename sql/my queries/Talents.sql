@@ -1,4 +1,5 @@
--- NEXT talent ID is 1714
+-- NEXT talent ID is 1715
+-- Talents that grant a new spell (i.e. feral charge) need flags set to "1"
 -- Talents
 
 -- Druid
