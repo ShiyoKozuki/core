@@ -24,8 +24,29 @@
     SET effectBasePoints1 = -31
     WHERE entry = 16847;
 
+    -- Improved Wrath (-10/-20/-30/-40/-50% MP cost)
+    UPDATE `mangos`.`spell_template` SET `effect2`=6, `effectDieSides2`=1, `effectBaseDice2`=1, `effectBasePoints1`=-101, `effectBasePoints2`=-11, `effectBonusCoefficient2`=0, `effectImplicitTargetA2`=1, `effectApplyAuraName2`=108, `effectItemType2`=1,      
+        `effectMiscValue2`=14, `description`='Reduces the cast time of your Wrath spell by $/1000;S1 sec and mana cost by $s2%.'  
+    WHERE  `entry`=16814 AND `build`=4695;
+
+    UPDATE `mangos`.`spell_template` SET `effect2`=6, `effectDieSides2`=1, `effectBaseDice2`=1, `effectBasePoints1`=-201, `effectBasePoints2`=-21, `effectBonusCoefficient2`=0, `effectImplicitTargetA2`=1, `effectApplyAuraName2`=108, `effectItemType2`=1,      
+        `effectMiscValue2`=14, `description`='Reduces the cast time of your Wrath spell by $/1000;S1 sec and mana cost by $s2%.'  
+    WHERE  `entry`=16815 AND `build`=4695;
+
+    UPDATE `mangos`.`spell_template` SET `effect2`=6, `effectDieSides2`=1, `effectBaseDice2`=1, `effectBasePoints1`=-301, `effectBasePoints2`=-31, `effectBonusCoefficient2`=0, `effectImplicitTargetA2`=1, `effectApplyAuraName2`=108, `effectItemType2`=1,      
+        `effectMiscValue2`=14, `description`='Reduces the cast time of your Wrath spell by $/1000;S1 sec and mana cost by $s2%.'  
+    WHERE  `entry`=16816 AND `build`=4695;
+
+    UPDATE `mangos`.`spell_template` SET `effect2`=6, `effectDieSides2`=1, `effectBaseDice2`=1, `effectBasePoints1`=-401, `effectBasePoints2`=-41, `effectBonusCoefficient2`=0, `effectImplicitTargetA2`=1, `effectApplyAuraName2`=108, `effectItemType2`=1,      
+        `effectMiscValue2`=14, `description`='Reduces the cast time of your Wrath spell by $/1000;S1 sec and mana cost by $s2%.'  
+    WHERE  `entry`=16817 AND `build`=4695;
+
+    UPDATE `mangos`.`spell_template` SET `effect2`=6, `effectDieSides2`=1, `effectBaseDice2`=1, `effectBasePoints1`=-501, `effectBasePoints2`=-51, `effectBonusCoefficient2`=0, `effectImplicitTargetA2`=1, `effectApplyAuraName2`=108, `effectItemType2`=1,      
+        `effectMiscValue2`=14, `description`='Reduces the cast time of your Wrath spell by $/1000;S1 sec and mana cost by $s2%.'  
+    WHERE  `entry`=16818 AND `build`=4695;
+
     -- Improved Moonfire (2-10% spell crit, renamed Moon Empowerment)
-    UPDATE `mangos`.`spell_template` SET `effectApplyAuraName1`=71, `effectMiscValue1`=-1, `name`='Moon Empowerment', `description`='Increases the critical strike chance of your spells by $s1%.' WHERE  `entry`=16821 AND `build`=4222;
+    UPDATE `mangos`.`spell_template` SET `effectApplyAuraName1`=71, `effectMiscValue1`=-1, `name`='Moon Empowerment', `description`='Increases the critical strike chance of your spells by $s1%.' WHERE  `entry`=16821 AND     `build`=4222;
     UPDATE `mangos`.`spell_template` SET `effectApplyAuraName1`=71, `effectMiscValue1`=-1, `name`='Moon Empowerment', `description`='Increases the critical strike chance of your spells by $s1%.' WHERE  `entry`=16822 AND `build`=4222;
     UPDATE `mangos`.`spell_template` SET `effectApplyAuraName1`=71, `effectMiscValue1`=-1, `name`='Moon Empowerment', `description`='Increases the critical strike chance of your spells by $s1%.' WHERE  `entry`=16823 AND `build`=4222;
     UPDATE `mangos`.`spell_template` SET `effectApplyAuraName1`=71, `effectMiscValue1`=-1, `name`='Moon Empowerment', `description`='Increases the critical strike chance of your spells by $s1%.' WHERE  `entry`=16824 AND `build`=4222;
@@ -59,16 +80,16 @@
     UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=24, `name`='Reflection' WHERE  `entry`=17110 AND `build`=5086;
 
     -- Improved Entangling Roots (Renamed Dreamstate)
-    UPDATE `mangos`.`spell_template` SET `effectRealPointsPerLevel1`=0.5, `effectBasePoints1`=-1, `effectApplyAuraName1`=85, `effectMiscValue1`=0, `spellIconId`=1486, `name`='Dreamstate',
-        `description`='Regenerate $s1 mana per 5 sec. This amount increases with your level.' 
+    UPDATE `mangos`.`spell_template` SET `effectRealPointsPerLevel1`=0, `effectBasePoints1`=0, `effectApplyAuraName1`=21, `effectAmplitude1`=5000, `effectMiscValue1`=0, `spellIconId`=1486, `name`='Dreamstate',
+        `description`='Regenerate $s1% mana per 5 sec.' 
     WHERE  `entry`=16918 AND `build`=4222;
 
-    UPDATE `mangos`.`spell_template` SET `effectRealPointsPerLevel1`=0.75, `effectBasePoints1`=-1, `effectApplyAuraName1`=85, `effectMiscValue1`=0, `spellIconId`=1486, `name`='Dreamstate',
-        `description`='Regenerate $s1 mana per 5 sec. This amount increases with your level.' 
+    UPDATE `mangos`.`spell_template` SET `effectRealPointsPerLevel1`=0, `effectBasePoints1`=1, `effectApplyAuraName1`=21, `effectAmplitude1`=5000, `effectMiscValue1`=0, `spellIconId`=1486, `name`='Dreamstate',
+        `description`='Regenerate $s1% mana per 5 sec.' 
     WHERE  `entry`=16919 AND `build`=4222;
 
-    UPDATE `mangos`.`spell_template` SET `effectRealPointsPerLevel1`=1, `effectBasePoints1`=-1, `effectApplyAuraName1`=85, `effectMiscValue1`=0, `spellIconId`=1486, `name`='Dreamstate',
-        `description`='Regenerate $s1 mana per 5 sec. This amount increases with your level.' 
+    UPDATE `mangos`.`spell_template` SET `effectRealPointsPerLevel1`=0, `effectBasePoints1`=2, `effectApplyAuraName1`=21, `effectAmplitude1`=5000, `effectMiscValue1`=0, `spellIconId`=1486, `name`='Dreamstate',
+        `description`='Regenerate $s1% mana per 5 sec.' 
     WHERE  `entry`=16920 AND `build`=4222;
 
     -- Feral Aggression (Renamed to Druidic Insight)
@@ -167,6 +188,18 @@
 
     UPDATE `mangos`.`spell_template` SET `effect2`=6, `effectDieSides2`=1, `effectBaseDice2`=1, `effectBasePoints2`=-240001, `effectImplicitTargetA2`=1, `effectApplyAuraName2`=107, `effectItemType2`=128, `effectMiscValue2`=11 WHERE  `entry`=17124 AND `build`=5875;
     UPDATE `mangos`.`spell_template` SET `description`='Reduces threat caused by Tranquility by $s1% and  cooldown by $/1000;s2 sec.' WHERE  `entry`=17124 AND `build`=5875;
+
+    -- Improved Regrowth ALSO (-5%/-10%/-15%/-20%/-25% MP cost of Regrowth)
+    UPDATE `mangos`.`spell_template` SET `effect2`=6, `effectDieSides2`=1, `effectBaseDice2`=1, `effectBasePoints2`=-6, `effectBonusCoefficient2`=1, `effectImplicitTargetA2`=1, `effectApplyAuraName2`=108, `effectItemType2`=64, `effectMiscValue2`=14, `description`='Increases the critical effect chance of your Regrowth spell by $s1% and reduces the Mana cost by $s2%.' WHERE  `entry`=17074 AND `build`=4222;
+
+    UPDATE `mangos`.`spell_template` SET `effect2`=6, `effectDieSides2`=1, `effectBaseDice2`=1, `effectBasePoints2`=-11, `effectBonusCoefficient2`=1, `effectImplicitTargetA2`=1, `effectApplyAuraName2`=108, `effectItemType2`=64, `effectMiscValue2`=14, `description`='Increases the critical effect chance of your Regrowth spell by $s1% and reduces the Mana cost by $s2%.' WHERE  `entry`=17075 AND `build`=4222;
+
+    UPDATE `mangos`.`spell_template` SET `effect2`=6, `effectDieSides2`=1, `effectBaseDice2`=1, `effectBasePoints2`=-16, `effectBonusCoefficient2`=1, `effectImplicitTargetA2`=1, `effectApplyAuraName2`=108, `effectItemType2`=64, `effectMiscValue2`=14, `description`='Increases the critical effect chance of your Regrowth spell by $s1% and reduces the Mana cost by $s2%.' WHERE  `entry`=17076 AND `build`=4222;
+
+    UPDATE `mangos`.`spell_template` SET `effect2`=6, `effectDieSides2`=1, `effectBaseDice2`=1, `effectBasePoints2`=-21, `effectBonusCoefficient2`=1, `effectImplicitTargetA2`=1, `effectApplyAuraName2`=108, `effectItemType2`=64, `effectMiscValue2`=14, `description`='Increases the critical effect chance of your Regrowth spell by $s1% and reduces the Mana cost by $s2%.' WHERE  `entry`=17077 AND `build`=4222;
+
+    UPDATE `mangos`.`spell_template` SET `effect2`=6, `effectDieSides2`=1, `effectBaseDice2`=1, `effectBasePoints2`=-26, `effectBonusCoefficient2`=1, `effectImplicitTargetA2`=1, `effectApplyAuraName2`=108, `effectItemType2`=64, `effectMiscValue2`=14, `description`='Increases the critical effect chance of your Regrowth spell by $s1% and reduces the Mana cost by $s2%.' WHERE  `entry`=17078 AND `build`=4222;
+
 
     -- Swiftmend (1.5s cast)
     UPDATE `mangos`.`spell_template` SET `castingTimeIndex`=16 WHERE  `entry`=18562 AND `build`=5464;
@@ -381,13 +414,19 @@ WHERE entry = 16720;
     UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=9, `effectBasePoints2`=9 WHERE  `entry`=14057 AND `build`=4222;
     UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=19, `effectBasePoints2`=19 WHERE  `entry`=14072 AND `build`=4222;
 
-    -- Improved Sap (45%/90% chance, 4%/8% spell hit)
-    UPDATE `mangos`.`spell_template` SET `effect2`=6, `effectDieSides2`=1 , `effectBaseDice2`=1, `effectBasePoints1`=44, `effectBasePoints2`=3, `effectApplyAuraName2`=55, `effectImplicitTargetA2`=1,
+    -- Improved Sap (45%/90% chance, 4%/8% spell hit and only 2 talent points now - 14076 + 14095)
+    UPDATE `mangos`.`spell_template` SET `procChance`=45, `effect2`=6, `effectDieSides2`=1 , `effectBaseDice2`=1, `effectBasePoints1`=44, `effectBasePoints2`=3, `effectApplyAuraName2`=55, `effectImplicitTargetA2`=1,
         `description`='Gives you a $s1% chance to return to stealth mode after using your Sap ability and increases your chance to hit with spells by $s2%.' 
         WHERE  `entry`=14076 AND `build`=5302;
-    UPDATE `mangos`.`spell_template` SET `effect2`=6, `effectDieSides2`=1 , `effectBaseDice2`=1, `effectBasePoints1`=89, `effectBasePoints2`=7, `effectApplyAuraName2`=55, `effectImplicitTargetA2`=1,
+    
+    UPDATE `mangos`.`spell_template` SET `procChance`=66, `effect2`=6, `effectDieSides2`=1 , `effectBaseDice2`=1, `effectBasePoints1`=65, `effectBasePoints2`=7, `effectApplyAuraName2`=55, `effectImplicitTargetA2`=1,
         `description`='Gives you a $s1% chance to return to stealth mode after using your Sap ability and increases your chance to hit with spells by $s2%.' 
         WHERE  `entry`=14094 AND `build`=5302;
+
+        UPDATE `mangos`.`spell_template` SET `effect2`=6, `effectDieSides2`=1 , `effectBaseDice2`=1, `effectBasePoints2`=7, `effectApplyAuraName2`=55, `effectImplicitTargetA2`=1,
+        `description`='Gives you a $s1% chance to return to stealth mode after using your Sap ability and increases your chance to hit with spells by $s2%.' 
+        WHERE  `entry`=14095 AND `build`=5302;
+
 
     -- Sleight of Hand (-5%/-10% Crit Rate)
     UPDATE `mangos`.`spell_template` SET `effectBasePoints2`=-6, `effectBasePoints3`=-6 WHERE  `entry`=30892 AND `build`=5875;
