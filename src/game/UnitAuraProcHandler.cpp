@@ -250,7 +250,7 @@ SpellProcEventTriggerCheck Unit::IsTriggeredAtSpellProcEvent(Unit* pVictim, Spel
         return SPELL_PROC_TRIGGER_FAILED;
 
     // Don't proc weapons on Sap
-    if (spellProto->Id == 14076 || spellProto->Id == 14094 || spellProto->Id == 14095)
+    if (spellProto->IsFitToFamily<SPELLFAMILY_ROGUE, CF_ROGUE_SAP>())
         return SPELL_PROC_TRIGGER_FAILED;
 
     // [TODO]
