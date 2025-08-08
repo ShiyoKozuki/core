@@ -1,6 +1,6 @@
 
--- 33527 NEXT SPELL
--- 15014 NEXT SKILL_LINE_ABILITY
+-- 33533 NEXT SPELL
+-- 15017 NEXT SKILL_LINE_ABILITY
 
 -- Use recoveryTime NOT categoryrecoveryTime for cooldowns!!
 
@@ -306,6 +306,20 @@ UPDATE `mangos`.`spell_template` SET `manaCost`=100 WHERE `entry`=17752;
 
 -- Rogue
 
+    -- Combat Potency
+    -- Spell
+    REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procFlags`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectTriggerSpell1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33531, 5302, 192, 1, 4, 100, 21, 1, -1, 6, 1, 1, 0, -1, -1, 1, 42, 33532, 1, 'Combat Potency', 2031678, 'Rank 1', 2031628, 'Chance on melee attack to restore $33532s1 energy.', 2031678, 2031628, 10, -1, 1, 1, 1);
+    UPDATE `mangos`.`spell_template` SET `spellIconId`=1554 WHERE  `entry`=33531 AND `build`=5302;
+
+    -- Skill Line Ability
+    REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`) VALUES (15016, 5875, 38, 33531, 8, 1);
+    -- Spell Proc Event
+    REPLACE `mangos`.`spell_proc_event` (`entry`, `ppmRate`, `build_min`) VALUES (33531, 5, 5302);
+
+    -- Proc
+    REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `dispel`, `castingTimeIndex`, `procChance`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectMiscValue1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `dmgClass`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33532, 5302, 1, 1, 1, 101, 1, -1, -1, 30, 1, 1, 29, 1, -1, -1, 1, 3, 86, 1677, 'Combat Potency Energize', 2031678, 'Rank 1', 2031628, 'Restores $s1 energy.', 2031678, 'You gain $s1 energy.', 2031678, 1, -1, 1, 1, 1);
+
+
     -- Camouflage (8-30% stealth movement speed)
     UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=5 WHERE  `entry`=13975 AND `build`=5875;
     UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=11 WHERE  `entry`=14062 AND `build`=5875;
@@ -544,7 +558,7 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
     -- Mutilate
     -- TODO: Rank 1-2?
     REPLACE`mangos`.`spell_template` (`entry`, `build`, `attributes`, `attributesEx`, `attributesEx2`, `attributesEx3`, `castingTimeIndex`, `procChance`, `baseLevel`, `spellLevel`, `powerType`, `manaCost`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effect2`, `effect3`, `effectDieSides1`, `effectDieSides2`, `effectDieSides3`, `effectBaseDice1`, `effectBaseDice2`, `effectBaseDice3`, `effectBasePoints1`, `effectBasePoints2`, `effectBasePoints3`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectImplicitTargetA3`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `customFlags`) 
-    VALUES (33500, 4878, 327696, 134218240, 0, 1024, 1, 101, 44, 44, 3, 60, 2, 2, 32768, 121, 31, 80, 1, 1, 1, 1, 1, 1, 89, 199, 1, 1, 1, 0, 6, 6, 6, 155, 434, 50, 'Mutilate', 2031678, 'Rank 1', 2031678, 'Instantly attacks with both weapons for $s2% weapon damage plus 135 to the target.  Requires a dagger in the main hand.  Awards $s3 combo $lpoint:points;.', 2031678, 2031676, 133, 1000, 8, 0, 2, 2, -1, 1, 1, 1, 128);
+    VALUES (33500, 4878, 327696, 134218240, 0, 1024, 1, 101, 44, 44, 3, 60, 2, 2, 32768, 121, 31, 80, 1, 1, 1, 1, 1, 1, 89, 199, 1, 1, 1, 0, 6, 6, 6, 155, 434, 50, 'Mutilate', 2031678, 'Rank 1', 2031678, 'Instantly attacks with both weapons for $s2% weapon damage plus 135 to the target. Deals 20% increased damage to targets suffering from Deadly Poison.  Requires a dagger in the main hand.  Awards $s3 combo $lpoint:points;.', 2031678, 2031676, 133, 1000, 8, 0, 2, 2, -1, 1, 1, 1, 128);
     REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`) VALUES (15061, 5875, 253, 33500, 8, 1);
     -- Rank2 33501
     -- Rank3 33502
@@ -643,11 +657,11 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
 
     REPLACE `mangos`.`spell_template` (`entry`, `build`, `mechanic`, `attributes`, `attributesEx`, `stances`, `castingTimeIndex`, `procChance`, `baseLevel`, `spellLevel`, `durationIndex`, `powerType`, `manaCost`, `rangeIndex`, `stackAmount`, `equippedItemClass`, `effect1`, `effect2`, `effect3`, `effectDieSides1`, `effectDieSides2`, `effectDieSides3`, `effectBaseDice1`, `effectBaseDice2`, `effectBaseDice3`, `effectBasePoints1`, `effectBasePoints2`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectMechanic2`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectImplicitTargetA3`, `effectApplyAuraName2`, `effectAmplitude2`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `customFlags`) 
     VALUES (33519, 4222, 15, 262160, 134218240, 144, 1, 101, 40, 40, 8, 1, 150, 2, 5, -1, 2, 6, 0, 1, 1, 1, 1, 1, 1, 29, 29, 0, 0, 0, 15, 6, 6, 6, 3, 3000, 750, 142, 
-    'Lacerate', 983070, 'Rank 1', 983070, 'Lacerates the enemy target, dealing $s1 damage and making them bleed for $s2 damage over 15 sec and causing a high amount of threat. This effect stacks up to 5 times on the same target.', 983070, 'Bleeding for $s2 damage every $t2 seconds.', 983070, 133, 1500, 7, 2, 2, -1, 1, 1, 1, 128);
+    'Lacerate', 983070, 'Rank 1', 983070, 'Lacerates the enemy target, dealing $s1 damage and making them bleed for $o2 damage over 15 sec and causing a high amount of threat. This effect stacks up to 5 times on the same target.', 983070, 'Bleeding for $s2 damage every $t2 seconds.', 983070, 133, 1500, 7, 2, 2, -1, 1, 1, 1, 128);
 
     REPLACE `mangos`.`spell_template` (`entry`, `build`, `mechanic`, `attributes`, `attributesEx`, `stances`, `castingTimeIndex`, `procChance`, `baseLevel`, `spellLevel`, `durationIndex`, `powerType`, `manaCost`, `rangeIndex`, `stackAmount`, `equippedItemClass`, `effect1`, `effect2`, `effect3`, `effectDieSides1`, `effectDieSides2`, `effectDieSides3`, `effectBaseDice1`, `effectBaseDice2`, `effectBaseDice3`, `effectBasePoints1`, `effectBasePoints2`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectMechanic2`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectImplicitTargetA3`, `effectApplyAuraName2`, `effectAmplitude2`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `customFlags`) 
     VALUES (33520, 4222, 15, 262160, 134218240, 144, 1, 101, 40, 40, 8, 1, 150, 2, 5, -1, 2, 6, 0, 1, 1, 1, 1, 1, 1, 39, 39, 0, 0, 0, 15, 6, 6, 6, 3, 3000, 750, 142, 
-    'Lacerate', 983070, 'Rank 2', 983070, 'Lacerates the enemy target, dealing $s1 damage and making them bleed for $s2 damage over 15 sec and causing a high amount of threat. This effect stacks up to 5 times on the same target.', 983070, 'Bleeding for $s2 damage every $t2 seconds.', 983070, 133, 1500, 7, 2, 2, -1, 1, 1, 1, 128);
+    'Lacerate', 983070, 'Rank 2', 983070, 'Lacerates the enemy target, dealing $s1 damage and making them bleed for $o2 damage over 15 sec and causing a high amount of threat. This effect stacks up to 5 times on the same target.', 983070, 'Bleeding for $s2 damage every $t2 seconds.', 983070, 133, 1500, 7, 2, 2, -1, 1, 1, 1, 128);
 
     REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`, `superseded_by_spell`) VALUES (15010, 5875, 134, 33519, 1024, 1, 33520);
     REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`, `superseded_by_spell`) VALUES (15011, 5875, 134, 33520, 1024, 1, 0);
@@ -669,6 +683,35 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
     -- Trainer
     REPLACE `mangos`.`npc_trainer_template` (`entry`, `spell`, `spellcost`, `reqlevel`) VALUES (17, 33521, 14000, 40);
     REPLACE `mangos`.`npc_trainer_template` (`entry`, `spell`, `spellcost`, `reqlevel`) VALUES (17, 33522, 26000, 52);
+
+    -- Brutal Slash
+    -- Rank 1
+    REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `attributesEx`, `stances`, `castingTimeIndex`, `procChance`, `baseLevel`, `spellLevel`, `durationIndex`, `powerType`, `manaCost`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effect2`, `effect3`, `effectDieSides1`, `effectDieSides2`, `effectDieSides3`, `effectBaseDice1`, `effectBaseDice2`, `effectBaseDice3`, `effectBasePoints1`, `effectBasePoints3`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectImplicitTargetA3`, `effectApplyAuraName3`, `effectAmplitude3`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `customFlags`) VALUES (33527, 4222, 262160, 134218240, 1, 1, 101, 20, 20, 105, 3, 20, 2, -1, -1, 58, 80, 6, 1, 1, 1, 1, 1, 1, 43, 125, 1, 0, -1, 6, 6, 6, 3, 3000, 3882, 1531, 'Brutal Slash', 7274526, 'Rank 1', 7274526, 'Claw the enemy, causing $s1 additional damage and causing the targe tot bleed for $s3 damage over $d.  Awards $s2 combo $lpoint:points;.', 983070, 983052, 133, 1000, 7, 2, 2, -1, 1, 1, 1, 128);
+
+    UPDATE `mangos`.`spell_template` SET `recoveryTime`=30000, `description`='Brutally slash the enemy, causing $s1 additional damage and causing the target to bleed for $s3 damage over $d.  Awards $s2 combo $lpoint:points;.', `auraDescription`='Bleeding for $s3 damage every $t3 seconds.' WHERE  `entry`=33527 AND `build`=4222;
+
+    -- Rank 2
+    REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `attributesEx`, `stances`, `castingTimeIndex`, `procChance`, `baseLevel`, `spellLevel`, `durationIndex`, `powerType`, `manaCost`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effect2`, `effect3`, `effectDieSides1`, `effectDieSides2`, `effectDieSides3`, `effectBaseDice1`, `effectBaseDice2`, `effectBaseDice3`, `effectBasePoints1`, `effectBasePoints3`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectImplicitTargetA3`, `effectApplyAuraName3`, `effectAmplitude3`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `customFlags`) VALUES (33528, 4222, 262160, 134218240, 1, 1, 101, 20, 20, 105, 3, 20, 2, -1, -1, 58, 80, 6, 1, 1, 1, 1, 1, 1, 54, 155, 1, 0, -1, 6, 6, 6, 3, 3000, 3882, 1531, 'Brutal Slash', 7274526, 'Rank 2', 7274526, 'Claw the enemy, causing $s1 additional damage and causing the targe tot bleed for $o3 damage over $d.  Awards $s2 combo $lpoint:points;.', 983070, 983052, 133, 1000, 7, 2, 2, -1, 1, 1, 1, 128);
+
+    UPDATE `mangos`.`spell_template` SET `recoveryTime`=30000, `description`='Brutally slash the enemy, causing $s1 additional damage and causing the target to bleed for $o3 damage over $d.  Awards $s2 combo $lpoint:points;.', `auraDescription`='Bleeding for $s3 damage every $t3 seconds.' WHERE  `entry`=33528 AND `build`=4222;
+
+    REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`, `superseded_by_spell`) VALUES (15014, 5875, 134, 33527, 1024, 1, 33528);
+    REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`, `superseded_by_spell`) VALUES (15015, 5875, 134, 33528, 1024, 1, 0);
+
+    -- Learn spell(for trainer):
+    REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `targets`, `castingTimeIndex`, `procChance`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `activeIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) 
+    VALUES (33529, 4222, 1, 262400, 256, 1, 101, 6, -1, -1, 36, 1, 1, -1, 0, -1, -1, 33527, 107, 1531, 0, 'Brutal Slash', 7274526, 'Rank 1', 7274526, 7274508, 983052, -1, 1, 1, 1);
+
+    REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `targets`, `castingTimeIndex`, `procChance`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `activeIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) 
+    VALUES (33530, 4222, 1, 262400, 256, 1, 101, 6, -1, -1, 36, 1, 1, -1, 0, -1, -1, 33528, 107, 1531, 0, 'Brutal Slash', 7274526, 'Rank 2', 7274526, 7274508, 983052, -1, 1, 1, 1);
+
+    -- Spell Chain
+    REPLACE `mangos`.`spell_chain` (`spell_id`, `prev_spell`, `first_spell`, `rank`) VALUES (33527, 0,     33527, 1);
+    REPLACE `mangos`.`spell_chain` (`spell_id`, `prev_spell`, `first_spell`, `rank`) VALUES (33528, 33527, 33527, 2);
+
+    -- Trainer
+    REPLACE `mangos`.`npc_trainer_template` (`entry`, `spell`, `spellcost`, `reqlevel`) VALUES (17, 33529, 14000, 40);
+    REPLACE `mangos`.`npc_trainer_template` (`entry`, `spell`, `spellcost`, `reqlevel`) VALUES (17, 33530, 26000, 52);
 
     -- Ironfur (-50% damage taken for 10s, 15m cd)
     REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `stances`, `castingTimeIndex`, `categoryRecoveryTime`, `procChance`, `baseLevel`, `spellLevel`, `durationIndex`, `powerType`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectMiscValue1`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33526, 5464, 262400, 144, 1, 900000, 101, 40, 40, 1, 1, 1, -1, -1, 6, 1, 1, -51, 0, -1, -1, 1, 87, 127, 345, 1558, 50, 'Ironfur', 4128830, 4128828, 'Reduces the damage taken from melee attacks, ranged attacks and spells by $s1% for $d.', 4128830, 'Damage reduced by $s1%.', 4128830, 133, 1500, 8, 2, 2, -1, 1, 1, 1);
