@@ -249,8 +249,10 @@ SpellProcEventTriggerCheck Unit::IsTriggeredAtSpellProcEvent(Unit* pVictim, Spel
     if (spellProto->SpellIconID == 108 && spellProto->SpellVisual == 2759 && m_extraAttacks)
         return SPELL_PROC_TRIGGER_FAILED;
 
-    // Don't proc weapons on Sap
-    if (spellProto->IsFitToFamily<SPELLFAMILY_ROGUE, CF_ROGUE_SAP>())
+    // Don't proc weapons on Sap / Gouge / Blind
+    if (spellProto->IsFitToFamily<SPELLFAMILY_ROGUE, CF_ROGUE_SAP>() ||
+        spellProto->IsFitToFamily<SPELLFAMILY_ROGUE, CF_ROGUE_GOUGE>() ||
+        spellProto->IsFitToFamily<SPELLFAMILY_ROGUE, CF_ROGUE_BLIND>())
         return SPELL_PROC_TRIGGER_FAILED;
 
     // [TODO]
