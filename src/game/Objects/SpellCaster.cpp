@@ -974,6 +974,26 @@ void SpellCaster::CalculateSpellDamage(SpellNonMeleeDamage* damageInfo, float da
             damage = MeleeDamageBonusDone(pVictim, damage, attackType, spellInfo, effectIndex, SPELL_DIRECT_DAMAGE, 1, spell);
             damage = pVictim->MeleeDamageBonusTaken(this, damage, attackType, spellInfo, effectIndex, SPELL_DIRECT_DAMAGE, 1, spell);
 
+            if (spellInfo->Id == 33500) // Mutilate
+            {
+                std::vector<uint32> deadlyPoisonIds = { 2818, 2819, 11353, 11354, 25349 };
+
+                bool hasDeadlyPoison = false;
+                for (auto spellId : deadlyPoisonIds)
+                {
+                    if (pVictim->HasAura(spellId))
+                    {
+                        hasDeadlyPoison = true;
+                        break;
+                    }
+                }
+
+                if (hasDeadlyPoison)
+                {
+                    damage *= 1.2f;
+                }
+            }
+
             // if crit add critical bonus
             if (crit && !spellInfo->HasAttribute(SPELL_ATTR_EX3_IGNORE_CASTER_MODIFIERS))
             {
