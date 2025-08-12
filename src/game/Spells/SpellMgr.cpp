@@ -1165,6 +1165,10 @@ bool SpellMgr::IsNoStackSpellDueToSpell(uint32 spellId_1, uint32 spellId_2) cons
             if (spellInfo_1->Id == 24932 && spellInfo_2->SpellIconID == 312 && spellInfo_2->SpellVisual == 216)
                 return false;
 
+            // Brutal Slash and Thrash
+            if (spellInfo_1->Id == 33537 || spellInfo_1->Id == 33528)
+                return false;
+
             break;
         case SPELLFAMILY_ROGUE:
             // Garrote -> Garrote-Silence (multi-family check)

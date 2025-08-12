@@ -103,6 +103,9 @@ REPLACE INTO `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `posit
 -- Lady Moongazer damage
 UPDATE `mangos`.`creature_template` SET `damage_multiplier`=1.0 WHERE  `entry`=2184 AND `patch`=0;
 
+-- Kaskk Damage
+UPDATE `mangos`.`creature_template` SET `damage_multiplier`=1.6 WHERE  `entry`=14226 AND `patch`=1;
+
 -- Coast Strider / Deep Dweller respawn rate
 UPDATE `mangos`.`creature` SET `spawntimesecsmin`=300, `spawntimesecsmax`=300 WHERE  `id`=5466;
 UPDATE `mangos`.`creature` SET `spawntimesecsmin`=300, `spawntimesecsmax`=300 WHERE  `id`=5467;
