@@ -252,6 +252,38 @@ WHERE item IN(11885);
  
 -- Skinning
 
+-- Dustwallow missing group IDs or skinning table
+UPDATE `mangos`.`skinning_loot_template` SET `ChanceOrQuestChance`=45, `groupid`=1 WHERE  `entry`=4351 AND `item`=2319 AND `patch_min`=0 AND `patch_max`=10;
+UPDATE `mangos`.`skinning_loot_template` SET `ChanceOrQuestChance`=5, `groupid`=1 WHERE  `entry`=4351 AND `item`=4232 AND `patch_min`=0 AND `patch_max`=10;
+UPDATE `mangos`.`skinning_loot_template` SET `ChanceOrQuestChance`=45, `groupid`=1 WHERE  `entry`=4351 AND `item`=4234 AND `patch_min`=0 AND `patch_max`=10;
+UPDATE `mangos`.`skinning_loot_template` SET `ChanceOrQuestChance`=5, `groupid`=1 WHERE  `entry`=4351 AND `item`=4235 AND `patch_min`=0 AND `patch_max`=10;
+
+UPDATE `mangos`.`skinning_loot_template` SET `groupid`=1 WHERE  `entry`=4345 AND `item`=4234 AND `patch_min`=0 AND `patch_max`=10;
+UPDATE `mangos`.`skinning_loot_template` SET `groupid`=1 WHERE  `entry`=4345 AND `item`=4235 AND `patch_min`=0 AND `patch_max`=10;
+UPDATE `mangos`.`skinning_loot_template` SET `groupid`=1 WHERE  `entry`=4345 AND `item`=4304 AND `patch_min`=0 AND `patch_max`=10;
+
+UPDATE `mangos`.`skinning_loot_template` SET `groupid`=1 WHERE  `entry`=4352 AND `item`=4234 AND `patch_min`=0 AND `patch_max`=10;
+UPDATE `mangos`.`skinning_loot_template` SET `groupid`=1 WHERE  `entry`=4352 AND `item`=4235 AND `patch_min`=0 AND `patch_max`=10;
+UPDATE `mangos`.`skinning_loot_template` SET `groupid`=1 WHERE  `entry`=4352 AND `item`=4304 AND `patch_min`=0 AND `patch_max`=10;
+
+UPDATE `mangos`.`skinning_loot_template` SET `groupid`=1 WHERE  `entry`=4356 AND `item`=4234 AND `patch_min`=0 AND `patch_max`=10;
+UPDATE `mangos`.`skinning_loot_template` SET `groupid`=1 WHERE  `entry`=4356 AND `item`=4235 AND `patch_min`=0 AND `patch_max`=10;
+UPDATE `mangos`.`skinning_loot_template` SET `groupid`=1 WHERE  `entry`=4356 AND `item`=4304 AND `patch_min`=0 AND `patch_max`=10;
+
+UPDATE `mangos`.`skinning_loot_template` SET `groupid`=1 WHERE  `entry`=4341 AND `item`=2319 AND `patch_min`=0 AND `patch_max`=10;
+UPDATE `mangos`.`skinning_loot_template` SET `groupid`=1 WHERE  `entry`=4341 AND `item`=4232 AND `patch_min`=0 AND `patch_max`=10;
+UPDATE `mangos`.`skinning_loot_template` SET `groupid`=1 WHERE  `entry`=4341 AND `item`=4234 AND `patch_min`=0 AND `patch_max`=10;
+UPDATE `mangos`.`skinning_loot_template` SET `groupid`=1 WHERE  `entry`=4341 AND `item`=4235 AND `patch_min`=0 AND `patch_max`=10;
+
+REPLACE `mangos`.`skinning_loot_template` (`entry`, `item`, `ChanceOrQuestChance`, `groupid`) VALUES (4355, 4234, 77.351, 1);
+REPLACE `mangos`.`skinning_loot_template` (`entry`, `item`, `ChanceOrQuestChance`, `groupid`) VALUES (4355, 4235, 1.902, 1);
+REPLACE `mangos`.`skinning_loot_template` (`entry`, `item`, `ChanceOrQuestChance`, `groupid`) VALUES (4355, 4304, 20.747, 1);
+
+REPLACE `mangos`.`skinning_loot_template` (`entry`, `item`, `ChanceOrQuestChance`, `groupid`) VALUES (4342, 4234, 77.351, 1);
+REPLACE `mangos`.`skinning_loot_template` (`entry`, `item`, `ChanceOrQuestChance`, `groupid`) VALUES (4342, 4235, 1.902, 1);
+REPLACE `mangos`.`skinning_loot_template` (`entry`, `item`, `ChanceOrQuestChance`, `groupid`) VALUES (4342, 4304, 20.747, 1);
+
+
 -- Pristine Hide of the Beast
 UPDATE mangos . skinning_loot_template
 SET ChanceOrQuestChance = -1

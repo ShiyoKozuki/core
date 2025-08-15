@@ -80,15 +80,15 @@
     UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=24, `name`='Reflection' WHERE  `entry`=17110 AND `build`=5086;
 
     -- Improved Entangling Roots (Renamed Dreamstate)
-    UPDATE `mangos`.`spell_template` SET `effectRealPointsPerLevel1`=0, `effectBasePoints1`=0, `effectApplyAuraName1`=21, `effectAmplitude1`=5000, `effectMiscValue1`=0, `spellIconId`=1486, `name`='Dreamstate',
+    UPDATE `mangos`.`spell_template` SET `effectRealPointsPerLevel1`=0, `effectBasePoints1`=0, `effectApplyAuraName1`=21, `effectAmplitude1`=5000, `effectMiscValue1`=0, `spellIconId`=2049, `name`='Dreamstate',
         `description`='Regenerate $s1% mana per 5 sec.' 
     WHERE  `entry`=16918 AND `build`=4222;
 
-    UPDATE `mangos`.`spell_template` SET `effectRealPointsPerLevel1`=0, `effectBasePoints1`=1, `effectApplyAuraName1`=21, `effectAmplitude1`=5000, `effectMiscValue1`=0, `spellIconId`=1486, `name`='Dreamstate',
+    UPDATE `mangos`.`spell_template` SET `effectRealPointsPerLevel1`=0, `effectBasePoints1`=1, `effectApplyAuraName1`=21, `effectAmplitude1`=5000, `effectMiscValue1`=0, `spellIconId`=2049, `name`='Dreamstate',
         `description`='Regenerate $s1% mana per 5 sec.' 
     WHERE  `entry`=16919 AND `build`=4222;
 
-    UPDATE `mangos`.`spell_template` SET `effectRealPointsPerLevel1`=0, `effectBasePoints1`=2, `effectApplyAuraName1`=21, `effectAmplitude1`=5000, `effectMiscValue1`=0, `spellIconId`=1486, `name`='Dreamstate',
+    UPDATE `mangos`.`spell_template` SET `effectRealPointsPerLevel1`=0, `effectBasePoints1`=2, `effectApplyAuraName1`=21, `effectAmplitude1`=5000, `effectMiscValue1`=0, `spellIconId`=2049, `name`='Dreamstate',
         `description`='Regenerate $s1% mana per 5 sec.' 
     WHERE  `entry`=16920 AND `build`=4222;
 
@@ -393,6 +393,19 @@ SET effectBasePoints1 = 39,
 WHERE entry = 16720;
 
 -- Rogue
+
+    -- Coldblood (Add Mutilate)
+    UPDATE `mangos`.`spell_template` SET `effectItemType1`=4295098886, `description`='When activated, increases the critical strike chance of your next Sinister Strike, Backstab, Mutilate, Ambush, or Eviscerate by $s1%.' WHERE  `entry`=14177 AND `build`=5302;
+
+    -- Lethality (Add Mutilate)
+    UPDATE `mangos`.`spell_template` SET `effectItemType1`=4395630606, `description`='Increases the critical strike damage bonus of your Sinister Strike, Gouge, Backstab, Ghostly Strike, Mutilate and Hemorrhage abilities by $s1%.' WHERE  `entry`=14128 AND `build`=5464;
+    UPDATE `mangos`.`spell_template` SET `effectItemType1`=4395630606, `description`='Increases the critical strike damage bonus of your Sinister Strike, Gouge, Backstab, Ghostly Strike, Mutilate and Hemorrhage abilities by $s1%.' WHERE  `entry`=14132 AND `build`=5464;
+    UPDATE `mangos`.`spell_template` SET `effectItemType1`=4395630606, `description`='Increases the critical strike damage bonus of your Sinister Strike, Gouge, Backstab, Ghostly Strike, Mutilate and Hemorrhage abilities by $s1%.' WHERE  `entry`=14135 AND `build`=5464;
+    UPDATE `mangos`.`spell_template` SET `effectItemType1`=4395630606, `description`='Increases the critical strike damage bonus of your Sinister Strike, Gouge, Backstab, Ghostly Strike, Mutilate and Hemorrhage abilities by $s1%.' WHERE  `entry`=14136 AND `build`=5464;
+    UPDATE `mangos`.`spell_template` SET `effectItemType1`=4395630606, `description`='Increases the critical strike damage bonus of your Sinister Strike, Gouge, Backstab, Ghostly Strike, Mutilate and Hemorrhage abilities by $s1%.' WHERE  `entry`=14137 AND `build`=5464;
+
+    -- Temp, revert to 29 after
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=29 WHERE  `entry`=14137 AND `build`=5464;
 
     -- Premeditation (20s CD)
     UPDATE `mangos`.`spell_template` SET `recoveryTime`=20000 WHERE  `entry`=14183 AND `build`=5875;

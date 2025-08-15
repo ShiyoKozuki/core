@@ -720,6 +720,10 @@ int32 SpellEntry::CalculateDuration(WorldObject const* caster, Unit const* targe
 {
     int32 duration = GetDuration();
 
+    // Slice and Dice, custom changed to 9-36 seconds (durationIndex 325)
+    if (Id == 5171 || Id == 6774)
+        duration = 12;
+
     if (duration != -1 && caster)
     {
         int32 maxduration = GetMaxDuration();

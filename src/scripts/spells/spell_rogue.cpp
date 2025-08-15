@@ -97,6 +97,50 @@ SpellScript* GetScript_RogueCloakAndDagger(SpellEntry const*)
     return new RogueCloakAndDaggerScript();
 }
 
+struct RogueShadowArtsNiScript : SpellScript
+{
+    bool OnEffectExecute(Spell* spell, SpellEffectIndex effIdx) const final
+    {
+        if (effIdx == EFFECT_INDEX_0 && spell->m_casterUnit && spell->GetCaster())
+        {
+            if (spell->m_casterUnit->HasAura(33544)) // Shadow Arts: Ichi
+            {
+                spell->m_casterUnit->CastSpell(spell->m_casterUnit, 33546, true);  // Shadow Arts: Ni
+                spell->m_casterUnit->RemoveAurasDueToSpell(33544);  // Shadow Arts: Ichi
+            }
+
+            return false;
+        }
+        return true;
+    }
+};
+
+SpellScript* GetScript_RogueShadowArtsNi(SpellEntry const*) {
+    return new RogueShadowArtsNiScript();
+}
+
+struct RogueShadowArtsSanScript : SpellScript
+{
+    bool OnEffectExecute(Spell* spell, SpellEffectIndex effIdx) const final
+    {
+        if (effIdx == EFFECT_INDEX_0 && spell->m_casterUnit && spell->GetCaster())
+        {
+            if (spell->m_casterUnit->HasAura(33546)) // Shadow Arts: Ni
+            {
+                spell->m_casterUnit->CastSpell(spell->m_casterUnit, 33548, true); // Shadow Arts: San
+                spell->m_casterUnit->RemoveAurasDueToSpell(33546); // Shadow Arts: San
+            }
+
+            return false;
+        }
+        return true;
+    }
+};
+
+SpellScript* GetScript_RogueShadowArtsSan(SpellEntry const*) {
+    return new RogueShadowArtsSanScript();
+}
+
 void AddSC_rogue_spell_scripts()
 {
     Script* newscript;
@@ -114,5 +158,15 @@ void AddSC_rogue_spell_scripts()
     newscript = new Script;
     newscript->Name = "spell_rogue_cloak_and_dagger";
     newscript->GetSpellScript = &GetScript_RogueCloakAndDagger;
+    newscript->RegisterSelf();
+
+    newscript = new Script;
+    newscript->Name = "spell_rogue_shadow_arts_ni";
+    newscript->GetSpellScript = &GetScript_RogueShadowArtsNi;
+    newscript->RegisterSelf();
+
+    newscript = new Script;
+    newscript->Name = "spell_rogue_shadow_arts_san";
+    newscript->GetSpellScript = &GetScript_RogueShadowArtsSan;
     newscript->RegisterSelf();
 }
