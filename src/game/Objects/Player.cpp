@@ -19074,6 +19074,9 @@ void Player::AddComboPoints(Unit* target, int8 count)
     // without combo points lost (duration checked in aura)
     RemoveSpellsCausingAura(SPELL_AURA_RETAIN_COMBO_POINTS);
 
+    if (HasAura(33556)) // Broadside combo point bonus
+        m_comboPoints += 1;
+
     if (target->GetObjectGuid() == m_comboTargetGuid)
         m_comboPoints += count;
     else
@@ -19084,6 +19087,9 @@ void Player::AddComboPoints(Unit* target, int8 count)
 
         m_comboTargetGuid = target->GetObjectGuid();
         m_comboPoints = count;
+
+        if (HasAura(33556)) // Broadside combo point bonus
+            m_comboPoints += 1;
 
         target->AddComboPointHolder(GetGUIDLow());
     }

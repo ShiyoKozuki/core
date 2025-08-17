@@ -2964,7 +2964,7 @@ void Aura::HandleAuraModSkill(bool apply, bool /*Real*/)
     uint16 const skillId = uint16(GetSpellProto()->EffectMiscValue[m_effIndex]);
 
     // Can't modify an unknown skill
-    if (!GetTarget()->ToPlayer()->HasSkill(skillId))
+    if (!GetTarget()->ToPlayer()->HasSkill(skillId) && skillId != 793)
     {
         // Revert m_applied assigned in Aura::ApplyModidier
         m_applied = !apply;
@@ -2976,12 +2976,24 @@ void Aura::HandleAuraModSkill(bool apply, bool /*Real*/)
     int16 const amount = int16(mod->m_amount);
     bool const permanent = (mod->m_auraname == SPELL_AURA_MOD_SKILL_TALENT);
 
+    // Weapon Expertise rogue talent. Sword, Dagger, Fist, Axe, Mace and Throwing
+    if (skillId == 793)
+    {
+        target->ModifySkillBonus(SKILL_SWORDS, (apply ? amount : -amount), permanent);
+        target->ModifySkillBonus(SKILL_MACES, (apply ? amount : -amount), permanent);
+        target->ModifySkillBonus(SKILL_DAGGERS, (apply ? amount : -amount), permanent);
+        target->ModifySkillBonus(SKILL_UNARMED, (apply ? amount : -amount), permanent);
+        target->ModifySkillBonus(SKILL_AXES, (apply ? amount : -amount), permanent);
+        target->ModifySkillBonus(SKILL_THROWN, (apply ? amount : -amount), permanent);
+    }
+
     if (target->ModifySkillBonus(skillId, (apply ? amount : -amount), permanent))
     {
         if (skillId == SKILL_DEFENSE)
             target->UpdateDefenseBonusesMod();
     }
 }
+
 void Aura::HandleChannelDeathItem(bool apply, bool Real)
 {
     if (Real && !apply)
@@ -6139,6 +6151,29 @@ void Aura::PeriodicTick(SpellEntry const* sProto, AuraType auraType, uint32 data
             cleanDamage.absorb = absorb;
             cleanDamage.resist = resist;
             pCaster->DealDamage(target, pdamage, &cleanDamage, DOT, spellProto->GetSpellSchoolMask(), spellProto, true, nullptr, GetHolder()->IsReflected());
+
+            // Venomous Wounds roll for energy regen
+            if (spellProto->IsFitToFamilyMask<CF_ROGUE_RUPTURE>() || spellProto->IsFitToFamilyMask<CF_ROGUE_GARROTE>())
+            {
+                if (pCaster->IsPlayer())
+                {
+                    if (pCaster->HasAura(33498) || pCaster->HasAura(33499))
+                    {
+                        uint32 auraId = pCaster->HasAura(33498) ? 33498 : 33499;
+
+                        SpellEntry const* pSpellInfo = sSpellMgr.GetSpellEntry(auraId);
+
+                        if (pSpellInfo)
+                        {
+                            if (urand(1, 100) <= pSpellInfo->CalculateSimpleValue(EFFECT_INDEX_1))
+                            {
+                                pCaster->CastSpell(pCaster, 33554, true); // Venomous Wounds Energize
+                            }
+                        }
+                    }
+                }
+            }
+
             // Curse of Doom: If the target dies from this damage, there is a chance that a Doomguard will be summoned.
             if (spellProto->Id == 603 && !target->IsAlive() && !urand(0, 9))
                 pCaster->CastSpell(pCaster, 18662, true);

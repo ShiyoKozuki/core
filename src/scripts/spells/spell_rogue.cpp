@@ -141,6 +141,27 @@ SpellScript* GetScript_RogueShadowArtsSan(SpellEntry const*) {
     return new RogueShadowArtsSanScript();
 }
 
+struct RogueSaberSlashScript : SpellScript
+{
+    bool OnEffectExecute(Spell* spell, SpellEffectIndex effIdx) const final
+    {
+        if (effIdx == EFFECT_INDEX_0 && spell->m_casterUnit && spell->GetCaster())
+        {
+            // Roll the dice! Pick a buff based on dice roll
+            auto selectedSpell = urand(0, 6) + 33555;
+            spell->m_casterUnit->CastSpell(spell->m_casterUnit, selectedSpell, true);
+
+            return false;
+        }
+        return true;
+    }
+};
+
+SpellScript* GetScript_RogueSaberSlash(SpellEntry const*)
+{
+    return new RogueSaberSlashScript();
+}
+
 void AddSC_rogue_spell_scripts()
 {
     Script* newscript;
@@ -168,5 +189,10 @@ void AddSC_rogue_spell_scripts()
     newscript = new Script;
     newscript->Name = "spell_rogue_shadow_arts_san";
     newscript->GetSpellScript = &GetScript_RogueShadowArtsSan;
+    newscript->RegisterSelf();
+
+    newscript = new Script;
+    newscript->Name = "spell_rogue_saber_slash";
+    newscript->GetSpellScript = &GetScript_RogueSaberSlash;
     newscript->RegisterSelf();
 }

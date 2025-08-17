@@ -394,6 +394,22 @@ WHERE entry = 16720;
 
 -- Rogue
 
+    -- Sword Specialization (Add Axes)
+    UPDATE `mangos`.`spell_template` SET `equippedItemSubClassMask`=387, `name`='Slicing Specialization', `description`='Gives you a $h% chance to get an extra attack on the same target after dealing damage with your Sword or Axe.' WHERE  `entry`=13960 AND `build`=5875;
+
+    UPDATE `mangos`.`spell_template` SET `equippedItemSubClassMask`=387, `name`='Slicing Specialization', `description`='Gives you a $h% chance to get an extra attack on the same target after dealing damage with your Sword or Axe.' WHERE  `entry`=13961 AND `build`=5875;
+
+    UPDATE `mangos`.`spell_template` SET `equippedItemSubClassMask`=387, `name`='Slicing Specialization', `description`='Gives you a $h% chance to get an extra attack on the same target after dealing damage with your Sword or Axe.' WHERE  `entry`=13962 AND `build`=5875;
+
+    UPDATE `mangos`.`spell_template` SET `equippedItemSubClassMask`=387, `name`='Slicing Specialization', `description`='Gives you a $h% chance to get an extra attack on the same target after dealing damage with your Sword or Axe.' WHERE  `entry`=13963 AND `build`=5875;
+
+    UPDATE `mangos`.`spell_template` SET `equippedItemSubClassMask`=387, `name`='Slicing Specialization', `description`='Gives you a $h% chance to get an extra attack on the same target after dealing damage with your Sword or Axe.' WHERE  `entry`=13964 AND `build`=5875;
+
+    -- Weapon Expertise (Sword, Dagger, Fist, Axe, Mace and Throwing)
+    UPDATE `mangos`.`spell_template` SET `effect2`=0, `effect3`=0, `effectDieSides2`=0, `effectDieSides3`=0, `effectBaseDice2`=0, `effectBaseDice3`=0, `effectBasePoints2`=0, `effectBasePoints3`=0, `effectImplicitTargetA2`=0, `effectImplicitTargetA3`=0, `effectApplyAuraName2`=0, `effectApplyAuraName3`=0, `effectMiscValue1`=793, `effectMiscValue2`=0, `effectMiscValue3`=0, `description`='Increases your skill with Sword, Dagger, Fist, Axe, Mace and Throwing weapons by $s1.' WHERE  `entry`=30919 AND `build`=5875;
+
+    UPDATE `mangos`.`spell_template` SET `effect2`=0, `effect3`=0, `effectDieSides2`=0, `effectDieSides3`=0, `effectBaseDice2`=0, `effectBaseDice3`=0, `effectBasePoints2`=0, `effectBasePoints3`=0, `effectImplicitTargetA2`=0, `effectImplicitTargetA3`=0, `effectApplyAuraName2`=0, `effectApplyAuraName3`=0, `effectMiscValue1`=793, `effectMiscValue2`=0, `effectMiscValue3`=0, `description`='Increases your skill with Sword, Dagger, Fist, Axe, Mace and Throwing weapons by $s1.' WHERE  `entry`=30920 AND `build`=5875;
+
     -- Coldblood (Add Mutilate)
     UPDATE `mangos`.`spell_template` SET `effectItemType1`=4295098886, `description`='When activated, increases the critical strike chance of your next Sinister Strike, Backstab, Mutilate, Ambush, or Eviscerate by $s1%.' WHERE  `entry`=14177 AND `build`=5302;
 
