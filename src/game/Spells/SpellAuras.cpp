@@ -6160,10 +6160,20 @@ void Aura::PeriodicTick(SpellEntry const* sProto, AuraType auraType, uint32 data
                     if (pCaster->HasAura(33498) || pCaster->HasAura(33499))
                     {
                         uint32 auraId = pCaster->HasAura(33498) ? 33498 : 33499;
-
                         SpellEntry const* pSpellInfo = sSpellMgr.GetSpellEntry(auraId);
+                        std::vector<uint32> deadlyPoisonIds = {2818, 2819, 11353, 11354, 25349};
+                        bool hasDeadlyPoison = false;
 
-                        if (pSpellInfo)
+                        for (auto spellId : deadlyPoisonIds)
+                        {
+                            if (target->HasAura(spellId))
+                            {
+                                hasDeadlyPoison = true;
+                                break;
+                            }
+                        }
+
+                        if (pSpellInfo && hasDeadlyPoison)
                         {
                             if (urand(1, 100) <= pSpellInfo->CalculateSimpleValue(EFFECT_INDEX_1))
                             {

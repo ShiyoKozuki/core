@@ -979,6 +979,7 @@ void SpellCaster::CalculateSpellDamage(SpellNonMeleeDamage* damageInfo, float da
                 std::vector<uint32> deadlyPoisonIds = { 2818, 2819, 11353, 11354, 25349 };
 
                 bool hasDeadlyPoison = false;
+
                 for (auto spellId : deadlyPoisonIds)
                 {
                     if (pVictim->HasAura(spellId))
@@ -990,7 +991,7 @@ void SpellCaster::CalculateSpellDamage(SpellNonMeleeDamage* damageInfo, float da
 
                 if (hasDeadlyPoison)
                 {
-                    damage *= 1.2f;
+                    damage *= 1.5f;
                 }
             }
 

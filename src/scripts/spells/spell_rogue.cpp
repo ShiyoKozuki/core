@@ -162,6 +162,27 @@ SpellScript* GetScript_RogueSaberSlash(SpellEntry const*)
     return new RogueSaberSlashScript();
 }
 
+struct RogueMutilateScript : SpellScript
+{
+    bool OnEffectExecute(Spell* spell, SpellEffectIndex effIdx) const final
+    {
+        if (effIdx == EFFECT_INDEX_0 && spell->m_casterUnit && spell->GetCaster() && spell->m_targets.getUnitTarget())
+        {
+            // Proc MH and OH hits
+            spell->m_casterUnit->CastSpell(spell->m_targets.getUnitTarget(), spell->m_spellInfo->Id + 61, true);
+            spell->m_casterUnit->CastSpell(spell->m_targets.getUnitTarget(), spell->m_spellInfo->Id + 62, true);
+
+            return false;
+        }
+        return true;
+    }
+};
+
+SpellScript* GetScript_RogueMutilate(SpellEntry const*)
+{
+    return new RogueMutilateScript();
+}
+
 void AddSC_rogue_spell_scripts()
 {
     Script* newscript;
@@ -194,5 +215,10 @@ void AddSC_rogue_spell_scripts()
     newscript = new Script;
     newscript->Name = "spell_rogue_saber_slash";
     newscript->GetSpellScript = &GetScript_RogueSaberSlash;
+    newscript->RegisterSelf();
+
+    newscript = new Script;
+    newscript->Name = "spell_rogue_mutilate";
+    newscript->GetSpellScript = &GetScript_RogueMutilate;
     newscript->RegisterSelf();
 }

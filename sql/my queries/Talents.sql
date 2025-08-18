@@ -544,25 +544,25 @@ WHERE entry = 16720;
     UPDATE `mangos`.`spell_template` SET `effectItemType1`=1792  WHERE  `entry`=14082 AND `build`=5875;
     UPDATE `mangos`.`spell_template` SET `effectItemType1`=1792 WHERE  `entry`=14083 AND `build`=5875;
 
-    -- Deadliness
+    -- Deadliness (3%/6%/9%/12%/15%)
     UPDATE mangos . spell_template 
-    SET effectBasePoints1 = 4
+    SET effectBasePoints1 = 2
     WHERE entry = 30902;
 
     UPDATE mangos . spell_template 
-    SET effectBasePoints1 = 9
+    SET effectBasePoints1 = 5
     WHERE entry = 30903;
 
     UPDATE mangos . spell_template 
-    SET effectBasePoints1 = 14
+    SET effectBasePoints1 = 8
     WHERE entry = 30904;
 
     UPDATE mangos . spell_template 
-    SET effectBasePoints1 = 19
+    SET effectBasePoints1 = 11
     WHERE entry = 30905;
 
     UPDATE mangos . spell_template 
-    SET effectBasePoints1 = 24
+    SET effectBasePoints1 = 14
     WHERE entry = 30906;
 
     -- Skill Line Abiity
