@@ -1,4 +1,4 @@
--- NEXT talent ID is 1717
+-- NEXT talent ID is 1718
 -- Talents that grant a new spell (i.e. feral charge) need flags set to "1"
 -- Talents
 
@@ -410,8 +410,8 @@ WHERE entry = 16720;
 
     UPDATE `mangos`.`spell_template` SET `effect2`=0, `effect3`=0, `effectDieSides2`=0, `effectDieSides3`=0, `effectBaseDice2`=0, `effectBaseDice3`=0, `effectBasePoints2`=0, `effectBasePoints3`=0, `effectImplicitTargetA2`=0, `effectImplicitTargetA3`=0, `effectApplyAuraName2`=0, `effectApplyAuraName3`=0, `effectMiscValue1`=793, `effectMiscValue2`=0, `effectMiscValue3`=0, `description`='Increases your skill with Sword, Dagger, Fist, Axe, Mace and Throwing weapons by $s1.' WHERE  `entry`=30920 AND `build`=5875;
 
-    -- Coldblood (Add Mutilate)
-    UPDATE `mangos`.`spell_template` SET `effectItemType1`=4295098886, `description`='When activated, increases the critical strike chance of your next Sinister Strike, Backstab, Mutilate, Ambush, or Eviscerate by $s1%.' WHERE  `entry`=14177 AND `build`=5302;
+    -- Coldblood (Add Mutilate and Envenom)
+    UPDATE `mangos`.`spell_template` SET `effectItemType1`=21474968070, `description`='When activated, increases the critical strike chance of your next Sinister Strike, Backstab, Mutilate, Ambush, Envenom or Eviscerate by $s1%.' WHERE  `entry`=14177 AND `build`=5302;
 
     -- Lethality (Add Mutilate)
     UPDATE `mangos`.`spell_template` SET `effectItemType1`=4395630606, `description`='Increases the critical strike damage bonus of your Sinister Strike, Gouge, Backstab, Ghostly Strike, Mutilate and Hemorrhage abilities by $s1%.' WHERE  `entry`=14128 AND `build`=5464;

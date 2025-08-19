@@ -4565,13 +4565,25 @@ float Aura::CalculateDotDamage() const
                     damage += caster->GetTotalAttackPowerValue(BASE_ATTACK) * 0.1f;
                 }
             }
-            // Rake
-            if (spellProto->IsFitToFamilyMask<CF_DRUID_RAKE_CLAW>())
+
+            // Rake / Lacerate  / Brutal Slash 
+            if (spellProto->IsFitToFamilyMask<CF_DRUID_RAKE_CLAW>() || spellProto->IsFitToFamilyMask<CF_DRUID_LACERATE>() ||
+                spellProto->IsFitToFamilyMask<CF_DRUID_BRUTAL_SLASH>())
             {
-                // Damage scales AP * 0.25
+                // Damage scales AP * 0.10
                 if (caster->GetTypeId() == TYPEID_PLAYER)
                 {
                     damage += caster->GetTotalAttackPowerValue(BASE_ATTACK) * 0.10f;
+                }
+            }
+
+            // Thrash
+            if (spellProto->IsFitToFamilyMask<CF_DRUID_THRASH>())
+            {
+                // Damage scales AP * 0.03
+                if (caster->GetTypeId() == TYPEID_PLAYER)
+                {
+                    damage += caster->GetTotalAttackPowerValue(BASE_ATTACK) * 0.03f;
                 }
             }
 #endif
@@ -4582,7 +4594,7 @@ float Aura::CalculateDotDamage() const
 #if SUPPORTED_CLIENT_BUILD > CLIENT_BUILD_1_11_2
             // World of Warcraft Client Patch 1.12.0 (2006-08-22)
             // - Rupture: Rupture now increases in potency with greater attack power.
-            if (spellProto->IsFitToFamilyMask<CF_ROGUE_RUPTURE>())
+            if (spellProto->IsFitToFamilyMask<CF_ROGUE_RUPTURE>() || spellProto->IsFitToFamilyMask<CF_ROGUE_PUNCTURE>())
             {
                 // Dmg/tick = $AP*min(0.01*$cp, 0.03) [Like Rip: only the first three CP increase the contribution from AP]
                 if (caster->IsPlayer())
@@ -4595,6 +4607,7 @@ float Aura::CalculateDotDamage() const
             //   addition, Garrote now increases in potency with greater attack power.
             else if (spellProto->IsFitToFamilyMask<CF_ROGUE_GARROTE>())
                 damage += caster->GetTotalAttackPowerValue(BASE_ATTACK) * 0.10f;
+
 #endif
             break;
         }
@@ -6153,7 +6166,7 @@ void Aura::PeriodicTick(SpellEntry const* sProto, AuraType auraType, uint32 data
             pCaster->DealDamage(target, pdamage, &cleanDamage, DOT, spellProto->GetSpellSchoolMask(), spellProto, true, nullptr, GetHolder()->IsReflected());
 
             // Venomous Wounds roll for energy regen
-            if (spellProto->IsFitToFamilyMask<CF_ROGUE_RUPTURE>() || spellProto->IsFitToFamilyMask<CF_ROGUE_GARROTE>())
+            if (spellProto->IsFitToFamily<SPELLFAMILY_ROGUE, CF_ROGUE_GARROTE>() || spellProto->IsFitToFamily<SPELLFAMILY_ROGUE, CF_ROGUE_RUPTURE>())
             {
                 if (pCaster->IsPlayer())
                 {

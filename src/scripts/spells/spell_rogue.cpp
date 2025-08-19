@@ -81,10 +81,13 @@ struct RogueCloakAndDaggerScript : SpellScript
 {
     bool OnEffectExecute(Spell* spell, SpellEffectIndex effIdx) const final
     {
-        if (effIdx == EFFECT_INDEX_1 && spell->GetCaster())
+        if (effIdx == EFFECT_INDEX_1 && spell->m_casterUnit && spell->GetCaster() && spell->m_targets.getUnitTarget())
         {
             if (Player* pPlayer = spell->GetCaster()->ToPlayer())
+            {
+                spell->m_casterUnit->CastSpell(spell->m_targets.getUnitTarget(), 33578, true); // Cloak and Dagger damage proc
                 pPlayer->CastHighestStealthRank();
+            }
 
             return false;
         }
@@ -183,6 +186,65 @@ SpellScript* GetScript_RogueMutilate(SpellEntry const*)
     return new RogueMutilateScript();
 }
 
+struct RogueEnvenomScript : SpellScript
+{
+    SpellCastResult OnCheckCast(Spell* spell, bool /*strict*/) const final
+    {
+#if SUPPORTED_CLIENT_BUILD > CLIENT_BUILD_1_10_2
+        if (Unit* target = spell->m_targets.getUnitTarget())
+        {
+            std::vector<uint32> deadlyPoisonIds = {2818, 2819, 11353, 11354, 25349};
+
+            bool hasDeadlyPoison = false;
+
+            for (auto spellId : deadlyPoisonIds)
+            {
+                if (spell->m_targets.getUnitTarget()->HasAura(spellId))
+                {
+                    hasDeadlyPoison = true;
+                    return SPELL_CAST_OK;
+                }
+            }
+        }
+#endif
+        return SPELL_FAILED_TARGET_AURASTATE;
+    }
+
+    bool OnEffectExecute(Spell* spell, SpellEffectIndex effIdx) const final
+    {
+        if (effIdx == EFFECT_INDEX_0 && spell->GetUnitTarget() && spell->m_caster)
+        {
+            // for caster applied auras only
+            Unit::AuraList const& mPeriodic = spell->GetUnitTarget()->GetAurasByType(SPELL_AURA_PERIODIC_DAMAGE);
+            for (const auto i : mPeriodic)
+            {
+                // Deadly Poison
+                if (i->GetSpellProto()->IsFitToFamily<SPELLFAMILY_ROGUE, CF_ROGUE_DEADLY_POISON>() &&
+                    i->GetCasterGuid() == spell->m_caster->GetObjectGuid())
+                {
+
+                    uint16 stacks = i->GetStackAmount();
+
+                    // Remove Deadly Poison from target
+                    spell->GetUnitTarget()->RemoveAurasByCasterSpell(i->GetId(), spell->m_caster->GetObjectGuid());
+
+                    // scale Envenom damage and Energy Restored by stack count
+                    spell->damage *= stacks;
+                    spell->m_currentBasePoints[EFFECT_INDEX_2] *= stacks;
+
+                    break;
+                }
+            }
+        }
+        return true;
+    }
+};
+
+SpellScript* GetScript_RogueEnvenom(SpellEntry const*)
+{
+    return new RogueEnvenomScript();
+}
+
 void AddSC_rogue_spell_scripts()
 {
     Script* newscript;
@@ -220,5 +282,10 @@ void AddSC_rogue_spell_scripts()
     newscript = new Script;
     newscript->Name = "spell_rogue_mutilate";
     newscript->GetSpellScript = &GetScript_RogueMutilate;
+    newscript->RegisterSelf();
+
+    newscript = new Script;
+    newscript->Name = "spell_rogue_envenom";
+    newscript->GetSpellScript = &GetScript_RogueEnvenom;
     newscript->RegisterSelf();
 }

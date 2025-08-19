@@ -1166,7 +1166,7 @@ bool SpellMgr::IsNoStackSpellDueToSpell(uint32 spellId_1, uint32 spellId_2) cons
                 return false;
 
             // Brutal Slash and Thrash
-            if (spellInfo_1->Id == 33537 || spellInfo_1->Id == 33528)
+            if (spellInfo_1->IsFitToFamilyMask<CF_DRUID_BRUTAL_SLASH>() || spellInfo_1->IsFitToFamilyMask<CF_DRUID_THRASH>())
                 return false;
 
             break;
@@ -1174,6 +1174,12 @@ bool SpellMgr::IsNoStackSpellDueToSpell(uint32 spellId_1, uint32 spellId_2) cons
             // Garrote -> Garrote-Silence (multi-family check)
             if (spellInfo_1->SpellIconID == 498 && spellInfo_2->SpellIconID == 498 && spellInfo_2->SpellVisual == 0)
                 return false;
+
+            // Rupture, Garrote and Punture
+            if (spellInfo_1->IsFitToFamilyMask<CF_ROGUE_GARROTE>() || spellInfo_1->IsFitToFamilyMask<CF_ROGUE_RUPTURE>() ||
+                spellInfo_1->IsFitToFamilyMask<CF_ROGUE_PUNCTURE>())
+                return false;
+
             break;
         case SPELLFAMILY_HUNTER:
             if (spellInfo_2->SpellFamilyName == SPELLFAMILY_HUNTER)

@@ -202,6 +202,9 @@ enum ClassFlag
     CF_DRUID_SWIFTMEND                      = 33,   // CM1 00000002
     CF_DRUID_DISPELLS                       = 34,   // CM1 00000004
     CF_DRUID_GROWL                          = 35,   // CM1 00000008
+    CF_DRUID_LACERATE                       = 36,
+    CF_DRUID_BRUTAL_SLASH                   = 37,
+    CF_DRUID_THRASH                         = 38,
 
     // -- Rogue (8)
     CF_ROGUE_THROW                          = 0,    // CM0 00000001
@@ -237,6 +240,8 @@ enum ClassFlag
     CF_ROGUE_MISC1                          = 30,   // CM0 40000000 Blade Furry, Cold Blood, Ghostly Strike, Premeditation, Revealed Flaw
     CF_ROGUE_MISC2                          = 31,   // CM0 80000000 Riposte, Pick Pocket, Disarm Trap, Blind
     CF_ROGUE_MUTILATE                       = 32,   // CM1 00000001
+    CF_ROGUE_PUNCTURE                       = 33,   // CM1 00000002
+    CF_ROGUE_ENVENOM                        = 34,   // CM1 00000004
 
     // -- Hunter (9)
     CF_HUNTER_SHOOT                         = 0,    // CM0 00000001

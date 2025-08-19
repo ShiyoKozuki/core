@@ -720,9 +720,9 @@ int32 SpellEntry::CalculateDuration(WorldObject const* caster, Unit const* targe
 {
     int32 duration = GetDuration();
 
-    // Slice and Dice, custom changed to 9-36 seconds (durationIndex 325)
-    if (Id == 5171 || Id == 6774)
-        duration = 12;
+    // Slice and Dice custom changed to 9-36 seconds (durationIndex 325)
+    if (IsFitToFamily<SPELLFAMILY_ROGUE, CF_ROGUE_SLICE_AND_DICE>())
+        duration = 12000;
 
     if (duration != -1 && caster)
     {
