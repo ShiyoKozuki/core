@@ -144,14 +144,14 @@ SpellScript* GetScript_RogueShadowArtsSan(SpellEntry const*) {
     return new RogueShadowArtsSanScript();
 }
 
-struct RogueSaberSlashScript : SpellScript
+struct RogueCorsairsSlashScript : SpellScript
 {
     bool OnEffectExecute(Spell* spell, SpellEffectIndex effIdx) const final
     {
-        if (effIdx == EFFECT_INDEX_0 && spell->m_casterUnit && spell->GetCaster())
+        if (effIdx == EFFECT_INDEX_2 && spell->m_casterUnit && spell->GetCaster())
         {
             // Roll the dice! Pick a buff based on dice roll
-            auto selectedSpell = urand(0, 6) + 33555;
+            auto selectedSpell = urand(0, 5) + 33590; // Buff aura spellIds are 33590 - 33595
             spell->m_casterUnit->CastSpell(spell->m_casterUnit, selectedSpell, true);
 
             return false;
@@ -160,9 +160,9 @@ struct RogueSaberSlashScript : SpellScript
     }
 };
 
-SpellScript* GetScript_RogueSaberSlash(SpellEntry const*)
+SpellScript* GetScript_RogueCorsairsSlash(SpellEntry const*)
 {
-    return new RogueSaberSlashScript();
+    return new RogueCorsairsSlashScript();
 }
 
 struct RogueMutilateScript : SpellScript
@@ -245,6 +245,55 @@ SpellScript* GetScript_RogueEnvenom(SpellEntry const*)
     return new RogueEnvenomScript();
 }
 
+struct RogueSinisterStrikeScript : SpellScript
+{
+    bool OnEffectExecute(Spell* spell, SpellEffectIndex effIdx) const final
+    {
+        if (effIdx == EFFECT_INDEX_2 && spell->m_casterUnit && spell->GetCaster())
+        {
+            // 50% chance to proc Moment of Opportunity (-90 Energy cost on next Dazing Strike)
+            if (urand(1, 100) <= 50)
+            {
+                spell->m_casterUnit->CastSpell(spell->m_casterUnit, 33587, true);
+            }
+
+            return false;
+        }
+        return true;
+    }
+};
+
+SpellScript* GetScript_RogueSinisterStrike(SpellEntry const*)
+{
+    return new RogueSinisterStrikeScript();
+}
+
+struct RogueDazingStrikeScript : SpellScript
+{
+    bool OnEffectExecute(Spell* spell, SpellEffectIndex effIdx) const final
+    {
+        if (effIdx == EFFECT_INDEX_2 && spell->m_casterUnit && spell->GetCaster() && spell->m_targets.getUnitTarget())
+        {
+            // 20% chance to proc Sinister Opening (-40 Energy cost on next Dazing Strike)
+            if (urand(1, 100) <= 20)
+            {
+                spell->m_casterUnit->CastSpell(spell->m_casterUnit, 33556, true);
+            }
+
+            // -10% hit rate Aura on target
+            spell->m_casterUnit->CastSpell(spell->m_targets.getUnitTarget(), 33557, true);
+
+            return false;
+        }
+        return true;
+    }
+};
+
+SpellScript* GetScript_RogueDazingStrike(SpellEntry const*)
+{
+    return new RogueDazingStrikeScript();
+}
+
 void AddSC_rogue_spell_scripts()
 {
     Script* newscript;
@@ -275,8 +324,8 @@ void AddSC_rogue_spell_scripts()
     newscript->RegisterSelf();
 
     newscript = new Script;
-    newscript->Name = "spell_rogue_saber_slash";
-    newscript->GetSpellScript = &GetScript_RogueSaberSlash;
+    newscript->Name = "spell_rogue_corsairs_slash";
+    newscript->GetSpellScript = &GetScript_RogueCorsairsSlash;
     newscript->RegisterSelf();
 
     newscript = new Script;
@@ -287,5 +336,15 @@ void AddSC_rogue_spell_scripts()
     newscript = new Script;
     newscript->Name = "spell_rogue_envenom";
     newscript->GetSpellScript = &GetScript_RogueEnvenom;
+    newscript->RegisterSelf();
+
+    newscript = new Script;
+    newscript->Name = "spell_rogue_sinister_strike";
+    newscript->GetSpellScript = &GetScript_RogueSinisterStrike;
+    newscript->RegisterSelf();
+
+    newscript = new Script;
+    newscript->Name = "spell_rogue_dazing_Strike";
+    newscript->GetSpellScript = &GetScript_RogueDazingStrike;
     newscript->RegisterSelf();
 }

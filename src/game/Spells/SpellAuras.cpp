@@ -4566,24 +4566,23 @@ float Aura::CalculateDotDamage() const
                 }
             }
 
-            // Rake / Lacerate  / Brutal Slash 
-            if (spellProto->IsFitToFamilyMask<CF_DRUID_RAKE_CLAW>() || spellProto->IsFitToFamilyMask<CF_DRUID_LACERATE>() ||
-                spellProto->IsFitToFamilyMask<CF_DRUID_BRUTAL_SLASH>())
-            {
-                // Damage scales AP * 0.10
-                if (caster->GetTypeId() == TYPEID_PLAYER)
-                {
-                    damage += caster->GetTotalAttackPowerValue(BASE_ATTACK) * 0.10f;
-                }
-            }
-
-            // Thrash
-            if (spellProto->IsFitToFamilyMask<CF_DRUID_THRASH>())
+            // Lacerate / Thrash
+            if (spellProto->IsFitToFamilyMask<CF_DRUID_LACERATE>() || spellProto->IsFitToFamilyMask<CF_DRUID_THRASH>())
             {
                 // Damage scales AP * 0.03
                 if (caster->GetTypeId() == TYPEID_PLAYER)
                 {
                     damage += caster->GetTotalAttackPowerValue(BASE_ATTACK) * 0.03f;
+                }
+            }
+
+            // Rake / Brutal Slash / Thrash
+            if (spellProto->IsFitToFamilyMask<CF_DRUID_RAKE_CLAW>() || spellProto->IsFitToFamilyMask<CF_DRUID_BRUTAL_SLASH>())
+            {
+                // Damage scales AP * 0.10
+                if (caster->GetTypeId() == TYPEID_PLAYER)
+                {
+                    damage += caster->GetTotalAttackPowerValue(BASE_ATTACK) * 0.10f;
                 }
             }
 #endif

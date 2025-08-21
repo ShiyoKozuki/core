@@ -1,8 +1,11 @@
--- NEXT talent ID is 1718
+-- NEXT talent ID is 1719
 -- Talents that grant a new spell (i.e. feral charge) need flags set to "1"
 -- Talents
 
 -- Druid
+    -- Savage Fury (Add Lacerate, Thrash, Brutal Slash)
+    UPDATE `mangos`.`spell_template` SET `effectItemType1`=481036343296, `effectItemType2`=481036341248, `description`='Increases the damage caused by your Claw, Rake, Lacerate, Brutal Slash, Thrash, Maul and Swipe abilities by $s1%.' WHERE entry IN (16998, 16999);
+
     -- Brutal Impact (2-4% Phys and magic hit rate)
     UPDATE `mangos`.`spell_template` SET `effectBaseDice2`=1, `effectBasePoints1`=1, `effectBasePoints2`=1, `effectApplyAuraName1`=54, `effectApplyAuraName2`=55, `description`='Increases your chance to hit with phyical attacks and spells by $s1%.' WHERE  `entry`=16940 AND `build`=4878;
     UPDATE `mangos`.`spell_template` SET `effectBaseDice2`=1, `effectBasePoints1`=3, `effectBasePoints2`=3, `effectApplyAuraName1`=54, `effectApplyAuraName2`=55, `description`='Increases your chance to hit with phyical attacks and spells by $s1%.' WHERE  `entry`=16941 AND `build`=4878;

@@ -242,6 +242,8 @@ enum ClassFlag
     CF_ROGUE_MUTILATE                       = 32,   // CM1 00000001
     CF_ROGUE_PUNCTURE                       = 33,   // CM1 00000002
     CF_ROGUE_ENVENOM                        = 34,   // CM1 00000004
+    CF_ROGUE_DAZING_STRIKE                  = 35,
+    CF_ROGUE_CORSAIRS_SLASH                 = 36,
 
     // -- Hunter (9)
     CF_HUNTER_SHOOT                         = 0,    // CM0 00000001
