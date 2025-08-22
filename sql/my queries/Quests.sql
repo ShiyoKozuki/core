@@ -44,8 +44,8 @@
 -- how do distress beacon quests not replace item on starting? same with ship schedule
 
 -- Quest + Vendor + Repair npc flag = 
--- NEXT quest_template 30245
--- NEXT creature_template 90047
+-- NEXT quest_template 30248
+-- NEXT creature_template 90048
 
 --     QUEST_TYPE_ELITE               = 1,
 --     QUEST_TYPE_LIFE                = 21,
@@ -114,6 +114,21 @@ UPDATE `mangos`.`quest_template` SET `RewChoiceItemId1`=0, `RewChoiceItemId2`=0,
 
 -- Retrieval for Mauren add Minor Libram of Consecration and Minor Idol Elune of as a reward
 UPDATE `mangos`.`quest_template` SET `RewChoiceItemId1`=6677, `RewChoiceItemId2`=30129, `RewChoiceItemId3`=30138, `RewChoiceItemCount1`=1, `RewChoiceItemCount2`=1, `RewChoiceItemCount3`=1, `RewItemId1`=0, `RewItemCount1`=0 WHERE  `entry`=1078 AND `patch`=0;
+
+-- Bring the Light Reward (Choice between Vanquisher Sword and Tomoe)
+UPDATE `mangos`.`quest_template` SET `RewChoiceItemId1`=10823, `RewChoiceItemId2`=30146, `RewChoiceItemCount1`=1, `RewChoiceItemCount2`=1, `RewItemId1`=10824, `RewItemId2`=0 WHERE  `entry`=3636 AND `patch`=0;
+
+-- In the Name of the Light (Replaced Orb of Lorica with Tigerfangs)
+UPDATE `mangos`.`quest_template` SET `RewChoiceItemId4`=30147 WHERE  `entry`=1053 AND `patch`=0;
+
+-- Corruption of Earth and Seed (Added Engetsuto)
+UPDATE `mangos`.`quest_template` SET `RewChoiceItemId4`=30148, `RewChoiceItemCount4`=1 WHERE  `entry`=7065 AND `patch`=0;
+
+-- Druid ST class quest (All rewards + added a Feral Fangs for Feral)
+UPDATE `mangos`.`quest_template` SET `RewChoiceItemId1`=0, `RewChoiceItemId2`=0, `RewChoiceItemId3`=0, `RewChoiceItemCount1`=0, `RewChoiceItemCount2`=0, `RewChoiceItemCount3`=0, `RewItemId1`=22274, `RewItemId2`=22272, `RewItemId3`=22458, `RewItemId4`=30149, `RewItemCount1`=1, `RewItemCount2`=1, `RewItemCount3`=1, `RewItemCount4`=1 WHERE  `entry`=9053 AND `patch`=8;
+
+-- Rogue ST class quest (All rewards)
+UPDATE `mangos`.`quest_template` SET `RewChoiceItemId1`=0, `RewChoiceItemId2`=0, `RewChoiceItemId3`=0, `RewChoiceItemCount1`=0, `RewChoiceItemCount2`=0, `RewChoiceItemCount3`=0, `RewItemId1`=19984, `RewItemId2`=20255, `RewItemId3`=19982, `RewItemCount1`=1, `RewItemCount2`=1, `RewItemCount3`=1 WHERE  `entry`=8236 AND `patch`=5;
 
 -- STV (North)
 REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `NextQuestInChain`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOId2`, `ReqCreatureOrGOCount1`, `ReqCreatureOrGOCount2`, `RewItemId1`, `RewItemCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewMoneyMaxLevel`) VALUES (30029, 33, 30, 37, 8, 0, 'Special Forces II', 'I want you to clear out any ogres you find in the Mizjah Ruins to the south.', 'Kill 10 Mosh\'Ogg Brute and 10 Mosh\'Ogg Witch Doctor then return to Lieutenant Doren at the rebel camp.', 'Brilliant!', 'Kill 10 Mosh\'Ogg Brute and 10 Mosh\'Ogg Witch Doctor then return to Lieutenant Doren at the rebel camp.', '', '', '', '', '', 1142, 1144, 10, 10, 4115, 1, 72, 100, 2850, 1740);
@@ -250,11 +265,6 @@ REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (2712, 30118);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (2712, 30118);
 
 -- Dustwallow Marsh
-INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (4411, 30045, -10);
-INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (4412, 30045, -10);
-INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (4413, 30045, -10);
-INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (4414, 30045, -10);
-
 REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewChoiceItemId1`, `RewChoiceItemId2`, `RewChoiceItemCount1`, `RewChoiceItemCount2`, `RewXP`, `RewMoneyMaxLevel`) VALUES (30015, 15, 35, 45, 8, 'Deadmire', 'Me need giant Crocodile tooth. You bring.', 'Bring Deadmire\'s Tooth to Mudcrush Durtfeet in Dustwallow Marsh.', 'Me like. Me no eat you.', 'Me need Crocodile tooth.', '', '', '', '', '', 5945, 1, 10703, 10704, 1, 1, 3900, 1680);
 UPDATE `mangos`.`quest_template` SET `RewChoiceItemId3`=30131, `RewChoiceItemCount3`=1 WHERE  `entry`=30015 AND `patch`=0;
 UPDATE `mangos`.`quest_template` SET `RewChoiceItemId1`=30142, `RewItemId1`=10703, `RewItemCount1`=1 WHERE  `entry`=30015 AND `patch`=0;
@@ -267,9 +277,36 @@ REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLeve
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (4503, 30017);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (4503, 30017);
 
+-- Quest 30247
+    -- Entry
+        REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `Type`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOCount1`, `RewChoiceItemId1`, `RewChoiceItemId2`, `RewChoiceItemId3`, `RewChoiceItemId4`, `RewChoiceItemId5`, `RewChoiceItemId6`, `RewChoiceItemCount1`, `RewChoiceItemCount2`, `RewChoiceItemCount3`, `RewChoiceItemCount4`, `RewChoiceItemCount5`, `RewChoiceItemCount6`, `RewXP`, `RewMoneyMaxLevel`) VALUES (30247, 15, 38, 44, 1, 8, 'Dragon General', 'You kill general of dragons for me?', 'Mudcrush Durtfeet wants you to kill Emilius.', 'Me happy!', 'You kill general?', '', '', '', '', '', 90047, 1, 30150, 30151, 30152, 0, 0, 0, 1, 1, 1, 0, 0, 0, 5200, 12500);
+
+    -- Start NPC
+        REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (4503, 30247);
+
+    -- Completion NPC
+        REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (4503, 30247);
+
+
+    -- Creature
+        -- Creature Template
+        REPLACE `mangos`.`creature_template` (`entry`, `name`, `level_min`, `level_max`, `faction`, `display_id1`, `detection_range`, `type`, `rank`, `unit_class`, `health_multiplier`, `mana_multiplier`, `armor_multiplier`, `damage_multiplier`, `fire_res`, `loot_id`, `skinning_loot_id`, `gold_min`, `gold_max`, `spell_id1`, `spell_list_id`, `movement_type`, `inhabit_type`, `mechanic_immune_mask`, `school_immune_mask`, `immunity_flags`) VALUES (90047, 'Emillius', 44, 44, 103, 6374, 20, 2, 1, 1, 10, 2, 2, 3.5, 255, 7044, 7044, 388, 1210, 9573, 200071, 1, 1, 2048, 4, 4);
+        -- Creature
+        REPLACE INTO `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000083, 90047, 0, 0, 0, 0, 1, -4453.76, -3462.07, 32.3887, 3.55538, 25, 25, 5, 100, 100, 1, 0, 0, 0, 10);
+
+        -- Creature Spells entry
+        REPLACE INTO `creature_spells` (`entry`, `name`, `spellId_1`, `probability_1`, `castTarget_1`, `targetParam1_1`, `targetParam2_1`, `castFlags_1`, `delayInitialMin_1`, `delayInitialMax_1`, `delayRepeatMin_1`, `delayRepeatMax_1`, `scriptId_1`, `spellId_2`, `probability_2`, `castTarget_2`, `targetParam1_2`, `targetParam2_2`, `castFlags_2`, `delayInitialMin_2`, `delayInitialMax_2`, `delayRepeatMin_2`, `delayRepeatMax_2`, `scriptId_2`, `spellId_3`, `probability_3`, `castTarget_3`, `targetParam1_3`, `targetParam2_3`, `castFlags_3`, `delayInitialMin_3`, `delayInitialMax_3`, `delayRepeatMin_3`, `delayRepeatMax_3`, `scriptId_3`, `spellId_4`, `probability_4`, `castTarget_4`, `targetParam1_4`, `targetParam2_4`, `castFlags_4`, `delayInitialMin_4`, `delayInitialMax_4`, `delayRepeatMin_4`, `delayRepeatMax_4`, `scriptId_4`, `spellId_5`, `probability_5`, `castTarget_5`, `targetParam1_5`, `targetParam2_5`, `castFlags_5`, `delayInitialMin_5`, `delayInitialMax_5`, `delayRepeatMin_5`, `delayRepeatMax_5`, `scriptId_5`, `spellId_6`, `probability_6`, `castTarget_6`, `targetParam1_6`, `targetParam2_6`, `castFlags_6`, `delayInitialMin_6`, `delayInitialMax_6`, `delayRepeatMin_6`, `delayRepeatMax_6`, `scriptId_6`, `spellId_7`, `probability_7`, `castTarget_7`, `targetParam1_7`, `targetParam2_7`, `castFlags_7`, `delayInitialMin_7`, `delayInitialMax_7`, `delayRepeatMin_7`, `delayRepeatMax_7`, `scriptId_7`, `spellId_8`, `probability_8`, `castTarget_8`, `targetParam1_8`, `targetParam2_8`, `castFlags_8`, `delayInitialMin_8`, `delayInitialMax_8`, `delayRepeatMin_8`, `delayRepeatMax_8`, `scriptId_8`) VALUES (200071, 'Dustwallow Marash - Emillius', 33608, 100, 1, 0, 0, 0, 6, 12, 15, 25, 0, 33558, 100, 1, 0, 0, 0, 15, 25, 20, 45, 0, 33559, 100, 1, 0, 0, 0, 30, 40, 20, 45, 0, 33560, 100, 1, 0, 0, 0, 45, 55, 20, 45, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+
+
 REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewXP`, `RewMoneyMaxLevel`) VALUES (30019, 15, 31, 41, 8, 'Mixology Ingredients I', 'I am running out of ingredients for mixology. Bring me 6 Dustwallow Spider Venom from Spiders in Dustwallow Marsh.', 'Bring Tabeta in Dustwallow Marsh  6 Dustwallow Spider Venom.', 'This will do.', 'Bring Tabeta in Dustwallow Marsh 6 Dustwallow Spider Venom.', '', '', '', '', '', 30045, 6, 2850, 1680);
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (6546, 30019);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (6546, 30019);
+INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (4412, 30045, -25);
+INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (4414, 30045, -25);
+INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (4415, 30045, -25);
+INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (4411, 30045, -25);
+INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (4413, 30045, -25);
+
 REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewXP`, `RewMoneyMaxLevel`) VALUES (30020, 15, 31, 41, 8, 'Mixology Ingredients II', 'I am running out of ingredients for mixology. Bring me 10 Dustwallow Crocolisk Skin from Crocolisks in Dustwallow Marsh.', 'Bring Tabetha in Dustwallow Marsh 10 Dustwallow Crocolisk Skin from Crocolisks in Dustwallow Marsh.', 'Very good.', 'Bring Tabetha in Dustwallow Marsh 10 Dustwallow Crocolisk Skin..', '', '', '', '', '', 30044, 10, 3150, 1680);
 REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (4343, 30044, -20);
 REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (4344, 30044, -20);
@@ -295,9 +332,6 @@ REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (6546, 30028
 UPDATE `mangos`.`quest_template` SET `RewItemId3`=30125, `RewItemCount3`=1 WHERE  `entry`=1203 AND `patch`=0;
 
 UPDATE `mangos`.`quest_template` SET `Objectives`='Bring a Bloodfen Claw to Jarl in Dustwallow Marsh.', `OfferRewardText`='That\'s a good claw. I can  make this into a good blade. It has a good swing. It\'s a good swing blade. Thank you. Thank you, thank you, thank you!!! Now I want to try it....$B$BLater. I\'ll try it later. But like I was saying... thanks.', `ReqItemId1`=30046 WHERE  `entry`=1203 AND `patch`=0;
-INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (4412, 30045, -10);
-INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (4414, 30045, -10);
-INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (4415, 30045, -10);
 INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (4351, 30046, -5);
 INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (4352, 30046, -5);
 INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (4355, 30046, -5);

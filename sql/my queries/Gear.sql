@@ -230,7 +230,14 @@ REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `subclass`, `name`,
 REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `max_count`, `delay`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30143, 9, 4, 8, 'Lesser Idol of Greased Lightning', 34955, 3, 24312, 892, 28, 32767, -1, 35, 0, 1, 0, 33580, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 2);
 REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `max_count`, `delay`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30144, 9, 4, 8, 'Greater Idol of Greased Lightning', 34955, 3, 24312, 892, 28, 32767, -1, 35, 0, 1, 0, 33581, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 2);
 REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `max_count`, `delay`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30145, 9, 4, 8, 'Major Idol of Greased Lightning', 34955, 3, 24312, 892, 28, 32767, -1, 35, 0, 1, 0, 33582, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 2);
--- NEXT 30146
+REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `stat_type1`, `stat_value1`, `stat_type2`, `stat_value2`, `delay`, `dmg_min1`, `dmg_max1`, `armor`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `sheath`, `max_durability`, `disenchant_id`) VALUES (30146, 2, 6, 'Tomoe', 28790, 3, 109167, 21833, 17, -1, -1, 44, 7, 20, 6, 10, 2500, 77, 117, 50, 33597, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 1, 2, 100, 45);
+REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `delay`, `dmg_min1`, `dmg_max1`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `sheath`, `max_durability`, `disenchant_id`) VALUES (30147, 2, 13, 'Tigerfangs', 29915, 3, 166758, 33351, 22, -1, -1, 45, 2200, 46, 86, 33598, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 1, 7, 65, 47);
+REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `stat_type1`, `stat_value1`, `stat_type2`, `stat_value2`, `delay`, `dmg_min1`, `dmg_max1`, `armor`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `sheath`, `max_durability`, `disenchant_id`) VALUES (30148, 2, 6, 'Engetsuto', 25633, 3, 193598, 38719, 17, -1, -1, 52, 7, 15, 6, 9, 3300, 118, 178, 60, 33599, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 1, 2, 100, 47);
+REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `stat_type1`, `stat_value1`, `stat_type2`, `stat_value2`, `stat_type3`, `stat_value3`, `delay`, `dmg_min1`, `dmg_max1`, `armor`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `sheath`, `max_durability`, `disenchant_id`) VALUES (30149, 2, 13, 'Feral Fangs', 21715, 3, 196213, 39242, 13, -1, -1, 56, 3, 9, 4, 9, 7, 9, 1500, 38, 72, 70, 33601, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 1, 7, 65, 48);
+REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `max_count`, `delay`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `disenchant_id`) VALUES (30150, 4, 'Orb of Fire', 29722, 3, 10000, 2500, 12, -1, -1, 44, 1, 0, 33609, 1, 0, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 48);
+REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id`, `quality`, `flags`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `max_count`, `delay`, `spellid_1`, `spellcooldown_1`, `spellcategory_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `disenchant_id`) VALUES (30151, 8, 4, 'Draconic Insignia', 23713, 3, 64, 10000, 2500, 12, -1, -1, 44, 1, 0, 33611, 60000, 1141, 15000, -1, -1, -1, -1, -1, -1, 0, 0, 1, 3, 49);
+REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id`, `quality`, `flags`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `max_count`, `delay`, `spellid_1`, `spellcooldown_1`, `spellcategory_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `disenchant_id`) VALUES (30152, 8, 4, 'Draconic Heart', 3422, 3, 64, 10000, 2500, 12, -1, -1, 44, 1, 0, 33612, 300000, 1141, 15000, -1, -1, -1, -1, -1, -1, 0, 0, 1, 3, 49);
+-- NEXT 30153
 
 -- flags 2048 = lootable by anyone
 
@@ -4066,7 +4073,7 @@ SET quality = 4,
     delay = 3800,
     dmg_min1 = 145,
     dmg_max1 = 220,
-    spellid_2 = 26153, -- +140 Feral attack Power
+    spellid_2 = 33603, -- +90 Feral attack Power
     spelltrigger_2 = 1
 WHERE entry = 7959;
 
@@ -5581,7 +5588,7 @@ SET quality = 4,
     stat_value3 = 9,
     stat_type3 = 7,
     stat_value3 = 9,
-    spellid_1 = 13383, -- +5 Defense
+    spellid_1 = 33597, -- +30 Feral Attack Power
     spelltrigger_1 = 1
 WHERE entry = 11935;
 
@@ -5837,7 +5844,9 @@ SET quality = 4,
     stat_value2 = 9,
     spellid_1 = 21170, -- Chance on hit: Steals 100 to 180 life from target enemy.
     spelltrigger_1 = 2,
-    spellppmrate_1 = 10 
+    spellppmrate_1 = 10,
+    spellid_2 = 33604, -- +100 Feral attack Power
+    spelltrigger_2 = 1
 WHERE entry = 11744;
 
 -- Rockfist
@@ -7260,6 +7269,16 @@ WHERE entry = 18538;
 
 -- Quest Rewards
 
+-- Scorched Cape
+UPDATE mangos . item_template
+SET fire_res = 15
+WHERE entry = 9703;
+
+-- Ruster Gloves
+UPDATE mangos . item_template
+SET fire_res = 15
+WHERE entry = 9704;
+
 -- Southsea Head Bucket
 UPDATE mangos . item_template
 SET armor = 520
@@ -7326,8 +7345,8 @@ WHERE entry = 11868;
 
 -- Guerrilla Cleaver
 UPDATE mangos . item_template
-SET dmg_min1 = 54,
-    dmg_max1 = 114
+SET dmg_min1 = 55,
+    dmg_max1 = 85
 WHERE entry = 4126;
 
 -- Grom'gol Buckler
@@ -9404,7 +9423,7 @@ WHERE entry = 15421;
 -- Shimmering Platinum Warhammer (In Dreams)
 UPDATE mangos . item_template
 SET quality = 3,
-    spellid_2 = 26153, -- +140 Feral attack Power
+    spellid_2 = 33603, -- +90 Feral attack Power
     spelltrigger_2 = 1
 WHERE entry = 15418;
 
