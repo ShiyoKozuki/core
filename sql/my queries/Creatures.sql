@@ -274,6 +274,75 @@ UPDATE `mangos`.`creature_template` SET `spell_id2`=16098 WHERE  `entry`=9236 AN
 -- Object GUID is: Creature (Entry: 10481 Guid: 48760)
 -- Object GUID is: Creature (Entry: 10481 Guid: 91414)
 
+-- Theramore NPCs
+    -- Banker
+    REPLACE INTO `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000061, 2457, 0, 0, 0, 0, 1, -3727.03, -4541.3, 25.8338, 0.47999, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
+
+    -- Auctioneer
+    REPLACE INTO `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000062, 8670, 0, 0, 0, 0, 1, -3722.77, -4550.1, 25.8338, 0.47214, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
+
+    -- Trainers
+       -- Classes
+            -- Druid
+            REPLACE INTO `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000064, 5504, 0, 0, 0, 0, 1, -3706.33, -4334.26, 11.4161, 4.06769, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
+
+            -- Rogue
+            REPLACE INTO `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000063, 917, 0, 0, 0, 0, 1, -3817.33, -4565.27, 8.89536, 2.37118, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
+
+            -- Priest
+            REPLACE INTO `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000073, 5489, 0, 0, 0, 0, 1, -3860.48, -4533.29, 8.88212, 5.10441, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
+
+            -- Warrior
+            REPLACE INTO `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000075, 5480, 0, 0, 0, 0, 1, -3786.04, -4373.36, 16.7841, 1.55517, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
+
+            -- Hunter
+                REPLACE INTO `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000077, 4138, 0, 0, 0, 0, 1, -3752.28, -4314.76, 9.97051, 5.00311, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
+
+                -- Pet 
+                REPLACE INTO `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000078, 10089, 0, 0, 0, 0, 1, -3756.38, -4319.09, 9.97051, 5.45861, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
+
+            -- Mage
+                REPLACE INTO `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000079, 5497, 0, 0, 0, 0, 1, -3748.63, -4448.84, 30.5692, 2.54481, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
+
+                -- Portal 
+                REPLACE INTO `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000080, 4165, 0, 0, 0, 0, 1, -3754.37, -4438.77, 30.5692, 4.83426, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
+
+            -- Warlock
+            REPLACE INTO `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000081, 5495, 0, 0, 0, 0, 1, -3760.26, -4474.78, 26.7946, 1.63534, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
+
+                -- Demons 
+                REPLACE INTO `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000082, 6382, 0, 0, 0, 0, 1, -3765.19, -4473.85, 27.1091, 1.25443, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
+
+            -- Paladin
+            REPLACE INTO `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000076, 5492, 0, 0, 0, 0, 1, -3779.93, -4376.56, 15.9607, 6.06338, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
+
+            -- Shaman
+            REPLACE INTO `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000074, 90034, 0, 0, 0, 0, 1, -3704.13, -4332.47, 11.4164, 5.45859, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
+
+        -- Professions
+            -- Leatherworking
+            REPLACE INTO `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000066, 11096, 0, 0, 0, 0, 1, -3737.88, -4329.81, 9.97021, 1.58736, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
+
+            -- Skinning
+            REPLACE INTO `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000067, 1292, 0, 0, 0, 0, 1, -3736.5, -4317.48, 9.97034, 4.63393, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
+
+            -- Enchanting
+            REPLACE INTO `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000068, 11068, 0, 0, 0, 0, 1, -3760.04, -4446.33, 30.5685, 0.038564, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
+
+
+    -- Vendors
+        -- Enchanting Supplies
+        REPLACE INTO `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000069, 1318, 0, 0, 0, 0, 1, -3755.69, -4451.66, 30.5685, 1.03995, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
+
+        -- Leatherworking Supplies
+        REPLACE INTO `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000070, 5565, 0, 0, 0, 0, 1, -3743.4, -4316.9, 9.97008, 4.75568, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
+
+        -- Poisons
+        REPLACE INTO `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000071, 1326, 0, 0, 0, 0, 1, -3825.16, -4573.8, 8.45478, 2.37432, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
+
+        -- Reagents
+        REPLACE INTO `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000072, 1275, 0, 0, 0, 0, 1, -3853.01, -4527.66, 9.1423, 5.46568, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
+
 -- Battlebots
 
 -- Holy Priest
