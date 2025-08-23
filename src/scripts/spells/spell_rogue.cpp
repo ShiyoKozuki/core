@@ -294,6 +294,24 @@ SpellScript* GetScript_RogueDazingStrike(SpellEntry const*)
     return new RogueDazingStrikeScript();
 }
 
+struct RogueColdBloodScript : SpellScript
+{
+    bool OnEffectExecute(Spell* spell, SpellEffectIndex effIdx) const final
+    {
+        if (effIdx == EFFECT_INDEX_1 && spell->m_casterUnit && spell->GetCaster() && spell->m_targets.getUnitTarget())
+        {
+            // How do I get the spell proccing this?
+            return false;
+        }
+        return true;
+    }
+};
+
+SpellScript* GetScript_RogueColdBlood(SpellEntry const*)
+{
+    return new RogueColdBloodScript();
+}
+
 void AddSC_rogue_spell_scripts()
 {
     Script* newscript;
@@ -344,7 +362,13 @@ void AddSC_rogue_spell_scripts()
     newscript->RegisterSelf();
 
     newscript = new Script;
-    newscript->Name = "spell_rogue_dazing_Strike";
+    newscript->Name = "spell_rogue_dazing_strike";
     newscript->GetSpellScript = &GetScript_RogueDazingStrike;
     newscript->RegisterSelf();
+
+    newscript = new Script;
+    newscript->Name = "spell_rogue_cold_blood";
+    newscript->GetSpellScript = &GetScript_RogueColdBlood;
+    newscript->RegisterSelf();
+
 }

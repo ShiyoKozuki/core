@@ -369,7 +369,13 @@ SET effect2 = 0,
     effectBasePoints3 = 0
 WHERE entry = 16825;
 
--- Vile Poisons
+-- Vile Poisons (Poison damage by 33%/66%/100%)
+UPDATE `mangos`.`spell_template` SET `effectBasePoints3`=66, `effectApplyAuraName3`=108, `effectMiscValue3`=4, `description`='Increases the damage dealt by your poisons by $s1%.'  WHERE  `entry`=16513 AND `build`=5875;
+
+UPDATE `mangos`.`spell_template` SET `effectBasePoints3`=131, `effectApplyAuraName3`=108, `effectMiscValue3`=4, `description`='Increases the damage dealt by your poisons by $s1%.'  WHERE  `entry`=16514 AND `build`=5875;
+
+UPDATE `mangos`.`spell_template` SET `effectBasePoints3`=199, `effectApplyAuraName3`=108, `effectMiscValue3`=4, `description`='Increases the damage dealt by your poisons by $s1%.'  WHERE  `entry`=16515 AND `build`=5875;
+
 UPDATE mangos . spell_template 
 SET effectBasePoints1 = 32,
     effectBasePoints2 = 32
@@ -396,6 +402,9 @@ SET effectBasePoints1 = 39,
 WHERE entry = 16720;
 
 -- Rogue
+
+    -- Cold Blood (Add script for Mutilate functionality)
+    UPDATE `mangos`.`spell_template` SET `effect2`=77, `effectImplicitTargetA2`=1, `effectApplyAuraName2`=4 WHERE  `entry`=14177 AND `build`=5302;
 
     -- Sword Specialization (Add Axes)
     UPDATE `mangos`.`spell_template` SET `equippedItemSubClassMask`=387, `name`='Slicing Specialization', `description`='Gives you a $h% chance to get an extra attack on the same target after dealing damage with your Sword or Axe.' WHERE  `entry`=13960 AND `build`=5875;

@@ -289,6 +289,30 @@ UPDATE `mangos`.`skinning_loot_template` SET `groupid`=1 WHERE  `entry`=4323 AND
 UPDATE `mangos`.`skinning_loot_template` SET `groupid`=1 WHERE  `entry`=4323 AND `item`=8165 AND `patch_min`=0 AND `patch_max`=10;
 UPDATE `mangos`.`skinning_loot_template` SET `groupid`=1 WHERE  `entry`=4323 AND `item`=8169 AND `patch_min`=0 AND `patch_max`=10;
 
+UPDATE `mangos`.`skinning_loot_template` SET `groupid`=1 WHERE  `entry`=4324 AND `item`=4234 AND `patch_min`=0 AND `patch_max`=10;
+UPDATE `mangos`.`skinning_loot_template` SET `groupid`=1 WHERE  `entry`=4324 AND `item`=4235 AND `patch_min`=0 AND `patch_max`=10;
+UPDATE `mangos`.`skinning_loot_template` SET `groupid`=1 WHERE  `entry`=4324 AND `item`=4304 AND `patch_min`=0 AND `patch_max`=10;
+UPDATE `mangos`.`skinning_loot_template` SET `groupid`=1 WHERE  `entry`=4324 AND `item`=8165 AND `patch_min`=0 AND `patch_max`=10;
+UPDATE `mangos`.`skinning_loot_template` SET `groupid`=1 WHERE  `entry`=4324 AND `item`=8169 AND `patch_min`=0 AND `patch_max`=10;
+
+UPDATE `mangos`.`skinning_loot_template` SET `groupid`=1 WHERE  `entry`=4329 AND `item`=4234 AND `patch_min`=0 AND `patch_max`=10;
+UPDATE `mangos`.`skinning_loot_template` SET `groupid`=1 WHERE  `entry`=4329 AND `item`=4235 AND `patch_min`=0 AND `patch_max`=10;
+UPDATE `mangos`.`skinning_loot_template` SET `groupid`=1 WHERE  `entry`=4329 AND `item`=4304 AND `patch_min`=0 AND `patch_max`=10;
+UPDATE `mangos`.`skinning_loot_template` SET `groupid`=1 WHERE  `entry`=4329 AND `item`=8165 AND `patch_min`=0 AND `patch_max`=10;
+UPDATE `mangos`.`skinning_loot_template` SET `groupid`=1 WHERE  `entry`=4329 AND `item`=8169 AND `patch_min`=0 AND `patch_max`=10;
+
+UPDATE `mangos`.`skinning_loot_template` SET `groupid`=1 WHERE  `entry`=4328 AND `item`=4234 AND `patch_min`=0 AND `patch_max`=10;
+UPDATE `mangos`.`skinning_loot_template` SET `groupid`=1 WHERE  `entry`=4328 AND `item`=4235 AND `patch_min`=0 AND `patch_max`=10;
+UPDATE `mangos`.`skinning_loot_template` SET `groupid`=1 WHERE  `entry`=4328 AND `item`=4304 AND `patch_min`=0 AND `patch_max`=10;
+UPDATE `mangos`.`skinning_loot_template` SET `groupid`=1 WHERE  `entry`=4328 AND `item`=8165 AND `patch_min`=0 AND `patch_max`=10;
+UPDATE `mangos`.`skinning_loot_template` SET `groupid`=1 WHERE  `entry`=4328 AND `item`=8169 AND `patch_min`=0 AND `patch_max`=10;
+
+UPDATE `mangos`.`skinning_loot_template` SET `groupid`=1 WHERE  `entry`=4331 AND `item`=4234 AND `patch_min`=0 AND `patch_max`=10;
+UPDATE `mangos`.`skinning_loot_template` SET `groupid`=1 WHERE  `entry`=4331 AND `item`=4235 AND `patch_min`=0 AND `patch_max`=10;
+UPDATE `mangos`.`skinning_loot_template` SET `groupid`=1 WHERE  `entry`=4331 AND `item`=4304 AND `patch_min`=0 AND `patch_max`=10;
+UPDATE `mangos`.`skinning_loot_template` SET `groupid`=1 WHERE  `entry`=4331 AND `item`=8165 AND `patch_min`=0 AND `patch_max`=10;
+UPDATE `mangos`.`skinning_loot_template` SET `groupid`=1 WHERE  `entry`=4331 AND `item`=8169 AND `patch_min`=0 AND `patch_max`=10;
+
 REPLACE `mangos`.`skinning_loot_template` (`entry`, `item`, `ChanceOrQuestChance`, `groupid`) VALUES (4355, 4234, 77.351, 1);
 REPLACE `mangos`.`skinning_loot_template` (`entry`, `item`, `ChanceOrQuestChance`, `groupid`) VALUES (4355, 4235, 1.902, 1);
 REPLACE `mangos`.`skinning_loot_template` (`entry`, `item`, `ChanceOrQuestChance`, `groupid`) VALUES (4355, 4304, 20.747, 1);

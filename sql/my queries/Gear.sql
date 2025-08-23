@@ -1630,9 +1630,12 @@ WHERE entry = 4455;
 
 -- Frost Leather Cloak
 UPDATE mangos . item_template
-SET armor = 75,
+SET quality = 3,
+    armor = 75,
     stat_type1 = 4,
-    stat_value1 = 10
+    stat_value1 = 10,
+    spellid_1 = 0,
+    spelltrigger_1 = 0
 WHERE entry = 7377;
 
 -- Dusky Leather Set
@@ -1671,14 +1674,14 @@ WHERE entry = 8197;
 -- body
 UPDATE mangos . item_template
 SET quality = 3,
-    spellid_1 = 15807, -- +32 Attack Power
+    spellid_1 = 9330, -- +18 Attack Power
     spelltrigger_1 = 1
 WHERE entry = 8175;
 
 -- pants
 UPDATE mangos . item_template
 SET quality = 3,
-    spellid_1 = 15807, -- +32 Attack Power
+    spellid_1 = 9330, -- +18 Attack Power
     spelltrigger_1 = 1
 WHERE entry = 8193;
 
@@ -4652,6 +4655,17 @@ SET stat_type1 = 5,
     spelltrigger_1 = 1
 WHERE entry = 10762;
 
+-- Coldrage Dagger
+UPDATE mangos . item_template
+SET delay = 2000,
+    dmg_min1 = 22,
+    dmg_max1 = 37,
+    dmg_type2 = 4, -- Frost
+    dmg_min2 = 22,
+    dmg_max2 = 37,
+    spellppmrate_1 = 10 
+WHERE entry = 10761;
+
 -- Uldaman
 
 -- Galgann's Firehammer
@@ -7538,7 +7552,7 @@ WHERE entry = 10708;
 UPDATE mangos . item_template
 SET quality = 3,
     delay = 2700,
-    dmg_type2 = 4,
+    dmg_type2 = 4, -- Frost
     dmg_min1 = 61,
     dmg_max1 = 111,
     spellid_1 = 20869, -- Blasts a target for 65 Frost damage.
