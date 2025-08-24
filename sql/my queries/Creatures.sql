@@ -22,6 +22,25 @@
 -- UNIT_NPC_FLAG_STABLEMASTER          = 0x00002000,       // 100%
 -- UNIT_NPC_FLAG_REPAIR                = 0x00004000,       // 100%
 
+-- Make creature able to swim, fly, or land only
+-- enum InhabitTypeValues
+-- {
+--     INHABIT_GROUND = 1,
+--     INHABIT_WATER  = 2,
+--     INHABIT_AIR    = 4,
+--     INHABIT_ANYWHERE = INHABIT_GROUND | INHABIT_WATER | INHABIT_AIR
+-- };
+
+-- .mod scale 1-4 to make creature smaler/larger
+
+-- .help all GM commands
+-- .tele prog (programmer island)
+-- .aoedamage 100000 - deal aoe damage to everything around you
+-- .namego <name> - summon player
+-- .debug ADVANCED COMMANDS
+
+-- graveyards = WorldSafeLocs.dbc and world_safe_facing.sql to set facing @ the spirit healer
+
 -- Double the armor of any mob < 2.0 multiplier and > 0 multiplier
 UPDATE mangos . creature_template
 SET armor_multiplier = 2.0

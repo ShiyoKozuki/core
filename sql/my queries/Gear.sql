@@ -30,6 +30,7 @@
 -- 5 	Shadow
 -- 6 	Arcane 
 
+-- inventory_type in sql
 -- ItemPrototype.h for more enums
 -- INVTYPE_NON_EQUIP                           = 0,
 -- INVTYPE_HEAD                                = 1,
@@ -234,7 +235,7 @@ REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display
 REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `delay`, `dmg_min1`, `dmg_max1`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `sheath`, `max_durability`, `disenchant_id`) VALUES (30147, 2, 13, 'Tigerfangs', 29915, 3, 166758, 33351, 22, -1, -1, 45, 2200, 46, 86, 33598, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 1, 7, 65, 47);
 REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `stat_type1`, `stat_value1`, `stat_type2`, `stat_value2`, `delay`, `dmg_min1`, `dmg_max1`, `armor`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `sheath`, `max_durability`, `disenchant_id`) VALUES (30148, 2, 6, 'Engetsuto', 25633, 3, 193598, 38719, 17, -1, -1, 52, 7, 15, 6, 9, 3300, 118, 178, 60, 33599, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 1, 2, 100, 47);
 REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `stat_type1`, `stat_value1`, `stat_type2`, `stat_value2`, `stat_type3`, `stat_value3`, `delay`, `dmg_min1`, `dmg_max1`, `armor`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `sheath`, `max_durability`, `disenchant_id`) VALUES (30149, 2, 13, 'Feral Fangs', 21715, 3, 196213, 39242, 13, -1, -1, 56, 3, 9, 4, 9, 7, 9, 1500, 38, 72, 70, 33601, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 1, 7, 65, 48);
-REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `max_count`, `delay`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `disenchant_id`) VALUES (30150, 4, 'Orb of Fire', 29722, 3, 10000, 2500, 12, -1, -1, 44, 1, 0, 33609, 1, 0, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 48);
+REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `max_count`, `delay`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `disenchant_id`) VALUES (30150, 4, 'Minor Orb of Fire', 29722, 3, 10000, 2500, 12, -1, -1, 44, 1, 0, 33609, 1, 0, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 48);
 REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id`, `quality`, `flags`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `max_count`, `delay`, `spellid_1`, `spellcooldown_1`, `spellcategory_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `disenchant_id`) VALUES (30151, 8, 4, 'Draconic Insignia', 23713, 3, 64, 10000, 2500, 12, -1, -1, 44, 1, 0, 33611, 60000, 1141, 15000, -1, -1, -1, -1, -1, -1, 0, 0, 1, 3, 49);
 REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id`, `quality`, `flags`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `max_count`, `delay`, `spellid_1`, `spellcooldown_1`, `spellcategory_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `disenchant_id`) VALUES (30152, 8, 4, 'Draconic Heart', 3422, 3, 64, 10000, 2500, 12, -1, -1, 44, 1, 0, 33612, 300000, 1141, 15000, -1, -1, -1, -1, -1, -1, 0, 0, 1, 3, 49);
 -- NEXT 30153
@@ -8793,6 +8794,17 @@ SET spellid_1 = 7680, -- +13 Healing
     spelltrigger_1 = 1
 WHERE entry = 11262;
 
+-- Black Menance(In the Name of the Light)
+UPDATE mangos . item_template
+SET delay = 2000,
+    dmg_min1 = 22,
+    dmg_max1 = 37,
+    dmg_type2 = 5, -- Shadow
+    dmg_min2 = 22,
+    dmg_max2 = 37,
+    spellppmrate_1 = 10 
+WHERE entry = 6831;
+
 -- Teacher's Sash (Mazen's Behest)
 UPDATE mangos . item_template
 SET quality = 3,
@@ -12454,6 +12466,8 @@ WHERE entry = 12999;
 UPDATE mangos . item_template
 SET stat_type1 = 6,
     stat_value1 = 15,
+    stat_type2 = 0,
+    stat_value2 = 0,
     spellid_1 = 7680, -- +13 Healing
     spelltrigger_1 = 1
 WHERE entry = 13011;
@@ -13495,6 +13509,11 @@ SET spellid_2 = 18382, -- +2% Spell Crit
     spellid_4 = 15714, -- +22 Spell Damage
     spelltrigger_4 = 1
 WHERE entry = 13603;
+
+-- -- One-handed (MH or OH)
+UPDATE mangos. item_template 
+SET inventory_type = 13 -- One-handed (MH or OH)
+WHERE name IN ('Tigerfangs');
 
 -- New custom items
 -- Cape of the Legion

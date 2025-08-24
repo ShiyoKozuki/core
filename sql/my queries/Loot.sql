@@ -1,7 +1,7 @@
 -- Creature drops
 
 -- For grouped drops (I.e. bosses)
--- SELECT * FROM reference_loot_template WHERE entry = 30135;
+-- SELECT * FROM reference_loot_template WHERE item = 30135;
 
 -- Sterilize drops (25% base)
 UPDATE mangos . creature_loot_template
