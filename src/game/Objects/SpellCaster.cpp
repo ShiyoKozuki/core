@@ -991,7 +991,17 @@ void SpellCaster::CalculateSpellDamage(SpellNonMeleeDamage* damageInfo, float da
 
                 if (hasDeadlyPoison)
                 {
-                    damage *= 1.5f;
+                    // Make sure the Deadly Poison was applied by the caster of Mutilate
+                    Unit::AuraList const& mPeriodic = spell->GetUnitTarget()->GetAurasByType(SPELL_AURA_PERIODIC_DAMAGE);
+                    for (const auto i : mPeriodic)
+                    {
+                        // Deadly Poison
+                        if (i->GetSpellProto()->IsFitToFamily<SPELLFAMILY_ROGUE, CF_ROGUE_DEADLY_POISON>() && i->GetCasterGuid() == spell->m_caster->GetObjectGuid())
+                        {
+                            damage *= 1.5f;
+                            break;
+                        }
+                    }
                 }
             }
 

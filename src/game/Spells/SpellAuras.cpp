@@ -6164,32 +6164,36 @@ void Aura::PeriodicTick(SpellEntry const* sProto, AuraType auraType, uint32 data
             cleanDamage.resist = resist;
             pCaster->DealDamage(target, pdamage, &cleanDamage, DOT, spellProto->GetSpellSchoolMask(), spellProto, true, nullptr, GetHolder()->IsReflected());
 
-            // Venomous Wounds roll for energy regen
+            // Venomous Wounds: chance to regen energy when Garrote or Rupture ticks on a target afflicted by the casters Deadly Poison
             if (spellProto->IsFitToFamily<SPELLFAMILY_ROGUE, CF_ROGUE_GARROTE>() || spellProto->IsFitToFamily<SPELLFAMILY_ROGUE, CF_ROGUE_RUPTURE>())
             {
-                if (pCaster->IsPlayer())
+                if (Player* pPlayer = pCaster->ToPlayer())
                 {
-                    if (pCaster->HasAura(33498) || pCaster->HasAura(33499))
+                    // Talent: Venomous Wounds (two ranks)
+                    uint32 auraId = 0;
+                    if (pPlayer->HasAura(33498))
+                        auraId = 33498;
+                    else if (pPlayer->HasAura(33499))
+                        auraId = 33499;
+
+                    if (auraId)
                     {
-                        uint32 auraId = pCaster->HasAura(33498) ? 33498 : 33499;
                         SpellEntry const* pSpellInfo = sSpellMgr.GetSpellEntry(auraId);
-                        std::vector<uint32> deadlyPoisonIds = {2818, 2819, 11353, 11354, 25349};
-                        bool hasDeadlyPoison = false;
-
-                        for (auto spellId : deadlyPoisonIds)
+                        if (pSpellInfo)
                         {
-                            if (target->HasAura(spellId))
+                            // Look for Deadly Poison on target, applied by THIS caster
+                            Unit::AuraList const& mPeriodic = target->GetAurasByType(SPELL_AURA_PERIODIC_DAMAGE);
+                            for (const auto& aura : mPeriodic)
                             {
-                                hasDeadlyPoison = true;
-                                break;
-                            }
-                        }
-
-                        if (pSpellInfo && hasDeadlyPoison)
-                        {
-                            if (urand(1, 100) <= pSpellInfo->CalculateSimpleValue(EFFECT_INDEX_1))
-                            {
-                                pCaster->CastSpell(pCaster, 33554, true); // Venomous Wounds Energize
+                                if (aura->GetSpellProto()->IsFitToFamily<SPELLFAMILY_ROGUE, CF_ROGUE_DEADLY_POISON>() && aura->GetCasterGuid() == pCaster->GetObjectGuid())
+                                {
+                                    // Roll proc chance
+                                    if (urand(1, 100) <= pSpellInfo->CalculateSimpleValue(EFFECT_INDEX_1))
+                                    {
+                                        pPlayer->CastSpell(pPlayer, 33554, true); // Venomous Wounds Energize
+                                    }
+                                    break;
+                                }
                             }
                         }
                     }

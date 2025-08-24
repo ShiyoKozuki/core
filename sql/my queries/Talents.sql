@@ -369,7 +369,7 @@ SET effect2 = 0,
     effectBasePoints3 = 0
 WHERE entry = 16825;
 
--- Vile Poisons (Poison damage by 33%/66%/100%)
+-- Vile Poisons (Poison damage by 25%/50%)
 UPDATE `mangos`.`spell_template` SET `effectBasePoints3`=66, `effectApplyAuraName3`=108, `effectMiscValue3`=4, `description`='Increases the damage dealt by your poisons by $s1%.'  WHERE  `entry`=16513 AND `build`=5875;
 
 UPDATE `mangos`.`spell_template` SET `effectBasePoints3`=131, `effectApplyAuraName3`=108, `effectMiscValue3`=4, `description`='Increases the damage dealt by your poisons by $s1%.'  WHERE  `entry`=16514 AND `build`=5875;
@@ -377,28 +377,28 @@ UPDATE `mangos`.`spell_template` SET `effectBasePoints3`=131, `effectApplyAuraNa
 UPDATE `mangos`.`spell_template` SET `effectBasePoints3`=199, `effectApplyAuraName3`=108, `effectMiscValue3`=4, `description`='Increases the damage dealt by your poisons by $s1%.'  WHERE  `entry`=16515 AND `build`=5875;
 
 UPDATE mangos . spell_template 
-SET effectBasePoints1 = 32,
-    effectBasePoints2 = 32
+SET effectBasePoints1 = 24,
+    effectBasePoints2 = 24
 WHERE entry = 16513;
 
 UPDATE mangos . spell_template 
-SET effectBasePoints1 = 65, 
-    effectBasePoints2 = 65 
+SET effectBasePoints1 = 49, 
+    effectBasePoints2 = 49 
 WHERE entry = 16514;
 
 UPDATE mangos . spell_template 
-SET effectBasePoints1 = 99, 
-    effectBasePoints2 = 99 
+SET effectBasePoints1 = 74, 
+    effectBasePoints2 = 74 
 WHERE entry = 16515;
 
 UPDATE mangos . spell_template 
-SET effectBasePoints1 = 31,
-    effectBasePoints2 = 31 
+SET effectBasePoints1 = 99,
+    effectBasePoints2 = 99 
 WHERE entry = 16719;
 
 UPDATE mangos . spell_template 
-SET effectBasePoints1 = 39,
-    effectBasePoints2 = 39 
+SET effectBasePoints1 = 124,
+    effectBasePoints2 = 124 
 WHERE entry = 16720;
 
 -- Rogue

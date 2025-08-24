@@ -205,6 +205,7 @@ enum ClassFlag
     CF_DRUID_LACERATE                       = 36,
     CF_DRUID_BRUTAL_SLASH                   = 37,
     CF_DRUID_THRASH                         = 38,
+    CF_DRUID_BRAMBLES                       = 39,
 
     // -- Rogue (8)
     CF_ROGUE_THROW                          = 0,    // CM0 00000001
