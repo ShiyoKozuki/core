@@ -1,3 +1,18 @@
+-- type in creature_template.sql
+-- enum CreatureType
+-- {
+--     CREATURE_TYPE_BEAST            = 1,
+--     CREATURE_TYPE_DRAGONKIN        = 2,
+--     CREATURE_TYPE_DEMON            = 3,
+--     CREATURE_TYPE_ELEMENTAL        = 4,
+--     CREATURE_TYPE_GIANT            = 5,
+--     CREATURE_TYPE_UNDEAD           = 6,
+--     CREATURE_TYPE_HUMANOID         = 7,
+--     CREATURE_TYPE_CRITTER          = 8,
+--     CREATURE_TYPE_MECHANICAL       = 9,
+--     CREATURE_TYPE_NOT_SPECIFIED    = 10,
+--     CREATURE_TYPE_TOTEM            = 11,
+-- };
 -- Rank in creature_template.sql
 -- 0 	Normal 	Default type
 -- 1 	Elite 	Increased health, damage, better loot
@@ -204,6 +219,10 @@ WHERE entry IN(8876, 7788, 8877);
 UPDATE mangos.creature_template
 SET health_multiplier = 0.3, damage_multiplier = 1.0
 WHERE entry = 7787;
+
+-- Caliph Scorpidsting and Andre Firebeard made Elite
+UPDATE `mangos`.`creature_template` SET `rank`=1, `health_multiplier`=5.0, `damage_multiplier`=3.5, `nature_res`=125, `spell_list_id`=200072 WHERE  `entry`=7847 AND `patch`=0;
+UPDATE `mangos`.`creature_template` SET `rank`=1, `health_multiplier`=5.0, `damage_multiplier`=3.5, `fire_res`=125, `spell_list_id`=200073 WHERE  `entry`=7883 AND `patch`=0;
 
 -- Twilight Flamereaver
 UPDATE `mangos`.`creature_template` SET `spell_id1`=15732 WHERE  `entry`=15201 AND `patch`=6;
