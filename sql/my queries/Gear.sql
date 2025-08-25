@@ -3867,7 +3867,7 @@ WHERE entry = 5541;
 UPDATE mangos . item_template
 SET quality = 3,
     delay = 3800,
-    armor = 300,
+    armor = 50,
     dmg_min1 = 71,
     dmg_max1 = 111,
     spellid_1 = 13667, -- +2% Parry
@@ -4677,6 +4677,14 @@ SET quality = 3,
     dmg_max1 = 90, 
     spellppmrate_1 = 15 
 WHERE entry = 9419;
+
+-- Emberscale Cape
+UPDATE mangos . item_template
+SET quality = 3,
+    fire_res = 10,
+    spellid_1 = 33621, -- +1 Fire damage to weapon attacks
+    spelltrigger_1 = 1
+WHERE entry = 11311;
 
 -- Oilskin Leggings
 UPDATE mangos . item_template
