@@ -1043,9 +1043,9 @@ REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90041, 3013
 -- Add Naga bosses to The Shattered Strand. One can go at X: 3664 Y: -5770 Z: 11, and all the other structures
 
 -- Tanaris
--- WANTED: Andre Firebeard and WANTED: Caliph Scorpidsting made elite
-UPDATE `mangos`.`quest_template` SET `Type`=1 WHERE  `entry`=2781 AND `patch`=0;
-UPDATE `mangos`.`quest_template` SET `Type`=1 WHERE  `entry`=2875 AND `patch`=0;
+-- WANTED: Andre Firebeard and WANTED: Caliph Scorpidsting made elite + Custom rewards
+UPDATE `mangos`.`quest_template` SET `Type`=1, `RewChoiceItemId1`=30153, `RewChoiceItemId2`=30154, `RewChoiceItemId3`=30155, `RewChoiceItemCount1`=1, `RewChoiceItemCount2`=1, `RewChoiceItemCount3`=1  WHERE  `entry`=2781 AND `patch`=0;
+UPDATE `mangos`.`quest_template` SET `Type`=1, `RewChoiceItemId1`=30156, `RewChoiceItemId2`=30157, `RewChoiceItemCount1`=1, `RewChoiceItemCount2`=1 WHERE  `entry`=2875 AND `patch`=0;
 
 REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewXP`, `RewMoneyMaxLevel`, `CompleteEmote`) VALUES (30137, 440, 44, 49, 8, 'Dunemaul Treasure', 'The ogres have taken up camp all over Tanaris. They hold a treasure that I\'d like to get my hands on for some profit. Kill the ogres and get me this treasure. ', 'Bring the Ogre Treasure to Marvon Rivetseeker in Tanaris.', 'This will net me tons of money!', '', '', '', '', '', 30069, 1, 5600, 5600, 1);
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (7771, 30137);

@@ -485,15 +485,15 @@ WHERE entry = 16720;
 
     -- Hemorrhage (+2%/+3%/+4% Physical damage taken debuff)
     UPDATE `mangos`.`spell_template` SET `recoveryTime`=20000, `procCharges`=0, `durationIndex`=3, `manaCost`=10, `effectBasePoints3`=1, `effectApplyAuraName3`=87, `effectMiscValue1`=1, 
-        `description`='An instant strike that damages the opponent and causes the target to hemorrhage, increasing any Physical damage dealt to the target by $s3%.  Lasts $d.  Awards $s2 combo $lpoint:points;.'
+        `description`='An instant strike that damages the opponent and causes the target to hemorrhage, increasing any Physical damage dealt to the target by $s3%.  Lasts $d.  Awards $s2 combo $lpoint:points;.', `auraDescription`='Increases physical damage taken by $s3%.'
     WHERE  `entry`=16511;
     
     UPDATE `mangos`.`spell_template` SET `recoveryTime`=20000, `procCharges`=0, `durationIndex`=3, `manaCost`=10, `effectBasePoints3`=2, `effectApplyAuraName3`=87, `effectMiscValue1`=1 ,
-        `description`='An instant strike that damages the opponent and causes the target to hemorrhage, increasing any Physical damage dealt to the target by $s3%.  Lasts $d.  Awards $s2 combo $lpoint:points;.'
+        `description`='An instant strike that damages the opponent and causes the target to hemorrhage, increasing any Physical damage dealt to the target by $s3%.  Lasts $d.  Awards $s2 combo $lpoint:points;.', `auraDescription`='Increases physical damage taken by $s3%.'
     WHERE  `entry`=17347;
     
     UPDATE `mangos`.`spell_template` SET `recoveryTime`=20000, `procCharges`=0, `durationIndex`=3, `manaCost`=10, `effectBasePoints3`=3, `effectApplyAuraName3`=87, `effectMiscValue1`=1, 
-        `description`='An instant strike that damages the opponent and causes the target to hemorrhage, increasing any Physical damage dealt to the target by $s3%.  Lasts $d.  Awards $s2 combo $lpoint:points;.'
+        `description`='An instant strike that damages the opponent and causes the target to hemorrhage, increasing any Physical damage dealt to the target by $s3%.  Lasts $d.  Awards $s2 combo $lpoint:points;.', `auraDescription`='Increases physical damage taken by $s3%.'
     WHERE  `entry`=17348;
 
     -- Combine Endurance and Improved Sprint
