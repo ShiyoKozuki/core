@@ -650,6 +650,10 @@ REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (9540, 30172);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (9540, 30172);
 
 -- Feralas
+-- Against Lord Shalzaru made Elite
+UPDATE `mangos`.`quest_template` SET `Type`=1, `RewChoiceItemId1`=30159, `RewChoiceItemId2`=30160, `RewChoiceItemId3`=30161, `RewChoiceItemCount1`=1, `RewChoiceItemCount2`=1, `RewChoiceItemCount3`=1 WHERE  `entry`=2870 AND `patch`=0;
+
+
 REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewOrReqMoney`) VALUES (30080, 357, 40, 45, 8, 'Hating the Hatecrest I', 'Push into the south island and wipe out as many naga as you can.', 'Kill 15 Hatecrest Serpent Guards for Latronicus Moonspear in Feathermoon Stronghold.', 'This should help slow down the naga.', 'Did you kill the nagas yet?', '', '', '', '', '', 5333, 20, 72, 100, 4100, 2250);
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (7877, 30080);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (7877, 30080);
@@ -1045,7 +1049,7 @@ REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90041, 3013
 -- Tanaris
 -- WANTED: Andre Firebeard and WANTED: Caliph Scorpidsting made elite + Custom rewards
 UPDATE `mangos`.`quest_template` SET `Type`=1, `RewChoiceItemId1`=30153, `RewChoiceItemId2`=30154, `RewChoiceItemId3`=30155, `RewChoiceItemCount1`=1, `RewChoiceItemCount2`=1, `RewChoiceItemCount3`=1  WHERE  `entry`=2781 AND `patch`=0;
-UPDATE `mangos`.`quest_template` SET `Type`=1, `RewChoiceItemId1`=30156, `RewChoiceItemId2`=30157, `RewChoiceItemCount1`=1, `RewChoiceItemCount2`=1 WHERE  `entry`=2875 AND `patch`=0;
+UPDATE `mangos`.`quest_template` SET `Type`=1, `RewChoiceItemId1`=30156, `RewChoiceItemId2`=30157, `RewChoiceItemId3`=30158, `RewChoiceItemCount1`=1, `RewChoiceItemCount2`=1, `RewChoiceItemCount3`=1 WHERE  `entry`=2875 AND `patch`=0;
 
 REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewXP`, `RewMoneyMaxLevel`, `CompleteEmote`) VALUES (30137, 440, 44, 49, 8, 'Dunemaul Treasure', 'The ogres have taken up camp all over Tanaris. They hold a treasure that I\'d like to get my hands on for some profit. Kill the ogres and get me this treasure. ', 'Bring the Ogre Treasure to Marvon Rivetseeker in Tanaris.', 'This will net me tons of money!', '', '', '', '', '', 30069, 1, 5600, 5600, 1);
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (7771, 30137);

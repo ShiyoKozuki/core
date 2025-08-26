@@ -214,7 +214,6 @@ UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.5, `damage_multipl
 -- Hakkari Minion HP and damage reduced due to DMG and HP multiplier on normal mobs
 UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.4, `damage_multiplier`=1.4 WHERE  `entry`=8437 AND `patch`=0;
 
-
 -- Divino Magic Rod mobs HP reduced due to DMG and HP multiplier on normal mobs
 UPDATE mangos.creature_template
 SET health_multiplier = 0.35, damage_multiplier = 1.2
@@ -226,6 +225,9 @@ WHERE entry = 7787;
 -- Caliph Scorpidsting and Andre Firebeard made Elite
 UPDATE `mangos`.`creature_template` SET `rank`=1, `health_multiplier`=5.0, `damage_multiplier`=3.5, `nature_res`=125, `spell_list_id`=200072 WHERE  `entry`=7847 AND `patch`=0;
 UPDATE `mangos`.`creature_template` SET `rank`=1, `health_multiplier`=5.0, `damage_multiplier`=3.5, `fire_res`=125, `spell_list_id`=200073 WHERE  `entry`=7883 AND `patch`=0;
+
+-- Lord Shalzaru made elite
+UPDATE `mangos`.`creature_template` SET `rank`=1, `health_multiplier`=5.0, `mana_multiplier`=20.0, `damage_multiplier`=3.5, `frost_res`=125, `spell_list_id`=200074 WHERE  `entry`=8136 AND `patch`=0;
 
 -- Twilight Flamereaver
 UPDATE `mangos`.`creature_template` SET `spell_id1`=15732 WHERE  `entry`=15201 AND `patch`=6;
