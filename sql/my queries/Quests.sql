@@ -44,8 +44,8 @@
 -- how do distress beacon quests not replace item on starting? same with ship schedule
 
 -- Quest + Vendor + Repair npc flag = 
--- NEXT quest_template 30248
--- NEXT creature_template 90048
+-- NEXT quest_template 30249
+-- NEXT creature_template 90050
 
 --     QUEST_TYPE_ELITE               = 1,
 --     QUEST_TYPE_LIFE                = 21,
@@ -293,11 +293,6 @@ REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (4503, 30017
         REPLACE `mangos`.`creature_template` (`entry`, `name`, `level_min`, `level_max`, `faction`, `display_id1`, `detection_range`, `type`, `rank`, `unit_class`, `health_multiplier`, `mana_multiplier`, `armor_multiplier`, `damage_multiplier`, `fire_res`, `loot_id`, `skinning_loot_id`, `gold_min`, `gold_max`, `spell_id1`, `spell_list_id`, `movement_type`, `inhabit_type`, `mechanic_immune_mask`, `school_immune_mask`, `immunity_flags`) VALUES (90047, 'Emillius', 44, 44, 103, 6374, 20, 2, 1, 1, 15, 2, 2, 3.5, 255, 7044, 7044, 388, 1210, 9573, 200071, 1, 1, 2048, 4, 4);
         -- Creature
         REPLACE INTO `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000083, 90047, 0, 0, 0, 0, 1, -4453.76, -3462.07, 32.3887, 3.55538, 300, 300, 5, 100, 100, 1, 0, 0, 0, 10);
-
-        -- Creature Spells entry
-    REPLACE INTO `creature_spells` (`entry`, `name`, `spellId_1`, `probability_1`, `castTarget_1`, `targetParam1_1`, `targetParam2_1`, `castFlags_1`, `delayInitialMin_1`, `delayInitialMax_1`, `delayRepeatMin_1`, `delayRepeatMax_1`, `scriptId_1`, `spellId_2`, `probability_2`, `castTarget_2`, `targetParam1_2`, `targetParam2_2`, `castFlags_2`, `delayInitialMin_2`, `delayInitialMax_2`, `delayRepeatMin_2`, `delayRepeatMax_2`, `scriptId_2`, `spellId_3`, `probability_3`, `castTarget_3`, `targetParam1_3`, `targetParam2_3`, `castFlags_3`, `delayInitialMin_3`, `delayInitialMax_3`, `delayRepeatMin_3`, `delayRepeatMax_3`, `scriptId_3`, `spellId_4`, `probability_4`, `castTarget_4`, `targetParam1_4`, `targetParam2_4`, `castFlags_4`, `delayInitialMin_4`, `delayInitialMax_4`, `delayRepeatMin_4`, `delayRepeatMax_4`, `scriptId_4`, `spellId_5`, `probability_5`, `castTarget_5`, `targetParam1_5`, `targetParam2_5`, `castFlags_5`, `delayInitialMin_5`, `delayInitialMax_5`, `delayRepeatMin_5`, `delayRepeatMax_5`, `scriptId_5`, `spellId_6`, `probability_6`, `castTarget_6`, `targetParam1_6`, `targetParam2_6`, `castFlags_6`, `delayInitialMin_6`, `delayInitialMax_6`, `delayRepeatMin_6`, `delayRepeatMax_6`, `scriptId_6`, `spellId_7`, `probability_7`, `castTarget_7`, `targetParam1_7`, `targetParam2_7`, `castFlags_7`, `delayInitialMin_7`, `delayInitialMax_7`, `delayRepeatMin_7`, `delayRepeatMax_7`, `scriptId_7`, `spellId_8`, `probability_8`, `castTarget_8`, `targetParam1_8`, `targetParam2_8`, `castFlags_8`, `delayInitialMin_8`, `delayInitialMax_8`, `delayRepeatMin_8`, `delayRepeatMax_8`, `scriptId_8`) VALUES (200071, 'Dustwallow Marash - Emillius', 33608, 100, 1, 0, 0, 0, 6, 12, 10, 20, 0, 33558, 100, 1, 0, 0, 0, 15, 25, 20, 30, 0, 33559, 100, 1, 0, 0, 0, 30, 40, 20, 30, 0, 33560, 100, 1, 0, 0, 0, 45, 55, 20, 30, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-
-
 
 REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewXP`, `RewMoneyMaxLevel`) VALUES (30019, 15, 31, 41, 8, 'Mixology Ingredients I', 'I am running out of ingredients for mixology. Bring me 6 Dustwallow Spider Venom from Spiders in Dustwallow Marsh.', 'Bring Tabeta in Dustwallow Marsh  6 Dustwallow Spider Venom.', 'This will do.', 'Bring Tabeta in Dustwallow Marsh 6 Dustwallow Spider Venom.', '', '', '', '', '', 30045, 6, 2850, 1680);
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (6546, 30019);
@@ -650,9 +645,30 @@ REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (9540, 30172);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (9540, 30172);
 
 -- Feralas
--- Against Lord Shalzaru made Elite
-UPDATE `mangos`.`quest_template` SET `Type`=1, `RewChoiceItemId1`=30159, `RewChoiceItemId2`=30160, `RewChoiceItemId3`=30161, `RewChoiceItemCount1`=1, `RewChoiceItemCount2`=1, `RewChoiceItemCount3`=1 WHERE  `entry`=2870 AND `patch`=0;
+    -- Against Lord Shalzaru made Elite
+    UPDATE `mangos`.`quest_template` SET `Type`=1, `RewChoiceItemId1`=30159, `RewChoiceItemId2`=30160, `RewChoiceItemId3`=30161, `RewChoiceItemCount1`=1, `RewChoiceItemCount2`=1, `RewChoiceItemCount3`=1 WHERE  `entry`=2870 AND `patch`=0;
 
+    -- Zhi'Mun
+        -- Entry
+        REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `Type`, `QuestFlags`, `PrevQuestId`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOCount1`, `RewChoiceItemId1`, `RewChoiceItemId2`, `RewChoiceItemId3`, `RewChoiceItemCount1`, `RewChoiceItemCount2`, `RewChoiceItemCount3`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewOrReqMoney`) VALUES (30248, 357, 40, 48, 1, 8, 30084, 'Zhi\'Mun', 'The mastermind behind the ogres here is named Zhi\'Mun. He must be taken out. He resides at the top of the old ruined Priestess of Elune temple in the RUins of Isildien', 'Kill Zhi\'Mun then return to Jer\'kai Moonweaver in Feralas.', 'Now their magic should be put to an end.', 'Did you kill Zhi\'Mun yet?', '', '', '', '', '', 90048, 1, 30162, 30163, 30164, 1, 1, 1, 72, 100, 5700, 12500);
+        UPDATE `mangos`.`creature_template` SET `spell_list_id`=200075 WHERE  `entry`=90048 AND `patch`=0;
+
+        -- Start NPC
+            REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (7957, 30248);
+
+        -- Completion NPC
+            REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (7957, 30248);
+
+
+        -- Creature
+            -- Creature Template
+            REPLACE `mangos`.`creature_template` (`entry`, `name`, `level_min`, `level_max`, `faction`, `display_id1`, `type`, `rank`, `unit_class`, `health_multiplier`, `mana_multiplier`, `armor_multiplier`, `damage_multiplier`, `shadow_res`, `loot_id`, `pickpocket_loot_id`, `gold_min`, `gold_max`, `spell_list_id`, `movement_type`, `equipment_id`, `static_flags1`) VALUES (90048, 'Zhi\'Mun', 48, 48, 45, 11560, 7, 1, 8, 5.0, 25.0, 2, 3.5, 125, 5240, 5240, 62, 421, 200075, 1, 5240, 524288);
+
+            -- Creature
+            REPLACE INTO `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000084, 90048, 0, 0, 0, 0, 1, -5659.68, 1375.01, 78.4458, 6.15355, 360, 360, 5, 100, 100, 1, 0, 0, 0, 10);
+
+            -- Summoned Skeletons
+            REPLACE `mangos`.`creature_template` (`entry`, `name`, `level_min`, `level_max`, `faction`, `display_id1`, `display_probability1`, `display_total_probability`, `speed_walk`, `type`, `unit_class`, `health_multiplier`, `damage_multiplier`, `inhabit_type`, `mechanic_immune_mask`, `static_flags1`) VALUES (90049, 'Summoned Skeleton', 48, 48, 14, 158, 1, 1, 0.888888, 6, 1, 0.33, 0.33, 1, 8602131, 4);
 
 REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewOrReqMoney`) VALUES (30080, 357, 40, 45, 8, 'Hating the Hatecrest I', 'Push into the south island and wipe out as many naga as you can.', 'Kill 15 Hatecrest Serpent Guards for Latronicus Moonspear in Feathermoon Stronghold.', 'This should help slow down the naga.', 'Did you kill the nagas yet?', '', '', '', '', '', 5333, 20, 72, 100, 4100, 2250);
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (7877, 30080);
@@ -674,6 +690,7 @@ REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance
 REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `PrevQuestId`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewChoiceItemId1`, `RewChoiceItemId2`, `RewChoiceItemCount1`, `RewChoiceItemCount2`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewOrReqMoney`) VALUES (30084, 357, 40, 47, 8, 30083, 'The Ogres of Feralas', 'The gordunni ogres have been waging war on us recently. We are losing this war, and need something to turn the tides. Recent intel has found that the ogres to the south west are using strange orbs to empower their forces as well. If we could also have these orbs, we could win this war! Can you help get these orbs for us?', 'Obtain 6 gordunni Orbs then return to Jer\'kai Moonweaver in Feralas.', 'We can use this in our war against the gordunni!', 'Did you get the orbs yet?', '', '', '', '', '', 30058, 6, 11858, 11859, 1, 1, 72, 100, 4400, 12500);
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (7957, 30084);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (7957, 30084);
+UPDATE `mangos`.`quest_template` SET `NextQuestInChain`=30248 WHERE  `entry`=30084 AND `patch`=0;
 REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (5241, 30058, -10);
 REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (5236, 30058, -10);
 REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (5234, 30058, -10);

@@ -253,9 +253,12 @@ REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quali
 REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `stat_type1`, `stat_value1`, `delay`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `disenchant_id`) VALUES (30157, 4, 'Beak Necklace', 6633, 2, 28658, 7164, 2, -1, -1, 54, 5, 7, 0, 17106, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 3, 9);
 REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `delay`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellid_2`, `spelltrigger_2`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `disenchant_id`) VALUES (30158, 4, 'Ranger\'s Necklace', 5996, 2, 28658, 7164, 2, -1, -1, 54, 0, 33642, 1, -1, -1, 33654, 1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 3, 9);
 REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `stat_type1`, `stat_value1`, `stat_type2`, `stat_value2`, `delay`, `dmg_min1`, `dmg_max1`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `sheath`, `max_durability`, `disenchant_id`) VALUES (30159, 2, 13, 'Cross-Counters', 3007, 3, 18316, 3663, 13, -1, -1, 26, 4, 12, 7, 12, 2500, 72, 112, 33663, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 1, 7, 60, 42);
-REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `max_count`, `delay`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `disenchant_id`) VALUES (30160, 4, 'Minor Orb of Frost', 27227, 3, 10000, 2500, 12, -1, -1, 44, 1, 0, 33665, 1, 0, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 48);
+REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `max_count`, `delay`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `disenchant_id`) VALUES (30160, 4, 'Minor Orb of Frost', 21936, 3, 10000, 2500, 12, -1, -1, 44, 1, 0, 33665, 1, 0, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 48);
 REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id`, `quality`, `flags`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `max_count`, `delay`, `spellid_1`, `spellcooldown_1`, `spellcategory_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `disenchant_id`) VALUES (30161, 8, 4, 'Khadgar\'s Blessing', 3422, 3, 64, 10000, 2500, 12, -1, -1, 44, 1, 0, 33667, 300000, 1141, 15000, -1, -1, -1, -1, -1, -1, 0, 0, 1, 3, 49);
--- NEXT 30162
+REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `stat_type1`, `stat_value1`, `stat_type2`, `stat_value2`, `stat_type3`, `stat_value3`, `delay`, `block`, `armor`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `sheath`, `max_durability`, `disenchant_id`) VALUES (30162, 4, 6, 'Aegis Buckler', 26085, 2, 59503, 11900, 14, -1, -1, 47, 42, 4, 7, 5, 7, 6, 7, 0, 22, 1465, 33675, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 1, 4, 85, 28);
+REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `delay`, `spellid_1`, `spellcooldown_1`, `spellcategory_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30163, 9, 7, 3, 'Combusting Device', 22293, 2, 2400, 600, 12, -1, -1, 28, 0, 33682, 300000, 1153, 120000, -1, -1, -1, -1, -1, -1, 0, 0, 1, 8);
+REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `max_count`, `delay`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `disenchant_id`) VALUES (30164, 4, 'Empowering Flower', 6524, 2, 20000, 5000, 12, -1, -1, 60, 1, 0, 9415, 1, 0, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 49);
+-- NEXT 30165
 
 -- flags 2048 = lootable by anyone
 
@@ -4764,10 +4767,12 @@ WHERE entry = 9474;
 
 -- Gahz'rilla Fang
 UPDATE mangos . item_template
-SET dmg_min1 = 43,
-    dmg_max1 = 83,
-    spellid_2 = 9331, -- +20 Attack Power
-    spelltrigger_2 = 1
+SET quality = 3,
+    dmg_min1 = 22,
+    dmg_max1 = 42,
+    dmg_type2 = 3, -- Nature
+    dmg_min2 = 22,
+    dmg_max2 = 42
 WHERE entry = 9467;
 
 -- Gahz'rilla Scale Armor
@@ -4833,6 +4838,15 @@ UPDATE mangos . item_template
 SET spellid_2 = 9406, -- +18 Healing
     spelltrigger_2 = 1
 WHERE entry = 17943;
+
+-- Satyr's Lash
+UPDATE mangos . item_template
+SET dmg_min1 = 23,
+    dmg_max1 = 44,
+    dmg_type2 = 5, -- Shadow
+    dmg_min2 = 23,
+    dmg_max2 = 44
+WHERE entry = 17752;
 
 -- Satyrmane Sash
 UPDATE mangos . item_template
