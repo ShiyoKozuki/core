@@ -312,6 +312,50 @@ SpellScript* GetScript_RogueColdBlood(SpellEntry const*)
     return new RogueColdBloodScript();
 }
 
+struct RogueShivScript : SpellScript
+{
+    bool OnEffectExecute(Spell* spell, SpellEffectIndex effIdx) const final
+    {
+        if (effIdx == EFFECT_INDEX_2 && spell->m_casterUnit && spell->GetCaster() && spell->m_targets.getUnitTarget())
+        {
+            Unit* target = spell->m_targets.getUnitTarget();
+            Player* player = spell->m_caster->ToPlayer();
+            if (!player || !target)
+                return true;
+
+            // Get offhand weapon
+            if (Item* offhand = player->GetItemByPos(INVENTORY_SLOT_BAG_0, EQUIPMENT_SLOT_OFFHAND))
+            {
+                // Check temporary enchant (poison)
+                uint32 enchantId = offhand->GetEnchantmentId(TEMP_ENCHANTMENT_SLOT);
+                if (enchantId)
+                {
+                    if (SpellItemEnchantmentEntry const* enchant = sSpellItemEnchantmentStore.LookupEntry(enchantId))
+                    {
+                        // Shiv should trigger the first spell effect of the poison enchant
+                        for (int i = 0; i < 3; ++i)
+                        {
+                            if (enchant->spellid[i])
+                            {
+                                player->CastSpell(target, enchant->spellid[i], true);
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+
+            return false; // stop normal handling since we manually triggered the effect
+        }
+        return true;
+    }
+};
+
+SpellScript* GetScript_RogueShiv(SpellEntry const*)
+{
+    return new RogueShivScript();
+}
+
 void AddSC_rogue_spell_scripts()
 {
     Script* newscript;
@@ -369,6 +413,11 @@ void AddSC_rogue_spell_scripts()
     newscript = new Script;
     newscript->Name = "spell_rogue_cold_blood";
     newscript->GetSpellScript = &GetScript_RogueColdBlood;
+    newscript->RegisterSelf();
+
+    newscript = new Script;
+    newscript->Name = "spell_rogue_shiv";
+    newscript->GetSpellScript = &GetScript_RogueShiv;
     newscript->RegisterSelf();
 
 }

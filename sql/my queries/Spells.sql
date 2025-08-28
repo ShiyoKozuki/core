@@ -1,5 +1,5 @@
--- 33683 NEXT SPELL
--- 15095 NEXT SKILL_LINE_ABILITY
+-- 33687 NEXT SPELL
+-- 15096 NEXT SKILL_LINE_ABILITY
 
 -- FOR SPELL SCRIPTS USE: SPELL_EFFECT_SCRIPT_EFFECT = 77, effectImplicitTargetA1 (6) and a dummy aura (4)
 -- Spell icon:  alpha depth -  (None) opaque 0
@@ -76,6 +76,23 @@
 --     SPELLMOD_MULTIPLE_VALUE         = 27,
 --     SPELLMOD_RESIST_DISPEL_CHANCE   = 28,
 --     MAX_SPELLMOD                    = 29,
+-- };
+
+-- effect SPELL_EFFECT_DISPEL  = 38. use below enum for the miscValue when using effect 38
+-- Spell dispell type 
+-- enum DispelType
+-- {
+--     DISPEL_NONE         = 0,
+--     DISPEL_MAGIC        = 1,
+--     DISPEL_CURSE        = 2,
+--     DISPEL_DISEASE      = 3,
+--     DISPEL_POISON       = 4,
+--     DISPEL_STEALTH      = 5,
+--     DISPEL_INVISIBILITY = 6,
+--     DISPEL_ALL          = 7,
+--     DISPEL_SPE_NPC_ONLY = 8,
+--     DISPEL_ENRAGE       = 9,
+--     DISPEL_ZG_TICKET    = 10
 -- };
 
 -- EquippedItemClass
@@ -491,6 +508,20 @@ UPDATE `mangos`.`spell_template` SET `manaCost`=100 WHERE `entry`=17752;
     -- TODO: Put Moment of Opportunity in Improved Sinister Strike instead of on Sinister Strike. No longer needs to be a script then?
     -- TODO: Make Coldblood an aura script, don't remove aura if spellId is equal to one of the 3 MH mutilate spellIds
     -- Poisons descriptions remove charges text
+
+    -- Shiv
+    REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `attributesEx`, `attributesEx3`, `castingTimeIndex`, `procChance`, `baseLevel`, `spellLevel`, `powerType`, `manaCost`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effect2`, `effect3`, `effectDieSides1`, `effectDieSides2`, `effectBaseDice1`, `effectBaseDice2`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectImplicitTargetA3`, `effectApplyAuraName3`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `customFlags`, `script_name`) VALUES (33683, 4878, 327696, 134218240, 16777216, 1, 101, 1, 1, 3, 20, 2, 2, 173555, 121, 80, 77, 1, 1, 1, 1, -1, 1, 0, -1, 6, 6, 6, 4, 253, 2072, 'Shiv', 2031678, 'Rank 1', 2031678, 'Instantly attack with your off-hand weapon with a 100% chance to apply the poison from your off-hand weapon to the target. Additionally, removes an Enrage effect from your target. Awards $s2 combo $lpoint:points;.', 2031678, 2031676, 133, 1000, 8, 137447342080, 2, 2, -1, 1, 1, 1, 128, 'spell_rogue_shiv');
+    UPDATE `mangos`.`spell_template` SET `effect2`=38, `effectBonusCoefficient2`=1, `effectMiscValue2`=9, `nameSubtext`='', `description`='Instantly attack with your off-hand weapon with a 100% chance to apply the poison from your off-hand weapon to the target. Additionally, removes $s2 Frenzy effect from an enemy creature.' WHERE  `entry`=33683 AND `build`=4878;
+
+    -- Skill Line Ability
+    REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`) VALUES (15095, 5875, 38, 33683, 8, 1);
+
+    -- Learn spell(for trainer):
+    REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `targets`, `castingTimeIndex`, `procChance`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `activeIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) 
+    VALUES (33684, 4222, 1, 262400, 256, 1, 101, 6, -1, -1, 36, 1, 1, -1, 0, -1, -1, 33683, 107, 2072, 0, 'Shiv', 7274526, 'Rank 1', 7274526, 7274508, 983052, -1, 1, 1, 1);
+
+    -- Trainer
+    REPLACE `mangos`.`npc_trainer_template` (`entry`, `spell`, `spellcost`, `reqlevel`) VALUES (26, 33684, 46000, 50);
 
     -- Dazing Strike
     REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `attributesEx`, `attributesEx3`, `castingTimeIndex`, `procChance`, `baseLevel`, `spellLevel`, `powerType`, `manaCost`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effect2`, `effect3`, `effectDieSides1`, `effectDieSides2`, `effectDieSides3`, `effectBaseDice1`, `effectBaseDice2`, `effectBaseDice3`, `effectBasePoints1`, `effectBasePoints3`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectImplicitTargetA3`, `effectApplyAuraName3`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `customFlags`) VALUES (33588, 4878, 327696, 134218240, 1024, 1, 101, 1, 1, 3, 100, 2, 2, 173555, 31, 80, 6, 1, 1, 1, 1, 1, 1, 114, 9, 1, 0, -1, 6, 6, 6, 54, 253, 2062, 'Dazing Strike', 2031678, 2031678, 'An instant strike that causes $s1% weapon damage and reduces your targets chance to hit by $s3% for $d.  Awards $s2 combo $lpoint:points;.', 2031678, 2031676, 133, 1000, 8, 2, 2, -1, 1, 1, 1, 128);
@@ -1022,7 +1053,7 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
 
     -- Cloak and Dagger
         -- Spell
-        REPLACE `mangos`.`spell_template` (`entry`, `build`, `category`, `attributes`, `attributesEx`, `attributesEx2`, `castingTimeIndex`, `categoryRecoveryTime`, `auraInterruptFlags`, `procChance`, `maxLevel`, `baseLevel`, `spellLevel`, `powerType`, `rangeIndex`, `reagent1`, `reagentCount1`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effect2`, `effect3`, `effectDieSides1`, `effectDieSides2`, `effectDieSides3`, `effectBaseDice1`, `effectBaseDice2`, `effectBaseDice3`, `effectBasePoints1`, `effectBasePoints2`, `effectBasePoints3`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectImplicitTargetA3`, `effectTriggerSpell1`, `effectTriggerSpell2`, `spellVisual1`, `spellIconId`, `activeIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `spellFamilyName`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `script_name`) VALUES (33524, 4449, 39, 135594000, 32, 2, 1, 300000, 15367, 101, 41, 40, 40, 3, 1, 5140, 1, -1, -1, 64, 64, 79, 1, 1, 1, 1, 1, 1, -1, -1, -1, 0, 0, 0, 1, 1, 1, 11327, 18461, 155, 2055, 30, 'Cloak and Dagger', 8323102, 'Rank 1', 8323102, 'An instant strike that causes $33578s1% weapon damage, sends you into stealth, and turns off your attack. Also restores 40 energy.  Awards $33578s2 combo $lpoint:points;.', 2031646, 'Improved stealth.', 2031646, 8, -1, 1, 1, 1, 'spell_rogue_cloak_and_dagger');
+        REPLACE `mangos`.`spell_template` (`entry`, `build`, `category`, `attributes`, `attributesEx`, `attributesEx2`, `castingTimeIndex`, `categoryRecoveryTime`, `auraInterruptFlags`, `procChance`, `maxLevel`, `baseLevel`, `spellLevel`, `powerType`, `rangeIndex`, `reagent1`, `reagentCount1`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effect2`, `effect3`, `effectDieSides1`, `effectDieSides2`, `effectDieSides3`, `effectBaseDice1`, `effectBaseDice2`, `effectBaseDice3`, `effectBasePoints1`, `effectBasePoints2`, `effectBasePoints3`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectImplicitTargetA3`, `effectTriggerSpell1`, `effectTriggerSpell2`, `spellVisual1`, `spellIconId`, `activeIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `spellFamilyName`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `script_name`) VALUES (33524, 4449, 39, 135594000, 32, 2, 1, 300000, 15367, 101, 41, 40, 40, 3, 1, 5140, 1, -1, -1, 64, 64, 79, 1, 1, 1, 1, 1, 1, -1, -1, -1, 0, 0, 0, 1, 1, 1, 11327, 18461, 155, 2055, 30, 'Cloak and Dagger', 8323102, 'Rank 1', 8323102, 'An instant strike that causes $33578s1% weapon damage, sends you into stealth, and turns off your attack. Also restores 40 Energy.  Awards $33578s2 combo $lpoint:points;.', 2031646, 'Improved stealth.', 2031646, 8, -1, 1, 1, 1, 'spell_rogue_cloak_and_dagger');
         
         UPDATE `mangos`.`spell_template` SET `category`=0, `recoveryTime`=30000, `categoryRecoveryTime`=0, `rangeIndex`=2, `reagent1`=0, `effect2`=58, `effect3`=0, `effectDieSides3`=0, `effectBaseDice3`=0, `effectBasePoints2`=15, `effectBasePoints3`=0, `effectImplicitTargetA2`=6, `effectImplicitTargetA3`=0, `effectTriggerSpell1`=0, `effectTriggerSpell1`=11327, `effectTriggerSpell2`=0 WHERE  `entry`=33524 AND `build`=4449;
 
@@ -2002,6 +2033,18 @@ UPDATE `mangos`.`spell_template` SET `reagent4`=7078, `reagent5`=7082, `reagent6
 
             -- Decimating Bolt (-20% Max Health)
             REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `dispel`, `attributes`, `castingTimeIndex`, `interruptFlags`, `procChance`, `baseLevel`, `spellLevel`, `durationIndex`, `manaCost`, `rangeIndex`, `speed`, `stackAmount`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effect2`, `effectDieSides1`, `effectDieSides2`, `effectBaseDice1`, `effectBaseDice2`, `effectBasePoints1`, `effectBasePoints2`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectApplyAuraName2`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `customFlags`) VALUES (33671, 4222, 5, 1, 589824, 14, 15, 101, 0, 0, 9, 90, 5, 24, 5, -1, -1, 2, 6, 29, 1, 1, 1, 125, -11, -1, 0, -1, 6, 6, 133, 64, 213, 50, 'Decimating Bolt', 983070, 983052, 'Hurls a bolt of dark magic at an enemy, inflicting $s1 Shadow damage and reducing the target\'s max Health by $s2%.', 983070, 'Health reduced by $s2%.', 983052, 133, 1500, 1, 1, -1, 1, 1, 1, 128);
+
+        -- Giant Green Slime
+           -- AoE Slow (-50% Attack Speed, -50% Move Speed, -50% Cast Speed)
+            REPLACE `mangos`.`spell_template` (`entry`, `school`, `category`, `dispel`, `mechanic`, `attributes`, `castingTimeIndex`, `categoryRecoveryTime`, `interruptFlags`, `procChance`, `baseLevel`, `spellLevel`, `durationIndex`, `manaCost`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effect2`, `effect3`, `effectDieSides1`, `effectDieSides2`, `effectDieSides3`, `effectBaseDice1`, `effectBaseDice2`, `effectBaseDice3`, `effectBasePoints1`, `effectBasePoints2`, `effectBasePoints3`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectImplicitTargetA3`, `effectApplyAuraName1`, `effectApplyAuraName2`, `effectApplyAuraName3`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33685, 3, 51, 1, 11, 65536, 19, 10000, 8, 101, 28, 28, 23, 140, 4, -1, -1, 6, 6, 6, 1, 1, 1, 1, 1, 1, -51, -51, -51, 0, 0, -1, 6, 6, 6, 138, 33, 65, 68, 27, 50, 'Slowga', 4128894, '', 4128894, 'Slows the enemy\'s movement by $s2% and their attack speed by $s1% and increases the casting time of all their spells by $s3% for $d.', 4128894, 'Reduces movement by $s2%, attack speed by $s1% and casting time of spells by $s3%.', 4128894, 133, 1500, 1, 1, -1, 1, 1, 1);
+            UPDATE `mangos`.`spell_template` SET `rangeIndex`=1, `effectImplicitTargetA1`=22, `effectImplicitTargetA2`=22, `effectImplicitTargetA3`=22, `effectImplicitTargetB1`=15, `effectImplicitTargetB2`=15, `effectImplicitTargetB3`=15, `effectRadiusIndex1`=11, `effectRadiusIndex2`=11, `effectRadiusIndex3`=11 WHERE  `entry`=33685 AND `build`=5875;
+
+            -- Summon Slimes (Summons 2 Slimes)
+            REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `interruptFlags`, `procChance`, `baseLevel`, `spellLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectRadiusIndex1`, `effectMiscValue1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33686, 4222, 16, 1, 9, 101, 20, 20, 3, 1, -1, 42, 1, 1, 2, -1, -1, -1, 32, 8, 90051, 74, 61, 'Summon Slimes', 983070, 983052, 'Summons $s1 $lSlime:Slimes; to aid the caster in battle for $d.', 983054, 983052, -1, 1, 1, 1);
+
+            -- Max HP Down Reflect (-10%, stacks up to 10 times, 10s duration)
+
+
 
     -- Items
         -- +1 Fire weapon damage to attacks
