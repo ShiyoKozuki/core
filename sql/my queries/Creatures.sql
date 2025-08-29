@@ -46,7 +46,16 @@
 --     INHABIT_ANYWHERE = INHABIT_GROUND | INHABIT_WATER | INHABIT_AIR
 -- };
 
+-- Classes (For MP) unit_class in creature_template.sql
+-- enum Classes
+-- {
+--     CLASS_WARRIOR       = 1,
+--     CLASS_PALADIN       = 2,
+--     CLASS_HUNTER        = 3,
+--     CLASS_ROGUE         = 4,
+
 -- .mod scale 1-4 to make creature smaler/larger
+-- display_scale1-4 value 1-4 in creature_template.sql
 
 -- .help all GM commands
 -- .tele prog (programmer island)

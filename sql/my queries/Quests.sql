@@ -44,8 +44,8 @@
 -- how do distress beacon quests not replace item on starting? same with ship schedule
 
 -- Quest + Vendor + Repair npc flag = 
--- NEXT quest_template 30249
--- NEXT creature_template 90050
+-- NEXT quest_template 30250
+-- NEXT creature_template 90052
 
 --     QUEST_TYPE_ELITE               = 1,
 --     QUEST_TYPE_LIFE                = 21,
@@ -515,6 +515,23 @@ REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (11596, 30079);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (11596, 30079);
 
 -- Hinterlands
+-- Quest (30249)
+    -- Entry
+        REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `Type`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOCount1`, `RewChoiceItemId1`, `RewChoiceItemId2`, `RewChoiceItemId3`, `RewChoiceItemCount1`, `RewChoiceItemCount2`, `RewChoiceItemCount3`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewOrReqMoney`, `RewMoneyMaxLevel`, `DetailsEmote1`, `IncompleteEmote`, `CompleteEmote`, `OfferRewardEmote1`) VALUES (30249, 47, 40, 51, 1, 8, 'Big Bad Slime', 'Deep inside the cave at Skulk Rock there is a giant Slime. Go there and kill him for me.', 'Kill the Giant Green Slime then report back to Fraggar Thundermantle in Aerie Peak.', 'Well look at you, helping out the Wildhammers!  You\'re a $c of action, and action is what we respect around here.$B$BYour little clean-up mission is a lot more important than you might think it is.  With folks thinning out the oozes and sludges, we\'ll be able to extend our sphere of influence in no time. Here - have a little something in addition to just making new friends here in Aerie Peak!', 'Did you kill the Giant Green Slime yet?', '', '', '', '', '', 90050, 1, 30165, 30166, 30167, 1, 1, 1, 471, 100, 6100, 5000, 2640, 5, 5, 5, 4);
+
+    -- Start NPC
+        REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (7884, 30249);
+    -- End NPC
+        REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (7884, 30249);
+    -- Creature Template
+        REPLACE `mangos`.`creature_template` (`entry`, `patch`, `name`, `level_min`, `level_max`, `faction`, `display_id1`, `display_scale1`, `display_probability1`, `display_total_probability`, `type`, `rank`, `unit_class`, `health_multiplier`, `mana_multiplier`, `armor_multiplier`, `damage_multiplier`, `nature_res`, `loot_id`, `pickpocket_loot_id`, `gold_min`, `gold_max`, `spell_list_id`, `auras`, `movement_type`) VALUES (90050, 7, 'Giant Green Slime', 51, 51, 14, 1145, 4, 1, 1, 10, 1, 2, 5, 25, 5, 3.5, 115, 2655, 2655, 68, 294, 200076, 33687, 1);
+
+        REPLACE`mangos`.`creature_template` (`entry`, `patch`, `name`, `level_min`, `level_max`, `faction`, `display_id1`, `display_probability1`, `display_total_probability`, `type`, `unit_class`, `health_multiplier`, `nature_res`, `spell_list_id`, `movement_type`) VALUES (90051, 7, 'Lil\' Green Slime', 46, 46, 14, 1145, 1, 1, 10, 1, 0.33, 115, 200077, 1);
+
+    -- Creature
+    REPLACE INTO `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000085, 90050, 0, 0, 0, 0, 0, 402.813, -3791.04, 102.24, 4.26064, 360, 360, 5, 100, 100, 1, 0, 0, 0, 10);
+
+
 REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOCount1`, `RewXP`, `RewMoneyMaxLevel`) VALUES (30023, 47, 44, 50, 8, 'Those Darned Snapjaws', 'Those saltwater snapjaws are a menace. I can\'t fish for five minutes without getting a broken line from one of those oversized fish vacuums stealing my bait.', 'Thulfram the Hinterlands wants you to kill 15 Saltwater Snapjaw turtles. Return to him when you have completed this task.', 'Well met.', 'Thulfram the Hinterlands wants you to kill 15 Saltwater Snapjaw turtles. Return to him when you have completed this task.', '', '', '', '', '', 2505, 30, 4950, 1680);
 UPDATE `mangos`.`quest_template` SET `RewRepFaction1`=471, `RewRepValue1`=100 WHERE  `entry`=30023 AND `patch`=0;
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (7744, 30023);
@@ -650,7 +667,7 @@ REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (9540, 30172
 
     -- Zhi'Mun
         -- Entry
-        REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `Type`, `QuestFlags`, `PrevQuestId`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOCount1`, `RewChoiceItemId1`, `RewChoiceItemId2`, `RewChoiceItemId3`, `RewChoiceItemCount1`, `RewChoiceItemCount2`, `RewChoiceItemCount3`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewOrReqMoney`) VALUES (30248, 357, 40, 48, 1, 8, 30084, 'Zhi\'Mun', 'The mastermind behind the ogres here is named Zhi\'Mun. He must be taken out. He resides at the top of the old ruined Priestess of Elune temple in the RUins of Isildien', 'Kill Zhi\'Mun then return to Jer\'kai Moonweaver in Feralas.', 'Now their magic should be put to an end.', 'Did you kill Zhi\'Mun yet?', '', '', '', '', '', 90048, 1, 30162, 30163, 30164, 1, 1, 1, 72, 100, 5700, 12500);
+        REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `Type`, `QuestFlags`, `PrevQuestId`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOCount1`, `RewChoiceItemId1`, `RewChoiceItemId2`, `RewChoiceItemId3`, `RewChoiceItemCount1`, `RewChoiceItemCount2`, `RewChoiceItemCount3`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewOrReqMoney`) VALUES (30248, 357, 40, 48, 1, 8, 30084, 'Zhi\'Mun', 'The mastermind behind the ogres here is named Zhi\'Mun. He must be taken out. He resides at the top of the old ruined Priestess of Elune temple in the Ruins of Isildien', 'Kill Zhi\'Mun then return to Jer\'kai Moonweaver in Feralas.', 'Now their magic should be put to an end.', 'Did you kill Zhi\'Mun yet?', '', '', '', '', '', 90048, 1, 30162, 30163, 30164, 1, 1, 1, 72, 100, 5700, 12500);
         UPDATE `mangos`.`creature_template` SET `spell_list_id`=200075 WHERE  `entry`=90048 AND `patch`=0;
 
         -- Start NPC
@@ -662,7 +679,7 @@ REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (9540, 30172
 
         -- Creature
             -- Creature Template
-            REPLACE `mangos`.`creature_template` (`entry`, `name`, `level_min`, `level_max`, `faction`, `display_id1`, `type`, `rank`, `unit_class`, `health_multiplier`, `mana_multiplier`, `armor_multiplier`, `damage_multiplier`, `shadow_res`, `loot_id`, `pickpocket_loot_id`, `gold_min`, `gold_max`, `spell_list_id`, `movement_type`, `equipment_id`, `static_flags1`) VALUES (90048, 'Zhi\'Mun', 48, 48, 45, 11560, 7, 1, 8, 5.0, 25.0, 2, 3.5, 125, 5240, 5240, 62, 421, 200075, 1, 5240, 524288);
+            REPLACE `mangos`.`creature_template` (`entry`, `name`, `level_min`, `level_max`, `faction`, `display_id1`, `type`, `rank`, `unit_class`, `health_multiplier`, `mana_multiplier`, `armor_multiplier`, `damage_multiplier`, `shadow_res`, `loot_id`, `pickpocket_loot_id`, `gold_min`, `gold_max`, `spell_list_id`, `movement_type`, `equipment_id`, `static_flags1`) VALUES (90048, 'Zhi\'Mun', 48, 48, 45, 11560, 7, 1, 8, 20.0, 25.0, 2, 3.5, 125, 5240, 5240, 62, 421, 200075, 1, 5240, 524288);
 
             -- Creature
             REPLACE INTO `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000084, 90048, 0, 0, 0, 0, 1, -5659.68, 1375.01, 78.4458, 6.15355, 360, 360, 5, 100, 100, 1, 0, 0, 0, 10);
