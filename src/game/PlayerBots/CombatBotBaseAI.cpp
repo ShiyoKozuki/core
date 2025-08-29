@@ -226,6 +226,21 @@ void CombatBotBaseAI::PopulateSpellData()
                     if (IsHigherRankSpell(m_spells.paladin.pSealOfCommand))
                         m_spells.paladin.pSealOfCommand = pSpellEntry;
                 }
+                else if (pSpellEntry->SpellName[0].find("Holy Strike") != std::string::npos)
+                {
+                    if (IsHigherRankSpell(m_spells.paladin.pHolyStrike))
+                        m_spells.paladin.pHolyStrike = pSpellEntry;
+                }
+                else if (pSpellEntry->SpellName[0].find("Crusader Strike") != std::string::npos)
+                {
+                    if (IsHigherRankSpell(m_spells.paladin.pCrusaderStrike))
+                        m_spells.paladin.pCrusaderStrike = pSpellEntry;
+                }
+                else if (pSpellEntry->SpellName[0].find("Wake of Ashes") != std::string::npos)
+                {
+                    if (IsHigherRankSpell(m_spells.paladin.pWakeOfAshes))
+                        m_spells.paladin.pWakeOfAshes = pSpellEntry;
+                }
                 else if (pSpellEntry->SpellName[0].find("Judgement") != std::string::npos)
                 {
                     if (IsHigherRankSpell(m_spells.paladin.pJudgement))

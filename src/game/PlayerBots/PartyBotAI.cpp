@@ -1256,7 +1256,7 @@ void PartyBotAI::UpdateOutOfCombatAI_Paladin()
 
     if (m_role == ROLE_HEALER)
     {
-        if (FindAndHealInjuredAlly(90.0f, 90.0f))
+        if (FindAndHealInjuredAlly(80.0f, 80.0f))
             return;
     }
     else if (m_role == ROLE_MELEE_DPS)
@@ -1723,25 +1723,57 @@ void PartyBotAI::UpdateInCombatAI_Paladin()
 
         if (Unit* pVictim = me->GetVictim())
         {
+
+            if (m_spells.paladin.pWakeOfAshes &&
+                (me->GetEnemyCountInRadiusAround(me, 10.0f) > 1) &&
+                CanTryToCastSpell(me, m_spells.paladin.pWakeOfAshes))
+            {
+                if (DoCastSpell(pVictim, m_spells.paladin.pWakeOfAshes) == SPELL_CAST_OK)
+                    return;
+            }
+
             if (m_spells.paladin.pConsecration &&
-                (me->GetEnemyCountInRadiusAround(pVictim, 10.0f) > 2) &&
-                (me->GetPowerPercent(POWER_MANA) > 50.0f) &&
+                (me->GetEnemyCountInRadiusAround(me, 10.0f) > 1) &&
                 CanTryToCastSpell(me, m_spells.paladin.pConsecration))
             {
                 if (DoCastSpell(me, m_spells.paladin.pConsecration) == SPELL_CAST_OK)
                     return;
             }
+
             if (m_spells.paladin.pHolyWrath &&
                 pVictim->IsCreature() &&
                 (pVictim->GetCreatureType() == CREATURE_TYPE_UNDEAD ||
                     pVictim->GetCreatureType() == CREATURE_TYPE_DEMON) &&
                 (me->GetAttackers().size() < 3) && // too much pushback
-                (me->GetPowerPercent(POWER_MANA) > 50.0f) &&
                 CanTryToCastSpell(pVictim, m_spells.paladin.pHolyWrath))
             {
                 if (DoCastSpell(pVictim, m_spells.paladin.pHolyWrath) == SPELL_CAST_OK)
                     return;
             }
+
+            if (me->GetPowerPercent(POWER_MANA) > 30.0f)
+            {
+                if (m_spells.paladin.pHolyStrike)
+                {
+                    if (CanTryToCastSpell(me, m_spells.paladin.pHolyStrike))
+                    {
+                        if (DoCastSpell(me, m_spells.paladin.pHolyStrike) == SPELL_CAST_OK)
+                            return;
+                    }
+                }
+            }
+            else
+            {
+                if (m_spells.paladin.pCrusaderStrike)
+                {
+                    if (CanTryToCastSpell(me, m_spells.paladin.pCrusaderStrike))
+                    {
+                        if (DoCastSpell(me, m_spells.paladin.pCrusaderStrike) == SPELL_CAST_OK)
+                            return;
+                    }
+                }
+            }
+
             if (me->GetMotionMaster()->GetCurrentMovementGeneratorType() == IDLE_MOTION_TYPE
                 && !me->CanReachWithMeleeAutoAttack(pVictim))
             {
@@ -1823,7 +1855,8 @@ void PartyBotAI::UpdateOutOfCombatAI_Shaman()
             return;
     }
 
-    if (m_role == ROLE_HEALER && FindAndHealInjuredAlly(90.0f, 90.0f))
+    if (m_role == ROLE_HEALER &&
+        FindAndHealInjuredAlly(80.0f, 80.0f))
         return;
 
     if (me->GetVictim())
@@ -2408,7 +2441,7 @@ void PartyBotAI::UpdateInCombatAI_Mage()
 void PartyBotAI::UpdateOutOfCombatAI_Priest()
 {
     if (m_role == ROLE_HEALER &&
-        FindAndHealInjuredAlly(90.0f, 90.0f))
+        FindAndHealInjuredAlly(80.0f, 80.0f))
         return;
 
     if (m_spells.priest.pPrayerofFortitude && 
@@ -3707,7 +3740,8 @@ void PartyBotAI::UpdateOutOfCombatAI_Druid()
         return;
     }
 
-    if (m_role == ROLE_HEALER && FindAndHealInjuredAlly(90.0f, 90.0f))
+    if (m_role == ROLE_HEALER &&
+        FindAndHealInjuredAlly(80.0f, 80.0f))
         return;
 
     if (m_spells.druid.pGiftoftheWild)
