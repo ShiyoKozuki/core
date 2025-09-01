@@ -238,6 +238,11 @@ UPDATE `mangos`.`creature_template` SET `rank`=1, `health_multiplier`=5.0, `dama
 -- Lord Shalzaru made elite
 UPDATE `mangos`.`creature_template` SET `rank`=1, `health_multiplier`=5.0, `mana_multiplier`=20.0, `damage_multiplier`=3.5, `frost_res`=125, `spell_list_id`=200074 WHERE  `entry`=8136 AND `patch`=0;
 
+-- Moora, Salia and Shadow Lord Fel'dan made elite
+UPDATE `mangos`.`creature_template` SET `rank`=1, `health_multiplier`=2, `mana_multiplier`=5, `damage_multiplier`=2 WHERE  `entry`=9861;
+UPDATE `mangos`.`creature_template` SET `rank`=1, `health_multiplier`=2, `mana_multiplier`=5 WHERE  `entry`=9860;
+UPDATE `mangos`.`creature_template` SET `rank`=1, `health_multiplier`=5, `mana_multiplier`=25, `damage_multiplier`=3.5, `shadow_res`=125, `spell_id1`=0, `spell_id2`=0, `spell_id3`=0, `spell_list_id`=200079 WHERE  `entry`=9517;
+
 -- Twilight Flamereaver
 UPDATE `mangos`.`creature_template` SET `spell_id1`=15732 WHERE  `entry`=15201 AND `patch`=6;
 

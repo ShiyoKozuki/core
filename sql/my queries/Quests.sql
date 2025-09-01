@@ -45,7 +45,7 @@
 
 -- Quest + Vendor + Repair npc flag = 
 -- NEXT quest_template 30250
--- NEXT creature_template 90052
+-- NEXT creature_template 90053
 
 --     QUEST_TYPE_ELITE               = 1,
 --     QUEST_TYPE_LIFE                = 21,
@@ -780,6 +780,10 @@ REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (3936, 30187);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (3936, 30187);
 
 -- Felwood
+
+-- A Final Blow made elite
+UPDATE `mangos`.`quest_template` SET `Type`=1 WHERE  `entry`=5242 AND `patch`=0;
+
 -- The Remains of Trey Lightforge add Chaosbringer
 UPDATE `mangos`.`quest_template` SET `RewChoiceItemId3`=30127, `RewChoiceItemCount3`=1 WHERE  `entry`=5385 AND `patch`=0;
 
@@ -1003,12 +1007,14 @@ REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLeve
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (8379, 30114);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (8379, 30114);
 
-REPLACE `mangos`.`creature_template` (`entry`, `name`, `level_min`, `level_max`, `faction`, `display_id1`, `type`, `unit_class`, `health_multiplier`, `loot_id`, `pickpocket_loot_id`, `gold_min`, `gold_max`, `spell_id1`, `spell_id2`, `spell_list_id`, `ai_name`, `equipment_id`, `static_flags1`) VALUES (90038, 'General Narka', 55, 55, 74, 11271, 7, 1, 1.3, 8408, 8408, 116, 632, 11976, 10968, 84080, 'EventAI', 8408, 268959744);
-UPDATE `mangos`.`creature_template` SET `health_multiplier`=2.0, `armor_multiplier`=2.2, `damage_multiplier`=1.5 WHERE  `entry`=90038 AND `patch`=0;
+REPLACE `mangos`.`creature_template` (`entry`, `name`, `level_min`, `level_max`, `faction`, `display_id1`, `type`, `unit_class`, `health_multiplier`, `loot_id`, `pickpocket_loot_id`, `gold_min`, `gold_max`, `spell_id1`, `spell_id2`, `spell_list_id`, `ai_name`, `equipment_id`, `static_flags1`) VALUES (90038, 'General Narka', 55, 55, 74, 11271, 7, 1, 1.3, 8408, 8408, 116, 632, 0, 0, 200078, 'EventAI', 8408, 268959744);
+UPDATE `mangos`.`creature_template` SET `rank`=1, `health_multiplier`=5.0, `armor_multiplier`=2.2, `damage_multiplier`=3.5, `auras`=3417 WHERE  `entry`=90038 AND `patch`=0;
+
 REPLACE `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000040, 90038, 0, 0, 0, 0, 1, 3547.4, -5330.53, 134.253, 1.66993, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
 UPDATE `mangos`.`creature` SET `spawntimesecsmin`=600, `spawntimesecsmax`=600 WHERE  `guid`=2000040;
+
 REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOCount1`, `RewXP`, `RewOrReqMoney`, `DetailsEmote1`, `DetailsEmote2`, `IncompleteEmote`, `CompleteEmote`, `OfferRewardEmote1`, `OfferRewardEmote2`) VALUES (30115, 16, 50, 55, 8, 'Spitelash General', 'Adventurer, I can use your help removing General Narka from the Temple of Zin-Malor.', 'Kill General Narka in the Temple of Zin-Malor for Archmage Xylemin Azshara.', 'You have done well.', 'Have you killed the spitelash general?', '', '', '', '', '', 90038, 1, 7200, 15000, 1, 1, 6, 6, 1, 1);
-UPDATE `mangos`.`quest_template` SET `RewItemId1`=30078, `RewItemCount1`=1 WHERE  `entry`=30115 AND `patch`=0;
+UPDATE `mangos`.`quest_template` SET `Type`=1, `RewItemId1`=30078, `RewItemCount1`=1 WHERE  `entry`=30115 AND `patch`=0;
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (8379, 30115);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (8379, 30115);
 
