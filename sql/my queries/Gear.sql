@@ -92,6 +92,22 @@
 -- ITEM_SUBCLASS_WEAPON_WAND                   = 19,
 -- ITEM_SUBCLASS_WEAPON_FISHING_POLE           = 20
 
+-- allowable_class
+-- enum Classes
+-- {
+--     CLASS_WARRIOR       = 1,
+--     CLASS_PALADIN       = 2,
+--     CLASS_HUNTER        = 3,
+--     CLASS_ROGUE         = 4,
+--     CLASS_PRIEST        = 5,
+--     //CLASS_DEATH_KNIGHT  = 6,                              // not listed in DBC, will be in 3.0
+--     CLASS_SHAMAN        = 7,
+--     CLASS_MAGE          = 8,
+--     CLASS_WARLOCK       = 9,
+--     // CLASS_UNK2       = 10,unused
+--     CLASS_DRUID         = 11,
+-- };
+
 
 -- New Custom Items
 DELETE FROM `mangos`.`item_template` WHERE  `entry`=30104 AND `patch`=0;
@@ -258,10 +274,23 @@ REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id
 REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `stat_type1`, `stat_value1`, `stat_type2`, `stat_value2`, `stat_type3`, `stat_value3`, `delay`, `block`, `armor`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `sheath`, `max_durability`, `disenchant_id`) VALUES (30162, 4, 6, 'Aegis Buckler', 26085, 2, 59503, 11900, 14, -1, -1, 47, 42, 4, 7, 5, 7, 6, 7, 0, 22, 1465, 33675, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 1, 4, 85, 28);
 REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `delay`, `spellid_1`, `spellcooldown_1`, `spellcategory_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30163, 9, 7, 3, 'Combusting Device', 22293, 2, 2400, 600, 12, -1, -1, 28, 0, 33682, 300000, 1153, 120000, -1, -1, -1, -1, -1, -1, 0, 0, 1, 8);
 REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `max_count`, `delay`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `disenchant_id`) VALUES (30164, 4, 'Empowering Flower', 6524, 2, 20000, 5000, 12, -1, -1, 60, 1, 0, 9415, 1, 0, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 49);
--- Gun with stacking -100 armor proc (5 stacks)
--- Staff with spell power stacking MP5 on cast
+REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `delay`, `range_mod`, `ammo_type`, `dmg_min1`, `dmg_max1`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `max_durability`, `disenchant_id`) VALUES (30165, 10, 2, 3, 'Arquebus', 18298, 3, 83405, 16681, 26, -1, -1, 47, 2900, 100, 3, 40, 110, 33698, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, -1, 1, 1, 75, 46);
+REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `max_count`, `delay`, `dmg_min1`, `dmg_max1`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellid_2`, `spelltrigger_2`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `sheath`, `max_durability`, `disenchant_id`) VALUES (30166, 1, 2, 10, 'Rune Staff', 30870, 3, 140809, 28161, 17, -1, -1, 47, 1, 2700, 88, 133, 14248, 1, -1, -1, 33694, 1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 2, 2, 100, 46);
+REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `stat_type1`, `stat_value1`, `stat_type2`, `stat_value2`, `delay`, `dmg_min1`, `dmg_max1`, `spellid_1`, `spelltrigger_1`, `spellppmrate_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `sheath`, `max_durability`, `disenchant_id`) VALUES (30167, 2, 'Viking Axe', 25594, 3, 173526, 34705, 13, -1, -1, 53, 7, 11, 3, 5, 2700, 69, 119, 33699, 2, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 1, 3, 90, 47);
+REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `delay`, `dmg_min1`, `dmg_max1`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellid_2`, `spelltrigger_2`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `sheath`, `max_durability`, `disenchant_id`) VALUES (30168, 2, 7, 'Wise Wizard\'s Anelace', 5163, 3, 92648, 18529, 21, 128, -1, 41, 1700, 37, 70, 9417, 1, -1, -1, 33696, 0, 45000, -1, -1, -1, -1, -1, 0, 0, 1, 1, 3, 105, 61);
+REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `delay`, `dmg_min1`, `dmg_max1`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellid_2`, `spelltrigger_2`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `sheath`, `max_durability`, `disenchant_id`) VALUES (30169, 2, 7, 'Demonologist\'s Blade', 5163, 3, 92648, 18529, 21, 256, -1, 41, 1700, 37, 70, 9417, 1, -1, -1, 33698, 0, 45000, -1, -1, -1, -1, -1, 0, 0, 1, 1, 3, 105, 61);
+REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `required_level`, `max_count`, `stat_type1`, `stat_value1`, `delay`, `dmg_min1`, `dmg_max1`, `shadow_res`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellid_2`, `spelltrigger_2`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `sheath`, `max_durability`, `disenchant_id`) VALUES (30170, 2, 15, 'Fallen God\'s Tooth', 20345, 3, 16931, 3386, 13, 16, -1, 20, 1, 6, 2, 1500, 17, 32, 5, 9417, 1, -1, -1, 33699, 0, 45000, -1, -1, -1, -1, -1, 0, 0, 1, 1, 3, 50, 41);
+REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `stat_type1`, `stat_value1`, `stat_type2`, `stat_value2`, `stat_type3`, `stat_value3`, `delay`, `dmg_min1`, `dmg_max1`, `armor`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellid_2`, `spelltrigger_2`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `sheath`, `max_durability`, `disenchant_id`) VALUES (30171, 2, 13, 'Claw of Molten Fury', 21715, 3, 196213, 39242, 13, 64, -1, 56, 3, 9, 4, 9, 7, 9, 1500, 38, 72, 70, 9417, 1, -1, -1, 33700, 0, 45000, -1, -1, -1, -1, -1, 0, 0, 1, 1, 7, 65, 48);
+REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `delay`, `dmg_min1`, `dmg_max1`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellid_2`, `spelltrigger_2`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `sheath`, `max_durability`, `disenchant_id`) VALUES (30172, 2, 7, 'Sword of the Holy Protector', 20218, 3, 117784, 23556, 13, 2, -1, 47, 1700, 44, 74, 9417, 1, -1, -1, 33701, 2, -1, -1, -1, -1, -1, -1, 0, 0, 1, 1, 3, 90, 46);
+
+
 -- Axe with Enrage proc on hit (+Dmg and +attack speed)
--- NEXT 30165
+-- Mage only Frostfire Bolt Sword
+-- Warlock only Decimating Bolt Sword
+-- Priest only Void Bolt Dagger
+-- Shaman only Lava Burst Claw
+-- Paladin only sword with +Spell damage and 100% proc to gain MP on hit, also 1.7 speed
+-- NEXT 30173
 
 -- flags 2048 = lootable by anyone
 

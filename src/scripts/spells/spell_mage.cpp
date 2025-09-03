@@ -133,6 +133,26 @@ AuraScript* GetScript_MageIgnite(SpellEntry const*)
     return new MageIgniteScript();
 }
 
+struct MageFrostfireBoltScript : SpellScript
+{
+    bool OnEffectExecute(Spell* spell, SpellEffectIndex effIdx) const final
+    {
+        if (effIdx == EFFECT_INDEX_2 && spell->m_casterUnit && spell->GetCaster() && spell->m_targets.getUnitTarget())
+        {
+            // Cast "Fire" portion of Frostfire Bolt
+            spell->m_casterUnit->CastSpell(spell->m_targets.getUnitTarget(), 33697, true);
+
+            return false;
+        }
+        return true;
+    }
+};
+
+SpellScript* GetScript_MageFrostfireBolt(SpellEntry const*)
+{
+    return new MageFrostfireBoltScript();
+}
+
 void AddSC_mage_spell_scripts()
 {
     Script* newscript;
@@ -145,5 +165,10 @@ void AddSC_mage_spell_scripts()
     newscript = new Script;
     newscript->Name = "spell_mage_ignite";
     newscript->GetAuraScript = &GetScript_MageIgnite;
+    newscript->RegisterSelf();
+
+    newscript = new Script;
+    newscript->Name = "spell_mage_frostfire_bolt";
+    newscript->GetSpellScript = &GetScript_MageFrostfireBolt;
     newscript->RegisterSelf();
 }
