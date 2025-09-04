@@ -990,6 +990,78 @@ CreatureAI* GetAI_npc_the_cleaner(Creature* pCreature)
     return new npc_the_cleanerAI(pCreature);
 }
 
+/*########
+# npc_doomguard
+#########*/
+
+enum
+{
+    SPELL_RAIN_OF_FIRE = 19474,
+    SPELL_CRIPPLE = 89,
+    SPELL_WARSTOMP = 19482,
+    SPELL_SHADOWBOLT = 11660,
+};
+
+struct npc_doomguardAI : ScriptedPetAI
+{
+    explicit npc_doomguardAI(Creature* pCreature) : ScriptedPetAI(pCreature)
+    {
+        m_creature->SetCanModifyStats(true);
+
+        if (m_creature->GetCharmInfo())
+        {
+            m_creature->GetCharmInfo()->SetReactState(REACT_DEFENSIVE);
+        }
+
+        Reset();
+    }
+
+    uint32 m_uiRoFTimer;
+    uint32 m_uiCrippleTimer;
+    uint32 m_uiWarstompTimer;
+
+    void Reset() override
+    {
+        m_uiRoFTimer = urand(15000, 20000);
+        m_uiCrippleTimer = urand(8000, 15000);
+        m_uiWarstompTimer = urand(12000, 18000);
+    }
+
+    void UpdatePetAI(uint32 const uiDiff) override
+    {
+        if (m_uiRoFTimer < uiDiff)
+        {
+            if (DoCastSpellIfCan(m_creature->GetVictim(), SPELL_RAIN_OF_FIRE) == CAST_OK)
+                m_uiRoFTimer = urand(30000, 40000);
+        }
+        else
+            m_uiRoFTimer -= uiDiff;
+
+        if (m_uiCrippleTimer < uiDiff)
+        {
+            if (DoCastSpellIfCan(m_creature->GetVictim(), SPELL_CRIPPLE) == CAST_OK)
+                m_uiCrippleTimer = urand(45000, 55000);
+        }
+        else
+            m_uiCrippleTimer -= uiDiff;
+
+        if (m_uiWarstompTimer < uiDiff)
+        {
+            if (DoCastSpellIfCan(m_creature->GetVictim(), SPELL_WARSTOMP) == CAST_OK)
+                m_uiWarstompTimer = urand(60000, 70000);
+        }
+        else
+            m_uiWarstompTimer -= uiDiff;
+
+        ScriptedPetAI::UpdatePetAI(uiDiff);
+    }
+};
+
+CreatureAI* GetAI_npc_doomguard(Creature* pCreature)
+{
+    return new npc_doomguardAI(pCreature);
+}
+
 /*
  * Fireworks
  */
@@ -2336,6 +2408,12 @@ void AddSC_npcs_special()
     newscript->Name = "npc_pats_firework_guy";
     newscript->GetAI = &GetAI_npc_pats_firework_guy;
     newscript->RegisterSelf();
+
+    newscript = new Script;
+    newscript->Name = "npc_doomguard";
+    newscript->GetAI = &GetAI_npc_doomguard;
+    newscript->RegisterSelf();
+
     /*
     newscript = new Script;
     newscript->Name = "npc_firestarter_regular";
