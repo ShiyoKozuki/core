@@ -417,7 +417,7 @@ void GameObject::Update(uint32 update_diff, uint32 /*p_time*/)
                                 caster->FinishSpell(CURRENT_CHANNELED_SPELL);
 
                                 WorldPacket data(SMSG_FISH_NOT_HOOKED, 0);
-                                ((Player*)caster)->GetSession()->SendPacket(&data);
+                                caster->GetSession()->SendPacket(&data);
                             }
                             // can be deleted
                             m_lootState = GO_JUST_DEACTIVATED;
@@ -1847,6 +1847,7 @@ void GameObject::Use(Unit* user)
             // See WorldSession::HandleMeetingStoneJoinOpcode
             return;
         }
+#if SUPPORTED_CLIENT_BUILD > CLIENT_BUILD_1_5_1
         case GAMEOBJECT_TYPE_FLAGSTAND:                     // 24
         {
             if (user->GetTypeId() != TYPEID_PLAYER)
@@ -1874,6 +1875,8 @@ void GameObject::Use(Unit* user)
             }
             break;
         }
+#endif
+#if SUPPORTED_CLIENT_BUILD > CLIENT_BUILD_1_6_1
         case GAMEOBJECT_TYPE_FISHINGHOLE:                   // 25
         {
             if (user->GetTypeId() != TYPEID_PLAYER)
@@ -1884,6 +1887,7 @@ void GameObject::Use(Unit* user)
             player->SendLoot(GetObjectGuid(), LOOT_FISHINGHOLE);
             return;
         }
+#endif
 #if SUPPORTED_CLIENT_BUILD > CLIENT_BUILD_1_7_1
         case GAMEOBJECT_TYPE_FLAGDROP:                      // 26
         {
@@ -2390,30 +2394,41 @@ void GameObject::GetLosCheckPosition(float& x, float& y, float& z) const
 {
     if (GameObjectDisplayInfoAddon const* displayInfo = sGameObjectDisplayInfoAddonStorage.LookupEntry<GameObjectDisplayInfoAddon>(GetDisplayId()))
     {
-        float scale = GetObjectScale();
+        if (displayInfo->min_x || displayInfo->min_y || displayInfo->min_z || displayInfo->max_x || displayInfo->max_y || displayInfo->max_z)
+        {
+            float scale = GetObjectScale();
 
-        float minX = displayInfo->min_x * scale;
-        float minY = displayInfo->min_y * scale;
-        float minZ = displayInfo->min_z * scale;
-        float maxX = displayInfo->max_x * scale;
-        float maxY = displayInfo->max_y * scale;
-        float maxZ = displayInfo->max_z * scale;
+            float minX = displayInfo->min_x * scale;
+            float minY = displayInfo->min_y * scale;
+            float minZ = displayInfo->min_z * scale;
+            float maxX = displayInfo->max_x * scale;
+            float maxY = displayInfo->max_y * scale;
+            float maxZ = displayInfo->max_z * scale;
 
-        QuaternionData worldRotation = GetLocalRotation();
-        G3D::Quat worldRotationQuat(worldRotation.x, worldRotation.y, worldRotation.z, worldRotation.w);
+            QuaternionData worldRotation = GetLocalRotation();
+            G3D::Quat worldRotationQuat(worldRotation.x, worldRotation.y, worldRotation.z, worldRotation.w);
 
-        auto pos = G3D::CoordinateFrame{ { worldRotationQuat },{ GetPositionX(), GetPositionY(), GetPositionZ() } }
-        .toWorldSpace(G3D::Box{ { minX, minY, minZ },{ maxX, maxY, maxZ } }).center();
+            auto pos = G3D::CoordinateFrame{ { worldRotationQuat },{ GetPositionX(), GetPositionY(), GetPositionZ() } }
+            .toWorldSpace(G3D::Box{ { minX, minY, minZ },{ maxX, maxY, maxZ } }).center();
 
+            x = pos.x;
+            y = pos.y;
+            z = pos.z;
+            return;
+        }
+    }
+
+    if (m_model)
+    {
+        auto pos = m_model->getBounds().center();
         x = pos.x;
         y = pos.y;
         z = pos.z;
+        return;
     }
-    else
-    {
-        GetPosition(x, y, z);
-        z += 1.0f;
-    }
+    
+    GetPosition(x, y, z);
+    z += 1.0f;
 }
 
 GameObjectData const* GameObject::GetGOData() const

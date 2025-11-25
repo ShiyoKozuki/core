@@ -3232,7 +3232,11 @@ void Spell::SetTargetMap(SpellEffectIndex effIndex, uint32 targetMode, UnitList&
                                 // clear cooldown at fail
                                 if (m_caster->IsPlayer())
                                     m_caster->RemoveSpellCooldown(*m_spellInfo, true);
+#if SUPPORTED_CLIENT_BUILD > CLIENT_BUILD_1_5_1
                                 SendCastResult(SPELL_FAILED_NO_EDIBLE_CORPSES);
+#else
+                                SendCastResult(SPELL_FAILED_BAD_IMPLICIT_TARGETS);
+#endif
                                 finish(false);
                             }
                             break;
@@ -4709,8 +4713,10 @@ void Spell::SendCastResult(Player* caster, SpellEntry const* spellInfo, SpellCas
                 data << uint32(sSpellMgr.GetRequiredAreaForSpell(spellInfo->Id));
                 break;
             case SPELL_FAILED_EQUIPPED_ITEM_CLASS:
+#if SUPPORTED_CLIENT_BUILD > CLIENT_BUILD_1_5_1
             case SPELL_FAILED_EQUIPPED_ITEM_CLASS_MAINHAND:
-#if SUPPORTED_CLIENT_BUILD >= CLIENT_BUILD_1_10_2
+#endif
+#if SUPPORTED_CLIENT_BUILD > CLIENT_BUILD_1_9_4
             case SPELL_FAILED_EQUIPPED_ITEM_CLASS_OFFHAND:
 #endif
                 data << uint32(spellInfo->EquippedItemClass);
@@ -4725,6 +4731,21 @@ void Spell::SendCastResult(Player* caster, SpellEntry const* spellInfo, SpellCas
         data << uint8(0);
 
     caster->GetSession()->SendPacket(&data);
+}
+
+static void WriteGuidHelper(WorldPacket& data, Object* pCaster)
+{
+#if SUPPORTED_CLIENT_BUILD > CLIENT_BUILD_1_8_4
+    if (pCaster)
+        data << pCaster->GetPackGUID();
+    else
+        data << ObjectGuid().WriteAsPacked();
+#else
+    if (pCaster)
+        data << pCaster->GetGUID();
+    else
+        data << uint64(0);
+#endif
 }
 
 void Spell::SendSpellStart()
@@ -4744,20 +4765,14 @@ void Spell::SendSpellStart()
         castFlags = CAST_FLAG_HIDDEN_COMBATLOG;
 
     WorldPacket data(SMSG_SPELL_START, (8 + 8 + 4 + 2 + 4));
+
     if (m_CastItem)
-#if SUPPORTED_CLIENT_BUILD > CLIENT_BUILD_1_8_4
-        data << m_CastItem->GetPackGUID();
+        WriteGuidHelper(data, m_CastItem);
     else
-        data << m_caster->GetPackGUID();
+        WriteGuidHelper(data, m_caster);
 
-    data << m_caster->GetPackGUID();
-#else
-        data << m_CastItem->GetGUID();
-    else
-        data << m_caster->GetGUID();
+    WriteGuidHelper(data, m_casterUnit);
 
-    data << m_caster->GetGUID();
-#endif
     data << uint32(m_spellInfo->Id);                        // spellId
     data << uint16(castFlags);                              // cast flags
     data << uint32(m_timer);                                // delay?
@@ -4785,23 +4800,13 @@ void Spell::SendSpellGo()
 
     WorldPacket data(SMSG_SPELL_GO, 53);                    // guess size
 
-#if SUPPORTED_CLIENT_BUILD > CLIENT_BUILD_1_8_4
     if (m_CastItem)
-        data << m_CastItem->GetPackGUID();
+        WriteGuidHelper(data, m_CastItem);
     else
-        data << m_caster->GetPackGUID();
-#else
-    if (m_CastItem)
-        data << m_CastItem->GetGUID();
-    else
-        data << m_caster->GetGUID();
-#endif
+        WriteGuidHelper(data, m_caster);
 
-#if SUPPORTED_CLIENT_BUILD > CLIENT_BUILD_1_8_4
-    data << m_caster->GetPackGUID();
-#else
-    data << m_caster->GetGUID();
-#endif
+    WriteGuidHelper(data, m_casterUnit);
+
     data << uint32(m_spellInfo->Id);                        // spellId
     data << uint16(castFlags);                              // cast flags
 
@@ -7630,10 +7635,12 @@ SpellCastResult Spell::CheckItems()
             if (m_IsTriggeredSpell)
                 return SPELL_FAILED_DONT_REPORT;
 
+#if SUPPORTED_CLIENT_BUILD > CLIENT_BUILD_1_5_1
             if (m_spellInfo->HasAttribute(SPELL_ATTR_EX3_REQUIRES_MAIN_HAND_WEAPON))
                 return SPELL_FAILED_EQUIPPED_ITEM_CLASS_MAINHAND;
+#endif
 
-#if SUPPORTED_CLIENT_BUILD >= CLIENT_BUILD_1_10_2
+#if SUPPORTED_CLIENT_BUILD > CLIENT_BUILD_1_9_4
             if (m_spellInfo->HasAttribute(SPELL_ATTR_EX3_REQUIRES_OFFHAND_WEAPON))
                 return SPELL_FAILED_EQUIPPED_ITEM_CLASS_OFFHAND;
 #endif

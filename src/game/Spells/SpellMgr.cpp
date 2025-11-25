@@ -2594,9 +2594,10 @@ void SpellMgr::LoadSpellAreas()
 SpellCastResult SpellMgr::GetSpellAllowedInLocationError(SpellEntry const* spellInfo, Unit const* caster, Player const* player)
 {
     // Spell can be casted only in battleground
-    if (spellInfo->HasAttribute(SPELL_ATTR_EX3_ONLY_BATTLEGROUNDS) &&
-        (!player || !player->InBattleGround()))
+#if SUPPORTED_CLIENT_BUILD > CLIENT_BUILD_1_5_1
+    if (spellInfo->HasAttribute(SPELL_ATTR_EX3_ONLY_BATTLEGROUNDS) && (!player || !player->InBattleGround()))
         return SPELL_FAILED_ONLY_BATTLEGROUNDS;
+#endif
 
     uint32 mapId = caster ? caster->GetMapId() : (player ? player->GetMapId() : 0);
 
@@ -2620,6 +2621,7 @@ SpellCastResult SpellMgr::GetSpellAllowedInLocationError(SpellEntry const* spell
         case 23333:                                         // Warsong Flag
         case 23335:                                         // Silverwing Flag
             return player && player->GetMapId() == MAP_WARSONG_GULCH && player->InBattleGround() ? SPELL_CAST_OK : SPELL_FAILED_REQUIRES_AREA;
+#if SUPPORTED_CLIENT_BUILD > CLIENT_BUILD_1_5_1
         case 2584:                                          // Waiting to Resurrect
         {
             return player && player->InBattleGround() ? SPELL_CAST_OK : SPELL_FAILED_ONLY_BATTLEGROUNDS;
@@ -2633,6 +2635,7 @@ SpellCastResult SpellMgr::GetSpellAllowedInLocationError(SpellEntry const* spell
                 return SPELL_FAILED_REQUIRES_AREA;
             return mapEntry->IsBattleGround() ? SPELL_CAST_OK : SPELL_FAILED_ONLY_BATTLEGROUNDS;
         }
+#endif
     }
 
     if (caster)
