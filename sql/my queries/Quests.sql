@@ -531,6 +531,8 @@ REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (11596, 3007
     -- Creature
     REPLACE INTO `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000085, 90050, 0, 0, 0, 0, 0, 402.813, -3791.04, 102.24, 4.26064, 360, 360, 5, 100, 100, 1, 0, 0, 0, 10);
 
+    -- The Ancient Egg (Gave Hitah'ya the Keeper custom spells and made stronger)
+    UPDATE `mangos`.`creature_template` SET `health_multiplier`=25, `mana_multiplier`=25, `spell_id1`=0, `spell_id2`=0, `spell_id3`=0, `spell_list_id`=200080, `auras`='33706' WHERE  `entry`=10802 AND `patch`=0;
 
 REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOCount1`, `RewXP`, `RewMoneyMaxLevel`) VALUES (30023, 47, 44, 50, 8, 'Those Darned Snapjaws', 'Those saltwater snapjaws are a menace. I can\'t fish for five minutes without getting a broken line from one of those oversized fish vacuums stealing my bait.', 'Thulfram the Hinterlands wants you to kill 15 Saltwater Snapjaw turtles. Return to him when you have completed this task.', 'Well met.', 'Thulfram the Hinterlands wants you to kill 15 Saltwater Snapjaw turtles. Return to him when you have completed this task.', '', '', '', '', '', 2505, 30, 4950, 1680);
 UPDATE `mangos`.`quest_template` SET `RewRepFaction1`=471, `RewRepValue1`=100 WHERE  `entry`=30023 AND `patch`=0;
@@ -813,6 +815,13 @@ REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (12578, 30159);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (12578, 30159);
 
 -- Un'Goro Crater
+-- The Bait for Lar'korwi (Made elite)
+    -- Quest
+    UPDATE `mangos`.`quest_template` SET `Type`=1 WHERE  `entry`=4292 AND `patch`=0;
+
+    -- Creature
+    UPDATE `mangos`.`creature_template` SET `rank`=1, `health_multiplier`=10, `damage_multiplier`=2.5, `spell_list_id`=200081 WHERE  `entry`=9684 AND `patch`=0;
+
 
 -- WPL
 REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewOrReqMoney`, `RewMoneyMaxLevel`, `OfferRewardEmote1`) VALUES (30231, 28, 52, 57, 8, 'The Weeping Cave', 'There are strange elemental creatures in a cave far to the north west. I would like you to gather samples from them so we can use it against the scourge to take back our farms here.', 'Bring 12 Living Sample to High Priestess MacDonnell at Chillwind Camp in Western Plaguelands.', 'This should help us push back the scourge!', 'Do you have the living samples?', '', '', '', '', '', 30102, 12, 529, 100, 6100, 7500, 6100, 4);
