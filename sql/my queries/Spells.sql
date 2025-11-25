@@ -239,7 +239,23 @@
 -- 3 	SPELL_SCHOOL_NATURE
 -- 4 	SPELL_SCHOOL_FROST
 -- 5 	SPELL_SCHOOL_SHADOW
--- 6 	SPELL_SCHOOL_ARCAN
+-- 6 	SPELL_SCHOOL_ARCANE
+
+-- Used for miscValue in effectApplyAuraname SPELL_AURA_MOD_DAMAGE_DONE_CREATURE = 59
+-- enum CreatureType
+-- {
+--     CREATURE_TYPE_BEAST            = 1,
+--     CREATURE_TYPE_DRAGONKIN        = 2,
+--     CREATURE_TYPE_DEMON            = 3,
+--     CREATURE_TYPE_ELEMENTAL        = 4,
+--     CREATURE_TYPE_GIANT            = 5,
+--     CREATURE_TYPE_UNDEAD           = 6,
+--     CREATURE_TYPE_HUMANOID         = 7,
+--     CREATURE_TYPE_CRITTER          = 8,
+--     CREATURE_TYPE_MECHANICAL       = 9,
+--     CREATURE_TYPE_NOT_SPECIFIED    = 10,
+--     CREATURE_TYPE_TOTEM            = 11,
+-- };
 
 -- Don't break invis on use:
 -- SPELL_ATTR_EX_ALLOW_WHILE_STEALTHED 6
@@ -437,7 +453,6 @@
 
         -- -10%
         REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `stanceBarOrder`, `dmgMultiplier1`) VALUES (33681, 5302, 464, 1, 101, 21, 1, -1, 6, 1, 1, -11, 0, -1, -1, 1, 87, 126, 1880, 'Reduced Magic Damage Taken 01', 2031678, 2031678, 'Reduces all spell damage taken by $s1%.', 2031678, 2031628, 6, -1, 1);
-    -- -PDT
     -- -DT
     -- Melee Haste
         -- 1%
@@ -509,17 +524,197 @@
         REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `spellLevel`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectMiscValue1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33778, 5086, 464, 1, 101, 1, 1, 2, 136546, 6, 1, 1, 19, 0, -1, -1, 1, 79, 1, 366, 50, 'Two-Handed Weapon Damage', 2031678, 8323134, 'Increases the damage you deal with two-handed melee weapons by $s1%.', 2031678, 2031676, -1, 1, 1, 1);
 
     -- Crit damage
-    -- Double Attack
-    -- Triple Attack
+    -- Double Attack (SPELL_AURA_EXTRA_ATTACKS = 70 ?)
+    -- Triple Attack (SPELL_AURA_EXTRA_ATTACKS = 70 ?)
     -- Damage Behind
     -- Damage Front
     -- Energy/s
     -- Rage/s
     -- Damage vs elites and bosses
+    -- Damage vs creatures (SPELL_AURA_MOD_DAMAGE_DONE_CREATURE = 59)
+        -- Demon Slayer
+        -- 1%
+        INSERT INTO `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `spellLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33796, 5086, 464, 1, 101, 1, 21, 1, -1, 6, 1, 1, 0, 0, -1, -1, 1, 59, 4, 90, 'Demon Slayer', 8323134, '', 8323134, 'Increases damage done to Demons by $s1.', 8323134, 2031676, -1, 1, 1, 1);
+
+        -- 2%
+        INSERT INTO `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `spellLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33797, 5086, 464, 1, 101, 1, 21, 1, -1, 6, 1, 1, 1, 0, -1, -1, 1, 59, 4, 90, 'Demon Slayer', 8323134, '', 8323134, 'Increases damage done to Demons by $s1.', 8323134, 2031676, -1, 1, 1, 1);
+        
+        -- 3%
+        INSERT INTO `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `spellLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33798, 5086, 464, 1, 101, 1, 21, 1, -1, 6, 1, 1, 2, 0, -1, -1, 1, 59, 4, 90, 'Demon Slayer', 8323134, '', 8323134, 'Increases damage done to Demons by $s1.', 8323134, 2031676, -1, 1, 1, 1);
+
+        +4% (spellId 4645)
+
+        -- 5%
+        INSERT INTO `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `spellLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33799, 5086, 464, 1, 101, 1, 21, 1, -1, 6, 1, 1, 4, 0, -1, -1, 1, 59, 4, 90, 'Demon Slayer', 8323134, '', 8323134, 'Increases damage done to Demons by $s1.', 8323134, 2031676, -1, 1, 1, 1);
+
+        +8% (spellId 4646)
+
+        -- 10%
+        INSERT INTO `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `spellLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33800, 5086, 464, 1, 101, 1, 21, 1, -1, 6, 1, 1, 9, 0, -1, -1, 1, 59, 4, 90, 'Demon Slayer', 8323134, '', 8323134, 'Increases damage done to Demons by $s1.', 8323134, 2031676, -1, 1, 1, 1);
+
+        -- +12% (spellId 4647)
+        -- +17% (spellId 4648)
+        -- +22% (spellId 4649)
+        -- +28% (spellId 4650)
+
+        -- Elemental Slayer
+        -- 1%
+        REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `spellLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33801, 5086, 464, 1, 101, 1, 21, 1, -1, 6, 1, 1, 0, 0, -1, -1, 1, 59, 8, 94, 'Elemental Slayer', 8323134, '', 8323134, 'Increases damage done to Elementals by $s1.', 8323134, 2031676, -1, 1, 1, 1);
+
+        -- 2%
+        REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `spellLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33802, 5086, 464, 1, 101, 1, 21, 1, -1, 6, 1, 1, 1, 0, -1, -1, 1, 59, 8, 94, 'Elemental Slayer', 8323134, '', 8323134, 'Increases damage done to Elementals by $s1.', 8323134, 2031676, -1, 1, 1, 1);
+
+        -- 3%
+        REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `spellLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33803, 5086, 464, 1, 101, 1, 21, 1, -1, 6, 1, 1, 2, 0, -1, -1, 1, 59, 8, 94, 'Elemental Slayer', 8323134, '', 8323134, 'Increases damage done to Elementals by $s1.', 8323134, 2031676, -1, 1, 1, 1);
+
+        -- 4% (spellId 4678)
+
+        -- 5%
+        REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `spellLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33804, 5086, 464, 1, 101, 1, 21, 1, -1, 6, 1, 1, 4, 0, -1, -1, 1, 59, 8, 94, 'Elemental Slayer', 8323134, '', 8323134, 'Increases damage done to Elementals by $s1.', 8323134, 2031676, -1, 1, 1, 1);
+
+        -- 8% (spellId 4680)
+
+        -- 10%
+        REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `spellLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33805, 5086, 464, 1, 101, 1, 21, 1, -1, 6, 1, 1, 9, 0, -1, -1, 1, 59, 8, 94, 'Elemental Slayer', 8323134, '', 8323134, 'Increases damage done to Elementals by $s1.', 8323134, 2031676, -1, 1, 1, 1);
+
+        -- 12% (spellId 4681)
+        -- +17% (spellId 4683)
+        -- +22% (spellId 4684)
+        -- +28% (spellId 4685)
+
+        -- Dragon Slayer
+        -- 1%
+        REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `spellLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33805, 4222, 464, 1, 101, 1, 21, 1, -1, 6, 1, 1, 0, 0, -1, -1, 1, 59, 2, 127, 'Dragon Slayer', 7274526, '', 7274526, 'Increases damage done to Dragons by $s1.', 7274526, 983052, -1, 1, 1, 1);
+
+        -- 2%
+        REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `spellLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33806, 4222, 464, 1, 101, 1, 21, 1, -1, 6, 1, 1, 1, 0, -1, -1, 1, 59, 2, 127, 'Dragon Slayer', 7274526, '', 7274526, 'Increases damage done to Dragons by $s1.', 7274526, 983052, -1, 1, 1, 1);
+
+        -- 3%
+        REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `spellLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33807, 4222, 464, 1, 101, 1, 21, 1, -1, 6, 1, 1, 2, 0, -1, -1, 1, 59, 2, 127, 'Dragon Slayer', 7274526, '', 7274526, 'Increases damage done to Dragons by $s1.', 7274526, 983052, -1, 1, 1, 1);
+
+
+        -- 4% (spellId 4661)
+
+        -- 5%
+        REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `spellLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33808, 4222, 464, 1, 101, 1, 21, 1, -1, 6, 1, 1, 4, 0, -1, -1, 1, 59, 2, 127, 'Dragon Slayer', 7274526, '', 7274526, 'Increases damage done to Dragons by $s1.', 7274526, 983052, -1, 1, 1, 1);
+
+        -- 8% (spellId 4662)
+
+        -- 10%
+        REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `spellLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33809, 4222, 464, 1, 101, 1, 21, 1, -1, 6, 1, 1, 9, 0, -1, -1, 1, 59, 2, 127, 'Dragon Slayer', 7274526, '', 7274526, 'Increases damage done to Dragons by $s1.', 7274526, 983052, -1, 1, 1, 1);
+
+        -- 12% (spellId 4663)
+        -- +17% (spellId 4664)
+        -- +22% (spellId 4665)
+        -- +28% (spellId 4666)
+
+        -- Undead Slayer
+        -- 1%
+        REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `spellLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33810, 5086, 464, 1, 101, 1, 21, 1, -1, 6, 1, 1, 0, 0, -1, -1, 1, 59, 32, 170, 'Undead Slayer', 8323134, '', 8323134, 'Increases damage done to Undead by $s1.', 8323134, 2031676, -1, 1, 1, 1);
+
+        -- 2%
+        REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `spellLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33811, 5086, 464, 1, 101, 1, 21, 1, -1, 6, 1, 1, 1, 0, -1, -1, 1, 59, 32, 170, 'Undead Slayer', 8323134, '', 8323134, 'Increases damage done to Undead by $s1.', 8323134, 2031676, -1, 1, 1, 1);
+
+        -- 3% (spellId 4714)
+
+        -- 4%
+        REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `spellLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33812, 5086, 464, 1, 101, 1, 21, 1, -1, 6, 1, 1, 3, 0, -1, -1, 1, 59, 32, 170, 'Undead Slayer', 8323134, '', 8323134, 'Increases damage done to Undead by $s1.', 8323134, 2031676, -1, 1, 1, 1);
+
+        -- 5%
+        REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `spellLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33813, 5086, 464, 1, 101, 1, 21, 1, -1, 6, 1, 1, 4, 0, -1, -1, 1, 59, 32, 170, 'Undead Slayer', 8323134, '', 8323134, 'Increases damage done to Undead by $s1.', 8323134, 2031676, -1, 1, 1, 1);
+        
+        -- 6% (spellId 4717)
+
+        -- 9% (spellId 4718)
+
+        -- 10%
+        REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `spellLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33814, 5086, 464, 1, 101, 1, 21, 1, -1, 6, 1, 1, 9, 0, -1, -1, 1, 59, 32, 170, 'Undead Slayer', 8323134, '', 8323134, 'Increases damage done to Undead by $s1.', 8323134, 2031676, -1, 1, 1, 1);
+
+        -- 13% (spellId 4719)
+        -- +17% (spellId 4720)
+        -- +22% (spellId 4721)
+        -- +28% (spellId 4722)
+
+        -- Humanoid Slayer
+        -- 1%
+        REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `spellLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33815, 5086, 464, 1, 101, 1, 21, 1, -1, 6, 1, 1, 0, 0, -1, -1, 1, 59, 64, 170, 'Humanoid Slayer', 8323134, '', 8323134, 'Increases damage done to Humanoids by $s1.', 8323134, 2031676, -1, 1, 1, 1);
+
+        -- 2%
+        REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `spellLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33816, 5086, 464, 1, 101, 1, 21, 1, -1, 6, 1, 1, 1, 0, -1, -1, 1, 59, 64, 170, 'Humanoid Slayer', 8323134, '', 8323134, 'Increases damage done to Humanoids by $s1.', 8323134, 2031676, -1, 1, 1, 1);
+
+        -- 3%
+        REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `spellLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33817, 5086, 464, 1, 101, 1, 21, 1, -1, 6, 1, 1, 2, 0, -1, -1, 1, 59, 64, 170, 'Humanoid Slayer', 8323134, '', 8323134, 'Increases damage done to Humanoids by $s1.', 8323134, 2031676, -1, 1, 1, 1);
+
+        -- 4%
+        REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `spellLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33818, 5086, 464, 1, 101, 1, 21, 1, -1, 6, 1, 1, 3, 0, -1, -1, 1, 59, 64, 170, 'Humanoid Slayer', 8323134, '', 8323134, 'Increases damage done to Humanoids by $s1.', 8323134, 2031676, -1, 1, 1, 1);
+
+        -- 5%
+        REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `spellLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33819, 5086, 464, 1, 101, 1, 21, 1, -1, 6, 1, 1, 4, 0, -1, -1, 1, 59, 64, 170, 'Humanoid Slayer', 8323134, '', 8323134, 'Increases damage done to Humanoids by $s1.', 8323134, 2031676, -1, 1, 1, 1);
+
+        -- 10%
+        REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `spellLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33820, 5086, 464, 1, 101, 1, 21, 1, -1, 6, 1, 1, 9, 0, -1, -1, 1, 59, 64, 170, 'Humanoid Slayer', 8323134, '', 8323134, 'Increases damage done to Humanoids by $s1.', 8323134, 2031676, -1, 1, 1, 1);
+
+        -- Beast Slayer
+        -- Mechanical Slayer
+
+    -- Healing recieved
+        -- 1%
+        REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33779, 4222, 464, 1, 101, 21, 1, -1, 6, 1, 1, 0, 0, -1, -1, 1, 118, 127, 1, 'Healing Recieved', 983070, 983052, 'Increases healing recieved by $s1%.', 983052, 983052, -1, 1, 1, 1);
+
+        -- 2%
+        REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33780, 4222, 464, 1, 101, 21, 1, -1, 6, 1, 1, 1, 0, -1, -1, 1, 118, 127, 1, 'Healing Recieved', 983070, 983052, 'Increases healing recieved by $s1%.', 983052, 983052, -1, 1, 1, 1);
+
+        -- 3%
+        REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33781, 4222, 464, 1, 101, 21, 1, -1, 6, 1, 1, 2, 0, -1, -1, 1, 118, 127, 1, 'Healing Recieved', 983070, 983052, 'Increases healing recieved by $s1%.', 983052, 983052, -1, 1, 1, 1);
+
+        -- 4%
+        REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33782, 4222, 464, 1, 101, 21, 1, -1, 6, 1, 1, 3, 0, -1, -1, 1, 118, 127, 1, 'Healing Recieved', 983070, 983052, 'Increases healing recieved by $s1%.', 983052, 983052, -1, 1, 1, 1);
+
+        -- 5%
+        REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33783, 4222, 464, 1, 101, 21, 1, -1, 6, 1, 1, 4, 0, -1, -1, 1, 118, 127, 1, 'Healing Recieved', 983070, 983052, 'Increases healing recieved by $s1%.', 983052, 983052, -1, 1, 1, 1);
+
+        -- 6%
+        REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33784, 4222, 464, 1, 101, 21, 1, -1, 6, 1, 1, 5, 0, -1, -1, 1, 118, 127, 1, 'Healing Recieved', 983070, 983052, 'Increases healing recieved by $s1%.', 983052, 983052, -1, 1, 1, 1);
+
+        -- 7%
+        REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33785, 4222, 464, 1, 101, 21, 1, -1, 6, 1, 1, 6, 0, -1, -1, 1, 118, 127, 1, 'Healing Recieved', 983070, 983052, 'Increases healing recieved by $s1%.', 983052, 983052, -1, 1, 1, 1);
+
+        -- 8%
+        REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33786, 4222, 464, 1, 101, 21, 1, -1, 6, 1, 1, 7, 0, -1, -1, 1, 118, 127, 1, 'Healing Recieved', 983070, 983052, 'Increases healing recieved by $s1%.', 983052, 983052, -1, 1, 1, 1);
+
+        -- 9%
+        REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33787, 4222, 464, 1, 101, 21, 1, -1, 6, 1, 1, 8, 0, -1, -1, 1, 118, 127, 1, 'Healing Recieved', 983070, 983052, 'Increases healing recieved by $s1%.', 983052, 983052, -1, 1, 1, 1);
+
+        -- 10%
+        REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33788, 4222, 464, 1, 101, 21, 1, -1, 6, 1, 1, 9, 0, -1, -1, 1, 118, 127, 1, 'Healing Recieved', 983070, 983052, 'Increases healing recieved by $s1%.', 983052, 983052, -1, 1, 1, 1);
+
+        -- 20%
+        REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33789, 4222, 464, 1, 101, 21, 1, -1, 6, 1, 1, 19, 0, -1, -1, 1, 118, 127, 1, 'Healing Recieved', 983070, 983052, 'Increases healing recieved by $s1%.', 983052, 983052, -1, 1, 1, 1);
+
     
     -- Spell Interrupt rate down
-    -- Conserve MP (% chance to reduce mana cost by random %)
-    -- Spell pen (10 and 20 exists I think?)
+    -- Spell pen
+        -- -1
+        REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33790, 5086, 192, 1, 101, 21, 1, -1, 6, 1, 1, -2, 0, -1, -1, 1, 123, 124, 1, 'Spell Penetration', 2031678, 2031660, 'Decreases the magical resistances of your spell targets by $s1.', 2031678, 2031660, -1, 1, 1, 1);
+
+        -- -2
+        REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33791, 5086, 192, 1, 101, 21, 1, -1, 6, 1, 1, -3, 0, -1, -1, 1, 123, 124, 1, 'Spell Penetration', 2031678, 2031660, 'Decreases the magical resistances of your spell targets by $s1.', 2031678, 2031660, -1, 1, 1, 1);
+
+        -- -3
+        REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33792, 5086, 192, 1, 101, 21, 1, -1, 6, 1, 1, -4, 0, -1, -1, 1, 123, 124, 1, 'Spell Penetration', 2031678, 2031660, 'Decreases the magical resistances of your spell targets by $s1.', 2031678, 2031660, -1, 1, 1, 1);
+
+        -- -4
+        REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33793, 5086, 192, 1, 101, 21, 1, -1, 6, 1, 1, -5, 0, -1, -1, 1, 123, 124, 1, 'Spell Penetration', 2031678, 2031660, 'Decreases the magical resistances of your spell targets by $s1.', 2031678, 2031660, -1, 1, 1, 1);
+
+        -- -5
+        REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33794, 5086, 192, 1, 101, 21, 1, -1, 6, 1, 1, -6, 0, -1, -1, 1, 123, 124, 1, 'Spell Penetration', 2031678, 2031660, 'Decreases the magical resistances of your spell targets by $s1.', 2031678, 2031660, -1, 1, 1, 1);
+
+        -- -10
+        REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33795, 5086, 192, 1, 101, 21, 1, -1, 6, 1, 1, -11, 0, -1, -1, 1, 123, 124, 1, 'Spell Penetration', 2031678, 2031660, 'Decreases the magical resistances of your spell targets by $s1.', 2031678, 2031660, -1, 1, 1, 1);
+        
+        -- -20 (spellId 26283)
+
+    -- MP cost reduction (SPELL_AURA_MOD_POWER_COST_SCHOOL_PCT = 72? SPELL_AURA_MOD_POWER_COST_SCHOOL = 73 ?)
 
     -- Feral AP
         -- 30
