@@ -1728,7 +1728,15 @@ void Creature::InitStatsForLevel(float percentHealth, float percentMana)
     CreatureClassLevelStats const* pCLS = GetClassLevelStats();
 
     // health
-    float const healthMod = _GetHealthMod(rank);
+    float healthMod = _GetHealthMod(rank);
+    // Custom: Normal mobs scale more level 41+
+    if (cinfo->rank == CREATURE_ELITE_NORMAL)
+    {
+        if (GetLevel() >= 41)
+        {
+            healthMod *= 1.5f;
+        }
+    }
     uint32 const health = std::max(1u, uint32(roundf(healthMod * pCLS->health * cinfo->health_multiplier)));
     uint32 const baseHealth = std::max(1u, uint32(roundf(healthMod * pCLS->base_health)));
 
@@ -1756,7 +1764,15 @@ void Creature::InitStatsForLevel(float percentHealth, float percentMana)
     SetModifierValue(UNIT_MOD_MANA, BASE_VALUE, float(mana));
 
     // damage
-    float const damageMod = _GetDamageMod(rank);
+    float damageMod = _GetDamageMod(rank);
+    // Custom: Normal mobs scale more level 41+
+    if (cinfo->rank == CREATURE_ELITE_NORMAL)
+    {
+        if (GetLevel() >= 41)
+        {
+            damageMod *= 1.5f;
+        }
+    }
     float const meleeDamageAverage = pCLS->melee_damage * cinfo->damage_multiplier * damageMod;
     float const meleeDamageVariance = meleeDamageAverage * cinfo->damage_variance;
     float const rangedDamageAverage = pCLS->ranged_damage * cinfo->damage_multiplier * damageMod;
