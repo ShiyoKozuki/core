@@ -11218,3 +11218,25 @@ void Unit::WritePetSpellsCooldown(WorldPacket& data) const
     }
     data.put<uint16>(cdCountPos, cdCount);
 }
+
+void Unit::SetCreateResistance(SpellSchools school, int32 val)
+{
+    // Only modify creature magical resistances (NOT armor, NOT players) if their resist to that element is 0
+    if (IsCreature() && school != SPELL_SCHOOL_NORMAL && val == 0)
+    {
+        uint32 lvl = GetLevel();
+        int32 scaled = 0;
+
+        if      (lvl <= 10)  scaled = 0;
+        else if (lvl <= 20) scaled = 10;
+        else if (lvl <= 30) scaled = 20;
+        else if (lvl <= 40) scaled = 30;
+        else if (lvl <= 50) scaled = 50;
+        else if (lvl <= 60) scaled = 70;
+        else                scaled = 90;
+
+        val = scaled;
+    }
+
+    m_createResistances[school] = val;
+}

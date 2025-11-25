@@ -379,7 +379,7 @@ class Unit : public SpellCaster
 
         void SetCreateStat(Stats stat, float val) { m_createStats[stat] = val; }
         void SetCreateMana(uint32 val) { SetUInt32Value(UNIT_FIELD_BASE_MANA, val); }
-        void SetCreateResistance(SpellSchools school, int32 val) { m_createResistances[school] = val; }
+        void SetCreateResistance(SpellSchools school, int32 val);
         void SetStat(Stats stat, int32 val) { SetStatInt32Value(UNIT_FIELD_STAT0 + stat, val); }
         void SetResistance(SpellSchools school, int32 val) { SetInt32Value(UNIT_FIELD_RESISTANCES + school, val); }
         float GetAttackPowerFromStrengthAndAgility(bool ranged, float strength, float agility) const;
