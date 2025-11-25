@@ -7351,6 +7351,75 @@ WHERE entry = 18538;
 
 -- Quest Rewards
 
+-- Helm of the Pathfinder
+UPDATE mangos . item_template
+SET stat_type1 = 3
+WHERE entry = 21317;
+
+-- Shizzle's Muzzle
+UPDATE mangos . item_template
+SET stat_type1 = 3,
+    stat_value1 = 6,
+    stat_type2 = 4,
+    stat_value2 = 6,
+    stat_type3 = 5,
+    stat_value3 = 6,
+    stat_type4 = 6,
+    stat_value4 = 6,
+    stat_type5 = 7,
+    stat_value5 = 6
+WHERE entry = 11916;
+
+-- Excavator's Utility Belt
+UPDATE mangos . item_template
+SET stat_type1 = 7,
+    stat_value1 = 4,
+    stat_type2 = 0,
+    stat_value2 = 0,
+    spellid_1 = 9417, -- +12 spell damage
+    spelltrigger_1 = 1
+WHERE entry = 11909;
+
+-- Plainstalker Tunic
+UPDATE mangos . item_template
+SET spellid_1 = 15464, -- +1% Physical Hit
+    spelltrigger_1 = 1
+WHERE entry = 11876;
+
+-- Blight Leather Gloves
+UPDATE mangos . item_template
+SET stat_type1 = 3,
+    stat_value1 = 13,
+    stat_type2 = 0,
+    stat_value2 = 0,
+    stat_type3 = 0,
+    stat_value3 = 0,
+    spellid_1 = 15464, -- +1% Physical Hit
+    spelltrigger_1 = 1
+WHERE entry = 15708;
+
+-- Charred Leather Tunic
+UPDATE mangos . item_template
+SET stat_type1 = 3,
+    stat_value1 = 18,
+    stat_type2 = 0,
+    stat_value2 = 0,
+    spellid_1 = 9332, -- +22 Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 19127;
+
+-- Rugwood Mantle (The Dunemaul Compound)
+UPDATE mangos . item_template
+SET stat_type1 = 6,
+    stat_value1 = 11,
+    stat_type2 = 0,
+    stat_value2 = 0,
+    stat_type3 = 0,
+    stat_value3 = 0,
+    spellid_1 = 9406, -- +18 Healing
+    spelltrigger_1 = 1
+WHERE entry = 16739;
+
 -- Scorched Cape
 UPDATE mangos . item_template
 SET fire_res = 15
@@ -10121,10 +10190,8 @@ WHERE entry = 4462;
 -- Bloodwoven Set (-stam and high spell damage?)
 -- Rageclaw Set
 -- Formidable Set
--- Jadefire Set
 -- Brutish Set
 -- Chieftain's Set
--- Serpentskin Set
 -- Righteous Set
 -- Lord's Set
 -- Merciless Set
@@ -10135,6 +10202,399 @@ WHERE entry = 4462;
 -- Green / Blue offhands
 -- Blue necks / rings / trinkets
 -- Green / Blue Staves and Wands
+
+-- Imposing Set
+-- Helm
+UPDATE mangos . item_template
+SET spellid_1 = 9140, -- +10 Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 15167;
+
+-- Shoulders
+UPDATE mangos . item_template
+SET spellid_1 = 9140, -- +10 Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 15169;
+
+-- Body
+UPDATE mangos . item_template
+SET spellid_1 = 9140, -- +10 Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 15164;
+
+-- Gloves
+UPDATE mangos . item_template
+SET spellid_1 = 9140, -- +10 Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 15166;
+
+-- Legs
+UPDATE mangos . item_template
+SET spellid_1 = 9140, -- +10 Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 15168;
+
+-- Boots
+UPDATE mangos . item_template
+SET spellid_1 = 9140, -- +10 Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 15162;
+
+-- Belt
+UPDATE mangos . item_template
+SET spellid_1 = 9140, -- +10 Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 15161;
+
+-- Bracers
+UPDATE mangos . item_template
+SET spellid_1 = 9140, -- +10 Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 15163;
+
+-- Cabalist Set
+-- Helm
+UPDATE mangos . item_template
+SET spellid_1 = 9415, -- +9 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 7529;
+
+-- Shoulders
+UPDATE mangos . item_template
+SET spellid_1 = 9395, -- +5 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 7532;
+
+-- Body
+UPDATE mangos . item_template
+SET spellid_1 = 9415, -- +9 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 7527;
+
+-- Gloves
+UPDATE mangos . item_template
+SET spellid_1 = 9395, -- +5 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 7530;
+
+-- Pants
+UPDATE mangos . item_template
+SET spellid_1 = 9415, -- +9 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 7528;
+
+-- Boots
+UPDATE mangos . item_template
+SET spellid_1 = 9395, -- +5 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 7531;
+
+-- Belt
+UPDATE mangos . item_template
+SET spellid_1 = 9395, -- +5 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 7535;
+
+-- Bracers
+UPDATE mangos . item_template
+SET spellid_1 = 9395, -- +5 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 7534;
+
+-- Serpentskin Set
+-- Helm
+UPDATE mangos . item_template
+SET quality = 3,
+    stat_type1 = 4,
+    stat_value1 = 16,
+    stat_type2 = 5,
+    stat_value2 = 15,
+    stat_type3 = 7,
+    stat_value3 = 7
+WHERE entry = 8261;
+
+-- Shoulders
+UPDATE mangos . item_template
+SET quality = 3,
+    stat_type1 = 4,
+    stat_value1 = 12,
+    stat_type2 = 5,
+    stat_value2 = 11,
+    stat_type3 = 7,
+    stat_value3 = 5
+WHERE entry = 8263;
+
+-- Body
+UPDATE mangos . item_template
+SET quality = 3,
+    stat_type1 = 4,
+    stat_value1 = 15,
+    stat_type2 = 5,
+    stat_value2 = 15,
+    stat_type3 = 7,
+    stat_value3 = 11
+WHERE entry = 8258;
+
+-- Gloves
+UPDATE mangos . item_template
+SET quality = 3,
+    stat_type1 = 4,
+    stat_value1 = 11,
+    stat_type2 = 5,
+    stat_value2 = 11,
+    stat_type3 = 7,
+    stat_value3 = 5
+WHERE entry = 8260;
+
+-- Pants
+UPDATE mangos . item_template
+SET quality = 3,
+    stat_type1 = 4,
+    stat_value1 = 16,
+    stat_type2 = 5,
+    stat_value2 = 13,
+    stat_type3 = 7,
+    stat_value3 = 7
+WHERE entry = 8262;
+
+-- Boots
+UPDATE mangos . item_template
+SET quality = 3,
+    stat_type1 = 4,
+    stat_value1 = 11,
+    stat_type2 = 5,
+    stat_value2 = 11,
+    stat_type3 = 7,
+    stat_value3 = 5
+WHERE entry = 8256;
+
+-- Belt
+UPDATE mangos . item_template
+SET quality = 3,
+    stat_type1 = 4,
+    stat_value1 = 13,
+    stat_type2 = 5,
+    stat_value2 = 7,
+    stat_type3 = 7,
+    stat_value3 = 5
+WHERE entry = 8255;
+
+-- Bracers
+UPDATE mangos . item_template
+SET quality = 3,
+    stat_type1 = 4,
+    stat_value1 = 11,
+    stat_type2 = 5,
+    stat_value2 = 4,
+    stat_type3 = 7,
+    stat_value3 = 3
+WHERE entry = 8257;
+
+-- Jadefire Set
+-- Helm
+UPDATE mangos . item_template
+SET spellid_1 = 15464, -- +1% Physical Hit
+    spelltrigger_1 = 1
+WHERE entry = 15391;
+
+-- Shoulders
+UPDATE mangos . item_template
+SET spellid_1 = 15464, -- +1% Physical Hit
+    spelltrigger_1 = 1
+WHERE entry = 15395;
+
+-- Body
+UPDATE mangos . item_template
+SET spellid_1 = 15464, -- +1% Physical Hit
+    spelltrigger_1 = 1
+WHERE entry = 15390;
+
+-- Gloves
+UPDATE mangos . item_template
+SET spellid_1 = 15464, -- +1% Physical Hit
+    spelltrigger_1 = 1
+WHERE entry = 15393;
+
+-- Pants
+UPDATE mangos . item_template
+SET spellid_1 = 15464, -- +1% Physical Hit
+    spelltrigger_1 = 1
+WHERE entry = 15394;
+
+-- Boots
+UPDATE mangos . item_template
+SET spellid_1 = 9330, -- +18 Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 15389;
+
+-- Belt
+UPDATE mangos . item_template
+SET spellid_1 = 9330, -- +18 Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 15388;
+
+-- Bracers
+UPDATE mangos . item_template
+SET spellid_1 = 9330, -- +18 Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 15387;
+
+-- Mighty Set
+-- Helm
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 15808, -- +38 Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 10150;
+
+-- Shoulders
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 9332, -- +22 Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 10153;
+
+-- Body
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 15810, -- +44 Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 10151;
+
+-- Gloves
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 9332, -- +22 Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 10149;
+
+-- Pants
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 15808, -- +38 Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 10152;
+
+-- Boots
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 9332, -- +22 Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 10146;
+
+-- Belt
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 9330, -- +18 Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 10145;
+
+-- Bracers
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 9330, -- +18 Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 10147;
+
+-- Cloak
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 9330, -- +18 Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 10148;
+
+-- Traveler's Set
+
+-- Helm
+-- UPDATE mangos . item_template -- TODO: All stats or spell power or healing
+-- SET quality = 3,
+--     stat_type1 = 4,
+--     stat_value1 = 11,
+--     stat_type2 = 5,
+--     stat_value2 = 4,
+--     stat_type3 = 7,
+--     stat_value3 = 3
+-- WHERE entry = 8257;
+
+-- Body
+
+-- Shoulders
+
+-- Legs
+
+-- Boots
+
+-- Belt
+
+-- Bracers
+
+-- Cloak
+
+-- Supreme Set
+-- Helm
+UPDATE mangos . item_template
+SET quality = 4,
+    spellid_1 = 7598, -- +2% Physical Crit
+    spelltrigger_1 = 1
+WHERE entry = 15439;
+
+-- Shoulders
+UPDATE mangos . item_template
+SET quality = 4,
+    spellid_1 = 7598, -- +2% Physical Crit
+    spelltrigger_1 = 1
+WHERE entry = 15441;
+
+-- Body
+UPDATE mangos . item_template
+SET quality = 4,
+    spellid_1 = 15808, -- +38 Attack Power
+    spelltrigger_1 = 1,
+    spellid_2 = 7598, -- +2% Physical Crit
+    spelltrigger_2 = 1
+WHERE entry = 15442;
+
+-- Gloves
+UPDATE mangos . item_template
+SET quality = 4,
+    spellid_1 = 7597, -- +1% Physical Crit
+    spelltrigger_1 = 1
+WHERE entry = 15438;
+
+-- Pants
+UPDATE mangos . item_template
+SET quality = 4,
+    spellid_1 = 7598, -- +2% Physical Crit
+    spelltrigger_1 = 1
+WHERE entry = 15440;
+
+-- Boots
+UPDATE mangos . item_template
+SET quality = 4,
+    spellid_1 = 7597, -- +1% Physical Crit
+    spelltrigger_1 = 1
+WHERE entry = 15435;
+
+-- Belt
+UPDATE mangos . item_template
+SET quality = 4,
+    spellid_1 = 7597, -- +1% Physical Crit
+    spelltrigger_1 = 1
+WHERE entry = 15434;
+
+-- Bracers
+UPDATE mangos . item_template
+SET quality = 4,
+    spellid_1 = 7597, -- +1% Physical Crit
+    spelltrigger_1 = 1
+WHERE entry = 15436;
+
+-- Cloak
+UPDATE mangos . item_template
+SET quality = 4,
+    spellid_1 = 7597, -- +1% Physical Crit
+    spelltrigger_1 = 1
+WHERE entry = 15437;
 
 -- Regal Set
 -- Regal Wizard Hat
