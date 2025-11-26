@@ -21293,6 +21293,7 @@ uint32 GetPriestSpellForRace(uint8 race)
     switch (race)
     {
         case RACE_HUMAN:
+        case RACE_BLOODELF:
             return 19243; // Priere de desespoir
         case RACE_UNDEAD:
             return 19280; // Peste devorante
@@ -21310,6 +21311,7 @@ uint32 GetCapitalReputationForRace(uint8 race)
     switch (race)
     {
         case RACE_HUMAN:
+        case RACE_BLOODELF:
             return 72; // Hurlevent
         case RACE_TROLL:
         case RACE_ORC:

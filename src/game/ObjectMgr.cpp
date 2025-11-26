@@ -11658,6 +11658,7 @@ Races ObjectMgr::GetOppositeRace(Races origRace) const
         case RACE_DWARF:
             return RACE_TROLL;
         case RACE_NIGHTELF:
+        case RACE_BLOODELF:
             return RACE_UNDEAD;
         case RACE_UNDEAD:
             return RACE_NIGHTELF;

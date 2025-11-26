@@ -3713,6 +3713,9 @@ void Spell::EffectScriptEffect(SpellEffectIndex effIdx)
                                 case RACE_GNOME:
                                     spellId = 24106;
                                     break;
+                                case RACE_BLOODELF:
+                                    spellId = 24105;
+                                    break;
                             }
                             break;
                         case 24195:
