@@ -697,80 +697,7 @@ void ScourgeInvasionEvent::HandleDefendedZones()
     }
 }
 
-void ScourgeInvasionEvent::Update()
-{
-    if (!sGameEventMgr.IsActiveEvent(GAME_EVENT_SCOURGE_INVASION))
-        sGameEventMgr.StartEvent(GAME_EVENT_SCOURGE_INVASION, true);
-
-    time_t now = time(nullptr);
-    uint32 victories = sObjectMgr.GetSavedVariable(VARIABLE_SI_ATTACK_COUNT);
-
-    for (CityAttack& zone : attackPoints)
-    {
-        if (zone.zoneId == ZONEID_UNDERCITY)
-            HandleActiveCity(VARIABLE_SI_UNDERCITY_TIME, now, zone.zoneId);
-        else if (zone.zoneId == ZONEID_STORMWIND)
-            HandleActiveCity(VARIABLE_SI_STORMWIND_TIME, now, zone.zoneId);
-    }
-
-    // Waiting until all invasions have been loaded. OnEnable will return true
-    // if no invasions are supposed to be started, so this will only be the case if any of the 
-    // maps required for a current invasionZone were not yet loaded
-    if (!invasion1Loaded || !invasion2Loaded || !invasion3Loaded || !invasion4Loaded || !invasion5Loaded || !invasion6Loaded)
-        return;
-
-    if (!invasion1Loaded)
-        invasion1Loaded = OnEnable(ZONEID_TANARIS, VARIABLE_TANARIS_ATTACK_TIME);
-
-    if (!invasion2Loaded)
-        invasion2Loaded = OnEnable(ZONEID_BLASTED_LANDS, VARIABLE_BLASTED_LANDS_ATTACK_TIME);
-
-    if (!invasion3Loaded)
-        invasion3Loaded = OnEnable(ZONEID_EASTERN_PLAGUELANDS, VARIABLE_EASTERN_PLAGUELANDS_ATTACK_TIME);
-
-    if (!invasion4Loaded)
-        invasion4Loaded = OnEnable(ZONEID_BURNING_STEPPES, VARIABLE_BURNING_STEPPES_ATTACK_TIME);
-
-    if (!invasion5Loaded)
-        invasion5Loaded = OnEnable(ZONEID_WINTERSPRING, VARIABLE_WINTERSPRING_ATTACK_TIME);
-
-    if (!invasion6Loaded)
-        invasion6Loaded = OnEnable(ZONEID_AZSHARA, VARIABLE_AZSHARA_ATTACK_TIME);
-
-    for (InvasionZone& zone : invasionPoints)
-    {
-        uint32 TEMP_SI_ATTACK_TIME = 0;
-        uint32 TEMP_SI_ATTACK_ZONE = 0;
-
-        switch (zone.zoneId)
-        {
-        case ZONEID_TANARIS:
-            TEMP_SI_ATTACK_TIME = VARIABLE_TANARIS_ATTACK_TIME;
-            break;
-        case ZONEID_BLASTED_LANDS:
-            TEMP_SI_ATTACK_TIME = VARIABLE_BLASTED_LANDS_ATTACK_TIME;
-            break;
-        case ZONEID_EASTERN_PLAGUELANDS:
-            TEMP_SI_ATTACK_TIME = VARIABLE_EASTERN_PLAGUELANDS_ATTACK_TIME;
-            break;
-        case ZONEID_BURNING_STEPPES:
-            TEMP_SI_ATTACK_TIME = VARIABLE_BURNING_STEPPES_ATTACK_TIME;
-            break;
-        case ZONEID_WINTERSPRING:
-            TEMP_SI_ATTACK_TIME = VARIABLE_WINTERSPRING_ATTACK_TIME;
-            break;
-        case ZONEID_AZSHARA:
-            TEMP_SI_ATTACK_TIME = VARIABLE_AZSHARA_ATTACK_TIME;
-            break;
-        }
-
-        HandleActiveZone(TEMP_SI_ATTACK_TIME, zone.zoneId, zone.remainingVar, now);
-    }
-
-    HandleDefendedZones();
-    UpdateWorldState();
-    LogNextZoneTime();
-}
+void ScourgeInvasionEvent::Update() { return; }
 
 uint32 ScourgeInvasionEvent::GetNextUpdateDelay()
 {
@@ -909,21 +836,7 @@ void ScourgeInvasionEvent::HandleActiveZone(uint32 attackTimeVar, uint32 zoneId,
     }
 }
 
-void ScourgeInvasionEvent::HandleActiveCity(uint32 attackTimeVar, time_t now, uint32 zoneId)
-{
-    uint32 t = sObjectMgr.GetSavedVariable(attackTimeVar);
-    // if this zone remaining var is already 0, it means we are waiting for the time to start a new event
-    CityAttack* zone = GetCityZone(zoneId);
-    if (!zone) return;
-
-    Map* pMap = sMapMgr.FindMap(zone->map);
-
-    Creature* pPallid = pMap->GetCreature(zone->pallidGuid);
-
-    // No Pallid found and the timer is over.
-    if (!pPallid && t < now)
-        StartNewCityAttackIfTime(attackTimeVar, zoneId);
-}
+void ScourgeInvasionEvent::HandleActiveCity(uint32 attackTimeVar, time_t now, uint32 zoneId) { return; }
 
 // Will return false if we were supposed to resume an invasion, but ResumeInvasion() returned false.
 // In all other cases returns true
