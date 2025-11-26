@@ -479,6 +479,8 @@
         -- 20%
             REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33764, 4222, 464, 1, 101, 21, 1, -1, 6, 1, 1, 19, 0, -1, -1, 1, 138, 1, 'Melee Haste', 983070, 983052, 'Increases your Melee attack speed by $s1%.', 983052, 983052, -1, 1, 1, 1);
 
+    -- Ranged Haste
+    
     -- 1H wep dmg
         -- 1%
         REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `spellLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectMiscValue1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33765, 5086, 464, 1, 101, 1, 21, 1, 2, 43153, 6, 1, 1, 0, 0, -1, -1, 1, 79, 1, 1461, 50, 'One-Handed Weapon Damage', 2031678, 8323134, 'Increases the damage you deal with One-Handed Melee weapons by $s1%.', 2031678, 2031676, -1, 1, 1, 1);
