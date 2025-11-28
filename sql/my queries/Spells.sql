@@ -1,4 +1,4 @@
--- 33779 NEXT SPELL
+-- 33825 NEXT SPELL
 -- 15096 NEXT SKILL_LINE_ABILITY
 
 -- FOR SPELL SCRIPTS USE: SPELL_EFFECT_SCRIPT_EFFECT = 77, effectImplicitTargetA1 (6) and a dummy aura (4)
@@ -536,23 +536,23 @@
     -- Damage vs creatures (SPELL_AURA_MOD_DAMAGE_DONE_CREATURE = 59)
         -- Demon Slayer
         -- 1%
-        INSERT INTO `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `spellLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33796, 5086, 464, 1, 101, 1, 21, 1, -1, 6, 1, 1, 0, 0, -1, -1, 1, 59, 4, 90, 'Demon Slayer', 8323134, '', 8323134, 'Increases damage done to Demons by $s1.', 8323134, 2031676, -1, 1, 1, 1);
+        REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `spellLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33796, 5086, 464, 1, 101, 1, 21, 1, -1, 6, 1, 1, 0, 0, -1, -1, 1, 59, 4, 90, 'Demon Slayer', 8323134, '', 8323134, 'Increases damage done to Demons by $s1.', 8323134, 2031676, -1, 1, 1, 1);
 
         -- 2%
-        INSERT INTO `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `spellLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33797, 5086, 464, 1, 101, 1, 21, 1, -1, 6, 1, 1, 1, 0, -1, -1, 1, 59, 4, 90, 'Demon Slayer', 8323134, '', 8323134, 'Increases damage done to Demons by $s1.', 8323134, 2031676, -1, 1, 1, 1);
+        REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `spellLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33797, 5086, 464, 1, 101, 1, 21, 1, -1, 6, 1, 1, 1, 0, -1, -1, 1, 59, 4, 90, 'Demon Slayer', 8323134, '', 8323134, 'Increases damage done to Demons by $s1.', 8323134, 2031676, -1, 1, 1, 1);
         
         -- 3%
-        INSERT INTO `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `spellLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33798, 5086, 464, 1, 101, 1, 21, 1, -1, 6, 1, 1, 2, 0, -1, -1, 1, 59, 4, 90, 'Demon Slayer', 8323134, '', 8323134, 'Increases damage done to Demons by $s1.', 8323134, 2031676, -1, 1, 1, 1);
+        REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `spellLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33798, 5086, 464, 1, 101, 1, 21, 1, -1, 6, 1, 1, 2, 0, -1, -1, 1, 59, 4, 90, 'Demon Slayer', 8323134, '', 8323134, 'Increases damage done to Demons by $s1.', 8323134, 2031676, -1, 1, 1, 1);
 
-        +4% (spellId 4645)
+        -- +4% (spellId 4645)
 
         -- 5%
-        INSERT INTO `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `spellLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33799, 5086, 464, 1, 101, 1, 21, 1, -1, 6, 1, 1, 4, 0, -1, -1, 1, 59, 4, 90, 'Demon Slayer', 8323134, '', 8323134, 'Increases damage done to Demons by $s1.', 8323134, 2031676, -1, 1, 1, 1);
+        REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `spellLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33799, 5086, 464, 1, 101, 1, 21, 1, -1, 6, 1, 1, 4, 0, -1, -1, 1, 59, 4, 90, 'Demon Slayer', 8323134, '', 8323134, 'Increases damage done to Demons by $s1.', 8323134, 2031676, -1, 1, 1, 1);
 
-        +8% (spellId 4646)
+        -- +8% (spellId 4646)
 
         -- 10%
-        INSERT INTO `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `spellLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33800, 5086, 464, 1, 101, 1, 21, 1, -1, 6, 1, 1, 9, 0, -1, -1, 1, 59, 4, 90, 'Demon Slayer', 8323134, '', 8323134, 'Increases damage done to Demons by $s1.', 8323134, 2031676, -1, 1, 1, 1);
+        REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `spellLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33800, 5086, 464, 1, 101, 1, 21, 1, -1, 6, 1, 1, 9, 0, -1, -1, 1, 59, 4, 90, 'Demon Slayer', 8323134, '', 8323134, 'Increases damage done to Demons by $s1.', 8323134, 2031676, -1, 1, 1, 1);
 
         -- +12% (spellId 4647)
         -- +17% (spellId 4648)
@@ -776,6 +776,27 @@
     DELETE FROM `mangos`.`playercreateinfo_spell` WHERE  `race`=5 AND `class`=5 AND `spell`=7744;
     DELETE FROM `mangos`.`playercreateinfo_spell` WHERE  `race`=5 AND `class`=8 AND `spell`=7744;
     DELETE FROM `mangos`.`playercreateinfo_spell` WHERE  `race`=5 AND `class`=9 AND `spell`=7744;
+
+    -- Priest racial spells (Fear Ward, Desperate Prayer)
+    -- Given to Dwarf, Human, and Blood Elf
+    UPDATE `mangos`.`skill_line_ability` SET 
+    `race_mask`=517 
+    WHERE spell_id IN(6346, 13908, 19236, 19238, 19240, 19241, 19242, 19243);
+
+    -- Blood Elf
+    -- +15 Enchanting
+    REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `dmgMultiplier1`) VALUES (33821, 5086, 80, 1, 101, 21, 1, -1, 6, 1, 1, 14, 1, -1, -1, 1, 98, 173, 578, 'Enchanting Mastery', 2031678, 'Racial Passive', 2031678, 'Enchanting skill increased by $s1.', 2031678, 2031660, 1);
+
+    -- Dagger Skill +5
+    REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `dmgMultiplier1`) VALUES (33822, 5086, 80, 1, 101, 21, 1, -1, 6, 1, 1, 4, 1, -1, -1, 1, 98, 173, 1504, 'Dagger Specialization', 2031678, 'Racial Passive', 2031678, 'Skill with Daggers increased by $s1.', 2031678, 2031660, 1);
+
+    -- All Resistances +10
+    REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `dmgMultiplier1`) VALUES (33823, 5086, 80, 1, 101, 21, 1, -1, 6, 1, 1, 9, 1, -1, -1, 1, 22, 126, 459, 'All Resistance', 2031678, 'Racial Passive', 2031678, 'All Resistances increased by $s1.', 2031678, 2031676, 1);
+
+    -- + (Active) +20% Melee / Ranged / Casting speed for 20 seconds
+    REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `attributesEx`, `attributesEx2`, `stances`, `castingTimeIndex`, `recoveryTime`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effect2`, `effect3`, `effectDieSides1`, `effectDieSides2`, `effectDieSides3`, `effectBaseDice1`, `effectBaseDice2`, `effectBaseDice3`, `effectBasePoints1`, `effectBasePoints2`, `effectBasePoints3`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectImplicitTargetA3`, `effectApplyAuraName1`, `effectApplyAuraName2`, `effectApplyAuraName3`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `dmgMultiplier1`) VALUES (33824, 4878, 262160, 32, 524288, 134217728, 1, 180000, 101, 18, 1, -1, 6, 6, 6, 1, 1, 1, 1, 1, 1, 19, 19, 19, 1, -1, -1, 1, 1, 1, 138, 140, 65, 5727, 548, 'Mana Rush', 2031678, 'Racial', 2031678, 'Increases your attack and casting speed by $s1% for $d.', 2031678, 'Attack and casting speed increased.', 2031678, 133, 1500, 1);
+
+
 
 -- Weapon Skills
     -- Bow

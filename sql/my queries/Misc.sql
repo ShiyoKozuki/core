@@ -152,6 +152,130 @@ REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`,
 REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 2, 59, 103, 64, 98, 69, 74);
 REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 2, 60, 105, 65, 100, 70, 75);
 
+-- Blood Elf Hunter (Need to add an entry to CharBaseInfo.dbc for race/class combo)
+-- playercreateinfo
+-- playercreateinfo_action
+-- playercreateinfo_item
+-- playercreateinfo_spell -- Must match SkillRaceClassInfo.dbc
+-- player_levelstats (Needs to be level 1-60)
+REPLACE `mangos`.`playercreateinfo` (`race`, `class`, `zone`, `position_x`, `position_y`, `position_z`) VALUES (10, 3, 12, -8949.95, -132.493, 83.5312);
+
+REPLACE INTO `playercreateinfo_action` (`race`, `class`, `button`, `action`, `type`) VALUES (10, 3, 11, 117, 128);
+REPLACE INTO `playercreateinfo_action` (`race`, `class`, `button`, `action`, `type`) VALUES (10, 3, 10, 159, 128);
+REPLACE INTO `playercreateinfo_action` (`race`, `class`, `button`, `action`, `type`) VALUES (10, 3, 4, 20572, 0);
+REPLACE INTO `playercreateinfo_action` (`race`, `class`, `button`, `action`, `type`) VALUES (10, 3, 2, 75, 0);
+REPLACE INTO `playercreateinfo_action` (`race`, `class`, `button`, `action`, `type`) VALUES (10, 3, 1, 2973, 0);
+REPLACE INTO `playercreateinfo_action` (`race`, `class`, `button`, `action`, `type`) VALUES (10, 3, 0, 6603, 0);
+
+REPLACE INTO `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 3, 37, 1);
+REPLACE INTO `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 3, 117, 4);
+REPLACE INTO `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 3, 127, 1);
+REPLACE INTO `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 3, 159, 2);
+REPLACE INTO `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 3, 2101, 1);
+REPLACE INTO `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 3, 2504, 1);
+REPLACE INTO `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 3, 2512, 200);
+REPLACE INTO `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 3, 6126, 1);
+REPLACE INTO `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 3, 6127, 1);
+REPLACE INTO `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 3, 6948, 1);
+
+REPLACE INTO `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (10, 3,75, 0, 5875, 'Auto Shot');
+REPLACE INTO `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (10, 3,81, 0, 5875, 'Dodge');
+REPLACE INTO `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (10, 3,196, 0, 5875, 'One-Handed Axes');
+REPLACE INTO `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (10, 3,203, 0, 5875, 'Unarmed');
+REPLACE INTO `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (10, 3,204, 0, 5875, 'Defense');
+REPLACE INTO `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (10, 3,266, 0, 5875, 'Guns');
+REPLACE INTO `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (10, 3,522, 0, 5875, 'SPELLDEFENSE (DND)');
+REPLACE INTO `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (10, 3,668, 0, 5875, 'Language Common');
+REPLACE INTO `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (10, 3,2382, 0, 5875, 'Generic');
+REPLACE INTO `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (10, 3,2479, 0, 5875, 'Honorless Target');
+REPLACE INTO `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (10, 3,2973, 0, 5875, 'Raptor Strike');
+REPLACE INTO `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (10, 3,3050, 0, 5875, 'Detect');
+REPLACE INTO `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (10, 3,3365, 0, 5875, 'Opening');
+REPLACE INTO `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (10, 3,6233, 0, 5875, 'Closing');
+REPLACE INTO `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (10, 3,6246, 0, 5875, 'Closing');
+REPLACE INTO `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (10, 3,6247, 0, 5875, 'Opening');
+REPLACE INTO `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (10, 3,6477, 0, 5875, 'Opening');
+REPLACE INTO `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (10, 3,6478, 0, 5875, 'Opening');
+REPLACE INTO `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (10, 3,6603, 0, 5875, 'Attack');
+REPLACE INTO `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (10, 3,7266, 0, 5875, 'Duel');
+REPLACE INTO `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (10, 3,7267, 0, 5875, 'Grovel');
+REPLACE INTO `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (10, 3,7355, 0, 5875, 'Stuck');
+REPLACE INTO `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (10, 3,8386, 0, 5875, 'Attacking');
+REPLACE INTO `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (10, 3,9077, 0, 5875, 'Leather');
+REPLACE INTO `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (10, 3,9078, 0, 5875, 'Cloth');
+REPLACE INTO `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (10, 3,9125, 0, 5875, 'Generic');
+REPLACE INTO `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (10, 3,13358, 0, 5875, 'Defensive State (DND)');
+REPLACE INTO `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (10, 3, 20597, 0, 5875, 'Sword Specialization');
+REPLACE INTO `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (10, 3, 20598, 0, 5875, 'The Human Spirit');
+REPLACE INTO `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (10, 3, 20599, 0, 5875, 'Diplomacy');
+REPLACE INTO `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (10, 3, 20600, 0, 5875, 'Perception');
+REPLACE INTO `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (10, 3,21651, 0, 5875, 'Opening');
+REPLACE INTO `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (10, 3,21652, 0, 5875, 'Closing');
+REPLACE INTO `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (10, 3,22027, 0, 5875, 'Remove Insignia');
+REPLACE INTO `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (10, 3,22810, 0, 5875, 'Opening - No Text');
+REPLACE INTO `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (10, 3,24949, 4878, 5875, 'Defensive State 2 (DND)');
+
+
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 3, 1, 23, 20, 23, 17, 24);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 3, 2, 23, 21, 24, 18, 25);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 3, 3, 24, 22, 25, 18, 25);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 3, 4, 24, 24, 25, 19, 26);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 3, 5, 25, 25, 26, 19, 26);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 3, 6, 25, 26, 27, 20, 27);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 3, 7, 25, 27, 28, 20, 27);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 3, 8, 26, 28, 29, 21, 28);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 3, 9, 26, 30, 30, 21, 29);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 3, 10, 27, 31, 30, 22, 29);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 3, 11, 27, 32, 31, 22, 30);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 3, 12, 28, 34, 32, 23, 31);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 3, 13, 28, 35, 33, 24, 31);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 3, 14, 29, 36, 34, 24, 32);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 3, 15, 29, 38, 35, 25, 32);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 3, 16, 30, 39, 36, 25, 33);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 3, 17, 30, 40, 37, 26, 34);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 3, 18, 31, 42, 38, 27, 35);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 3, 19, 31, 43, 39, 27, 35);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 3, 20, 32, 45, 40, 28, 36);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 3, 21, 32, 46, 41, 29, 37);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 3, 22, 33, 48, 42, 29, 37);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 3, 23, 33, 49, 43, 30, 38);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 3, 24, 34, 51, 44, 31, 39);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 3, 25, 34, 52, 45, 31, 40);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 3, 26, 35, 54, 46, 32, 40);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 3, 27, 35, 56, 47, 33, 41);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 3, 28, 36, 57, 48, 33, 42);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 3, 29, 36, 59, 49, 34, 43);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 3, 30, 37, 61, 50, 35, 43);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 3, 31, 37, 62, 52, 36, 44);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 3, 32, 38, 64, 53, 36, 45);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 3, 33, 39, 66, 54, 37, 46);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 3, 34, 39, 67, 55, 38, 47);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 3, 35, 40, 69, 56, 39, 48);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 3, 36, 41, 71, 58, 40, 49);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 3, 37, 41, 73, 59, 40, 49);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 3, 38, 42, 75, 60, 41, 50);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 3, 39, 42, 77, 61, 42, 51);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 3, 40, 43, 78, 63, 43, 52);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 3, 41, 44, 80, 64, 44, 53);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 3, 42, 44, 82, 65, 44, 54);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 3, 43, 45, 84, 66, 45, 55);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 3, 44, 46, 86, 68, 46, 56);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 3, 45, 46, 88, 69, 47, 57);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 3, 46, 47, 90, 71, 48, 58);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 3, 47, 48, 92, 72, 49, 59);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 3, 48, 49, 95, 73, 50, 60);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 3, 49, 49, 97, 75, 51, 61);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 3, 50, 50, 99, 76, 52, 62);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 3, 51, 51, 101, 78, 53, 63);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 3, 52, 52, 103, 79, 54, 64);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 3, 53, 52, 105, 81, 55, 65);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 3, 54, 53, 108, 82, 56, 66);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 3, 55, 54, 110, 84, 57, 67);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 3, 56, 55, 112, 85, 58, 68);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 3, 57, 56, 115, 87, 59, 70);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 3, 58, 56, 117, 89, 60, 71);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 3, 59, 57, 120, 90, 61, 72);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 3, 60, 58, 122, 92, 62, 73);
 
 -- Blood Elf Rogue (Need to add an entry to CharBaseInfo.dbc for race/class combo)
 -- playercreateinfo
@@ -394,6 +518,131 @@ REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`,
 REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 5, 58, 34, 39, 49, 115, 126);
 REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 5, 59, 35, 40, 49, 118, 129);
 REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 5, 60, 35, 40, 50, 120, 125);
+
+
+-- Blood Elf Shaman (Need to add an entry to CharBaseInfo.dbc for race/class combo)
+-- playercreateinfo
+-- playercreateinfo_action
+-- playercreateinfo_item
+-- playercreateinfo_spell -- Must match SkillRaceClassInfo.dbc
+-- player_levelstats (Needs to be level 1-60)
+REPLACE `mangos`.`playercreateinfo` (`race`, `class`, `zone`, `position_x`, `position_y`, `position_z`) VALUES (10, 7, 12, -8949.95, -132.493, 83.5312);
+
+REPLACE `mangos`.`playercreateinfo_action` (`race`, `class`, `button`, `action`, `type`) VALUES (10, 7, 11, 117, 128);
+REPLACE `mangos`.`playercreateinfo_action` (`race`, `class`, `button`, `action`, `type`) VALUES (10, 7, 10, 159, 128);
+REPLACE `mangos`.`playercreateinfo_action` (`race`, `class`, `button`, `action`) VALUES (10, 7, 3, 20572);
+REPLACE `mangos`.`playercreateinfo_action` (`race`, `class`, `button`, `action`) VALUES (10, 7, 2, 331);
+REPLACE `mangos`.`playercreateinfo_action` (`race`, `class`, `button`, `action`) VALUES (10, 7, 1, 403);
+REPLACE `mangos`.`playercreateinfo_action` (`race`, `class`, `action`) VALUES (10, 7, 6603);
+
+REPLACE `mangos`.`playercreateinfo_item` (`race`, `class`, `itemid`) VALUES (10, 7, 36);
+REPLACE `mangos`.`playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 7, 117, 4);
+REPLACE `mangos`.`playercreateinfo_item` (`race`, `class`, `itemid`) VALUES (10, 7, 153);
+REPLACE `mangos`.`playercreateinfo_item` (`race`, `class`, `itemid`) VALUES (10, 7, 154);
+REPLACE `mangos`.`playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 7, 159, 2);
+REPLACE `mangos`.`playercreateinfo_item` (`race`, `class`, `itemid`) VALUES (10, 7, 6948);
+
+-- Must match SkillRaceClassInfo.dbc
+REPLACE `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (10, 7, 81, 0, 5875, 'Dodge');
+REPLACE `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (10, 7, 107, 0, 5875, 'Block');
+REPLACE `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (10, 7, 198, 0, 5875, 'One-Handed Maces');
+REPLACE `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (10, 7, 203, 0, 5875, 'Unarmed');
+REPLACE `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (10, 7, 204, 0, 5875, 'Defense');
+REPLACE `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (10, 7, 227, 0, 5875, 'Staves');
+REPLACE `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (10, 7, 331, 0, 5875, 'Healing Wave');
+REPLACE `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (10, 7, 403, 0, 5875, 'Lightning Bolt');
+REPLACE `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (10, 7, 522, 0, 5875, 'SPELLDEFENSE (DND)');
+REPLACE `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (10, 7, 2382, 0, 5875, 'Generic');
+REPLACE `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (10, 7, 2479, 0, 5875, 'Honorless Target');
+REPLACE `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (10, 7, 3050, 0, 5875, 'Detect');
+REPLACE `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (10, 7, 3365, 0, 5875, 'Opening');
+REPLACE `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (10, 7, 6233, 0, 5875, 'Closing');
+REPLACE `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (10, 7, 6246, 0, 5875, 'Closing');
+REPLACE `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (10, 7, 6247, 0, 5875, 'Opening');
+REPLACE `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (10, 7, 6477, 0, 5875, 'Opening');
+REPLACE `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (10, 7, 6478, 0, 5875, 'Opening');
+REPLACE `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (10, 7, 6603, 0, 5875, 'Attack');
+REPLACE `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (10, 7, 7266, 0, 5875, 'Duel');
+REPLACE `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (10, 7, 7267, 0, 5875, 'Grovel');
+REPLACE `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (10, 7, 7355, 0, 5875, 'Stuck');
+REPLACE `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (10, 7, 8386, 0, 5875, 'Attacking');
+REPLACE `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (10, 7, 9077, 0, 5875, 'Leather');
+REPLACE `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (10, 7, 9078, 0, 5875, 'Cloth');
+REPLACE `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (10, 7, 9116, 0, 5875, 'Shield');
+REPLACE `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (10, 7, 9125, 0, 5875, 'Generic');
+REPLACE `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (10, 7, 22810, 0, 5875, 'Opening - No Text');
+REPLACE `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (10, 7, 21651, 0, 5875, 'Opening');
+REPLACE `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (10, 7, 21652, 0, 5875, 'Closing');
+REPLACE `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (10, 7, 22027, 0, 5875, 'Remove Insignia');
+REPLACE `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (10, 7, 22810, 0, 5875, 'Opening - No Text');
+REPLACE `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (10, 7, 27763, 5302, 5875, 'Totem');
+REPLACE `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (10, 7, 20597, 0, 5875, 'Sword Specialization');
+REPLACE `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (10, 7, 20598, 0, 5875, 'The Human Spirit');
+REPLACE `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (10, 7, 20599, 0, 5875, 'Diplomacy');
+REPLACE `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (10, 7, 20600, 0, 5875, 'Perception');
+REPLACE `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (10, 7, 20864, 0, 5875, 'Mace Specialization');
+REPLACE `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (10, 7, 668, 0, 5875, 'Language Common');
+
+REPLACE `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 7, 1, 24, 17, 23, 18, 25);
+REPLACE `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 7, 2, 25, 17, 24, 19, 26);
+REPLACE `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 7, 3, 25, 18, 25, 20, 27);
+REPLACE `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 7, 4, 26, 18, 26, 20, 28);
+REPLACE `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 7, 5, 27, 19, 26, 21, 29);
+REPLACE `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 7, 6, 28, 19, 27, 22, 30);
+REPLACE `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 7, 7, 29, 19, 28, 23, 31);
+REPLACE `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 7, 8, 29, 20, 29, 24, 31);
+REPLACE `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 7, 9, 30, 20, 30, 25, 32);
+REPLACE `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 7, 10, 31, 21, 31, 25, 33);
+REPLACE `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 7, 11, 32, 21, 32, 26, 34);
+REPLACE `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 7, 12, 33, 22, 33, 27, 35);
+REPLACE `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 7, 13, 33, 22, 34, 28, 36);
+REPLACE `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 7, 14, 34, 23, 35, 29, 37);
+REPLACE `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 7, 15, 35, 23, 36, 30, 39);
+REPLACE `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 7, 16, 36, 24, 37, 31, 40);
+REPLACE `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 7, 17, 37, 24, 38, 32, 41);
+REPLACE `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 7, 18, 38, 25, 39, 33, 42);
+REPLACE `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 7, 19, 39, 25, 40, 34, 43);
+REPLACE `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 7, 20, 40, 26, 41, 35, 44);
+REPLACE `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 7, 21, 41, 26, 42, 36, 45);
+REPLACE `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 7, 22, 41, 27, 43, 37, 46);
+REPLACE `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 7, 23, 42, 27, 44, 38, 47);
+REPLACE `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 7, 24, 43, 28, 45, 39, 49);
+REPLACE `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 7, 25, 44, 28, 47, 40, 50);
+REPLACE `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 7, 26, 45, 29, 48, 41, 51);
+REPLACE `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 7, 27, 46, 29, 49, 42, 52);
+REPLACE `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 7, 28, 47, 30, 50, 43, 53);
+REPLACE `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 7, 29, 48, 30, 51, 44, 55);
+REPLACE `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 7, 30, 49, 31, 52, 45, 56);
+REPLACE `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 7, 31, 51, 31, 54, 47, 57);
+REPLACE `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 7, 32, 52, 32, 55, 48, 59);
+REPLACE `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 7, 33, 53, 33, 56, 49, 60);
+REPLACE `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 7, 34, 54, 33, 57, 50, 61);
+REPLACE `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 7, 35, 55, 34, 59, 51, 63);
+REPLACE `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 7, 36, 56, 35, 60, 53, 64);
+REPLACE `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 7, 37, 57, 35, 61, 54, 65);
+REPLACE `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 7, 38, 58, 36, 63, 55, 67);
+REPLACE `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 7, 39, 59, 36, 64, 56, 68);
+REPLACE `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 7, 40, 61, 37, 65, 58, 70);
+REPLACE `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 7, 41, 62, 38, 67, 59, 71);
+REPLACE `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 7, 42, 63, 38, 68, 60, 73);
+REPLACE `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 7, 43, 64, 39, 70, 61, 74);
+REPLACE `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 7, 44, 66, 40, 71, 63, 76);
+REPLACE `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 7, 45, 67, 40, 73, 64, 77);
+REPLACE `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 7, 46, 68, 41, 74, 66, 79);
+REPLACE `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 7, 47, 69, 42, 76, 67, 80);
+REPLACE `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 7, 48, 71, 43, 77, 68, 82);
+REPLACE `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 7, 49, 72, 43, 79, 70, 84);
+REPLACE `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 7, 50, 73, 44, 80, 71, 85);
+REPLACE `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 7, 51, 75, 45, 82, 73, 87);
+REPLACE `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 7, 52, 76, 46, 83, 74, 89);
+REPLACE `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 7, 53, 78, 46, 85, 76, 90);
+REPLACE `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 7, 54, 79, 47, 87, 77, 92);
+REPLACE `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 7, 55, 80, 48, 88, 79, 94);
+REPLACE `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 7, 56, 82, 49, 90, 80, 96);
+REPLACE `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 7, 57, 83, 50, 92, 82, 97);
+REPLACE `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 7, 58, 85, 50, 93, 84, 99);
+REPLACE `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 7, 59, 86, 51, 95, 85, 101);
+REPLACE `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 7, 60, 88, 52, 97, 87, 103);
 
 -- Blood Elf Mage (Need to add an entry to CharBaseInfo.dbc for race/class combo)
 -- playercreateinfo
@@ -639,6 +888,136 @@ REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`,
 REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (10, 9, 60, 45, 50, 65, 110, 115);
 
 
+-- Human Hunter (Need to add an entry to CharBaseInfo.dbc for race/class combo)
+-- playercreateinfo
+-- playercreateinfo_action
+-- playercreateinfo_item
+-- playercreateinfo_spell -- Must match SkillRaceClassInfo.dbc
+-- player_levelstats (Needs to be level 1-60)
+
+-- Trainers
+REPLACE INTO `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000086, 895, 0, 0, 0, 0, 0, -8929.77, -161.88, 81.0181, 2.82854, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
+
+REPLACE INTO `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000087, 1231, 0, 0, 0, 0, 0, -9470.19, 48.2556, 56.9857, 1.30645, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
+
+REPLACE `mangos`.`playercreateinfo` (`race`, `class`, `zone`, `position_x`, `position_y`, `position_z`) VALUES (1, 3, 12, -8949.95, -132.493, 83.5312);
+
+REPLACE INTO `playercreateinfo_action` (`race`, `class`, `button`, `action`, `type`) VALUES (1, 3, 11, 117, 128);
+REPLACE INTO `playercreateinfo_action` (`race`, `class`, `button`, `action`, `type`) VALUES (1, 3, 10, 159, 128);
+REPLACE INTO `playercreateinfo_action` (`race`, `class`, `button`, `action`, `type`) VALUES (1, 3, 4, 20572, 0);
+REPLACE INTO `playercreateinfo_action` (`race`, `class`, `button`, `action`, `type`) VALUES (1, 3, 2, 75, 0);
+REPLACE INTO `playercreateinfo_action` (`race`, `class`, `button`, `action`, `type`) VALUES (1, 3, 1, 2973, 0);
+REPLACE INTO `playercreateinfo_action` (`race`, `class`, `button`, `action`, `type`) VALUES (1, 3, 0, 6603, 0);
+
+REPLACE INTO `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (1, 3, 37, 1);
+REPLACE INTO `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (1, 3, 117, 4);
+REPLACE INTO `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (1, 3, 127, 1);
+REPLACE INTO `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (1, 3, 159, 2);
+REPLACE INTO `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (1, 3, 2101, 1);
+REPLACE INTO `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (1, 3, 2504, 1);
+REPLACE INTO `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (1, 3, 2512, 200);
+REPLACE INTO `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (1, 3, 6126, 1);
+REPLACE INTO `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (1, 3, 6127, 1);
+REPLACE INTO `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (1, 3, 6948, 1);
+
+REPLACE INTO `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (1, 3,75, 0, 5875, 'Auto Shot');
+REPLACE INTO `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (1, 3,81, 0, 5875, 'Dodge');
+REPLACE INTO `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (1, 3,196, 0, 5875, 'One-Handed Axes');
+REPLACE INTO `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (1, 3,203, 0, 5875, 'Unarmed');
+REPLACE INTO `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (1, 3,204, 0, 5875, 'Defense');
+REPLACE INTO `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (1, 3,266, 0, 5875, 'Guns');
+REPLACE INTO `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (1, 3,522, 0, 5875, 'SPELLDEFENSE (DND)');
+REPLACE INTO `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (1, 3,668, 0, 5875, 'Language Common');
+REPLACE INTO `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (1, 3,2382, 0, 5875, 'Generic');
+REPLACE INTO `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (1, 3,2479, 0, 5875, 'Honorless Target');
+REPLACE INTO `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (1, 3,2973, 0, 5875, 'Raptor Strike');
+REPLACE INTO `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (1, 3,3050, 0, 5875, 'Detect');
+REPLACE INTO `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (1, 3,3365, 0, 5875, 'Opening');
+REPLACE INTO `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (1, 3,6233, 0, 5875, 'Closing');
+REPLACE INTO `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (1, 3,6246, 0, 5875, 'Closing');
+REPLACE INTO `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (1, 3,6247, 0, 5875, 'Opening');
+REPLACE INTO `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (1, 3,6477, 0, 5875, 'Opening');
+REPLACE INTO `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (1, 3,6478, 0, 5875, 'Opening');
+REPLACE INTO `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (1, 3,6603, 0, 5875, 'Attack');
+REPLACE INTO `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (1, 3,7266, 0, 5875, 'Duel');
+REPLACE INTO `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (1, 3,7267, 0, 5875, 'Grovel');
+REPLACE INTO `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (1, 3,7355, 0, 5875, 'Stuck');
+REPLACE INTO `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (1, 3,8386, 0, 5875, 'Attacking');
+REPLACE INTO `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (1, 3,9077, 0, 5875, 'Leather');
+REPLACE INTO `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (1, 3,9078, 0, 5875, 'Cloth');
+REPLACE INTO `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (1, 3,9125, 0, 5875, 'Generic');
+REPLACE INTO `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (1, 3,13358, 0, 5875, 'Defensive State (DND)');
+REPLACE INTO `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (1, 3, 20597, 0, 5875, 'Sword Specialization');
+REPLACE INTO `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (1, 3, 20598, 0, 5875, 'The Human Spirit');
+REPLACE INTO `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (1, 3, 20599, 0, 5875, 'Diplomacy');
+REPLACE INTO `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (1, 3, 20600, 0, 5875, 'Perception');
+REPLACE INTO `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (1, 3,21651, 0, 5875, 'Opening');
+REPLACE INTO `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (1, 3,21652, 0, 5875, 'Closing');
+REPLACE INTO `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (1, 3,22027, 0, 5875, 'Remove Insignia');
+REPLACE INTO `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (1, 3,22810, 0, 5875, 'Opening - No Text');
+REPLACE INTO `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (1, 3,24949, 4878, 5875, 'Defensive State 2 (DND)');
+
+
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (1, 3, 1, 23, 20, 23, 17, 24);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (1, 3, 2, 23, 21, 24, 18, 25);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (1, 3, 3, 24, 22, 25, 18, 25);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (1, 3, 4, 24, 24, 25, 19, 26);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (1, 3, 5, 25, 25, 26, 19, 26);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (1, 3, 6, 25, 26, 27, 20, 27);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (1, 3, 7, 25, 27, 28, 20, 27);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (1, 3, 8, 26, 28, 29, 21, 28);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (1, 3, 9, 26, 30, 30, 21, 29);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (1, 3, 10, 27, 31, 30, 22, 29);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (1, 3, 11, 27, 32, 31, 22, 30);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (1, 3, 12, 28, 34, 32, 23, 31);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (1, 3, 13, 28, 35, 33, 24, 31);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (1, 3, 14, 29, 36, 34, 24, 32);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (1, 3, 15, 29, 38, 35, 25, 32);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (1, 3, 16, 30, 39, 36, 25, 33);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (1, 3, 17, 30, 40, 37, 26, 34);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (1, 3, 18, 31, 42, 38, 27, 35);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (1, 3, 19, 31, 43, 39, 27, 35);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (1, 3, 20, 32, 45, 40, 28, 36);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (1, 3, 21, 32, 46, 41, 29, 37);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (1, 3, 22, 33, 48, 42, 29, 37);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (1, 3, 23, 33, 49, 43, 30, 38);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (1, 3, 24, 34, 51, 44, 31, 39);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (1, 3, 25, 34, 52, 45, 31, 40);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (1, 3, 26, 35, 54, 46, 32, 40);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (1, 3, 27, 35, 56, 47, 33, 41);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (1, 3, 28, 36, 57, 48, 33, 42);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (1, 3, 29, 36, 59, 49, 34, 43);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (1, 3, 30, 37, 61, 50, 35, 43);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (1, 3, 31, 37, 62, 52, 36, 44);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (1, 3, 32, 38, 64, 53, 36, 45);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (1, 3, 33, 39, 66, 54, 37, 46);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (1, 3, 34, 39, 67, 55, 38, 47);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (1, 3, 35, 40, 69, 56, 39, 48);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (1, 3, 36, 41, 71, 58, 40, 49);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (1, 3, 37, 41, 73, 59, 40, 49);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (1, 3, 38, 42, 75, 60, 41, 50);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (1, 3, 39, 42, 77, 61, 42, 51);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (1, 3, 40, 43, 78, 63, 43, 52);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (1, 3, 41, 44, 80, 64, 44, 53);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (1, 3, 42, 44, 82, 65, 44, 54);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (1, 3, 43, 45, 84, 66, 45, 55);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (1, 3, 44, 46, 86, 68, 46, 56);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (1, 3, 45, 46, 88, 69, 47, 57);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (1, 3, 46, 47, 90, 71, 48, 58);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (1, 3, 47, 48, 92, 72, 49, 59);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (1, 3, 48, 49, 95, 73, 50, 60);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (1, 3, 49, 49, 97, 75, 51, 61);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (1, 3, 50, 50, 99, 76, 52, 62);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (1, 3, 51, 51, 101, 78, 53, 63);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (1, 3, 52, 52, 103, 79, 54, 64);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (1, 3, 53, 52, 105, 81, 55, 65);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (1, 3, 54, 53, 108, 82, 56, 66);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (1, 3, 55, 54, 110, 84, 57, 67);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (1, 3, 56, 55, 112, 85, 58, 68);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (1, 3, 57, 56, 115, 87, 59, 70);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (1, 3, 58, 56, 117, 89, 60, 71);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (1, 3, 59, 57, 120, 90, 61, 72);
+REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (1, 3, 60, 58, 122, 92, 62, 73);
 
 -- Human Shaman (Need to add an entry to CharBaseInfo.dbc for race/class combo)
 -- playercreateinfo
@@ -646,6 +1025,8 @@ REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`,
 -- playercreateinfo_item
 -- playercreateinfo_spell -- Must match SkillRaceClassInfo.dbc
 -- player_levelstats (Needs to be level 1-60)
+
+-- Trainers
 REPLACE `mangos`.`creature_template` (`entry`, `name`, `subname`, `level_min`, `level_max`, `faction`, `npc_flags`, `display_id1`, `detection_range`, `rank`, `unit_class`, `trainer_class`, `type`, `flags_extra`) VALUES (90033, 'Illya Einzbern', 'Shaman Trainer', 60, 60, 35, 23, 5546, 20, 1, 8, 7, 1, 64);
 REPLACE `mangos`.`creature` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `wander_distance`) VALUES (2000035, 90033, 0, -8907.379883, -212.085114, 82.118698, 2.77240, 0);
 UPDATE `mangos`.`creature_template` SET `trainer_id`=11 WHERE  `entry`=90033 AND `patch`=0;
