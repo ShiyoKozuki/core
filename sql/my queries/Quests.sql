@@ -45,7 +45,7 @@
 
 -- Quest + Vendor + Repair npc flag = 
 -- NEXT quest_template 30250
--- NEXT creature_template 90054
+-- NEXT creature_template 90055
 
 --     QUEST_TYPE_ELITE               = 1,
 --     QUEST_TYPE_LIFE                = 21,
@@ -81,6 +81,15 @@
     UPDATE `mangos`.`item_template` 
     SET `allowable_race`=-1
     WHERE entry IN(15911, 15913, 15908);
+
+-- Rogue Class Quests
+    UPDATE `mangos`.`quest_template` 
+    SET `RequiredRaces`=589 
+    WHERE entry IN(2205, 2242, 2218, 2239, 2206);
+    
+    UPDATE `mangos`.`quest_template` 
+    SET `RequiredRaces`=513 
+    WHERE entry IN(3102);
 
 -- Warlock Class Quests
     UPDATE `mangos`.`quest_template` 

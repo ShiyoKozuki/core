@@ -1205,6 +1205,342 @@ CreatureAI* GetAI_custom_summon_debug(Creature *creature)
     return new npc_summon_debugAI(creature);
 }
 
+bool GossipHello_RaceChangeNPC(Player* player, Creature* creature)
+{
+    player->ADD_GOSSIP_ITEM(5, "Change to a High Elf?", GOSSIP_SENDER_MAIN, 1);
+
+    player->SEND_GOSSIP_MENU(player->GetGossipTextId(creature), creature->GetGUID());
+    return true;
+}
+
+bool GossipSelect_RaceChangeNPC(Player* player, Creature* creature, uint32 sender, uint32 action)
+{
+    if (sender != GOSSIP_SENDER_MAIN)
+        return true;
+
+    if (action)
+    {
+        switch (action)
+        {
+        case 1:
+            if (player->GetRace() != RACE_BLOODELF &&
+                player->GetClass() != CLASS_WARRIOR &&
+                player->GetClass() != CLASS_DRUID)
+            {
+                // Learn racials
+                for (size_t i = 33821; i <= 33824; i++)
+                {
+                    player->LearnSpell(i, false);
+                }
+
+                player->LearnSpell(20574, false);
+                player->LearnSpell(26290, false);
+
+                // Unlearn Human Racials
+                for (size_t i = 20597; i <= 20600; i++)
+                {
+                    if (player->HasSpell(i))
+                    {
+                        player->RemoveSpell(i, false, true);
+                    }
+                }
+
+                if (player->HasSpell(20864))
+                {
+                    player->RemoveSpell(20864, false, true);
+                }
+
+                player->SaveToDB();
+
+                // Skin Color
+                player->SetByteValue(PLAYER_BYTES, PLAYER_BYTES_OFFSET_SKIN_ID, 1);
+
+                // Face
+                player->SetByteValue(PLAYER_BYTES, PLAYER_BYTES_OFFSET_FACE_ID, 1);
+
+                // Hair Style
+                player->SetByteValue(PLAYER_BYTES, PLAYER_BYTES_OFFSET_HAIR_STYLE_ID, 1);
+
+                // Hair Color
+                player->SetByteValue(PLAYER_BYTES, PLAYER_BYTES_OFFSET_HAIR_COLOR_ID, 1);
+
+                // Accessories / Facial Hair / Markings (BE females = jewelry)
+                player->SetByteValue(PLAYER_BYTES_2, PLAYER_BYTES_2_OFFSET_FACIAL_STYLE, 1);
+
+                // Force the client to update appearance
+                player->SetDisplayId(4); // Safe default shared by all client builds
+                player->DirectSendPublicValueUpdate(UNIT_FIELD_DISPLAYID);
+                player->DeMorph();
+
+                player->ChangeRace(RACE_BLOODELF);
+            }
+            else
+            {
+                // 90006 is an entry from npc_text in the database.
+                //INSERT INTO `npc_text` (`ID`, `BroadcastTextID0`, `Probability0`)VALUES(90006, 99996, 1);
+                //INSERT INTO `broadcast_text` (`entry`, `male_text`, `female_text`)VALUES(99996,
+                //    'You are the wrong class.', 'You are the wrong class.');
+                player->SEND_GOSSIP_MENU(90006, creature->GetGUID());
+            }
+            break;
+        }
+    }
+    return true;
+}
+
+bool GossipHello_BarberNPC(Player* player, Creature* creature)
+{
+    player->ADD_GOSSIP_ITEM(5, "Chest", GOSSIP_SENDER_MAIN, EQUIPMENT_SLOT_CHEST);
+    player->ADD_GOSSIP_ITEM(5, "Cloak", GOSSIP_SENDER_MAIN, EQUIPMENT_SLOT_BACK);
+    player->ADD_GOSSIP_ITEM(5, "Bracers", GOSSIP_SENDER_MAIN, EQUIPMENT_SLOT_WRISTS);
+    player->ADD_GOSSIP_ITEM(5, "Gloves", GOSSIP_SENDER_MAIN, EQUIPMENT_SLOT_HANDS);
+    player->ADD_GOSSIP_ITEM(5, "Boots", GOSSIP_SENDER_MAIN, EQUIPMENT_SLOT_FEET);
+    player->ADD_GOSSIP_ITEM(5, "Mainhand", GOSSIP_SENDER_MAIN, EQUIPMENT_SLOT_MAINHAND);
+    player->ADD_GOSSIP_ITEM(5, "Offhand", GOSSIP_SENDER_MAIN, EQUIPMENT_SLOT_OFFHAND);
+
+    player->SEND_GOSSIP_MENU(player->GetGossipTextId(creature), creature->GetGUID());
+    return true;
+}
+
+bool GossipSelect_BarberNPC(Player* player, Creature* creature, uint32 sender, uint32 action)
+{
+    if (sender != GOSSIP_SENDER_MAIN)
+        return true;
+
+    if (action < 20)
+    {
+        switch (action)
+        {
+        case EQUIPMENT_SLOT_CHEST:
+            player->ADD_GOSSIP_ITEM(5, "Greater Stats", GOSSIP_SENDER_MAIN, CHEST_STATS);
+            player->ADD_GOSSIP_ITEM(5, "Greater Health", GOSSIP_SENDER_MAIN, CHEST_HEALTH);
+            break;
+        case EQUIPMENT_SLOT_BACK:
+            player->ADD_GOSSIP_ITEM(5, "Agility", GOSSIP_SENDER_MAIN, CLOAK_AGILITY);
+            player->ADD_GOSSIP_ITEM(5, "Armor", GOSSIP_SENDER_MAIN, CLOAK_ARMOR);
+            player->ADD_GOSSIP_ITEM(5, "Dodge", GOSSIP_SENDER_MAIN, CLOAK_DODGE);
+            player->ADD_GOSSIP_ITEM(5, "Subtlety", GOSSIP_SENDER_MAIN, CLOAK_SUB);
+            player->ADD_GOSSIP_ITEM(5, "Greater Resistance", GOSSIP_SENDER_MAIN, CLOAK_GREATER_RES);
+            break;
+        case EQUIPMENT_SLOT_WRISTS:
+            player->ADD_GOSSIP_ITEM(5, "Stamina", GOSSIP_SENDER_MAIN, BRACER_STAM);
+            player->ADD_GOSSIP_ITEM(5, "Strength", GOSSIP_SENDER_MAIN, BRACER_STR);
+            player->ADD_GOSSIP_ITEM(5, "Healing", GOSSIP_SENDER_MAIN, BRACER_HEAL);
+            player->ADD_GOSSIP_ITEM(5, "Intellect", GOSSIP_SENDER_MAIN, BRACER_INT);
+            player->ADD_GOSSIP_ITEM(5, "MP5", GOSSIP_SENDER_MAIN, BRACER_MP5);
+            break;
+        case EQUIPMENT_SLOT_HANDS:
+            player->ADD_GOSSIP_ITEM(5, "Agility", GOSSIP_SENDER_MAIN, GLOVES_AGI);
+            player->ADD_GOSSIP_ITEM(5, "Fire Power", GOSSIP_SENDER_MAIN, GLOVES_FIRE);
+            player->ADD_GOSSIP_ITEM(5, "Frost Power", GOSSIP_SENDER_MAIN, GLOVES_FROST);
+            player->ADD_GOSSIP_ITEM(5, "Shadow Power", GOSSIP_SENDER_MAIN, GLOVES_SHADOW);
+            player->ADD_GOSSIP_ITEM(5, "Healing", GOSSIP_SENDER_MAIN, GLOVES_HEALING);
+            break;
+        case EQUIPMENT_SLOT_FEET:
+            player->ADD_GOSSIP_ITEM(5, "Stamina", GOSSIP_SENDER_MAIN, BOOTS_STAM);
+            player->ADD_GOSSIP_ITEM(5, "Minor Speed", GOSSIP_SENDER_MAIN, BOOTS_SPEED);
+            player->ADD_GOSSIP_ITEM(5, "Agility", GOSSIP_SENDER_MAIN, BOOTS_AGI);
+            break;
+        case EQUIPMENT_SLOT_MAINHAND:
+            player->ADD_GOSSIP_ITEM(5, "Crusader", GOSSIP_SENDER_MAIN, WEP_CRUSADER);
+            player->ADD_GOSSIP_ITEM(5, "1H Agility", GOSSIP_SENDER_MAIN, WEP1H_AGILITY);
+            player->ADD_GOSSIP_ITEM(5, "2H Agility", GOSSIP_SENDER_MAIN, WEP2H_AGILITY);
+            player->ADD_GOSSIP_ITEM(5, "2H INT", GOSSIP_SENDER_MAIN, WEP2H_INT);
+            player->ADD_GOSSIP_ITEM(5, "2H Spirit", GOSSIP_SENDER_MAIN, WEP2H_SPIRIT);
+            player->ADD_GOSSIP_ITEM(5, "Spellpower", GOSSIP_SENDER_MAIN, WEP_SPELLPOWER);
+            player->ADD_GOSSIP_ITEM(5, "Healing", GOSSIP_SENDER_MAIN, WEP_HEAL);
+            player->ADD_GOSSIP_ITEM(5, "Lifesteal", GOSSIP_SENDER_MAIN, WEP_LIFESTEAL);
+            player->ADD_GOSSIP_ITEM(5, "Fiery", GOSSIP_SENDER_MAIN, WEP_FIERY);
+            player->ADD_GOSSIP_ITEM(5, "Icy", GOSSIP_SENDER_MAIN, WEP_ICY);
+            player->ADD_GOSSIP_ITEM(5, "Demonslaying", GOSSIP_SENDER_MAIN, WEP_DEMONSLAYING);
+            break;
+        case EQUIPMENT_SLOT_OFFHAND:
+            player->ADD_GOSSIP_ITEM(5, "Spirit", GOSSIP_SENDER_MAIN, OFFHAND_SPIRIT);
+            player->ADD_GOSSIP_ITEM(5, "Stamina", GOSSIP_SENDER_MAIN, OFFHAND_STAM);
+            player->ADD_GOSSIP_ITEM(5, "Frost Resistance", GOSSIP_SENDER_MAIN, OFFHAND_FROSTRES);
+            player->ADD_GOSSIP_ITEM(5, "Shield Spike", GOSSIP_SENDER_MAIN, OFFHAND_SHIELDSPIKE);
+            break;
+        }
+        player->SEND_GOSSIP_MENU(DEFAULT_GOSSIP_MESSAGE, creature->GetGUID());
+    }
+    else
+    {
+        Item* item = nullptr;
+        uint32 id = 0;
+        switch (action)
+        {
+        case WEP2H_SUPERIOR_IMPACT:
+        case WEP2H_AGILITY:
+        case WEP2H_INT:
+        case WEP2H_SPIRIT:
+            item = player->GetItemByPos(INVENTORY_SLOT_BAG_0, EQUIPMENT_SLOT_MAINHAND);
+            if (item && (action == WEP2H_AGILITY || action == WEP2H_SUPERIOR_IMPACT || action == WEP2H_INT || action == WEP2H_SPIRIT))
+            {
+                if (item->GetProto()->SubClass != ITEM_SUBCLASS_WEAPON_AXE2 && item->GetProto()->SubClass != ITEM_SUBCLASS_WEAPON_MACE2 && item->GetProto()->SubClass != ITEM_SUBCLASS_WEAPON_SWORD2 && item->GetProto()->SubClass != ITEM_SUBCLASS_WEAPON_POLEARM && item->GetProto()->SubClass != ITEM_SUBCLASS_WEAPON_STAFF)
+                {
+                    player->GetSession()->SendNotification("Requires 2 handed weapon");
+                    player->CLOSE_GOSSIP_MENU();
+                    return true;
+                }
+            }
+            if (action == WEP2H_SUPERIOR_IMPACT)
+                id = 1896;
+            else if (action == WEP2H_AGILITY)
+                id = 2646;
+            else if (action == WEP2H_INT)
+                id = 2568;
+            else if (action == WEP2H_SPIRIT)
+                id = 2567;
+            break;
+
+        case WEP_CRUSADER:
+            item = player->GetItemByPos(INVENTORY_SLOT_BAG_0, EQUIPMENT_SLOT_MAINHAND);
+            id = 1900;
+            break;
+        case WEP1H_AGILITY:
+            item = player->GetItemByPos(INVENTORY_SLOT_BAG_0, EQUIPMENT_SLOT_MAINHAND);
+            id = 2564;
+            break;
+        case WEP_SPELLPOWER:
+            item = player->GetItemByPos(INVENTORY_SLOT_BAG_0, EQUIPMENT_SLOT_MAINHAND);
+            id = 2504;
+            break;
+        case WEP_HEAL:
+            item = player->GetItemByPos(INVENTORY_SLOT_BAG_0, EQUIPMENT_SLOT_MAINHAND);
+            id = 2505;
+            break;
+        case WEP_LIFESTEAL:
+            item = player->GetItemByPos(INVENTORY_SLOT_BAG_0, EQUIPMENT_SLOT_MAINHAND);
+            id = 1898;
+            break;
+        case WEP_ICY:
+            item = player->GetItemByPos(INVENTORY_SLOT_BAG_0, EQUIPMENT_SLOT_MAINHAND);
+            id = 1894;
+            break;
+        case WEP_FIERY:
+            item = player->GetItemByPos(INVENTORY_SLOT_BAG_0, EQUIPMENT_SLOT_MAINHAND);
+            id = 803;
+            break;
+        case WEP_DEMONSLAYING:
+            item = player->GetItemByPos(INVENTORY_SLOT_BAG_0, EQUIPMENT_SLOT_MAINHAND);
+            id = 912;
+            break;
+
+        case OFFHAND_SPIRIT:
+        case OFFHAND_STAM:
+        case OFFHAND_FROSTRES:
+        case OFFHAND_SHIELDSPIKE:
+            item = player->GetItemByPos(INVENTORY_SLOT_BAG_0, EQUIPMENT_SLOT_OFFHAND);
+            if (item && item->GetProto()->SubClass != ITEM_SUBCLASS_ARMOR_SHIELD)
+            {
+                player->GetSession()->SendNotification("Requires Shield");
+                player->CLOSE_GOSSIP_MENU();
+                return true;
+            }
+            if (action == OFFHAND_SPIRIT)
+                id = 1890;
+            else if (action == OFFHAND_FROSTRES)
+                id = 926;
+            else if (action == OFFHAND_STAM)
+                id = 929;
+            else if (action == OFFHAND_SHIELDSPIKE)
+                id = 1704;
+            break;
+        case CHEST_STATS:
+            item = player->GetItemByPos(INVENTORY_SLOT_BAG_0, EQUIPMENT_SLOT_CHEST);
+            id = 1891;
+            break;
+        case CHEST_HEALTH:
+            item = player->GetItemByPos(INVENTORY_SLOT_BAG_0, EQUIPMENT_SLOT_CHEST);
+            id = 1892;
+            break;
+        case CLOAK_DODGE:
+            item = player->GetItemByPos(INVENTORY_SLOT_BAG_0, EQUIPMENT_SLOT_BACK);
+            id = 2622;
+            break;
+        case CLOAK_SUB:
+            item = player->GetItemByPos(INVENTORY_SLOT_BAG_0, EQUIPMENT_SLOT_BACK);
+            id = 2621;
+            break;
+        case CLOAK_ARMOR:
+            item = player->GetItemByPos(INVENTORY_SLOT_BAG_0, EQUIPMENT_SLOT_BACK);
+            id = 1889;
+            break;
+        case CLOAK_AGILITY:
+            item = player->GetItemByPos(INVENTORY_SLOT_BAG_0, EQUIPMENT_SLOT_BACK);
+            id = 849;
+            break;
+        case CLOAK_GREATER_RES:
+            item = player->GetItemByPos(INVENTORY_SLOT_BAG_0, EQUIPMENT_SLOT_BACK);
+            id = 1888;
+            break;
+        case BRACER_STAM:
+            item = player->GetItemByPos(INVENTORY_SLOT_BAG_0, EQUIPMENT_SLOT_WRISTS);
+            id = 1886;
+            break;
+        case BRACER_STR:
+            item = player->GetItemByPos(INVENTORY_SLOT_BAG_0, EQUIPMENT_SLOT_WRISTS);
+            id = 1885;
+            break;
+        case BRACER_HEAL:
+            item = player->GetItemByPos(INVENTORY_SLOT_BAG_0, EQUIPMENT_SLOT_WRISTS);
+            id = 2566;
+            break;
+        case BRACER_INT:
+            item = player->GetItemByPos(INVENTORY_SLOT_BAG_0, EQUIPMENT_SLOT_WRISTS);
+            id = 1883;
+            break;
+        case BRACER_MP5:
+            item = player->GetItemByPos(INVENTORY_SLOT_BAG_0, EQUIPMENT_SLOT_WRISTS);
+            id = 2565;
+            break;
+        case GLOVES_AGI:
+            item = player->GetItemByPos(INVENTORY_SLOT_BAG_0, EQUIPMENT_SLOT_HANDS);
+            id = 2564;
+            break;
+        case GLOVES_FIRE:
+            item = player->GetItemByPos(INVENTORY_SLOT_BAG_0, EQUIPMENT_SLOT_HANDS);
+            id = 2616;
+            break;
+        case GLOVES_FROST:
+            item = player->GetItemByPos(INVENTORY_SLOT_BAG_0, EQUIPMENT_SLOT_HANDS);
+            id = 2615;
+            break;
+        case GLOVES_SHADOW:
+            item = player->GetItemByPos(INVENTORY_SLOT_BAG_0, EQUIPMENT_SLOT_HANDS);
+            id = 2614;
+            break;
+        case GLOVES_HEALING:
+            item = player->GetItemByPos(INVENTORY_SLOT_BAG_0, EQUIPMENT_SLOT_HANDS);
+            id = 2617;
+            break;
+        case BOOTS_AGI:
+            item = player->GetItemByPos(INVENTORY_SLOT_BAG_0, EQUIPMENT_SLOT_FEET);
+            id = 904;
+            break;
+        case BOOTS_SPEED:
+            item = player->GetItemByPos(INVENTORY_SLOT_BAG_0, EQUIPMENT_SLOT_FEET);
+            id = 911;
+            break;
+        case BOOTS_STAM:
+            item = player->GetItemByPos(INVENTORY_SLOT_BAG_0, EQUIPMENT_SLOT_FEET);
+            id = 929;
+            break;
+        }
+        Enchant(player, item, id);
+        player->CLOSE_GOSSIP_MENU();
+    }
+    return true;
+}
+
+
+void ChangeEffect(Player* player)
+{ 
+    player->SetDisplayId(10045);
+    player->SendForcedObjectUpdate();
+    player->DeMorph();
+}
+
 void AddSC_custom_creatures()
 {
     Script* newscript;
@@ -1247,5 +1583,17 @@ void AddSC_custom_creatures()
     newscript = new Script;
     newscript->Name = "custom_npc_summon_debugAI";
     newscript->GetAI = &GetAI_custom_summon_debug;
+    newscript->RegisterSelf(false);
+
+    newscript = new Script;
+    newscript->Name = "custom_race_change_npc";
+    newscript->pGossipHello = &GossipHello_RaceChangeNPC;
+    newscript->pGossipSelect = &GossipSelect_RaceChangeNPC;
+    newscript->RegisterSelf(false);
+
+    newscript = new Script;
+    newscript->Name = "custom_barber_npc";
+    newscript->pGossipHello = &GossipHello_BarberNPC;
+    newscript->pGossipSelect = &GossipSelect_BarberNPC;
     newscript->RegisterSelf(false);
 }
