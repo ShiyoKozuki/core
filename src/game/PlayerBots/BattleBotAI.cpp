@@ -811,7 +811,7 @@ void BattleBotAI::UpdateAI(uint32 const diff)
         me->SetHealthPercent(100.0f);
         me->SetPowerPercent(me->GetPowerType(), 100.0f);
 
-        if (urand(0, 1))
+        if (urand(0, 1) || me->GetRace() == RACE_BLOODELF)
         {
             me->ToggleFlag(PLAYER_FLAGS, PLAYER_FLAGS_HIDE_HELM);
             me->ToggleFlag(PLAYER_FLAGS, PLAYER_FLAGS_HIDE_CLOAK);
