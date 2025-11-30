@@ -59,6 +59,15 @@
 
 -- Faction = 35 to not make a friendly quest NPC not aggro creatures
 
+-- Add Blood Elf (High Elf) race to racemasks of quests
+    UPDATE `mangos`.`quest_template` 
+    SET `RequiredRaces`=513 
+    WHERE `RequiredRaces` = 1;
+
+    UPDATE `mangos`.`quest_template` 
+    SET `RequiredRaces`=589 
+    WHERE `RequiredRaces` = 77;
+
 -- Paladin Class Quests
     UPDATE `mangos`.`quest_template` 
     SET `RequiredRaces`=513 
@@ -99,6 +108,11 @@
     UPDATE `mangos`.`quest_template` 
     SET `RequiredRaces`=513 
     WHERE entry IN(3102);
+
+-- Mage Class Quests
+    UPDATE `mangos`.`quest_template` 
+    SET `RequiredRaces`=513 
+    WHERE entry IN(3104);
 
 -- Warlock Class Quests
     UPDATE `mangos`.`quest_template` 
@@ -194,6 +208,9 @@ UPDATE `mangos`.`quest_template` SET `RewChoiceItemId1`=0, `RewChoiceItemId2`=0,
 
 -- Priest ST class quest (All rewards)
 UPDATE `mangos`.`quest_template` SET `RewChoiceItemId1`=0, `RewChoiceItemId2`=0, `RewChoiceItemId3`=0, `RewChoiceItemCount1`=0, `RewChoiceItemCount2`=0, `RewChoiceItemCount3`=0, `RewItemId1`=19990, `RewItemId2`=20082, `RewItemId3`=20006, `RewItemCount1`=1, `RewItemCount2`=1, `RewItemCount3`=1 WHERE  `entry`=8257;
+
+-- Mage ST class quest (All rewards)
+UPDATE `mangos`.`quest_template` SET `RewChoiceItemId1`=0, `RewChoiceItemId2`=0, `RewChoiceItemId3`=0, `RewChoiceItemCount1`=0, `RewChoiceItemCount2`=0, `RewChoiceItemCount3`=0, `RewItemId1`=20035, `RewItemId2`=20036, `RewItemId3`=20037, `RewItemCount1`=1, `RewItemCount2`=1, `RewItemCount3`=1 WHERE  `entry`=8253;
 
 -- Warlock ST class quest (All rewards)
 UPDATE `mangos`.`quest_template` SET `RewChoiceItemId1`=0, `RewChoiceItemId2`=0, `RewChoiceItemId3`=0, `RewChoiceItemCount1`=0, `RewChoiceItemCount2`=0, `RewChoiceItemCount3`=0, `RewItemId1`=20536, `RewItemId2`=20534, `RewItemId3`=20530, `RewItemCount1`=1, `RewItemCount2`=1, `RewItemCount3`=1 WHERE  `entry`=8422;
