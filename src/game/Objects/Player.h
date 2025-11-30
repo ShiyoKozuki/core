@@ -777,6 +777,10 @@ class Player final: public Unit
                 m_ExtraFlags |= PLAYER_EXTRA_AUCTION_NEUTRAL;
         }
 
+        bool m_hideShoulders = false;
+        void SetHideShoulders(bool hide);
+        bool IsHideShoulders() const;
+
         /*********************************************************/
         /***                 GAMEMASTER SYSTEM                 ***/
         /*********************************************************/
@@ -829,6 +833,8 @@ class Player final: public Unit
         uint32 GetGMTicketCounter() const { return m_currentTicketCounter; }
         void SetGMTicketCounter(uint32 counter) { m_currentTicketCounter = counter; }
 
+        void SetVisibleItemSlot(uint8 slot, Item const* pItem);
+
         /*********************************************************/
         /***                    STORAGE SYSTEM                 ***/
         /*********************************************************/
@@ -861,7 +867,6 @@ class Player final: public Unit
         bool CheckAmmoCompatibility(ItemPrototype const* ammo_proto) const;
         void QuickEquipItem(uint16 pos, Item* pItem);
         void VisualizeItem(uint8 slot, Item* pItem);
-        void SetVisibleItemSlot(uint8 slot, Item const* pItem);
         // in trade, guild bank, mail....
         void RemoveItemDependentAurasAndCasts(Item const* pItem);
         void UpdateEnchantTime(uint32 time);

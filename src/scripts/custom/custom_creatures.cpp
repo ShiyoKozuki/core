@@ -1290,11 +1290,12 @@ bool GossipSelect_RaceChangeNPC(Player* player, Creature* creature, uint32 sende
 
 bool GossipHello_BarberNPC(Player* player, Creature* creature)
 {
-    player->ADD_GOSSIP_ITEM(5, "Skin Color", GOSSIP_SENDER_MAIN, 1);
-    player->ADD_GOSSIP_ITEM(5, "Face", GOSSIP_SENDER_MAIN, 2);
+    player->ADD_GOSSIP_ITEM(5, "Skin Color (NYI)", GOSSIP_SENDER_MAIN, 1);
+    player->ADD_GOSSIP_ITEM(5, "Face (NYI)", GOSSIP_SENDER_MAIN, 2);
     player->ADD_GOSSIP_ITEM(5, "Hair Style", GOSSIP_SENDER_MAIN, 3);
     player->ADD_GOSSIP_ITEM(5, "Hair Color", GOSSIP_SENDER_MAIN, 4);
     player->ADD_GOSSIP_ITEM(5, "Accessories", GOSSIP_SENDER_MAIN, 5);
+    player->ADD_GOSSIP_ITEM(5, "Toggle Shoulder Display", GOSSIP_SENDER_MAIN, 6);
 
     player->SEND_GOSSIP_MENU(player->GetGossipTextId(creature), creature->GetGUID());
     return true;
@@ -1302,6 +1303,21 @@ bool GossipHello_BarberNPC(Player* player, Creature* creature)
 
 bool GossipSelect_BarberNPC(Player* player, Creature* creature, uint32 sender, uint32 action)
 {
+    // Toggle Shoulders
+    if (sender == GOSSIP_SENDER_MAIN && action == 6)
+    {
+        bool hidden = !player->IsHideShoulders();
+        player->SetHideShoulders(hidden);
+        player->SendSysMessage(hidden ? "Shoulders hidden." : "Shoulders shown.");
+
+        Item* shoulders = player->GetItemByPos(INVENTORY_SLOT_BAG_0, EQUIPMENT_SLOT_SHOULDERS);
+        player->SetVisibleItemSlot(EQUIPMENT_SLOT_SHOULDERS, shoulders);
+        player->SendForcedObjectUpdate();
+
+        player->CLOSE_GOSSIP_MENU();
+        return true;
+    }
+
     // Selected category
     if (sender == GOSSIP_SENDER_MAIN && action >= 1 && action <= 5)
     {
@@ -1362,13 +1378,6 @@ bool GossipSelect_BarberNPC(Player* player, Creature* creature, uint32 sender, u
     }
 
     return false;
-}
-
-void ChangeEffect(Player* player)
-{ 
-    player->SetDisplayId(10045);
-    player->SendForcedObjectUpdate();
-    player->DeMorph();
 }
 
 void AddSC_custom_creatures()

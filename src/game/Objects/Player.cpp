@@ -10496,6 +10496,12 @@ void Player::QuickEquipItem(uint16 pos, Item* pItem)
 
 void Player::SetVisibleItemSlot(uint8 slot, Item const* pItem)
 {
+    // Hide shoulders
+    if (IsHideShoulders() && slot == EQUIPMENT_SLOT_SHOULDERS)
+    {
+        pItem = nullptr;
+    }
+
     if (pItem)
     {
         SetGuidValue(PLAYER_VISIBLE_ITEM_1_CREATOR + (slot * MAX_VISIBLE_ITEM_OFFSET), pItem->GetGuidValue(ITEM_FIELD_CREATOR));
@@ -22760,4 +22766,14 @@ void Player::ClearTemporaryWarWithFactions()
         }
         m_temporaryAtWarFactions.clear();
     }
+}
+
+void Player::SetHideShoulders(bool hide)
+{
+    m_hideShoulders = hide;
+}
+
+bool Player::IsHideShoulders() const
+{
+    return m_hideShoulders;
 }
