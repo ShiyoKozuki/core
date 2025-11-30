@@ -1253,19 +1253,19 @@ bool GossipSelect_RaceChangeNPC(Player* player, Creature* creature, uint32 sende
                 player->SaveToDB();
 
                 // Skin Color
-                player->SetByteValue(PLAYER_BYTES, PLAYER_BYTES_OFFSET_SKIN_ID, 1);
+                player->SetByteValue(PLAYER_BYTES, PLAYER_BYTES_OFFSET_SKIN_ID, urand(1, 10));
 
                 // Face
                 player->SetByteValue(PLAYER_BYTES, PLAYER_BYTES_OFFSET_FACE_ID, 1);
 
                 // Hair Style
-                player->SetByteValue(PLAYER_BYTES, PLAYER_BYTES_OFFSET_HAIR_STYLE_ID, 1);
+                player->SetByteValue(PLAYER_BYTES, PLAYER_BYTES_OFFSET_HAIR_STYLE_ID, urand(1, 10));
 
                 // Hair Color
-                player->SetByteValue(PLAYER_BYTES, PLAYER_BYTES_OFFSET_HAIR_COLOR_ID, 1);
+                player->SetByteValue(PLAYER_BYTES, PLAYER_BYTES_OFFSET_HAIR_COLOR_ID, urand(1, 10));
 
                 // Accessories / Facial Hair / Markings (BE females = jewelry)
-                player->SetByteValue(PLAYER_BYTES_2, PLAYER_BYTES_2_OFFSET_FACIAL_STYLE, 1);
+                player->SetByteValue(PLAYER_BYTES_2, PLAYER_BYTES_2_OFFSET_FACIAL_STYLE, urand(1, 10));
 
                 // Force the client to update appearance
                 player->SetDisplayId(4); // Safe default shared by all client builds
@@ -1291,7 +1291,7 @@ bool GossipSelect_RaceChangeNPC(Player* player, Creature* creature, uint32 sende
 bool GossipHello_BarberNPC(Player* player, Creature* creature)
 {
     player->ADD_GOSSIP_ITEM(5, "Skin Color (NYI)", GOSSIP_SENDER_MAIN, 1);
-    player->ADD_GOSSIP_ITEM(5, "Face (NYI)", GOSSIP_SENDER_MAIN, 2);
+    player->ADD_GOSSIP_ITEM(5, "Face", GOSSIP_SENDER_MAIN, 2);
     player->ADD_GOSSIP_ITEM(5, "Hair Style", GOSSIP_SENDER_MAIN, 3);
     player->ADD_GOSSIP_ITEM(5, "Hair Color", GOSSIP_SENDER_MAIN, 4);
     player->ADD_GOSSIP_ITEM(5, "Accessories", GOSSIP_SENDER_MAIN, 5);

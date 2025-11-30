@@ -424,6 +424,8 @@ REPLACE `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x
 REPLACE `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000090, 90055, 0, 0, 0, 0, 0, -4913.88, -999.789, 508.663, 4.02899, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
 REPLACE `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000091, 90055, 0, 0, 0, 0, 1, 9864.53, 2331.56, 1321.59, 2.73077, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
 REPLACE `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000096, 90055, 0, 0, 0, 0, 1, -3705.89, -4539.34, 25.8339, 3.657, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
+REPLACE `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000097, 90055, 0, 0, 0, 0, 0, -8896.44, -136.91, 80.5766, 1.04568, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
+
 
 
 -- Battlebots
