@@ -777,6 +777,9 @@ class Player final: public Unit
                 m_ExtraFlags |= PLAYER_EXTRA_AUCTION_NEUTRAL;
         }
 
+        std::string GetCharVar(const std::string& var, const std::string& def = "") const;
+        void SetCharVar(const std::string& var, const std::string& value);
+
         bool m_hideShoulders = false;
         void SetHideShoulders(bool hide);
         bool IsHideShoulders() const;

@@ -1307,6 +1307,7 @@ bool GossipSelect_BarberNPC(Player* player, Creature* creature, uint32 sender, u
     if (sender == GOSSIP_SENDER_MAIN && action == 6)
     {
         bool hidden = !player->IsHideShoulders();
+        player->SetCharVar("hide_shoulders", hidden ? "1" : "0");
         player->SetHideShoulders(hidden);
         player->SendSysMessage(hidden ? "Shoulders hidden." : "Shoulders shown.");
 

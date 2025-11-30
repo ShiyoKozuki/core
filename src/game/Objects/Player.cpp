@@ -14748,6 +14748,9 @@ bool Player::LoadFromDB(ObjectGuid guid, SqlQueryHolder* holder)
     if (m_characterFlags & CHARACTER_FLAG_GHOST)
         SetFlag(PLAYER_FLAGS, PLAYER_FLAGS_GHOST);
 
+    // Load custom character variables
+    m_hideShoulders = (GetCharVar("hide_shoulders", "0") == "1");
+
     time_t const now = time(nullptr);
 
 #if SUPPORTED_CLIENT_BUILD > CLIENT_BUILD_1_7_1
@@ -22766,6 +22769,29 @@ void Player::ClearTemporaryWarWithFactions()
         }
         m_temporaryAtWarFactions.clear();
     }
+}
+
+std::string Player::GetCharVar(const std::string& var, const std::string& def) const
+{
+    std::unique_ptr<QueryResult> result = CharacterDatabase.PQuery(
+        "SELECT `value` FROM `char_vars` "
+        "WHERE `guid` = %u AND `var` = '%s'",
+        GetGUIDLow(), var.c_str()
+    );
+
+    if (!result)
+        return def;
+
+    Field* fields = result->Fetch();
+    return fields[0].GetString();
+}
+
+void Player::SetCharVar(const std::string& var, const std::string& value)
+{
+    CharacterDatabase.PExecute(
+        "REPLACE INTO char_vars (guid, var, value) VALUES (%u,'%s','%s')",
+        GetGUIDLow(), var.c_str(), value.c_str()
+    );
 }
 
 void Player::SetHideShoulders(bool hide)
