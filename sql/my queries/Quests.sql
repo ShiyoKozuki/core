@@ -44,8 +44,8 @@
 -- how do distress beacon quests not replace item on starting? same with ship schedule
 
 -- Quest + Vendor + Repair npc flag = 
--- NEXT quest_template 30250
--- NEXT creature_template 90055
+-- NEXT quest_template 30252
+-- NEXT creature_template 90056
 
 --     QUEST_TYPE_ELITE               = 1,
 --     QUEST_TYPE_LIFE                = 21,
@@ -58,6 +58,15 @@
 --     QUEST_TYPE_ESCORT              = 84,
 
 -- Faction = 35 to not make a friendly quest NPC not aggro creatures
+
+-- Paladin Class Quests
+    UPDATE `mangos`.`quest_template` 
+    SET `RequiredRaces`=513 
+    WHERE entry IN(3101, 1641, 1642, 1643, 1644, 1780, 1781, 1786, 1787, 1788, 1790);
+
+    UPDATE `mangos`.`item_template` 
+    SET `allowable_race`=-1
+    WHERE entry IN(6776);
 
 -- Priest Class Quests
     -- A Lack of Fear (Fear Ward Quest)
@@ -136,6 +145,20 @@
     REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (5497, 30246);
     REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (5497, 30246);
 
+-- Breadcrumb Northshire Abbey class trainer quests
+    -- Hunter
+    REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `RequiredClasses`, `RequiredRaces`, `PrevQuestId`, `SrcItemId`, `SrcItemCount`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewRepFaction1`, `RewRepValue1`, `RewRepSpilloverMask`, `RewXP`, `RewMoneyMaxLevel`, `DetailsEmote1`, `IncompleteEmote`, `CompleteEmote`, `OfferRewardEmote1`, `OfferRewardEmote2`) VALUES (30250, -141, 1, 1, 4, 513, 7, 9570, 1, 'Consecrated Letter', 'I was asked to bring this to your attention as soon as you returned from the kobold camps, $N. It appears to be a letter sealed with the insignia of Thorgas Grimson, our local paladin trainer. I wouldn\'t hesitate to read it before you go about any other business here in the Abbey.', 'Read the Consecrated Letter and speak to Thorgas Grimson in Northshire Abbey.', 'In the meantime, you should know one or two other things. You are a symbol to many here in this land--act accordingly. The Holy Light shines within you, and it will be obvious to both your allies and your enemies.$B$BAlso, as you gain in wisdom and power, you will need to train to learn new abilities. That\'s where I come in. When you feel you\'ve gained some experience here in Northshire, come back to me and I will teach you what I feel you are ready to learn. Good luck... $c!', 'Finally! We meet face to face, brother to $gbrother:sister;. I welcome you to Northshire. This will be your home for a short time while you learn the ins and outs of how things are done, but know that Stormwind is not far off, and sooner or later, your path will take you there. But until then, be patient... Knight of the Silver Hand.', '', '', '', '', '', 9570, 1, 72, 50, 1, 40, 30, 1, 4, 4, 1, 1);
+
+    REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (197, 30250);
+    REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (895, 30250);
+
+    -- Shaman
+    REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `RequiredClasses`, `RequiredRaces`, `PrevQuestId`, `SrcItemId`, `SrcItemCount`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewRepFaction1`, `RewRepValue1`, `RewRepSpilloverMask`, `RewXP`, `RewMoneyMaxLevel`, `DetailsEmote1`, `IncompleteEmote`, `CompleteEmote`, `OfferRewardEmote1`, `OfferRewardEmote2`) VALUES (30251, -141, 1, 1, 64, 513, 7, 9570, 1, 'Consecrated Letter', 'I was asked to bring this to your attention as soon as you returned from the kobold camps, $N. It appears to be a letter sealed with the insignia of Illya Einzbern, our local paladin trainer. I wouldn\'t hesitate to read it before you go about any other business here in the Abbey.', 'Read the Consecrated Letter and speak to Illya Einzbern in Northshire Abbey.', 'In the meantime, you should know one or two other things. You are a symbol to many here in this land--act accordingly. The Holy Light shines within you, and it will be obvious to both your allies and your enemies.$B$BAlso, as you gain in wisdom and power, you will need to train to learn new abilities. That\'s where I come in. When you feel you\'ve gained some experience here in Northshire, come back to me and I will teach you what I feel you are ready to learn. Good luck... $c!', 'Finally! We meet face to face, brother to $gbrother:sister;. I welcome you to Northshire. This will be your home for a short time while you learn the ins and outs of how things are done, but know that Stormwind is not far off, and sooner or later, your path will take you there. But until then, be patient... Knight of the Silver Hand.', '', '', '', '', '', 9570, 1, 72, 50, 1, 40, 30, 1, 4, 4, 1, 1);
+
+    REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (197, 30251);
+    REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90033, 30251);
+
+
 -- Rampaging Giants
 UPDATE `mangos`.`quest_template` SET `RewRepValue1`=200 WHERE  `entry`=5981 AND `patch`=0;
 
@@ -174,6 +197,9 @@ UPDATE `mangos`.`quest_template` SET `RewChoiceItemId1`=0, `RewChoiceItemId2`=0,
 
 -- Warlock ST class quest (All rewards)
 UPDATE `mangos`.`quest_template` SET `RewChoiceItemId1`=0, `RewChoiceItemId2`=0, `RewChoiceItemId3`=0, `RewChoiceItemCount1`=0, `RewChoiceItemCount2`=0, `RewChoiceItemCount3`=0, `RewItemId1`=20536, `RewItemId2`=20534, `RewItemId3`=20530, `RewItemCount1`=1, `RewItemCount2`=1, `RewItemCount3`=1 WHERE  `entry`=8422;
+
+-- Paladin ST class quest (All rewards)
+UPDATE `mangos`.`quest_template` SET `RewChoiceItemId1`=0, `RewChoiceItemId2`=0, `RewChoiceItemId3`=0, `RewChoiceItemCount1`=0, `RewChoiceItemCount2`=0, `RewChoiceItemCount3`=0, `RewItemId1`=20504, `RewItemId2`=20512, `RewItemId3`=20505, `RewItemCount1`=1, `RewItemCount2`=1, `RewItemCount3`=1 WHERE  `entry`=8418;
 
 -- STV (North)
 REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `NextQuestInChain`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOId2`, `ReqCreatureOrGOCount1`, `ReqCreatureOrGOCount2`, `RewItemId1`, `RewItemCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewMoneyMaxLevel`) VALUES (30029, 33, 30, 37, 8, 0, 'Special Forces II', 'I want you to clear out any ogres you find in the Mizjah Ruins to the south.', 'Kill 10 Mosh\'Ogg Brute and 10 Mosh\'Ogg Witch Doctor then return to Lieutenant Doren at the rebel camp.', 'Brilliant!', 'Kill 10 Mosh\'Ogg Brute and 10 Mosh\'Ogg Witch Doctor then return to Lieutenant Doren at the rebel camp.', '', '', '', '', '', 1142, 1144, 10, 10, 4115, 1, 72, 100, 2850, 1740);
