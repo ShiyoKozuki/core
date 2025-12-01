@@ -28,6 +28,9 @@ UPDATE `mangos`.`game_event` SET `hardcoded`=0 WHERE  `entry`=17;
 -- Object Despawn when looted (data3 = 1 means despawn when looted)
     UPDATE `mangos`.`gameobject_template` SET `data3`=1 WHERE entry IN (119, 321, 2084, 28024, 142088);   
 
+-- Add Blood Elf to "all" skill line abilities (ones that were 255 already)
+UPDATE `mangos`.`skill_line_ability` SET `race_mask`=767 WHERE  `race_mask`=255;
+
 -- Blood Elf Paladin (Need to add an entry to CharBaseInfo.dbc for race/class combo)
 -- playercreateinfo
 -- playercreateinfo_action
@@ -656,6 +659,10 @@ REPLACE `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `int
 -- playercreateinfo_item
 -- playercreateinfo_spell -- Must match SkillRaceClassInfo.dbc
 -- player_levelstats (Needs to be level 1-60)
+
+-- Add Blood Elf to mage teleports/portals
+UPDATE `mangos`.`skill_line_ability` SET `race_mask`=589 WHERE `race_mask`=77;
+
 REPLACE `mangos`.`playercreateinfo` (`race`, `class`, `zone`, `position_x`, `position_y`, `position_z`) VALUES (10, 8, 12, -8949.95, -132.493, 83.5312);
 
 REPLACE `mangos`.`playercreateinfo_action` (`race`, `class`, `button`, `action`, `type`) VALUES (10, 8, 11, 117, 128);
