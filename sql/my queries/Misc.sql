@@ -31,6 +31,15 @@ UPDATE `mangos`.`game_event` SET `hardcoded`=0 WHERE  `entry`=17;
 -- Add Blood Elf to "all" skill line abilities (ones that were 255 already)
 UPDATE `mangos`.`skill_line_ability` SET `race_mask`=767 WHERE  `race_mask`=255;
 
+-- Add Blood Elf to "all" factions (ones that were 255 already)
+UPDATE `mangos`.`faction` SET `base_rep_race_mask1`=767 WHERE  `base_rep_race_mask1`=255;
+
+-- Add Blood Elf to Stormwind / IF / Gnomergan / Darnassus
+UPDATE `mangos`.`faction` SET `base_rep_race_mask1`=588 WHERE  `base_rep_race_mask1`=76;
+UPDATE `mangos`.`faction` SET `base_rep_race_mask1`=585 WHERE  `base_rep_race_mask1`=73;
+UPDATE `mangos`.`faction` SET `base_rep_race_mask1`=525 WHERE  `base_rep_race_mask1`=13;
+UPDATE `mangos`.`faction` SET `base_rep_race_mask1`=581 WHERE  `base_rep_race_mask1`=69;
+
 -- Blood Elf Paladin (Need to add an entry to CharBaseInfo.dbc for race/class combo)
 -- playercreateinfo
 -- playercreateinfo_action

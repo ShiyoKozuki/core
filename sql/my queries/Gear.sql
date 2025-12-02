@@ -282,11 +282,49 @@ REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display
 REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `required_level`, `max_count`, `stat_type1`, `stat_value1`, `delay`, `dmg_min1`, `dmg_max1`, `shadow_res`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellid_2`, `spelltrigger_2`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `sheath`, `max_durability`, `disenchant_id`) VALUES (30170, 2, 15, 'Fallen God\'s Tooth', 20345, 3, 16931, 3386, 13, 16, -1, 20, 1, 6, 2, 1500, 17, 32, 5, 9417, 1, -1, -1, 33700, 0, 45000, -1, -1, -1, -1, -1, 0, 0, 1, 1, 3, 50, 41);
 REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `stat_type1`, `stat_value1`, `stat_type2`, `stat_value2`, `stat_type3`, `stat_value3`, `delay`, `dmg_min1`, `dmg_max1`, `armor`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellid_2`, `spelltrigger_2`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `sheath`, `max_durability`, `disenchant_id`) VALUES (30171, 2, 13, 'Claw of Molten Fury', 21715, 3, 196213, 39242, 13, 64, -1, 56, 0, 0, 0, 0, 0, 0, 1500, 38, 72, 0, 9417, 1, -1, -1, 33702, 0, 45000, -1, -1, -1, -1, -1, 0, 0, 1, 1, 7, 65, 48);
 REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `delay`, `dmg_min1`, `dmg_max1`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellid_2`, `spelltrigger_2`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `sheath`, `max_durability`, `disenchant_id`) VALUES (30172, 2, 7, 'Sword of the Holy Protector', 20218, 3, 117784, 23556, 13, 2, -1, 47, 1700, 44, 74, 9417, 1, -1, -1, 33703, 2, -1, -1, -1, -1, -1, -1, 0, 0, 1, 1, 3, 90, 46);
+REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `delay`, `range_mod`, `ammo_type`, `dmg_min1`, `dmg_max1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `max_durability`) VALUES (30173, 2, 2, 'Simple Wood Bow', 20714, 2, 1751, 350, 15, -1, -1, 16, 11, 2800, 100, 2, 10, 22, -1, -1, -1, -1, -1, -1, -1, -1, 0, -1, 1, 2, 40);
+
+REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `delay`, `range_mod`, `ammo_type`, `dmg_min1`, `dmg_max1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `max_durability`) VALUES (30174, 2, 2, 'Maple Wood Bow', 20714, 2, 1751, 350, 15, -1, -1, 16, 21, 2800, 100, 2, 24, 36, -1, -1, -1, -1, -1, -1, -1, -1, 0, -1, 1, 2, 40);
+
+REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `delay`, `range_mod`, `ammo_type`, `dmg_min1`, `dmg_max1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `max_durability`) VALUES (30175, 2, 2, 'Walnut Wood Bow', 20714, 2, 1751, 350, 15, -1, -1, 16, 31, 2800, 100, 2, 30, 42, -1, -1, -1, -1, -1, -1, -1, -1, 0, -1, 1, 2, 40);
+
+REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `delay`, `range_mod`, `ammo_type`, `dmg_min1`, `dmg_max1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `max_durability`) VALUES (30176, 2, 2, 'Chestnut Wood Bow', 20714, 3, 1751, 350, 15, -1, -1, 16, 41, 2800, 100, 2, 53, 77, -1, -1, -1, -1, -1, -1, -1, -1, 0, -1, 1, 2, 40);
+
+REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `delay`, `range_mod`, `ammo_type`, `dmg_min1`, `dmg_max1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `max_durability`) VALUES (30177, 2, 2, 'Rosewood Wood Bow', 20714, 3, 1751, 350, 15, -1, -1, 16, 51, 2800, 100, 2, 51, 101, -1, -1, -1, -1, -1, -1, -1, -1, 0, -1, 1, 2, 40);
+
+REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `delay`, `range_mod`, `ammo_type`, `dmg_min1`, `dmg_max1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `max_durability`) VALUES (30178, 2, 2, 'Ancient Wood Bow', 20714, 4, 1751, 350, 15, -1, -1, 16, 21, 2800, 100, 2, 59, 109, -1, -1, -1, -1, -1, -1, -1, -1, 0, -1, 1, 2, 40);
+
+REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `delay`, `dmg_min1`, `dmg_max1`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `sheath`, `max_durability`) VALUES (30179, 2, 10, 'Simple Wood Staff', 20449, 2, 150, 30, 17, -1, -1, 5, 15, 3500, 7, 11, 9395, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 2, 2, 2, 35);
+
+REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `delay`, `dmg_min1`, `dmg_max1`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `sheath`, `max_durability`) VALUES (30180, 2, 10, 'Maple Wood Staff', 20449, 2, 150, 30, 17, -1, -1, 5, 25, 3500, 7, 11, 9417, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 2, 2, 2, 35);
+
+REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `delay`, `dmg_min1`, `dmg_max1`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `sheath`, `max_durability`) VALUES (30181, 2, 10, 'Walnut Wood Staff', 20449, 2, 150, 30, 17, -1, -1, 5, 35, 3500, 7, 11, 9345, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 2, 2, 2, 35);
+
+REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `delay`, `dmg_min1`, `dmg_max1`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `sheath`, `max_durability`) VALUES (30182, 2, 10, 'Chestnut Wood Staff', 20449, 3, 150, 30, 17, -1, -1, 5, 45, 3500, 7, 11, 15714, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 2, 2, 2, 35);
+
+REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `delay`, `dmg_min1`, `dmg_max1`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `sheath`, `max_durability`) VALUES (30183, 2, 10, 'Rosewood Wood Staff', 20449, 3, 150, 30, 17, -1, -1, 5, 55, 3500, 7, 11, 14127, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 2, 2, 2, 35);
+
+REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `delay`, `dmg_min1`, `dmg_max1`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `sheath`, `max_durability`) VALUES (30184, 2, 10, 'Ancient Wood Staff', 20449, 4, 150, 30, 17, -1, -1, 5, 60, 3500, 7, 11, 18056, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 2, 2, 2, 35);
+
+REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_reputation_faction`, `required_reputation_rank`, `stackable`, `stat_type1`, `stat_value1`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `material`) VALUES (30185, 4, 'Stormwind Chain', 18172, 2, 3025, 605, 2, -1, -1, 1, 72, 4, 0, 6, 4, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 3);
+
+REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_reputation_faction`, `required_reputation_rank`, `stackable`, `stat_type1`, `stat_value1`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `material`) VALUES (30186, 4, 'Ironforge Chain', 18172, 2, 3025, 605, 2, -1, -1, 1, 47, 4, 0, 4, 4, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 3);
 
 
--- Axe with Enrage proc on hit (+Dmg and +attack speed)
--- Paladin only sword with +Spell damage and 100% proc to gain MP on hit, also 1.7 speed
--- NEXT 30173
+REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_reputation_faction`, `required_reputation_rank`, `stackable`, `stat_type1`, `stat_value1`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `material`) VALUES (30187, 4, 'Gnomergan Chain', 18172, 2, 3025, 605, 2, -1, -1, 1, 54, 4, 0, 5, 4, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 3);
+
+
+REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_reputation_faction`, `required_reputation_rank`, `stackable`, `stat_type1`, `stat_value1`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `material`) VALUES (30188, 4, 'Darnassus Chain', 18172, 2, 3025, 605, 2, -1, -1, 1, 69, 4, 0, 3, 4, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 3);
+
+
+
+-- Shields
+-- Maple, Walnut, Chestnut, Rosewood, Ancient wood items (use itemId as base: 4470)
+-- Also uses essences/dust
+
+-- Buff crafted eng guns
+
+-- NEXT 30186
 
 -- flags 2048 = lootable by anyone
 
@@ -440,7 +478,7 @@ INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (53
 INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (5393, 30015, 0);
 INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (5393, 18259, 0);
 
--- Caretaker of Karazhan Quartermaster
+-- Caretaker of Karazhan Quartermaster (Rep vendor)
 INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (90036, 30019, 0);
 INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (90036, 30020, 0);
 INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (90036, 30021, 0);
@@ -452,7 +490,7 @@ INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (90
 INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (90036, 30027, 0);
 INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (90036, 20727, 0);
 
--- Wintersaber Trainers Quarter 
+-- Wintersaber Trainers Quartermaster 
 INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (10618, 30028, 0);
 INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (10618, 30029, 0);
 INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (10618, 30030, 0);
@@ -464,8 +502,52 @@ INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (10
 INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (10618, 30036, 0);
 INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (10618, 20728, 0);
 
+-- Stormwind Quartermaster
+    -- NPC
+    REPLACE `mangos`.`creature_template` (`entry`, `name`, `subname`, `level_min`, `level_max`, `faction`, `npc_flags`, `display_id1`, `display_probability1`, `display_total_probability`, `mount_display_id`, `detection_range`, `type`, `rank`, `unit_class`, `health_multiplier`, `armor_multiplier`, `damage_multiplier`, `loot_id`, `gold_min`, `gold_max`, `ai_name`, `static_flags1`, `flags_extra`) VALUES (90056, 'Captain Steven Burgo', 'Stormwind Quartermaster', 62, 62, 12, 4, 1688, 1, 1, 2410, 20, 7, 1, 1, 10, 2, 7, 466, 1, 873, 'EventAI', 138936320, 2);
+
+    REPLACE  `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000098, 90056, 0, 0, 0, 0, 0, -8831.62, 541.958, 96.9113, 0.813253, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
+
+    -- Items
+    REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90056, 0, 30185, 0, 0, 0, 0);
+
+
+-- Ironforge Quartermaster
+    -- NPC
+    REPLACE `mangos`.`creature_template` (`entry`, `patch`, `name`, `subname`, `level_min`, `level_max`, `faction`, `npc_flags`, `gossip_menu_id`, `display_id1`, `display_probability1`, `display_total_probability`, `mount_display_id`, `detection_range`, `type`, `rank`, `unit_class`, `health_multiplier`, `armor_multiplier`, `damage_multiplier`, `equipment_id`, `static_flags1`, `flags_extra`) VALUES (90057, 7, 'Marshal Ironfoot', 'Ironforge Quartermaster', 60, 60, 55, 4, 6772, 15662, 100, 100, 2786, 20, 7, 1, 1, 10, 2, 4.55, 15701, 138936326, 2);
+
+    REPLACE `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000099, 90057, 0, 0, 0, 0, 0, -4816.96, -1161.38, 502.21, 4.31764, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
+
+    -- Items
+    REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90057, 0, 30186, 0, 0, 0, 0);
+
+-- Gnomergan Quartermaster
+    -- NPC
+    REPLACE `mangos`.`creature_template` (`entry`, `name`, `subname`, `level_min`, `level_max`, `faction`, `npc_flags`, `gossip_menu_id`, `display_id1`, `display_scale1`, `mount_display_id`, `type`, `unit_class`, `health_multiplier`, `armor_multiplier`, `damage_multiplier`, `equipment_id`, `static_flags1`, `flags_extra`) VALUES (90058, 'Master Tinker Trini ', 'Gnomergan Quartermaster', 24, 24, 875, 4, 4137, 10571, 1.15, 2786, 7, 1, 1.02, 2, 0.9, 11028, 138936390, 2);
+
+    REPLACE `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000100, 90058, 0, 0, 0, 0, 0, -4828.81, -1157.43, 502.209, 4.30891, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
+
+    -- Items
+    REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90058, 0, 30187, 0, 0, 0, 0);
+
+
+-- Darnassus Quartermaster
+    -- NPC
+    REPLACE `mangos`.`creature_template` (`entry`, `patch`, `name`, `level_min`, `level_max`, `faction`, `npc_flags`, `display_id1`, `display_probability1`, `display_total_probability`, `mount_display_id`, `speed_run`, `detection_range`, `type`, `rank`, `unit_class`, `health_multiplier`, `armor_multiplier`, `damage_multiplier`, `gold_min`, `gold_max`, `spell_id1`, `spell_id2`, `spell_list_id`, `ai_name`, `equipment_id`, `static_flags1`) VALUES (90059, 1, 'Moon Priestess Lasara', 60, 60, 79, 4, 14418, 100, 100, 9991, 1.42857, 20, 7, 1, 1, 3, 2, 5, 1, 844, 14030, 15572, 143790, 'EventAI', 14379, 273154050);
+
+    REPLACE `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000101, 90059, 0, 0, 0, 0, 1, 8648.85, 841.166, 23.2623, 3.12062, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
+
+    -- Items
+    REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90059, 0, 30188, 0, 0, 0, 0);
+
+
 -- Alchemists' Stone Recipe
 INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`) VALUES (8157, 28, 13517, 1, 3600, 3);
+
+-- Allow all races
+    UPDATE mangos.item_template 
+    SET allowable_race =-1
+    WHERE allowable_race >= 0;
 
 -- Drops
 
@@ -661,18 +743,22 @@ WHERE entry = 10503;
 UPDATE mangos . item_template
 SET quality = 2,
     bonding = 2,
-    stat_type1 = 5,
+    stat_type1 = 6,
     stat_value1 = 3,
-    stat_type2 = 6,
-    stat_value2 = 3
+    stat_type2 = 0,
+    stat_value2 = 0,
+    spellid_1 = 33790, -- 1 Spell Penetration
+    spelltrigger_1 = 1
 WHERE entry = 7026;
 
 -- Brown Linen Robe
 UPDATE mangos . item_template
-SET stat_type1 = 7,
-    stat_value1 = 5,
-    stat_type2 = 6,
-    stat_value2 = 5
+SET stat_type1 = 6,
+    stat_value1 = 3,
+    stat_type2 = 0,
+    stat_value2 = 0,
+    spellid_1 = 33791, -- 2 Spell Penetration
+    spelltrigger_1 = 1
 WHERE entry = 6238;
 
 -- White Linen Robe
@@ -687,10 +773,12 @@ WHERE entry = 6241;
 UPDATE mangos . item_template
 SET quality = 2,
     bonding = 2,
-    stat_type1 = 5,
-    stat_value1 = 4,
-    stat_type2 = 6,
-    stat_value2 = 4
+    stat_type1 = 6,
+    stat_value1 = 3,
+    stat_type2 = 0,
+    stat_value2 = 0,
+    spellid_1 = 33790, -- 1 Spell Penetration
+    spelltrigger_1 = 1
 WHERE entry = 4307;
 
 -- Red Linen Robe
@@ -718,9 +806,11 @@ UPDATE mangos . item_template
 SET quality = 2,
     bonding = 2,
     stat_type1 = 5,
-    stat_value1 = 4,
-    stat_type2 = 6,
-    stat_value2 = 4
+    stat_value1 = 2,
+    stat_type2 = 0,
+    stat_value2 = 0,
+    spellid_1 = 33790, -- 1 Spell Penetration
+    spelltrigger_1 = 1
 WHERE entry = 4308;
 
 -- Reinforced Linen Cape
@@ -826,17 +916,19 @@ WHERE entry = 4313;
 -- Woolen Boots
 UPDATE mangos . item_template
 SET stat_type1 = 6,
-    stat_value1 = 8,
+    stat_value1 = 3,
     stat_type2 = 7,
     stat_value2 = 0,
     stat_type3 = 3,
-    stat_value3 = 0
+    stat_value3 = 0,
+    spellid_1 = 33791, -- 2 Spell Penetration
+    spelltrigger_1 = 1
 WHERE entry = 2583;
 
 -- Blue Overalls
 UPDATE mangos . item_template
 SET stat_type1 = 7,
-    stat_value1 = 10,
+    stat_value1 = 2,
     stat_type2 = 0,
     stat_value2 = 0
 WHERE entry = 6263;
@@ -872,19 +964,23 @@ WHERE entry = 4314;
 -- Heavy Woolen Pants
 UPDATE mangos . item_template
 SET stat_type1 = 5,
-    stat_value1 = 5,
-    stat_type2 = 6,
-    stat_value2 = 8
+    stat_value1 = 3,
+    stat_type2 = 0,
+    stat_value2 = 0,
+    spellid_1 = 33791, -- 2 Spell Penetration
+    spelltrigger_1 = 1
 WHERE entry = 4316;
 
 -- Greater Adept's Robe
 UPDATE mangos . item_template
 SET stat_type1 = 5,
-    stat_value1 = 5,
+    stat_value1 = 3,
     stat_type2 = 6,
-    stat_value2 = 5,
-    stat_type3 = 7,
-    stat_value3 = 7
+    stat_value2 = 3,
+    stat_type3 = 0,
+    stat_value3 = 0,
+    spellid_1 = 33792, -- 3 Spell Penetration
+    spelltrigger_1 = 1
 WHERE entry = 6264;
 
 -- Colorful Kilt
@@ -919,7 +1015,7 @@ WHERE entry = 4318;
 -- Lesser Wizard's Robe
 UPDATE mangos . item_template
 SET quality = 3,
-    spellid_1 = 9395, -- +5 Spell Damage
+    spellid_1 = 33793, -- 4 Spell Penetration
     spelltrigger_1 = 1
 WHERE entry = 5766;
 
@@ -1035,7 +1131,7 @@ WHERE entry = 4326;
 -- Crimson Silk Shoulders
 UPDATE mangos . item_template
 SET quality = 3,
-    spellid_1 = 9415, -- +9 Spell Damage
+    spellid_1 = 33792, -- +9 Spell Damage
     spelltrigger_1 = 1
 WHERE entry = 7059;
 
@@ -1100,7 +1196,7 @@ WHERE entry = 4329;
 
 -- Black Mageweave Leggings
 UPDATE mangos . item_template
-SET spellid_1 = 9343, -- +14 Spell Damage
+SET spellid_1 = 33794, -- 5 Spell Penetration
     spelltrigger_1 = 1
 WHERE entry = 9999;
 
@@ -1112,7 +1208,7 @@ WHERE entry = 9998;
 
 -- Black Mageweave Robe
 UPDATE mangos . item_template
-SET spellid_1 = 18384, -- +1% Spell Crit
+SET spellid_1 = 33794, -- 5 Spell Penetration
     spelltrigger_1 = 1
 WHERE entry = 10001;
 
@@ -1126,7 +1222,7 @@ WHERE entry = 10003;
 
 -- Black Mageweave Boots
 UPDATE mangos . item_template
-SET spellid_1 = 9415, -- +9 Spell Damage
+SET spellid_1 = 33793, -- 4 Spell Penetration
     spelltrigger_1 = 1
 WHERE entry = 10026;
 
@@ -1149,7 +1245,7 @@ SET quality = 3,
     stat_value1 = 3,
     stat_type2 = 7,
     stat_value2 = 3,
-    spellid_1 = 18384, -- +1% Spell Crit
+    spellid_1 = 33794, -- 5 Spell Penetration
     spelltrigger_1 = 1
 WHERE entry = 7064;
 
@@ -1159,7 +1255,7 @@ SET stat_type1 = 6,
     stat_value1 = 3,
     stat_type2 = 7,
     stat_value2 = 3,
-    spellid_1 = 18384, -- +1% Spell Crit
+    spellid_1 = 33794, -- 5 Spell Penetration
     spelltrigger_1 = 1
 WHERE entry = 10008;
 
@@ -2282,7 +2378,7 @@ SET quality = 4,
     bonding = 1,
     required_skill = 165, -- Leatherworking
     required_skill_rank = 300,
-    spellid_1 = 18384, -- +1% Spell Crit
+    spellid_1 = 26283, -- +20 Spell Penetration
     spelltrigger_1 = 1,
     spellid_2 = 18052, -- +34 Spell Damage
     spelltrigger_2 = 1
@@ -2420,25 +2516,25 @@ SET quality = 3,
     stat_value1 = 12,
     stat_type2 = 7,
     stat_value2 = 5,
-    spellid_1 = 15464, -- +1% Physical Hit
+    spellid_1 = 33723, -- 100 Armor Penetration
     spelltrigger_1 = 1
 WHERE entry = 15083;
 
 UPDATE mangos . item_template
 SET quality = 3,
-    spellid_2 = 15464, -- +1% Physical Hit
+    spellid_2 = 33723, -- 100 Armor Penetration
     spelltrigger_2 = 1
 WHERE entry = 15085;
 
 UPDATE mangos . item_template
 SET quality = 3,
-    spellid_2 = 15465, -- +2% Physical Hit
+    spellid_2 = 33766, -- +2% 1H Weapon Damage
     spelltrigger_2 = 1
 WHERE entry = 15087;
 
 UPDATE mangos . item_template
     SET quality = 3,
-    spellid_2 = 15464, -- +1% Physical Hit
+    spellid_2 = 33723, -- 100 Armor Penetration
     spelltrigger_2 = 1
 WHERE entry = 15086;
 
@@ -2446,7 +2542,7 @@ UPDATE mangos . item_template
     SET quality = 3,
     stat_type2 = 7,
     stat_value2 = 5,
-    spellid_2 = 15464, -- +1% Physical Hit
+    spellid_2 = 33723, -- 100 Armor Penetration
     spelltrigger_2 = 1
 WHERE entry = 15088;
 
@@ -2454,7 +2550,7 @@ UPDATE mangos . item_template
 SET quality = 3,
     stat_type2 = 7,
     stat_value2 = 5,
-    spellid_2 = 7597, -- +1% Physical Crit
+    spellid_2 = 33723, -- 100 Armor Penetration
     spelltrigger_2 = 1
 WHERE entry = 15084;
 
@@ -2481,7 +2577,7 @@ UPDATE mangos . item_template
 SET quality = 4,
     required_skill = 197, -- Tailoring
     required_skill_rank = 300,
-    spellid_1 = 14127, -- +28 Spell Damage
+    spellid_1 = 26283, -- +20 Spell Penetration
     spelltrigger_1 = 1
 WHERE entry = 19056;
 
@@ -2490,7 +2586,7 @@ UPDATE mangos . item_template
 SET quality = 4,
     required_skill = 197, -- Tailoring
     required_skill_rank = 300,
-    spellid_1 = 18052, -- +34 Spell Damage
+    spellid_1 = 26283, -- +20 Spell Penetration
     spelltrigger_1 = 1
 WHERE entry = 19059;
 
@@ -2690,7 +2786,7 @@ WHERE entry = 6731;
 
 -- Truesilver Breastplate
 UPDATE mangos . item_template
-SET spellid_1 = 13667, -- +2% Parry
+SET spellid_1 = 33746, -- +10% Threat
     spelltrigger_1 = 1,
     spellid_2 = 13670, -- 2% Dodge
     spelltrigger_2 = 1,
@@ -2824,31 +2920,31 @@ WHERE entry = 7963;
 -- Green Iron Set 
 UPDATE mangos . item_template
 SET quality = 3,
-    spellid_1 = 9138, -- +6 Attack Power
+    spellid_1 = 33715, -- +20 Armor Pen
     spelltrigger_1 = 1
 WHERE entry = 3484;
 
 UPDATE mangos . item_template
 SET quality = 3,
-    spellid_1 = 9140, -- +10 Attack Power
+    spellid_1 = 33718, -- +50 Armor Pen
     spelltrigger_1 = 1
 WHERE entry = 3844;
 
 UPDATE mangos . item_template
 SET quality = 3,
-    spellid_1 = 9138, -- +6 Attack Power
+    spellid_1 = 33718, -- +50 Armor Pen
     spelltrigger_1 = 1
 WHERE entry = 3842;
 
 UPDATE mangos . item_template
 SET quality = 3,
-    spellid_1 = 9138, -- +6 Attack Power
+    spellid_1 = 33715, -- +20 Armor Pen
     spelltrigger_1 = 1
 WHERE entry = 3485;
 
 UPDATE mangos . item_template
 SET quality = 3,
-    spellid_1 = 9138, -- +6 Attack Power
+    spellid_1 = 33715, -- +20 Armor Pen
     spelltrigger_1 = 1
 WHERE entry = 3840;
 
@@ -3774,7 +3870,7 @@ WHERE entry = 12798;
 UPDATE mangos . item_template
 SET dmg_min1 = 9,
     dmg_max1 = 17,
-    spellid_1 = 25975, -- +10 Spell Penetration
+    spellid_1 = 25975, -- 10 Spell Penetration
     spelltrigger_1 = 1
 WHERE entry = 11287;
 
@@ -3782,7 +3878,7 @@ WHERE entry = 11287;
 UPDATE mangos . item_template
 SET dmg_min1 = 13,
     dmg_max1 = 25,
-    spellid_1 = 25975, -- +10 Spell Penetration
+    spellid_1 = 25975, -- 10 Spell Penetration
     spelltrigger_1 = 1
 WHERE entry = 11288;
 
@@ -3795,6 +3891,35 @@ SET inventory_type = 26,
     spellid_1 = 9395, -- +5 Spell Damage
     spelltrigger_1 = 1
 WHERE entry = 7001;
+
+-- Moonsight Rifle
+UPDATE mangos . item_template
+SET delay = 2700,
+    dmg_min1 = 35,
+    dmg_max1 = 45
+WHERE entry = 4383;
+
+-- Mithril Heavy-bore Rifle
+UPDATE mangos . item_template
+SET required_level = 42,
+    dmg_min1 = 56,
+    dmg_max1 = 76
+WHERE entry = 10510;
+
+-- Thorium Rifle
+UPDATE mangos . item_template
+SET quality = 3,
+    dmg_min1 = 62,
+    dmg_max1 = 82
+WHERE entry = 15995;
+
+-- Dark Iron Rifle
+UPDATE mangos . item_template
+SET dmg_min1 = 73,
+    dmg_max1 = 93,
+    spellid_2 = 21434, -- +22 Ranged Attack Power
+    spelltrigger_2 = 1
+WHERE entry = 16004;
 
 -- Copper Shortsword
 UPDATE mangos . item_template
@@ -3918,9 +4043,9 @@ SET quality = 3,
     armor = 50,
     dmg_min1 = 71,
     dmg_max1 = 111,
-    spellid_1 = 13667, -- +2% Parry
+    spellid_1 = 33783, -- +5% Healing Recieved
     spelltrigger_1 = 1,
-    spellid_2 = 13670, -- 2% Dodge
+    spellid_2 = 33739, -- +3% Threat
     spelltrigger_2 = 1
 WHERE entry = 3851;
 
@@ -3935,10 +4060,12 @@ WHERE entry = 3492;
 -- Hardened Iron Shortsword
 UPDATE mangos . item_template
 SET quality = 3,
-    armor = 100,
+    armor = 0,
     delay = 1500,
     dmg_min1 = 20,
-    dmg_max1 = 40
+    dmg_max1 = 40,
+    spellid_1 = 33739, -- +3% Threat
+    spelltrigger_1 = 1
 WHERE entry = 3849;
 
 -- Golden Iron Destroyer
@@ -4356,7 +4483,7 @@ SET quality = 3,
     stat_value1 = 15,
     stat_type2 = 4,
     stat_value2 = 15,
-    spellid_1 = 15464, -- +1% Physical Hit
+    spellid_1 = 33724, -- 150 Armor Penetration
     spelltrigger_2 = 1
 WHERE entry = 18677;
 
@@ -4366,7 +4493,7 @@ WHERE entry = 18677;
 
 -- Lavishly Jeweled Ring
 UPDATE mangos . item_template
-SET spellid_1 = 23727, -- +1% Spell Hit
+SET spellid_1 = 33794, -- 5 Spell Penetration
     spelltrigger_1 = 1
 WHERE entry = 1156;
 
@@ -4431,7 +4558,7 @@ WHERE entry = 6392;
 
 -- Rod of the Sleepwalker
 UPDATE mangos . item_template
-SET spellid_1 = 23727, -- +1% Spell Hit
+SET spellid_1 = 33794, -- 5 Spell Penetration
     spelltrigger_1 = 1
 WHERE entry = 1155;
 
@@ -4479,7 +4606,7 @@ WHERE entry = 9449;
 
 -- Electrocutioner Leg
 UPDATE mangos . item_template
-SET spellid_1 = 23727, -- +1% Spell Hit
+SET spellid_1 = 33794, -- 5 Spell Penetration
     spelltrigger_1 = 1
 WHERE entry = 9446;
 
@@ -4499,7 +4626,7 @@ SET stat_type1 = 7,
     stat_value1 = 0,
     stat_type2 = 5,
     stat_value2 = 0,
-   spellid_1 = 18384, -- +1% Spell Crit
+   spellid_1 = 33794, -- +5 Spell Penetration
     spelltrigger_1 = 1
 WHERE entry = 9461;
 
@@ -4605,7 +4732,7 @@ SET quality = 3,
     stat_value1 = 7,
     stat_type2 = 7,
     stat_value2 = 7,
-    spellid_1 = 7597, -- +1% Physical Crit
+    spellid_1 = 33723, -- 100 Armor Penetration
     spelltrigger_1 = 1
 WHERE entry = 10331;
 
@@ -4669,11 +4796,13 @@ WHERE entry = 7723;
 UPDATE mangos . item_template
 SET armor = 500,
     stat_type1 = 7,
-    stat_value1 = 25,
+    stat_value1 = 10,
     stat_type2 = 0,
     stat_value2 = 0,
     stat_type3 = 0,
-    stat_value3 = 0
+    stat_value3 = 0,
+    spellid_1 = 33723, -- 100 Armor Penetration
+    spelltrigger_1 = 1
 WHERE entry = 10763;
 
 -- Arachnid Gloves
@@ -4700,7 +4829,7 @@ SET stat_type1 = 5,
     stat_value1 = 6,
     stat_type2 = 7,
     stat_value2 = 12,
-    spellid_1 = 9417, -- +12 spell damage
+    spellid_1 = 33795, -- 10 Spell Penetration
     spelltrigger_1 = 1
 WHERE entry = 10762;
 
@@ -4827,7 +4956,7 @@ WHERE entry = 9482;
 
 -- Lifeblood Amulet
 UPDATE mangos . item_template
-SET spellid_1 = 9406, -- +18 Healing
+SET spellid_1 = 33781, -- +3% Healing Recieved
     spelltrigger_1 = 1
 WHERE entry = 9641;
 
@@ -4841,7 +4970,7 @@ WHERE entry = 9477;
 
 -- Desertwalker Cane
 UPDATE mangos . item_template
-SET spellid_1 = 9406, -- +18 Healing
+SET spellid_1 = 33794, -- 5 Spell Penetration
     spelltrigger_1 = 1
 WHERE entry = 12471;
 
@@ -4912,7 +5041,7 @@ SET stat_type1 = 5,
     stat_value2 = 7,
     stat_type3 = 7,
     stat_value3 = 6,
-    spellid_1 = 7681, -- +15 Healing
+    spellid_1 = 33795, -- 10 Spell Penetration
     spelltrigger_1 = 1
 WHERE entry = 17715;
 
@@ -5909,7 +6038,7 @@ SET quality = 4,
     stat_value1 = 8,
     stat_type2 = 6,
     stat_value2 = 12,
-    spellid_1 = 15715, -- +25 Healing
+    spellid_1 = 9315, -- +26 Healing
     spelltrigger_1 = 1,
     spellid_2 = 21363, -- 5 MP/5
     spelltrigger_2 = 1
@@ -6076,7 +6205,7 @@ UPDATE mangos . item_template
 SET quality = 4,
     spellid_1 = 23727, -- +1% Spell Hit
     spelltrigger_1 = 1,
-    spellid_1 = 26283, -- +20 Spell Penetration
+    spellid_1 = 26283, -- 20 Spell Penetration
     spelltrigger_1 = 1
 WHERE entry = 22305;
 
@@ -7350,6 +7479,12 @@ SET delay = 3400,
 WHERE entry = 18538;
 
 -- Quest Rewards
+
+-- Lightforged Blade
+UPDATE mangos . item_template
+SET spellid_2 = 33814, -- +10% Damage vs Undead
+    spelltrigger_2 = 1
+WHERE entry = 20504;
 
 -- Helm of the Pathfinder
 UPDATE mangos . item_template
@@ -8641,7 +8776,7 @@ WHERE entry = 3560;
 -- Crest of Darkshire (Bride of the Embalmer)
 UPDATE mangos . item_template
 SET quality = 3,
-    spellid_1 = 17350, -- Has a 1% chance when struck in combat of increasing chance to block by 50% for 10 sec.
+    spellid_1 = 33741, -- +5% threat
     spelltrigger_1 = 1
 WHERE entry = 6223;
 
@@ -8698,7 +8833,7 @@ SET stat_type1 = 5,
     stat_value1 = 0,
     stat_type2 = 6,
     stat_value2 = 0,
-    spellid_1 = 28862, -- Reduces the threat you generate by 35% for 20 sec.
+    spellid_1 = 33751, -- -5% Threat
     spelltrigger_1 = 0,
     spellcooldown_1 = 600000
 WHERE entry = 2917;
@@ -8843,14 +8978,14 @@ SET quality = 3,
     stat_value1 = 0,
     stat_type2 = 6,
     stat_value2 = 3,
-    spellid_1 = 23727, -- +1% Spell Hit
+    spellid_1 = 33794, -- 5 Spell Penetration
     spelltrigger_1 = 1
 WHERE entry = 5016;
 
 -- Dwarf Captain's Sword (An Ambassador of Evil)
 UPDATE mangos . item_template
 SET quality = 3,
-    spellid_1 = 9415, -- +9 Spell Damage
+    spellid_1 = 33794, -- 5 Spell Penetration
     spelltrigger_1 = 1
 WHERE entry = 4987;
 
@@ -8892,7 +9027,7 @@ WHERE entry = 15692;
 
 -- Fizzle's Zippy Lighter (News for Fizzle)
 UPDATE mangos . item_template
-SET spellid_1 = 25975, -- +10 Spell Penetration
+SET spellid_1 = 25975, -- 10 Spell Penetration
     spelltrigger_1 = 1
 WHERE entry = 6729;
 
@@ -8944,7 +9079,7 @@ WHERE entry = 6831;
 -- Teacher's Sash (Mazen's Behest)
 UPDATE mangos . item_template
 SET quality = 3,
-    spellid_1 = 9416, -- +11 Spell Damage
+    spellid_1 = 33794, -- 5 Spell Penetration
     spelltrigger_1 = 1
 WHERE entry = 10747;
 
@@ -9177,7 +9312,7 @@ WHERE entry = 12111;
 -- Royal Seal of Alexis
 UPDATE mangos . item_template
 SET quality = 3,
-    spellid_1 = 9415, -- +9 Spell Damage
+    spellid_1 = 33813, -- +5% Damage vs Undead
     spelltrigger_1 = 1
 WHERE entry = 18022;
 
@@ -9186,7 +9321,7 @@ UPDATE mangos . item_template
 SET quality = 3,
     stat_type1 = 4,
     stat_value1 = 7,
-    spellid_1 = 15464, -- +1% Physical Hit
+    spellid_1 = 33804, -- +5% Damage vs Elementals
     spelltrigger_1 = 1
 WHERE entry = 17001;
 
@@ -9230,9 +9365,9 @@ WHERE entry = 4979;
 -- Doomsayer's Robe (Solution to Doom)
 UPDATE mangos . item_template
 SET quality = 3,
-    spellid_1 = 11903, -- Restores 700 to 900 mana
-    spelltrigger_1 = 0,
-    spellcooldown_1 = 300000 -- 5 minutes
+    spellid_1 = 33795, -- 10 Spell Petration
+    spelltrigger_1 = 1,
+    spellcooldown_1 = 0 
 WHERE entry = 4746;
 
 -- Medal of Courage (The Lost Tablets of Will)
@@ -9330,9 +9465,9 @@ WHERE entry = 4130;
 -- Guardian Talisman (Into The Temple of Atal'Hakkar)
 UPDATE mangos . item_template
 SET quality = 3,
-    spellid_2 = 21466, -- 1% Shield Block
+    spellid_2 = 33739, -- 3% Threat
     spelltrigger_2 = 1,
-    spellid_3 = 23172, -- Block Value +10
+    spellid_3 = 33661, -- +2% Counter
     spelltrigger_3 = 1
 WHERE entry = 1490;
 
@@ -9344,7 +9479,7 @@ SET name = 'Spellslingers Ring',
     stat_value1 = 0,
     stat_type2 = 0,
     stat_value2 = 0,
-    spellid_1 = 9345, -- +16 Spell damage
+    spellid_1 = 33795, -- +10 Spell Penetration
     spelltrigger_1 = 1
 WHERE entry = 10739;
 
@@ -9440,7 +9575,7 @@ WHERE entry = 9536;
 
 -- Berylline Pads (The Crone of the Kraul)
 UPDATE mangos . item_template
-SET spellid_1 = 25975, -- +10 Spell Penetration
+SET spellid_1 = 33794, -- 5 Spell Penetration
     spelltrigger_1 = 1
 WHERE entry = 4197;
 
@@ -9464,13 +9599,13 @@ WHERE entry = 6751;
 -- Dragonclaw Ring (Extinguishing the Idol)
 UPDATE mangos . item_template
 SET stat_type1 = 7,
-    stat_value1 = 10,
+    stat_value1 = 7,
     stat_type2 = 0,
     stat_value2 = 0,
-    spellid_1 = 21347, -- +4 HP/5
+    spellid_1 = 33739, -- +3% Threat
     spelltrigger_1 = 1,
-    spellid_2 = 21360, -- 2 MP/5
-    spelltrigger_2 = 1
+    spellid_2 = 0,
+    spelltrigger_2 = 0
 WHERE entry = 10710;
 
 -- Brantwood Sash (A Final Blow)
@@ -9734,8 +9869,8 @@ WHERE entry = 20218;
 
 -- Tattered Hakkari Cape (Confront Yeh'kinya)
 UPDATE mangos . item_template
-SET armor = 120,
-    spellid_2 = 13383, -- +5 Defense
+SET armor = 42,
+    spellid_2 = 33738, -- +2% Threat
     spelltrigger_2 = 1
 WHERE entry = 20219;
 
@@ -9771,9 +9906,9 @@ WHERE entry = 15792;
 -- Turquoise Sash (The Crystal of Zin-Malor)
 UPDATE mangos . item_template
 SET quality = 3,
-    spellid_1 = 12051, -- Evocation
+    spellid_1 = 33756, -- Threat -10%
     spelltrigger_1 = 0,
-    spellcooldown_1 = 1800000 -- 30 minutes
+    spellcooldown_1 = 0
 WHERE entry = 15791;
 
 -- Emerald Mist Gauntlets (The Crystal of Zin-Malor)
@@ -9887,7 +10022,7 @@ UPDATE mangos . item_template
 SET quality = 3,
     stat_type1 = 7,
     stat_value1 = 15,
-    spellid_1 = 13383, -- +5 Defense
+    spellid_1 = 33676, -- -5% Magic Damage Taken
     spelltrigger_1 = 1
 WHERE entry = 12252;
 
@@ -9932,7 +10067,7 @@ WHERE entry = 4816;
 -- Mighty Chain Pants
 UPDATE mangos . item_template
 SET quality = 3,
-    spellid_1 = 13665, -- +1% Parry
+    spellid_1 = 33662, -- +3% Counter
     spelltrigger_1 = 1
 WHERE entry = 4800;
 
@@ -10891,21 +11026,21 @@ WHERE entry = 10095;
 -- Councillor's Cuffs
 UPDATE mangos . item_template
 SET quality = 3,
-    spellid_1 = 15715, -- +25 Healing
+    spellid_1 = 9315, -- +26 Healing
     spelltrigger_1 = 1
 WHERE entry = 10096;
 
 -- Councillor's Sash
 UPDATE mangos . item_template
 SET quality = 3,
-    spellid_1 = 15715, -- +25 Healing
+    spellid_1 = 9315, -- +26 Healing
     spelltrigger_1 = 1
 WHERE entry = 10103;
 
 -- Councillor's Cloak
 UPDATE mangos . item_template
 SET quality = 3,
-    spellid_1 = 15715, -- +25 Healing
+    spellid_1 = 9315, -- +26 Healing
     spelltrigger_1 = 1
 WHERE entry = 10098;
 
@@ -10922,7 +11057,7 @@ UPDATE mangos . item_template
 SET quality = 4,
     spellid_1 = 14127, -- +28 Spell Damage
     spelltrigger_1 = 1,
-    spellid_2 = 23727, -- +1% Spell Hit
+    spellid_2 = 33794, -- 5 Spell Penetration
     spelltrigger_2 = 1
 WHERE entry = 10139;
 
@@ -10931,7 +11066,7 @@ UPDATE mangos . item_template
 SET quality = 4,
     spellid_1 = 14127, -- +28 Spell Damage
     spelltrigger_1 = 1,
-    spellid_2 = 23727, -- +1% Spell Hit
+    spellid_2 = 33794, -- 5 Spell Penetration
     spelltrigger_2 = 1
 WHERE entry = 10142;
 
@@ -10949,7 +11084,7 @@ UPDATE mangos . item_template
 SET quality = 4,
     spellid_1 = 15714, -- +22 Spell Damage
     spelltrigger_1 = 1,
-    spellid_2 = 23727, -- +1% Spell Hit
+    spellid_2 = 33794, -- 5 Spell Penetration
     spelltrigger_2 = 1
 WHERE entry = 10140;
 
@@ -10967,7 +11102,7 @@ UPDATE mangos . item_template
 SET quality = 4,
     spellid_1 = 15714, -- +22 Spell Damage
     spelltrigger_1 = 1,
-    spellid_2 = 23727, -- +1% Spell Hit
+    spellid_2 = 33794, -- 5 Spell Penetration
     spelltrigger_2 = 1
 WHERE entry = 10137;
 
@@ -10976,7 +11111,7 @@ UPDATE mangos . item_template
 SET quality = 4,
     spellid_1 = 9345, -- +16 Spell damage
     spelltrigger_1 = 1,
-    spellid_2 = 23727, -- +1% Spell Hit
+    spellid_2 = 33794, -- 5 Spell Penetration
     spelltrigger_2 = 1
 WHERE entry = 10144;
 
@@ -10985,7 +11120,7 @@ UPDATE mangos . item_template
 SET quality = 4,
     spellid_1 = 9345, -- +16 Spell damage
     spelltrigger_1 = 1,
-    spellid_2 = 23727, -- +1% Spell Hit
+    spellid_2 = 33794, -- 5 Spell Penetration
     spelltrigger_2 = 1
 WHERE entry = 10136;
 
@@ -10994,7 +11129,7 @@ UPDATE mangos . item_template
 SET quality = 4,
     spellid_1 = 9345, -- +16 Spell damage
     spelltrigger_1 = 1,
-    spellid_2 = 23727, -- +1% Spell Hit
+    spellid_2 = 33794, -- 5 Spell Penetration
     spelltrigger_2 = 1
 WHERE entry = 10138;
 
@@ -11003,7 +11138,7 @@ UPDATE mangos . item_template
 SET quality = 4,
     spellid_1 = 15714, -- +22 Spell Damage
     spelltrigger_1 = 1,
-    spellid_2 = 23727, -- +1% Spell Hit
+    spellid_2 = 33794, -- 5 Spell Penetration
     spelltrigger_2 = 1
 WHERE entry = 15941;
 
@@ -11173,7 +11308,7 @@ WHERE entry = 14867;
 -- Warleader's Belt
 UPDATE mangos . item_template
 SET quality = 3,
-    spellid_1 = 13669, -- +1% Dodge
+    spellid_1 = 33749, -- +3% Threat
     spelltrigger_1 = 1
 WHERE entry = 14864;
 
@@ -11372,7 +11507,7 @@ SET stat_type1 = 6,
     stat_value3 = 0,
     spellid_1 = 9415, -- +9 Spell Damage
     spelltrigger_1 = 1,
-    spellid_2 = 23727, -- +1% Spell Hit
+    spellid_2 = 33794, -- 5 Spell Penetration
     spelltrigger_2 = 1
 WHERE entry = 4038;
 
@@ -11478,7 +11613,7 @@ WHERE entry = 12035;
 
 -- Quicksilver Pendant 
 UPDATE mangos . item_template
-SET spellid_1 = 7597, -- +1% Physical Crit
+SET spellid_1 = 33723, -- +1% Physical Crit
     spelltrigger_1 = 1,
     spellid_2 = 15464, -- +1% Physical Hit
     spelltrigger_2 = 1

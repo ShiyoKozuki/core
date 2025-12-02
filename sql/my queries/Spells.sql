@@ -2759,6 +2759,21 @@ UPDATE `mangos`.`spell_template` SET `reagent4`=7078, `reagent5`=7082, `reagent6
     -- Spell (This is the aura that procs the acutal buff)
     -- Proc (This is the actual buff)
 
+-- Alchemy Potions
+    -- Elixir of Wisdom (Now grants MP5)
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=14, `effectApplyAuraName1`=24, `effectAmplitude1`=5000, `effectMiscValue1`=0, `name`='Lesser Intellect', `description`='Restores $s1 mana every $t1 seconds for $d.', `auraDescription`='Restores $s1 mana every $t1 seconds.' WHERE  `entry`=3166 AND `build`=4297;
+    
+    -- Elixir of Greater Intellect (Now grants MP5)
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=29, `effectApplyAuraName1`=24, `effectAmplitude1`=5000, `effectMiscValue1`=0, `name`='Greater Intellect', `description`='Restores $s1 mana every $t1 seconds for $d.', `auraDescription`='Restores $s1 mana every $t1 seconds.' WHERE  `entry`=11396 AND `build`=4297;
+
+    -- Elixir of Sages (13447) - Replace int with 5% mana continues during combat
+    -- Mageblood Potion (20007)
+    -- Mighty Troll's Blood Potion (3223)
+    UPDATE `mangos`.`spell_template` SET `effect2`=6, `effectDieSides2`=1, `effectBaseDice2`=1, `effectBasePoints1`=23, `effectBasePoints2`=9, `effectBonusCoefficient2`=0, `effectImplicitTargetA2`=1, `effectApplyAuraName2`=116, `description`='Regenerate $s1 health every 5 sec and $s2% of total Health regeneration may continue during combat for $d.', `auraDescription`='Regenerate $s1 health every 5 sec and $s2% of total Health regeneration may continue during combat.' WHERE  `entry`=3223 AND `build`=5464;
+
+    -- Major Troll's Blood Potion (24361)
+    UPDATE `mangos`.`spell_template` SET `effect2`=6, `effectDieSides2`=1, `effectBaseDice2`=1, `effectBasePoints1`=39, `effectBasePoints2`=19, `effectBonusCoefficient2`=0, `effectImplicitTargetA2`=1, `effectApplyAuraName2`=116, `description`='Regenerate $s1 health every 5 sec and $s2% of total Health regeneration may continue during combat for $d.', `auraDescription`='Regenerate $s1 health every 5 sec and $s2% of total Health regeneration may continue during combat.' WHERE  `entry`=24361 AND `build`=5464;
+
 -- Food
 
 -- Brilliant Smallfish
@@ -2781,7 +2796,7 @@ UPDATE `mangos`.`spell_template` SET `reagent4`=7078, `reagent5`=7082, `reagent6
         -- Buff (This is the actual buff applied)
         REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `attributesEx2`, `castingTimeIndex`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effect2`, `effectDieSides1`, `effectDieSides2`, `effectBaseDice1`, `effectBaseDice2`, `effectBasePoints1`, `effectBasePoints2`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectApplyAuraName1`, `effectApplyAuraName2`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `dmgMultiplier1`, `dmgMultiplier2`) VALUES (33828, 4222, 134217984, 2147483648, 1, 101, 347, 1, -1, 6, 6, 1, 1, 1, 1, 44, 44, 1, 1, -1, 1, 1, 124, 99, 59, 'Well Fed', 983070, 983052, 983052, 'Melee and ranged attack power increased by $s1.', 983070, 1, 1);
 
-    -- Bristle Whisker Catfish
+    -- Rockscale Cod
         -- Item
         UPDATE `mangos`.`item_template` SET `spellid_1`=33829 WHERE `entry`=4594;
 
