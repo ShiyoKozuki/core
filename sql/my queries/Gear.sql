@@ -3879,7 +3879,7 @@ WHERE entry = 12798;
 UPDATE mangos . item_template
 SET dmg_min1 = 9,
     dmg_max1 = 17,
-    spellid_1 = 25975, -- 10 Spell Penetration
+    spellid_1 = 33794, -- 5 Spell Penetration
     spelltrigger_1 = 1
 WHERE entry = 11287;
 
@@ -3887,7 +3887,7 @@ WHERE entry = 11287;
 UPDATE mangos . item_template
 SET dmg_min1 = 13,
     dmg_max1 = 25,
-    spellid_1 = 25975, -- 10 Spell Penetration
+    spellid_1 = 33794, -- 5 Spell Penetration
     spelltrigger_1 = 1
 WHERE entry = 11288;
 
