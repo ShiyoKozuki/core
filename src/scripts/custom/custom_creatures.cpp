@@ -1253,19 +1253,19 @@ bool GossipSelect_RaceChangeNPC(Player* player, Creature* creature, uint32 sende
                 player->SaveToDB();
 
                 // Skin Color
-                player->SetByteValue(PLAYER_BYTES, PLAYER_BYTES_OFFSET_SKIN_ID, urand(1, 10));
+                player->SetByteValue(PLAYER_BYTES, PLAYER_BYTES_OFFSET_SKIN_ID, urand(0, 10));
 
                 // Face
                 player->SetByteValue(PLAYER_BYTES, PLAYER_BYTES_OFFSET_FACE_ID, 1);
 
                 // Hair Style
-                player->SetByteValue(PLAYER_BYTES, PLAYER_BYTES_OFFSET_HAIR_STYLE_ID, urand(1, 10));
+                player->SetByteValue(PLAYER_BYTES, PLAYER_BYTES_OFFSET_HAIR_STYLE_ID, urand(0, 10));
 
                 // Hair Color
-                player->SetByteValue(PLAYER_BYTES, PLAYER_BYTES_OFFSET_HAIR_COLOR_ID, urand(1, 10));
+                player->SetByteValue(PLAYER_BYTES, PLAYER_BYTES_OFFSET_HAIR_COLOR_ID, urand(0, 10));
 
                 // Accessories / Facial Hair / Markings (BE females = jewelry)
-                player->SetByteValue(PLAYER_BYTES_2, PLAYER_BYTES_2_OFFSET_FACIAL_STYLE, urand(1, 10));
+                player->SetByteValue(PLAYER_BYTES_2, PLAYER_BYTES_2_OFFSET_FACIAL_STYLE, urand(0, 10));
 
                 // Force the client to update appearance
                 player->SetDisplayId(4); // Safe default shared by all client builds
@@ -1341,23 +1341,23 @@ bool GossipSelect_BarberNPC(Player* player, Creature* creature, uint32 sender, u
         switch (sender)
         {
         case 1: // Skin Color
-            player->SetByteValue(PLAYER_BYTES, PLAYER_BYTES_OFFSET_SKIN_ID, value);
+            player->SetByteValue(PLAYER_BYTES, PLAYER_BYTES_OFFSET_SKIN_ID, value -1);
             break;
 
         case 2: // Face
-            player->SetByteValue(PLAYER_BYTES, PLAYER_BYTES_OFFSET_FACE_ID, value);
+            player->SetByteValue(PLAYER_BYTES, PLAYER_BYTES_OFFSET_FACE_ID, value -1);
             break;
 
         case 3: // Hair Style
-            player->SetByteValue(PLAYER_BYTES, PLAYER_BYTES_OFFSET_HAIR_STYLE_ID, value);
+            player->SetByteValue(PLAYER_BYTES, PLAYER_BYTES_OFFSET_HAIR_STYLE_ID, value -1);
             break;
 
         case 4: // Hair Color
-            player->SetByteValue(PLAYER_BYTES, PLAYER_BYTES_OFFSET_HAIR_COLOR_ID, value);
+            player->SetByteValue(PLAYER_BYTES, PLAYER_BYTES_OFFSET_HAIR_COLOR_ID, value -1);
             break;
 
         case 5: // Accessories
-            player->SetByteValue(PLAYER_BYTES_2, PLAYER_BYTES_2_OFFSET_FACIAL_STYLE, value);
+            player->SetByteValue(PLAYER_BYTES_2, PLAYER_BYTES_2_OFFSET_FACIAL_STYLE, value -1);
             break;
         }
 
