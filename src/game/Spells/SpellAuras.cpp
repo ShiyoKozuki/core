@@ -4610,6 +4610,19 @@ float Aura::CalculateDotDamage() const
 #endif
             break;
         }
+        case SPELLFAMILY_HUNTER:
+        {
+                // Serpent Sting / Immolation Trap / Explosive Trap
+                if (spellProto->IsFitToFamilyMask<CF_HUNTER_SERPENT_STING>() || spellProto->IsFitToFamilyMask<CF_HUNTER_FIRE_TRAP_EFFECTS>())
+                {
+                    // Damage scales Ranged AP * 0.05
+                    if (caster->GetTypeId() == TYPEID_PLAYER)
+                    {
+                        damage += caster->GetTotalAttackPowerValue(RANGED_ATTACK) * 0.05f;
+                    }
+                }
+            break;
+        }
         default:
             break;
     }
