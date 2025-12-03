@@ -519,6 +519,7 @@ INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (10
 
     -- Items
     REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90056, 0, 30185, 0, 0, 0, 0);
+    REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90056, 0, 30189, 0, 0, 0, 0);
 
 
 -- Ironforge Quartermaster
@@ -529,6 +530,8 @@ INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (10
 
     -- Items
     REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90057, 0, 30186, 0, 0, 0, 0);
+    REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90057, 0, 30190, 0, 0, 0, 0);
+
 
 -- Gnomergan Quartermaster
     -- NPC
@@ -538,6 +541,8 @@ INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (10
 
     -- Items
     REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90058, 0, 30187, 0, 0, 0, 0);
+    REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90058, 0, 30191, 0, 0, 0, 0);
+
 
 
 -- Darnassus Quartermaster
@@ -548,6 +553,7 @@ INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (10
 
     -- Items
     REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90059, 0, 30188, 0, 0, 0, 0);
+    REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90059, 0, 30192, 0, 0, 0, 0);
 
 
 -- Alchemists' Stone Recipe
@@ -1460,9 +1466,9 @@ WHERE entry = 2307;
 -- Fine Leather Cloak
 UPDATE mangos . item_template
 SET stat_type1 = 3,
-    stat_value1 = 5,
+    stat_value1 = 3,
     stat_type2 = 5,
-    stat_value2 = 5
+    stat_value2 = 3
 WHERE entry = 2308;
 
 -- Black Whelp Cloak
