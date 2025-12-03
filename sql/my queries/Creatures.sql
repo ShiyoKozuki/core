@@ -335,11 +335,9 @@ UPDATE `mangos`.`creature_template` SET `spell_id2`=16098 WHERE  `entry`=9236 AN
 -- Object GUID is: Creature (Entry: 10481 Guid: 91414)
 
 -- Theramore NPCs
-    -- Banker
-    REPLACE INTO `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000061, 2457, 0, 0, 0, 0, 1, -3727.03, -4541.3, 25.8338, 0.47999, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
-
-    -- Auctioneer
-    REPLACE INTO `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000062, 8670, 0, 0, 0, 0, 1, -3722.77, -4550.1, 25.8338, 0.47214, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
+-- Bank / AH
+    REPLACE `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000061, 2457, 0, 0, 0, 0, 1, -3727.03, -4541.3, 25.8338, 0.47999, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
+    REPLACE `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000062, 8670, 0, 0, 0, 0, 1, -3722.77, -4550.1, 25.8338, 0.47214, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
 
     -- Trainers
        -- Classes
