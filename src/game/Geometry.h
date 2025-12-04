@@ -107,21 +107,6 @@ namespace Geometry
         return fmod(o, 2.0f*M_PI_F);
     }
 
-    // modulos a radian orientation to the range of 0..2PI
-    inline float NormalizeOrientation(float o)
-    {
-        // fmod only supports positive numbers. Thus we have
-        // to emulate negative numbers
-        if (o < 0)
-        {
-            float mod = o *-1;
-            mod = fmod(mod, 2.0f*M_PI_F);
-            mod = -mod + 2.0f*M_PI_F;
-            return mod;
-        }
-        return fmod(o, 2.0f*M_PI_F);
-    }
-
     template<class A, class B>
     inline bool IsPointLeftOfLine(A lineStart, A lineEnd, B point)
     {
