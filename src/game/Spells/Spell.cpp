@@ -6501,6 +6501,47 @@ SpellCastResult Spell::CheckCast(bool strict)
                     if ((canFailAtMax || skillValue < sWorld.GetConfigMaxSkillValue()) && reqSkillValue > irand(skillValue - 25, skillValue + 37))
                         return SPELL_FAILED_TRY_AGAIN;
                 }
+
+                // aggro surrounding mobs when opening/lockpicking an object
+                // only applied on successful start of spell (must be executed last)
+                if (strict)
+                    if (GameObject* go = m_targets.getGOTarget())
+                        // For non-locked objects only lockId 57 should cause aggro
+                        if (skillId == SKILL_LOCKPICKING || lockId == 57)
+                        {
+                            int32 factionId = go->GetGOInfo()->faction;
+                            // 77 - "Treasure" faction: Only objects with this faction should cause aggro
+                            if (sObjectMgr.GetFactionTemplateEntry(factionId)->faction == 77)
+                                if (Unit* pUser = GetCaster()->ToUnit())
+                                {
+                                    std::list<Unit*> targets;
+                                    switch (factionId)
+                                    {
+                                        case 94: // Object friendly to FACTION_MASK_MONSTER
+                                        {
+                                            MaNGOS::AnyFriendlyUnitInObjectRangeCheck check(go, 10.0f);
+                                            MaNGOS::UnitListSearcher<MaNGOS::AnyFriendlyUnitInObjectRangeCheck> searcher(targets, check);
+                                            Cell::VisitAllObjects(go, searcher, 10.0f);
+                                            break;
+                                        }
+                                        case 101: // Object friendly to player faction (so they can open it), hostile to the aggroed faction
+                                        case 102:
+                                        {
+                                            MaNGOS::AnyUnfriendlyUnitInObjectRangeCheck check(go, go, 10.0f);
+                                            MaNGOS::UnitListSearcher<MaNGOS::AnyUnfriendlyUnitInObjectRangeCheck> searcher(targets, check);
+                                            Cell::VisitAllObjects(go, searcher, 10.0f);
+                                            break;
+                                        }
+                                        default:
+                                            break;
+                                    }
+                                    for (Unit* attacker : targets)
+                                    {
+                                        if (!attacker->IsInCombat() && !attacker->HasUnitState(UNIT_STATE_CAN_NOT_REACT_OR_LOST_CONTROL) && attacker->IsValidAttackTarget(pUser) && attacker->IsWithinLOSInMap(pUser) && attacker->AI())
+                                            attacker->AI()->AttackStart(pUser);
+                                    }
+                                }
+                        }
                 break;
             }
             case SPELL_EFFECT_PICKPOCKET:
