@@ -2786,6 +2786,7 @@ UPDATE `mangos`.`spell_template` SET `reagent4`=7078, `reagent5`=7082, `reagent6
     UPDATE `mangos`.`spell_template` SET `effect2`=6, `effectDieSides2`=1, `effectBaseDice2`=1, `effectBasePoints1`=39, `effectBasePoints2`=19, `effectBonusCoefficient2`=0, `effectImplicitTargetA2`=1, `effectApplyAuraName2`=116, `description`='Regenerate $s1 health every 5 sec and $s2% of total Health regeneration may continue during combat for $d.', `auraDescription`='Regenerate $s1 health every 5 sec and $s2% of total Health regeneration may continue during combat.' WHERE  `entry`=24361 AND `build`=5464;
 
     -- Elixir of Fortitude (Now grants +450 Health)
+    UPDATE `mangos`.`item_template` SET required_level = 35 WHERE `entry`=3825;
     UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=449 WHERE  `entry`=3593 AND `build`=4297;
 
 -- Food
@@ -2832,7 +2833,7 @@ UPDATE `mangos`.`spell_template` SET `reagent4`=7078, `reagent5`=7082, `reagent6
 
 -- Cooked Glossy Mightfish
     -- Item
-    UPDATE `mangos`.`item_template` SET `spellid_1`=33837 WHERE `entry`=13927;
+    UPDATE `mangos`.`item_template` SET `spellid_1`=33837, required_level = 45 WHERE `entry`=13927;
 
     -- Spell (This is the 10 second eating "channel")
     REPLACE `mangos`.`spell_template` (`entry`, `build`, `category`, `attributes`, `attributesEx2`, `castingTimeIndex`, `categoryRecoveryTime`, `interruptFlags`, `auraInterruptFlags`, `procChance`, `baseLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effect2`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectApplyAuraName1`, `effectApplyAuraName2`, `effectAmplitude2`, `effectMultipleValue1`, `effectTriggerSpell2`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33837, 5464, 11, 402653440, 2147483648, 1, 60000, 1, 262272, 101, 35, 9, 1, -1, 6, 6, 1, 1, 357, 0, 1, -1, 1, 1, 84, 23, 10000, 1, 33838, 51, 358, 50, 'Food', 4128830, 4128828, 'Restores $o1 health over $d.  Must remain seated while eating.  If you spend at least 10 seconds eating you will become well fed and gain $33838s1 melee and ranged attack power for $33838d.', 4128830, 'Restores $/5;s1 health per second.', 4128830, -1, 1, 1, 1);
@@ -2842,7 +2843,7 @@ UPDATE `mangos`.`spell_template` SET `reagent4`=7078, `reagent5`=7082, `reagent6
 
 -- Baked Salmon
     -- Item
-    UPDATE `mangos`.`item_template` SET `spellid_1`=33839 WHERE `entry`=13935;
+    UPDATE `mangos`.`item_template` SET `spellid_1`=33839, required_level = 55 WHERE `entry`=13935;
 
     -- Spell (This is the 10 second eating "channel")
     REPLACE `mangos`.`spell_template` (`entry`, `build`, `category`, `attributes`, `attributesEx2`, `castingTimeIndex`, `categoryRecoveryTime`, `interruptFlags`, `auraInterruptFlags`, `procChance`, `baseLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effect2`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectApplyAuraName1`, `effectApplyAuraName2`, `effectAmplitude2`, `effectMultipleValue1`, `effectTriggerSpell2`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33839, 5464, 11, 402653440, 2147483648, 1, 60000, 1, 262272, 101, 35, 9, 1, -1, 6, 6, 1, 1, 357, 0, 1, -1, 1, 1, 84, 23, 10000, 1, 33840, 51, 358, 50, 'Food', 4128830, 4128828, 'Restores $o1 health over $d.  Must remain seated while eating.  If you spend at least 10 seconds eating you will become well fed and gain $33840s1 melee and ranged attack power for $33840d.', 4128830, 'Restores $/5;s1 health per second.', 4128830, -1, 1, 1, 1);
