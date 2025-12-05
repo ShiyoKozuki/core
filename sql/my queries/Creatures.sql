@@ -54,6 +54,7 @@
 --     CLASS_HUNTER        = 3,
 --     CLASS_ROGUE         = 4,
 
+--  Creature Size
 -- .mod scale 1-4 to make creature smaler/larger
 -- display_scale1-4 value 1-4 in creature_template.sql
 
@@ -117,8 +118,8 @@ WHERE display_id IN(59, 60, 12170);
     -- Slavering Ghoul (Sorrow Hill / Felstone Field)
 
 
-
-
+-- Dead Pass Ogre levels
+UPDATE `mangos`.`creature_template` SET level_min = 59, level_max = 60 WHERE entry IN(7379, 7371, 7372, 7369);
 -- Incorrect normal mobs, were elite in real vanilla. Changed in 2.3 (Classic WoW bug) 
 -- https://warcraft.wiki.gg/wiki/Patch_2.3.0
 
@@ -309,6 +310,9 @@ UPDATE `mangos`.`creature_template` SET `level_min`=56, `level_max`=56 WHERE  `e
 -- Shadow Hunter Vosh'gajin
 UPDATE `mangos`.`creature_template` SET `spell_id2`=16098 WHERE  `entry`=9236 AND `patch`=0;
 
+-- Silver Stream Mine (Dun Morogh)
+DELETE from mangos.creature where guid IN (9408, 9409, 9319, 9410, 9155, 9150, 9192, 9414);
+
 -- Scholo spawns to delete
 -- Object GUID is: Creature (Entry: 10485 Guid: 48773)
 -- Object GUID is: Creature (Entry: 10485 Guid: 91416)
@@ -400,6 +404,39 @@ UPDATE `mangos`.`creature_template` SET `spell_id2`=16098 WHERE  `entry`=9236 AN
 
         -- Reagents
         REPLACE INTO `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000072, 1275, 0, 0, 0, 0, 1, -3853.01, -4527.66, 9.1423, 5.46568, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
+
+-- Custom Content
+    -- TODO: Loot IDs (Including summoned stuff)
+    -- TODO: Remove weapons off everyone not skeleton warlord
+    -- TODO: Damage and HP tuning
+    -- ZNM (EPL)
+        -- Skeleton Warlord
+        REPLACE `mangos`.`creature_template` (`entry`, `name`, `level_min`, `level_max`, `faction`, `display_id1`, `display_scale1`, `display_probability1`, `display_total_probability`, `speed_walk`, `detection_range`, `type`, `rank`, `unit_class`, `health_multiplier`, `mana_multiplier`, `armor_multiplier`, `damage_multiplier`, `base_attack_time`, `loot_id`, `pickpocket_loot_id`, `gold_min`, `gold_max`, `spell_id1`, `spell_id2`, `spell_id3`, `spell_id4`, `spell_list_id`, `ai_name`, `inhabit_type`, `equipment_id`, `mechanic_immune_mask`) VALUES (90060, 'Skeletal Warlord-ZNM', 62, 62, 21, 775, 4, 1, 1, 0.888888, 20, 6, 1, 1, 50, 10, 2, 8, 2500, 1788, 1788, 445, 1236, 16856, 0, 0, 0, 200082, 'EventAI', 1, 1788, 8602131);
+        
+            -- Summoned Acolyte
+            REPLACE `mangos`.`creature_template` (`entry`, `name`, `level_min`, `level_max`, `faction`, `display_id1`, `display_id2`, `display_id3`, `display_id4`, `display_probability1`, `display_probability2`, `display_probability3`, `display_probability4`, `display_total_probability`, `detection_range`, `type`, `rank`, `unit_class`, `health_multiplier`, `mana_multiplier`, `armor_multiplier`, `damage_multiplier`, `loot_id`, `pickpocket_loot_id`, `gold_min`, `gold_max`, `spell_id1`, `spell_id2`, `spell_id3`, `spell_id4`, `spell_list_id`, `ai_name`, `movement_type`, `equipment_id`, `static_flags1`) VALUES (90068, 'Summoned Acolyte', 61, 61, 233, 11157, 11145, 11146, 11173, 20, 30, 30, 20, 100, 20, 7, 1, 2, 3, 3, 2, 3.8, 10471, 10471, 387, 2587, 17613, 11443, 17615, 16592, 104710, 'EventAI', 1, 10471, 524288);
+
+
+        -- Ghoul
+        REPLACE `mangos`.`creature_template` (`entry`, `name`, `level_min`, `level_max`, `faction`, `display_id1`, `display_scale1`, `display_probability1`, `display_total_probability`, `speed_walk`, `detection_range`, `type`, `rank`, `unit_class`, `health_multiplier`, `mana_multiplier`, `armor_multiplier`, `damage_multiplier`, `base_attack_time`, `loot_id`, `pickpocket_loot_id`, `gold_min`, `gold_max`, `spell_id1`, `spell_id2`, `spell_id3`, `spell_id4`, `spell_list_id`, `ai_name`, `inhabit_type`, `equipment_id`, `mechanic_immune_mask`) VALUES (90061, 'Ghoul-ZNM', 62, 62, 21, 10487, 4, 1, 1, 0.888888, 20, 6, 1, 1, 50, 10, 2, 8, 2500, 1788, 1788, 445, 1236, 16856, 0, 0, 0, 200083, 'EventAI', 1, 1788, 8602131);
+
+        -- Banshee
+        REPLACE `mangos`.`creature_template` (`entry`, `name`, `level_min`, `level_max`, `faction`, `display_id1`, `display_scale1`, `display_probability1`, `display_total_probability`, `speed_walk`, `detection_range`, `type`, `rank`, `unit_class`, `health_multiplier`, `mana_multiplier`, `armor_multiplier`, `damage_multiplier`, `base_attack_time`, `loot_id`, `pickpocket_loot_id`, `gold_min`, `gold_max`, `spell_id1`, `spell_id2`, `spell_id3`, `spell_id4`, `spell_list_id`, `ai_name`, `inhabit_type`, `equipment_id`, `mechanic_immune_mask`) VALUES (90062, 'Banshee-ZNM', 62, 62, 21, 10751, 4, 1, 1, 0.888888, 20, 6, 1, 1, 50, 10, 2, 8, 2500, 1788, 1788, 445, 1236, 16856, 0, 0, 0, 200084, 'EventAI', 1, 1788, 8602131);
+
+        -- Crypt Fiend
+        REPLACE `mangos`.`creature_template` (`entry`, `name`, `level_min`, `level_max`, `faction`, `display_id1`, `display_scale1`, `display_probability1`, `display_total_probability`, `speed_walk`, `detection_range`, `type`, `rank`, `unit_class`, `health_multiplier`, `mana_multiplier`, `armor_multiplier`, `damage_multiplier`, `base_attack_time`, `loot_id`, `pickpocket_loot_id`, `gold_min`, `gold_max`, `spell_id1`, `spell_id2`, `spell_id3`, `spell_id4`, `spell_list_id`, `ai_name`, `inhabit_type`, `equipment_id`, `mechanic_immune_mask`) VALUES (90063, 'Crypt Fiend-ZNM', 62, 62, 21, 6841, 4, 1, 1, 0.888888, 20, 6, 1, 1, 50, 10, 2, 8, 2500, 1788, 1788, 445, 1236, 16856, 0, 0, 0, 200085, 'EventAI', 1, 1788, 8602131);
+
+        -- Grub
+        REPLACE `mangos`.`creature_template` (`entry`, `name`, `level_min`, `level_max`, `faction`, `display_id1`, `display_scale1`, `display_probability1`, `display_total_probability`, `speed_walk`, `detection_range`, `type`, `rank`, `unit_class`, `health_multiplier`, `mana_multiplier`, `armor_multiplier`, `damage_multiplier`, `base_attack_time`, `loot_id`, `pickpocket_loot_id`, `gold_min`, `gold_max`, `spell_id1`, `spell_id2`, `spell_id3`, `spell_id4`, `spell_list_id`, `ai_name`, `inhabit_type`, `equipment_id`, `mechanic_immune_mask`) VALUES (90064, 'Grub-ZNM', 62, 62, 21, 7898, 4, 1, 1, 0.888888, 20, 6, 1, 1, 50, 10, 2, 8, 2500, 1788, 1788, 445, 1236, 16856, 0, 0, 0, 200086, 'EventAI', 1, 1788, 8602131);
+
+        -- Gargoyle
+        REPLACE `mangos`.`creature_template` (`entry`, `name`, `level_min`, `level_max`, `faction`, `display_id1`, `display_scale1`, `display_probability1`, `display_total_probability`, `speed_walk`, `detection_range`, `type`, `rank`, `unit_class`, `health_multiplier`, `mana_multiplier`, `armor_multiplier`, `damage_multiplier`, `base_attack_time`, `loot_id`, `pickpocket_loot_id`, `gold_min`, `gold_max`, `spell_id1`, `spell_id2`, `spell_id3`, `spell_id4`, `spell_list_id`, `ai_name`, `inhabit_type`, `equipment_id`, `mechanic_immune_mask`) VALUES (90065, 'Gargoyle-ZNM', 62, 62, 21, 7854, 4, 1, 1, 0.888888, 20, 6, 1, 1, 50, 10, 2, 8, 2500, 1788, 1788, 445, 1236, 16856, 0, 0, 0, 200087, 'EventAI', 1, 1788, 8602131);
+
+        -- Zombie
+        REPLACE `mangos`.`creature_template` (`entry`, `name`, `level_min`, `level_max`, `faction`, `display_id1`, `display_scale1`, `display_probability1`, `display_total_probability`, `speed_walk`, `detection_range`, `type`, `rank`, `unit_class`, `health_multiplier`, `mana_multiplier`, `armor_multiplier`, `damage_multiplier`, `base_attack_time`, `loot_id`, `pickpocket_loot_id`, `gold_min`, `gold_max`, `spell_id1`, `spell_id2`, `spell_id3`, `spell_id4`, `spell_list_id`, `ai_name`, `inhabit_type`, `equipment_id`, `mechanic_immune_mask`) VALUES (90066, 'Zombie-ZNM', 62, 62, 21, 4631, 4, 1, 1, 0.888888, 20, 6, 1, 1, 50, 10, 2, 8, 2500, 1788, 1788, 445, 1236, 16856, 0, 0, 0, 200088, 'EventAI', 1, 1788, 8602131);
+
+        -- Skeletal Mage
+        REPLACE `mangos`.`creature_template` (`entry`, `name`, `level_min`, `level_max`, `faction`, `display_id1`, `display_scale1`, `display_probability1`, `display_total_probability`, `speed_walk`, `detection_range`, `type`, `rank`, `unit_class`, `health_multiplier`, `mana_multiplier`, `armor_multiplier`, `damage_multiplier`, `base_attack_time`, `loot_id`, `pickpocket_loot_id`, `gold_min`, `gold_max`, `spell_id1`, `spell_id2`, `spell_id3`, `spell_id4`, `spell_list_id`, `ai_name`, `inhabit_type`, `equipment_id`, `mechanic_immune_mask`) VALUES (90067, 'Skeletal Mage-ZNM', 62, 62, 21, 11403, 4, 1, 1, 0.888888, 20, 6, 1, 1, 50, 10, 2, 8, 2500, 1788, 1788, 445, 1236, 16856, 0, 0, 0, 200089, 'EventAI', 1, 1788, 8602131);
 
 -- Gossip NPCs
     -- Race Change

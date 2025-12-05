@@ -26,7 +26,16 @@ UPDATE `mangos`.`game_event` SET `hardcoded`=0 WHERE  `entry`=17;
     UPDATE `mangos`.`gameobject` SET `spawntimesecsmin`=0, `spawntimesecsmax`=0 WHERE id IN (119, 321, 2084, 28024, 142088);     
 
 -- Object Despawn when looted (data3 = 1 means despawn when looted)
-    UPDATE `mangos`.`gameobject_template` SET `data3`=1 WHERE entry IN (119, 321, 2084, 28024, 142088);   
+    UPDATE `mangos`.`gameobject_template` SET `data3`=1 WHERE entry IN (119, 321, 2084, 28024, 142088);
+    
+-- All chests changed to 30m respawn (Were 5m..)
+UPDATE gameobject g
+JOIN gameobject_template gt ON g.id = gt.entry
+SET g.spawntimesecsmin = 1800,
+    g.spawntimesecsmax = 1800
+WHERE gt.name LIKE '%chest%'
+  AND (g.spawntimesecsmin = 300 OR g.spawntimesecsmax = 300);
+
 
 -- Add Blood Elf to "all" skill line abilities (ones that were 255 already)
 UPDATE `mangos`.`skill_line_ability` SET `race_mask`=767 WHERE  `race_mask`=255;

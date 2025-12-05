@@ -363,9 +363,12 @@ SET ChanceOrQuestChance = 0
 WHERE item IN (11382, 12361, 13926);
 
 -- Custom drops
+-- DANGER!!!!
+-- DANGER: If drop rate is changed, it will add a new entry and have multiples!
 
 -- Scarlet Priest 
 INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (10608, 14512, 1); -- Pattern: Truefaith Vestments
+INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (10608, 16049, 1); -- Schematic: Dark Iron Bomb
 
 -- Scarlet Sentinel
 INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (1827, 12717, 1); -- Plans: Lionheart Helm
@@ -374,19 +377,24 @@ INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuest
 -- Scarlet Warder
 INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (9447, 22388, 1); -- Plans: Titanic Leggings
 INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (9447, 12725, 1); -- Plans: Enchanted Thorium Helm
+INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (9447, 13501, 1); -- Recipe: Major Mana Potion
 
 -- Cobalt Wyrmkin
 INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (7435, 12834, 1); -- Plans: Arcanite Champion
 INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (7435, 12720, 1); -- Plans: Stronghold Gauntlets
+INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (7435, 18257, 1); -- Recipe: Major Rejuvenation Potion
 
 -- Cobalt Scalebane
 INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (7436, 18418, 1); -- Pattern: Cloak of Warding
+INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (7436, 18658, 1); -- Schematic: Ultra-Flash Shadow Reflector
 
 -- Red Dragonspawn
 INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (1045, 12726, 1); -- Plans: Enchanted Thorium Leggings
+INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (1045, 13518, 1); -- Recipe: Flask of Petrification
 
 -- Red Wyrmkin
 INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (1046, 15733, 1); -- Pattern: Green Dragonscale Leggings
+INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (1046, 18657, 1); -- Schematic: Hyper-Radiant Flame Reflector
 
 -- Scourge Champion
 INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (8529, 21298, 0.1); -- Manual of Battle Shout VII
@@ -420,3 +428,10 @@ INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuest
 
 -- Mossflayer Cannibal
 -- INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (8562, 21293, 0.1); -- Tablet of Grace of Air Totem III
+
+-- Deadwind Ogres
+    -- Deadwind Ogre Ring
+    INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (7369, 30193, 0.1);
+    INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (7371, 30193, 0.1);
+    INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (7372, 30193, 0.1);
+    INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (7379, 30193, 0.1);

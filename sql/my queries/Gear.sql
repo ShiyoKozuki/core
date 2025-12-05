@@ -324,8 +324,17 @@ REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id
 
 REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, required_level, `required_reputation_faction`, `required_reputation_rank`, `delay`, `spellid_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `disenchant_id`) VALUES (30192, 9, 4, 'Badge of Darnassus', 35620, 2, 18570, 4642, 12, -1, -1, 40, 30, 69, 5, 0, 33834, 300000, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0);
 
--- Make above items bop (bonding = 1)
--- NEXT 30193
+REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `description`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `stat_type1`, `stat_value1`, `stat_type2`, `stat_value2`, `delay`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `disenchant_id`) VALUES (30193, 4, 'Deadwind Ogre Ring', 'This ring was once owned by Medivh.', 32323, 4, 12400, 2400, 11, -1, -1, 58, 58, 4, 6, 6, 10, 0, 33761, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 2, 1, 0);
+
+REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_reputation_faction`, `required_reputation_rank`, `max_count`, `container_slots`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30194, 1, 'Revered Stormwind Pouch', 19595, 2, 12500, 2500, 18, -1, -1, 52, 72, 6, 1, 14, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 8);
+
+REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_reputation_faction`, `required_reputation_rank`, `max_count`, `container_slots`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30195, 1, 'Revered Ironforge Pouch', 19595, 2, 12500, 2500, 18, -1, -1, 52, 47, 6, 1, 14, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 8);
+
+REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_reputation_faction`, `required_reputation_rank`, `max_count`, `container_slots`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30196, 1, 'Revered Gnomergan Pouch', 19595, 2, 12500, 2500, 18, -1, -1, 52, 54, 6, 1, 14, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 8);
+
+REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_reputation_faction`, `required_reputation_rank`, `max_count`, `container_slots`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30197, 1, 'Revered Darnassus Pouch', 19595, 2, 12500, 2500, 18, -1, -1, 52, 69, 6, 1, 14, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 8);
+
+-- NEXT 30198
 
 
 -- Shields
@@ -377,12 +386,6 @@ INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (14
 INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (14753, 30039, 160);
 INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (14753, 30040, 160);
 INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (14753, 30041, 160);
-
--- Timbermaw Rep
-INSERT IGNORE `mangos`.`npc_vendor_template` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (1155700, 18260, 1, 7200);
-
--- Thorium Brotherhood rep
-INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (12944, 20729, 131);
 
 
 INSERT IGNORE npc_vendor(entry, item)
@@ -459,6 +462,13 @@ INSERT IGNORE `mangos`.`npc_vendor_template` (`entry`, `item`) VALUES (1277702, 
 INSERT IGNORE `mangos`.`npc_vendor_template` (`entry`, `item`) VALUES (1277702, 16574);
 INSERT IGNORE `mangos`.`npc_vendor_template` (`entry`, `item`) VALUES (1277702, 16579);
 
+-- Timbermaw Rep
+INSERT IGNORE `mangos`.`npc_vendor_template` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (1155700, 18260, 1, 7200);
+INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (1155700, 13522, 0);
+
+-- Thorium Brotherhood rep
+INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (12944, 20729, 131);
+
 -- Wildhammer Rep Vendor (471)
 UPDATE `mangos`.`creature_template` SET `npc_flags`=6 WHERE  `entry`=5635 AND `patch`=0; -- Quest Giver + Vendor flags
 INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (5635, 30047, 0);
@@ -474,6 +484,8 @@ INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (56
 INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (5635, 30114, 0);
 INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (5635, 30115, 0);
 INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (5635, 20730, 0);
+INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (5635, 16055, 0);
+
 
 -- Nethergarde Defenders Quartermaster
 UPDATE `mangos`.`creature_template` SET `npc_flags`=6 WHERE  `entry`=5393 AND `patch`=0;
@@ -486,6 +498,9 @@ INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (53
 INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (5393, 30014, 0);
 INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (5393, 30015, 0);
 INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (5393, 18259, 0);
+INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (5393, 18291, 0);
+INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (5393, 13521, 0);
+
 
 -- Caretaker of Karazhan Quartermaster (Rep vendor)
 INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (90036, 30019, 0);
@@ -498,6 +513,8 @@ INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (90
 INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (90036, 30026, 0);
 INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (90036, 30027, 0);
 INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (90036, 20727, 0);
+INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (90036, 18292, 0);
+INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (90036, 13520, 0);
 
 -- Wintersaber Trainers Quartermaster 
 INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (10618, 30028, 0);
@@ -510,6 +527,8 @@ INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (10
 INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (10618, 30035, 0);
 INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (10618, 30036, 0);
 INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (10618, 20728, 0);
+INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (10618, 18290, 0);
+INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (10618, 13519, 0);
 
 -- Stormwind Quartermaster
     -- NPC
@@ -520,6 +539,7 @@ INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (10
     -- Items
     REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90056, 0, 30185, 0, 0, 0, 0);
     REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90056, 0, 30189, 0, 0, 0, 0);
+    REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90056, 0, 30194, 0, 0, 0, 0);
 
 
 -- Ironforge Quartermaster
@@ -531,6 +551,7 @@ INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (10
     -- Items
     REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90057, 0, 30186, 0, 0, 0, 0);
     REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90057, 0, 30190, 0, 0, 0, 0);
+    REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90057, 0, 30195, 0, 0, 0, 0);
 
 
 -- Gnomergan Quartermaster
@@ -542,6 +563,7 @@ INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (10
     -- Items
     REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90058, 0, 30187, 0, 0, 0, 0);
     REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90058, 0, 30191, 0, 0, 0, 0);
+    REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90058, 0, 30196, 0, 0, 0, 0);
 
 
 
@@ -554,6 +576,7 @@ INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (10
     -- Items
     REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90059, 0, 30188, 0, 0, 0, 0);
     REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90059, 0, 30192, 0, 0, 0, 0);
+    REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90059, 0, 30197, 0, 0, 0, 0);
 
 
 -- Alchemists' Stone Recipe
@@ -14250,13 +14273,12 @@ WHERE entry IN(30007, 30016, 30017, 30018);
 UPDATE mangos. item_template 
 SET required_reputation_faction = 476, -- Timbermaw Rep
     required_reputation_rank = 7 -- Exalted
-WHERE entry = 18260;
+WHERE entry IN (18260, 13522);
 
--- Formula: Enchant Gloves - Healing Power
 UPDATE mangos. item_template 
 SET required_reputation_faction = 471, -- Wildhammer Rep
     required_reputation_rank = 7 -- Exalted
-WHERE entry = 20730;
+WHERE entry IN (20730, 16055);
 
 UPDATE mangos. item_template 
 SET required_reputation_faction = 476, -- Nethergarde Defenders
@@ -14273,7 +14295,7 @@ UPDATE mangos. item_template
 SET required_reputation_faction = 476, -- Nethergarde Defenders
     required_reputation_rank = 7, -- Exalted
     bonding = 1
-WHERE entry IN(30011, 30012, 30013, 18259);
+WHERE entry IN(30011, 30012, 30013, 18259, 18291, 13521);
 
 UPDATE mangos. item_template 
 SET required_reputation_faction = 477, -- Caretakers of Karazhan
@@ -14291,7 +14313,7 @@ UPDATE mangos. item_template
 SET required_reputation_faction = 477, -- Caretakers of Karazhan
     required_reputation_rank = 7, -- Exalted
     bonding = 1
-WHERE entry IN(30020, 30022, 30027, 30024, 20727);
+WHERE entry IN(30020, 30022, 30027, 30024, 20727, 18292, 13520);
 
 UPDATE mangos. item_template 
 SET required_reputation_faction = 589, -- Wintersaber Trainers
@@ -14309,7 +14331,7 @@ UPDATE mangos. item_template
 SET required_reputation_faction = 589, -- Wintersaber Trainers
     required_reputation_rank = 7, -- Exalted
     bonding = 1
-WHERE entry IN(30028, 30032, 30034, 20728);
+WHERE entry IN(30028, 30032, 30034, 20728, 18290, 13519);
 
 -- Sentinel's Ring
 UPDATE mangos . item_template
@@ -14399,7 +14421,7 @@ WHERE entry IN(20123, 20120, 20122, 20119, 20118, 20121, 20044, 20051, 20056, 20
 UPDATE mangos . item_template 
 SET bonding = 1 -- BOP
 WHERE entry IN(12717, 18418, 22388, 14512, 14513, 14514, 12834, 12825, 18260, 20730, 20727, 20728, 18259, 20731, 20735, 20736, 18260, 12720, 12725, 12726, 12727, 12696, 
-15763, 15751, 15726, 15733, 15730);
+15763, 15751, 15726, 15733, 15730, 18657, 18658, 16049, 13501, 13518, 18257);
 
 -- Display IDs
 -- Cute Mail: Fortified chain (display: 1019) Infantry Tunic (display: 3057), Copper Chain Vest
