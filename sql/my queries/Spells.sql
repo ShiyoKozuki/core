@@ -1,5 +1,5 @@
--- 33843 NEXT SPELL
--- 15096 NEXT SKILL_LINE_ABILITY
+-- 33845 NEXT SPELL
+-- 15097 NEXT SKILL_LINE_ABILITY
 
 -- FOR SPELL SCRIPTS USE: SPELL_EFFECT_SCRIPT_EFFECT = 77, effectImplicitTargetA1 (6) and a dummy aura (4)
 -- Spell icon:  alpha depth -  (None) opaque 0
@@ -1421,13 +1421,27 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
 UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `entry`=20923;
 UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `entry`=20924;
 
+-- Mage
+        -- Brilliance Aura
+        REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `castingTimeIndex`, `interruptFlags`, `procChance`, `baseLevel`, `spellLevel`, `durationIndex`, `manaCost`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectRadiusIndex1`, `effectApplyAuraName1`, `effectAmplitude1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `preventionType`, `dmgMultiplier1`, `dmgMultiplier2`) VALUES (33843, 5464, 6, 65536, 1, 8, 101, 60, 60, 30, 350, 1, -1, 35, 1, 1, 0, 0, -1, 1, 11, 21, 5000, 0, 54, 'Brilliance Aura', 4128830, 'Rank 1', 4128830, 'Increases the mana regen of party members within $a1 yards by $s1% every 5 sec.  Lasts $d.', 4128830, 'Regenerate $s1% Mana per 5 sec.', 4128830, 133, 1500, 1, 1, 1);
+
+        -- Skill Line Ability
+        REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`, `superseded_by_spell`) VALUES (15096, 5875, 237, 33843, 128, 1, 0);
+
+        -- Learn spell(for trainer):
+        REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `targets`, `castingTimeIndex`, `procChance`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `activeIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) 
+        VALUES (33844, 4222, 1, 262400, 256, 1, 101, 6, -1, -1, 36, 1, 1, -1, 0, -1, -1, 33843, 107, 54, 0, 'Arcane Brilliance', 7274526, 'Rank 1', 7274526, 7274508, 983052, -1, 1, 1, 1);
+
+        -- Trainer
+        REPLACE `mangos`.`npc_trainer_template` (`entry`, `spell`, `spellcost`, `reqlevel`) VALUES (1, 33844, 20000, 40);
+
 -- Rogue
     -- Venomous Wounds (25%/50% chance to gain 10 energy on Garrote / Rupture ticks)
     REPLACE`mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectItemType1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `stanceBarOrder`, `dmgMultiplier1`) 
     VALUES (33498, 4222, 464, 1, 101, 21, 1, -1, 6, 1, 1, 9, 1, -1, -1, 1, 108, 256, 2061, 'Venomous Wounds', 983070, 'Rank 1', 983070, 'Increases the damage done by your Garrote ability by $s1%. Additionally, grants your Garrote and Rupture abilities a $s2% chance to restore $33554s1 Energy when they deal damage against targets suffering from your Deadly Poison.', 983070, 983052, 8, -1, 1);
     UPDATE `mangos`.`spell_template` SET `effect2`=6, `effectDieSides2`=1, `effectBaseDice2`=1, `effectBasePoints2`=24, `effectBonusCoefficient2`=1, `effectMiscValue1`=22 WHERE  `entry`=33498 AND `build`=4222;
 
-    REPLACE`mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectItemType1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `stanceBarOrder`, `dmgMultiplier1`) 
+    REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectItemType1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `stanceBarOrder`, `dmgMultiplier1`) 
     VALUES (33499, 4222, 464, 1, 101, 21, 1, -1, 6, 1, 1, 9, 1, -1, -1, 1, 108, 256, 2061, 'Venomous Wounds', 983070, 'Rank 2', 983070, 'Increases the damage done by your Garrote ability by $s1%. Additionally, grants your Garrote and Rupture abilities a $s2% chance to restore $33554s1 Energy when they deal damage against targets suffering from your Deadly Poison.', 983070, 983052, 8, -1, 1);
     UPDATE `mangos`.`spell_template` SET `effect2`=6, `effectDieSides2`=1, `effectBaseDice2`=1, `effectBasePoints2`=49, `effectBonusCoefficient2`=1, `effectMiscValue1`=22 WHERE  `entry`=33499 AND `build`=4222;
 
