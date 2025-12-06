@@ -2,6 +2,10 @@
 -- Talents that grant a new spell (i.e. feral charge) need flags set to "1"
 -- Talents
 
+-- Mage
+    -- Ice Barrier (21 instead of 31 now)
+
+    
 -- Druid
     -- Savage Fury (Add Lacerate, Thrash, Brutal Slash)
     UPDATE `mangos`.`spell_template` SET `effectItemType1`=481036343296, `effectItemType2`=481036341248, `description`='Increases the damage caused by your Claw, Rake, Lacerate, Brutal Slash, Thrash, Maul and Swipe abilities by $s1%.' WHERE entry IN (16998, 16999);

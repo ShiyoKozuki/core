@@ -1,5 +1,5 @@
--- 33845 NEXT SPELL
--- 15097 NEXT SKILL_LINE_ABILITY
+-- 33850 NEXT SPELL
+-- 15099 NEXT SKILL_LINE_ABILITY
 
 -- FOR SPELL SCRIPTS USE: SPELL_EFFECT_SCRIPT_EFFECT = 77, effectImplicitTargetA1 (6) and a dummy aura (4)
 -- Spell icon:  alpha depth -  (None) opaque 0
@@ -1430,10 +1430,66 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
 
         -- Learn spell(for trainer):
         REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `targets`, `castingTimeIndex`, `procChance`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `activeIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) 
-        VALUES (33844, 4222, 1, 262400, 256, 1, 101, 6, -1, -1, 36, 1, 1, -1, 0, -1, -1, 33843, 107, 54, 0, 'Arcane Brilliance', 7274526, 'Rank 1', 7274526, 7274508, 983052, -1, 1, 1, 1);
+        VALUES (33844, 4222, 1, 262400, 256, 1, 101, 6, -1, -1, 36, 1, 1, -1, 0, -1, -1, 33843, 107, 54, 0, 'Arcane Brilliance', 7274526, '', 7274526, 7274508, 983052, -1, 1, 1, 1);
 
         -- Trainer
         REPLACE `mangos`.`npc_trainer_template` (`entry`, `spell`, `spellcost`, `reqlevel`) VALUES (1, 33844, 20000, 40);
+
+        -- Learn spell(for trainer):
+        REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `targets`, `castingTimeIndex`, `procChance`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `activeIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) 
+        VALUES (33845, 4222, 1, 262400, 256, 1, 101, 6, -1, -1, 36, 1, 1, -1, 0, -1, -1, 11958, 107, 14, 0, 'Ice Block', 7274526, '', 7274526, 7274508, 983052, -1, 1, 1, 1);
+
+        -- Trainer
+        REPLACE `mangos`.`npc_trainer_template` (`entry`, `spell`, `spellcost`, `reqlevel`) VALUES (1, 33845, 11000, 30);
+
+        -- Water Elemental
+            -- TODO: Cooldown (5m cd)
+            -- TODO: Duration (1m)
+            -- TODO: Level (should scale with player)
+            -- TODO: npc_water_elemental script in C++
+            -- TODO: SpellFamilyName (3). spellFamilyFlags(and add enum CF_MAGE_w/e)
+            -- Spell
+                REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `castingTimeIndex`, `recoveryTime`, `interruptFlags`, `procChance`, `baseLevel`, `spellLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectRadiusIndex1`, `effectMultipleValue1`, `effectMiscValue1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `manaCostPercentage`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `spellFamilyFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33846, 4222, 4, 16, 7, 0, 9, 101, 40, 40, 21, 1, -1, 56, 1, 1, 0, -1, -1, -1, 32, 8, 0, 90069, 7680, 94, 'Summon Water Elemental', 983070, 983052, 'Summons a Water Elemental to aid the caster in battle.', 983054, 983052, 100, 133, 1500, 3, 8589934592, -1, 1, 1, 1);
+
+            -- Skill Line Ability
+                REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`, `superseded_by_spell`) VALUES (15097, 5875, 6, 33846, 128, 1, 0);
+
+            -- Creature (Elemental)
+                REPLACE`mangos`.`creature_template` (`entry`, `name`, `level_min`, `level_max`, `faction`, `display_id1`, `speed_walk`, `type`, `unit_class`, `health_multiplier`, `armor_multiplier`, `damage_variance`, `loot_id`, `spell_id1`, `spell_id2`, `spell_list_id`, `movement_type`, `mechanic_immune_mask`, `school_immune_mask`, `immunity_flags`, `static_flags1`, `static_flags2`, `script_name`) VALUES (90069, 'Water Elemental', 60, 60, 91, 525, 1.55556, 4, 2, 1.02, 2, 0.06, 3917, 6873, 9672, 39170, 1, 646013719, 16, 32, 524288, 16, 'npc_water_elemental');
+
+        -- Flurry (20s CD arcane missles channeled frost damage)
+        -- TODO: spellFamilyFlags(and add enum CF_MAGE_w/e)
+            -- Spell
+                REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `attributesEx`, `castingTimeIndex`, `recoveryTime`, `interruptFlags`, `channelInterruptFlags`, `procChance`, `maxLevel`, `baseLevel`, `spellLevel`, `durationIndex`, `manaCost`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effect2`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectApplyAuraName1`, `effectApplyAuraName2`, `effectAmplitude1`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `spellFamilyFlags`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `customFlags`) VALUES (33847, 5464, 4, 536936704, 268453004, 1, 30000, 15, 31756, 101, 36, 32, 32, 28, 240, 4, -1, -1, 6, 6, 0, 0, -1, 1, 6, 23, 4, 1000, 33848, 707, 187, 50, 'Flurry', 4128830, 'Rank 1', 4128830, 'Launches a flurry of frost at the enemy, causing $33848s1 Frost damage each second for $d.', 4128830, 4128828, 133, 1500, 3, 4294967296, 1, -1, 1, 1, 1, 128);
+
+            -- Proc
+                REPLACE`mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `attributesEx2`, `attributesEx3`, `castingTimeIndex`, `interruptFlags`, `procChance`, `maxLevel`, `baseLevel`, `spellLevel`, `rangeIndex`, `speed`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectRealPointsPerLevel1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `customFlags`) VALUES (33848, 5086, 4, 65536, 4194304, 512, 1, 8, 101, 36, 32, 32, 4, 20, -1, -1, 2, 1, 1, 0.6, 82, 0.24, -1, -1, 6, 270, 187, 50, 'Flurry', 2031678, 'Rank 1', 2031678, 'Launches a flurry of frost enemy, causing $s1 Frost damage.', 2031678, 2031676, 3, 4294967296, 1, 1, -1, 1, 1, 1, 128);
+
+            -- Skill Line Ability
+                REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`, `superseded_by_spell`) VALUES (15098, 5875, 6, 33847, 128, 1, 0);
+
+            -- Learn spell(for trainer):
+                REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `targets`, `castingTimeIndex`, `procChance`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `activeIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) 
+                VALUES (33849, 4222, 1, 262400, 256, 1, 101, 6, -1, -1, 36, 1, 1, -1, 0, -1, -1, 33847, 107, 187, 0, 'Flurry', 7274526, 'Rank 1', 7274526, 7274508, 983052, -1, 1, 1, 1);
+
+                -- Trainer
+                REPLACE `mangos`.`npc_trainer_template` (`entry`, `spell`, `spellcost`, `reqlevel`) VALUES (1, 33849, 11000, 30);
+        
+        -- Teleport and Portal Theramore
+
+    -- Dampen Magic / Amplify Magic (30m dura)
+    UPDATE `mangos`.`spell_template` SET `durationIndex`=30 WHERE  `entry`=604;
+    UPDATE `mangos`.`spell_template` SET `durationIndex`=30 WHERE  `entry`=8450;
+    UPDATE `mangos`.`spell_template` SET `durationIndex`=30 WHERE  `entry`=8451;
+    UPDATE `mangos`.`spell_template` SET `durationIndex`=30 WHERE  `entry`=10173;
+    UPDATE `mangos`.`spell_template` SET `durationIndex`=30 WHERE  `entry`=10174;
+
+    UPDATE `mangos`.`spell_template` SET `durationIndex`=30 WHERE  `entry`=1008;
+    UPDATE `mangos`.`spell_template` SET `durationIndex`=30 WHERE  `entry`=8455;
+    UPDATE `mangos`.`spell_template` SET `durationIndex`=30 WHERE  `entry`=10169;
+    UPDATE `mangos`.`spell_template` SET `durationIndex`=30 WHERE  `entry`=10170;
+
+
 
 -- Rogue
     -- Venomous Wounds (25%/50% chance to gain 10 energy on Garrote / Rupture ticks)
@@ -2549,8 +2605,8 @@ UPDATE `mangos`.`spell_template` SET `reagent4`=7078, `reagent5`=7082, `reagent6
         REPLACE `mangos`.`spell_template` (`entry`, `build`, `category`, `attributes`, `castingTimeIndex`, `procChance`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectMultipleValue1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33713, 4222, 2, 262160, 1, 101, 2, -1, -1, 9, 1, 1, 1499, 0, -1, -1, 6, 1.0, 349, 147, 'Bloody Fangs', 7274526, 7274508, 'Drains $s1 health from an enemy, healing the caster for up to 100% of that amount.', 983054, 983052, -1, 1, 1, 1);
 
         -- ZNM
-            -- Summon Acolytes (GUARDIAN Summons 1 Haeler Acyolte)
-            REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `interruptFlags`, `procChance`, `baseLevel`, `spellLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectRadiusIndex1`, `effectMultipleValue1`, `effectMiscValue1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33841, 4222, 16, 5, 9, 101, 20, 20, 3, 1, -1, 42, 1, 1, 0, -1, -1, -1, 32, 8, 0, 90068, 74, 61, 'Summon Acolyte', 983070, 983052, 'Summons $s1 $lSkeleton:Acolyte; to aid the caster in battle for $d.', 983054, 983052, -1, 1, 1, 1);
+            -- Summon Acolytes (GUARDIAN Summons 1 Healer Acyolte)
+            REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `interruptFlags`, `procChance`, `baseLevel`, `spellLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectRadiusIndex1`, `effectMultipleValue1`, `effectMiscValue1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33841, 4222, 16, 5, 9, 101, 20, 20, 3, 1, -1, 42, 1, 1, 0, -1, -1, -1, 32, 8, 0, 90068, 74, 61, 'Summon Acolyte', 983070, 983052, 'Summons $s1 $Acolyte:Acolyte; to aid the caster in battle for $d.', 983054, 983052, -1, 1, 1, 1);
 
             -- Banshee Curse (-66% hit rate curse 100 yards AOE)
             REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `dispel`, `attributes`, `attributesEx`, `castingTimeIndex`, `procChance`, `maxLevel`, `baseLevel`, `spellLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effect2`, `effectDieSides1`, `effectDieSides2`, `effectBaseDice1`, `effectBaseDice2`, `effectBasePoints1`, `effectBasePoints2`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectImplicitTargetB1`, `effectImplicitTargetB2`, `effectRadiusIndex1`, `effectRadiusIndex2`, `effectApplyAuraName1`, `effectApplyAuraName2`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33842, 5302, 2, 2, 262144, 136, 1, 101, 45, 37, 37, 4, 1, -1, -1, 6, 6, 1, 1, 1, 1, -67, -67, 1, 1, -1, 22, 22, 15, 15, 12, 12, 54, 55, 183, 155, 'Banshee Curse', 8323134, 8323132, 'Reduces the targets chance to hit with physical attacks and spells by $s1%.', 8323132, 'Chance to hit reduced by $s1%.', 2031676, 1, 1, -1, 1, 1, 1);
