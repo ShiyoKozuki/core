@@ -1472,9 +1472,18 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
                 REPLACE `mangos`.`npc_trainer_template` (`entry`, `spell`, `spellcost`, `reqlevel`) VALUES (1, 33849, 11000, 30);
         
         -- Pyroblast reduce upfront damage, increase DOT damage, 30s duration, 3s cast
-            UPDATE `mangos`.`spell_template` SET `castingTimeIndex`=14, `recoveryTime`=30000, `durationIndex`=9, `effectDieSides1`=23, `effectBasePoints1`=70, `effectBasePoints2`=28 WHERE  `entry`=11366 AND `build`=5464;
+            UPDATE `mangos`.`spell_template` SET `castingTimeIndex`=14, `recoveryTime`=30000, `durationIndex`=9, `effectDieSides1`=23, `effectBasePoints1`=70, `effectBasePoints2`=28 WHERE  `entry`=11366;
+            UPDATE `mangos`.`spell_template` SET `castingTimeIndex`=14, `recoveryTime`=30000, `durationIndex`=9, `effectDieSides1`=23, `effectBasePoints1`=90, `effectBasePoints2`=36 WHERE  `entry`=12505;
+            UPDATE `mangos`.`spell_template` SET `castingTimeIndex`=14, `recoveryTime`=30000, `durationIndex`=9, `effectDieSides1`=23, `effectBasePoints1`=128, `effectBasePoints2`=48 WHERE  `entry`=12522;
+            UPDATE `mangos`.`spell_template` SET `castingTimeIndex`=14, `recoveryTime`=30000, `durationIndex`=9, `effectDieSides1`=23, `effectBasePoints1`=164, `effectBasePoints2`=62 WHERE  `entry`=12523;
+            UPDATE `mangos`.`spell_template` SET `castingTimeIndex`=14, `recoveryTime`=30000, `durationIndex`=9, `effectDieSides1`=23, `effectBasePoints1`=203, `effectBasePoints2`=78 WHERE  `entry`=12524;
+            UPDATE `mangos`.`spell_template` SET `castingTimeIndex`=14, `recoveryTime`=30000, `durationIndex`=9, `effectDieSides1`=23, `effectBasePoints1`=252, `effectBasePoints2`=94 WHERE  `entry`=12525;
+            UPDATE `mangos`.`spell_template` SET `castingTimeIndex`=14, `recoveryTime`=30000, `durationIndex`=9, `effectDieSides1`=23, `effectBasePoints1`=300, `effectBasePoints2`=114 WHERE  `entry`=12526;
+            UPDATE `mangos`.`spell_template` SET `castingTimeIndex`=14, `recoveryTime`=30000, `durationIndex`=9, `effectDieSides1`=23, `effectBasePoints1`=357, `effectBasePoints2`=134 WHERE  `entry`=18809;
+
+        -- More ranks of Flurry
+        -- Living Bomb (Just a DOT, doesnt AOE). Lvl 30+
         -- Teleport and Portal Theramore
-        -- Living Bomb (Just a DOT, doesnt AOE)
         -- Meteor (Copy Flamestrike with the AQ40 meteor trinket animation)
 
     -- Dampen Magic / Amplify Magic (30m dura)
@@ -1488,8 +1497,6 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
     UPDATE `mangos`.`spell_template` SET `durationIndex`=30 WHERE  `entry`=8455;
     UPDATE `mangos`.`spell_template` SET `durationIndex`=30 WHERE  `entry`=10169;
     UPDATE `mangos`.`spell_template` SET `durationIndex`=30 WHERE  `entry`=10170;
-
-
 
 -- Rogue
     -- Venomous Wounds (25%/50% chance to gain 10 energy on Garrote / Rupture ticks)
@@ -1654,7 +1661,7 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
 
         -- Idol of Greased Lightning (Maul / Swipe increases your attack speed, stacking up to 5 times. 30s duration) 
         
-            -- Spell (This is the aura that procs the acutal buff)
+            -- Spell (This is the aura that procs the actual buff)
             REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `attributesEx3`, `castingTimeIndex`, `procFlags`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectItemType1`, `effectTriggerSpell1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `stanceBarOrder`, `dmgMultiplier1`) 
             VALUES (33579, 5464, 4, 464, 67108864, 1, 87376, 100, 21, 1, -1, 6, 1, 1, -1, 0, -1, -1, 1, 42, 
             2048, 33583, 108, 'Idol of Greased Lightning', 4128830, '0', 4128830, 'Your Maul and Swipe abilities increases your attack speed by $33583s1%. Stacks up to 5 times.', 4128830, 4128828, 7, -1, 1);
@@ -1662,7 +1669,7 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
             -- Spell proc event
             REPLACE`mangos`.`spell_proc_event` (`entry`, `Cooldown`) VALUES (33579, 500);
 
-            -- Spell (This is the aura that procs the acutal buff)
+            -- Spell (This is the aura that procs the actual buff)
             REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `attributesEx3`, `castingTimeIndex`, `procFlags`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectItemType1`, `effectTriggerSpell1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `stanceBarOrder`, `dmgMultiplier1`) 
             VALUES (33580, 5464, 4, 464, 67108864, 1, 87376, 100, 21, 1, -1, 6, 1, 1, -1, 0, -1, -1, 1, 42, 
             2048, 33584, 108, 'Idol of Greased Lightning', 4128830, '0', 4128830, 'Your Maul and Swipe abilities increases your attack speed by $33584s1%. Stacks up to 5 times.', 4128830, 4128828, 7, -1, 1);
@@ -1670,7 +1677,7 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
             -- Spell proc event
             REPLACE`mangos`.`spell_proc_event` (`entry`, `Cooldown`) VALUES (33580, 500);
 
-            -- Spell (This is the aura that procs the acutal buff)
+            -- Spell (This is the aura that procs the actual buff)
             REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `attributesEx3`, `castingTimeIndex`, `procFlags`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectItemType1`, `effectTriggerSpell1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `stanceBarOrder`, `dmgMultiplier1`) 
             VALUES (33581, 5464, 4, 464, 67108864, 1, 87376, 100, 21, 1, -1, 6, 1, 1, -1, 0, -1, -1, 1, 42, 
             2048, 33585, 108, 'Idol of Greased Lightning', 4128830, '0', 4128830, 'Your Maul and Swipe abilities increases your attack speed by $33585s1%. Stacks up to 5 times.', 4128830, 4128828, 7, -1, 1);
@@ -1678,7 +1685,7 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
             -- Spell proc event
             REPLACE`mangos`.`spell_proc_event` (`entry`, `Cooldown`) VALUES (33581, 500);
 
-            -- Spell (This is the aura that procs the acutal buff)
+            -- Spell (This is the aura that procs the actual buff)
             REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `attributesEx3`, `castingTimeIndex`, `procFlags`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectItemType1`, `effectTriggerSpell1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `stanceBarOrder`, `dmgMultiplier1`) 
             VALUES (33582, 5464, 4, 464, 67108864, 1, 87376, 100, 21, 1, -1, 6, 1, 1, -1, 0, -1, -1, 1, 42, 
             2048, 33586, 108, 'Idol of Greased Lightning', 4128830, '0', 4128830, 'Your Maul and Swipe abilities increases your attack speed by $33586s1%. Stacks up to 5 times.', 4128830, 4128828, 7, -1, 1);
@@ -2755,7 +2762,7 @@ UPDATE `mangos`.`spell_template` SET `reagent4`=7078, `reagent5`=7082, `reagent6
         REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectItemType1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `spellFamilyFlags`, `stanceBarOrder`, `dmgMultiplier1`) VALUES (33457, 5302, 464, 1, 101, 21, 1, -1, 6, 1, 1, -126, 1, -1, -1, 1, 107, 32, 14, 13, 'Consecration Cost Reduced', 2031678, 2031628, 'Reduces the mana cost of your Consecration spell by $s1.', 2031678, 2031628, 10, 4096, -1, 1);
 
     -- Libram of Judgement
-        -- Spell (This is the aura that procs the acutal buff)
+        -- Spell (This is the aura that procs the actual buff)
             REPLACE `spell_template` (`entry`, `build`, `school`, `category`, `castUI`, `dispel`, `mechanic`, `attributes`, `attributesEx`, `attributesEx2`, `attributesEx3`, `attributesEx4`, `stances`, `stancesNot`, `targets`, `targetCreatureType`, `requiresSpellFocus`, `casterAuraState`, `targetAuraState`, `castingTimeIndex`, `recoveryTime`, `categoryRecoveryTime`, `interruptFlags`, `auraInterruptFlags`, `channelInterruptFlags`, `procFlags`, `procChance`, `procCharges`, `maxLevel`, `baseLevel`, `spellLevel`, `durationIndex`, `powerType`, `manaCost`, `manCostPerLevel`, `manaPerSecond`, `manaPerSecondPerLevel`, `rangeIndex`, `speed`, `modelNextSpell`, `stackAmount`, `totem1`, `totem2`, `reagent1`, `reagent2`, `reagent3`, `reagent4`, `reagent5`, `reagent6`, `reagent7`, `reagent8`, `reagentCount1`, `reagentCount2`, `reagentCount3`, `reagentCount4`, `reagentCount5`, `reagentCount6`, `reagentCount7`, `reagentCount8`, `equippedItemClass`, `equippedItemSubClassMask`, `equippedItemInventoryTypeMask`, `effect1`, `effect2`, `effect3`, `effectDieSides1`, `effectDieSides2`, `effectDieSides3`, `effectBaseDice1`, `effectBaseDice2`, `effectBaseDice3`, `effectDicePerLevel1`, `effectDicePerLevel2`, `effectDicePerLevel3`, `effectRealPointsPerLevel1`, `effectRealPointsPerLevel2`, `effectRealPointsPerLevel3`, `effectBasePoints1`, `effectBasePoints2`, `effectBasePoints3`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectMechanic1`, `effectMechanic2`, `effectMechanic3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectImplicitTargetA3`, `effectImplicitTargetB1`, `effectImplicitTargetB2`, `effectImplicitTargetB3`, `effectRadiusIndex1`, `effectRadiusIndex2`, `effectRadiusIndex3`, `effectApplyAuraName1`, `effectApplyAuraName2`, `effectApplyAuraName3`, `effectAmplitude1`, `effectAmplitude2`, `effectAmplitude3`, `effectMultipleValue1`, `effectMultipleValue2`, `effectMultipleValue3`, `effectChainTarget1`, `effectChainTarget2`, `effectChainTarget3`, `effectItemType1`, `effectItemType2`, `effectItemType3`, `effectMiscValue1`, `effectMiscValue2`, `effectMiscValue3`, `effectTriggerSpell1`, `effectTriggerSpell2`, `effectTriggerSpell3`, `effectPointsPerComboPoint1`, `effectPointsPerComboPoint2`, `effectPointsPerComboPoint3`, `spellVisual1`, `spellVisual2`, `spellIconId`, `activeIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `manaCostPercentage`, `startRecoveryCategory`, `startRecoveryTime`, `minTargetLevel`, `maxTargetLevel`, `spellFamilyName`, `spellFamilyFlags`, `maxAffectedTargets`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `minFactionId`, `minReputation`, `requiredAuraVision`, `customFlags`, `script_name`) 
             VALUES (33458, 4695, 1, 0, 0, 0, 0, 64, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 101, 0, 0, 0, 0, 21, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1, 0, 0, 6, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 99, 0, 0, 1, -1, -1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 109, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8388608, 0, 0, 0, 0, 0, 33459, 0, 0, 0, 0, 0, 0, 0, 156, 0, 0, 'Libram of Judgement', 2031678, '', 2031628, 'Increases your attack power by 50 after casting Judgement, stacking up to 4 times.', 2031646, '', 2031628, 0, 0, 0, 0, 0, 10, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, '');
 
@@ -2764,7 +2771,7 @@ UPDATE `mangos`.`spell_template` SET `reagent4`=7078, `reagent5`=7082, `reagent6
             VALUES (33459, 5302, 1, 0, 0, 1, 0, 671088640, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 101, 0, 0, 40, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1, -1, 0, 6, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 49, 0, 0, 0, 0, -1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 99, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 126, 126, 0, 0, 0, 0, 0, 0, 0, 969, 0, 1677, 0, 0, 'Libram of Judgement', 2031678, '', 2031628, 'Increases attack power by $s1, stacking up to 4 times.', 2031678, 'Increases attack power by $s1, stacking up to 4 times.', 2031678, 0, 0, 0, 0, 0, 10, 0, 0, 1, 0, -1, 1, 1, 1, 0, 0, 0, 0, '');
 
     -- Libram of Mending
-        -- Spell (This is the aura that procs the acutal buff)
+        -- Spell (This is the aura that procs the actual buff)
             REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `castingTimeIndex`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectItemType1`, `effectTriggerSpell1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `dmgMultiplier1`) 
             VALUES (33484, 4695, 1, 64, 1, 101, 21, 1, -1, 6, 1, 1, 99, 1, -1, -1, 1, 109, 2147483648, 33485, 156, 'Libram of Mending', 2031678, 2031628, 'Your Holy Light spell grants $33485s1 mana per 5 sec. for 30 sec.', 2031646, 2031628, 10, 1);
         
@@ -2774,7 +2781,7 @@ UPDATE `mangos`.`spell_template` SET `reagent4`=7078, `reagent5`=7082, `reagent6
 
     -- Burning Heart (Fire Blast stacking Spirit buff)
 
-        -- Spell (This is the aura that procs the acutal buff)
+        -- Spell (This is the aura that procs the actual buff)
         REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `castingTimeIndex`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectItemType1`, `effectTriggerSpell1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `dmgMultiplier1`) 
         VALUES (33486, 4695, 2, 64, 1, 101, 21, 1, -1, 6, 1, 1, 99, 1, -1, -1, 1, 109, 2, 33487, 156, 'Burning Heart', 2031678, 2031628, 'Your Fire Blast spell grants $33487s1 Spirit for 30 seconds, stacking up to 5 times.', 2031646, 2031628, 3, 1);
 
@@ -2784,7 +2791,7 @@ UPDATE `mangos`.`spell_template` SET `reagent4`=7078, `reagent5`=7082, `reagent6
 
     -- Arcane Brand (Arcane Missles +Spell dmg taken % debuff)
 
-        -- Spell (This is the aura that procs the acutal buff)
+        -- Spell (This is the aura that procs the actual buff)
             REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `castingTimeIndex`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectItemType1`, `effectTriggerSpell1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `dmgMultiplier1`) 
             VALUES (33488, 4695, 6, 64, 1, 101, 21, 1, -1, 6, 1, 1, 99, 1, -1, -1, 1, 109, 2048, 33489, 156, 'Arcane Brand', 2031678, 2031628, 'Your Arcane Missles spell causes the target to take $33489s1% additional spell damage for 60 seconds.', 2031646, 2031628, 3, 1);
 
@@ -2794,7 +2801,7 @@ UPDATE `mangos`.`spell_template` SET `reagent4`=7078, `reagent5`=7082, `reagent6
 
     -- Inflame (Scorch stacking spell power buff)
 
-        -- Spell (This is the aura that procs the acutal buff)
+        -- Spell (This is the aura that procs the actual buff)
             REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `castingTimeIndex`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectItemType1`, `effectTriggerSpell1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `dmgMultiplier1`) 
             VALUES (33490, 4695, 2, 64, 1, 101, 21, 1, -1, 6, 1, 1, 99, 1, -1, -1, 1, 109, 16, 33491, 156, 'Inflame', 2031678, 2031628, 'Your Scorch spell increases your spell damage by $33491s1 for 30 seconds, stacking up to 5 times.', 2031646, 2031628, 3, 1);
 
@@ -2803,7 +2810,7 @@ UPDATE `mangos`.`spell_template` SET `reagent4`=7078, `reagent5`=7082, `reagent6
             VALUES (33491, 5302, 2, 1, 671088640, 1, 101, 40, 9, 1, 5, -1, -1, 6, 1, 1, 19, 0, 0, -1, 1, 13, 126, 335, 816, 'Inflame', 2031678, 2031628, 'Your Scorch spell increases your spell damage by $s1 for 30 seconds, stacking up to 5 times.', 2031678, 'Spell power increased by $s1.', 2031678, 10, 1, -1, 1, 1, 1);
 
     -- Freezing Desire (Fireball proc to make next Frostbolt deal 100% more damage)
-        -- Spell (This is the aura that procs the acutal buff)
+        -- Spell (This is the aura that procs the actual buff)
         REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `attributesEx3`, `castingTimeIndex`, `procFlags`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectItemType1`, `effectTriggerSpell1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `stanceBarOrder`, `dmgMultiplier1`) 
         VALUES (33492, 5464, 4, 464, 67108864, 1, 87376, 10, 21, 1, -1, 6, 1, 1, -1, 0, -1, -1, 1, 42, 1, 33493, 173, 'Freezing Desire', 4128830, '0', 4128830, 'Your Fireball spell has a $h% chance to increase the damage of your next Frostbolt spell by $33493s1%', 4128830, 4128828, 3, -1, 1);
 
@@ -2812,7 +2819,7 @@ UPDATE `mangos`.`spell_template` SET `reagent4`=7078, `reagent5`=7082, `reagent6
         VALUES (33493, 5464, 4, 1, 327680, 1, 87376, 100, 1, 10, 10, 9, 6, -1, -1, 6, 1, 1, 99, 0, -1, -1, 1, 108, 32, 8, 2736, 154, 'Freezing Desire', 4128830, 4128828, 4128828, 'Your next Frostbolt spell deals $s1% increased damage.', 4128830, 3, 1, 1, -1, 1, 1, 1);
 
     -- Burning Desire (Frostbolt proc to make next Fireball deal 50% more damage)
-        -- Spell (This is the aura that procs the acutal buff)
+        -- Spell (This is the aura that procs the actual buff)
         REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `attributesEx3`, `castingTimeIndex`, `procFlags`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectItemType1`, `effectTriggerSpell1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `stanceBarOrder`, `dmgMultiplier1`) 
         VALUES (33494, 5464, 2, 464, 67108864, 1, 87376, 10, 21, 1, -1, 6, 1, 1, -1, 0, -1, -1, 1, 42, 32, 33495, 173, 'Burning Desire', 4128830, '0', 4128830, 'Your Frostbolt spell has a $h% chance to increase the damage of your next Fireball spell by $33495s1%.', 4128830, 4128828, 3, -1, 1);
 
@@ -2821,7 +2828,7 @@ UPDATE `mangos`.`spell_template` SET `reagent4`=7078, `reagent5`=7082, `reagent6
         VALUES (33495, 5464, 2, 1, 327680, 1, 87376, 100, 1, 10, 10, 9, 6, -1, -1, 6, 1, 1, 49, 0, -1, -1, 1, 108, 1, 8, 2736, 1137, 'Burning Desire', 4128830, 4128828, 4128828, 'Your next Fireball spell deals $s1% increased damage.', 4128830, 3, 1, 1, -1, 1, 1, 1);
 
     -- Idol of Elune (Wrath proc reduces cast time of Starfire by 0.5s. 10% Chance)
-        -- Spell (This is the aura that procs the acutal buff)
+        -- Spell (This is the aura that procs the actual buff)
         REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `attributesEx3`, `castingTimeIndex`, `procFlags`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectItemType1`, `effectTriggerSpell1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `stanceBarOrder`, `dmgMultiplier1`) 
         VALUES (33513, 5464, 4, 464, 67108864, 1, 87376, 10, 21, 1, -1, 6, 1, 1, -1, 0, -1, -1, 1, 42, 
         1, 33517, 87, 'Idol of Elune', 4128830, '0', 4128830, 'Your Wrath spell has a $h% chance to reduce the cast time of your next Starfire spell by 2.0 sec.', 4128830, 4128828, 7, -1, 1);
@@ -2847,7 +2854,7 @@ UPDATE `mangos`.`spell_template` SET `reagent4`=7078, `reagent5`=7082, `reagent6
 
 -- Template:
 -- Name
-    -- Spell (This is the aura that procs the acutal buff)
+    -- Spell (This is the aura that procs the actual buff)
     -- Proc (This is the actual buff)
 
 -- Alchemy Potions
