@@ -1,4 +1,4 @@
--- 33850 NEXT SPELL
+-- 33851 NEXT SPELL
 -- 15099 NEXT SKILL_LINE_ABILITY
 
 -- FOR SPELL SCRIPTS USE: SPELL_EFFECT_SCRIPT_EFFECT = 77, effectImplicitTargetA1 (6) and a dummy aura (4)
@@ -1443,11 +1443,7 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
         REPLACE `mangos`.`npc_trainer_template` (`entry`, `spell`, `spellcost`, `reqlevel`) VALUES (1, 33845, 11000, 30);
 
         -- Water Elemental
-            -- TODO: Cooldown (5m cd)
-            -- TODO: Duration (1m)
-            -- TODO: Level (should scale with player)
-            -- TODO: npc_water_elemental script in C++
-            -- TODO: SpellFamilyName (3). spellFamilyFlags(and add enum CF_MAGE_w/e)
+            -- TODO: Teleport Stormwind animation
             -- Spell
                 REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `castingTimeIndex`, `recoveryTime`, `interruptFlags`, `procChance`, `baseLevel`, `spellLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectRadiusIndex1`, `effectMultipleValue1`, `effectMiscValue1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `manaCostPercentage`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `spellFamilyFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33846, 4222, 4, 16, 7, 0, 9, 101, 40, 40, 21, 1, -1, 56, 1, 1, 0, -1, -1, -1, 32, 8, 0, 90069, 7680, 94, 'Summon Water Elemental', 983070, 983052, 'Summons a Water Elemental to aid the caster in battle.', 983054, 983052, 100, 133, 1500, 3, 8589934592, -1, 1, 1, 1);
 
@@ -1457,8 +1453,8 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
             -- Creature (Elemental)
                 REPLACE`mangos`.`creature_template` (`entry`, `name`, `level_min`, `level_max`, `faction`, `display_id1`, `speed_walk`, `type`, `unit_class`, `health_multiplier`, `armor_multiplier`, `damage_variance`, `loot_id`, `spell_id1`, `spell_id2`, `spell_list_id`, `movement_type`, `mechanic_immune_mask`, `school_immune_mask`, `immunity_flags`, `static_flags1`, `static_flags2`, `script_name`) VALUES (90069, 'Water Elemental', 60, 60, 91, 525, 1.55556, 4, 2, 1.02, 2, 0.06, 3917, 6873, 9672, 39170, 1, 646013719, 16, 32, 524288, 16, 'npc_water_elemental');
 
-        -- Flurry (20s CD arcane missles channeled frost damage)
-        -- TODO: spellFamilyFlags(and add enum CF_MAGE_w/e)
+        -- Flurry
+        -- TODO: Animation, does weird arcane missles stuff and if you interrupt mid cast it goes on full CD?
             -- Spell
                 REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `attributesEx`, `castingTimeIndex`, `recoveryTime`, `interruptFlags`, `channelInterruptFlags`, `procChance`, `maxLevel`, `baseLevel`, `spellLevel`, `durationIndex`, `manaCost`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effect2`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectApplyAuraName1`, `effectApplyAuraName2`, `effectAmplitude1`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `spellFamilyFlags`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `customFlags`) VALUES (33847, 5464, 4, 536936704, 268453004, 1, 30000, 15, 31756, 101, 36, 32, 32, 28, 240, 4, -1, -1, 6, 6, 0, 0, -1, 1, 6, 23, 4, 1000, 33848, 707, 187, 50, 'Flurry', 4128830, 'Rank 1', 4128830, 'Launches a flurry of frost at the enemy, causing $33848s1 Frost damage each second for $d.', 4128830, 4128828, 133, 1500, 3, 4294967296, 1, -1, 1, 1, 1, 128);
 
@@ -1475,7 +1471,11 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
                 -- Trainer
                 REPLACE `mangos`.`npc_trainer_template` (`entry`, `spell`, `spellcost`, `reqlevel`) VALUES (1, 33849, 11000, 30);
         
+        -- Pyroblast reduce upfront damage, increase DOT damage, 30s duration, 3s cast
+            UPDATE `mangos`.`spell_template` SET `castingTimeIndex`=14, `recoveryTime`=30000, `durationIndex`=9, `effectDieSides1`=23, `effectBasePoints1`=70, `effectBasePoints2`=28 WHERE  `entry`=11366 AND `build`=5464;
         -- Teleport and Portal Theramore
+        -- Living Bomb (Just a DOT, doesnt AOE)
+        -- Meteor (Copy Flamestrike with the AQ40 meteor trinket animation)
 
     -- Dampen Magic / Amplify Magic (30m dura)
     UPDATE `mangos`.`spell_template` SET `durationIndex`=30 WHERE  `entry`=604;
@@ -2610,6 +2610,10 @@ UPDATE `mangos`.`spell_template` SET `reagent4`=7078, `reagent5`=7082, `reagent6
 
             -- Banshee Curse (-66% hit rate curse 100 yards AOE)
             REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `dispel`, `attributes`, `attributesEx`, `castingTimeIndex`, `procChance`, `maxLevel`, `baseLevel`, `spellLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effect2`, `effectDieSides1`, `effectDieSides2`, `effectBaseDice1`, `effectBaseDice2`, `effectBasePoints1`, `effectBasePoints2`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectImplicitTargetB1`, `effectImplicitTargetB2`, `effectRadiusIndex1`, `effectRadiusIndex2`, `effectApplyAuraName1`, `effectApplyAuraName2`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33842, 5302, 2, 2, 262144, 136, 1, 101, 45, 37, 37, 4, 1, -1, -1, 6, 6, 1, 1, 1, 1, -67, -67, 1, 1, -1, 22, 22, 15, 15, 12, 12, 54, 55, 183, 155, 'Banshee Curse', 8323134, 8323132, 'Reduces the targets chance to hit with physical attacks and spells by $s1%.', 8323132, 'Chance to hit reduced by $s1%.', 2031676, 1, 1, -1, 1, 1, 1);
+
+            -- Flamecrack (AOE 5500 damage + stun 10 yards 10s cast)
+            REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `mechanic`, `castingTimeIndex`, `interruptFlags`, `procChance`, `rangeIndex`, `equippedItemClass`, `effect1`, `effect3`, `effectDieSides1`, `effectDieSides3`, `effectBaseDice1`, `effectBaseDice3`, `effectBasePoints1`, `effectBasePoints3`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA3`, `effectImplicitTargetB1`, `effectImplicitTargetB3`, `effectRadiusIndex1`, `effectRadiusIndex3`, `effectMiscValue3`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `manaCostPercentage`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33850, 4695, 2, 12, 7, 15, 101, 1, -1, 2, 98, 1, 1, 1, 1, 5499, 74, 1, -1, 1, 18, 18, 16, 16, 13, 13, 125, 3781, 11, 'Flamecrack', 2031678, 2031644, 'Inflicts $s1 Fire damage to all enemies in a selected area, knocking them back and stunning them for $d.', 2031678, 2031660, 25, 1, 1, -1, 1, 1, 1);
+
 
     -- Items / Gear
         -- +1 Fire weapon damage to attacks
