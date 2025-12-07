@@ -924,7 +924,7 @@ SET quality = 2,
     stat_value2 = 7
 WHERE entry = 2582;
 
--- Heaven Woolen Gloves
+-- Heavy Woolen Gloves
 UPDATE mangos . item_template
 SET stat_type1 = 5,
     stat_value1 = 6,
@@ -976,9 +976,9 @@ UPDATE mangos . item_template
 SET quality = 2,
     bonding = 2,
     stat_type1 = 5,
-    stat_value1 = 6,
+    stat_value1 = 4,
     stat_type2 = 6,
-    stat_value2 = 6
+    stat_value2 = 4
 WHERE entry = 4311;
 
 -- Gray Woolen Robe
@@ -1066,18 +1066,18 @@ WHERE entry = 5770;
 
 -- Phoenix Gloves
 UPDATE mangos . item_template
-SET stat_type1 = 5,
-    stat_value1 = 4,
-    stat_type2 = 6,
-    stat_value2 = 4
+SET stat_type1 = 6,
+    stat_value1 = 2,
+    stat_type2 = 0,
+    stat_value2 = 0
 WHERE entry = 4331;
 
 -- Phoenix Pants
 UPDATE mangos . item_template
-SET stat_type1 = 5,
-    stat_value1 = 6,
-    stat_type2 = 6,
-    stat_value2 = 6
+SET stat_type1 = 6,
+    stat_value1 = 3,
+    stat_type2 = 0,
+    stat_value2 = 0
 WHERE entry = 4317;
 
 -- Spider Silk Slippers
