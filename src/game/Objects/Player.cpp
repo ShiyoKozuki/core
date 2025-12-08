@@ -4833,6 +4833,12 @@ void Player::DurabilityLossAll(double percent, bool inventory)
                     if (Item* pItem = GetItemByPos(i, j))
                         DurabilityLoss(pItem, percent);
     }
+
+    // Rehide toggled hidden gear slots
+    bool hidden = !IsHideShoulders();
+    Item* shoulders = GetItemByPos(INVENTORY_SLOT_BAG_0, EQUIPMENT_SLOT_SHOULDERS);
+    SetVisibleItemSlot(EQUIPMENT_SLOT_SHOULDERS, shoulders);
+    SendForcedObjectUpdate();
 }
 
 void Player::DurabilityLoss(Item* item, double percent)
@@ -4877,6 +4883,12 @@ void Player::DurabilityPointsLossAll(int32 points, bool inventory)
                     if (Item* pItem = GetItemByPos(i, j))
                         DurabilityPointsLoss(pItem, points);
     }
+
+    // Rehide toggled hidden gear slots
+    bool hidden = !IsHideShoulders();
+    Item* shoulders = GetItemByPos(INVENTORY_SLOT_BAG_0, EQUIPMENT_SLOT_SHOULDERS);
+    SetVisibleItemSlot(EQUIPMENT_SLOT_SHOULDERS, shoulders);
+    SendForcedObjectUpdate();
 }
 
 void Player::DurabilityPointsLoss(Item* item, int32 points)
