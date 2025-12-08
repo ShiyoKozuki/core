@@ -1,5 +1,5 @@
--- 33851 NEXT SPELL
--- 15099 NEXT SKILL_LINE_ABILITY
+-- 33859 NEXT SPELL
+-- 15103 NEXT SKILL_LINE_ABILITY
 
 -- FOR SPELL SCRIPTS USE: SPELL_EFFECT_SCRIPT_EFFECT = 77, effectImplicitTargetA1 (6) and a dummy aura (4)
 -- Spell icon:  alpha depth -  (None) opaque 0
@@ -1445,7 +1445,7 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
         -- Water Elemental
             -- TODO: Teleport Stormwind animation
             -- Spell
-                REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `castingTimeIndex`, `recoveryTime`, `interruptFlags`, `procChance`, `baseLevel`, `spellLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectRadiusIndex1`, `effectMultipleValue1`, `effectMiscValue1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `manaCostPercentage`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `spellFamilyFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33846, 4222, 4, 16, 7, 0, 9, 101, 40, 40, 21, 1, -1, 56, 1, 1, 0, -1, -1, -1, 32, 8, 0, 90069, 7680, 94, 'Summon Water Elemental', 983070, 983052, 'Summons a Water Elemental to aid the caster in battle.', 983054, 983052, 100, 133, 1500, 3, 8589934592, -1, 1, 1, 1);
+                REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `castingTimeIndex`, `recoveryTime`, `interruptFlags`, `procChance`, `baseLevel`, `spellLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectRadiusIndex1`, `effectMultipleValue1`, `effectMiscValue1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `manaCostPercentage`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `spellFamilyFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33846, 4222, 4, 16, 7, 0, 9, 101, 40, 40, 21, 1, -1, 56, 1, 1, 0, -1, -1, -1, 32, 8, 0, 90069, 7313, 94, 'Summon Water Elemental', 983070, 983052, 'Summons a Water Elemental to aid the caster in battle.', 983054, 983052, 100, 133, 1500, 3, 8589934592, -1, 1, 1, 1);
 
             -- Skill Line Ability
                 REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`, `superseded_by_spell`) VALUES (15097, 5875, 6, 33846, 128, 1, 0);
@@ -1454,12 +1454,13 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
                 REPLACE`mangos`.`creature_template` (`entry`, `name`, `level_min`, `level_max`, `faction`, `display_id1`, `speed_walk`, `type`, `unit_class`, `health_multiplier`, `armor_multiplier`, `damage_variance`, `loot_id`, `spell_id1`, `spell_id2`, `spell_list_id`, `movement_type`, `mechanic_immune_mask`, `school_immune_mask`, `immunity_flags`, `static_flags1`, `static_flags2`, `script_name`) VALUES (90069, 'Water Elemental', 60, 60, 91, 525, 1.55556, 4, 2, 1.02, 2, 0.06, 3917, 6873, 9672, 39170, 1, 646013719, 16, 32, 524288, 16, 'npc_water_elemental');
 
         -- Flurry
-        -- TODO: Animation, does weird arcane missles stuff and if you interrupt mid cast it goes on full CD?
+            -- TODO: Frost Channeling, Artic Reach, Ice Shards , Piercing Ice and Shatter should work on this
+            -- TODO: Animation for spell and proc should be same. I tried 28522 but it doesnt work? Try 11131 (icicle)
             -- Spell
-                REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `attributesEx`, `castingTimeIndex`, `recoveryTime`, `interruptFlags`, `channelInterruptFlags`, `procChance`, `maxLevel`, `baseLevel`, `spellLevel`, `durationIndex`, `manaCost`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effect2`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectApplyAuraName1`, `effectApplyAuraName2`, `effectAmplitude1`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `spellFamilyFlags`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `customFlags`) VALUES (33847, 5464, 4, 536936704, 268453004, 1, 30000, 15, 31756, 101, 36, 32, 32, 28, 240, 4, -1, -1, 6, 6, 0, 0, -1, 1, 6, 23, 4, 1000, 33848, 707, 187, 50, 'Flurry', 4128830, 'Rank 1', 4128830, 'Launches a flurry of frost at the enemy, causing $33848s1 Frost damage each second for $d.', 4128830, 4128828, 133, 1500, 3, 4294967296, 1, -1, 1, 1, 1, 128);
+                REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `attributesEx`, `castingTimeIndex`, `recoveryTime`, `interruptFlags`, `channelInterruptFlags`, `procChance`, `maxLevel`, `baseLevel`, `spellLevel`, `durationIndex`, `manaCost`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effect2`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectApplyAuraName1`, `effectApplyAuraName2`, `effectAmplitude1`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `spellFamilyFlags`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `customFlags`) VALUES (33847, 5464, 4, 536936704, 268453004, 1, 30000, 15, 31756, 101, 36, 32, 32, 28, 240, 4, -1, -1, 6, 6, 0, 0, -1, 1, 6, 23, 4, 1000, 33848, 2147, 187, 50, 'Flurry', 4128830, 'Rank 1', 4128830, 'Launches a flurry of frost at the enemy, causing $33848s1 Frost damage each second for $d.', 4128830, 4128828, 133, 1500, 3, 4294967296, 1, -1, 1, 1, 1, 128);
 
             -- Proc
-                REPLACE`mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `attributesEx2`, `attributesEx3`, `castingTimeIndex`, `interruptFlags`, `procChance`, `maxLevel`, `baseLevel`, `spellLevel`, `rangeIndex`, `speed`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectRealPointsPerLevel1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `customFlags`) VALUES (33848, 5086, 4, 65536, 4194304, 512, 1, 8, 101, 36, 32, 32, 4, 20, -1, -1, 2, 1, 1, 0.6, 82, 0.24, -1, -1, 6, 270, 187, 50, 'Flurry', 2031678, 'Rank 1', 2031678, 'Launches a flurry of frost enemy, causing $s1 Frost damage.', 2031678, 2031676, 3, 4294967296, 1, 1, -1, 1, 1, 1, 128);
+                REPLACE`mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `attributesEx2`, `attributesEx3`, `castingTimeIndex`, `interruptFlags`, `procChance`, `maxLevel`, `baseLevel`, `spellLevel`, `rangeIndex`, `speed`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectRealPointsPerLevel1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `customFlags`) VALUES (33848, 5086, 4, 65536, 4194304, 512, 1, 8, 101, 36, 32, 32, 4, 20, -1, -1, 2, 1, 1, 0.6, 82, 0.24, -1, -1, 6, 2147, 187, 50, 'Flurry', 2031678, 'Rank 1', 2031678, 'Launches a flurry of frost enemy, causing $s1 Frost damage.', 2031678, 2031676, 3, 4294967296, 1, 1, -1, 1, 1, 1, 128);
 
             -- Skill Line Ability
                 REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`, `superseded_by_spell`) VALUES (15098, 5875, 6, 33847, 128, 1, 0);
@@ -1481,9 +1482,61 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
             UPDATE `mangos`.`spell_template` SET `castingTimeIndex`=14, `recoveryTime`=30000, `durationIndex`=9, `effectDieSides1`=23, `effectBasePoints1`=300, `effectBasePoints2`=114 WHERE  `entry`=12526;
             UPDATE `mangos`.`spell_template` SET `castingTimeIndex`=14, `recoveryTime`=30000, `durationIndex`=9, `effectDieSides1`=23, `effectBasePoints1`=357, `effectBasePoints2`=134 WHERE  `entry`=18809;
 
+        -- Living Bomb
+            -- TODO: remove superceded from skill_line_ability and add spell_chain instead I think? 
+            -- Rank 1 (30)
+                -- Spell (This is the aura that procs the actual buff)
+                    REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `dispel`, `attributes`, `castingTimeIndex`, `interruptFlags`, `procChance`, `maxLevel`, `baseLevel`, `spellLevel`, `durationIndex`, `manaCost`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectAmplitude1`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33851, 4878, 2, 1, 65536, 5, 15, 101, 39, 30, 30, 85, 160, 4, -1, -1, 6, 1, 1, 53, 0.167, -1, -1, 6, 3, 3000, 4486, 1646, 50, 'Living Bomb', 2031678, 'Rank 1', 2031678, 'Turns the target into a living bomb, causing $o1 Fire damage over $d.', 2031678, '$s1 Fire damage every $t1 seconds.', 2031678, 133, 1500, 3, 17179869184, 1, 1, -1, 1, 1, 1);
+
+                -- Learn spell(for trainer):
+                    REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `targets`, `castingTimeIndex`, `procChance`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `activeIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) 
+                    VALUES (33852, 4222, 1, 262400, 256, 1, 101, 6, -1, -1, 36, 1, 1, -1, 0, -1, -1, 33851, 107, 1646, 0, 'Living Bomb', 7274526, 'Rank 1', 7274526, 7274508, 983052, -1, 1, 1, 1);
+
+                    -- Trainer
+                    REPLACE `mangos`.`npc_trainer_template` (`entry`, `spell`, `spellcost`, `reqlevel`) VALUES (1, 33852, 11000, 30);
+
+            -- Rank 2 (40)
+                -- Spell (This is the aura that procs the actual buff)
+                    REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `dispel`, `attributes`, `castingTimeIndex`, `interruptFlags`, `procChance`, `maxLevel`, `baseLevel`, `spellLevel`, `durationIndex`, `manaCost`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectAmplitude1`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33853, 4878, 2, 1, 65536, 5, 15, 101, 49, 40, 40, 85, 225, 4, -1, -1, 6, 1, 1, 80, 0.167, -1, -1, 6, 3, 3000, 4486, 1646, 50, 'Living Bomb', 2031678, 'Rank 2', 2031678, 'Turns the target into a living bomb, causing $o1 Fire damage over $d.', 2031678, '$s1 Fire damage every $t1 seconds.', 2031678, 133, 1500, 3, 17179869184, 1, 1, -1, 1, 1, 1);
+
+                -- Learn spell(for trainer):
+                    REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `targets`, `castingTimeIndex`, `procChance`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `activeIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) 
+                    VALUES (33854, 4222, 1, 262400, 256, 1, 101, 6, -1, -1, 36, 1, 1, -1, 0, -1, -1, 33853, 107, 1646, 0, 'Living Bomb', 7274526, 'Rank 2', 7274526, 7274508, 983052, -1, 1, 1, 1);
+
+                    -- Trainer
+                    REPLACE `mangos`.`npc_trainer_template` (`entry`, `spell`, `spellcost`, `reqlevel`) VALUES (1, 33854, 20000, 40);
+
+            -- Rank 3 (50)
+                -- Spell (This is the aura that procs the actual buff)
+                    REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `dispel`, `attributes`, `castingTimeIndex`, `interruptFlags`, `procChance`, `maxLevel`, `baseLevel`, `spellLevel`, `durationIndex`, `manaCost`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectAmplitude1`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33855, 4878, 2, 1, 65536, 5, 15, 101, 59, 50, 50, 85, 290, 4, -1, -1, 6, 1, 1, 110, 0.167, -1, -1, 6, 3, 3000, 4486, 1646, 50, 'Living Bomb', 2031678, 'Rank 3', 2031678, 'Turns the target into a living bomb, causing $o1 Fire damage over $d.', 2031678, '$s1 Fire damage every $t1 seconds.', 2031678, 133, 1500, 3, 17179869184, 1, 1, -1, 1, 1, 1);
+
+                -- Learn spell(for trainer):
+                    REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `targets`, `castingTimeIndex`, `procChance`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `activeIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) 
+                    VALUES (33856, 4222, 1, 262400, 256, 1, 101, 6, -1, -1, 36, 1, 1, -1, 0, -1, -1, 33855, 107, 1646, 0, 'Living Bomb', 7274526, 'Rank 3', 7274526, 7274508, 983052, -1, 1, 1, 1);
+
+                    -- Trainer
+                    REPLACE `mangos`.`npc_trainer_template` (`entry`, `spell`, `spellcost`, `reqlevel`) VALUES (1, 33856, 46000, 50);
+
+            -- Rank 4 (60)
+                -- Spell (This is the aura that procs the actual buff)
+                    REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `dispel`, `attributes`, `castingTimeIndex`, `interruptFlags`, `procChance`, `maxLevel`, `baseLevel`, `spellLevel`, `durationIndex`, `manaCost`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectAmplitude1`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33857, 4878, 2, 1, 65536, 5, 15, 101, 60, 60, 60, 85, 340, 4, -1, -1, 6, 1, 1, 136, 0.167, -1, -1, 6, 3, 3000, 4486, 1646, 50, 'Living Bomb', 2031678, 'Rank 4', 2031678, 'Turns the target into a living bomb, causing $o1 Fire damage over $d.', 2031678, '$s1 Fire damage every $t1 seconds.', 2031678, 133, 1500, 3, 17179869184, 1, 1, -1, 1, 1, 1);
+
+                -- Learn spell(for trainer):
+                    REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `targets`, `castingTimeIndex`, `procChance`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `activeIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) 
+                    VALUES (33858, 4222, 1, 262400, 256, 1, 101, 6, -1, -1, 36, 1, 1, -1, 0, -1, -1, 33857, 107, 1646, 0, 'Living Bomb', 7274526, 'Rank 4', 7274526, 7274508, 983052, -1, 1, 1, 1);
+
+                    -- Trainer
+                    REPLACE `mangos`.`npc_trainer_template` (`entry`, `spell`, `spellcost`, `reqlevel`) VALUES (1, 33858, 54000, 60);
+
+                -- Skill Line Ability
+                    REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`, `superseded_by_spell`) VALUES (15099, 5875, 8, 33851, 128, 1, 33853);
+                    REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`, `superseded_by_spell`) VALUES (15100, 5875, 8, 33853, 128, 1, 33855);
+                    REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`, `superseded_by_spell`) VALUES (15101, 5875, 8, 33855, 128, 1, 33857);
+                    REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`, `superseded_by_spell`) VALUES (15102, 5875, 8, 33857, 128, 1, 0);
+
         -- More ranks of Flurry
-        -- Living Bomb (Just a DOT, doesnt AOE). Lvl 30+
-        -- Teleport and Portal Theramore
+        -- More ranks of Living Bomb
+        -- Teleport and Portal Theramore (30/50? Or w/e darnassus is)
         -- Meteor (Copy Flamestrike with the AQ40 meteor trinket animation)
 
     -- Dampen Magic / Amplify Magic (30m dura)
@@ -2866,6 +2919,7 @@ UPDATE `mangos`.`spell_template` SET `reagent4`=7078, `reagent5`=7082, `reagent6
 
     -- Elixir of Sages (13447) - Replace int with 5% mana continues during combat
     -- Mageblood Potion (20007)
+    -- Strong Troll's Blood Potion
     -- Mighty Troll's Blood Potion
     UPDATE `mangos`.`spell_template` SET `effect2`=6, `effectDieSides2`=1, `effectBaseDice2`=1, `effectBasePoints1`=23, `effectBasePoints2`=9, `effectBonusCoefficient2`=0, `effectImplicitTargetA2`=1, `effectApplyAuraName2`=116, `description`='Regenerate $s1 health every 5 sec and $s2% of total Health regeneration may continue during combat for $d.', `auraDescription`='Regenerate $s1 health every 5 sec and $s2% of total Health regeneration may continue during combat.' WHERE  `entry`=3223 AND `build`=5464;
 

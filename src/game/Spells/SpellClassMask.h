@@ -56,6 +56,8 @@ enum ClassFlag
     CF_MAGE_PORTALS                         = 31,   // CM0 80000000
     CF_MAGE_FLURRY                          = 32,   // CM0 100000000
     CF_MAGE_WATER_ELEMENTAL                 = 33,   // CM0 200000000
+    CF_MAGE_LIVING_BOMB                     = 34,   // CM0 400000000
+    CF_MAGE_METEOR                          = 35,   // CM0 800000000
 
     // -- Warrior (4)
     CF_WARRIOR_CHARGE                       = 0,    // CM0 00000001

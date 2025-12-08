@@ -3,9 +3,18 @@
 -- Talents
 
 -- Mage
-    -- Ice Barrier (21 instead of 31 now)
+    -- Flame Throwing (Added Living Bomb)
+    UPDATE `mangos`.`spell_template` SET `effectItemType1`=17184063511 WHERE  `entry`=11100 AND `build`=5875;
+    UPDATE `mangos`.`spell_template` SET `effectItemType1`=17184063511 WHERE  `entry`=12353 AND `build`=5875;
 
-    
+    -- Burning Soul (Added Living Bomb)
+    UPDATE `mangos`.`spell_template` SET `effectItemType1`=17184063509 WHERE  `entry`=11083 AND `build`=5464;
+    UPDATE `mangos`.`spell_template` SET `effectItemType1`=17184063509 WHERE  `entry`=12351 AND `build`=5464;
+
+    -- Fire Power (Added Living Bomb to DOT damage aura)
+    UPDATE `mangos`.`spell_template` SET `effectItemType2`=17184063493 WHERE  entry IN (11124, 12378, 12398, 12399, 12400) AND `build`=5875;
+
+
 -- Druid
     -- Savage Fury (Add Lacerate, Thrash, Brutal Slash)
     UPDATE `mangos`.`spell_template` SET `effectItemType1`=481036343296, `effectItemType2`=481036341248, `description`='Increases the damage caused by your Claw, Rake, Lacerate, Brutal Slash, Thrash, Maul and Swipe abilities by $s1%.' WHERE entry IN (16998, 16999);
