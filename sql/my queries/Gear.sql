@@ -10259,6 +10259,8 @@ WHERE entry = 4831;
 -- Wizard's Belt
 UPDATE mangos . item_template
 SET quality = 3,
+    stat_type1 = 0,
+    stat_value1 = 0,
     spellid_1 = 9395, -- +5 Spell Damage
     spelltrigger_1 = 1
 WHERE entry = 4827;
