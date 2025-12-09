@@ -1050,6 +1050,8 @@ class Player final: public Unit
         uint32 DurabilityRepairAll(bool cost, float discountMod);
         uint32 DurabilityRepair(uint16 pos, bool cost, float discountMod);
 
+        void RehideToggledHiddenGearSlots();
+
         /*********************************************************/
         /***                    GOSSIP SYSTEM                  ***/
         /*********************************************************/

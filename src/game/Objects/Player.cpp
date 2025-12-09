@@ -4809,6 +4809,15 @@ Corpse* Player::GetCorpse() const
     return sObjectAccessor.GetCorpseForPlayerGUID(GetObjectGuid());
 }
 
+void Player::RehideToggledHiddenGearSlots()
+{
+    // Rehide toggled hidden gear slots
+    bool hidden = !IsHideShoulders();
+    Item* shoulders = GetItemByPos(INVENTORY_SLOT_BAG_0, EQUIPMENT_SLOT_SHOULDERS);
+    SetVisibleItemSlot(EQUIPMENT_SLOT_SHOULDERS, shoulders);
+    SendForcedObjectUpdate();
+}
+
 void Player::DurabilityLossAll(double percent, bool inventory)
 {
     for (int i = EQUIPMENT_SLOT_START; i < EQUIPMENT_SLOT_END; ++i)
@@ -4833,12 +4842,7 @@ void Player::DurabilityLossAll(double percent, bool inventory)
                     if (Item* pItem = GetItemByPos(i, j))
                         DurabilityLoss(pItem, percent);
     }
-
-    // Rehide toggled hidden gear slots
-    bool hidden = !IsHideShoulders();
-    Item* shoulders = GetItemByPos(INVENTORY_SLOT_BAG_0, EQUIPMENT_SLOT_SHOULDERS);
-    SetVisibleItemSlot(EQUIPMENT_SLOT_SHOULDERS, shoulders);
-    SendForcedObjectUpdate();
+    RehideToggledHiddenGearSlots();
 }
 
 void Player::DurabilityLoss(Item* item, double percent)
@@ -4857,6 +4861,7 @@ void Player::DurabilityLoss(Item* item, double percent)
         pDurabilityLoss = 1;
 
     DurabilityPointsLoss(item, pDurabilityLoss);
+    RehideToggledHiddenGearSlots();
 }
 
 void Player::DurabilityPointsLossAll(int32 points, bool inventory)
@@ -4884,11 +4889,7 @@ void Player::DurabilityPointsLossAll(int32 points, bool inventory)
                         DurabilityPointsLoss(pItem, points);
     }
 
-    // Rehide toggled hidden gear slots
-    bool hidden = !IsHideShoulders();
-    Item* shoulders = GetItemByPos(INVENTORY_SLOT_BAG_0, EQUIPMENT_SLOT_SHOULDERS);
-    SetVisibleItemSlot(EQUIPMENT_SLOT_SHOULDERS, shoulders);
-    SendForcedObjectUpdate();
+    RehideToggledHiddenGearSlots();
 }
 
 void Player::DurabilityPointsLoss(Item* item, int32 points)
@@ -4919,12 +4920,15 @@ void Player::DurabilityPointsLoss(Item* item, int32 points)
 
         item->SetState(ITEM_CHANGED, this);
     }
+    RehideToggledHiddenGearSlots();
 }
 
 void Player::DurabilityPointLossForEquipSlot(EquipmentSlots slot)
 {
     if (Item* pItem = GetItemByPos(INVENTORY_SLOT_BAG_0, slot))
         DurabilityPointsLoss(pItem, 1);
+
+    RehideToggledHiddenGearSlots();
 }
 
 uint32 Player::DurabilityRepairAll(bool cost, float discountMod)
@@ -4940,6 +4944,9 @@ uint32 Player::DurabilityRepairAll(bool cost, float discountMod)
     for (int j = INVENTORY_SLOT_BAG_START; j < INVENTORY_SLOT_BAG_END; ++j)
         for (int i = 0; i < MAX_BAG_SIZE; ++i)
             totalCost += DurabilityRepair(((j << 8) | i), cost, discountMod);
+
+    RehideToggledHiddenGearSlots();
+
     return totalCost;
 }
 
@@ -5003,6 +5010,8 @@ uint32 Player::DurabilityRepair(uint16 pos, bool cost, float discountMod)
     // reapply mods for totally broken and repaired item if equipped
     if (IsEquipmentPos(pos) && !curDurability)
         _ApplyItemMods(pItem, pos & 255, true);
+
+    RehideToggledHiddenGearSlots();
 
     return totalCost;
 }
