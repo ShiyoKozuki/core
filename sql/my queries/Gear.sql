@@ -8239,6 +8239,8 @@ WHERE entry = 6743;
 -- Prelacy Cape (Researching the Corruption)
 UPDATE mangos . item_template
 SET quality = 3,
+    stat_type1 = 0,
+    stat_value1 = 0,
     spellid_1 = 17106, -- Allows 5% of your Mana regeneration to continue while casting.
     spelltrigger_1 = 1
 WHERE entry = 7004;

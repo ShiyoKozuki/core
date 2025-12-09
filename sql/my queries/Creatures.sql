@@ -227,6 +227,9 @@ UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.5, `damage_multipl
 -- Hakkari Minion HP and damage reduced due to DMG and HP multiplier on normal mobs
 UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.4, `damage_multiplier`=1.4 WHERE  `entry`=8437 AND `patch`=0;
 
+-- Aku'Mai reduced HP due to elite mobs having 2x HP
+UPDATE `mangos`.`creature_template` SET `health_multiplier`=5 WHERE  `entry`=4829 AND `patch`=0;
+
 -- Divino Magic Rod mobs HP reduced due to DMG and HP multiplier on normal mobs
 UPDATE mangos.creature_template
 SET health_multiplier = 0.35, damage_multiplier = 1.2
