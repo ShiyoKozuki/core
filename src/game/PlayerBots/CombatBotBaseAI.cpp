@@ -2997,6 +2997,16 @@ bool CombatBotBaseAI::CanTryToCastSpell(Unit const* pTarget, SpellEntry const* p
     if (!me->IsSpellReady(pSpellEntry->Id))
         return false;
 
+    // Prevent spamming next-swing abilities (HS, Cleave, Holy Strike, Crusader Strke, etc)
+    if (pSpellEntry->IsNextMeleeSwingSpell())
+    {
+        // Already have a queued next swing attack?
+        if (me->GetCurrentSpell(CURRENT_MELEE_SPELL) != nullptr)
+        {
+            return false;
+        }
+    }
+
     if (me->HasGCD(pSpellEntry))
         return false;
 
@@ -3028,7 +3038,14 @@ bool CombatBotBaseAI::CanTryToCastSpell(Unit const* pTarget, SpellEntry const* p
         return false;
 
     if (pSpellEntry->IsSpellAppliesAura() && pTarget->HasAura(pSpellEntry->Id))
+    {
+        if (m_spells.warrior.pSunderArmor &&
+            pSpellEntry == m_spells.warrior.pSunderArmor)
+        {
+            return true;
+        }
         return false;
+    }
 
     SpellRangeEntry const* srange = sSpellRangeStore.LookupEntry(pSpellEntry->rangeIndex);
     if (me != pTarget && pSpellEntry->EffectImplicitTargetA[0] != TARGET_UNIT_CASTER)
