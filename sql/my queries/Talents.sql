@@ -3,16 +3,25 @@
 -- Talents
 
 -- Mage
-    -- Flame Throwing (Added Living Bomb)
-    UPDATE `mangos`.`spell_template` SET `effectItemType1`=17184063511 WHERE  `entry`=11100 AND `build`=5875;
-    UPDATE `mangos`.`spell_template` SET `effectItemType1`=17184063511 WHERE  `entry`=12353 AND `build`=5875;
+    -- Flame Throwing (Added Living Bomb Meteor)
+    UPDATE `mangos`.`spell_template` SET `effectItemType1`=51543801879 WHERE  `entry`=11100 AND `build`=5875;
+    UPDATE `mangos`.`spell_template` SET `effectItemType1`=51543801879 WHERE  `entry`=12353 AND `build`=5875;
 
-    -- Burning Soul (Added Living Bomb)
-    UPDATE `mangos`.`spell_template` SET `effectItemType1`=17184063509 WHERE  `entry`=11083 AND `build`=5464;
-    UPDATE `mangos`.`spell_template` SET `effectItemType1`=17184063509 WHERE  `entry`=12351 AND `build`=5464;
+    -- Burning Soul (Added Living Bomb and Meteor)
+    UPDATE `mangos`.`spell_template` SET `effectItemType1`=51543801877 WHERE  `entry`=11083 AND `build`=5464;
+    UPDATE `mangos`.`spell_template` SET `effectItemType1`=51543801877 WHERE  `entry`=12351 AND `build`=5464;
 
-    -- Fire Power (Added Living Bomb to DOT damage aura)
-    UPDATE `mangos`.`spell_template` SET `effectItemType2`=17184063493 WHERE  entry IN (11124, 12378, 12398, 12399, 12400) AND `build`=5875;
+    -- Fire Power (Added Living Bomb and Meteor)
+        -- Damage
+            UPDATE `mangos`.`spell_template` SET `effectItemType1`=34372321303 WHERE  entry IN (11124, 12378, 12398, 12399, 12400) AND `build`=5875;
+        -- DOT damage
+            UPDATE `mangos`.`spell_template` SET `effectItemType2`=51543801861 WHERE  entry IN (11124, 12378, 12398, 12399, 12400) AND `build`=5875;
+
+    -- Critical Mass (Added Meteor)
+    UPDATE `mangos`.`spell_template` SET `effectItemType1`=34372321303 WHERE  `entry` IN (11115, 11367, 11368) AND `build`=5875;
+
+    -- Combustion (Added Meteor)
+    UPDATE `mangos`.`spell_template` SET `effectItemType1`=34372321303 WHERE  `entry`=28682 AND `build`=5464;
 
 
 -- Druid
