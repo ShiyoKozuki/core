@@ -1,4 +1,4 @@
--- 33861 NEXT SPELL
+-- 33862 NEXT SPELL
 -- 15104 NEXT SKILL_LINE_ABILITY
 
 -- spell_chain for spells you want to learn in order but still keep previou ranks in spell book
@@ -1446,15 +1446,19 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
         REPLACE `mangos`.`npc_trainer_template` (`entry`, `spell`, `spellcost`, `reqlevel`) VALUES (1, 33845, 11000, 30);
 
         -- Water Elemental
-            -- TODO: Teleport Stormwind animation
             -- Spell
-                REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `castingTimeIndex`, `recoveryTime`, `interruptFlags`, `procChance`, `baseLevel`, `spellLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectRadiusIndex1`, `effectMultipleValue1`, `effectMiscValue1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `manaCostPercentage`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `spellFamilyFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33846, 4222, 4, 16, 7, 0, 9, 101, 40, 40, 21, 1, -1, 56, 1, 1, 0, -1, -1, -1, 32, 8, 0, 90069, 7313, 94, 'Summon Water Elemental', 983070, 983052, 'Summons a Water Elemental to aid the caster in battle.', 983054, 983052, 100, 133, 1500, 3, 8589934592, -1, 1, 1, 1);
+                REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `castingTimeIndex`, `recoveryTime`, `interruptFlags`, `procChance`, `baseLevel`, `spellLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectRadiusIndex1`, `effectMultipleValue1`, `effectMiscValue1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `manaCostPercentage`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `spellFamilyFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `script_name`) VALUES (33846, 4222, 4, 16, 7, 0, 9, 101, 40, 40, 21, 1, -1, 56, 1, 1, 0, -1, -1, -1, 32, 8, 0, 90069, 7313, 94, 'Summon Water Elemental', 983070, 983052, 'Summons a Water Elemental to aid the caster in battle.', 983054, 983052, 100, 133, 1500, 3, 8589934592, -1, 1, 1, 1, 'spell_mage_water_elemental');
+                UPDATE `mangos`.`spell_template` SET `effect2`=77, `effectApplyAuraName2`=4, `effectApplyAuraName2`=0 WHERE  `entry`=33846;
 
             -- Skill Line Ability
                 REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`, `superseded_by_spell`) VALUES (15097, 5875, 6, 33846, 128, 1, 0);
 
             -- Creature (Elemental)
-                REPLACE`mangos`.`creature_template` (`entry`, `name`, `level_min`, `level_max`, `faction`, `display_id1`, `speed_walk`, `type`, `unit_class`, `health_multiplier`, `armor_multiplier`, `damage_variance`, `loot_id`, `spell_id1`, `spell_id2`, `spell_list_id`, `movement_type`, `mechanic_immune_mask`, `school_immune_mask`, `immunity_flags`, `static_flags1`, `static_flags2`, `script_name`) VALUES (90069, 'Water Elemental', 60, 60, 91, 525, 1.55556, 4, 2, 1.02, 2, 0.06, 3917, 6873, 9672, 39170, 1, 646013719, 16, 32, 524288, 16, 'npc_water_elemental');
+                REPLACE`mangos`.`creature_template` (`entry`, `name`, `level_min`, `level_max`, `faction`, `display_id1`, `speed_walk`, `type`, `unit_class`, `health_multiplier`, `armor_multiplier`, `damage_variance`, `loot_id`, `spell_id1`, `spell_id2`, `spell_list_id`, `movement_type`, `mechanic_immune_mask`, `school_immune_mask`, `immunity_flags`, `static_flags1`, `static_flags2`, `script_name`) VALUES (90069, 'Water Elemental', 60, 60, 91, 525, 1.55556, 4, 2, 1.02, 2, 0.06, 3917, 6873, 9672, 39170, 1, 646013719, 16, 32, 524288, 16, '');
+
+            -- Pet Spell: Water Ripple (Renew clone, 90s CD)
+                REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `dispel`, `attributes`, `attributesEx2`, `stances`, `stancesNot`, `castingTimeIndex`, `recoveryTime`, `interruptFlags`, `procChance`, `maxLevel`, `baseLevel`, `spellLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectAmplitude1`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33861, 5302, 1, 1, 65536, 524288, 2147483648, 134217728, 1, 90000, 8, 101, 65, 60, 60, 8, 5, -1, -1, 6, 1, 1, 193, 0.2, -1, -1, 21, 8, 3000, 280, 36, 50, 'Water Ripple', 2031678, 'Rank 1', 2031678, 'Heals the target of $o1 damage over $d.', 2031678, 'Healing $s1 damage every $t1 seconds.', 2031678, 133, 1500, 6, 64, 1, 1, -1, 1, 1, 1);
+
 
         -- Flurry
             -- TODO: Frost Channeling, Artic Reach, Ice Shards , Piercing Ice and Shatter should work on this
@@ -2952,6 +2956,12 @@ UPDATE `mangos`.`spell_template` SET `reagent4`=7078, `reagent5`=7082, `reagent6
     UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=449 WHERE  `entry`=3593 AND `build`=4297;
 
 -- Food
+    -- Smoked Sagefish (Buffed to 12 MP5)
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=11 WHERE  `entry`=25694 AND `build`=5086;
+
+    -- Sagefish Delight (Buffed to 36 MP5)
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=35 WHERE  `entry`=25941 AND `build`=5086;
+
 
 -- Brilliant Smallfish
     -- Item
