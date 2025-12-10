@@ -153,6 +153,46 @@ SpellScript* GetScript_MageFrostfireBolt(SpellEntry const*)
     return new MageFrostfireBoltScript();
 }
 
+struct MageWaterElementalScript : SpellScript
+{
+    bool OnEffectExecute(Spell* spell, SpellEffectIndex effIdx) const final
+    {
+        if (effIdx == EFFECT_INDEX_1 && spell->m_casterUnit && spell->GetCaster())
+        {
+            // Teach Water Elemental pet spells
+            Player* player = spell->m_casterUnit->ToPlayer();
+            if (!player)
+                return true;
+
+            Pet* pet = player->GetPet();
+            if (!pet)
+                return true;
+
+            // List of spells
+            const std::vector<uint32> spellsToLearn{
+                10220,  // Ice Armor
+                71,     // Defensive Stance
+                355,    // Taunt
+                33861   // Water Ripple (Renew)
+            };
+
+            for (uint32 spellId : spellsToLearn)
+            {
+                pet->LearnSpell(spellId);
+            }
+
+            return false;
+        }
+        return true;
+    }
+};
+
+SpellScript* GetScript_MageWaterElemental(SpellEntry const*)
+{
+    return new MageWaterElementalScript();
+}
+
+
 void AddSC_mage_spell_scripts()
 {
     Script* newscript;
@@ -170,5 +210,10 @@ void AddSC_mage_spell_scripts()
     newscript = new Script;
     newscript->Name = "spell_mage_frostfire_bolt";
     newscript->GetSpellScript = &GetScript_MageFrostfireBolt;
+    newscript->RegisterSelf();
+
+    newscript = new Script;
+    newscript->Name = "spell_mage_water_elemental";
+    newscript->GetSpellScript = &GetScript_MageWaterElemental;
     newscript->RegisterSelf();
 }
