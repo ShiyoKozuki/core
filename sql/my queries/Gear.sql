@@ -334,7 +334,11 @@ REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quali
 
 REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_reputation_faction`, `required_reputation_rank`, `max_count`, `container_slots`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30197, 1, 'Revered Darnassus Pouch', 19595, 2, 12500, 2500, 18, -1, -1, 52, 69, 6, 1, 14, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 8);
 
--- NEXT 30198
+REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`) VALUES (30198, 7, 'Ground Wasabi', 1443, 1, 2100, 420, -1, -1, 30, 20, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0);
+
+REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`) VALUES (30199, 7, 'Rice Vinegar', 1443, 1, 500, 100, -1, -1, 30, 20, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0);
+
+-- NEXT 30200
 
 
 -- Shields
@@ -376,6 +380,15 @@ SELECT creature_template.entry, item_template.entry
 FROM (SELECT DISTINCT entry FROM creature_template) creature_template
 JOIN (SELECT DISTINCT entry FROM item_template) item_template
 WHERE creature_template.entry IN (3323, 1307, 1351, 16015, 3335, 4878, 2805, 1257, 3351, 3490, 4083, 8361, 5151, 3562, 12784, 12795, 13476, 1275, 5110, 4575, 983, 958, 4562, 12096, 1308, 3500, 3700, 10364, 12097, 1463, 1673, 3970, 5139, 3542, 4220, 14739, 15175) AND item_template.entry IN (5512, 5511, 5509, 5510, 9421, 16896, 10310, 10309, 10307, 10308, 10305);
+
+-- Cooking Supplier Vendor (SW / IF Darnassus only)
+    -- Ground Wasabi and Rice Vinegar
+        REPLACE `mangos`.`npc_vendor` (`entry`, `slot`, `item`) VALUES (4223, 7, 30198);
+        REPLACE `mangos`.`npc_vendor` (`entry`, `slot`, `item`) VALUES (4223, 8, 30199);
+        REPLACE `mangos`.`npc_vendor` (`entry`, `slot`, `item`) VALUES (5160, 7, 30198);
+        REPLACE `mangos`.`npc_vendor` (`entry`, `slot`, `item`) VALUES (5160, 8, 30199);
+        REPLACE `mangos`.`npc_vendor` (`entry`, `slot`, `item`) VALUES (5483, 7, 30198);
+        REPLACE `mangos`.`npc_vendor` (`entry`, `slot`, `item`) VALUES (5483, 8, 30199);
 
 -- Silverwing Rep Vendor (WSG)
 INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (14753, 30000, 159);
