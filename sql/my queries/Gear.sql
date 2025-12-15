@@ -4887,11 +4887,11 @@ WHERE entry = 10762;
 -- Coldrage Dagger
 UPDATE mangos . item_template
 SET delay = 2000,
-    dmg_min1 = 22,
-    dmg_max1 = 37,
+    dmg_min1 = 44,
+    dmg_max1 = 74,
     dmg_type2 = 4, -- Frost
-    dmg_min2 = 22,
-    dmg_max2 = 37,
+    dmg_min2 = 0,
+    dmg_max2 = 0,
     spellppmrate_1 = 10 
 WHERE entry = 10761;
 
@@ -4976,11 +4976,11 @@ WHERE entry = 9474;
 -- Gahz'rilla Fang
 UPDATE mangos . item_template
 SET quality = 3,
-    dmg_min1 = 22,
-    dmg_max1 = 42,
+    dmg_min1 = 44,
+    dmg_max1 = 84,
     dmg_type2 = 3, -- Nature
-    dmg_min2 = 22,
-    dmg_max2 = 42
+    dmg_min2 = 0,
+    dmg_max2 = 0
 WHERE entry = 9467;
 
 -- Gahz'rilla Scale Armor
@@ -8211,7 +8211,11 @@ WHERE entry = 9638;
 
 -- Staff of Westfall (The Defias Brotherhood)
 UPDATE mangos . item_template
-SET spellid_1 = 9415, -- +9 Spell Damage
+SET stat_type1 = 5,
+    stat_value1 = 2,
+    stat_type2 = 6,
+    stat_value2 = 5,
+    spellid_1 = 9415, -- +9 Spell Damage
     spelltrigger_1 = 1
 WHERE entry = 2042;
 
@@ -9121,11 +9125,11 @@ WHERE entry = 11262;
 -- Black Menance(In the Name of the Light)
 UPDATE mangos . item_template
 SET delay = 2000,
-    dmg_min1 = 22,
-    dmg_max1 = 37,
+    dmg_min1 = 44,
+    dmg_max1 = 74,
     dmg_type2 = 5, -- Shadow
-    dmg_min2 = 22,
-    dmg_max2 = 37,
+    dmg_min2 = 0,
+    dmg_max2 = 0,
     spellppmrate_1 = 10 
 WHERE entry = 6831;
 
