@@ -45,7 +45,8 @@
 
 -- Quest + Vendor + Repair npc flag = 
 -- NEXT quest_template 30252
--- NEXT creature_template 90072
+-- NEXT creature_template 90073
+-- NEXT gameobject_template 987660
 
 --     QUEST_TYPE_ELITE               = 1,
 --     QUEST_TYPE_LIFE                = 21,

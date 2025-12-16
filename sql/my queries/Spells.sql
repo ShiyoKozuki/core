@@ -1,5 +1,5 @@
--- 33876 NEXT SPELL
--- 15104 NEXT SKILL_LINE_ABILITY
+-- 33885 NEXT SPELL
+-- 15106 NEXT SKILL_LINE_ABILITY
 
 -- spell_chain for spells you want to learn in order but still keep previou ranks in spell book
 -- superseded_by_spell in skill_line_ability for spells you want overwritten by higher rank in spell book
@@ -1563,9 +1563,54 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
             REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`, `superseded_by_spell`) VALUES (15103, 5875, 8, 33859, 128, 1, 0);
 
         -- More ranks of Flurry
-        -- "Glacial Spike" that consumes winters chill on target dealing more damage per stack consumed. Works even with 0 stacks on target
-        -- Teleport and Portal Theramore (30/50? Or w/e darnassus is)
-        -- Meteor (Copy Flamestrike with the AQ40 meteor trinket animation)
+        -- Frost Bomb that consumes winters chill on target dealing more damage per stack consumed. Works even with 0 stacks on target
+
+        -- Teleport Theramore
+            -- Spell
+            REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `attributesEx`, `castingTimeIndex`, `interruptFlags`, `procChance`, `baseLevel`, `spellLevel`, `manaCost`, `rangeIndex`, `reagent1`, `reagentCount1`, `equippedItemClass`, `effect1`, `effect2`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectImplicitTargetB1`, `effectMultipleValue1`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33880, 5086, 6, 268500992, 131072, 7, 15, 101, 20, 20, 120, 1, 17031, 1, -1, 5, 77, 1, 1, -1, 0, 1, -1, 1, 1, 17, 1, 263, 2073, 50, 'Teleport: Theramore', 8323134, 8323132, 'Teleports the caster to Theramore.', 2031678, 2031676, 133, 1500, 3, 2147483648, 1, 1, -1, 1, 1, 1);
+
+            -- Teleport Location
+                REPLACE INTO `mangos`.`spell_target_position`
+                (`id`, `target_map`, `target_position_x`, `target_position_y`, `target_position_z`, `target_orientation`)
+                VALUES (33880, 1, -3747.370361, -4439.388184, 30.568199, 3.928669);
+
+            -- Learn spell(for trainer):
+                REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `targets`, `castingTimeIndex`, `procChance`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `activeIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) 
+                VALUES (33881, 4222, 1, 262400, 256, 1, 101, 6, -1, -1, 36, 1, 1, -1, 0, -1, -1, 33880, 107, 2073, 0, 'Teleport: Theramore', 7274526, '', 7274526, 7274508, 983052, -1, 1, 1, 1);
+            
+            -- Trainer (needs to be portal trainer in theramore only, special NPC needed too?)
+                REPLACE `mangos`.`npc_trainer_template` (`entry`, `spell`, `spellcost`, `reqlevel`) VALUES (441, 33881, 8000, 30);
+
+            -- Skill Line Ability
+                REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`, `superseded_by_spell`) VALUES (15104, 5875, 237, 33880, 128, 1, 0);
+
+        -- Portal Theramore
+            -- Spell
+                REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `attributesEx`, `castingTimeIndex`, `recoveryTime`, `interruptFlags`, `procChance`, `baseLevel`, `spellLevel`, `durationIndex`, `manaCost`, `rangeIndex`, `reagent1`, `reagentCount1`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectRadiusIndex1`, `effectMiscValue1`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33882, 4449, 6, 268501248, 268566528, 7, 60000, 31, 101, 40, 40, 3, 850, 7, 17032, 1, -1, 50, 1, 1, -1, 0, -1, -1, 47, 15, 987659, 2186, 2074, 50, 'Portal: Theramore', 2031646, 8323100, 'Creates a portal, teleporting group members that use it to Theramore.', 2031646, 2031644, 133, 1500, 3, 2147483648, 1, 1, -1, 1, 1, 1);
+
+            -- Object
+                REPLACE gameobject_template
+                (entry, patch, type, displayId, name, faction, size, data0, data1)
+                VALUES (987659, 0, 22, 4396, 'Portal to Theramore', 115, 1, 33883, 0);
+
+            -- Portal effect
+                REPLACE `mangos`.`spell_template` (`entry`, `build`, `castingTimeIndex`, `procChance`, `rangeIndex`, `equippedItemClass`, `effect1`, `effect2`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectImplicitTargetB1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `dmgMultiplier1`, `dmgMultiplier2`) VALUES (33883, 5086, 1, 101, 12, -1, 5, 77, 1, 1, -1, 0, 1, -1, 25, 25, 17, 2074, 'Portal Effect: Theramore', 2031678, 2031676, 2031676, 2031676, 1, 1);
+
+            -- Teleport Location
+                REPLACE INTO `mangos`.`spell_target_position`
+                (`id`, `target_map`, `target_position_x`, `target_position_y`, `target_position_z`, `target_orientation`)
+                VALUES (33883, 1, -3747.370361, -4439.388184, 30.568199, 3.928669);
+
+            -- Learn spell(for trainer) (33883):
+                REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `targets`, `castingTimeIndex`, `procChance`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `activeIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) 
+                VALUES (33884, 4222, 1, 262400, 256, 1, 101, 6, -1, -1, 36, 1, 1, -1, 0, -1, -1, 33882, 107, 2074, 0, 'Portal: Theramore', 7274526, '', 7274526, 7274508, 983052, -1, 1, 1, 1);
+            
+            -- Trainer (needs to be portal trainer in theramore only, special NPC needed too?)
+                REPLACE `mangos`.`npc_trainer_template` (`entry`, `spell`, `spellcost`, `reqlevel`) VALUES (441, 33884, 32000, 50);
+
+            -- Skill Line Ability
+                REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`, `superseded_by_spell`) VALUES (15105, 5875, 237, 33882, 128, 1, 0);
+
 
     -- Dampen Magic / Amplify Magic (30m dura)
     UPDATE `mangos`.`spell_template` SET `durationIndex`=30 WHERE  `entry`=604;
@@ -2755,8 +2800,10 @@ UPDATE `mangos`.`spell_template` SET `reagent4`=7078, `reagent5`=7082, `reagent6
         REPLACE `mangos`.`spell_template` (`entry`, `build`, `category`, `attributes`, `attributesEx`, `castingTimeIndex`, `categoryRecoveryTime`, `procFlags`, `procChance`, `baseLevel`, `spellLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effect2`, `effectDieSides1`, `effectDieSides2`, `effectBaseDice1`, `effectBaseDice2`, `effectBasePoints1`, `effectBasePoints2`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectApplyAuraName1`, `effectApplyAuraName2`, `effectMiscValue1`, `effectMiscValue2`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33877, 5302, 47, 327696, 268435456, 1, 180000, 139944, 100, 10, 10, 9, 1, -1, 6, 6, 1, 1, 1, 1, -51, -51, 0, 0, -1, 1, 1, 87, 79, 127, 127, 44, 276, 50, 'Defensive Stance', 8323134, 2031676, 'Assumes a defensive stance that reduces damage taken by $s1% and damage done by $s2%. Lasts $d.', 2031678, 'Damage taken reduced by $s1% and damage done reduced by $s2%.', 2031676, -1, 1, 1, 1);
 
         -- +50% damage taken, +50% damage done
-        REPLACE `mangos`.`spell_template` (`entry`, `build`, `category`, `attributes`, `attributesEx`, `castingTimeIndex`, `categoryRecoveryTime`, `procFlags`, `procChance`, `baseLevel`, `spellLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effect2`, `effectDieSides1`, `effectDieSides2`, `effectBaseDice1`, `effectBaseDice2`, `effectBasePoints1`, `effectBasePoints2`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectApplyAuraName1`, `effectApplyAuraName2`, `effectMiscValue1`, `effectMiscValue2`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33877, 5302, 47, 327696, 268435456, 1, 180000, 139944, 100, 10, 10, 9, 1, -1, 6, 6, 1, 1, 1, 1, 49, 49, 0, 0, -1, 1, 1, 87, 79, 127, 127, 4053, 84, 50, 'Berserker Stance', 8323134, 2031676, 'Assumes an offensive stance that reduces damage taken by $s1% and damage done by $s2%. Lasts $d.', 2031678, 'Damage taken reduced by $s1% and damage done reduced by $s2%.', 2031676, -1, 1, 1, 1);
+        REPLACE `mangos`.`spell_template` (`entry`, `build`, `category`, `attributes`, `attributesEx`, `castingTimeIndex`, `categoryRecoveryTime`, `procFlags`, `procChance`, `baseLevel`, `spellLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effect2`, `effectDieSides1`, `effectDieSides2`, `effectBaseDice1`, `effectBaseDice2`, `effectBasePoints1`, `effectBasePoints2`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectApplyAuraName1`, `effectApplyAuraName2`, `effectMiscValue1`, `effectMiscValue2`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33878, 5302, 47, 327696, 268435456, 1, 180000, 139944, 100, 10, 10, 9, 1, -1, 6, 6, 1, 1, 1, 1, 49, 49, 0, 0, -1, 1, 1, 87, 79, 127, 127, 4053, 84, 50, 'Berserker Stance', 8323134, 2031676, 'Assumes an offensive stance that reduces damage taken by $s1% and damage done by $s2%. Lasts $d.', 2031678, 'Damage taken reduced by $s1% and damage done reduced by $s2%.', 2031676, -1, 1, 1, 1);
 
+        -- Death Coil (1k damage)
+        REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `category`, `dispel`, `attributes`, `castingTimeIndex`, `categoryRecoveryTime`, `interruptFlags`, `procChance`, `maxLevel`, `baseLevel`, `spellLevel`, `durationIndex`, `manaCost`, `rangeIndex`, `speed`, `equippedItemClass`, `effect1`, `effect2`, `effectDieSides1`, `effectDieSides2`, `effectBaseDice1`, `effectBaseDice2`, `effectBasePoints1`, `effectBasePoints2`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectMechanic2`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectApplyAuraName2`, `effectMultipleValue1`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `customFlags`) VALUES (33879, 5086, 5, 633, 1, 65536, 1, 120000, 8, 101, 64, 58, 58, 27, 565, 4, 24, -1, 9, 6, 1, 1, 1, 1, 999, -1, 0, 0, -1, 24, 6, 6, 7, 1, 64, 88, 50, 'Death Coil', 2031678, 2031678, 'Causes the enemy target to run in horror for $d and causes $s1 Shadow damage.  The caster gains 100% of the damage caused in health.', 2031678, 'Horrified.', 2031678, 133, 1500, 5, 524288, 1, 1, -1, 1, 1, 1, 128);
 
     -- Items / Gear
         -- +1 Fire weapon damage to attacks
