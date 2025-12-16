@@ -192,6 +192,48 @@ SpellScript* GetScript_MageWaterElemental(SpellEntry const*)
     return new MageWaterElementalScript();
 }
 
+struct MageFrostBombScript : public AuraScript
+{
+    enum
+    {
+        SPELL_WINTERS_CHILL = 12579
+    };
+
+    int32 OnAuraValueCalculate(
+        Aura* aura,
+        Unit* caster,
+        Unit* target,
+        SpellEntry const* /*spellProto*/,
+        SpellEffectIndex effIdx,
+        Item* /*castItem*/,
+        int32 value) override
+    {
+        // Only modify the damage effect
+        if (effIdx != EFFECT_INDEX_0 || !target)
+            return value;
+
+        Aura* wintersChill = target->GetAura(SPELL_WINTERS_CHILL, EFFECT_INDEX_0);
+        if (!wintersChill)
+            return value;
+
+        uint16 stacks = std::min<uint16>(wintersChill->GetStackAmount(), 5);
+
+        // +10% damage per stack (snapshot)
+        value = int32(float(value) * (1.0f + 0.1f * stacks));
+
+        // Consume Winter's Chill ONCE
+        target->RemoveAurasDueToSpell(SPELL_WINTERS_CHILL);
+
+        return value;
+    }
+};
+
+
+AuraScript* GetScript_MageFrostBomb(SpellEntry const*)
+{
+    return new MageFrostBombScript();
+}
+
 
 void AddSC_mage_spell_scripts()
 {
@@ -215,5 +257,10 @@ void AddSC_mage_spell_scripts()
     newscript = new Script;
     newscript->Name = "spell_mage_water_elemental";
     newscript->GetSpellScript = &GetScript_MageWaterElemental;
+    newscript->RegisterSelf();
+
+    newscript = new Script;
+    newscript->Name = "spell_mage_frost_bomb";
+    newscript->GetAuraScript = &GetScript_MageFrostBomb;
     newscript->RegisterSelf();
 }

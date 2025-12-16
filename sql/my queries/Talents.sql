@@ -23,8 +23,11 @@
     -- Combustion (Added Meteor)
     UPDATE `mangos`.`spell_template` SET `effectItemType1`=34372321303 WHERE  `entry`=28682 AND `build`=5464;
 
-    -- Elemental Precision (Added Living Bomb, Meteor, and Flurry)
-    UPDATE `mangos`.`spell_template` SET `effectItemType1`=55847158519 WHERE  `entry` IN (29438, 29439, 29440);
+    -- Elemental Precision (Added Flurry, Living Bomb, Meteor, and Frost Bomb)
+    UPDATE `mangos`.`spell_template` SET `effectItemType1`=124566635255 WHERE  `entry` IN (29438, 29439, 29440);
+
+    -- Clearcasting (Added Flurry, Living Bomb, Meteor, and Frost Bomb)
+    UPDATE `mangos`.`spell_template` SET `effectItemType1`=124566641399 WHERE  `entry`=12536 AND `build`=5464;
 
 
 -- Druid

@@ -214,7 +214,7 @@ struct RogueEnvenomScript : SpellScript
     {
         if (effIdx == EFFECT_INDEX_0 && spell->GetUnitTarget() && spell->m_caster)
         {
-            // for caster applied auras only
+            // For caster applied auras only
             Unit::AuraList const& mPeriodic = spell->GetUnitTarget()->GetAurasByType(SPELL_AURA_PERIODIC_DAMAGE);
             for (const auto i : mPeriodic)
             {
@@ -222,13 +222,12 @@ struct RogueEnvenomScript : SpellScript
                 if (i->GetSpellProto()->IsFitToFamily<SPELLFAMILY_ROGUE, CF_ROGUE_DEADLY_POISON>() &&
                     i->GetCasterGuid() == spell->m_caster->GetObjectGuid())
                 {
-
                     uint16 stacks = i->GetStackAmount();
 
                     // Remove Deadly Poison from target
                     spell->GetUnitTarget()->RemoveAurasByCasterSpell(i->GetId(), spell->m_caster->GetObjectGuid());
 
-                    // scale Envenom damage and Energy Restored by stack count
+                    // Scale Envenom damage and Energy Restored by stack count
                     spell->damage *= stacks;
                     spell->m_currentBasePoints[EFFECT_INDEX_2] *= stacks;
 
