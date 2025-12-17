@@ -29,6 +29,18 @@
     -- Clearcasting (Added Flurry, Living Bomb, Meteor, and Frost Bomb)
     UPDATE `mangos`.`spell_template` SET `effectItemType1`=124566641399 WHERE  `entry`=12536 AND `build`=5464;
 
+    -- Shatter (Added Flurry, Living Bomb, Meteor, and Frost Bomb)
+    UPDATE `mangos`.`spell_template` SET `effectItemType1`=124569260055 WHERE  entry IN (11170, 12982, 12983, 12984, 12985) AND `build`=5464;
+
+    -- Artic Reach (Added Flurry and Frost Bomb)
+    UPDATE `mangos`.`spell_template` SET `effectItemType1`=73014444192 WHERE  entry IN(16757, 16758) AND `build`=5464;
+
+    -- Piercing Ice (Added Flury and Frost Bomb)
+    UPDATE `mangos`.`spell_template` SET `effectItemType1`=4294968032, `effectItemType2`=68719476864 WHERE  entry IN(11151, 12952, 12953) AND `build`=4222;
+
+    -- Ice Shards (Added Flurry and Frost Bomb) TODO: Frostbomb can't crit
+    UPDATE `mangos`.`spell_template` SET `effectItemType1`=73014444768 WHERE  entry IN (11207, 12672, 15047, 15052, 15053) AND `build`=4222;
+
 
 -- Druid
     -- Savage Fury (Add Lacerate, Thrash, Brutal Slash)
