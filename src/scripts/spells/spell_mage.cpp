@@ -199,6 +199,7 @@ struct MageFrostBombScript : public AuraScript
         SPELL_WINTERS_CHILL = 12579
     };
 
+    // Snapshot Winter's Chill once
     int32 OnAuraValueCalculate(
         Aura* aura,
         Unit* caster,
@@ -208,7 +209,6 @@ struct MageFrostBombScript : public AuraScript
         Item* /*castItem*/,
         int32 value) override
     {
-        // Only modify the damage effect
         if (effIdx != EFFECT_INDEX_0 || !target)
             return value;
 
@@ -218,7 +218,6 @@ struct MageFrostBombScript : public AuraScript
 
         uint16 stacks = std::min<uint16>(wintersChill->GetStackAmount(), 5);
 
-        // +10% damage per stack (snapshot)
         value = int32(float(value) * (1.0f + 0.1f * stacks));
 
         // Consume Winter's Chill ONCE
@@ -226,14 +225,34 @@ struct MageFrostBombScript : public AuraScript
 
         return value;
     }
-};
 
+    // Apply crits to Frost Bomb ticks
+    void OnPeriodicCalculateAmount(Aura* aura, float& amount) override
+    {
+        Unit* caster = aura->GetCaster();
+        Unit* target = aura->GetTarget();
+        SpellEntry const* spellProto = aura->GetSpellProto();
+
+        if (!caster || !target)
+            return;
+
+        bool isCrit = caster->IsSpellCrit(target, spellProto, GetSchoolMask(spellProto->School), BASE_ATTACK);
+
+        if (!isCrit)
+            return;
+
+        uint32 dmg = uint32(amount);
+
+        dmg = caster->SpellCriticalDamageBonus(spellProto, dmg, target, nullptr);
+
+        amount = float(dmg);
+    }
+};
 
 AuraScript* GetScript_MageFrostBomb(SpellEntry const*)
 {
     return new MageFrostBombScript();
 }
-
 
 void AddSC_mage_spell_scripts()
 {

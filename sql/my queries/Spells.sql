@@ -1,5 +1,5 @@
--- 33887 NEXT SPELL
--- 15107 NEXT SKILL_LINE_ABILITY
+-- 33889 NEXT SPELL
+-- 15108 NEXT SKILL_LINE_ABILITY
 
 -- spell_chain for spells you want to learn in order but still keep previou ranks in spell book
 -- superseded_by_spell in skill_line_ability for spells you want overwritten by higher rank in spell book
@@ -1566,23 +1566,35 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
             REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`, `superseded_by_spell`) VALUES (15103, 5875, 8, 33859, 128, 1, 0);
 
         -- Frost Bomb
-            -- TODO: Needs to be able to crit! Or double damage since it cant crit
-            -- TODO: Animation (Frost shock)
             -- Rank 1
                 -- Spell
-                    REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `dispel`, `attributesEx`, `castingTimeIndex`, `recoveryTime`, `interruptFlags`, `procChance`, `maxLevel`, `baseLevel`, `spellLevel`, `durationIndex`, `manaCost`, `rangeIndex`, `equippedItemClass`, `effect1`, `effect2`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectApplyAuraName1`, `effectApplyAuraName2`, `effectAmplitude1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `script_name`) VALUES (33885, 5086, 4, 1, 2048, 5, 15000, 13, 101, 39, 30, 30, 35, 200, 4, -1, 6, 77, 1, 24, 299, 0, -1, -1, 6, 6, 3, 4, 4000, 144, 2075, 'Frost Bomb', 2031678, 'Rank 1', 2031676, 'Places a Frost Bomb on the target.  After $t1 sec, the bomb explodes, dealing $s1 Frost damage to the target.  Consumes all stacks of Winter\'s Chill on the target to deal 10% increased damage per stack consumed.', 2031678, '$s1 Frost damage inflicted after $t1 sec.', 2031678, 3, 68719476736, 1, 1, -1, 1, 1, 1, 'spell_mage_frost_bomb');
+                    REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `dispel`, `attributesEx`, `castingTimeIndex`, `recoveryTime`, `interruptFlags`, `procChance`, `maxLevel`, `baseLevel`, `spellLevel`, `durationIndex`, `manaCost`, `rangeIndex`, `equippedItemClass`, `effect1`, `effect2`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectApplyAuraName1`, `effectApplyAuraName2`, `effectAmplitude1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `script_name`) VALUES (33885, 5086, 4, 1, 2048, 5, 15000, 13, 101, 53, 40, 40, 35, 200, 4, -1, 6, 77, 1, 24, 299, 1.0, -1, -1, 6, 6, 3, 4, 4000, 144, 2075, 'Frost Bomb', 2031678, 'Rank 1', 2031676, 'Places a Frost Bomb on the target.  After $t1 sec, the bomb explodes, dealing $s1 Frost damage to the target.  Consumes all stacks of Winter\'s Chill on the target to deal 10% increased damage per stack consumed.  Can critically strike.', 2031678, '$s1 Frost damage inflicted after $t1 sec.', 2031678, 3, 68719476736, 1, 1, -1, 1, 1, 1, 'spell_mage_frost_bomb');
 
                 -- Learn spell(for trainer):
                     REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `targets`, `castingTimeIndex`, `procChance`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `activeIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) 
                     VALUES (33886, 4222, 1, 262400, 256, 1, 101, 6, -1, -1, 36, 1, 1, -1, 0, -1, -1, 33885, 107, 2075, 0, 'Frost Bomb', 7274526, 'Rank 1', 7274526, 7274508, 983052, -1, 1, 1, 1);
                 
-                -- Trainer (needs to be portal trainer in theramore only, special NPC needed too?)
+            -- Rank 2
+                -- Spell
+                    REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `dispel`, `attributesEx`, `castingTimeIndex`, `recoveryTime`, `interruptFlags`, `procChance`, `maxLevel`, `baseLevel`, `spellLevel`, `durationIndex`, `manaCost`, `rangeIndex`, `equippedItemClass`, `effect1`, `effect2`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectApplyAuraName1`, `effectApplyAuraName2`, `effectAmplitude1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `script_name`) VALUES (33887, 5086, 4, 1, 2048, 5, 15000, 13, 101, 61, 54, 54, 35, 250, 4, -1, 6, 77, 1, 24, 449, 1.0, -1, -1, 6, 6, 3, 4, 4000, 144, 2075, 'Frost Bomb', 2031678, 'Rank 2', 2031676, 'Places a Frost Bomb on the target.  After $t1 sec, the bomb explodes, dealing $s1 Frost damage to the target.  Consumes all stacks of Winter\'s Chill on the target to deal 10% increased damage per stack consumed.  Can critically strike.', 2031678, '$s1 Frost damage inflicted after $t1 sec.', 2031678, 3, 68719476736, 1, 1, -1, 1, 1, 1, 'spell_mage_frost_bomb');
+
+                -- Learn spell(for trainer):
+                    REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `targets`, `castingTimeIndex`, `procChance`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `activeIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) 
+                    VALUES (33888, 4222, 1, 262400, 256, 1, 101, 6, -1, -1, 36, 1, 1, -1, 0, -1, -1, 33887, 107, 2075, 0, 'Frost Bomb', 7274526, 'Rank 2', 7274526, 7274508, 983052, -1, 1, 1, 1);
+                
+                -- Trainer
                     REPLACE `mangos`.`npc_trainer_template` (`entry`, `spell`, `spellcost`, `reqlevel`) VALUES (1, 33886, 20000, 40);
+                    REPLACE `mangos`.`npc_trainer_template` (`entry`, `spell`, `spellcost`, `reqlevel`) VALUES (1, 33888, 36000, 54);
 
                 -- Skill Line Ability
                     REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`, `superseded_by_spell`) VALUES (15106, 5875, 6, 33885, 128, 1, 0);
-    
-        -- Teleport Theramore
+                    REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`, `superseded_by_spell`) VALUES (15107, 5875, 6, 33887, 128, 1, 0);
+
+                -- Spell Chain
+                    REPLACE `mangos`.`spell_chain` (`spell_id`, `prev_spell`, `first_spell`, `rank`) VALUES (33885, 0,     33885, 1);
+                    REPLACE `mangos`.`spell_chain` (`spell_id`, `prev_spell`, `first_spell`, `rank`) VALUES (33887, 33885, 33885, 2);
+
+            -- Teleport Theramore
             -- Spell
             REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `attributesEx`, `castingTimeIndex`, `interruptFlags`, `procChance`, `baseLevel`, `spellLevel`, `manaCost`, `rangeIndex`, `reagent1`, `reagentCount1`, `equippedItemClass`, `effect1`, `effect2`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectImplicitTargetB1`, `effectMultipleValue1`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33880, 5086, 6, 268500992, 131072, 7, 15, 101, 20, 20, 120, 1, 17031, 1, -1, 5, 77, 1, 1, -1, 0, 1, -1, 1, 1, 17, 1, 263, 2073, 50, 'Teleport: Theramore', 8323134, 8323132, 'Teleports the caster to Theramore.', 2031678, 2031676, 133, 1500, 3, 2147483648, 1, 1, -1, 1, 1, 1);
 
