@@ -1316,6 +1316,7 @@ void Player::Update(uint32 update_diff, uint32 p_time)
         if (cheatAction)
             GetSession()->ProcessAnticheatAction("MovementAnticheat", reason.str().c_str(), cheatAction, sWorld.getConfig(CONFIG_UINT32_AC_MOVEMENT_BAN_DURATION));
     }
+    RehideToggledHiddenGearSlots();
 }
 
 void Player::OnDisconnected()
@@ -4683,6 +4684,7 @@ void Player::ResurrectPlayer(float restore_percent, bool applySickness)
     m_camera.UpdateVisibilityForOwner();
     // update visibility of player for nearby cameras
     UpdateObjectVisibility();
+    RehideToggledHiddenGearSlots();
 
     if (!applySickness)
         return;
@@ -4712,6 +4714,7 @@ void Player::ResurrectPlayer(float restore_percent, bool applySickness)
             }
         }
     }
+    RehideToggledHiddenGearSlots();
 }
 
 void Player::KillPlayer()
