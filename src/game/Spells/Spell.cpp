@@ -45,6 +45,7 @@
 #include "CharacterDatabaseCache.h"
 #include "ZoneScript.h"
 #include "TradeData.h"
+#include "Geometry.h"
 
 using namespace Spells;
 
@@ -294,10 +295,7 @@ Spell::Spell(Unit* caster, SpellEntry const* info, bool triggered, ObjectGuid or
     for (uint8 i = 0; i < MAX_EFFECT_INDEX; ++i)
         m_currentBasePoints[i] = m_spellInfo->CalculateSimpleValue(SpellEffectIndex(i));
 
-    m_TriggerSpells.clear();
-    m_preCastSpells.clear();
-
-    //Auto Shot & Shoot
+    // Auto Shot & Shoot
     m_autoRepeat = m_spellInfo->IsAutoRepeatRangedSpell();
     m_channeled = info->IsChanneledSpell();
 
@@ -335,10 +333,7 @@ Spell::Spell(GameObject* caster, SpellEntry const* info, bool triggered, ObjectG
     for (uint8 i = 0; i < MAX_EFFECT_INDEX; ++i)
         m_currentBasePoints[i] = m_spellInfo->CalculateSimpleValue(SpellEffectIndex(i));
 
-    m_TriggerSpells.clear();
-    m_preCastSpells.clear();
-
-    //Auto Shot & Shoot
+    // Auto Shot & Shoot
     m_autoRepeat = m_spellInfo->IsAutoRepeatRangedSpell();
     m_channeled = info->IsChanneledSpell();
 
@@ -1754,7 +1749,7 @@ void Spell::DoSpellHitOnUnit(Unit* unit, uint32 effectMask)
 
     if (!effectMask)
     {
-        if (pRealUnitCaster)
+        if (pRealUnitCaster && !m_spellInfo->IsPositiveSpell(pRealUnitCaster, unit))
             unit->AttackedBy(pRealUnitCaster);
         return;
     }
@@ -1769,9 +1764,9 @@ void Spell::DoSpellHitOnUnit(Unit* unit, uint32 effectMask)
         }
 
     // Recheck immune (only for delayed spells)
-    if (m_caster != unit && m_spellInfo->speed && (
-                unit->IsImmuneToDamage(m_spellInfo->GetSpellSchoolMask(), m_spellInfo) ||
-                unit->IsImmuneToSpell(m_spellInfo, unit == pRealUnitCaster)))
+    if (m_caster != unit && m_spellInfo->speed &&
+       (unit->IsImmuneToDamage(m_spellInfo->GetSpellSchoolMask(), m_spellInfo) ||
+        unit->IsImmuneToSpell(m_spellInfo, unit == pRealUnitCaster)))
     {
         if (pRealCaster)
             pRealCaster->SendSpellMiss(unit, m_spellInfo->Id, SPELL_MISS_IMMUNE);
@@ -1896,9 +1891,6 @@ void Spell::DoSpellHitOnUnit(Unit* unit, uint32 effectMask)
     // Get Data Needed for Diminishing Returns, some effects may have multiple auras, so this must be done on spell hit, not aura add
     m_diminishGroup = m_spellInfo->GetDiminishingReturnsGroup(m_triggeredByAuraSpell);
     m_diminishLevel = unit->GetDiminishing(m_diminishGroup);
-
-    // Apply additional spell effects to target
-    CastPreCastSpells(unit);
 
     if (m_spellInfo->IsSpellAppliesAura(effectMask))
     {
@@ -3400,51 +3392,71 @@ void Spell::SetTargetMap(SpellEffectIndex effIndex, uint32 targetMode, UnitList&
             if (!pUnitTarget)
                 break;
 
-            float dis = GetSpellRadius(sSpellRadiusStore.LookupEntry(m_spellInfo->EffectRadiusIndex[effIndex]));
-            float x, y, z;
-            float srcX, srcY, srcZ;
-            float zSearchDist = 20.0f; // Falling case
+            float const dist = GetSpellRadius(sSpellRadiusStore.LookupEntry(m_spellInfo->EffectRadiusIndex[effIndex]));
+            G3D::Vector3 dest;
+            G3D::Vector3 src;
+
+            pUnitTarget->GetSafePosition(src.x, src.y, src.z);
+            pUnitTarget->GetSafePosition(dest.x, dest.y, dest.z);
+
             float ground = 0.0f;
-            pUnitTarget->GetSafePosition(x, y, z);
-            pUnitTarget->GetSafePosition(srcX, srcY, srcZ);
-            float waterLevel = pUnitTarget->GetTerrain()->GetWaterLevel(x, y, z, &ground);
-            x += dis * cos(pUnitTarget->GetOrientation());
-            y += dis * sin(pUnitTarget->GetOrientation());
+            float waterLevel = pUnitTarget->GetTerrain()->GetWaterLevel(dest.x, dest.y, dest.z, &ground);
+            dest.x += dist * cos(pUnitTarget->GetOrientation());
+            dest.y += dist * sin(pUnitTarget->GetOrientation());
+
             // Underwater blink case
             if (waterLevel != VMAP_INVALID_HEIGHT_VALUE && waterLevel > ground)
             {
-                if (z < ground)
-                    z = ground;
+                if (dest.z < ground)
+                    dest.z = ground;
                 // If blinking up to the surface, limit z position (do not teleport out of water)
-                if (z > waterLevel && (z - srcZ) > 1.0f)
+                if (dest.z > waterLevel && (dest.z - src.z) > 1.0f)
                 {
-                    float t = (waterLevel - srcZ) / (z - srcZ);
-                    x = (x - srcX) * t + srcX;
-                    y = (y - srcY) * t + srcY;
-                    z = waterLevel;
+                    float t = (waterLevel - src.z) / (dest.z - src.z);
+                    dest.x = (dest.x - src.x) * t + src.x;
+                    dest.y = (dest.y - src.y) * t + src.y;
+                    dest.z = waterLevel;
                 }
 
-                if (!MapManager::IsValidMapCoord(pUnitTarget->GetMapId(), x, y, z))
+                if (!MapManager::IsValidMapCoord(pUnitTarget->GetMapId(), dest.x, dest.y, dest.z))
                     break;
 
-                pUnitTarget->GetMap()->GetLosHitPosition(srcX, srcY, srcZ, x, y, z, -0.5f);
-                ground = pUnitTarget->GetMap()->GetHeight(x, y, z);
-                if (ground < z)
+                pUnitTarget->GetMap()->GetLosHitPosition(src.x, src.y, src.z, dest.x, dest.y, dest.z, -0.5f);
+                ground = pUnitTarget->GetMap()->GetHeight(dest.x, dest.y, dest.z);
+                if (ground < dest.z)
                 {
-                    m_targets.setDestination(x, y, z);
+                    m_targets.setDestination(dest.x, dest.y, dest.z);
                     break;
                 }
-                // If we are leaving water, rather use pathfinding, but increase z-range position research.
-                zSearchDist = 20.0f;
             }
-            if (!pUnitTarget->GetMap()->GetWalkHitPosition(pUnitTarget->GetTransport(), srcX, srcY, srcZ, x, y, z, NAV_GROUND | NAV_WATER, zSearchDist, false))
+
+            GameObject const* const pDoor = pUnitTarget->FindNearbyClosedDoor(dist);
+            bool const directionThroughDoor = pDoor ? pDoor->HasInArc(M_PI_F, src.x, src.y) != pDoor->HasInArc(M_PI_F, dest.x, dest.y) : false;
+
+            if (pUnitTarget->GetMap()->GetWalkHitPosition(pUnitTarget->GetTransport(), src.x, src.y, src.z, dest.x, dest.y, dest.z, NAV_GROUND | NAV_WATER, 20.0f, false))
             {
-                x = srcX;
-                y = srcY;
-                z = srcZ;
+                // move back so we dont clip into a door
+                if (pDoor)
+                {
+                    if (directionThroughDoor)
+                        Geometry::Move2dPointTowards(src, dest, 3.0f);
+
+                    if (pDoor->HasInArc(M_PI_F, src.x, src.y) != pDoor->HasInArc(M_PI_F, dest.x, dest.y) ||
+                       !pUnitTarget->IsWithinLOS(dest.x, dest.y, dest.z, true, 0.1f))
+                        dest = src;
+                }
+
+                // should never go backwards or sideways
+                if (!pUnitTarget->HasInArc(M_PI_F / 2.0f, dest.x, dest.y))
+                    dest = src;
+            }
+            else
+            {
+                // unable to walk to position
+                dest = src;
             }
 
-            m_targets.setDestination(x, y, z);
+            m_targets.setDestination(dest.x, dest.y, dest.z);
         }
         default:
             //sLog.Out(LOG_BASIC, LOG_LVL_ERROR, "SPELL: Unknown implicit target (%u) for spell ID %u", targetMode, m_spellInfo->Id);
@@ -3835,85 +3847,6 @@ void Spell::cast(bool skipCheck)
                 m_caster->ToPlayer()->RestoreSpellMods(this);
             return;
         }
-    }
-
-    // different triggred (for caster) and precast (casted before apply effect to target) cases
-    switch (m_spellInfo->SpellFamilyName)
-    {
-        case SPELLFAMILY_GENERIC:
-        {
-            // Bandages
-            if (m_spellInfo->Mechanic == MECHANIC_BANDAGE)
-                AddPrecastSpell(11196);                     // Recently Bandaged
-
-            // Divine Shield, Divine Protection (Blessing of Protection in paladin switch case)
-            else if (m_spellInfo->Mechanic == MECHANIC_INVULNERABILITY)
-                AddPrecastSpell(25771);                     // Forbearance
-
-            switch (m_spellInfo->Id)
-            {
-                case 26374: // Elune's Candle
-                {
-                    static uint32 const OmenSpells[] = { 26622, 26623, 26624, 26625, 26649 };
-
-                    uint32 spell = 26636;
-
-                    Unit* target = m_targets.getUnitTarget();
-
-                    if (target && target->ToUnit())
-                    {
-                        if (target->GetEntry() == 15467)
-                            spell = OmenSpells[urand(0, 4)];
-
-                        if (target->GetEntry() == 15466)
-                            spell = 26624;
-                    }
-
-                    m_caster->CastSpell(target, spell, true);
-                }
-                break;
-            }
-
-            break;
-        }
-        case SPELLFAMILY_WARRIOR:
-            break;
-        case SPELLFAMILY_PRIEST:
-        {
-            switch (m_spellInfo->Id)
-            {
-                case 15237:
-                    AddTriggeredSpell(23455);
-                    break;// Holy Nova, rank 1
-                case 15430:
-                    AddTriggeredSpell(23458);
-                    break;// Holy Nova, rank 2
-                case 15431:
-                    AddTriggeredSpell(23459);
-                    break;// Holy Nova, rank 3
-                case 27799:
-                    AddTriggeredSpell(27803);
-                    break;// Holy Nova, rank 4
-                case 27800:
-                    AddTriggeredSpell(27804);
-                    break;// Holy Nova, rank 5
-                case 27801:
-                    AddTriggeredSpell(27805);
-                    break;// Holy Nova, rank 6
-                default:
-                    break;
-            }
-            break;
-        }
-        case SPELLFAMILY_PALADIN:
-        {
-            // Blessing of Protection (Divine Shield, Divine Protection in generic switch case)
-            if (m_spellInfo->Mechanic == MECHANIC_INVULNERABILITY && m_spellInfo->Id != 25771)
-                AddPrecastSpell(25771);                     // Forbearance
-            break;
-        }
-        default:
-            break;
     }
 
     // traded items have trade slot instead of guid in m_itemTargetGUID
@@ -4636,10 +4569,6 @@ void Spell::finish(bool ok)
         if (needDrop)
             ((Player*)m_caster)->ClearComboPoints();
     }
-
-    // call triggered spell only at successful cast (after clear combo points -> for add some if need)
-    if (!m_TriggerSpells.empty())
-        CastTriggerSpells();
 
     if (m_caster->IsPlayer())
     {
@@ -5600,47 +5529,6 @@ void Spell::HandleEffects(Unit* pUnitTarget, Item *pItemTarget, GameObject* pGOT
     else
         sLog.Out(LOG_BASIC, LOG_LVL_ERROR, "WORLD: Spell %u has effect %d at index %u > TOTAL_SPELL_EFFECTS",
             m_spellInfo->Id, eff, i);
-}
-
-void Spell::AddTriggeredSpell(uint32 spellId)
-{
-    SpellEntry const* spellInfo = sSpellMgr.GetSpellEntry(spellId);
-
-    if (!spellInfo)
-    {
-        sLog.Out(LOG_BASIC, LOG_LVL_ERROR, "Spell::AddTriggeredSpell: unknown spell id %u used as triggred spell for spell %u)", spellId, m_spellInfo->Id);
-        return;
-    }
-
-    m_TriggerSpells.push_back(spellInfo);
-}
-
-void Spell::AddPrecastSpell(uint32 spellId)
-{
-    SpellEntry const* spellInfo = sSpellMgr.GetSpellEntry(spellId);
-
-    if (!spellInfo)
-    {
-        sLog.Out(LOG_BASIC, LOG_LVL_ERROR, "Spell::AddPrecastSpell: unknown spell id %u used as pre-cast spell for spell %u)", spellId, m_spellInfo->Id);
-        return;
-    }
-
-    m_preCastSpells.push_back(spellInfo);
-}
-
-void Spell::CastTriggerSpells()
-{
-    for (const auto spellInfo : m_TriggerSpells)
-    {
-        Spell* spell = m_casterUnit ? new Spell(m_casterUnit, spellInfo, true, m_originalCasterGUID) : new Spell(m_casterGo, spellInfo, true, m_originalCasterGUID);
-        spell->prepare(m_targets);                         // use original spell original targets
-    }
-}
-
-void Spell::CastPreCastSpells(Unit* target)
-{
-    for (const auto spellInfo : m_preCastSpells)
-        m_caster->CastSpell(target, spellInfo, true, m_CastItem);
 }
 
 void Spell::AddChanneledAuraHolder(SpellAuraHolder* holder)
