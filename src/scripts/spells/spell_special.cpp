@@ -273,6 +273,27 @@ SpellScript* GetScript_OpeningBattlegroundBanner(SpellEntry const*)
     return new OpeningBattlegroundBannerScript();
 }
 
+// 33870 - Paralysis
+struct ParalysisScript : public AuraScript
+{
+    void OnBeforeApply(Aura* aura, bool apply) final
+    {
+        if (apply && aura->GetEffIndex() == EFFECT_INDEX_0)
+            aura->SetPeriodicTimer(5 * IN_MILLISECONDS);
+    }
+
+    void OnPeriodicDummy(Aura* aura) final
+    {
+        if (roll_chance_i(5))
+            aura->GetTarget()->CastSpell(aura->GetTarget(), 33871, true, nullptr, aura);
+    }
+};
+
+AuraScript* GetScript_Paralysis(SpellEntry const*)
+{
+    return new ParalysisScript();
+}
+
 void AddSC_special_spell_scripts()
 {
     Script* newscript;
@@ -340,5 +361,10 @@ void AddSC_special_spell_scripts()
     newscript = new Script;
     newscript->Name = "spell_opening_battleground_banner";
     newscript->GetSpellScript = &GetScript_OpeningBattlegroundBanner;
+    newscript->RegisterSelf();
+
+    newscript = new Script;
+    newscript->Name = "spell_paralysis";
+    newscript->GetAuraScript = &GetScript_Paralysis;
     newscript->RegisterSelf();
 }
