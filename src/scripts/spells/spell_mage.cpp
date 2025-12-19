@@ -200,14 +200,7 @@ struct MageFrostBombScript : public AuraScript
     };
 
     // Snapshot Winter's Chill once
-    int32 OnAuraValueCalculate(
-        Aura* aura,
-        Unit* caster,
-        Unit* target,
-        SpellEntry const* /*spellProto*/,
-        SpellEffectIndex effIdx,
-        Item* /*castItem*/,
-        int32 value) override
+    int32 OnAuraValueCalculate(Aura* aura, Unit* caster, Unit* target, SpellEntry const* /*spellProto*/, SpellEffectIndex effIdx, Item* /*castItem*/, int32 value) override
     {
         if (effIdx != EFFECT_INDEX_0 || !target)
             return value;
