@@ -294,6 +294,26 @@ AuraScript* GetScript_Paralysis(SpellEntry const*)
     return new ParalysisScript();
 }
 
+enum
+{
+    SPELL_CANNIBALIZE_EFFECT = 20578,
+};
+
+// 20577 - Cannibalize
+struct CannibalizeScript : public SpellScript
+{
+    void OnSuccessfulFinish(Spell* spell) const final
+    {
+        if (spell->m_casterUnit && (spell->GetUnitTarget() || spell->GetCorpseTarget()))
+            spell->m_casterUnit->CastSpell(spell->m_casterUnit, SPELL_CANNIBALIZE_EFFECT, true);
+    }
+};
+
+SpellScript* GetScript_Cannibalize(SpellEntry const*)
+{
+    return new CannibalizeScript();
+}
+
 void AddSC_special_spell_scripts()
 {
     Script* newscript;
@@ -366,5 +386,9 @@ void AddSC_special_spell_scripts()
     newscript = new Script;
     newscript->Name = "spell_paralysis";
     newscript->GetAuraScript = &GetScript_Paralysis;
+    
+    newscript = new Script;
+    newscript->Name = "spell_cannibalize";
+    newscript->GetSpellScript = &GetScript_Cannibalize;
     newscript->RegisterSelf();
 }
