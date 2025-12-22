@@ -3,6 +3,9 @@
 -- Talents
 
 -- Mage
+    -- Ice Barrier Now level 30 instead of 40. (Rank 1 Reduced spell level, absorbed amount and mana cost)
+    UPDATE `mangos`.`spell_template` SET `baseLevel`=30, `spellLevel`=30, `manaCost`=245, `effectBasePoints1`=326 WHERE  `entry`=11426 AND `build`=5464;
+
     -- Flame Throwing (Added Living Bomb Meteor)
     UPDATE `mangos`.`spell_template` SET `effectItemType1`=51543801879 WHERE  `entry`=11100 AND `build`=5875;
     UPDATE `mangos`.`spell_template` SET `effectItemType1`=51543801879 WHERE  `entry`=12353 AND `build`=5875;
