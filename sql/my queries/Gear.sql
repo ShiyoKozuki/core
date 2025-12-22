@@ -356,16 +356,25 @@ REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quali
 INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (90041, 8766, 0);
 INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (90041, 8952, 0);
 
--- High level Fish (5s+)
-UPDATE mangos . item_template SET sell_price = 530 WHERE entry = 13758;
-UPDATE mangos . item_template SET sell_price = 515 WHERE entry = 13760;
-UPDATE mangos . item_template SET sell_price = 575 WHERE entry = 13754;
-UPDATE mangos . item_template SET sell_price = 595 WHERE entry = 13756;
-UPDATE mangos . item_template SET sell_price = 605 WHERE entry = 13889;
-UPDATE mangos . item_template SET sell_price = 635 WHERE entry = 13888;
-UPDATE mangos . item_template SET sell_price = 625 WHERE entry = 13893;
-UPDATE mangos . item_template SET sell_price = 500 WHERE entry = 13422;
-UPDATE mangos . item_template SET sell_price = 525 WHERE entry = 13755;
+-- Fish 
+    -- Raw
+    UPDATE mangos . item_template SET sell_price = 530, buy_price = 2120 WHERE entry = 13758;
+    UPDATE mangos . item_template SET sell_price = 515, buy_price = 2060 WHERE entry = 13760;
+    UPDATE mangos . item_template SET sell_price = 575, buy_price = 2300 WHERE entry = 13754;
+    UPDATE mangos . item_template SET sell_price = 595, buy_price = 2380 WHERE entry = 13756;
+    UPDATE mangos . item_template SET sell_price = 605, buy_price = 2420 WHERE entry = 13889;
+    UPDATE mangos . item_template SET sell_price = 635, buy_price = 2540 WHERE entry = 13888;
+    UPDATE mangos . item_template SET sell_price = 625, buy_price = 2500 WHERE entry = 13893;
+    UPDATE mangos . item_template SET sell_price = 500, buy_price = 2000 WHERE entry = 13422;
+    UPDATE mangos . item_template SET sell_price = 525, buy_price = 2100 WHERE entry = 13755;
+
+    -- Cooked
+    UPDATE mangos . item_template SET sell_price = 5, buy_price = 1000 WHERE entry = 787;
+    UPDATE mangos . item_template SET sell_price = 6, buy_price = 1500 WHERE entry = 4592;
+    UPDATE mangos . item_template SET sell_price = 35, buy_price = 10000 WHERE entry = 4593;
+    UPDATE mangos . item_template SET sell_price = 40, buy_price = 15000 WHERE entry = 4594;
+    UPDATE mangos . item_template SET sell_price = 45, buy_price = 20000 WHERE entry = 21552;
+    UPDATE mangos . item_template SET sell_price = 200, buy_price = 50000 WHERE entry = 8957;
 
 -- T4 Scroll buy prices
 UPDATE mangos.item_template
@@ -1076,6 +1085,11 @@ SET quality = 3,
     spellid_1 = 7680, -- +13 Healing
     spelltrigger_1 = 1
 WHERE entry = 5770;
+
+-- Azure Silk Hood
+UPDATE mangos . item_template
+SET quality = 2
+WHERE entry = 7048;
 
 -- Phoenix Gloves
 UPDATE mangos . item_template
@@ -7780,26 +7794,6 @@ SET spellid_1 = 9395, -- +5 Spell Damage
     spelltrigger_1 = 1
 WHERE entry = 9513;
 
--- Manaweave Robe
-UPDATE mangos . item_template
-SET spellid_1 = 9395, -- +5 Spell Damage
-    spelltrigger_1 = 1
-WHERE entry = 7509;
-
--- Astral Knot Robe
-UPDATE mangos . item_template
-SET quality = 3,
-    spellid_1 = 9415, -- +9 Spell Damage
-    spelltrigger_1 = 1
-WHERE entry = 7511;
-
--- Astral Knot Blouse
-UPDATE mangos . item_template
-SET quality = 3,
-    spellid_1 = 9415, -- +9 Spell Damage
-    spelltrigger_1 = 1
-WHERE entry = 9516;
-
 -- Bastion of Stormwind
 UPDATE mangos . item_template
 SET quality = 3,
@@ -9638,7 +9632,9 @@ WHERE entry = 4197;
 
 -- Snake Hoop (Willix the Importer)
 UPDATE mangos . item_template
-SET spellid_1 = 9395, -- +5 Spell Damage
+SET stat_type1 = 5,
+    stat_value1 = 2,
+    spellid_1 = 9395, -- +5 Spell Damage
     spelltrigger_1 = 1
 WHERE entry = 6750;
 
