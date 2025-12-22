@@ -463,7 +463,7 @@ DELETE from mangos.creature where guid IN (9408, 9409, 9319, 9410, 9155, 9150, 9
         -- Crypt Lord
             -- TODO
             -- Carrion Beetle
-            INSERT INTO `mangos`.`creature_template` (`entry`, `patch`, `name`, `subname`, `level_min`, `level_max`, `faction`, `display_id1`, `display_scale1`, `speed_walk`, `speed_run`, `type`, `unit_class`, `health_multiplier`, `armor_multiplier`, `damage_multiplier`, `base_attack_time`, `ranged_attack_time`, `spell_list_id`, `movement_type`, `mechanic_immune_mask`, `static_flags1`, `static_flags2`) VALUES (90075, 9, 'Carrion Beetle', '', 60, 60, 21, 10005, 1.2, 0.833332, 2.14286, 10, 1, 0.2, 2, 2.5, 1000, 1265, 166980, 2, 1022042625, 524294, 64);
+            REPLACE `mangos`.`creature_template` (`entry`, `patch`, `name`, `subname`, `level_min`, `level_max`, `faction`, `display_id1`, `display_scale1`, `speed_walk`, `speed_run`, `type`, `unit_class`, `health_multiplier`, `armor_multiplier`, `damage_multiplier`, `base_attack_time`, `ranged_attack_time`, `spell_list_id`, `movement_type`, `mechanic_immune_mask`, `static_flags1`, `static_flags2`) VALUES (90075, 9, 'Carrion Beetle', '', 60, 60, 21, 10005, 1.2, 0.833332, 2.14286, 10, 1, 0.2, 2, 2.5, 1000, 1265, 166980, 2, 1022042625, 524294, 64);
 
 -- Gossip NPCs
     -- Race Change
@@ -474,6 +474,8 @@ DELETE from mangos.creature where guid IN (9408, 9409, 9319, 9410, 9155, 9150, 9
     REPLACE `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000093, 90054, 0, 0, 0, 0, 0, -4911.29, -1001.99, 508.662, 4.07653, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
     REPLACE `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000094, 90054, 0, 0, 0, 0, 0, -8745.3, 661.038, 105.092, 4.774, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
     REPLACE `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000095, 90054, 0, 0, 0, 0, 1, -3704.07, -4543.03, 25.8339, 3.58632, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
+    REPLACE  `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000104, 90054, 0, 0, 0, 0, 1, 16238.1, 16276.2, 14.8201, 5.20002, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
+
 
 
     REPLACE `npc_text` (`ID`, `BroadcastTextID0`, `Probability0`) VALUES (90006, 99996, 1);
@@ -487,6 +489,7 @@ REPLACE `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x
 REPLACE `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000091, 90055, 0, 0, 0, 0, 1, 9864.53, 2331.56, 1321.59, 2.73077, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
 REPLACE `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000096, 90055, 0, 0, 0, 0, 1, -3705.89, -4539.34, 25.8339, 3.657, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
 REPLACE `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000097, 90055, 0, 0, 0, 0, 0, -8896.44, -136.91, 80.5766, 1.04568, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
+REPLACE `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000103, 90055, 0, 0, 0, 0, 1, 16240.4, 16277.5, 14.6558, 4.91729, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
 
 
 
