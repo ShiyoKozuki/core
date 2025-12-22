@@ -431,7 +431,8 @@ Unit* PartyBotAI::SelectAttackTarget(Player* pLeader) const
                 ObjectGuid targetGuid = me->GetGroup()->GetTargetWithIcon(markId);
                 if (targetGuid.IsUnit())
                     if (Unit* pVictim = me->GetMap()->GetUnit(targetGuid))
-                        if (IsValidHostileTarget(pVictim))
+                        if (IsValidHostileTarget(pVictim) &&
+                            (me->GetCombatDistance(pVictim) <= 50.0f))
                             return pVictim;
             }
         }
@@ -3275,7 +3276,7 @@ void PartyBotAI::UpdateInCombatAI_Warrior()
         }
 
         if ((me->GetHealthPercent() < 20.0f) ||
-            (m_role == ROLE_TANK && pVictim->GetLevel() >= me->GetLevel()) ||
+            (m_role == ROLE_TANK) ||
             IsWearingShield(me))
         {
             if (m_spells.warrior.pDefensiveStance &&
