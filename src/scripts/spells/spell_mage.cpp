@@ -211,7 +211,7 @@ struct MageFrostBombScript : public AuraScript
 
         uint16 stacks = std::min<uint16>(wintersChill->GetStackAmount(), 5);
 
-        value = int32(float(value) * (1.0f + 0.1f * stacks));
+        value = int32(float(value) * (1.0f + 0.50f * stacks));
 
         // Consume Winter's Chill ONCE
         target->RemoveAurasDueToSpell(SPELL_WINTERS_CHILL);

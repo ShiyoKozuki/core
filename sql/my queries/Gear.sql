@@ -554,7 +554,7 @@ INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (10
 
 -- Stormwind Quartermaster
     -- NPC
-    REPLACE `mangos`.`creature_template` (`entry`, `name`, `subname`, `level_min`, `level_max`, `faction`, `npc_flags`, `display_id1`, `display_probability1`, `display_total_probability`, `mount_display_id`, `detection_range`, `type`, `rank`, `unit_class`, `health_multiplier`, `armor_multiplier`, `damage_multiplier`, `loot_id`, `gold_min`, `gold_max`, `ai_name`, `static_flags1`, `flags_extra`) VALUES (90056, 'Captain Steven Burgo', 'Stormwind Quartermaster', 62, 62, 12, 4, 1688, 1, 1, 2410, 20, 7, 1, 1, 10, 2, 7, 466, 1, 873, 'EventAI', 138936320, 2);
+    REPLACE `mangos`.`creature_template` (`entry`, `name`, `subname`, `level_min`, `level_max`, `faction`, `npc_flags`, `display_id1`, `display_probability1`, `display_total_probability`, `mount_display_id`, `detection_range`, `type`, `rank`, `unit_class`, `health_multiplier`, `armor_multiplier`, `damage_multiplier`, `loot_id`, `gold_min`, `gold_max`, `ai_name`, `static_flags1`, `flags_extra`) VALUES (90056, 'Captain Steven Burgo', 'Stormwind Quartermaster', 62, 62, 12, 4, 1688, 1, 1, 2410, 20, 7, 1, 1, 10, 2, 7, 466, 1, 873, '', 138936320, 2);
 
     REPLACE  `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000098, 90056, 0, 0, 0, 0, 0, -8831.62, 541.958, 96.9113, 0.813253, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
 
@@ -591,7 +591,7 @@ INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (10
 
 -- Darnassus Quartermaster
     -- NPC
-    REPLACE `mangos`.`creature_template` (`entry`, `patch`, `name`, `level_min`, `level_max`, `faction`, `npc_flags`, `display_id1`, `display_probability1`, `display_total_probability`, `mount_display_id`, `speed_run`, `detection_range`, `type`, `rank`, `unit_class`, `health_multiplier`, `armor_multiplier`, `damage_multiplier`, `gold_min`, `gold_max`, `spell_id1`, `spell_id2`, `spell_list_id`, `ai_name`, `equipment_id`, `static_flags1`) VALUES (90059, 1, 'Moon Priestess Lasara', 60, 60, 79, 4, 14418, 100, 100, 9991, 1.42857, 20, 7, 1, 1, 3, 2, 5, 1, 844, 14030, 15572, 143790, 'EventAI', 14379, 273154050);
+    REPLACE `mangos`.`creature_template` (`entry`, `patch`, `name`, `subname`, `level_min`, `level_max`, `faction`, `npc_flags`, `display_id1`, `display_probability1`, `display_total_probability`, `mount_display_id`, `speed_run`, `detection_range`, `type`, `rank`, `unit_class`, `health_multiplier`, `armor_multiplier`, `damage_multiplier`, `gold_min`, `gold_max`, `spell_id1`, `spell_id2`, `spell_list_id`, `ai_name`, `equipment_id`, `static_flags1`) VALUES (90059, 1, 'Moon Priestess Lasara', 'Darnassus Quartermaster', 60, 60, 79, 4, 14418, 100, 100, 9991, 1.42857, 20, 7, 1, 1, 3, 2, 5, 1, 844, 14030, 15572, 143790, '', 14379, 273154050);
 
     REPLACE `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000101, 90059, 0, 0, 0, 0, 1, 8648.85, 841.166, 23.2623, 3.12062, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
 

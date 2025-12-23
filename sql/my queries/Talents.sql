@@ -44,8 +44,11 @@
     -- Piercing Ice (Added Flury and Frost Bomb)
     UPDATE `mangos`.`spell_template` SET `effectItemType1`=4294968032, `effectItemType2`=68719476864 WHERE  entry IN(11151, 12952, 12953) AND `build`=4222;
 
-    -- Ice Shards (Added Flurry and Frost Bomb) TODO: Frostbomb can't crit
+    -- Ice Shards (Added Flurry and Frost Bomb)
     UPDATE `mangos`.`spell_template` SET `effectItemType1`=73014444768 WHERE  entry IN (11207, 12672, 15047, 15052, 15053) AND `build`=4222;
+
+    -- Frostbite (Added Flurry)
+    UPDATE `mangos`.`spell_template` SET `effectItemType1`=4296015872 WHERE  entry IN(11071, 12496, 12497) AND `build`=5464;
 
 -- Druid
     -- Savage Fury (Add Lacerate, Thrash, Brutal Slash)
