@@ -9626,7 +9626,13 @@ WHERE entry = 9536;
 
 -- Berylline Pads (The Crone of the Kraul)
 UPDATE mangos . item_template
-SET spellid_1 = 33794, -- 5 Spell Penetration
+SET stat_type1 = 7,
+    stat_value1 = 2,
+    stat_type2 = 5,
+    stat_value2 = 5,
+    stat_type3 = 6,
+    stat_value3 = 3,
+    spellid_1 = 33794, -- 5 Spell Penetration
     spelltrigger_1 = 1
 WHERE entry = 4197;
 
