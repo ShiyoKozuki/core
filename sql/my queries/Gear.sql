@@ -485,8 +485,8 @@ INSERT IGNORE `mangos`.`npc_vendor_template` (`entry`, `item`) VALUES (1277702, 
 INSERT IGNORE `mangos`.`npc_vendor_template` (`entry`, `item`) VALUES (1277702, 16579);
 
 -- Timbermaw Rep
-INSERT IGNORE `mangos`.`npc_vendor_template` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (1155700, 18260, 1, 7200);
-INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (1155700, 13522, 0);
+INSERT IGNORE `mangos`.`npc_vendor_template` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (11557, 18260, 1, 7200);
+INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (11557, 13522, 0);
 
 -- Thorium Brotherhood rep
 INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (12944, 20729, 131);
