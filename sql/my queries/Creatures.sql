@@ -449,6 +449,11 @@ DELETE from mangos.creature where guid IN (9408, 9409, 9319, 9410, 9155, 9150, 9
             -- Summoned Acolyte
             REPLACE `mangos`.`creature_template` (`entry`, `name`, `level_min`, `level_max`, `faction`, `display_id1`, `display_id2`, `display_id3`, `display_id4`, `display_probability1`, `display_probability2`, `display_probability3`, `display_probability4`, `display_total_probability`, `detection_range`, `type`, `rank`, `unit_class`, `health_multiplier`, `mana_multiplier`, `armor_multiplier`, `damage_multiplier`, `spell_list_id`, `ai_name`, `movement_type`, `equipment_id`, `static_flags1`) VALUES (90071, 'Summoned Acolyte', 61, 61, 233, 11157, 11145, 11146, 11173, 20, 30, 30, 20, 100, 20, 7, 1, 2, 20, 20, 2, 3.8, 200090, 'EventAI', 1, 10471, 524288);
 
+    -- T2
+        -- Mad Scientist
+            -- Summoned Arcane Enforcers
+            REPLACE `mangos`.`creature_template` (`entry`, `patch`, `name`, `level_min`, `level_max`, `faction`, `display_id1`, `detection_range`, `type`, `rank`, `unit_class`, `health_multiplier`, `mana_multiplier`, `armor_multiplier`, `damage_multiplier`, `damage_school`, `spell_list_id`, `mechanic_immune_mask`, `school_immune_mask`, `immunity_flags`, `static_flags2`) VALUES (90076, 1, 'Arcane Enforcer', 60, 60, 834, 14253, 20, 4, 1, 2, 30, 4, 2, 4, 6, 200091, 16384, 64, 32, 16);
+
     -- T3
         -- DK
             -- TODO

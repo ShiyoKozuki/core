@@ -284,7 +284,7 @@ struct ParalysisScript : public AuraScript
 
     void OnPeriodicDummy(Aura* aura) final
     {
-        if (roll_chance_i(5))
+        if (roll_chance_i(20))
             aura->GetTarget()->CastSpell(aura->GetTarget(), 33871, true, nullptr, aura);
     }
 };
@@ -312,6 +312,24 @@ struct CannibalizeScript : public SpellScript
 SpellScript* GetScript_Cannibalize(SpellEntry const*)
 {
     return new CannibalizeScript();
+}
+
+// 33922 - FrighteningRoar
+struct FrighteningRoarScript : public SpellScript
+{
+    bool OnEffectExecute(Spell* spell, SpellEffectIndex effIdx) const final
+    {
+        if (effIdx == EFFECT_INDEX_1 && spell->m_casterUnit && spell->GetCaster())
+        {
+            spell->m_casterUnit->GetThreatManager().modifyThreatPercent(spell->GetUnitTarget(), -100);
+        }
+        return true;
+    }
+};
+
+SpellScript* GetScript_FrighteningRoar(SpellEntry const*)
+{
+    return new FrighteningRoarScript();
 }
 
 void AddSC_special_spell_scripts()
@@ -386,9 +404,15 @@ void AddSC_special_spell_scripts()
     newscript = new Script;
     newscript->Name = "spell_paralysis";
     newscript->GetAuraScript = &GetScript_Paralysis;
+    newscript->RegisterSelf();
     
     newscript = new Script;
     newscript->Name = "spell_cannibalize";
     newscript->GetSpellScript = &GetScript_Cannibalize;
+    newscript->RegisterSelf();
+
+    newscript = new Script;
+    newscript->Name = "spell_frightening_roar";
+    newscript->GetSpellScript = &GetScript_FrighteningRoar;
     newscript->RegisterSelf();
 }
