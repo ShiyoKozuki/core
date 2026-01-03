@@ -150,6 +150,9 @@ REPLACE INTO `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `posit
 REPLACE INTO `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000055, 5467, 0, 0, 0, 0, 1, -8959.39, -4743.93, -47.7043, 5.23091, 300, 300, 0, 100, 100, 1, 0, 0, 0, 10);
 REPLACE INTO `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000056, 5467, 0, 0, 0, 0, 1, -8988.06, -4777.59, -57.7852, 4.11558, 300, 300, 0, 100, 100, 1, 0, 0, 0, 10);
 
+-- Dark Iron Land Mines shouldn't move
+UPDATE `creature_template` SET `movement_type` = 0 WHERE `entry` = 8035;
+
 -- Lady Moongazer damage
 UPDATE `mangos`.`creature_template` SET `damage_multiplier`=1.0 WHERE  `entry`=2184 AND `patch`=0;
 
