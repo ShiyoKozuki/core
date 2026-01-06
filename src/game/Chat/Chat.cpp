@@ -112,6 +112,7 @@ ChatCommand * ChatHandler::getCommandTable()
         { "remove",     SEC_PLAYER,      false, &ChatHandler::HandlePartyBotRemoveCommand,      "", nullptr },
         { nullptr,      0,                      false, nullptr,                                        "", nullptr },
     };
+
     static ChatCommand battleBotAddCommandTable[] =
     {
         { "alterac",    SEC_PLAYER,      true, &ChatHandler::HandleBattleBotAddAlteracCommand, "", nullptr },
