@@ -330,7 +330,6 @@ struct FrighteningRoarScript : public SpellScript
 SpellScript* GetScript_FrighteningRoar(SpellEntry const*)
 {
     return new FrighteningRoarScript();
-    return new CannibalizeSpellScript();
 }
 
 // 20578 - Cannibalize Aura
