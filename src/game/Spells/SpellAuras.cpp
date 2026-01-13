@@ -1987,6 +1987,7 @@ void Aura::HandleAuraDummy(bool apply, bool Real)
 
                     return;
                 }
+
 #if SUPPORTED_CLIENT_BUILD > CLIENT_BUILD_1_9_4
                 case 24658:                                 // Unstable Power
                 {
