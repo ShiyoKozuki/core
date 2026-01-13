@@ -300,12 +300,17 @@ enum
 };
 
 // 20577 - Cannibalize
-struct CannibalizeScript : public SpellScript
+struct CannibalizeSpellScript : public SpellScript
 {
+    enum
+    {
+        SPELL_CANNIBALIZE_AURA = 20578,
+    };
+
     void OnSuccessfulFinish(Spell* spell) const final
     {
         if (spell->m_casterUnit && (spell->GetUnitTarget() || spell->GetCorpseTarget()))
-            spell->m_casterUnit->CastSpell(spell->m_casterUnit, SPELL_CANNIBALIZE_EFFECT, true);
+            spell->m_casterUnit->CastSpell(spell->m_casterUnit, SPELL_CANNIBALIZE_AURA, true);
     }
 };
 
@@ -337,6 +342,9 @@ struct CannibalizeAuraScript : public AuraScript
 {
     void OnAfterApply(Aura* aura, bool apply) final
     {
+        if (aura->GetEffIndex() != EFFECT_INDEX_0)
+            return;
+
         Unit* target = aura->GetTarget();
         if (!apply)
         {
@@ -375,6 +383,11 @@ struct SilithystAuraScript : public AuraScript
 
     void OnAfterApply(Aura* aura, bool apply) final
     {
+        // Silithyst PvP was added in patch 1.12, FORCE_REACTION effect on INDEX_1
+#if SUPPORTED_CLIENT_BUILD >= CLIENT_BUILD_1_12_1
+        if (aura->GetEffIndex() != EFFECT_INDEX_1)
+            return;
+
         Unit* target = aura->GetTarget();
         if (target->GetTypeId() != TYPEID_PLAYER)
             return;
@@ -406,6 +419,7 @@ struct SilithystAuraScript : public AuraScript
                     pScript->HandleDropFlag(player, aura->GetId());
             }
         }
+#endif
     }
 };
 
@@ -465,6 +479,9 @@ struct ControllingSteamTonkAuraScript : public AuraScript
         if (apply)
             return;
 
+        if (aura->GetEffIndex() != EFFECT_INDEX_0)
+            return;
+
         Unit* target = aura->GetTarget();
         Unit* caster = aura->GetCaster();
         if (!caster || caster->GetTypeId() != TYPEID_PLAYER)
@@ -509,6 +526,9 @@ struct ShadowmeldAuraScript : public AuraScript
         if (!apply)
             return;
 
+        if (aura->GetEffIndex() != EFFECT_INDEX_0)
+            return;
+
         Unit* target = aura->GetTarget();
         if (target->GetTypeId() != TYPEID_PLAYER)
             return;
@@ -520,6 +540,9 @@ struct ShadowmeldAuraScript : public AuraScript
     void OnBeforeApply(Aura* aura, bool apply) final
     {
         if (apply)
+            return;
+
+        if (aura->GetEffIndex() != EFFECT_INDEX_0)
             return;
 
         Unit* target = aura->GetTarget();
@@ -541,6 +564,15 @@ struct StoneformAuraScript : public AuraScript
 {
     void OnAfterApply(Aura* aura, bool apply) final
     {
+        // DISPEL_IMMUNITY effect moved from INDEX_2 to INDEX_0 in patch 1.7
+#if SUPPORTED_CLIENT_BUILD <= CLIENT_BUILD_1_6_1
+        if (aura->GetEffIndex() != EFFECT_INDEX_2)
+            return;
+#else
+        if (aura->GetEffIndex() != EFFECT_INDEX_0)
+            return;
+#endif
+
         Unit* target = aura->GetTarget();
 
         // Stoneform grants immunity to Disease and Poison dispels
