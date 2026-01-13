@@ -316,7 +316,7 @@ struct CannibalizeSpellScript : public SpellScript
 
 SpellScript* GetScript_Cannibalize(SpellEntry const*)
 {
-    return new CannibalizeScript();
+    return new CannibalizeSpellScript();
 }
 
 // 33922 - FrighteningRoar
