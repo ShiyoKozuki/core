@@ -329,11 +329,11 @@
     UPDATE mangos . spell_proc_event SET procEx = 67 WHERE entry = 20136; -- Proc on hit/crit taken and block (was on crit taken)
     UPDATE mangos . spell_proc_event SET procEx = 67 WHERE entry = 20137; -- Proc on hit/crit taken and block (was on crit taken)
 
-    UPDATE `mangos`.`spell_template` SET `description`='Increases your chance to block attacks with your shield by $20128s1% after being hit or blocking($h% chance).  Lasts $20128d or $20128n blocks.' WHERE  `entry`=20127;
-    UPDATE `mangos`.`spell_template` SET `description`='Increases your chance to block attacks with your shield by $20131s1% after being hit or blocking($h% chance).  Lasts $20131d or $20131n blocks.' WHERE  `entry`=20130;
-    UPDATE `mangos`.`spell_template` SET `description`='Increases your chance to block attacks with your shield by $20132s1% after being hit or blocking($h% chance).  Lasts $20132d or $20132n blocks.' WHERE  `entry`=20135;
-    UPDATE `mangos`.`spell_template` SET `description`='Increases your chance to block attacks with your shield by $20133s1% after being hit or blocking($h% chance).  Lasts $20133d or $20133n blocks.' WHERE  `entry`=20136;
-    UPDATE `mangos`.`spell_template` SET `description`='Increases your chance to block attacks with your shield by $20134s1% after being hit or blocking($h% chance).  Lasts $20134d or $20134n blocks.' WHERE  `entry`=20137;
+    UPDATE `mangos`.`spell_template` SET `description`='Increases your chance to block attacks with your shield by $20128s1% after being hit or blocking ($h% chance).  Lasts $20128d or $20128n blocks.' WHERE  `entry`=20127;
+    UPDATE `mangos`.`spell_template` SET `description`='Increases your chance to block attacks with your shield by $20131s1% after being hit or blocking ($h% chance).  Lasts $20131d or $20131n blocks.' WHERE  `entry`=20130;
+    UPDATE `mangos`.`spell_template` SET `description`='Increases your chance to block attacks with your shield by $20132s1% after being hit or blocking ($h% chance).  Lasts $20132d or $20132n blocks.' WHERE  `entry`=20135;
+    UPDATE `mangos`.`spell_template` SET `description`='Increases your chance to block attacks with your shield by $20133s1% after being hit or blocking ($h% chance).  Lasts $20133d or $20133n blocks.' WHERE  `entry`=20136;
+    UPDATE `mangos`.`spell_template` SET `description`='Increases your chance to block attacks with your shield by $20134s1% after being hit or blocking ($h% chance).  Lasts $20134d or $20134n blocks.' WHERE  `entry`=20137;
 
 -- Anticipation (Paladin)
     UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=4 WHERE  `entry`=20096;
