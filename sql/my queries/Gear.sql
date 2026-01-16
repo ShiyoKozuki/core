@@ -1239,9 +1239,9 @@ WHERE entry = 7063;
 UPDATE mangos . item_template
 SET quality = 3,
     stat_type1 = 6,
-    stat_value1 = 15,
+    stat_value1 = 12,
     stat_type2 = 7,
-    stat_value2 = 10
+    stat_value2 = 7
 WHERE entry = 7061;
 
 -- Icy Cloak
@@ -1444,8 +1444,8 @@ WHERE entry = 18413;
 UPDATE mangos . item_template
 SET quality = 4,
     bonding = 1, -- BOP
-    required_skill = 165, -- Leatherworking
-    required_skill_rank = 300,
+    required_skill = 0, -- Leatherworking
+    required_skill_rank = 0,
     stat_type1 = 3,
     stat_value1 = 22,
     stat_type2 = 4,
@@ -2035,8 +2035,8 @@ WHERE entry = 15092;
 UPDATE mangos . item_template
 SET quality = 4,
     bonding = 1,
-    required_skill = 165, -- Leatherworking
-    required_skill_rank = 300,
+    required_skill = 0, -- Leatherworking
+    required_skill_rank = 0,
     stat_type1 = 5,
     stat_value1 = 17,
     stat_type2 = 6,
@@ -2052,8 +2052,8 @@ WHERE entry = 15075;
 UPDATE mangos . item_template
 SET quality = 3,
     bonding = 1,
-    required_skill = 165, -- Leatherworking
-    required_skill_rank = 300,
+    required_skill = 0, -- Leatherworking
+    required_skill_rank = 0,
     spellid_1 = 17990, -- +27 Nature Damage
     spelltrigger_1 = 1,
     spellid_2 = 17824, -- +27 Arcane Damage
@@ -2065,8 +2065,8 @@ WHERE entry = 15072;
 UPDATE mangos . item_template
 SET quality = 3,
     bonding = 1,
-    required_skill = 165, -- Leatherworking
-    required_skill_rank = 300,
+    required_skill = 0, -- Leatherworking
+    required_skill_rank = 0,
     spellid_1 = 17988, -- +24 Nature Damage
     spelltrigger_1 = 1,
     spellid_2 = 17823, -- +26 Arcane Damage
@@ -2078,8 +2078,8 @@ WHERE entry = 15073;
 UPDATE mangos . item_template
 SET quality = 3,
     bonding = 1,
-    required_skill = 165, -- Leatherworking
-    required_skill_rank = 300,
+    required_skill = 0, -- Leatherworking
+    required_skill_rank = 0,
     spellid_1 = 17988, -- +24 Nature Damage
     spelltrigger_1 = 1,
     spellid_2 = 17823, -- +26 Arcane Damage
@@ -2090,15 +2090,15 @@ WHERE entry = 15074;
 
 -- Warbear Harness
 UPDATE mangos . item_template
-SET required_skill = 165, -- Leatherworking
-    required_skill_rank = 300,
+SET required_skill = 0, -- Leatherworking
+    required_skill_rank = 0,
     armor = 300
 WHERE entry = 15064;
 
 -- Warbear Woolies
 UPDATE mangos . item_template
-SET required_skill = 165, -- Leatherworking
-    required_skill_rank = 300,
+SET required_skill = 0, -- Leatherworking
+    required_skill_rank = 0,
     armor = 250,
     spellid_2 = 13670, -- 2% Dodge
     spelltrigger_2 = 1
@@ -2107,8 +2107,8 @@ WHERE entry = 15065;
 -- Timbermaw Brawlers
 UPDATE mangos . item_template
 SET quality = 4,
-    required_skill = 165, -- Leatherworking
-    required_skill_rank = 300,
+    required_skill = 0, -- Leatherworking
+    required_skill_rank = 0,
     armor = 250,
     spellid_1 = 13670, -- 2% Dodge
     spelltrigger_1 = 1
@@ -2117,8 +2117,8 @@ WHERE entry = 19049;
 -- Might of the Timbermaw
 UPDATE mangos . item_template
 SET quality = 4,
-    required_skill = 165, -- Leatherworking
-    required_skill_rank = 300,
+    required_skill = 0, -- Leatherworking
+    required_skill_rank = 0,
     armor = 250,
     spellid_1 = 13670, -- 2% Dodge
     spelltrigger_1 = 1
@@ -2127,8 +2127,8 @@ WHERE entry = 19044;
 -- Golden Mantle of the Dawn
 UPDATE mangos . item_template
 SET quality = 4,
-    required_skill = 165, -- Leatherworking
-    required_skill_rank = 300,
+    required_skill = 0, -- Leatherworking
+    required_skill_rank = 0,
     armor = 300,
     spellid_1 = 13669, -- +1% Dodge
     spelltrigger_1 = 1,
@@ -2139,8 +2139,8 @@ WHERE entry = 19058;
 -- Dawn Treaders
 UPDATE mangos . item_template
 SET quality = 4,
-    required_skill = 165, -- Leatherworking
-    required_skill_rank = 300,
+    required_skill = 0, -- Leatherworking
+    required_skill_rank = 0,
     armor = 275,
     spellid_1 = 15465, -- +2% Physical Hit
     spelltrigger_1 = 1,
@@ -2151,8 +2151,8 @@ WHERE entry = 19052;
 -- Frostsaber Set
 UPDATE mangos . item_template
 SET quality = 3,
-    required_skill = 165, -- Leatherworking
-    required_skill_rank = 300,
+    required_skill = 0, -- Leatherworking
+    required_skill_rank = 0,
     stat_type1 = 5,
     stat_value1 = 7,
     stat_type2 = 6,
@@ -2169,8 +2169,8 @@ WHERE entry = 15071;
 
 UPDATE mangos . item_template
 SET quality = 3,
-    required_skill = 165, -- Leatherworking
-    required_skill_rank = 300,
+    required_skill = 0, -- Leatherworking
+    required_skill_rank = 0,
     stat_type1 = 5,
     stat_value1 = 7,
     stat_type2 = 6,
@@ -2187,8 +2187,8 @@ WHERE entry = 15068;
 
 UPDATE mangos . item_template
 SET quality = 3,
-    required_skill = 165, -- Leatherworking
-    required_skill_rank = 300,
+    required_skill = 0, -- Leatherworking
+    required_skill_rank = 0,
     stat_type1 = 5,
     stat_value1 = 7,
     stat_type2 = 6,
@@ -2205,8 +2205,8 @@ WHERE entry = 15069;
 
 UPDATE mangos . item_template
 SET quality = 3,
-    required_skill = 165, -- Leatherworking
-    required_skill_rank = 300,
+    required_skill = 0, -- Leatherworking
+    required_skill_rank = 0,
     stat_type1 = 5,
     stat_value1 = 7,
     stat_type2 = 6,
@@ -2224,16 +2224,16 @@ WHERE entry = 15070;
 -- Ironfeather Set
 UPDATE mangos . item_template
 SET bonding = 1,
-    required_skill = 165, -- Leatherworking
-    required_skill_rank = 300,
+    required_skill = 0, -- Leatherworking
+    required_skill_rank = 0,
     spellid_1 = 18042, -- +68 Healing
     spelltrigger_1 = 1
 WHERE entry = 15066;
 
 UPDATE mangos . item_template
 SET bonding = 1,
-    required_skill = 165, -- Leatherworking
-    required_skill_rank = 300,
+    required_skill = 0, -- Leatherworking
+    required_skill_rank = 0,
     spellid_1 = 18032, -- +42 Healing
     spelltrigger_1 = 1
 WHERE entry = 15067;
@@ -2289,8 +2289,8 @@ WHERE entry = 8346;
 UPDATE mangos . item_template
 SET quality = 4,
     bonding = 1,
-    required_skill = 165, -- Leatherworking
-    required_skill_rank = 300,
+    required_skill = 0, -- Leatherworking
+    required_skill_rank = 0,
     spellid_1 = 18045, -- +75 Healing
     spelltrigger_1 = 1
 WHERE entry = 15059;
@@ -2308,32 +2308,32 @@ WHERE entry = 15060;
 -- Stormshroud Armor Set
 UPDATE mangos . item_template
 SET bonding = 1,
-    required_skill = 165, -- Leatherworking
-    required_skill_rank = 300,
+    required_skill = 0, -- Leatherworking
+    required_skill_rank = 0,
     stat_type1 = 3,
     stat_value1 = 40
 WHERE entry = 15056;
 
 UPDATE mangos . item_template
 SET bonding = 1,
-    required_skill = 165, -- Leatherworking
-    required_skill_rank = 300,
+    required_skill = 0, -- Leatherworking
+    required_skill_rank = 0,
     stat_type1 = 3,
     stat_value1 = 35
 WHERE entry = 15057;
 
 UPDATE mangos . item_template
 SET bonding = 1,
-    required_skill = 165, -- Leatherworking
-    required_skill_rank = 300,
+    required_skill = 0, -- Leatherworking
+    required_skill_rank = 0,
     stat_type1 = 3,
     stat_value1 = 27
 WHERE entry = 15058;
 
 UPDATE mangos . item_template
 SET bonding = 1,
-    required_skill = 165, -- Leatherworking
-    required_skill_rank = 300,
+    required_skill = 0, -- Leatherworking
+    required_skill_rank = 0,
     stat_type1 = 3,
     stat_value1 = 27
 WHERE entry = 21278;
@@ -2362,8 +2362,8 @@ WHERE entry = 8367;
 UPDATE mangos . item_template
 SET quality = 4,
     bonding = 1,
-    required_skill = 165, -- Leatherworking
-    required_skill_rank = 300,
+    required_skill = 0, -- Leatherworking
+    required_skill_rank = 0,
     stat_type1 = 5,
     stat_value1 = 10,
     stat_type2 = 7,
@@ -2380,8 +2380,8 @@ WHERE entry = 15050;
 UPDATE mangos . item_template
 SET quality = 4,
     bonding = 1,
-    required_skill = 165, -- Leatherworking
-    required_skill_rank = 300,
+    required_skill = 0, -- Leatherworking
+    required_skill_rank = 0,
     stat_type1 = 5,
     stat_value1 = 9,
     stat_type2 = 7,
@@ -2396,8 +2396,8 @@ WHERE entry = 15051;
 UPDATE mangos . item_template
 SET quality = 4,
     bonding = 1,
-    required_skill = 165, -- Leatherworking
-    required_skill_rank = 300,
+    required_skill = 0, -- Leatherworking
+    required_skill_rank = 0,
     stat_type1 = 5,
     stat_value1 = 10,
     stat_type2 = 7,
@@ -2414,8 +2414,8 @@ WHERE entry = 15052;
 UPDATE mangos . item_template
 SET quality = 4,
     bonding = 1,
-    required_skill = 165, -- Leatherworking
-    required_skill_rank = 300,
+    required_skill = 0, -- Leatherworking
+    required_skill_rank = 0,
     stat_type1 = 5,
     stat_value1 = 9,
     stat_type2 = 7,
@@ -2430,8 +2430,8 @@ WHERE entry = 16984;
 UPDATE mangos . item_template
 SET quality = 4,
     bonding = 1,
-    required_skill = 165, -- Leatherworking
-    required_skill_rank = 300,
+    required_skill = 0, -- Leatherworking
+    required_skill_rank = 0,
     spellid_1 = 18384, -- +1% Spell Crit
     spelltrigger_1 = 1,
     spellid_2 = 18052, -- +34 Spell Damage
@@ -2441,8 +2441,8 @@ WHERE entry = 15048;
 UPDATE mangos . item_template
 SET quality = 4,
     bonding = 1,
-    required_skill = 165, -- Leatherworking
-    required_skill_rank = 300,
+    required_skill = 0, -- Leatherworking
+    required_skill_rank = 0,
     spellid_1 = 26283, -- +20 Spell Penetration
     spelltrigger_1 = 1,
     spellid_2 = 18052, -- +34 Spell Damage
@@ -2452,8 +2452,8 @@ WHERE entry = 20295;
 UPDATE mangos . item_template
 SET quality = 4,
     bonding = 1,
-    required_skill = 165, -- Leatherworking
-    required_skill_rank = 300,
+    required_skill = 0, -- Leatherworking
+    required_skill_rank = 0,
     spellid_1 = 23727, -- +1% Spell Hit
     spelltrigger_1 = 1,
     spellid_2 = 14127, -- +28 Spell Damage
@@ -2465,8 +2465,8 @@ UPDATE mangos . item_template
 SET required_level = 55,
     quality = 4,
     bonding = 1,
-    required_skill = 165, -- Leatherworking
-    required_skill_rank = 300,
+    required_skill = 0, -- Leatherworking
+    required_skill_rank = 0,
     spellid_1 = 18045, -- +75 Healing
     spelltrigger_1 = 1
 WHERE entry = 15045;
@@ -2475,8 +2475,8 @@ UPDATE mangos . item_template
 SET required_level = 55,
     quality = 4,
     bonding = 1,
-    required_skill = 165, -- Leatherworking
-    required_skill_rank = 300,
+    required_skill = 0, -- Leatherworking
+    required_skill_rank = 0,
     spellid_1 = 18041, -- +66 Healing
     spelltrigger_1 = 1
 WHERE entry = 15046;
@@ -2485,8 +2485,8 @@ UPDATE mangos . item_template
 SET required_level = 55,
     quality = 4,
     bonding = 1,
-    required_skill = 165, -- Leatherworking
-    required_skill_rank = 300,
+    required_skill = 0, -- Leatherworking
+    required_skill_rank = 0,
     spellid_1 = 18031, -- +40 Healing
     spelltrigger_1 = 1
 WHERE entry = 20296;
@@ -2640,8 +2640,8 @@ WHERE entry = 18509;
 -- Argent Boots
 UPDATE mangos . item_template
 SET quality = 4,
-    required_skill = 197, -- Tailoring
-    required_skill_rank = 300,
+    required_skill = 0, -- Tailoring
+    required_skill_rank = 0,
     spellid_1 = 26283, -- +20 Spell Penetration
     spelltrigger_1 = 1
 WHERE entry = 19056;
@@ -2649,8 +2649,8 @@ WHERE entry = 19056;
 -- Argent Shoulders
 UPDATE mangos . item_template
 SET quality = 4,
-    required_skill = 197, -- Tailoring
-    required_skill_rank = 300,
+    required_skill = 0, -- Tailoring
+    required_skill_rank = 0,
     spellid_1 = 26283, -- +20 Spell Penetration
     spelltrigger_1 = 1
 WHERE entry = 19059;
@@ -2658,8 +2658,8 @@ WHERE entry = 19059;
 -- Mantle of the Timbermaw
 UPDATE mangos . item_template
 SET quality = 4,
-    required_skill = 197, -- Tailoring
-    required_skill_rank = 300,
+    required_skill = 0, -- Tailoring
+    required_skill_rank = 0,
     spellid_2 = 18031, -- +40 Healing
     spelltrigger_2 = 1
 WHERE entry = 19050;
@@ -2667,8 +2667,8 @@ WHERE entry = 19050;
 -- Wisdom of the Timbermaw
 UPDATE mangos . item_template
 SET quality = 4,
-    required_skill = 197, -- Tailoring
-    required_skill_rank = 300,
+    required_skill = 0, -- Tailoring
+    required_skill_rank = 0,
     spellid_2 = 9318, -- +33 Healing
     spelltrigger_2 = 1
 WHERE entry = 19047;
@@ -2868,8 +2868,8 @@ WHERE entry = 7938;
 -- Gloves of the Dawn
 UPDATE mangos . item_template
 SET quality = 4,
-    required_skill = 164, -- Blacksmithing
-    required_skill_rank = 300,
+    required_skill = 0, -- Blacksmithing
+    required_skill_rank = 0,
     stat_type3 = 5,
     stat_value3 = 15,
     spellid_1 = 13387, -- +8 Defense
@@ -2883,8 +2883,8 @@ WHERE entry = 19057;
 -- Girdle of the Dawn
 UPDATE mangos . item_template
 SET quality = 4,
-    required_skill = 164, -- Blacksmithing
-    required_skill_rank = 300,
+    required_skill = 0, -- Blacksmithing
+    required_skill_rank = 0,
     stat_type3 = 5,
     stat_value3 = 15,
     spellid_1 = 13387, -- +8 Defense
@@ -2898,8 +2898,8 @@ WHERE entry = 19051;
 -- Heavy Timbermaw Boots
 UPDATE mangos . item_template
 SET quality = 4,
-    required_skill = 164, -- Blacksmithing
-    required_skill_rank = 300,
+    required_skill = 0, -- Blacksmithing
+    required_skill_rank = 0,
     stat_type2 = 4,
     stat_value2 = 15,
     stat_type3 = 5,
@@ -2913,8 +2913,8 @@ WHERE entry = 19048;
 -- Heavy Timbermaw Belt
 UPDATE mangos . item_template
 SET quality = 4,
-    required_skill = 164, -- Blacksmithing
-    required_skill_rank = 300,
+    required_skill = 0, -- Blacksmithing
+    required_skill_rank = 0,
     stat_type2 = 4,
     stat_value2 = 15,
     stat_type3 = 5,
@@ -2955,8 +2955,8 @@ WHERE entry = 12631;
 UPDATE mangos . item_template
 SET subclass = 4,
     quality = 4,
-    required_skill = 164, -- Blacksmithing
-    required_skill_rank = 225,
+    required_skill = 0, -- Blacksmithing
+    required_skill_rank = 0,
     armor = 534,
     stat_type1 = 4,
     stat_value1 = 15,
@@ -3287,8 +3287,8 @@ WHERE entry = 7928;
 UPDATE mangos . item_template
 SET subclass = 4,
     quality = 3,
-    required_skill = 164, -- Blacksmithing
-    required_skill_rank = 300,
+    required_skill = 0, -- Blacksmithing
+    required_skill_rank = 0,
     armor = 386,
     stat_type1 = 5,
     stat_value1 = 7,
@@ -3305,8 +3305,8 @@ WHERE entry = 12419;
 UPDATE mangos . item_template
 SET subclass = 4,
     quality = 3,
-    required_skill = 164, -- Blacksmithing
-    required_skill_rank = 300,
+    required_skill = 0, -- Blacksmithing
+    required_skill_rank = 0,
     armor = 570,
     stat_type1 = 5,
     stat_value1 = 7,
@@ -3323,8 +3323,8 @@ WHERE entry = 12415;
 UPDATE mangos . item_template
 SET subclass = 4,
     quality = 3,
-    required_skill = 164, -- Blacksmithing
-    required_skill_rank = 300,
+    required_skill = 0, -- Blacksmithing
+    required_skill_rank = 0,
     armor = 507,
     stat_type1 = 5,
     stat_value1 = 7,
@@ -3341,8 +3341,8 @@ WHERE entry = 12420;
 UPDATE mangos . item_template
 SET subclass = 4,
     quality = 3,
-    required_skill = 164, -- Blacksmithing
-    required_skill_rank = 300,
+    required_skill = 0, -- Blacksmithing
+    required_skill_rank = 0,
     armor = 386,
     stat_type1 = 5,
     stat_value1 = 7,
@@ -3359,8 +3359,8 @@ WHERE entry = 12418;
 UPDATE mangos . item_template
 SET subclass = 4,
     quality = 3,
-    required_skill = 164, -- Blacksmithing
-    required_skill_rank = 300,
+    required_skill = 0, -- Blacksmithing
+    required_skill_rank = 0,
     armor = 285,
     stat_type1 = 5,
     stat_value1 = 7,
@@ -3377,8 +3377,8 @@ WHERE entry = 12416;
 UPDATE mangos . item_template
 SET subclass = 4,
     quality = 3,
-    required_skill = 164, -- Blacksmithing
-    required_skill_rank = 300,
+    required_skill = 0, -- Blacksmithing
+    required_skill_rank = 0,
     armor = 456,
     stat_type1 = 5,
     stat_value1 = 7,
@@ -3486,8 +3486,8 @@ WHERE entry = 12414;
 -- Imperial Plate Set
 UPDATE mangos . item_template
 SET quality = 3,
-    required_skill = 164, -- Blacksmithing
-    required_skill_rank = 300,
+    required_skill = 0, -- Blacksmithing
+    required_skill_rank = 0,
     spellid_1 = 9330, -- +18 Attack Power
     spelltrigger_1 = 1,
     spellid_2 = 15464, -- +1% Physical Hit
@@ -3496,8 +3496,8 @@ WHERE entry = 12426;
 
 UPDATE mangos . item_template
 SET quality = 3,
-    required_skill = 164, -- Blacksmithing
-    required_skill_rank = 300,
+    required_skill = 0, -- Blacksmithing
+    required_skill_rank = 0,
     spellid_1 = 7598, -- +2% Physical Crit
     spelltrigger_1 = 1,
     spellid_2 = 15465, -- +2% Physical Hit
@@ -3506,8 +3506,8 @@ WHERE entry = 12422;
 
 UPDATE mangos . item_template
 SET quality = 3,
-    required_skill = 164, -- Blacksmithing
-    required_skill_rank = 300,
+    required_skill = 0, -- Blacksmithing
+    required_skill_rank = 0,
     spellid_1 = 15808, -- +38 Attack Power
     spelltrigger_1 = 1,
     spellid_2 = 15464, -- +1% Physical Hit
@@ -3516,8 +3516,8 @@ WHERE entry = 12427;
 
 UPDATE mangos . item_template
 SET quality = 3,
-    required_skill = 164, -- Blacksmithing
-    required_skill_rank = 300,
+    required_skill = 0, -- Blacksmithing
+    required_skill_rank = 0,
     spellid_1 = 9330, -- +18 Attack Power
     spelltrigger_1 = 1,
     spellid_2 = 15464, -- +1% Physical Hit
@@ -3526,8 +3526,8 @@ WHERE entry = 12424;
 
 UPDATE mangos . item_template
 SET quality = 3,
-    required_skill = 164, -- Blacksmithing
-    required_skill_rank = 300,
+    required_skill = 0, -- Blacksmithing
+    required_skill_rank = 0,
     spellid_1 = 9330, -- +18 Attack Power
     spelltrigger_1 = 1,
     spellid_2 = 15464, -- +1% Physical Hit
@@ -3536,8 +3536,8 @@ WHERE entry = 12425;
 
 UPDATE mangos . item_template
 SET quality = 3,
-    required_skill = 164, -- Blacksmithing
-    required_skill_rank = 300,
+    required_skill = 0, -- Blacksmithing
+    required_skill_rank = 0,
     spellid_1 = 15808, -- +38 Attack Power
     spelltrigger_1 = 1,
     spellid_2 = 15464, -- +1% Physical Hit
@@ -3546,8 +3546,8 @@ WHERE entry = 12429;
 
 UPDATE mangos . item_template
 SET quality = 3,
-    required_skill = 164, -- Blacksmithing
-    required_skill_rank = 300,
+    required_skill = 0, -- Blacksmithing
+    required_skill_rank = 0,
     spellid_1 = 7598, -- +2% Physical Crit
     spelltrigger_1 = 1,
     spellid_2 = 15465, -- +2% Physical Hit
@@ -3556,8 +3556,8 @@ WHERE entry = 12428;
 
 -- Enchanted Thorium Set
 UPDATE mangos . item_template
-SET required_skill = 164, -- Blacksmithing
-    required_skill_rank = 300,
+SET required_skill = 0, -- Blacksmithing
+    required_skill_rank = 0,
     stat_type1 = 4,
     stat_value1 = 17,
     stat_type2 = 7,
@@ -3571,8 +3571,8 @@ SET required_skill = 164, -- Blacksmithing
 WHERE entry = 12620;
 
 UPDATE mangos . item_template
-SET required_skill = 164, -- Blacksmithing
-    required_skill_rank = 300,
+SET required_skill = 0, -- Blacksmithing
+    required_skill_rank = 0,
     stat_type1 = 4,
     stat_value1 = 17,
     stat_type2 = 7,
@@ -3588,8 +3588,8 @@ SET required_skill = 164, -- Blacksmithing
 WHERE entry = 12618;
 
 UPDATE mangos . item_template
-SET required_skill = 164, -- Blacksmithing
-    required_skill_rank = 300,
+SET required_skill = 0, -- Blacksmithing
+    required_skill_rank = 0,
     stat_type1 = 4,
     stat_value1 = 17,
     stat_type2 = 7,
@@ -3607,8 +3607,8 @@ WHERE entry = 12619;
 -- Runic Armor Set
 UPDATE mangos . item_template
 SET quality = 3,
-    required_skill = 164, -- Blacksmithing
-    required_skill_rank = 300,
+    required_skill = 0, -- Blacksmithing
+    required_skill_rank = 0,
     stat_type1 = 4,
     stat_value1 = 12,
     stat_type2 = 5,
@@ -3625,8 +3625,8 @@ WHERE entry = 12611;
 
 UPDATE mangos . item_template
 SET quality = 3,
-    required_skill = 164, -- Blacksmithing
-    required_skill_rank = 300,
+    required_skill = 0, -- Blacksmithing
+    required_skill_rank = 0,
     stat_type1 = 4,
     stat_value1 = 17,
     stat_type2 = 5,
@@ -3643,8 +3643,8 @@ WHERE entry = 12613;
 
 UPDATE mangos . item_template
 SET quality = 3,
-    required_skill = 164, -- Blacksmithing
-    required_skill_rank = 300,
+    required_skill = 0, -- Blacksmithing
+    required_skill_rank = 0,
     stat_type1 = 4,
     stat_value1 = 17,
     stat_type2 = 5,
@@ -3661,8 +3661,8 @@ WHERE entry = 12612;
 
 UPDATE mangos . item_template
     SET quality = 3,
-    required_skill = 164, -- Blacksmithing
-    required_skill_rank = 300,
+    required_skill = 0, -- Blacksmithing
+    required_skill_rank = 0,
     stat_type1 = 4,
     stat_value1 = 17,
     stat_type2 = 5,
@@ -3679,8 +3679,8 @@ WHERE entry = 12614;
 
 UPDATE mangos . item_template
 SET quality = 3,
-    required_skill = 164, -- Blacksmithing
-    required_skill_rank = 300,
+    required_skill = 0, -- Blacksmithing
+    required_skill_rank = 0,
     stat_type1 = 4,
     stat_value1 = 12,
     stat_type2 = 5,
@@ -3793,8 +3793,8 @@ UPDATE mangos . item_template
 SET subclass = 4,
     required_level = 60,
     item_level = 78,
-    required_skill = 164, -- Blacksmithing
-    required_skill_rank = 300,
+    required_skill = 0, -- Blacksmithing
+    required_skill_rank = 0,
     armor = 900,
     bonding = 1,
     stat_type1 = 4,
@@ -3814,8 +3814,8 @@ WHERE entry = 12641;
 UPDATE mangos . item_template
 SET required_level = 60,
     item_level = 78,
-    required_skill = 164, -- Blacksmithing
-    required_skill_rank = 300,
+    required_skill = 0, -- Blacksmithing
+    required_skill_rank = 0,
     quality = 4,
     delay = 3800,
     dmg_min1 = 225,
@@ -3826,8 +3826,8 @@ WHERE entry = 12782;
 UPDATE mangos . item_template
 SET required_level = 60,
     item_level = 78,
-    required_skill = 164, -- Blacksmithing
-    required_skill_rank = 300,
+    required_skill = 0, -- Blacksmithing
+    required_skill_rank = 0,
     quality = 4,
     bonding = 1,
     delay = 2900,
@@ -3839,8 +3839,8 @@ WHERE entry = 22384;
 UPDATE mangos . item_template
 SET required_level = 60,
     item_level = 78,
-    required_skill = 164, -- Blacksmithing
-    required_skill_rank = 300,
+    required_skill = 0, -- Blacksmithing
+    required_skill_rank = 0,
     quality = 4,
     delay = 1800,
     dmg_min1 = 55,
@@ -3855,8 +3855,8 @@ WHERE entry = 12781;
 UPDATE mangos . item_template
 SET required_level = 60,
     item_level = 78,
-    required_skill = 164, -- Blacksmithing
-    required_skill_rank = 300,
+    required_skill = 0, -- Blacksmithing
+    required_skill_rank = 0,
     quality = 4,
     bonding = 1,
     delay = 2000,
@@ -3868,8 +3868,8 @@ WHERE entry = 19166;
 UPDATE mangos . item_template
 SET required_level = 60,
     item_level = 78,
-    required_skill = 164, -- Blacksmithing
-    required_skill_rank = 300,
+    required_skill = 0, -- Blacksmithing
+    required_skill_rank = 0,
     quality = 4,
     bonding = 1,
     delay = 1500,
@@ -3882,8 +3882,8 @@ UPDATE mangos . item_template
 SET required_level = 60,
     item_level = 78,
     inventory_type = 13, -- One-handed (MH or OH)
-    required_skill = 164, -- Blacksmithing
-    required_skill_rank = 300,
+    required_skill = 0, -- Blacksmithing
+    required_skill_rank = 0,
     quality = 4,
     bonding = 1,
     delay = 2900,
@@ -3895,8 +3895,8 @@ WHERE entry = 12797;
 UPDATE mangos . item_template
 SET required_level = 60,
     item_level = 78,
-    required_skill = 164, -- Blacksmithing
-    required_skill_rank = 300,
+    required_skill = 0, -- Blacksmithing
+    required_skill_rank = 0,
     quality = 4,
     bonding = 1,
     delay = 1800,
@@ -3910,8 +3910,8 @@ WHERE entry = 22383;
 UPDATE mangos . item_template
 SET required_level = 60,
     item_level = 78,
-    required_skill = 164, -- Blacksmithing
-    required_skill_rank = 300,
+    required_skill = 0, -- Blacksmithing
+    required_skill_rank = 0,
     bonding = 1,
     delay = 3800,
     dmg_min1 = 225,
@@ -3922,8 +3922,8 @@ WHERE entry = 19169;
 UPDATE mangos . item_template
 SET required_level = 60,
     item_level = 78,
-    required_skill = 164, -- Blacksmithing
-    required_skill_rank = 300,
+    required_skill = 0, -- Blacksmithing
+    required_skill_rank = 0,
     quality = 4,
     bonding = 1, -- BOP
     delay = 2900,
@@ -4229,8 +4229,8 @@ UPDATE mangos . item_template
 SET required_level = 50,
     quality = 4,
     inventory_type = 21,
-    required_skill = 164, -- Blacksmithing
-    required_skill_rank = 225,
+    required_skill = 0, -- Blacksmithing
+    required_skill_rank = 0,
     delay = 1700,
     dmg_min1 = 51,
     dmg_max1 = 76,
