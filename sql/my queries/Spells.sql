@@ -1,5 +1,5 @@
--- 33955 NEXT SPELL
--- 15112 NEXT SKILL_LINE_ABILITY
+-- 33964 NEXT SPELL
+-- 15113 NEXT SKILL_LINE_ABILITY
 
 -- spell_chain for spells you want to learn in order but still keep previou ranks in spell book
 -- superseded_by_spell in skill_line_ability for spells you want overwritten by higher rank in spell book
@@ -1518,6 +1518,33 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
 UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `entry`=20922;
 UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `entry`=20923;
 UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `entry`=20924;
+
+-- Warlock
+    -- Curse of the Elements / Shadows spell maks
+    UPDATE `mangos`.`spell_template` SET `spellFamilyFlags`=19327352832 WHERE  `entry` IN (1490, 11721, 11722, 17862, 17937) AND `build`=5086;
+
+            -- Summon Felguard
+            -- TODO: Soul link description
+            -- TODO: Needs to work with fel dom (add to description of talent also!)
+            -- TODO: Needs to work with master summoner (add to description of talent also!)
+            -- TODO: Needs to work with fel stamina (add to description of talent also!)
+            -- TODO: Needs to work with fel intellect (add to description of talent also!)
+            -- Spell
+                REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `attributesEx`, `castingTimeIndex`, `interruptFlags`, `procChance`, `baseLevel`, `spellLevel`, `durationIndex`, `rangeIndex`, `reagent1`, `reagentCount1`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectMiscValue1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `manaCostPercentage`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33957, 4695, 5, 65536, 131073, 7, 15, 101, 40, 40, 21, 1, 6265, 1, -1, -1, 56, 1, 1, 0, -1, -1, 32, 90089, 7313, 2077, 'Summon Felguard', 8323134, 'Summon', 8323134, 'Summons a Felguard under the command of the Warlock.', 2031678, 2031644, 100, 133, 1500, 5, 536870912, 1, 1, -1, 1, 1, 1);
+
+                -- Whirlwind, Intercept(No stun), Cleave, Unholy Aura (2% hp/5s) 
+
+            -- Skill Line Ability
+                REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`, `superseded_by_spell`) VALUES (15112, 5875, 6, 33846, 128, 1, 0);
+
+            -- Creature (Felguard)
+                REPLACE `mangos`.`creature_template` (`entry`, `name`, `level_min`, `level_max`, `faction`, `display_id1`, `type`, `unit_class`, `health_multiplier`, `armor_multiplier`, `loot_id`, `pickpocket_loot_id`, `gold_min`, `gold_max`, `spell_id1`, `spell_id2`, `spell_list_id`, `ai_name`, `movement_type`, `inhabit_type`, `equipment_id`, `static_flags1`) VALUES (90089, 'Felguard', 60, 60, 91, 5049, 3, 2, 1.02, 2, 3772, 3772, 29, 97, 184, 18812, 37720, '', 1, 1, 3772, 524288);
+
+            -- Pet Spells
+                -- 33958 Whirlwind
+                -- 33959 Intercept
+                -- 33960 Cleave
+                -- 33961 Unholy Aura
 
 -- Mage
         -- Brilliance Aura

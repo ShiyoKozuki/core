@@ -1,4 +1,4 @@
--- NEXT talent ID is 1719
+-- NEXT talent ID is 1721
 -- Talents that grant a new spell (i.e. feral charge) need flags set to "1"
 -- Talents
 
@@ -235,10 +235,10 @@
 
     -- Improved Tranquaility (-2m/-4m CD)
     UPDATE `mangos`.`spell_template` SET `effect2`=6, `effectDieSides2`=1, `effectBaseDice2`=1, `effectBasePoints2`=-120001, `effectImplicitTargetA2`=1, `effectApplyAuraName2`=107, `effectItemType2`=128, `effectMiscValue2`=11 WHERE  `entry`=17123 AND `build`=5875;
-    UPDATE `mangos`.`spell_template` SET `description`='Reduces threat caused by Tranquility by $s1% and  cooldown by $/1000;s2 sec.' WHERE  `entry`=17123 AND `build`=5875;
+    UPDATE `mangos`.`spell_template` SET `description`='Reduces threat caused by Tranquility by $s1% and cooldown by $/1000;s2 sec.' WHERE  `entry`=17123 AND `build`=5875;
 
     UPDATE `mangos`.`spell_template` SET `effect2`=6, `effectDieSides2`=1, `effectBaseDice2`=1, `effectBasePoints2`=-240001, `effectImplicitTargetA2`=1, `effectApplyAuraName2`=107, `effectItemType2`=128, `effectMiscValue2`=11 WHERE  `entry`=17124 AND `build`=5875;
-    UPDATE `mangos`.`spell_template` SET `description`='Reduces threat caused by Tranquility by $s1% and  cooldown by $/1000;s2 sec.' WHERE  `entry`=17124 AND `build`=5875;
+    UPDATE `mangos`.`spell_template` SET `description`='Reduces threat caused by Tranquility by $s1% and cooldown by $/1000;s2 sec.' WHERE  `entry`=17124 AND `build`=5875;
 
     -- Improved Regrowth ALSO (-5%/-10%/-15%/-20%/-25% MP cost of Regrowth)
     UPDATE `mangos`.`spell_template` SET `effect2`=6, `effectDieSides2`=1, `effectBaseDice2`=1, `effectBasePoints2`=-6, `effectBonusCoefficient2`=1, `effectImplicitTargetA2`=1, `effectApplyAuraName2`=108, `effectItemType2`=64, `effectMiscValue2`=14, `description`='Increases the critical effect chance of your Regrowth spell by $s1% and reduces the Mana cost by $s2%.' WHERE  `entry`=17074 AND `build`=4222;
@@ -674,10 +674,49 @@ WHERE entry = 16720;
     WHERE spell_id = 14167;
 
 -- Warlock
+-- Improved Drain Life (2 points now, 12%/24% Life Drain damage)
+UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=11 WHERE  `entry`=17804;
+UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=23 WHERE  `entry`=17805;
+
+-- Improved Curse of Agony (Also applies attack speed reduction)
+-- TODO: Not coded
+UPDATE `mangos`.`spell_template` SET `effectDieSides2`=1, `effectBaseDice2`=1, `effectBasePoints2`=-4, `description`='Increases the damage done by your Curse of Agony by $s1% and also reduces reduces the targets attack speed by $s2%.' WHERE  `entry` IN (18827) AND `build`=4222;
+
+UPDATE `mangos`.`spell_template` SET `effectDieSides2`=1, `effectBaseDice2`=1, `effectBasePoints2`=-7, `description`='Increases the damage done by your Curse of Agony by $s1% and also reduces reduces the targets attack speed by $s2%.' WHERE  `entry` IN (18829) AND `build`=4222;
+
+UPDATE `mangos`.`spell_template` SET `effectDieSides2`=1, `effectBaseDice2`=1, `effectBasePoints2`=-11, `description`='Increases the damage done by your Curse of Agony by $s1% and also reduces reduces the targets attack speed by $s2%.' WHERE  `entry` IN (18830) AND `build`=4222;
+
+-- Amplify Curse (Renamed to Blight)
+    UPDATE `mangos`.`spell_template` SET `recoveryTime` = 60000, `effectBasePoints2`=9, `effectAmplitude1`=3000, `name`='Blight', `description`='Surrounds you with Blight, leeching $s1 Health from nearby enemies every $t1 sec.  Lasts $d.', `auraDescription`='Leeching $s1 Health from nearby enemies.' WHERE  `entry`=18288 AND `build`=5302;
+
+-- Improved Curse of Weakness (Now works on Curse of the Elements and Shadows too)
+UPDATE `mangos`.`spell_template` SET `effectItemType1`=17179901952, `name`='Improved Curses', `description`='Increases the effect of your Curse of Weakness, Curse of the Elements, and Curse of Shadows by $s1%.' WHERE  `entry` IN (18179, 18180, 18181) AND `build`=4222;
+
 -- Demonic Sacrifice
 UPDATE mangos . skill_line_ability
 SET skill_id = 355
 WHERE spell_id = 18788;
+
+-- Fel Stamina (3 points, 5% per point)
+UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=4 WHERE  `entry`=18748 AND `build`=4222;
+UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=9 WHERE  `entry`=18749 AND `build`=4222;
+UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=14 WHERE  `entry`=18750 AND `build`=4222;
+
+-- Fel Intellect (3 points, 5% per point)
+UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=4 WHERE  `entry`=18731 AND `build`=4222;
+UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=9 WHERE  `entry`=18743 AND `build`=4222;
+UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=14 WHERE  `entry`=18744 AND `build`=4222;
+
+-- Renamed Improved Enslave Demon to Improved Greater Demons (-15m/30m CD on Inferno)
+-- TODO: Code it, also description doesn';t say minutes says seconds
+UPDATE `mangos`.`spell_template` SET `name`='Improved Greater Demons', `effectBasePoints1`=-900001, `description`='Reduces the cooldown of Inferno by $/1000;s1 sec.' WHERE  `entry` IN (18821);
+UPDATE `mangos`.`spell_template` SET `name`='Improved Greater Demons', `effectBasePoints1`=-1800001, `description`='Reduces the cooldown of Inferno by $/1000;s1 sec.' WHERE  `entry` IN (18822);
+
+-- Fel Armor (+10%/20% Healing Recieved)
+-- TODO: Not coded to work
+REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectItemType1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `dmgMultiplier1`) VALUES (33962, 5464, 464, 1, 101, 21, 1, -1, 6, 1, 1, 9, 1, -1, -1, 1, 108, 0, 5, 2078, 'Fel Armor', 4128830, 'Rank 1', 4128830, 'All healing effects on you are increased by $s1%.', 4128830, 4128828, 5, 1);
+
+REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectItemType1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `dmgMultiplier1`) VALUES (33963, 5464, 464, 1, 101, 21, 1, -1, 6, 1, 1, 19, 1, -1, -1, 1, 108, 0, 5, 2078, 'Fel Armor', 4128830, 'Rank 2', 4128830, 'All healing effects on you are increased by $s1%.', 4128830, 4128828, 5, 1);
 
 -- Dark Pact
 UPDATE mangos . skill_line_ability
@@ -734,10 +773,12 @@ SET recoveryTime = 60000
 WHERE entry = 18708;
 
 -- Soul Link
-UPDATE mangos . spell_template 
-SET effectBasePoints1 = 9,
-    effectBasePoints2 = 19 
-WHERE entry = 25228;
+    UPDATE mangos . spell_template 
+    SET effectBasePoints1 = 19,
+        effectBasePoints2 = 9 
+    WHERE entry = 25228;
+
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=9 WHERE  `entry`=18814 AND `build`=5875;
 
 -- Searing Light
 UPDATE mangos . spell_template 
