@@ -1008,10 +1008,10 @@ UPDATE `mangos`.`spell_template` SET `manaCost`=0 WHERE  `entry`=11683;
 UPDATE `mangos`.`spell_template` SET `manaCost`=0 WHERE  `entry`=11684;
 
 -- Drain Soul (Only usable on targets <= 20% HP, damage increased by 4x)
-UPDATE `mangos`.`spell_template` SET `targetAuraState`=2 WHERE  `entry`=1120;
-UPDATE `mangos`.`spell_template` SET `targetAuraState`=2 WHERE  `entry`=8288;
-UPDATE `mangos`.`spell_template` SET `targetAuraState`=2 WHERE  `entry`=8289;
-UPDATE `mangos`.`spell_template` SET `targetAuraState`=2 WHERE  `entry`=11675;
+UPDATE `mangos`.`spell_template` SET `targetAuraState`=2, `description`='Drains the soul of the target, causing $o2 Shadow damage over $d.  If the target dies while being drained, and yields experience or honor, the caster gains a Soul Shard.  Soul Shards are required for other spells.  Only usable on enemies that have 20% or less health.' WHERE  `entry`=1120;
+UPDATE `mangos`.`spell_template` SET `targetAuraState`=2, `description`='Drains the soul of the target, causing $o2 Shadow damage over $d.  If the target dies while being drained, and yields experience or honor, the caster gains a Soul Shard.  Soul Shards are required for other spells.  Only usable on enemies that have 20% or less health.' WHERE  `entry`=8288;
+UPDATE `mangos`.`spell_template` SET `targetAuraState`=2, `description`='Drains the soul of the target, causing $o2 Shadow damage over $d.  If the target dies while being drained, and yields experience or honor, the caster gains a Soul Shard.  Soul Shards are required for other spells.  Only usable on enemies that have 20% or less health.' WHERE  `entry`=8289;
+UPDATE `mangos`.`spell_template` SET `targetAuraState`=2, `description`='Drains the soul of the target, causing $o2 Shadow damage over $d.  If the target dies while being drained, and yields experience or honor, the caster gains a Soul Shard.  Soul Shards are required for other spells.  Only usable on enemies that have 20% or less health.' WHERE  `entry`=11675;
 UPDATE `mangos`.`spell_template` SET `effectBasePoints2`=87 WHERE  `entry`=1120;
 UPDATE `mangos`.`spell_template` SET `effectBasePoints2`=247 WHERE  `entry`=8288;
 UPDATE `mangos`.`spell_template` SET `effectBasePoints2`=471 WHERE  `entry`=8289;
@@ -1461,27 +1461,27 @@ WHERE `entry`=20066 AND `build`=5086;
 
 -- Judgement of the Crusader
 UPDATE `mangos`.`spell_template` SET 
-`effectBasePoints1`=9, `effectApplyAuraName1`=3, `effectAmplitude1`=3000, `durationIndex`=9, `effectBonusCoefficient1`=0.167, `auraDescription`='Taking $s1 holy damage every $t1 sec.' 
+`effectBasePoints1`=9, `effectApplyAuraName1`=3, `effectAmplitude1`=3000, `durationIndex`=9, `effectBonusCoefficient1`=0.167, `auraDescription`='$s1 Holy damage every $t1 sec.' 
 WHERE  `entry`=21183;
 
 UPDATE `mangos`.`spell_template` SET 
-`effectBasePoints1`=27, `effectApplyAuraName1`=3, `effectAmplitude1`=3000, `durationIndex`=9, `effectBonusCoefficient1`=0.167, `auraDescription`='Taking $s1 holy damage every $t1 sec.' 
+`effectBasePoints1`=27, `effectApplyAuraName1`=3, `effectAmplitude1`=3000, `durationIndex`=9, `effectBonusCoefficient1`=0.167, `auraDescription`='$s1 Holy damage every $t1 sec.' 
 WHERE  `entry`=20188;
 
 UPDATE `mangos`.`spell_template` SET 
-`effectBasePoints1`=35, `effectApplyAuraName1`=3, `effectAmplitude1`=3000, `durationIndex`=9, `effectBonusCoefficient1`=0.167, `auraDescription`='Taking $s1 holy damage every $t1 sec.' 
+`effectBasePoints1`=35, `effectApplyAuraName1`=3, `effectAmplitude1`=3000, `durationIndex`=9, `effectBonusCoefficient1`=0.167, `auraDescription`='$s1 Holy damage every $t1 sec.' 
 WHERE  `entry`=20300;
 
 UPDATE `mangos`.`spell_template` SET 
-`effectBasePoints1`=43, `effectApplyAuraName1`=3, `effectAmplitude1`=3000, `durationIndex`=9, `effectBonusCoefficient1`=0.167, `auraDescription`='Taking $s1 holy damage every $t1 sec.' 
+`effectBasePoints1`=43, `effectApplyAuraName1`=3, `effectAmplitude1`=3000, `durationIndex`=9, `effectBonusCoefficient1`=0.167, `auraDescription`='$s1 Holy damage every $t1 sec.' 
 WHERE  `entry`=20301;
 
 UPDATE `mangos`.`spell_template` SET 
-`effectBasePoints1`=55, `effectApplyAuraName1`=3, `effectAmplitude1`=3000, `durationIndex`=9, `effectBonusCoefficient1`=0.167, `auraDescription`='Taking $s1 holy damage every $t1 sec.' 
+`effectBasePoints1`=55, `effectApplyAuraName1`=3, `effectAmplitude1`=3000, `durationIndex`=9, `effectBonusCoefficient1`=0.167, `auraDescription`='$s1 Holy damage every $t1 sec.' 
 WHERE  `entry`=20302;
 
 UPDATE `mangos`.`spell_template` SET 
-`effectBasePoints1`=83, `effectApplyAuraName1`=3, `effectAmplitude1`=3000, `durationIndex`=9, `effectBonusCoefficient1`=0.167, `auraDescription`='Taking $s1 holy damage every $t1 sec.' 
+`effectBasePoints1`=83, `effectApplyAuraName1`=3, `effectAmplitude1`=3000, `durationIndex`=9, `effectBonusCoefficient1`=0.167, `auraDescription`='$s1 Holy damage every $t1 sec.' 
 WHERE  `entry`=20303;
 
 -- Seal of the Crusader description
@@ -1553,13 +1553,17 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
         REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectItemType1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `dmgMultiplier1`) VALUES (33963, 5464, 464, 1, 101, 21, 1, -1, 6, 1, 1, 19, 1, -1, -1, 1, 118, 0, 127, 2078, 'Fel Armor', 4128830, 'Rank 2', 4128830, 'All healing effects on you are increased by $s1%.', 4128830, 4128828, 5, 1);
 
         -- Blight
+            -- TODO: More ranks
+            -- TODO: Duration (30s)
             -- Spell
                 REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `category`, `dispel`, `castingTimeIndex`, `categoryRecoveryTime`, `interruptFlags`, `procChance`, `maxLevel`, `baseLevel`, `spellLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectAmplitude1`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (18288, 5302, 2, 21, 1, 0, 15000, 15, 101, 22, 9, 9, 3, 4, -1, -1, 6, 1, 1, -1, 0, -1, -1, 21, 23, 3000, 33964, 682, 1494, 50, 'Fire Shield', 983070, 983052, 'Surrounds an ally with a shield of flame that inflicts $3052s1 Fire damage to nearby enemies every $t1 sec.  Lasts $d.', 983070, 'Inflicting $3052s1 Fire damage to nearby enemies every $t1 sec.', 983054, 1, 1, -1, 1, 1, 1);
 
                 UPDATE `mangos`.`spell_template` SET `recoveryTime` = 60000, `name`='Blight', `description`='Surrounds you with Blight, leeching $33964s1 Health from nearby enemies every $t1 sec.  Lasts $d.', `auraDescription`='Leeching $33964s1 Health from nearby enemies.' WHERE  `entry`=18288 AND `build`=5302;
 
             -- Proc
-                REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `attributesEx`, `castingTimeIndex`, `procChance`, `maxLevel`, `baseLevel`, `spellLevel`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetB1`, `effectRadiusIndex1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33964, 5302, 5, 262144, 136, 1, 101, 22, 9, 9, 1, -1, -1, 2, 1, 1, 24, 0.25, -1, -1, 22, 15, 8, 682, 1494, 'Blight Effect', 2031678, 2031676, 2031676, 2031676, 1, 1, -1, 1, 1, 1);
+                REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `attributesEx`, `castingTimeIndex`, `procChance`, `maxLevel`, `baseLevel`, `spellLevel`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetB1`, `effectRadiusIndex1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33964, 5302, 5, 262144, 136, 1, 101, 22, 9, 9, 1, -1, -1, 2, 1, 1, 24, 0.25, -1, -1, 22, 15, 8, 682, 1494, 'Blight', 2031678, 2031676, 2031676, 2031676, 1, 1, -1, 1, 1, 1);
+
+            UPDATE `mangos`.`spell_template` SET `effect1`=9, `effectMultipleValue1`=1, `description`='Drains $s1 health from an enemy, transferring it to the caster.' WHERE  `entry`=33964 AND `build`=5302;
 
 
 -- Mage

@@ -4456,6 +4456,57 @@ void Aura::HandlePeriodicLeech(bool apply, bool /*Real*/)
         Unit* caster = GetCaster();
         if (!caster)
             return;
+        
+        SpellEntry const* spellProto = GetSpellProto();
+        switch (spellProto->SpellFamilyName)
+        {
+        case SPELLFAMILY_WARLOCK:
+            {
+                // Improved Drain Life
+                if (GetSpellProto()->IsFitToFamilyMask<CF_WARLOCK_DRAIN_LIFE>())
+                {
+                    Unit* target = GetTarget();
+                    uint8 dots = 0;
+
+                    // Damage dots
+                    Unit::AuraList const& dmgDots = target->GetAurasByType(SPELL_AURA_PERIODIC_DAMAGE);
+
+                    // Leech dots (Siphon Life)
+                    Unit::AuraList const& leechDots = target->GetAurasByType(SPELL_AURA_PERIODIC_LEECH);
+
+                    auto countDot = [&](Aura* aura)
+                    {
+                        if (aura->GetCasterGuid() != caster->GetObjectGuid())
+                            return;
+
+                        SpellEntry const* p = aura->GetSpellProto();
+
+                        if (p->IsFitToFamily<SPELLFAMILY_WARLOCK, CF_WARLOCK_CORRUPTION>() || p->IsFitToFamily<SPELLFAMILY_WARLOCK, CF_WARLOCK_CURSE_OF_AGONY>() || p->IsFitToFamily<SPELLFAMILY_WARLOCK, CF_WARLOCK_SIPHON_LIFE>())
+                        {
+                            ++dots;
+                        }
+                    };
+
+                    for (Aura* aura : dmgDots)
+                        countDot(aura);
+
+                    for (Aura* aura : leechDots)
+                        countDot(aura);
+
+                    uint8 pct = 0;
+                    if (caster->HasAura(17805))
+                        pct = 30;
+                    else if (caster->HasAura(17804))
+                        pct = 15;
+
+                    if (pct && dots)
+                        m_modifier.m_amount += m_modifier.m_amount * float(dots * pct) / 100.0f;
+                }
+                break;
+            }
+        default:
+            break;
+        }
 
         m_modifier.m_amount = caster->SpellDamageBonusDone(GetTarget(), GetSpellProto(), GetEffIndex(), m_modifier.m_amount, DOT, GetStackAmount());
     }
