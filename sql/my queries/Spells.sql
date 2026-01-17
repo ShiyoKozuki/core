@@ -953,7 +953,7 @@ UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=71 WHERE  `entry`=11573
 UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=83 WHERE  `entry`=11574;
 
 -- Demon Skin / Demon Armor (HP Regen Tripled)
-UPDATE `mangos`.`spell_template` SET `effectBasePoints2`=8 WHERE  `entry`=687;
+UPDATE `mangos`.`spell_template` SET `effectBasePoints2`=5 WHERE  `entry`=687;
 UPDATE `mangos`.`spell_template` SET `effectBasePoints2`=14 WHERE  `entry`=696;
 UPDATE `mangos`.`spell_template` SET `effectBasePoints2`=2 WHERE  `entry`=706;
 UPDATE `mangos`.`spell_template` SET `effectBasePoints2`=5 WHERE  `entry`=1086;
@@ -967,12 +967,12 @@ UPDATE `mangos`.`spell_template` SET `effectBasePoints3`=38 WHERE  `entry`=11734
 UPDATE `mangos`.`spell_template` SET `effectBasePoints3`=44 WHERE  `entry`=11735;
 
 -- Curse of Weakness
-UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=-10 WHERE  `entry`=702 AND `build`=5302;
-UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=-19 WHERE  `entry`=1108 AND `build`=5302;
-UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=-31 WHERE  `entry`=6205 AND `build`=5302;
-UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=-46 WHERE  `entry`=7646 AND `build`=5302;
-UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=-67 WHERE  `entry`=11707 AND `build`=5302;
-UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=-93 WHERE  `entry`=11708 AND `build`=5302;
+UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=-7 WHERE  `entry`=702 AND `build`=5302;
+UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=-13 WHERE  `entry`=1108 AND `build`=5302;
+UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=-21 WHERE  `entry`=6205 AND `build`=5302;
+UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=-31 WHERE  `entry`=7646 AND `build`=5302;
+UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=-45 WHERE  `entry`=11707 AND `build`=5302;
+UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=-63 WHERE  `entry`=11708 AND `build`=5302;
 
 -- Life Tap
 UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=59 WHERE  `entry`=1454 AND `build`=5875;
@@ -1545,6 +1545,22 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
                 -- 33959 Intercept
                 -- 33960 Cleave
                 -- 33961 Unholy Aura
+
+    -- Fel Armor (+10%/20% Healing Recieved)
+        -- TODO: Not coded to work
+        REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectItemType1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `dmgMultiplier1`) VALUES (33962, 5464, 464, 1, 101, 21, 1, -1, 6, 1, 1, 9, 1, -1, -1, 1, 118, 0, 127, 2078, 'Fel Armor', 4128830, 'Rank 1', 4128830, 'All healing effects on you are increased by $s1%.', 4128830, 4128828, 5, 1);
+
+        REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectItemType1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `dmgMultiplier1`) VALUES (33963, 5464, 464, 1, 101, 21, 1, -1, 6, 1, 1, 19, 1, -1, -1, 1, 118, 0, 127, 2078, 'Fel Armor', 4128830, 'Rank 2', 4128830, 'All healing effects on you are increased by $s1%.', 4128830, 4128828, 5, 1);
+
+        -- Blight
+            -- Spell
+                REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `category`, `dispel`, `castingTimeIndex`, `categoryRecoveryTime`, `interruptFlags`, `procChance`, `maxLevel`, `baseLevel`, `spellLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectAmplitude1`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (18288, 5302, 2, 21, 1, 0, 15000, 15, 101, 22, 9, 9, 3, 4, -1, -1, 6, 1, 1, -1, 0, -1, -1, 21, 23, 3000, 33964, 682, 1494, 50, 'Fire Shield', 983070, 983052, 'Surrounds an ally with a shield of flame that inflicts $3052s1 Fire damage to nearby enemies every $t1 sec.  Lasts $d.', 983070, 'Inflicting $3052s1 Fire damage to nearby enemies every $t1 sec.', 983054, 1, 1, -1, 1, 1, 1);
+
+                UPDATE `mangos`.`spell_template` SET `recoveryTime` = 60000, `name`='Blight', `description`='Surrounds you with Blight, leeching $33964s1 Health from nearby enemies every $t1 sec.  Lasts $d.', `auraDescription`='Leeching $33964s1 Health from nearby enemies.' WHERE  `entry`=18288 AND `build`=5302;
+
+            -- Proc
+                REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `attributesEx`, `castingTimeIndex`, `procChance`, `maxLevel`, `baseLevel`, `spellLevel`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetB1`, `effectRadiusIndex1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33964, 5302, 5, 262144, 136, 1, 101, 22, 9, 9, 1, -1, -1, 2, 1, 1, 24, 0.25, -1, -1, 22, 15, 8, 682, 1494, 'Blight Effect', 2031678, 2031676, 2031676, 2031676, 1, 1, -1, 1, 1, 1);
+
 
 -- Mage
         -- Brilliance Aura

@@ -679,17 +679,25 @@ UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=11 WHERE  `entry`=17804
 UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=23 WHERE  `entry`=17805;
 
 -- Improved Curse of Agony (Also applies attack speed reduction)
--- TODO: Not coded
-UPDATE `mangos`.`spell_template` SET `effectDieSides2`=1, `effectBaseDice2`=1, `effectBasePoints2`=-4, `description`='Increases the damage done by your Curse of Agony by $s1% and also reduces reduces the targets attack speed by $s2%.' WHERE  `entry` IN (18827) AND `build`=4222;
+UPDATE `mangos`.`spell_template` SET `effect2`=6, `effectDieSides2`=1, `effectBaseDice2`=1, `effectBasePoints2`=-1, `effectBonusCoefficient2`=0, `effectImplicitTargetA2`=6, `effectApplyAuraName2`=33 WHERE  `entry`=980 AND `build`=5464;
 
-UPDATE `mangos`.`spell_template` SET `effectDieSides2`=1, `effectBaseDice2`=1, `effectBasePoints2`=-7, `description`='Increases the damage done by your Curse of Agony by $s1% and also reduces reduces the targets attack speed by $s2%.' WHERE  `entry` IN (18829) AND `build`=4222;
+UPDATE `mangos`.`spell_template` SET `effectDieSides2`=1, `effectBaseDice2`=1, `effectBasePoints2`=-4, `description`='Increases the damage done by your Curse of Agony by $s1% and also reduces reduces the targets attack speed by $s2%.' WHERE  `entry` IN (18827);
 
-UPDATE `mangos`.`spell_template` SET `effectDieSides2`=1, `effectBaseDice2`=1, `effectBasePoints2`=-11, `description`='Increases the damage done by your Curse of Agony by $s1% and also reduces reduces the targets attack speed by $s2%.' WHERE  `entry` IN (18830) AND `build`=4222;
+-- TODO: Should effectImplicitTargetA2 be 1 or 6?
+UPDATE `mangos`.`spell_template` SET `effect2`=6, `effectDieSides2`=1, `effectBaseDice2`=1, `effectBasePoints2`=2, `effectImplicitTargetA2`=6, `effectApplyAuraName2`=107, `effectItemType2`=1024, `effectMiscValue2`=8 WHERE  `entry`=18827;
 
--- Amplify Curse (Renamed to Blight)
-    UPDATE `mangos`.`spell_template` SET `recoveryTime` = 60000, `effectBasePoints2`=9, `effectAmplitude1`=3000, `name`='Blight', `description`='Surrounds you with Blight, leeching $s1 Health from nearby enemies every $t1 sec.  Lasts $d.', `auraDescription`='Leeching $s1 Health from nearby enemies.' WHERE  `entry`=18288 AND `build`=5302;
+UPDATE `mangos`.`spell_template` SET `effectDieSides2`=1, `effectBaseDice2`=1, `effectBasePoints2`=-7, `description`='Increases the damage done by your Curse of Agony by $s1% and also reduces reduces the targets attack speed by $s2%.' WHERE  `entry` IN (18829);
+
+-- TODO: Should effectImplicitTargetA2 be 1 or 6?
+UPDATE `mangos`.`spell_template` SET `effect2`=6, `effectDieSides2`=1, `effectBaseDice2`=1, `effectBasePoints2`=5, `effectImplicitTargetA2`=6, `effectApplyAuraName2`=107, `effectItemType2`=1024, `effectMiscValue2`=8 WHERE  `entry`=18829;
+
+UPDATE `mangos`.`spell_template` SET `effectDieSides2`=1, `effectBaseDice2`=1, `effectBasePoints2`=-11, `description`='Increases the damage done by your Curse of Agony by $s1% and also reduces reduces the targets attack speed by $s2%.' WHERE  `entry` IN (18830);
+
+-- TODO: Should effectImplicitTargetA2 be 1 or 6?
+UPDATE `mangos`.`spell_template` SET `effect2`=6, `effectDieSides2`=1, `effectBaseDice2`=1, `effectBasePoints2`=9, `effectImplicitTargetA2`=6, `effectApplyAuraName2`=107, `effectItemType2`=1024, `effectMiscValue2`=8 WHERE  `entry`=18830;
 
 -- Improved Curse of Weakness (Now works on Curse of the Elements and Shadows too)
+-- TODO: Is     CF_WARLOCK_CURSE_SHADOWS_ELEMENTS       = 34,   // CM1 00000004 unneeded? Was working without it..
 UPDATE `mangos`.`spell_template` SET `effectItemType1`=17179901952, `name`='Improved Curses', `description`='Increases the effect of your Curse of Weakness, Curse of the Elements, and Curse of Shadows by $s1%.' WHERE  `entry` IN (18179, 18180, 18181) AND `build`=4222;
 
 -- Demonic Sacrifice
@@ -709,14 +717,14 @@ UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=14 WHERE  `entry`=18744
 
 -- Renamed Improved Enslave Demon to Improved Greater Demons (-15m/30m CD on Inferno)
 -- TODO: Code it, also description doesn';t say minutes says seconds
+UPDATE `mangos`.`spell_template` SET `effect1`=6, `effectDieSides1`=1, `effectBaseDice1`=1, `effectBasePoints1`=-900001, `effectImplicitTargetA1`=1, `effectApplyAuraName1`=107, `effectItemType1`=2048, `effectMiscValue1`=11 WHERE  `entry`=18821;
+
 UPDATE `mangos`.`spell_template` SET `name`='Improved Greater Demons', `effectBasePoints1`=-900001, `description`='Reduces the cooldown of Inferno by $/1000;s1 sec.' WHERE  `entry` IN (18821);
+
+
+UPDATE `mangos`.`spell_template` SET `effect1`=6, `effectDieSides1`=1, `effectBaseDice1`=1, `effectBasePoints1`=-900001, `effectImplicitTargetA1`=1, `effectApplyAuraName1`=107, `effectItemType1`=2048, `effectMiscValue1`=11 WHERE  `entry`=18822;
+
 UPDATE `mangos`.`spell_template` SET `name`='Improved Greater Demons', `effectBasePoints1`=-1800001, `description`='Reduces the cooldown of Inferno by $/1000;s1 sec.' WHERE  `entry` IN (18822);
-
--- Fel Armor (+10%/20% Healing Recieved)
--- TODO: Not coded to work
-REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectItemType1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `dmgMultiplier1`) VALUES (33962, 5464, 464, 1, 101, 21, 1, -1, 6, 1, 1, 9, 1, -1, -1, 1, 108, 0, 5, 2078, 'Fel Armor', 4128830, 'Rank 1', 4128830, 'All healing effects on you are increased by $s1%.', 4128830, 4128828, 5, 1);
-
-REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectItemType1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `dmgMultiplier1`) VALUES (33963, 5464, 464, 1, 101, 21, 1, -1, 6, 1, 1, 19, 1, -1, -1, 1, 108, 0, 5, 2078, 'Fel Armor', 4128830, 'Rank 2', 4128830, 'All healing effects on you are increased by $s1%.', 4128830, 4128828, 5, 1);
 
 -- Dark Pact
 UPDATE mangos . skill_line_ability
