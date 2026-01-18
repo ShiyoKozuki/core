@@ -1,4 +1,4 @@
--- NEXT talent ID is 1721
+-- NEXT talent ID is 1722
 -- Talents that grant a new spell (i.e. feral charge) need flags set to "1"
 -- Talents
 
@@ -674,7 +674,7 @@ WHERE entry = 16720;
     WHERE spell_id = 14167;
 
 -- Warlock
--- Improved Drain Life (2 points now, +10% damage per CASTERS Affliction DoT on target)
+-- Improved Drain Life (2 points now, +15%/30% damage per CASTERS Affliction DoT on target)
 UPDATE `mangos`.`spell_template` SET `description`='Increases the Health drained by your Drain Life spell by $s1%.  Additionally, this effect is also increased by 15% per Affliction damage over time effect active on the target.', `effectBasePoints1`=9 WHERE  `entry`=17804;
 UPDATE `mangos`.`spell_template` SET `description`='Increases the Health drained by your Drain Life spell by $s1%.  Additionally, this effect is also increased by 30% per Affliction damage over time effect active on the target.', `effectBasePoints1`=19 WHERE  `entry`=17805;
 
@@ -682,7 +682,7 @@ UPDATE `mangos`.`spell_template` SET `description`='Increases the Health drained
 -- TODO: Add all ranks of CoA for the IN (). Test rank1 first
 -- TODO: 138 is melee haste
 -- TODO: Starts at -1, needs to be negative effect (-1). Figure out the math for 3%/6%/10%
-UPDATE `mangos`.`spell_template` SET `effect2`=6, `effectDieSides2`=1, `effectBaseDice2`=1, `effectBasePoints2`=-1, `effectBonusCoefficient2`=0, `effectImplicitTargetA2`=6, `effectApplyAuraName2`=138 WHERE  `entry` IN (980);
+UPDATE `mangos`.`spell_template` SET `effect2`=6, `effectDieSides2`=1, `effectBaseDice2`=1, `effectBasePoints2`=-1, `effectBonusCoefficient2`=0, `effectImplicitTargetA2`=6, `effectApplyAuraName2`=138 WHERE  `entry` IN (980, 1014, 6217, 11711, 11712, 11713);
 
 UPDATE `mangos`.`spell_template` SET `effectDieSides2`=1, `effectBaseDice2`=1, `effectBasePoints2`=-2, `description`='Increases the damage done by your Curse of Agony by $s1% and also reduces reduces the targets attack speed by $s2%.' WHERE  `entry` IN (18827);
 
@@ -786,7 +786,7 @@ WHERE entry = 18708;
 
 -- Soul Link
     UPDATE mangos . spell_template 
-    SET effectBasePoints1 = 19,
+    SET effectBasePoints1 = 9,
         effectBasePoints2 = 9 
     WHERE entry = 25228;
 

@@ -1,4 +1,4 @@
--- 33964 NEXT SPELL
+-- 33971 NEXT SPELL
 -- 15113 NEXT SKILL_LINE_ABILITY
 
 -- spell_chain for spells you want to learn in order but still keep previou ranks in spell book
@@ -1461,15 +1461,15 @@ WHERE `entry`=20066 AND `build`=5086;
 
 -- Judgement of the Crusader
 UPDATE `mangos`.`spell_template` SET 
-`effectBasePoints1`=9, `effectApplyAuraName1`=3, `effectAmplitude1`=3000, `durationIndex`=9, `effectBonusCoefficient1`=0.167, `auraDescription`='$s1 Holy damage every $t1 sec.' 
+`effectBasePoints1`=5, `effectApplyAuraName1`=3, `effectAmplitude1`=3000, `durationIndex`=9, `effectBonusCoefficient1`=0.167, `auraDescription`='$s1 Holy damage every $t1 sec.' 
 WHERE  `entry`=21183;
 
 UPDATE `mangos`.`spell_template` SET 
-`effectBasePoints1`=27, `effectApplyAuraName1`=3, `effectAmplitude1`=3000, `durationIndex`=9, `effectBonusCoefficient1`=0.167, `auraDescription`='$s1 Holy damage every $t1 sec.' 
+`effectBasePoints1`=11, `effectApplyAuraName1`=3, `effectAmplitude1`=3000, `durationIndex`=9, `effectBonusCoefficient1`=0.167, `auraDescription`='$s1 Holy damage every $t1 sec.' 
 WHERE  `entry`=20188;
 
 UPDATE `mangos`.`spell_template` SET 
-`effectBasePoints1`=35, `effectApplyAuraName1`=3, `effectAmplitude1`=3000, `durationIndex`=9, `effectBonusCoefficient1`=0.167, `auraDescription`='$s1 Holy damage every $t1 sec.' 
+`effectBasePoints1`=26, `effectApplyAuraName1`=3, `effectAmplitude1`=3000, `durationIndex`=9, `effectBonusCoefficient1`=0.167, `auraDescription`='$s1 Holy damage every $t1 sec.' 
 WHERE  `entry`=20300;
 
 UPDATE `mangos`.`spell_template` SET 
@@ -1520,6 +1520,7 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
 UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `entry`=20924;
 
 -- Warlock
+    -- TODO: Skill Line Ability (demo)
     -- Curse of the Elements / Shadows spell maks
     UPDATE `mangos`.`spell_template` SET `spellFamilyFlags`=19327352832 WHERE  `entry` IN (1490, 11721, 11722, 17862, 17937) AND `build`=5086;
 
@@ -1546,24 +1547,54 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
                 -- 33960 Cleave
                 -- 33961 Unholy Aura
 
-    -- Fel Armor (+10%/20% Healing Recieved)
-        -- TODO: Not coded to work
-        REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectItemType1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `dmgMultiplier1`) VALUES (33962, 5464, 464, 1, 101, 21, 1, -1, 6, 1, 1, 9, 1, -1, -1, 1, 118, 0, 127, 2078, 'Fel Armor', 4128830, 'Rank 1', 4128830, 'All healing effects on you are increased by $s1%.', 4128830, 4128828, 5, 1);
+    -- Demonic Aegis (+10%/20% Healing Recieved, +25%/50% Armor)
+        REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectItemType1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `dmgMultiplier1`) VALUES (33962, 5464, 464, 1, 101, 21, 1, -1, 6, 1, 1, 9, 1, -1, -1, 1, 118, 0, 127, 2078, 'Demonic Aegis', 4128830, 'Rank 1', 4128830, 'All healing effects on you are increased by $s1% and your armor value from items is increased by $s2%.', 4128830, 4128828, 5, 1);
 
-        REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectItemType1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `dmgMultiplier1`) VALUES (33963, 5464, 464, 1, 101, 21, 1, -1, 6, 1, 1, 19, 1, -1, -1, 1, 118, 0, 127, 2078, 'Fel Armor', 4128830, 'Rank 2', 4128830, 'All healing effects on you are increased by $s1%.', 4128830, 4128828, 5, 1);
+        UPDATE `mangos`.`spell_template` SET `effect2`=6, `effectDieSides2`=1, `effectBaseDice2`=1, `effectBasePoints2`=24, `effectImplicitTargetA2`=1, `effectApplyAuraName2`=142, `effectMiscValue2`=1 WHERE  `entry`=33962 AND `build`=5464;
 
-        -- Blight
-            -- TODO: More ranks
-            -- TODO: Duration (30s)
-            -- Spell
-                REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `category`, `dispel`, `castingTimeIndex`, `categoryRecoveryTime`, `interruptFlags`, `procChance`, `maxLevel`, `baseLevel`, `spellLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectAmplitude1`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (18288, 5302, 2, 21, 1, 0, 15000, 15, 101, 22, 9, 9, 3, 4, -1, -1, 6, 1, 1, -1, 0, -1, -1, 21, 23, 3000, 33964, 682, 1494, 50, 'Fire Shield', 983070, 983052, 'Surrounds an ally with a shield of flame that inflicts $3052s1 Fire damage to nearby enemies every $t1 sec.  Lasts $d.', 983070, 'Inflicting $3052s1 Fire damage to nearby enemies every $t1 sec.', 983054, 1, 1, -1, 1, 1, 1);
+        REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectItemType1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `dmgMultiplier1`) VALUES (33963, 5464, 464, 1, 101, 21, 1, -1, 6, 1, 1, 19, 1, -1, -1, 1, 118, 0, 127, 2078, 'Demonic Aegis', 4128830, 'Rank 2', 4128830, 'All healing effects on you are increased by $s1% and your armor value from items is increased by $s2%.', 4128830, 4128828, 5, 1);
 
-                UPDATE `mangos`.`spell_template` SET `recoveryTime` = 60000, `name`='Blight', `description`='Surrounds you with Blight, leeching $33964s1 Health from nearby enemies every $t1 sec.  Lasts $d.', `auraDescription`='Leeching $33964s1 Health from nearby enemies.' WHERE  `entry`=18288 AND `build`=5302;
+        UPDATE `mangos`.`spell_template` SET `effect2`=6, `effectDieSides2`=1, `effectBaseDice2`=1, `effectBasePoints2`=49, `effectImplicitTargetA2`=1, `effectApplyAuraName2`=142, `effectMiscValue2`=1 WHERE  `entry`=33963 AND `build`=5464;
 
-            -- Proc
-                REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `attributesEx`, `castingTimeIndex`, `procChance`, `maxLevel`, `baseLevel`, `spellLevel`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetB1`, `effectRadiusIndex1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33964, 5302, 5, 262144, 136, 1, 101, 22, 9, 9, 1, -1, -1, 2, 1, 1, 24, 0.25, -1, -1, 22, 15, 8, 682, 1494, 'Blight', 2031678, 2031676, 2031676, 2031676, 1, 1, -1, 1, 1, 1);
+    -- Blight
+        -- TODO: More ranks
+        -- Spell
+            REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `category`, `dispel`, `castingTimeIndex`, `categoryRecoveryTime`, `interruptFlags`, `procChance`, `maxLevel`, `baseLevel`, `spellLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectAmplitude1`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (18288, 5302, 2, 21, 1, 0, 15000, 15, 101, 22, 9, 9, 9, 4, -1, -1, 6, 1, 1, -1, 0, -1, -1, 21, 23, 3000, 33964, 682, 1494, 50, 'Fire Shield', 983070, 983052, 'Surrounds an ally with a shield of flame that inflicts $3052s1 Fire damage to nearby enemies every $t1 sec.  Lasts $d.', 983070, 'Inflicting $3052s1 Fire damage to nearby enemies every $t1 sec.', 983054, 1, 1, -1, 1, 1, 1);
 
-            UPDATE `mangos`.`spell_template` SET `effect1`=9, `effectMultipleValue1`=1, `description`='Drains $s1 health from an enemy, transferring it to the caster.' WHERE  `entry`=33964 AND `build`=5302;
+            UPDATE `mangos`.`spell_template` SET `recoveryTime` = 60000, `name`='Blight', `description`='Surrounds you with Blight, leeching $33964s1 Health from nearby enemies every $t1 sec.  Lasts $d.', `auraDescription`='Leeching $33964s1 Health from nearby enemies.' WHERE  `entry`=18288 AND `build`=5302;
+
+        -- Proc
+            REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `attributesEx`, `castingTimeIndex`, `procChance`, `maxLevel`, `baseLevel`, `spellLevel`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetB1`, `effectRadiusIndex1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33964, 5302, 5, 262144, 136, 1, 101, 22, 9, 9, 1, -1, -1, 2, 1, 1, 24, 0.25, -1, -1, 22, 15, 8, 682, 1494, 'Blight', 2031678, 2031676, 2031676, 2031676, 1, 1, -1, 1, 1, 1);
+
+        UPDATE `mangos`.`spell_template` SET `effect1`=9, `effectMultipleValue1`=1, `description`='Drains $s1 health from an enemy, transferring it to the caster.' WHERE  `entry`=33964 AND `build`=5302;
+
+        -- Demonic Tactics (Successful Shadowbolt casts have a 5/10/15/20/25% chance to increase allies spell power and attack power by 5%). Requires Unholy Power 5/5
+            -- TODO: Master demo icon
+            -- Spell (This is the aura that procs the actual buff)
+            REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `attributesEx3`, `castingTimeIndex`, `procFlags`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectItemType1`, `effectTriggerSpell1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `stanceBarOrder`, `dmgMultiplier1`) 
+            VALUES (33965, 5464, 2, 464, 67108864, 1, 87376, 5, 21, 1, -1, 6, 1, 1, -1, 0, -1, -1, 1, 42, 32, 33970, 114, 'Demonic Tactics', 4128830, '0', 4128830, 'Your Shadowbolt spell has a $h% chance to increase the damage of party members within $33970a1 yards by $33970s1%.', 4128830, 4128828, 5, -1, 1);
+
+            -- Spell (This is the aura that procs the actual buff)
+            REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `attributesEx3`, `castingTimeIndex`, `procFlags`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectItemType1`, `effectTriggerSpell1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `stanceBarOrder`, `dmgMultiplier1`) 
+            VALUES (33966, 5464, 2, 464, 67108864, 1, 87376, 10, 21, 1, -1, 6, 1, 1, -1, 0, -1, -1, 1, 42, 32, 33970, 114, 'Demonic Tactics', 4128830, '0', 4128830, 'Your Shadowbolt spell has a $h% chance to increase the damage of party members within $33970a1 yards by $33970s1%.', 4128830, 4128828, 5, -1, 1);
+
+            -- Spell (This is the aura that procs the actual buff)
+            REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `attributesEx3`, `castingTimeIndex`, `procFlags`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectItemType1`, `effectTriggerSpell1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `stanceBarOrder`, `dmgMultiplier1`) 
+            VALUES (33967, 5464, 2, 464, 67108864, 1, 87376, 15, 21, 1, -1, 6, 1, 1, -1, 0, -1, -1, 1, 42, 32, 33970, 114, 'Demonic Tactics', 4128830, '0', 4128830, 'Your Shadowbolt spell has a $h% chance to increase the damage of party members within $33970a1 yards by $33970s1%.', 4128830, 4128828, 5, -1, 1);
+
+            -- Spell (This is the aura that procs the actual buff)
+            REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `attributesEx3`, `castingTimeIndex`, `procFlags`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectItemType1`, `effectTriggerSpell1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `stanceBarOrder`, `dmgMultiplier1`) 
+            VALUES (33968, 5464, 2, 464, 67108864, 1, 87376, 20, 21, 1, -1, 6, 1, 1, -1, 0, -1, -1, 1, 42, 32, 33970, 114, 'Demonic Tactics', 4128830, '0', 4128830, 'Your Shadowbolt spell has a $h% chance to increase the damage of party members within $33970a1 yards by $33970s1%.', 4128830, 4128828, 5, -1, 1);
+
+            -- Spell (This is the aura that procs the actual buff)
+            REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `attributesEx3`, `castingTimeIndex`, `procFlags`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectItemType1`, `effectTriggerSpell1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `stanceBarOrder`, `dmgMultiplier1`) 
+            VALUES (33969, 5464, 2, 464, 67108864, 1, 87376, 25, 21, 1, -1, 6, 1, 1, -1, 0, -1, -1, 1, 42, 32, 33970, 114, 'Demonic Tactics', 4128830, '0', 4128830, 'Your Shadowbolt spell has a $h% chance to increase the damage of party members within $33970a1 yards by $33970s1%.', 4128830, 4128828, 5, -1, 1);
+
+            -- Proc (This is the actual buff)
+            REPLACE`mangos`.`spell_template` (`entry`, `build`, `school`, `dispel`, `attributes`, `castingTimeIndex`, `procFlags`, `procChance`, `procCharges`, `baseLevel`, `spellLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectItemType1`, `effectMiscValue1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `spellFamilyName`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) 
+            VALUES (33970, 5464, 2, 1, 327680, 1, 87376, 100, 1, 10, 10, 9, 6, -1, -1, 6, 1, 1, 4, 0, -1, -1, 1, 108, 1, 8, 2736, 114, 'Demonic Tactics', 4128830, 4128828, 4128828, 'Your next Fireball spell deals $s1% increased damage.', 4128830, 5, 1, 1, -1, 1, 1, 1);
+
+            UPDATE `mangos`.`spell_template` SET `durationIndex`=1, `effectRadiusIndex1`=11 WHERE  `entry`=33970 AND `build`=5464;
 
 
 -- Mage
