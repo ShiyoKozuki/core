@@ -458,6 +458,44 @@ AuraScript* GetScript_WarlockCurseOfIdiocy(SpellEntry const*)
     return new WarlockCurseOfIdiocyAuraScript();
 }
 
+struct WarlockFelguardScript : SpellScript
+{
+    bool OnEffectExecute(Spell* spell, SpellEffectIndex effIdx) const final
+    {
+        if (effIdx == EFFECT_INDEX_1 && spell->m_casterUnit && spell->GetCaster())
+        {
+            // Teach Felguard pet spells
+            Player* player = spell->m_casterUnit->ToPlayer();
+            if (!player)
+                return true;
+
+            Pet* pet = player->GetPet();
+            if (!pet)
+                return true;
+
+            for (uint32 spellId = 33958; spellId <= 33961; ++spellId)
+            {
+                // 33958 Whirlwind
+                // 33959 Intercept
+                // 33960 Cleave
+                // 33961 Unholy Aura
+                pet->LearnSpell(spellId);
+            }
+
+            // Demonic Shell
+            pet->LearnSpell(33971);
+
+            return false;
+        }
+        return true;
+    }
+};
+
+SpellScript* GetScript_WarlockFelguard(SpellEntry const*)
+{
+    return new WarlockFelguardScript();
+}
+
 void AddSC_warlock_spell_scripts()
 {
     Script* newscript;
@@ -505,5 +543,10 @@ void AddSC_warlock_spell_scripts()
     newscript = new Script;
     newscript->Name = "spell_warlock_curse_of_idiocy";
     newscript->GetAuraScript = &GetScript_WarlockCurseOfIdiocy;
+    newscript->RegisterSelf();
+
+    newscript = new Script;
+    newscript->Name = "spell_warlock_felguard";
+    newscript->GetSpellScript = &GetScript_WarlockFelguard;
     newscript->RegisterSelf();
 }
