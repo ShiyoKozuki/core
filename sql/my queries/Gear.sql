@@ -1239,14 +1239,16 @@ WHERE entry = 7063;
 UPDATE mangos . item_template
 SET quality = 3,
     stat_type1 = 6,
-    stat_value1 = 12,
-    stat_type2 = 7,
-    stat_value2 = 7
+    stat_value1 = 7,
+    stat_type2 = 0,
+    stat_value2 = 0,
+    spellid_1 = 33794, -- 5 Spell Penetration
+    spelltrigger_1 = 1
 WHERE entry = 7061;
 
 -- Icy Cloak
 UPDATE mangos . item_template
-SET spellid_1 = 9304, -- +16 Frost Damage
+SET spellid_1 = 33794, -- 5 Spell Penetration
     spelltrigger_1 = 1
 WHERE entry = 4327;
 
@@ -8296,6 +8298,26 @@ SET armor = 50,
     dmg_max1 = 48
 WHERE entry = 9608;
 
+-- Shilling Mitts (Gyrodrillmatic Excavationators)
+UPDATE mangos . item_template
+SET stat_type1 = 5,
+    stat_value1 = 6,
+    stat_type2 = 0,
+    stat_value2 = 0,
+    spellid_1 = 33794, -- 5 Spell Penetration
+    spelltrigger_1 = 1
+WHERE entry = 9609;
+
+-- Civinad Robes (The Grand Betrayal)
+UPDATE mangos . item_template
+SET stat_type1 = 7,
+    stat_value1 = 3,
+    stat_type2 = 6,
+    stat_value2 = 9,
+    spellid_1 = 33794, -- 5 Spell Penetration
+    spelltrigger_1 = 1
+WHERE entry = 9623;
+
 -- Talvash's Gold Ring (Gnome Improvement)
 UPDATE mangos . item_template
 SET stat_type1 = 7,
@@ -8833,11 +8855,11 @@ WHERE entry = 6223;
 
 -- Night Watch Pantaloons (Morbent Fel)
 UPDATE mangos . item_template
-SET stat_type1 = 5,
-    stat_value1 = 0,
-    stat_type2 = 7,
+SET stat_type1 = 7,
+    stat_value1 = 9,
+    stat_type2 = 0,
     stat_value2 = 0,
-    spellid_1 = 23688, -- 2% chance on successful spellcast to allow 100% of your Mana regeneration to continue while casting for 15 sec. (Proc chance: 2%)
+    spellid_1 = 33794, -- 5 Spell Penetration
     spelltrigger_1 = 1
 WHERE entry = 2954;
 
@@ -8985,7 +9007,7 @@ WHERE entry = 15104;
 -- Arcane Runed Bracers (Wanted! Marez Cowl)
 UPDATE mangos . item_template
 SET quality = 3,
-    spellid_1 = 9397, -- +7 Spell damage
+    spellid_1 = 33792, -- 3 Spell Penetration
     spelltrigger_1 = 1
 WHERE entry = 4744;
 
@@ -9015,6 +9037,19 @@ SET quality = 3,
     spelltrigger_1 = 1
 WHERE entry = 4741;
 
+-- Archaeologist's Quarry Boots (Roll the Bones)
+UPDATE mangos . item_template
+SET quality = 3,
+    stat_type1 = 7,
+    stat_value1 = 6,
+    stat_type2 = 5,
+    stat_value2 = 6,
+    stat_type3 = 0,
+    stat_value3 = 0,
+    spellid_1 = 33792, -- 3 Spell Penetration
+    spelltrigger_1 = 1
+WHERE entry = 11908;
+
 -- Reedknot Ring (Jarl Needs a Blade
 UPDATE mangos . item_template
 SET quality = 3,
@@ -9032,6 +9067,12 @@ SET quality = 3,
     spellid_1 = 33794, -- 5 Spell Penetration
     spelltrigger_1 = 1
 WHERE entry = 5016;
+
+-- Durtfeet Stompers (Hungry!)
+UPDATE mangos . item_template
+SET spellid_1 = 33792, -- 3 Spell Penetration
+    spelltrigger_1 = 1
+WHERE entry = 9519;
 
 -- Dwarf Captain's Sword (An Ambassador of Evil)
 UPDATE mangos . item_template
@@ -9714,7 +9755,7 @@ WHERE entry = 17770;
 UPDATE mangos . item_template
 SET stat_type1 = 0,
     stat_value1 = 0,
-    spellid_1 = 9417, -- +12 spell damage
+    spellid_1 = 33794, -- 5 Spell Penetration
     spelltrigger_1 = 1
 WHERE entry = 17773;
 

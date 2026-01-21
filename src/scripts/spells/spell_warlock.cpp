@@ -482,8 +482,13 @@ struct WarlockFelguardScript : SpellScript
                 pet->LearnSpell(spellId);
             }
 
-            // Demonic Shell
-            pet->LearnSpell(33971);
+            // Passives
+            pet->LearnSpell(33971); // Demonic Shell
+            pet->LearnSpell(33973); // Fel Synergies
+            pet->LearnSpell(33975); // Strength of the Legion
+            pet->LearnSpell(33977); // Fel Flurry
+            pet->LearnSpell(18737); // +Max HP (For Fel Stamina to work)
+            pet->LearnSpell(18740); // +Max MP (For Fel Intellect to work)
 
             return false;
         }

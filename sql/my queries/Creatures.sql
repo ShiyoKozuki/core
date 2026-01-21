@@ -66,6 +66,7 @@
 
 -- NEXT npc_Text 90006
 -- NEXT broadcast_text 99996
+-- NEXT creature_equip_template 987003
 
 -- graveyards = WorldSafeLocs.dbc and world_safe_facing.sql to set facing @ the spirit healer
 

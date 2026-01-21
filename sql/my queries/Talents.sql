@@ -709,14 +709,14 @@ SET skill_id = 355
 WHERE spell_id = 18788;
 
 -- Fel Stamina (3 points, 5% per point)
-UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=4 WHERE  `entry`=18748 AND `build`=4222;
-UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=9 WHERE  `entry`=18749 AND `build`=4222;
-UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=14 WHERE  `entry`=18750 AND `build`=4222;
+UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=4, `description`='Increases the maximum Health of your Imp, Voidwalker, Succubus, Felhunter, and Felguard by $s1%.' WHERE  `entry`=18748 AND `build`=4222;
+UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=9, `description`='Increases the maximum Health of your Imp, Voidwalker, Succubus, Felhunter, and Felguard by $s1%.' WHERE  `entry`=18749 AND `build`=4222;
+UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=14, `description`='Increases the maximum Health of your Imp, Voidwalker, Succubus, Felhunter, and Felguard by $s1%.' WHERE  `entry`=18750 AND `build`=4222;
 
 -- Fel Intellect (3 points, 5% per point)
-UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=4 WHERE  `entry`=18731 AND `build`=4222;
-UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=9 WHERE  `entry`=18743 AND `build`=4222;
-UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=14 WHERE  `entry`=18744 AND `build`=4222;
+UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=4, `description`='Increases the maximum Mana of your Imp, Voidwalker, Succubus, Felhunter, and Felguard by $s1%.' WHERE  `entry`=18731 AND `build`=4222;
+UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=9, `description`='Increases the maximum Mana of your Imp, Voidwalker, Succubus, Felhunter, and Felguard by $s1%.' WHERE  `entry`=18743 AND `build`=4222;
+UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=14, `description`='Increases the maximum Mana of your Imp, Voidwalker, Succubus, Felhunter, and Felguard by $s1%.' WHERE  `entry`=18744 AND `build`=4222;
 
 -- Renamed Improved Enslave Demon to Improved Greater Demons (-15m/30m CD on Inferno)
 UPDATE `mangos`.`spell_template` SET `spellFamilyName`=5, `spellFamilyFlags`=34359738368 WHERE  `entry`=1122 AND `build`=4695;
@@ -781,8 +781,14 @@ WHERE entry = 18746;
 
 -- Fel Domination
 UPDATE mangos . spell_template 
-SET recoveryTime = 60000
+SET recoveryTime = 60000,
+    description = 'Your next Imp, Voidwalker, Succubus, Felhunter, or Felguard Summon spell has its casting time reduced by $/1000;S1 sec and its Mana cost reduced by $s2%.',
+    auraDescription = 'Imp, Voidwalker, Succubus, Fellhunter, and Felguard casting time reduced by $/1000;S1 sec.  Mana cost reduced by $s2%.'
 WHERE entry = 18708;
+
+-- Master Summoner
+UPDATE `mangos`.`spell_template` SET `description`='Reduces the casting time of your Imp, Voidwalker, Succubus, Felhunter, and Felguard Summoning spells by $/1000;s1 sec and the Mana cost by $s2%.' WHERE  `entry`=18709 AND `build`=4449;
+UPDATE `mangos`.`spell_template` SET `description`='Reduces the casting time of your Imp, Voidwalker, Succubus, Felhunter, and Felguard Summoning spells by $/1000;s1 sec and the Mana cost by $s2%.' WHERE  `entry`=18710 AND `build`=4449;
 
 -- Soul Link
     UPDATE mangos . spell_template 
@@ -791,6 +797,7 @@ WHERE entry = 18708;
     WHERE entry = 25228;
 
     UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=9 WHERE  `entry`=18814 AND `build`=5875;
+    UPDATE `mangos`.`spell_template` SET `description`='When active, $18814s1% of all damage taken by the caster is taken by your Imp, Voidwalker, Succubus, Felhunter, or Felguard demon instead.  In addition, both the demon and master will inflict $25228s1% more damage.  Lasts as long as the demon is active.' WHERE  `entry`=19028 AND `build`=5464;
 
 -- Searing Light
 UPDATE mangos . spell_template 
