@@ -489,6 +489,7 @@ struct WarlockFelguardScript : SpellScript
             pet->LearnSpell(33977); // Fel Flurry
             pet->LearnSpell(18737); // +Max HP (For Fel Stamina to work)
             pet->LearnSpell(18740); // +Max MP (For Fel Intellect to work)
+            pet->LearnSpell(18728); // +Damage Done (For Unholy Power to work)
 
             return false;
         }

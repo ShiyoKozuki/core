@@ -1827,6 +1827,41 @@ void Spell::EffectHealthLeech(SpellEffectIndex effIndex)
     if (!m_delayed)
         damage = initialDamage;
 
+
+    // Spell family specific modifiers
+    SpellEntry const* spellProto = m_spellInfo;
+    switch (spellProto->SpellFamilyName)
+    {
+        case SPELLFAMILY_WARLOCK:
+        {
+            // Shadow's Embrace 
+            if (spellProto->IsFitToFamilyMask<CF_WARLOCK_BLIGHT>())
+            {
+                enum ShadowsEmbrace
+                {
+                    Rank1 = 33982,
+                    Rank2 = 33983,
+                    Rank3 = 33984,
+                };
+
+                Aura* embrace = nullptr;
+
+                if (!(embrace = unitTarget->GetAura(Rank3, EFFECT_INDEX_0)))
+                    if (!(embrace = unitTarget->GetAura(Rank2, EFFECT_INDEX_0)))
+                        embrace = unitTarget->GetAura(Rank1, EFFECT_INDEX_0);
+
+                if (embrace)
+                {
+                    int32 bonusPct = embrace->GetModifier()->m_amount;
+
+                    float old = damage;
+                    damage += damage * bonusPct / 100.0f;
+                }
+            }
+            break;
+        }
+    }
+
     m_damage += damage;
 }
 

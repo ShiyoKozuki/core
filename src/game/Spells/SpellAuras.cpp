@@ -4384,6 +4384,36 @@ float Aura::CalculateDotDamage() const
                 }
             break;
         }
+        case SPELLFAMILY_WARLOCK:
+        {
+            // Shadow's Embrace
+            enum ShadowsEmbrace
+            {
+                Rank1 = 33982,
+                Rank2 = 33983,
+                Rank3 = 33984,
+            };
+
+            if (spellProto->IsFitToFamilyMask<CF_WARLOCK_CORRUPTION>() ||
+                spellProto->IsFitToFamilyMask<CF_WARLOCK_CURSE_OF_AGONY>())
+            {
+                // Find Shadow's Embrace on target
+                Aura* embrace = nullptr;
+
+                if (!(embrace = target->GetAura(ShadowsEmbrace::Rank3, EFFECT_INDEX_0)))
+                    if (!(embrace = target->GetAura(ShadowsEmbrace::Rank2, EFFECT_INDEX_0)))
+                        embrace = target->GetAura(ShadowsEmbrace::Rank1, EFFECT_INDEX_0);
+
+                if (embrace)
+                {
+                    int32 bonusPct = embrace->GetModifier()->m_amount;
+
+                    float oldDamage = damage;
+                    damage += damage * bonusPct / 100.0f;
+                }
+            }
+            break;
+        }
         default:
             break;
     }
@@ -4460,7 +4490,7 @@ void Aura::HandlePeriodicLeech(bool apply, bool /*Real*/)
         SpellEntry const* spellProto = GetSpellProto();
         switch (spellProto->SpellFamilyName)
         {
-        case SPELLFAMILY_WARLOCK:
+            case SPELLFAMILY_WARLOCK:
             {
                 // Improved Drain Life
                 if (GetSpellProto()->IsFitToFamilyMask<CF_WARLOCK_DRAIN_LIFE>())
@@ -4481,7 +4511,9 @@ void Aura::HandlePeriodicLeech(bool apply, bool /*Real*/)
 
                         SpellEntry const* p = aura->GetSpellProto();
 
-                        if (p->IsFitToFamily<SPELLFAMILY_WARLOCK, CF_WARLOCK_CORRUPTION>() || p->IsFitToFamily<SPELLFAMILY_WARLOCK, CF_WARLOCK_CURSE_OF_AGONY>() || p->IsFitToFamily<SPELLFAMILY_WARLOCK, CF_WARLOCK_SIPHON_LIFE>())
+                        if (p->IsFitToFamily<SPELLFAMILY_WARLOCK, CF_WARLOCK_CORRUPTION>() ||
+                            p->IsFitToFamily<SPELLFAMILY_WARLOCK, CF_WARLOCK_CURSE_OF_AGONY>() ||
+                            p->IsFitToFamily<SPELLFAMILY_WARLOCK, CF_WARLOCK_SIPHON_LIFE>())
                         {
                             ++dots;
                         }
@@ -4501,6 +4533,34 @@ void Aura::HandlePeriodicLeech(bool apply, bool /*Real*/)
 
                     if (pct && dots)
                         m_modifier.m_amount += m_modifier.m_amount * float(dots * pct) / 100.0f;
+                }
+
+                // Shadow's Embrace
+                if (GetSpellProto()->IsFitToFamilyMask<CF_WARLOCK_SIPHON_LIFE>())
+                {
+                    enum ShadowsEmbrace
+                    {
+                        Rank1 = 33982,
+                        Rank2 = 33983,
+                        Rank3 = 33984,
+                    };
+
+                    Unit* target = GetTarget();
+
+                    // Find Shadow's Embrace on target
+                    Aura* embrace = nullptr;
+
+                    if (!(embrace = target->GetAura(ShadowsEmbrace::Rank3, EFFECT_INDEX_0)))
+                        if (!(embrace = target->GetAura(ShadowsEmbrace::Rank2, EFFECT_INDEX_0)))
+                            embrace = target->GetAura(ShadowsEmbrace::Rank1, EFFECT_INDEX_0);
+
+                    if (embrace)
+                    {
+                        int32 bonusPct = embrace->GetModifier()->m_amount;
+
+                        float oldDamage = m_modifier.m_amount;
+                        m_modifier.m_amount += m_modifier.m_amount * bonusPct / 100.0f;
+                    }
                 }
                 break;
             }

@@ -779,6 +779,12 @@ SET effect2 = 6,
     effectBasePoints2 = 14
 WHERE entry = 18746;
 
+-- Curse of Exhaustion (Now -30% default)
+UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=-31 WHERE  `entry`=18223 AND `build`=5464;
+
+-- Unholy Power
+UPDATE `mangos`.`spell_template` SET `description`='Increases the damage done by your Voidwalker, Succubus, Felhunter and Felguard\'s melee attacks by $s1%.' WHERE  `entry` IN (18769, 18770, 18771, 18772, 18773);
+
 -- Fel Domination
 UPDATE mangos . spell_template 
 SET recoveryTime = 60000,
