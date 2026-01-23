@@ -1,5 +1,5 @@
--- 33989 NEXT SPELL
--- 15113 NEXT SKILL_LINE_ABILITY
+-- 34001 NEXT SPELL
+-- 15118 NEXT SKILL_LINE_ABILITY
 
 -- spell_chain for spells you want to learn in order but still keep previou ranks in spell book
 -- superseded_by_spell in skill_line_ability for spells you want overwritten by higher rank in spell book
@@ -1603,16 +1603,100 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
         UPDATE `mangos`.`spell_template` SET `effect2`=6, `effectDieSides2`=1, `effectBaseDice2`=1, `effectBasePoints2`=99, `effectImplicitTargetA2`=1, `effectApplyAuraName2`=142, `effectMiscValue2`=1 WHERE  `entry`=33963 AND `build`=5464;
 
     -- Blight
-        -- TODO: More ranks
+        -- TODO: Rank text entries
+
+        -- Rank 1
         -- Spell
             REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `category`, `dispel`, `castingTimeIndex`, `categoryRecoveryTime`, `interruptFlags`, `procChance`, `maxLevel`, `baseLevel`, `spellLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectAmplitude1`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (18288, 5302, 2, 21, 1, 0, 15000, 15, 101, 22, 9, 9, 9, 4, -1, -1, 6, 1, 1, -1, 0, -1, -1, 21, 23, 3000, 33964, 682, 1494, 50, 'Fire Shield', 983070, 983052, 'Surrounds an ally with a shield of flame that inflicts $3052s1 Fire damage to nearby enemies every $t1 sec.  Lasts $d.', 983070, 'Inflicting $3052s1 Fire damage to nearby enemies every $t1 sec.', 983054, 1, 1, -1, 1, 1, 1);
 
-            UPDATE `mangos`.`spell_template` SET `recoveryTime` = 60000, `reagent1`=6265, `name`='Blight', `description`='Surrounds you with Blight, leeching $33964s1 Health from nearby enemies every $t1 sec.  Lasts $d.', `auraDescription`='Leeching $33964s1 Health from nearby enemies.', `spellFamilyName`=5 WHERE  `entry`=18288 AND `build`=5302;
+            UPDATE `mangos`.`spell_template` SET `recoveryTime` = 60000, `reagent1`=6265, `name`='Blight', `description`='Surrounds you with Blight, leeching $33964s1 Health from nearby enemies every $t1 sec.  Lasts $d.', `auraDescription`='Leeching $33964s1 Health from nearby enemies.', `nameSubtext`='Rank 1', `spellFamilyName`=5 WHERE  `entry`=18288 AND `build`=5302;
 
         -- Proc
-            REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `attributesEx`, `castingTimeIndex`, `procChance`, `maxLevel`, `baseLevel`, `spellLevel`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetB1`, `effectRadiusIndex1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33964, 5302, 5, 262144, 136, 1, 101, 22, 9, 9, 1, -1, -1, 2, 1, 1, 24, 0.25, -1, -1, 22, 15, 8, 682, 1494, 'Blight', 2031678, 2031676, 2031676, 2031676, 1, 1, -1, 1, 1, 1);
+            REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `attributesEx`, `castingTimeIndex`, `procChance`, `maxLevel`, `baseLevel`, `spellLevel`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetB1`, `effectRadiusIndex1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33964, 5302, 5, 262144, 136, 1, 101, 22, 9, 9, 1, -1, -1, 2, 1, 1, 14, 0.25, -1, -1, 22, 15, 8, 682, 1494, 'Blight', 2031678, 2031676, 2031676, 2031676, 1, 1, -1, 1, 1, 1);
 
-            UPDATE `mangos`.`spell_template` SET `effect1`=9, `effectMultipleValue1`=1, `description`='Drains $s1 health from an enemy, transferring it to the caster.', `spellFamilyName`=5, `spellFamilyFlags`=68719476736 WHERE  `entry`=33964 AND `build`=5302;
+            UPDATE `mangos`.`spell_template` SET `effect1`=9, `effectMultipleValue1`=1, `description`='Drains $s1 health from an enemy, transferring it to the caster.', `nameSubtext`='', `spellFamilyName`=5, `spellFamilyFlags`=68719476736 WHERE  `entry`=33964 AND `build`=5302;
+
+        -- Rank 2
+        -- Spell
+            REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `category`, `dispel`, `castingTimeIndex`, `categoryRecoveryTime`, `interruptFlags`, `procChance`, `maxLevel`, `baseLevel`, `spellLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectAmplitude1`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33989, 5302, 2, 21, 1, 0, 15000, 15, 101, 22, 9, 9, 9, 4, -1, -1, 6, 1, 1, -1, 0, -1, -1, 21, 23, 3000, 33993, 682, 1494, 50, 'Fire Shield', 983070, 983052, 'Surrounds an ally with a shield of flame that inflicts $3052s1 Fire damage to nearby enemies every $t1 sec.  Lasts $d.', 983070, 'Inflicting $3052s1 Fire damage to nearby enemies every $t1 sec.', 983054, 1, 1, -1, 1, 1, 1);
+
+            UPDATE `mangos`.`spell_template` SET `recoveryTime` = 60000, `reagent1`=6265, `name`='Blight', `description`='Surrounds you with Blight, leeching $33993s1 Health from nearby enemies every $t1 sec.  Lasts $d.', `auraDescription`='Leeching $33993s1 Health from nearby enemies.', `nameSubtext`='Rank 2', `spellFamilyName`=5 WHERE  `entry`=33989 AND `build`=5302;
+
+        -- Proc
+            REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `attributesEx`, `castingTimeIndex`, `procChance`, `maxLevel`, `baseLevel`, `spellLevel`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetB1`, `effectRadiusIndex1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33993, 5302, 5, 262144, 136, 1, 101, 22, 9, 9, 1, -1, -1, 2, 1, 1, 21, 0.25, -1, -1, 22, 15, 8, 682, 1494, 'Blight', 2031678, 2031676, 2031676, 2031676, 1, 1, -1, 1, 1, 1);
+
+            UPDATE `mangos`.`spell_template` SET `effect1`=9, `effectMultipleValue1`=1, `description`='Drains $s1 health from an enemy, transferring it to the caster.', `nameSubtext`='', `spellFamilyName`=5, `spellFamilyFlags`=68719476736 WHERE  `entry`=33993 AND `build`=5302;
+
+        -- Rank 3
+        -- Spell
+            REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `category`, `dispel`, `castingTimeIndex`, `categoryRecoveryTime`, `interruptFlags`, `procChance`, `maxLevel`, `baseLevel`, `spellLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectAmplitude1`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33990, 5302, 2, 21, 1, 0, 15000, 15, 101, 22, 9, 9, 9, 4, -1, -1, 6, 1, 1, -1, 0, -1, -1, 21, 23, 3000, 33994, 682, 1494, 50, 'Fire Shield', 983070, 983052, 'Surrounds an ally with a shield of flame that inflicts $3052s1 Fire damage to nearby enemies every $t1 sec.  Lasts $d.', 983070, 'Inflicting $3052s1 Fire damage to nearby enemies every $t1 sec.', 983054, 1, 1, -1, 1, 1, 1);
+
+            UPDATE `mangos`.`spell_template` SET `recoveryTime` = 60000, `reagent1`=6265, `name`='Blight', `description`='Surrounds you with Blight, leeching $33994s1 Health from nearby enemies every $t1 sec.  Lasts $d.', `auraDescription`='Leeching $33994s1 Health from nearby enemies.', `nameSubtext`='Rank 3', `spellFamilyName`=5 WHERE  `entry`=33990 AND `build`=5302;
+
+        -- Proc
+            REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `attributesEx`, `castingTimeIndex`, `procChance`, `maxLevel`, `baseLevel`, `spellLevel`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetB1`, `effectRadiusIndex1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33994, 5302, 5, 262144, 136, 1, 101, 22, 9, 9, 1, -1, -1, 2, 1, 1, 32, 0.25, -1, -1, 22, 15, 8, 682, 1494, 'Blight', 2031678, 2031676, 2031676, 2031676, 1, 1, -1, 1, 1, 1);
+
+            UPDATE `mangos`.`spell_template` SET `effect1`=9, `effectMultipleValue1`=1, `description`='Drains $s1 health from an enemy, transferring it to the caster.', `nameSubtext`='', `spellFamilyName`=5, `spellFamilyFlags`=68719476736 WHERE  `entry`=33994 AND `build`=5302;
+
+        -- Rank 4
+        -- Spell
+            REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `category`, `dispel`, `castingTimeIndex`, `categoryRecoveryTime`, `interruptFlags`, `procChance`, `maxLevel`, `baseLevel`, `spellLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectAmplitude1`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33991, 5302, 2, 21, 1, 0, 15000, 15, 101, 22, 9, 9, 9, 4, -1, -1, 6, 1, 1, -1, 0, -1, -1, 21, 23, 3000, 33995, 682, 1494, 50, 'Fire Shield', 983070, 983052, 'Surrounds an ally with a shield of flame that inflicts $3052s1 Fire damage to nearby enemies every $t1 sec.  Lasts $d.', 983070, 'Inflicting $3052s1 Fire damage to nearby enemies every $t1 sec.', 983054, 1, 1, -1, 1, 1, 1);
+
+            UPDATE `mangos`.`spell_template` SET `recoveryTime` = 60000, `reagent1`=6265, `name`='Blight', `description`='Surrounds you with Blight, leeching $33995s1 Health from nearby enemies every $t1 sec.  Lasts $d.', `auraDescription`='Leeching $33995s1 Health from nearby enemies.', `nameSubtext`='Rank 4', `spellFamilyName`=5 WHERE  `entry`=33991 AND `build`=5302;
+
+        -- Proc
+            REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `attributesEx`, `castingTimeIndex`, `procChance`, `maxLevel`, `baseLevel`, `spellLevel`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetB1`, `effectRadiusIndex1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33995, 5302, 5, 262144, 136, 1, 101, 22, 9, 9, 1, -1, -1, 2, 1, 1, 44, 0.25, -1, -1, 22, 15, 8, 682, 1494, 'Blight', 2031678, 2031676, 2031676, 2031676, 1, 1, -1, 1, 1, 1);
+
+            UPDATE `mangos`.`spell_template` SET `effect1`=9, `effectMultipleValue1`=1, `description`='Drains $s1 health from an enemy, transferring it to the caster.', `nameSubtext`='', `spellFamilyName`=5, `spellFamilyFlags`=68719476736 WHERE  `entry`=33995 AND `build`=5302;
+
+        -- Rank 5
+        -- Spell
+            REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `category`, `dispel`, `castingTimeIndex`, `categoryRecoveryTime`, `interruptFlags`, `procChance`, `maxLevel`, `baseLevel`, `spellLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectAmplitude1`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33992, 5302, 2, 21, 1, 0, 15000, 15, 101, 22, 9, 9, 9, 4, -1, -1, 6, 1, 1, -1, 0, -1, -1, 21, 23, 3000, 33996, 682, 1494, 50, 'Fire Shield', 983070, 983052, 'Surrounds an ally with a shield of flame that inflicts $3052s1 Fire damage to nearby enemies every $t1 sec.  Lasts $d.', 983070, 'Inflicting $3052s1 Fire damage to nearby enemies every $t1 sec.', 983054, 1, 1, -1, 1, 1, 1);
+
+            UPDATE `mangos`.`spell_template` SET `recoveryTime` = 60000, `reagent1`=6265, `name`='Blight', `description`='Surrounds you with Blight, leeching $33996s1 Health from nearby enemies every $t1 sec.  Lasts $d.', `auraDescription`='Leeching $33996s1 Health from nearby enemies.', `nameSubtext`='Rank 5', `spellFamilyName`=5 WHERE  `entry`=33992 AND `build`=5302;
+
+        -- Proc
+            REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `attributesEx`, `castingTimeIndex`, `procChance`, `maxLevel`, `baseLevel`, `spellLevel`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetB1`, `effectRadiusIndex1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33996, 5302, 5, 262144, 136, 1, 101, 22, 9, 9, 1, -1, -1, 2, 1, 1, 52, 0.25, -1, -1, 22, 15, 8, 682, 1494, 'Blight', 2031678, 2031676, 2031676, 2031676, 1, 1, -1, 1, 1, 1);
+
+            UPDATE `mangos`.`spell_template` SET `effect1`=9, `effectMultipleValue1`=1, `description`='Drains $s1 health from an enemy, transferring it to the caster.', `nameSubtext`='', `spellFamilyName`=5, `spellFamilyFlags`=68719476736 WHERE  `entry`=33996 AND `build`=5302;
+
+                -- Learn spell(for trainer):
+                    REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `targets`, `castingTimeIndex`, `procChance`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `activeIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) 
+                    VALUES (33997, 4222, 1, 262400, 256, 1, 101, 6, -1, -1, 36, 1, 1, -1, 0, -1, -1, 33989, 107, 1494, 0, 'Blight', 7274526, 'Rank 2', 7274526, 7274508, 983052, -1, 1, 1, 1);
+
+                -- Learn spell(for trainer):
+                    REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `targets`, `castingTimeIndex`, `procChance`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `activeIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) 
+                    VALUES (33998, 4222, 1, 262400, 256, 1, 101, 6, -1, -1, 36, 1, 1, -1, 0, -1, -1, 33990, 107, 1494, 0, 'Blight', 7274526, 'Rank 3', 7274526, 7274508, 983052, -1, 1, 1, 1);
+
+                -- Learn spell(for trainer):
+                    REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `targets`, `castingTimeIndex`, `procChance`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `activeIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) 
+                    VALUES (33999, 4222, 1, 262400, 256, 1, 101, 6, -1, -1, 36, 1, 1, -1, 0, -1, -1, 33991, 107, 1494, 0, 'Blight', 7274526, 'Rank 4', 7274526, 7274508, 983052, -1, 1, 1, 1);
+
+                -- Learn spell(for trainer):
+                    REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `targets`, `castingTimeIndex`, `procChance`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `activeIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) 
+                    VALUES (34000, 4222, 1, 262400, 256, 1, 101, 6, -1, -1, 36, 1, 1, -1, 0, -1, -1, 33992, 107, 1494, 0, 'Blight', 7274526, 'Rank 5', 7274526, 7274508, 983052, -1, 1, 1, 1);
+                
+                -- Trainer
+                    REPLACE `mangos`.`npc_trainer_template` (`entry`, `spell`, `spellcost`, `reqlevel`) VALUES (14, 33997, 550, 30);
+                    REPLACE `mangos`.`npc_trainer_template` (`entry`, `spell`, `spellcost`, `reqlevel`) VALUES (14, 33998, 1000, 40);
+                    REPLACE `mangos`.`npc_trainer_template` (`entry`, `spell`, `spellcost`, `reqlevel`) VALUES (14, 33999, 1400, 50);
+                    REPLACE `mangos`.`npc_trainer_template` (`entry`, `spell`, `spellcost`, `reqlevel`) VALUES (14, 34000, 2300, 60);
+
+
+            -- Skill Line Ability
+                REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`, `superseded_by_spell`) VALUES (15113, 5875, 355, 18288, 256, 1, 33989);
+                REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`, `superseded_by_spell`) VALUES (15114, 5875, 355, 33989, 256, 1, 33990);
+                REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`, `superseded_by_spell`) VALUES (15115, 5875, 355, 33990, 256, 1, 33991);
+                REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`, `superseded_by_spell`) VALUES (15116, 5875, 355, 33991, 256, 1, 33992);
+                REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`, `superseded_by_spell`) VALUES (15117, 5875, 355, 33992, 256, 1, 0);
+
+            -- Spell Chain
+                REPLACE `mangos`.`spell_chain` (`spell_id`, `prev_spell`, `first_spell`, `rank`) VALUES (18288, 0,     18288, 1);
+                REPLACE `mangos`.`spell_chain` (`spell_id`, `prev_spell`, `first_spell`, `rank`) VALUES (33989, 18288, 18288, 2);
+                REPLACE `mangos`.`spell_chain` (`spell_id`, `prev_spell`, `first_spell`, `rank`) VALUES (33990, 33989, 18288, 3);
+                REPLACE `mangos`.`spell_chain` (`spell_id`, `prev_spell`, `first_spell`, `rank`) VALUES (33991, 33990, 18288, 4);
+                REPLACE `mangos`.`spell_chain` (`spell_id`, `prev_spell`, `first_spell`, `rank`) VALUES (33992, 33991, 18288, 5);
+
 
         -- Demonic Tactics (Successful Shadowbolt casts have a 5/10/15/20/25% chance to increase allies spell power and attack power by 5%). Requires Unholy Power 5/5
             -- TODO: Add duration to description (from 33970)

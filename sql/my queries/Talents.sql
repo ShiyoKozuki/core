@@ -708,15 +708,25 @@ UPDATE mangos . skill_line_ability
 SET skill_id = 355
 WHERE spell_id = 18788;
 
--- Fel Stamina (3 points, 5% per point)
-UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=4, `description`='Increases the maximum Health of your Imp, Voidwalker, Succubus, Felhunter, and Felguard by $s1%.' WHERE  `entry`=18748 AND `build`=4222;
-UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=9, `description`='Increases the maximum Health of your Imp, Voidwalker, Succubus, Felhunter, and Felguard by $s1%.' WHERE  `entry`=18749 AND `build`=4222;
-UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=14, `description`='Increases the maximum Health of your Imp, Voidwalker, Succubus, Felhunter, and Felguard by $s1%.' WHERE  `entry`=18750 AND `build`=4222;
+-- Fel Stamina (3 points, 5% per point. Also added 5%/10%/15% Mana Regen to continue while casting)
+UPDATE mangos . spell_template SET effect2 = 6, effectImplicitTargetA2 = 1, effectDieSides2 = 1, effectBaseDice2 = 1, effectBasePoints2 = 4, effectApplyAuraName2 = 134 WHERE entry = 18748;
+UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=4, `description`='Increases the maximum Health of your Imp, Voidwalker, Succubus, Felhunter, and Felguard by $s1%. Additionally, allows $s2% of your Mana regeneration to continue while casting.' WHERE  `entry`=18748 AND `build`=4222;
 
--- Fel Intellect (3 points, 5% per point)
-UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=4, `description`='Increases the maximum Mana of your Imp, Voidwalker, Succubus, Felhunter, and Felguard by $s1%.' WHERE  `entry`=18731 AND `build`=4222;
-UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=9, `description`='Increases the maximum Mana of your Imp, Voidwalker, Succubus, Felhunter, and Felguard by $s1%.' WHERE  `entry`=18743 AND `build`=4222;
-UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=14, `description`='Increases the maximum Mana of your Imp, Voidwalker, Succubus, Felhunter, and Felguard by $s1%.' WHERE  `entry`=18744 AND `build`=4222;
+UPDATE mangos . spell_template SET effect2 = 6, effectImplicitTargetA2 = 1, effectDieSides2 = 1, effectBaseDice2 = 1, effectBasePoints2 = 9, effectApplyAuraName2 = 134 WHERE entry = 18749;
+UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=9, `description`='Increases the maximum Health of your Imp, Voidwalker, Succubus, Felhunter, and Felguard by $s1%. Additionally, allows $s2% of your Mana regeneration to continue while casting.' WHERE  `entry`=18749 AND `build`=4222;
+
+UPDATE mangos . spell_template SET effect2 = 6, effectImplicitTargetA2 = 1, effectDieSides2 = 1, effectBaseDice2 = 1, effectBasePoints2 = 14, effectApplyAuraName2 = 134 WHERE entry = 18750;
+UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=14, `description`='Increases the maximum Health of your Imp, Voidwalker, Succubus, Felhunter, and Felguard by $s1%. Additionally, allows $s2% of your Mana regeneration to continue while casting.' WHERE  `entry`=18750 AND `build`=4222;
+
+-- Fel Intellect (3 points, 5% per point. Also added 1% Spell Hit per point)
+UPDATE mangos . spell_template SET effect3 = 6, effectImplicitTargetA3 = 1, effectDieSides3 = 1, effectBaseDice3 = 1, effectBasePoints3 = 0, effectApplyAuraName3 = 55 WHERE entry = 18731;
+UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=4, `description`='Increases the maximum Mana of your Imp, Voidwalker, Succubus, Felhunter, and Felguard by $s1%. Additionally, increases your chance to hit with spells by $s3%.' WHERE  `entry`=18731 AND `build`=4222;
+
+UPDATE mangos . spell_template SET effect3 = 6, effectImplicitTargetA3 = 1, effectDieSides3 = 1, effectBaseDice3 = 1, effectBasePoints3 = 1, effectApplyAuraName3 = 55 WHERE entry = 18743;
+UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=9, `description`='Increases the maximum Mana of your Imp, Voidwalker, Succubus, Felhunter, and Felguard by $s1%. Additionally, increases your chance to hit with spells by $s3%.' WHERE  `entry`=18743 AND `build`=4222;
+
+UPDATE mangos . spell_template SET effect3 = 6, effectImplicitTargetA3 = 1, effectDieSides3 = 1, effectBaseDice3 = 1, effectBasePoints3 = 2, effectApplyAuraName3 = 55 WHERE entry = 18744;
+UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=14, `description`='Increases the maximum Mana of your Imp, Voidwalker, Succubus, Felhunter, and Felguard by $s1%. Additionally, increases your chance to hit with spells by $s3%.' WHERE  `entry`=18744 AND `build`=4222;
 
 -- Renamed Improved Enslave Demon to Improved Greater Demons (-15m/30m CD on Inferno)
 UPDATE `mangos`.`spell_template` SET `spellFamilyName`=5, `spellFamilyFlags`=34359738368 WHERE  `entry`=1122 AND `build`=4695;
@@ -781,6 +791,10 @@ WHERE entry = 18746;
 
 -- Curse of Exhaustion (Now -30% default)
 UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=-31 WHERE  `entry`=18223 AND `build`=5464;
+
+-- Improved Health Funnel (Now 50%/100%)
+UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=49 WHERE  `entry`=18703 AND `build`=4878;
+UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=99 WHERE  `entry`=18704 AND `build`=4878;
 
 -- Unholy Power
 UPDATE `mangos`.`spell_template` SET `description`='Increases the damage done by your Voidwalker, Succubus, Felhunter and Felguard\'s melee attacks by $s1%.' WHERE  `entry` IN (18769, 18770, 18771, 18772, 18773);
