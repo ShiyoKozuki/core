@@ -1,4 +1,4 @@
--- 34001 NEXT SPELL
+-- 34003 NEXT SPELL
 -- 15118 NEXT SKILL_LINE_ABILITY
 
 -- spell_chain for spells you want to learn in order but still keep previou ranks in spell book
@@ -944,13 +944,13 @@
             REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `dmgMultiplier1`) VALUES (33659, 4222, 80, 1, 101, 21, 1, -1, 6, 1, 1, 14, 1, -1, -1, 1, 98, 46, 274, 'Gun Skill', 983070, 983070, 'Guns skill increased by $s1.', 983054, 983052, 1);
 
 -- Rend
-UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=19 WHERE  `entry`=772;
-UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=27 WHERE  `entry`=6546;
-UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=35 WHERE  `entry`=6547;
-UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=43 WHERE  `entry`=6548;
-UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=55 WHERE  `entry`=11572;
-UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=71 WHERE  `entry`=11573;
-UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=83 WHERE  `entry`=11574;
+UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=9 WHERE  `entry`=772;
+UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=17 WHERE  `entry`=6546;
+UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=25 WHERE  `entry`=6547;
+UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=33 WHERE  `entry`=6548;
+UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=45 WHERE  `entry`=11572;
+UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=51 WHERE  `entry`=11573;
+UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=63 WHERE  `entry`=11574;
 
 -- Demon Skin / Demon Armor (HP Regen Tripled)
 UPDATE `mangos`.`spell_template` SET `effectBasePoints2`=5 WHERE  `entry`=687;
@@ -1396,15 +1396,46 @@ UPDATE `mangos`.`spell_template` SET `manaCost`=90 WHERE  `entry`=6060 AND `buil
 UPDATE `mangos`.`spell_template` SET `manaCost`=115 WHERE  `entry`=10933 AND `build`=5302;
 UPDATE `mangos`.`spell_template` SET `manaCost`=140 WHERE  `entry`=10934 AND `build`=5302;
 
--- Holy Fire
-UPDATE `mangos`.`spell_template` SET `manaCost`=40 WHERE  `entry`=14914 AND `build`=5302;
-UPDATE `mangos`.`spell_template` SET `manaCost`=125 WHERE  `entry`=15261 AND `build`=5302;
-UPDATE `mangos`.`spell_template` SET `manaCost`=50 WHERE  `entry`=15262 AND `build`=5302;
-UPDATE `mangos`.`spell_template` SET `manaCost`=60 WHERE  `entry`=15263 AND `build`=5302;
-UPDATE `mangos`.`spell_template` SET `manaCost`=70 WHERE  `entry`=15264 AND `build`=5302;
-UPDATE `mangos`.`spell_template` SET `manaCost`=80 WHERE  `entry`=15265 AND `build`=5302;
-UPDATE `mangos`.`spell_template` SET `manaCost`=100 WHERE  `entry`=15266 AND `build`=5302;
-UPDATE `mangos`.`spell_template` SET `manaCost`=115 WHERE  `entry`=15267 AND `build`=5302;
+-- Holy Fire (Restores 1% of Max MP, 0 MP cost)
+UPDATE `mangos`.`spell_template` SET `manaCost`=0 WHERE  `entry`=14914;
+UPDATE `mangos`.`spell_template` SET `effect3`=30, `effectDieSides3`=1, `effectBaseDice3`=1, `effectBasePoints3`=99, `effectBonusCoefficient3`=1, `effectImplicitTargetA3`=1, 
+`description`='Consumes the enemy in holy flames that cause $s1 Holy damage and an additional $o2 Holy damage over $d and restores $s3 mana.' WHERE  `entry`=14914;
+
+UPDATE `mangos`.`spell_template` SET `manaCost`=0 WHERE  `entry`=15262;
+UPDATE `mangos`.`spell_template` SET `effect3`=30, `effectDieSides3`=1, `effectBaseDice3`=1, `effectBasePoints3`=114, `effectBonusCoefficient3`=1, `effectImplicitTargetA3`=1, 
+`description`='Consumes the enemy in holy flames that cause $s1 Holy damage and an additional $o2 Holy damage over $d and restores $s3 mana.' WHERE  `entry`=15262;
+
+UPDATE `mangos`.`spell_template` SET `manaCost`=0 WHERE  `entry`=15263;
+UPDATE `mangos`.`spell_template` SET `effect3`=30, `effectDieSides3`=1, `effectBaseDice3`=1, `effectBasePoints3`=129, `effectBonusCoefficient3`=1, `effectImplicitTargetA3`=1, 
+`description`='Consumes the enemy in holy flames that cause $s1 Holy damage and an additional $o2 Holy damage over $d and restores $s3 mana.' WHERE  `entry`=15263;
+
+UPDATE `mangos`.`spell_template` SET `manaCost`=0 WHERE  `entry`=15264;
+UPDATE `mangos`.`spell_template` SET `effect3`=30, `effectDieSides3`=1, `effectBaseDice3`=1, `effectBasePoints3`=144, `effectBonusCoefficient3`=1, `effectImplicitTargetA3`=1, 
+`description`='Consumes the enemy in holy flames that cause $s1 Holy damage and an additional $o2 Holy damage over $d and restores $s3 mana.' WHERE  `entry`=15264;
+
+UPDATE `mangos`.`spell_template` SET `manaCost`=0 WHERE  `entry`=15265;
+UPDATE `mangos`.`spell_template` SET `effect3`=30, `effectDieSides3`=1, `effectBaseDice3`=1, `effectBasePoints3`=174, `effectBonusCoefficient3`=1, `effectImplicitTargetA3`=1, 
+`description`='Consumes the enemy in holy flames that cause $s1 Holy damage and an additional $o2 Holy damage over $d and restores $s3 mana.' WHERE  `entry`=15265;
+
+UPDATE `mangos`.`spell_template` SET `manaCost`=0 WHERE  `entry`=15266;
+UPDATE `mangos`.`spell_template` SET `effect3`=30, `effectDieSides3`=1, `effectBaseDice3`=1, `effectBasePoints3`=199, `effectBonusCoefficient3`=1, `effectImplicitTargetA3`=1, 
+`description`='Consumes the enemy in holy flames that cause $s1 Holy damage and an additional $o2 Holy damage over $d and restores $s3 mana.' WHERE  `entry`=15266;
+
+UPDATE `mangos`.`spell_template` SET `manaCost`=0 WHERE  `entry`=15267;
+UPDATE `mangos`.`spell_template` SET `effect3`=30, `effectDieSides3`=1, `effectBaseDice3`=1, `effectBasePoints3`=229, `effectBonusCoefficient3`=1, `effectImplicitTargetA3`=1, 
+`description`='Consumes the enemy in holy flames that cause $s1 Holy damage and an additional $o2 Holy damage over $d and restores $s3 mana.' WHERE  `entry`=15267;
+
+UPDATE `mangos`.`spell_template` SET `manaCost`=0 WHERE  `entry`=15261;
+UPDATE `mangos`.`spell_template` SET `effect3`=30, `effectDieSides3`=1, `effectBaseDice3`=1, `effectBasePoints3`=254, `effectBonusCoefficient3`=1, `effectImplicitTargetA3`=1, 
+`description`='Consumes the enemy in holy flames that cause $s1 Holy damage and an additional $o2 Holy damage over $d and restores $s3 mana.' WHERE  `entry`=15261;
+
+-- Atonement (100% of Smite damage heals nearby allies)
+    -- Spell (This is the aura that procs the AOE Heal)
+    REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `attributesEx3`, `castingTimeIndex`, `procFlags`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectItemType1`, `effectTriggerSpell1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `stanceBarOrder`, `dmgMultiplier1`) 
+    VALUES (34001, 5464, 4, 464, 67108864, 1, 87376, 100, 21, 1, -1, 6, 1, 1, -1, 0, -1, -1, 1, 4, 128, 34002, 332, 'Atonement', 4128830, '0', 4128830, 'When you deal damage with Smite, you instantly heal all party members within 30 yards equal to 100% of the damage dealt.  If the Priest is healed through Atonement, the effect is reduced in half.', 4128830, 4128828, 6, -1, 1);
+
+    -- Proc (AoE heal)
+    REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `attributesEx2`, `castingTimeIndex`, `procChance`, `baseLevel`, `spellLevel`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectRadiusIndex1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `spellFamilyName`, `stanceBarOrder`, `dmgMultiplier1`) VALUES (34002, 5464, 5, 134217728, 268435456, 1, 101, 1, 1, 4, -1, 10, 0, -1, -1, 20, 10, 3542, 150, 'Atonement', 4128830, 4128828, 4128828, 'When you deal damage with Smite, you instantly heal all party members within 30 yards equal to 100% of the damage dealt.  If the Priest is healed through Atonement, the effect is reduced in half', 4128830, 6, -1, 1);
 
 -- Stoneclaw Totem
 UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=199 WHERE  `entry`=5730;
@@ -1787,7 +1818,6 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
             -- Pet Spell: Water Ripple (Renew clone, 90s CD)
                 REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `dispel`, `attributes`, `attributesEx2`, `stances`, `stancesNot`, `castingTimeIndex`, `recoveryTime`, `interruptFlags`, `procChance`, `maxLevel`, `baseLevel`, `spellLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectAmplitude1`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33861, 5302, 1, 1, 65536, 524288, 2147483648, 134217728, 1, 90000, 8, 101, 65, 60, 60, 8, 5, -1, -1, 6, 1, 1, 193, 0.2, -1, -1, 21, 8, 3000, 280, 36, 50, 'Water Ripple', 2031678, 'Rank 1', 2031678, 'Heals the target of $o1 damage over $d.', 2031678, 'Healing $s1 damage every $t1 seconds.', 2031678, 133, 1500, 6, 64, 1, 1, -1, 1, 1, 1);
 
-
         -- Flurry
             -- Rank 1
                 -- Spell
@@ -1857,7 +1887,6 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
                 REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`, `superseded_by_spell`) VALUES (15109, 5875, 6, 33897, 128, 1, 0);
                 REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`, `superseded_by_spell`) VALUES (15110, 5875, 6, 33900, 128, 1, 0);
                 REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`, `superseded_by_spell`) VALUES (15111, 5875, 6, 33903, 128, 1, 0);
-
 
                 -- Spell Chain
                 REPLACE `mangos`.`spell_chain` (`spell_id`, `prev_spell`, `first_spell`, `rank`) VALUES (33847, 0,     33847, 1);
@@ -2030,6 +2059,8 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
 
         -- More ranks of Flurry
         -- More ranks of Frost Bomb
+
+        -- Ice Lance
 
 
     -- Dampen Magic / Amplify Magic (30m dura)
@@ -3384,7 +3415,6 @@ UPDATE `mangos`.`spell_template` SET `reagent4`=7078, `reagent5`=7082, `reagent6
 
             -- Proc Effect
             REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `dispel`, `attributes`, `castingTimeIndex`, `procChance`, `baseLevel`, `spellLevel`, `durationIndex`, `manaCost`, `rangeIndex`, `speed`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effect2`, `effectDieSides1`, `effectDieSides2`, `effectBaseDice1`, `effectBaseDice2`, `effectBasePoints1`, `effectBasePoints2`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectMechanic1`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectApplyAuraName1`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `dmgClass`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `customFlags`) VALUES (33666, 5464, 4, 1, 65536, 16, 101, 30, 30, 28, 25, 4, 28, -1, -1, 6, 2, 1, 16, 1, 1, -16, 9, 0, 0, -1, 11, 6, 6, 33, 13, 188, 50, 'Frostbolt', 4128830, 4128828, 'Launches a bolt of frost at the enemy causing $s2 Frost damage and slowing movement speed by $s1% for $d.', 4128830, 'Movement slowed by $s1%.', 4128830, 133, 1500, 3, 1, -1, 1, 1, 1, 128);
-
 
             -- Spell proc event
             REPLACE`mangos`.`spell_proc_event` (`entry`, `Cooldown`) VALUES (33665, 2000);

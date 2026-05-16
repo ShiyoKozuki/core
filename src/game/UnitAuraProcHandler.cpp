@@ -912,6 +912,27 @@ SpellAuraProcResult Unit::HandleDummyAuraProc(Unit* pVictim, uint32 amount, uint
                     triggered_spell_id = 28810;
                     break;
                 }
+                // Atonement
+                case 34001:
+                {
+                    if (!IsAlive())
+                        return SPELL_AURA_PROC_FAILED;
+
+                    // pVictim is caster of aura
+                    if (triggeredByAura->GetCasterGuid() != this->GetObjectGuid())
+                        return SPELL_AURA_PROC_FAILED;
+
+                    // heal amount
+                    basepoints[0] = amount;
+
+                    // don't heal for 0
+                    if (basepoints[0] < 1)
+                        basepoints[0] = 1;
+
+                    printf("Cast custom spell\n");
+                    CastCustomSpell(this, 34002, basepoints[0], {}, {}, true, castItem, triggeredByAura);
+                    return SPELL_AURA_PROC_OK; // no hidden cooldown
+                }
             }
             break;
         }
