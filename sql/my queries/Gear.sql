@@ -804,7 +804,7 @@ UPDATE mangos . item_template
 SET quality = 2,
     bonding = 2,
     stat_type1 = 6,
-    stat_value1 = 3,
+    stat_value1 = 2,
     stat_type2 = 0,
     stat_value2 = 0,
     spellid_1 = 33790, -- 1 Spell Penetration
@@ -824,9 +824,9 @@ WHERE entry = 6238;
 -- White Linen Robe
 UPDATE mangos . item_template
 SET stat_type1 = 5,
-    stat_value1 = 5,
+    stat_value1 = 2,
     stat_type2 = 6,
-    stat_value2 = 5
+    stat_value2 = 2
 WHERE entry = 6241;
 
 -- Heavy Linen Gloves
@@ -834,7 +834,7 @@ UPDATE mangos . item_template
 SET quality = 2,
     bonding = 2,
     stat_type1 = 6,
-    stat_value1 = 3,
+    stat_value1 = 2,
     stat_type2 = 0,
     stat_value2 = 0,
     spellid_1 = 33790, -- 1 Spell Penetration
@@ -844,7 +844,7 @@ WHERE entry = 4307;
 -- Red Linen Robe
 UPDATE mangos . item_template
 SET stat_type1 = 5,
-    stat_value1 = 7,
+    stat_value1 = 5,
     stat_type2 = 6,
     stat_value2 = 0
 WHERE entry = 2572;
@@ -852,13 +852,13 @@ WHERE entry = 2572;
 -- Blue Linen Vest
 UPDATE mangos . item_template
 SET stat_type1 = 6,
-    stat_value1 = 7
+    stat_value1 = 5
 WHERE entry = 6240;
 
 -- Red Linen Vest
 UPDATE mangos . item_template
 SET stat_type1 = 7,
-    stat_value1 = 7
+    stat_value1 = 5
 WHERE entry = 6239;
 
 -- Green Linen Bracers
@@ -878,9 +878,9 @@ UPDATE mangos . item_template
 SET quality = 2,
     bonding = 2,
     stat_type1 = 5,
-    stat_value1 = 4,
+    stat_value1 = 1,
     stat_type2 = 6,
-    stat_value2 = 4
+    stat_value2 = 1
 WHERE entry = 2580;
 
 -- Linen Boots
@@ -888,26 +888,26 @@ UPDATE mangos . item_template
 SET quality = 2,
     bonding = 2,
     stat_type1 = 5,
-    stat_value1 = 4,
+    stat_value1 = 1,
     stat_type2 = 6,
-    stat_value2 = 4
+    stat_value2 = 1
 WHERE entry = 2569;
 
 -- Soft-soled Linen Boots
 UPDATE mangos . item_template
 SET stat_type1 = 6,
-    stat_value1 = 4,
+    stat_value1 = 1,
     stat_type2 = 7,
-    stat_value2 = 4
+    stat_value2 = 1
 WHERE entry = 4312;
 
 -- Barbaric Linen Vest
 UPDATE mangos . item_template
 SET quality = 3,
     stat_type1 = 6,
-    stat_value1 = 7,
+    stat_value1 = 4,
     stat_type2 = 7,
-    stat_value2 = 7
+    stat_value2 = 4
 WHERE entry = 2578;
 
 -- Blue Linen Robe
@@ -925,9 +925,9 @@ WHERE entry = 6242;
 -- Handstitched Linen Britches
 UPDATE mangos . item_template
 SET stat_type1 = 5,
-    stat_value1 = 5,
+    stat_value1 = 2,
     stat_type2 = 6,
-    stat_value2 = 5
+    stat_value2 = 2
 WHERE entry = 4309;
 
 -- Spidersilk Boots

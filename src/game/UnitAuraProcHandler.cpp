@@ -929,7 +929,6 @@ SpellAuraProcResult Unit::HandleDummyAuraProc(Unit* pVictim, uint32 amount, uint
                     if (basepoints[0] < 1)
                         basepoints[0] = 1;
 
-                    printf("Cast custom spell\n");
                     CastCustomSpell(this, 34002, basepoints[0], {}, {}, true, castItem, triggeredByAura);
                     return SPELL_AURA_PROC_OK; // no hidden cooldown
                 }

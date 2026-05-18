@@ -1,4 +1,4 @@
--- NEXT talent ID is 1723
+-- NEXT talent ID is 1725
 -- Talents that grant a new spell (i.e. feral charge) need flags set to "1"
 -- Talents
 
@@ -49,6 +49,112 @@
 
     -- Frostbite (Added Flurry)
     UPDATE `mangos`.`spell_template` SET `effectItemType1`=4296015872 WHERE  entry IN(11071, 12496, 12497) AND `build`=5464;
+
+-- Priest
+-- Mental Agility (-2% -> -3% Per Rank)
+UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=-4 WHERE  `entry`=14520;
+UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=-7 WHERE  `entry`=14780;
+UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=-10 WHERE  `entry`=14781;
+UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=-13 WHERE  `entry`=14782;
+UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=-16 WHERE  `entry`=14783;
+
+-- Improved Inner Fire (Inner Fire increases your Spell damage and healing by 3/6/9%)
+UPDATE `mangos`.`spell_template` SET `effect2`=6, `effectDieSides2`=1, `effectBaseDice2`=1, `effectBasePoints2`=-1, `effectImplicitTargetA2`=1, `effectApplyAuraName2`=108, `effectItemType2`=469024465, `effectMiscValue2`=8 WHERE `entry`=588;
+
+UPDATE `mangos`.`spell_template` SET `effect2`=6, `effectDieSides2`=1, `effectBaseDice2`=1, `effectBasePoints2`=-1, `effectImplicitTargetA2`=1, `effectApplyAuraName2`=108, `effectItemType2`=469024465, `effectMiscValue2`=8 WHERE `entry`=7128;
+
+UPDATE `mangos`.`spell_template` SET `effect2`=6, `effectDieSides2`=1, `effectBaseDice2`=1, `effectBasePoints2`=-1, `effectImplicitTargetA2`=1, `effectApplyAuraName2`=108, `effectItemType2`=469024465, `effectMiscValue2`=8 WHERE `entry`=602;
+
+UPDATE `mangos`.`spell_template` SET `effect2`=6, `effectDieSides2`=1, `effectBaseDice2`=1, `effectBasePoints2`=-1, `effectImplicitTargetA2`=1, `effectApplyAuraName2`=108, `effectItemType2`=469024465, `effectMiscValue2`=8 WHERE `entry`=1006;
+
+UPDATE `mangos`.`spell_template` SET `effect2`=6, `effectDieSides2`=1, `effectBaseDice2`=1, `effectBasePoints2`=-1, `effectImplicitTargetA2`=1, `effectApplyAuraName2`=108, `effectItemType2`=469024465, `effectMiscValue2`=8 WHERE `entry`=10951;
+
+UPDATE `mangos`.`spell_template` SET `effect2`=6, `effectDieSides2`=1, `effectBaseDice2`=1, `effectBasePoints2`=-1, `effectImplicitTargetA2`=1, `effectApplyAuraName2`=108, `effectItemType2`=469024465, `effectMiscValue2`=8 WHERE `entry`=10952;
+
+UPDATE `mangos`.`spell_template` SET `effect2`=6, `effectDieSides2`=1, `effectBaseDice2`=1, `effectBasePoints2`=2, `effectImplicitTargetA2`=1, `effectApplyAuraName2`=107, `effectItemType2`=2, `effectMiscValue2`=8, `description`='Increases the beneficial effects of your Inner Fire spell by $s1%. While Inner Fire is active, your spell damage and healing is increased by $s2%.' WHERE  `entry`=14747;
+
+UPDATE `mangos`.`spell_template` SET `effect2`=6, `effectDieSides2`=1, `effectBaseDice2`=1, `effectBasePoints2`=5, `effectImplicitTargetA2`=1, `effectApplyAuraName2`=107, `effectItemType2`=2, `effectMiscValue2`=8, `description`='Increases the beneficial effects of your Inner Fire spell by $s1%. While Inner Fire is active, your spell damage and healing is increased by $s2%.' WHERE  `entry`=14770;
+
+UPDATE `mangos`.`spell_template` SET `effect2`=6, `effectDieSides2`=1, `effectBaseDice2`=1, `effectBasePoints2`=8, `effectImplicitTargetA2`=1, `effectApplyAuraName2`=107, `effectItemType2`=2, `effectMiscValue2`=8, `description`='Increases the beneficial effects of your Inner Fire spell by $s1%. While Inner Fire is active, your spell damage and healing is increased by $s2%.' WHERE  `entry`=14771;
+
+-- Force of Will (2 Ranks, 2% Spell Damage and 2% Spell Hit per rank)
+    UPDATE `mangos`.`spell_template` SET `effect1`=6, `effectImplicitTargetA1`=1, `effectDieSides1`=1, `effectBaseDice1`=1, `effectBasePoints1`=1, `effectBasePoints2`=1, `effectBasePoints3`=1, `effectApplyAuraName1`=55, effectItemType1 = 5775504, `description`='Increases your spell damage by $s2% and the hit chance of your offensive spells by $s1%.' WHERE `entry`=18544;
+
+    UPDATE `mangos`.`spell_template` SET `effect1`=6, `effectImplicitTargetA1`=1, `effectDieSides1`=1, `effectBaseDice1`=1, `effectBasePoints1`=3, `effectBasePoints2`=3, `effectBasePoints3`=3, `effectApplyAuraName1`=55,effectItemType1 = 5775504, `description`='Increases your spell damage by $s2% and the hit chance of your offensive spells by $s1%.' WHERE `entry`=18547;
+
+-- Atonement (100% of Smite damage heals nearby allies)
+    -- Spell (This is the aura that procs the AOE Heal)
+    REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `attributesEx3`, `castingTimeIndex`, `procFlags`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectItemType1`, `effectTriggerSpell1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `stanceBarOrder`, `dmgMultiplier1`) 
+    VALUES (34001, 5464, 4, 464, 67108864, 1, 87376, 100, 21, 1, -1, 6, 1, 1, -1, 0, -1, -1, 1, 4, 128, 34002, 332, 'Atonement', 4128830, '0', 4128830, 'When you deal damage with Smite, you instantly heal all party members within 30 yards equal to 100% of the damage dealt.  If the Priest is healed through Atonement, the effect is reduced in half.', 4128830, 4128828, 6, -1, 1);
+
+    -- Proc (AoE heal)
+    REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `attributesEx2`, `castingTimeIndex`, `procChance`, `baseLevel`, `spellLevel`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectRadiusIndex1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `spellFamilyName`, `stanceBarOrder`, `dmgMultiplier1`) VALUES (34002, 5464, 5, 134217728, 268435456, 1, 101, 1, 1, 4, -1, 10, 0, -1, -1, 20, 10, 3542, 150, 'Atonement', 4128830, 4128828, 4128828, 'When you deal damage with Smite, you instantly heal all party members within 30 yards equal to 100% of the damage dealt.  If the Priest is healed through Atonement, the effect is reduced in half', 4128830, 6, -1, 1);
+
+-- Evangelism
+    -- Rank 1
+    -- Spell (This is the aura that procs the actual buff)
+    REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `attributesEx3`, `castingTimeIndex`, `procFlags`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectItemType1`, `effectTriggerSpell1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `stanceBarOrder`, `dmgMultiplier1`) 
+    VALUES (34003, 5464, 2, 464, 67108864, 1, 87376, 100, 21, 1, -1, 6, 1, 1, -1, 0, -1, -1, 1, 42, 8590983296, 34004, 1873, 'Evangelism', 4128830, '0', 4128830, 'When you cast Smite you gain Evangelism. Increases the damage done by your Smite, Holy Fire, and Penance spells by $34004s2% and reduces the mana cost of those spells by $34004s1%. Stacks up to 5 times. Lasts for 20 sec.', 4128830, 4128828, 6, -1, 1);
+
+    -- Proc (This is the actual buff)
+    REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `dispel`, `attributes`, `castingTimeIndex`, `procFlags`, `procChance`, `procCharges`, `baseLevel`, `spellLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectItemType1`, `effectMiscValue1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `spellFamilyName`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) 
+    VALUES (34004, 5464, 2, 1, 327680, 1, 87376, 100, 0, 10, 10, 85, 6, -1, -1, 6, 1, 1, 49, 0, -1, -1, 1, 108, 8590983296, 8, 2736, 1873, 'Evangelism', 4128830, 4128828, 4128828, 'Increases the damage done by your Smite, Holy Fire, and Penance spells by $s2% and reduces the mana cost of those spells by $s1%', 4128830, 6, 1, 1, -1, 1, 1, 1);
+
+    UPDATE `mangos`.`spell_template` SET `stackAmount`=5, `effect1`=6, `effect2`=6, `effectDieSides1`=1, `effectDieSides2`=1, `effectBaseDice1`=1, `effectBaseDice2`=1, `effectBasePoints1`=-4, `effectBasePoints2`=1, `effectImplicitTargetA1`=1, `effectImplicitTargetA2`=1, `effectApplyAuraName1`=108, `effectApplyAuraName2`=108, `effectItemType1`=8590983296, `effectItemType2`=8590983296, `effectMiscValue1`=14, `effectMiscValue2`=8 WHERE entry = 34004;
+
+    -- Rank 2
+    -- Spell (This is the aura that procs the actual buff)
+    REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `attributesEx3`, `castingTimeIndex`, `procFlags`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectItemType1`, `effectTriggerSpell1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `stanceBarOrder`, `dmgMultiplier1`) 
+    VALUES (34005, 5464, 2, 464, 67108864, 1, 87376, 100, 21, 1, -1, 6, 1, 1, -1, 0, -1, -1, 1, 42, 8590983296, 34006, 1873, 'Evangelism', 4128830, '0', 4128830, 'When you cast Smite you gain Evangelism. Increases the damage done by your Smite, Holy Fire, and Penance spells by $34004s2% and reduces the mana cost of those spells by $34006s1%. Stacks up to 5 times. Lasts for 20 sec.', 4128830, 4128828, 6, -1, 1);
+
+    -- Proc (This is the actual buff)
+    REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `dispel`, `attributes`, `castingTimeIndex`, `procFlags`, `procChance`, `procCharges`, `baseLevel`, `spellLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectItemType1`, `effectMiscValue1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `spellFamilyName`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) 
+    VALUES (34006, 5464, 2, 1, 327680, 1, 87376, 100, 0, 10, 10, 85, 6, -1, -1, 6, 1, 1, 49, 0, -1, -1, 1, 108, 8590983296, 8, 2736, 1873, 'Evangelism', 4128830, 4128828, 4128828, 'Increases the damage done by your Smite, Holy Fire, and Penance spells by $s2% and reduces the mana cost of those spells by $s1%', 4128830, 6, 1, 1, -1, 1, 1, 1);
+
+    UPDATE `mangos`.`spell_template` SET `stackAmount`=5, `effect1`=6, `effect2`=6, `effectDieSides1`=1, `effectDieSides2`=1, `effectBaseDice1`=1, `effectBaseDice2`=1, `effectBasePoints1`=-7, `effectBasePoints2`=3, `effectImplicitTargetA1`=1, `effectImplicitTargetA2`=1, `effectApplyAuraName1`=108, `effectApplyAuraName2`=108, `effectItemType1`=8590983296, `effectItemType2`=8590983296, `effectMiscValue1`=14, `effectMiscValue2`=8 WHERE entry = 34006;
+
+-- Archangel
+    REPLACE `mangos`.`spell_template` (`entry`, `build`, `dispel`, `attributes`, `attributesEx2`, `stances`, `castingTimeIndex`, `recoveryTime`, `procFlags`, `procChance`, `procCharges`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effect2`, `effectDieSides1`, `effectDieSides2`, `effectBaseDice1`, `effectBaseDice2`, `effectBasePoints1`, `effectBasePoints2`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectApplyAuraName1`, `effectApplyAuraName2`, `effectItemType1`, `effectItemType2`, `effectMiscValue1`, `effectMiscValue2`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `spellFamilyName`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `script_name`) VALUES (34007, 5302, 1, 33882112, 524288, 134217728, 1, 180000, 87376, 100, 0, 21, 1, -1, 6, 6, 1, 1, 1, 1, -101, 24, 0, 0, -1, 1, 1, 108, 107, 3338141659, 3377741456, 14, 7, 4372, 1880, 'Archangel', 2031678, 2031676, 'Instantly restores $s1 mana and increases your healing done by $s2% for each stack for 18 sec', 2031678, 'Healing done increased.', 2031678, 6, 1, 1, -1, 1, 1, 'spell_priest_archangel');
+
+    UPDATE `mangos`.`spell_template` SET `recoveryTime`=30000, `maxLevel`=61, `baseLevel`=20, `spellLevel`=20, `durationIndex`=9, `powerType`=0, `manaCost`=0, `effect1`=30, `effect2`=6, `effect3`=77, `effectDieSides1`=1, `effectDieSides2`=1, `effectBaseDice2`=1, `effectRealPointsPerLevel1`=15, `effectBasePoints1`=99, `effectBasePoints2`=2, `effectBonusCoefficient1`=0, `effectImplicitTargetA1`=1, `effectImplicitTargetA2`=21, `effectImplicitTargetA3`=1, `effectApplyAuraName2`=108, `effectApplyAuraName3`=4, `effectItemType1`=0, `effectItemType2`=151264832, `effectMiscValue1`=0, `effectMiscValue2`=8, `spellFamilyFlags`=0 WHERE  `entry`=34007;
+
+    UPDATE `mangos`.`spell_template` SET `effect1`=77, `effect3`=30, `effectDieSides3`=1, `effectBaseDice3`=1, `effectRealPointsPerLevel1`=0, `effectRealPointsPerLevel3`=10, `effectBasePoints1`=0, `effectBasePoints3`=99, `effectBonusCoefficient3`=0, `effectApplyAuraName1`=4, `effectApplyAuraName3`=108 WHERE  `entry`=34007 AND `build`=5302;
+
+    -- Skill Line Ability
+    REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`) VALUES (15118, 5875, 613, 34007, 16, 1);
+
+-- Mental Strength (PW:S MP cost -5% and reduces physical damage target takes by 1/2/3/4/5% while active)
+UPDATE `mangos`.`spell_template` SET `effect2`=77, `effectDieSides2`=0, `effectBaseDice2`=0, `effectBasePoints2`=0, `effectBonusCoefficient2`=0, `effectImplicitTargetA2`=1, `effectApplyAuraName2`=4, `effectMiscValue2`=0,`effect3`=6, `effectDieSides3`=1, `effectBaseDice3`=1, `effectBasePoints3`=-1, `effectBonusCoefficient3`=0, `effectImplicitTargetA3`=57, `effectApplyAuraName3`=87, `effectMiscValue3`=1 WHERE  `entry`=17;
+
+UPDATE `mangos`.`spell_template` SET `effect2`=77, `effectDieSides2`=0, `effectBaseDice2`=0, `effectBasePoints2`=0, `effectBonusCoefficient2`=0, `effectImplicitTargetA2`=1, `effectApplyAuraName2`=4, `effectMiscValue2`=0,`effect3`=6, `effectDieSides3`=1, `effectBaseDice3`=1, `effectBasePoints3`=-1, `effectBonusCoefficient3`=0, `effectImplicitTargetA3`=57, `effectApplyAuraName3`=87, `effectMiscValue3`=1 WHERE  `entry`=592;
+
+UPDATE `mangos`.`spell_template` SET `effect2`=77, `effectDieSides2`=0, `effectBaseDice2`=0, `effectBasePoints2`=0, `effectBonusCoefficient2`=0, `effectImplicitTargetA2`=1, `effectApplyAuraName2`=4, `effectMiscValue2`=0,`effect3`=6, `effectDieSides3`=1, `effectBaseDice3`=1, `effectBasePoints3`=-1, `effectBonusCoefficient3`=0, `effectImplicitTargetA3`=57, `effectApplyAuraName3`=87, `effectMiscValue3`=1 WHERE  `entry`=600;
+
+UPDATE `mangos`.`spell_template` SET `effect2`=77, `effectDieSides2`=0, `effectBaseDice2`=0, `effectBasePoints2`=0, `effectBonusCoefficient2`=0, `effectImplicitTargetA2`=1, `effectApplyAuraName2`=4, `effectMiscValue2`=0,`effect3`=6, `effectDieSides3`=1, `effectBaseDice3`=1, `effectBasePoints3`=-1, `effectBonusCoefficient3`=0, `effectImplicitTargetA3`=57, `effectApplyAuraName3`=87, `effectMiscValue3`=1 WHERE  `entry`=3747;
+
+UPDATE `mangos`.`spell_template` SET `effect2`=77, `effectDieSides2`=0, `effectBaseDice2`=0, `effectBasePoints2`=0, `effectBonusCoefficient2`=0, `effectImplicitTargetA2`=1, `effectApplyAuraName2`=4, `effectMiscValue2`=0,`effect3`=6, `effectDieSides3`=1, `effectBaseDice3`=1, `effectBasePoints3`=-1, `effectBonusCoefficient3`=0, `effectImplicitTargetA3`=57, `effectApplyAuraName3`=87, `effectMiscValue3`=1 WHERE  `entry`=6065;
+
+UPDATE `mangos`.`spell_template` SET `effect2`=77, `effectDieSides2`=0, `effectBaseDice2`=0, `effectBasePoints2`=0, `effectBonusCoefficient2`=0, `effectImplicitTargetA2`=1, `effectApplyAuraName2`=4, `effectMiscValue2`=0,`effect3`=6, `effectDieSides3`=1, `effectBaseDice3`=1, `effectBasePoints3`=-1, `effectBonusCoefficient3`=0, `effectImplicitTargetA3`=57, `effectApplyAuraName3`=87, `effectMiscValue3`=1 WHERE  `entry`=6066;
+
+UPDATE `mangos`.`spell_template` SET `effect2`=77, `effectDieSides2`=0, `effectBaseDice2`=0, `effectBasePoints2`=0, `effectBonusCoefficient2`=0, `effectImplicitTargetA2`=1, `effectApplyAuraName2`=4, `effectMiscValue2`=0,`effect3`=6, `effectDieSides3`=1, `effectBaseDice3`=1, `effectBasePoints3`=-1, `effectBonusCoefficient3`=0, `effectImplicitTargetA3`=57, `effectApplyAuraName3`=87, `effectMiscValue3`=1 WHERE  `entry`=10898;
+
+UPDATE `mangos`.`spell_template` SET `effect2`=77, `effectDieSides2`=0, `effectBaseDice2`=0, `effectBasePoints2`=0, `effectBonusCoefficient2`=0, `effectImplicitTargetA2`=1, `effectApplyAuraName2`=4, `effectMiscValue2`=0,`effect3`=6, `effectDieSides3`=1, `effectBaseDice3`=1, `effectBasePoints3`=-1, `effectBonusCoefficient3`=0, `effectImplicitTargetA3`=57, `effectApplyAuraName3`=87, `effectMiscValue3`=1 WHERE  `entry`=10899;
+
+UPDATE `mangos`.`spell_template` SET `effect2`=77, `effectDieSides2`=0, `effectBaseDice2`=0, `effectBasePoints2`=0, `effectBonusCoefficient2`=0, `effectImplicitTargetA2`=1, `effectApplyAuraName2`=4, `effectMiscValue2`=0,`effect3`=6, `effectDieSides3`=1, `effectBaseDice3`=1, `effectBasePoints3`=-1, `effectBonusCoefficient3`=0, `effectImplicitTargetA3`=57, `effectApplyAuraName3`=87, `effectMiscValue3`=1 WHERE  `entry`=10900;
+
+UPDATE `mangos`.`spell_template` SET `effect2`=77, `effectDieSides2`=0, `effectBaseDice2`=0, `effectBasePoints2`=0, `effectBonusCoefficient2`=0, `effectImplicitTargetA2`=1, `effectApplyAuraName2`=4, `effectMiscValue2`=0,`effect3`=6, `effectDieSides3`=1, `effectBaseDice3`=1, `effectBasePoints3`=-1, `effectBonusCoefficient3`=0, `effectImplicitTargetA3`=57, `effectApplyAuraName3`=87, `effectMiscValue3`=1 WHERE  `entry`=10901;
+
+UPDATE `mangos`.`spell_template` SET `effect2`=0, `effectDieSides2`=1, `effectBaseDice2`=1, `effectBasePoints1`=-2, `effectBasePoints2`=-2, `effectBonusCoefficient2`=0, `effectImplicitTargetA2`=0, `effectApplyAuraName1`=108, `effectApplyAuraName2`=108, `effectItemType1`=1, `effectItemType2`=1, `effectMiscValue1`=14, `effectMiscValue2`=8, `description`='Reduces the mana cost of your Power Word: Shield by $s1%. Power Word: Shield reduces physical damage taken while active by 1%.', `spellFamilyName`=6 WHERE  `entry`=18551;
+
+UPDATE `mangos`.`spell_template` SET `effect2`=0, `effectDieSides2`=0, `effectBaseDice2`=0, `effectBasePoints1`=-3, `effectBasePoints2`=0, `effectBonusCoefficient2`=0, `effectImplicitTargetA2`=0, `effectApplyAuraName1`=108, `effectApplyAuraName2`=0, `effectItemType1`=1, `effectItemType2`=0, `effectMiscValue1`=14, `effectMiscValue2`=0, `description`='Reduces the mana cost of your Power Word: Shield by $s1%. Power Word: Shield reduces physical damage taken while active by 2%.', `spellFamilyName`=6 WHERE  `entry`=18552;
+
+UPDATE `mangos`.`spell_template` SET `effect2`=0, `effectDieSides2`=0, `effectBaseDice2`=0, `effectBasePoints1`=-4, `effectBasePoints2`=0, `effectBonusCoefficient2`=0, `effectImplicitTargetA2`=0, `effectApplyAuraName1`=108, `effectApplyAuraName2`=0, `effectItemType1`=1, `effectItemType2`=0, `effectMiscValue1`=14, `effectMiscValue2`=0, `description`='Reduces the mana cost of your Power Word: Shield by $s1%. Power Word: Shield reduces physical damage taken while active by 3%.', `spellFamilyName`=6 WHERE  `entry`=18553;
+
+UPDATE `mangos`.`spell_template` SET `effect2`=0, `effectDieSides2`=0, `effectBaseDice2`=0, `effectBasePoints1`=-5, `effectBasePoints2`=0, `effectBonusCoefficient2`=0, `effectImplicitTargetA2`=0, `effectApplyAuraName1`=108, `effectApplyAuraName2`=0, `effectItemType1`=1, `effectItemType2`=0, `effectMiscValue1`=14, `effectMiscValue2`=0, `description`='Reduces the mana cost of your Power Word: Shield by $s1%. Power Word: Shield reduces physical damage taken while active by 4%.', `spellFamilyName`=6 WHERE  `entry`=18554;
+
+UPDATE `mangos`.`spell_template` SET `effect2`=0, `effectDieSides2`=0, `effectBaseDice2`=0, `effectBasePoints1`=-6, `effectBasePoints2`=0, `effectBonusCoefficient2`=0, `effectImplicitTargetA2`=0, `effectApplyAuraName1`=108, `effectApplyAuraName2`=0, `effectItemType1`=1, `effectItemType2`=0, `effectMiscValue1`=14, `effectMiscValue2`=0, `description`='Reduces the mana cost of your Power Word: Shield by $s1%. Power Word: Shield reduces physical damage taken while active by 5%.', `spellFamilyName`=6 WHERE  `entry`=18555;
+
+-- Penance
 
 -- Druid
     -- Savage Fury (Add Lacerate, Thrash, Brutal Slash)

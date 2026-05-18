@@ -169,8 +169,9 @@ enum ClassFlag
     CF_PRIEST_WEAKENED_SOUL                 = 29,   // CM0 20000000
     CF_PRIEST_MISC1                         = 30,   // CM0 40000000 Ressurection, Shackle Undead, Lightwell
     CF_PRIEST_MISC2                         = 31,   // CM0 80000000
+    CF_PRIEST_DISPELLS                      = 32,   // CM1 00000001
+    CF_PRIEST_PENANCE                       = 33,   // CM1 00000002
 
-    CF_PRIEST_DISPELLS                       = 32,   // CM1 00000001
 
     // -- Druid (7)
     CF_DRUID_WRATH                          = 0,    // CM0 00000001

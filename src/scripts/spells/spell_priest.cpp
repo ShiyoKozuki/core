@@ -65,6 +65,11 @@ struct PriestPowerWordShieldScript : SpellScript
     enum
     {
         SPELL_WEAKENED_SOUL = 6788,
+        SPELL_MENTAL_STRENGTH_1 = 18551,
+        SPELL_MENTAL_STRENGTH_2 = 18552,
+        SPELL_MENTAL_STRENGTH_3 = 18553,
+        SPELL_MENTAL_STRENGTH_4 = 18554,
+        SPELL_MENTAL_STRENGTH_5 = 18555
     };
 
     void OnHit(Spell* spell, SpellMissInfo missInfo) const final
@@ -73,6 +78,32 @@ struct PriestPowerWordShieldScript : SpellScript
         {
             spell->m_caster->CastSpell(spell->GetUnitTarget(), SPELL_WEAKENED_SOUL, true);
         }
+    }
+
+    bool OnEffectExecute(Spell* spell, SpellEffectIndex effIdx) const final
+    {
+        if (effIdx == EFFECT_INDEX_1 && spell->GetUnitTarget() && spell->m_caster && spell->m_casterUnit)
+        {
+            int32 physicalDamageTakenDR = 0;
+
+            if (spell->m_casterUnit->HasAura(SPELL_MENTAL_STRENGTH_5))
+                physicalDamageTakenDR = -5;
+            else if (spell->m_casterUnit->HasAura(SPELL_MENTAL_STRENGTH_4))
+                physicalDamageTakenDR = -4;
+            else if (spell->m_casterUnit->HasAura(SPELL_MENTAL_STRENGTH_3))
+                physicalDamageTakenDR = -3;
+            else if (spell->m_casterUnit->HasAura(SPELL_MENTAL_STRENGTH_2))
+                physicalDamageTakenDR = -2;
+            else if (spell->m_casterUnit->HasAura(SPELL_MENTAL_STRENGTH_1))
+                physicalDamageTakenDR = -1;
+
+            if (physicalDamageTakenDR < 0)
+            {
+                spell->m_currentBasePoints[EFFECT_INDEX_2] = physicalDamageTakenDR;
+            }
+        }
+
+        return true;
     }
 };
 
@@ -129,6 +160,62 @@ SpellScript* GetScript_PriestHolyNova(SpellEntry const*)
     return new PriestHolyNovaScript();
 }
 
+struct PriestArchangelScript : public SpellScript
+{
+    enum
+    {
+        SPELL_EVANGELISM_BUFF1 = 34004,
+        SPELL_EVANGELISM_BUFF2 = 34006,
+    };
+
+    SpellCastResult OnCheckCast(Spell* spell, bool /*strict*/) const final
+    {
+#if SUPPORTED_CLIENT_BUILD > CLIENT_BUILD_1_10_2
+        if (Unit* target = spell->m_targets.getUnitTarget())
+        {
+            if (target->HasAura(SPELL_EVANGELISM_BUFF1) || target->HasAura(SPELL_EVANGELISM_BUFF2))
+                return SPELL_CAST_OK;
+        }
+#endif
+        return SPELL_FAILED_TARGET_AURASTATE;
+    }
+
+    bool OnEffectExecute(Spell* spell, SpellEffectIndex effIdx) const final
+    {
+        if (effIdx == EFFECT_INDEX_0 && spell->GetUnitTarget() && spell->m_caster)
+        {
+            Aura* evangelismAura = spell->GetUnitTarget()->GetAura(SPELL_EVANGELISM_BUFF1, EFFECT_INDEX_0);
+
+            // Check second Evangelism aura
+            if (!evangelismAura)
+            {
+                evangelismAura = spell->GetUnitTarget()->GetAura(SPELL_EVANGELISM_BUFF2, EFFECT_INDEX_0);
+            }
+
+            if (!evangelismAura)
+            {
+                return false;
+            }
+
+            uint16 stacks = evangelismAura->GetStackAmount();
+
+            // Scale Archangel buffs by stack count
+            spell->m_currentBasePoints[EFFECT_INDEX_1] *= stacks;
+            spell->m_currentBasePoints[EFFECT_INDEX_2] *= stacks;
+
+            // Remove Evangelism from self
+            spell->GetUnitTarget()->RemoveAurasByCasterSpell(evangelismAura->GetId(), spell->m_caster->GetObjectGuid());
+        }
+
+        return true;
+    }
+};
+
+SpellScript* GetScript_PriestArchangel(SpellEntry const*)
+{
+    return new PriestArchangelScript();
+}
+
 void AddSC_priest_spell_scripts()
 {
     Script* newscript;
@@ -146,5 +233,10 @@ void AddSC_priest_spell_scripts()
     newscript = new Script;
     newscript->Name = "spell_priest_holy_nova";
     newscript->GetSpellScript = &GetScript_PriestHolyNova;
+    newscript->RegisterSelf();
+
+    newscript = new Script;
+    newscript->Name = "spell_priest_archangel";
+    newscript->GetSpellScript = &GetScript_PriestArchangel;
     newscript->RegisterSelf();
 }
