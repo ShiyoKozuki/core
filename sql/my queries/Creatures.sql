@@ -85,37 +85,37 @@ UPDATE mangos . creature_display_info_addon
 SET combat_reach = 2
 WHERE display_id IN(59, 60, 12170);
 
--- AOE camp mobs
+-- AOE camp mobs (Is this wrong? I buffed it 3x after nerfing it, unsure if it should've been x2 instead)
 
     -- Hammerfall Peon
-    UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.5, `damage_multiplier`=1.0 WHERE  `entry`=2618 AND `patch`=0;
+    UPDATE `mangos`.`creature_template` SET `health_multiplier`=1.5, `damage_multiplier`=1.0 WHERE  `entry`=2618 AND `patch`=0;
 
     -- Southsea Swashbuckler
-    UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.6, `damage_multiplier`=1.0 WHERE  `entry`=7858 AND `patch`=0;
+    UPDATE `mangos`.`creature_template` SET `health_multiplier`=1.8, `damage_multiplier`=1.0 WHERE  `entry`=7858 AND `patch`=0;
     -- Southsea Pirate
-    UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.5, `damage_multiplier`=1.0 WHERE  `entry`=7855 AND `patch`=0;
+    UPDATE `mangos`.`creature_template` SET `health_multiplier`=1.5, `damage_multiplier`=1.0 WHERE  `entry`=7855 AND `patch`=0;
     -- Southsea Dock Worker
-    UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.6, `damage_multiplier`=0.9 WHERE  `entry`=7857 AND `patch`=0;
+    UPDATE `mangos`.`creature_template` SET `health_multiplier`=1.8, `damage_multiplier`=0.9 WHERE  `entry`=7857 AND `patch`=0;
     -- Southsea Freebooter
-    UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.6, `damage_multiplier`=1.0 WHERE  `entry`=7856 AND `patch`=0;
+    UPDATE `mangos`.`creature_template` SET `health_multiplier`=1.8, `damage_multiplier`=1.0 WHERE  `entry`=7856 AND `patch`=0;
 
     -- Scarlet Lumberjack
-    UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.7, `damage_multiplier`=1.0 WHERE  `entry`=1884 AND `patch`=0;
+    UPDATE `mangos`.`creature_template` SET `health_multiplier`=2.1, `damage_multiplier`=1.0 WHERE  `entry`=1884 AND `patch`=0;
 
     -- Scarlet Worker
-    UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.7, `damage_multiplier`=1.0 WHERE  `entry`=1883 AND `patch`=0;
+    UPDATE `mangos`.`creature_template` SET `health_multiplier`=2.1, `damage_multiplier`=1.0 WHERE  `entry`=1883 AND `patch`=0;
 
     -- Blighted Zombie (Dalsons Tears)
-    UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.7, `damage_multiplier`=1.0 WHERE  `entry`=4475 AND `patch`=0;
+    UPDATE `mangos`.`creature_template` SET `health_multiplier`=2.1, `damage_multiplier`=1.0 WHERE  `entry`=4475 AND `patch`=0;
     -- Rotting Cadaver (Dalsons Tears)
-    UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.7, `damage_multiplier`=1.0 WHERE  `entry`=4474 AND `patch`=0;
+    UPDATE `mangos`.`creature_template` SET `health_multiplier`=2.1, `damage_multiplier`=1.0 WHERE  `entry`=4474 AND `patch`=0;
     -- Skeletal Terror (Dalsons Tears)
-    UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.7, `damage_multiplier`=1.0 WHERE  `entry`=1785 AND `patch`=0;
+    UPDATE `mangos`.`creature_template` SET `health_multiplier`=2.1, `damage_multiplier`=1.0 WHERE  `entry`=1785 AND `patch`=0;
 
     -- Skeletal Sorcerer (Sorrow Hill / Felstone Field)
-    UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.7, `damage_multiplier`=1.0 WHERE  `entry`=1784 AND `patch`=0;
+    UPDATE `mangos`.`creature_template` SET `health_multiplier`=2.1, `damage_multiplier`=1.0 WHERE  `entry`=1784 AND `patch`=0;
     -- Skeletal Flayer (Sorrow Hill / Felstone Field)
-    UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.7, `damage_multiplier`=0.6 WHERE  `entry`=1783 AND `patch`=0;
+    UPDATE `mangos`.`creature_template` SET `health_multiplier`=2.1, `damage_multiplier`=0.6 WHERE  `entry`=1783 AND `patch`=0;
     -- Slavering Ghoul (Sorrow Hill / Felstone Field)
 
 
@@ -191,124 +191,124 @@ UPDATE `mangos`.`creature_template` SET `rank`=1 WHERE  `entry`=4438 AND `patch`
 UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.4, `damage_multiplier`=0.5 WHERE  `entry`=10940 AND `patch`=0;
 
 -- Archaedas HP adjusted due to 2x elite HP
-UPDATE `mangos`.`creature_template` SET `health_multiplier`=7 WHERE  `entry`=2748 AND `patch`=0;
+UPDATE `mangos`.`creature_template` SET `health_multiplier`=10 WHERE  `entry`=2748 AND `patch`=0;
 
 -- Eliza's Guard HP and damage reduced due to DMG and HP multiplier on normal mobs
-UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.45, `damage_multiplier`=1.0 WHERE  `entry`=1871 AND `patch`=0;
+UPDATE `mangos`.`creature_template` SET `health_multiplier`=1.35, `damage_multiplier`=1.0 WHERE  `entry`=1871 AND `patch`=0;
 
 -- Oozeling HP and damage reduced due to DMG and HP multiplier on normal mobs
-UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.2, `damage_multiplier`=0.9 WHERE  `entry`=8257 AND `patch`=0;
+UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.6, `damage_multiplier`=0.9 WHERE  `entry`=8257 AND `patch`=0;
 
 -- Maraudon Larvae HP and damage reduced due to DMG and HP multiplier on normal mobs
-UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.3, `damage_multiplier`=0.6 WHERE  `entry`=12218 AND `patch`=0;
+UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.9, `damage_multiplier`=0.6 WHERE  `entry`=12218 AND `patch`=0;
 
 -- Weapon Technician HP and damage reduced due to DMG and HP multiplier on normal mobs
-UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.4, `damage_multiplier`=1.8 WHERE  `entry`=8920 AND `patch`=0;
+UPDATE `mangos`.`creature_template` SET `health_multiplier`=1.2, `damage_multiplier`=1.8 WHERE  `entry`=8920 AND `patch`=0;
 
 -- Doomforge Arcanasmith HP and damage reduced due to DMG and HP multiplier on normal mobs
-UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.65, `damage_multiplier`=1.7 WHERE  `entry`=8900 AND `patch`=0;
+UPDATE `mangos`.`creature_template` SET `health_multiplier`=2.0, `damage_multiplier`=1.7 WHERE  `entry`=8900 AND `patch`=0;
 
 -- Anvilrage Reservist HP and damage reduced due to DMG and HP multiplier on normal mobs
-UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.10, `damage_multiplier`=0.8 WHERE  `entry`=8901 AND `patch`=0;
+UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.30, `damage_multiplier`=0.8 WHERE  `entry`=8901 AND `patch`=0;
 
 -- Theradrim Shardling HP and damage reduced due to DMG and HP multiplier on normal mobs
-UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.4, `damage_multiplier`=1.0 WHERE  `entry`=11783 AND `patch`=0;
+UPDATE `mangos`.`creature_template` SET `health_multiplier`=1.2, `damage_multiplier`=1.0 WHERE  `entry`=11783 AND `patch`=0;
 
 -- Theradrim Shardling HP and damage reduced due to DMG and HP multiplier on normal mobs
-UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.6, `damage_multiplier`=1.2 WHERE  `entry`=8318 AND `patch`=0;
+UPDATE `mangos`.`creature_template` SET `health_multiplier`=1.8, `damage_multiplier`=1.2 WHERE  `entry`=8318 AND `patch`=0;
 
 -- Princess Theradras adjusted due to 2x elite HP
-UPDATE `mangos`.`creature_template` SET `health_multiplier`=5 WHERE  `entry`=12201 AND `patch`=0;
+UPDATE `mangos`.`creature_template` SET `health_multiplier`=8 WHERE  `entry`=12201 AND `patch`=0;
 
 -- Deep Borer HP and damage reduced due to DMG and HP multiplier on normal mobs
-UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.5, `damage_multiplier`=0.9 WHERE  `entry`=11789 AND `patch`=0;
+UPDATE `mangos`.`creature_template` SET `health_multiplier`=1.5, `damage_multiplier`=0.9 WHERE  `entry`=11789 AND `patch`=0;
 
 -- Slime Maggot HP and damage reduced due to DMG and HP multiplier on normal mobs
-UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.3, `damage_multiplier`=1.2 WHERE  `entry`=8311 AND `patch`=0;
+UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.9, `damage_multiplier`=1.2 WHERE  `entry`=8311 AND `patch`=0;
 
 -- Nightmare Whelp HP and damage reduced due to DMG and HP multiplier on normal mobs
-UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.5, `damage_multiplier`=1.4 WHERE  `entry`=8319 AND `patch`=0;
+UPDATE `mangos`.`creature_template` SET `health_multiplier`=1.5, `damage_multiplier`=1.4 WHERE  `entry`=8319 AND `patch`=0;
 
 -- Hakkari Minion HP and damage reduced due to DMG and HP multiplier on normal mobs
-UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.4, `damage_multiplier`=1.4 WHERE  `entry`=8437 AND `patch`=0;
+UPDATE `mangos`.`creature_template` SET `health_multiplier`=1.2, `damage_multiplier`=1.4 WHERE  `entry`=8437 AND `patch`=0;
 
 -- Aku'Mai reduced HP due to elite mobs having 2x HP
-UPDATE `mangos`.`creature_template` SET `health_multiplier`=5 WHERE  `entry`=4829 AND `patch`=0;
+UPDATE `mangos`.`creature_template` SET `health_multiplier`=7 WHERE  `entry`=4829 AND `patch`=0;
 
 -- Defias Strip Miner HP reduced due to normal mobs having 3x HP
-UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.33 WHERE  `entry`=4416 AND `patch`=0;
+UPDATE `mangos`.`creature_template` SET `health_multiplier`=1.0 WHERE  `entry`=4416 AND `patch`=0;
 
 -- Lupine Delusion HP reduced due to normal mobs having 3x HP
-UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.33 WHERE  `entry`=5097 AND `patch`=0;
+UPDATE `mangos`.`creature_template` SET `health_multiplier`=1.0 WHERE  `entry`=5097 AND `patch`=0;
 
 -- Murkshallow Softshell HP reduced due to normal mobs having 3x HP
-UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.1 WHERE  `entry`=4977 AND `patch`=0;
+UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.3 WHERE  `entry`=4977 AND `patch`=0;
 
 -- Skeletal Shadowcaster HP reduced due to normal mobs having 3x HP
-UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.33 WHERE  `entry`=7340 AND `patch`=9;
+UPDATE `mangos`.`creature_template` SET `health_multiplier`=1.0 WHERE  `entry`=7340 AND `patch`=9;
 
 -- Splinterbone Skeleton HP reduced due to normal mobs having 3x HP
-UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.1 WHERE  `entry`=7343 AND `patch`=0;
+UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.3 WHERE  `entry`=7343 AND `patch`=0;
 
 -- Tomb Fiend HP reduced due to normal mobs having 3x HP
-UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.35 WHERE  `entry`=7349 AND `patch`=0;
+UPDATE `mangos`.`creature_template` SET `health_multiplier`=1.1 WHERE  `entry`=7349 AND `patch`=0;
 
 -- Unfettered Spirit HP reduced due to normal mobs having 3x HP
-UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.33 WHERE  `entry`=4308 AND `patch`=0;
+UPDATE `mangos`.`creature_template` SET `health_multiplier`=1.0 WHERE  `entry`=4308 AND `patch`=0;
 
 -- Scarlet Trainee HP reduced due to normal mobs having 3x HP
-UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.05 WHERE  `entry`=6575 AND `patch`=0;
+UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.15 WHERE  `entry`=6575 AND `patch`=0;
 
 -- Deadly Cleft Scorpid HP reduced due to normal mobs having 3x HP
-UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.25 WHERE  `entry`=7405 AND `patch`=5;
+UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.75 WHERE  `entry`=7405 AND `patch`=5;
 
 -- Earthen Rocksmasher HP reduced due to normal mobs having 3x HP
-UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.4 WHERE  `entry`=7011 AND `patch`=0;
+UPDATE `mangos`.`creature_template` SET `health_multiplier`=1.2 WHERE  `entry`=7011 AND `patch`=0;
 
 -- Earthen Sculptor HP reduced due to normal mobs having 3x HP
-UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.4 WHERE  `entry`=7012 AND `patch`=0;
+UPDATE `mangos`.`creature_template` SET `health_multiplier`=1.2 WHERE  `entry`=7012 AND `patch`=0;
 
 -- Shadowforge Ambusher HP reduced due to normal mobs having 3x HP
-UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.4 WHERE  `entry`=7091 AND `patch`=10;
+UPDATE `mangos`.`creature_template` SET `health_multiplier`=1.2 WHERE  `entry`=7091 AND `patch`=10;
 
 -- Earthen Custodian HP reduced due to normal mobs having 3x HP
-UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.06 WHERE  `entry`=7309 AND `patch`=0;
+UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.18 WHERE  `entry`=7309 AND `patch`=0;
 
 -- Earthen Guardian HP reduced due to normal mobs having 3x HP
-UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.06 WHERE  `entry`=7076 AND `patch`=0;
+UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.18 WHERE  `entry`=7076 AND `patch`=0;
 
 -- Earthen Hallshaper HP reduced due to normal mobs having 3x HP
-UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.06 WHERE  `entry`=7077 AND `patch`=0;
+UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.18 WHERE  `entry`=7077 AND `patch`=0;
 
 -- Earthen Stonebreaker HP reduced due to normal mobs having 3x HP
-UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.4 WHERE  `entry`=7396 AND `patch`=0;
+UPDATE `mangos`.`creature_template` SET `health_multiplier`=1.2 WHERE  `entry`=7396 AND `patch`=0;
 
 -- Earthen Stonecarver HP reduced due to normal mobs having 3x HP
-UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.4 WHERE  `entry`=7397 AND `patch`=0;
+UPDATE `mangos`.`creature_template` SET `health_multiplier`=1.2 WHERE  `entry`=7397 AND `patch`=0;
 
 -- Stonevault Ambusher HP reduced due to normal mobs having 3x HP
-UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.33 WHERE  `entry`=7175 AND `patch`=0;
+UPDATE `mangos`.`creature_template` SET `health_multiplier`=1.0 WHERE  `entry`=7175 AND `patch`=0;
 
 -- Cleft Scorpid HP reduced due to normal mobs having 3x HP
-UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.25 WHERE  `entry`=7078 AND `patch`=5;
+UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.75 WHERE  `entry`=7078 AND `patch`=5;
 
 -- Scarab HP reduced due to normal mobs having 3x HP
-UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.33 WHERE  `entry`=7269 AND `patch`=0;
+UPDATE `mangos`.`creature_template` SET `health_multiplier`=1.0 WHERE  `entry`=7269 AND `patch`=0;
 
 -- Corruptor HP reduced due to normal mobs having 3x HP
-UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.25 WHERE  `entry`=12217 AND `patch`=0;
+UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.75 WHERE  `entry`=12217 AND `patch`=0;
 
 -- Poison Sprite HP reduced due to normal mobs having 3x HP
-UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.25 WHERE  `entry`=12216 AND `patch`=0;
+UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.75 WHERE  `entry`=12216 AND `patch`=0;
 
 -- Corrupt Force of Nature HP reduced due to normal mobs having 3x HP
-UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.33 WHERE  `entry`=13743 AND `patch`=0;
+UPDATE `mangos`.`creature_template` SET `health_multiplier`=1.0 WHERE  `entry`=13743 AND `patch`=0;
 
 -- Noxxion's Spawn HP reduced due to normal mobs having 3x HP
-UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.15 WHERE  `entry`=13456 AND `patch`=0;
+UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.75 WHERE  `entry`=13456 AND `patch`=0;
 
 -- Noxxious Scion HP reduced due to normal mobs having 3x HP
-UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.33 WHERE  `entry`=13696 AND `patch`=0;
+UPDATE `mangos`.`creature_template` SET `health_multiplier`=1.0 WHERE  `entry`=13696 AND `patch`=0;
 
 -- Divino Magic Rod mobs HP reduced due to DMG and HP multiplier on normal mobs
 UPDATE mangos.creature_template
