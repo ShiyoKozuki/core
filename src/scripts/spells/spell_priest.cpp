@@ -216,6 +216,54 @@ SpellScript* GetScript_PriestArchangel(SpellEntry const*)
     return new PriestArchangelScript();
 }
 
+struct PriestPenanceScript : public SpellScript
+{
+    SpellCastResult OnCheckCast(Spell* spell, bool /*strict*/) const final
+    {
+        if (spell->m_targets.getUnitTarget() && !spell->m_caster->IsFriendlyTo(spell->m_targets.getUnitTarget()) && !spell->m_caster->IsFacingTarget(spell->m_targets.getUnitTarget()))
+            return SPELL_FAILED_UNIT_NOT_INFRONT;
+
+        return SPELL_CAST_OK;
+    }
+
+    bool OnEffectExecute(Spell* spell, SpellEffectIndex effIdx) const final
+    {
+        if (effIdx == EFFECT_INDEX_0 && spell->GetUnitTarget())
+        {
+            int hurt;
+            int heal;
+
+            switch (spell->m_spellInfo->Id)
+            {
+            case 34008:
+                heal = 34009;
+                hurt = 34011;
+                break;
+            //case 34011:
+            //    heal = ;
+            //    hurt = ;
+            //case 34014:
+            //    heal = ;
+            //    hurt = ;
+            default:
+                sLog.Out(LOG_SCRIPTS, LOG_LVL_ERROR, "Spell::EffectDummy: Spell %u not handled in HS", spell->m_spellInfo->Id);
+                return false;
+            }
+
+            if (spell->m_caster->IsFriendlyTo(spell->GetUnitTarget()))
+                spell->m_caster->CastSpell(spell->GetUnitTarget(), heal, true);
+            else
+                spell->m_caster->CastSpell(spell->GetUnitTarget(), hurt, true);
+        }
+        return true;
+    }
+};
+
+SpellScript* GetScript_PriestPenance(SpellEntry const*)
+{
+    return new PriestPenanceScript();
+}
+
 void AddSC_priest_spell_scripts()
 {
     Script* newscript;
@@ -238,5 +286,10 @@ void AddSC_priest_spell_scripts()
     newscript = new Script;
     newscript->Name = "spell_priest_archangel";
     newscript->GetSpellScript = &GetScript_PriestArchangel;
+    newscript->RegisterSelf();
+
+    newscript = new Script;
+    newscript->Name = "spell_priest_penance";
+    newscript->GetSpellScript = &GetScript_PriestPenance;
     newscript->RegisterSelf();
 }

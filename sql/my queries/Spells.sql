@@ -1,5 +1,5 @@
--- 34008 NEXT SPELL
--- 15119 NEXT SKILL_LINE_ABILITY
+-- 34011 NEXT SPELL
+-- 15122 NEXT SKILL_LINE_ABILITY
 
 -- skill_line_ability class_mask uses enum CLASSES
 

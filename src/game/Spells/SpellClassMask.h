@@ -171,6 +171,7 @@ enum ClassFlag
     CF_PRIEST_MISC2                         = 31,   // CM0 80000000
     CF_PRIEST_DISPELLS                      = 32,   // CM1 00000001
     CF_PRIEST_PENANCE                       = 33,   // CM1 00000002
+    CF_PRIEST_PENANCE_DAMAGE_CHANNEL        = 34,   // CM1 00000003
 
 
     // -- Druid (7)

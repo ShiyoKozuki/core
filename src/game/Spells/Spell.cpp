@@ -464,9 +464,10 @@ void Spell::FillTargetMap()
                 switch (m_spellInfo->EffectImplicitTargetB[i])
                 {
                     case TARGET_NONE:
-                        // Arcane Missiles have strange targeting for auras
+                        // Arcane Missiles / Penance (Damage) have strange targeting for auras
                         if (m_spellInfo->IsFitToFamily<SPELLFAMILY_MAGE, CF_MAGE_ARCANE_MISSILES_CHANNEL>() ||
-                            m_spellInfo->IsFitToFamily<SPELLFAMILY_MAGE, CF_MAGE_FLURRY>())
+                            m_spellInfo->IsFitToFamily<SPELLFAMILY_MAGE, CF_MAGE_FLURRY>() ||
+                            m_spellInfo->IsFitToFamily<SPELLFAMILY_PRIEST, CF_PRIEST_PENANCE_DAMAGE_CHANNEL>())
                         {
                             if (Unit* pUnitTarget = m_caster->SelectMagnetTarget(m_targets.getUnitTarget(), this, SpellEffectIndex(i)))
                             {
