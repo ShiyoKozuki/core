@@ -170,8 +170,9 @@ enum ClassFlag
     CF_PRIEST_MISC1                         = 30,   // CM0 40000000 Ressurection, Shackle Undead, Lightwell
     CF_PRIEST_MISC2                         = 31,   // CM0 80000000
     CF_PRIEST_DISPELLS                      = 32,   // CM1 00000001
-    CF_PRIEST_PENANCE                       = 33,   // CM1 00000002
-    CF_PRIEST_PENANCE_DAMAGE_CHANNEL        = 34,   // CM1 00000003
+    CF_PRIEST_PENANCE_HEAL                  = 33,   // CM1 00000002
+    CF_PRIEST_PENANCE_DAMAGE                = 34,   // CM1 00000003
+    CF_PRIEST_PENANCE_DAMAGE_CHANNEL        = 35,   // CM1 00000004
 
 
     // -- Druid (7)
