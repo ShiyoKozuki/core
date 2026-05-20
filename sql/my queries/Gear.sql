@@ -8595,14 +8595,14 @@ WHERE entry = 1832;
 
 -- Edge of the People's Militia (The People's Militia)
 UPDATE mangos . item_template
-SET dmg_min1 = 34,
-    dmg_max1 = 64
+SET dmg_min1 = 30,
+    dmg_max1 = 46
 WHERE entry = 1566;
 
 -- Fist of the People's Militia (The People's Militia)
 UPDATE mangos . item_template
-SET dmg_min1 = 13,
-    dmg_max1 = 27
+SET dmg_min1 = 9,
+    dmg_max1 = 23
 WHERE entry = 1480;
 
 -- Spark of the People's Militia (The People's Militia)
@@ -8646,8 +8646,8 @@ WHERE entry = 11936;
 -- Skullchipper (The Absent Minded Prospector - Final)
 UPDATE mangos . item_template
 SET quality = 3,
-    dmg_min1 = 55,
-    dmg_max1 = 83
+    dmg_min1 = 40,
+    dmg_max1 = 70
 WHERE entry = 5626;
 
 -- Relic Blade (The Absent Minded Prospector - Final)
@@ -8661,20 +8661,20 @@ WHERE entry = 5627;
 
 -- Hardwood Cudgel (Mathystra Relics)
 UPDATE mangos . item_template
-SET stat_type1 = 4,
-    stat_value1 = 0,
+SET stat_type1 = 5,
+    stat_value1 = 4,
     stat_type2 = 6,
-    stat_value2 = 0,
+    stat_value2 = 4,
     stat_type3 = 7,
     stat_value3 = 0,
-    spellid_1 = 9395, -- +5 Spell Damage
-    spelltrigger_1 = 1
+    spellid_1 = 0, -- +5 Spell Damage
+    spelltrigger_1 = 0
 WHERE entry = 5757;
 
 -- Woodsman Sword (Mathystra Relics)
 UPDATE mangos . item_template
-SET dmg_min1 = 37,
-    dmg_max1 = 67
+SET dmg_min1 = 31,
+    dmg_max1 = 61
 WHERE entry = 5615;
 
 -- Minor Channeling Ring (WANTED: Chok'sul)
