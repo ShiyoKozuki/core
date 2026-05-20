@@ -941,17 +941,17 @@ UPDATE mangos . item_template
 SET quality = 2,
     bonding = 2,
     stat_type1 = 5,
-    stat_value1 = 7,
+    stat_value1 = 4,
     stat_type2 = 6,
-    stat_value2 = 7
+    stat_value2 = 4
 WHERE entry = 2582;
 
 -- Heavy Woolen Gloves
 UPDATE mangos . item_template
 SET stat_type1 = 5,
-    stat_value1 = 6,
+    stat_value1 = 4,
     stat_type2 = 6,
-    stat_value2 = 6
+    stat_value2 = 4
 WHERE entry = 4310;
 
 -- Pearl-clasped Cloak

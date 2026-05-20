@@ -1,5 +1,5 @@
--- 34030 NEXT SPELL
--- 15123 NEXT SKILL_LINE_ABILITY
+-- 34033 NEXT SPELL
+-- 15124 NEXT SKILL_LINE_ABILITY
 
 -- skill_line_ability class_mask uses enum CLASSES
 
@@ -1792,13 +1792,95 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
             REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `dispel`, `castingTimeIndex`, `procChance`, `durationIndex`, `rangeIndex`, `stackAmount`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `spellFamilyName`, `dmgClass`, `stanceBarOrder`, `dmgMultiplier1`) VALUES (33984, 5086, 5, 1, 1, 101, 29, 6, 3, -1, 6, 1, 1, 4, 0, -1, -1, 6, 4, 0, 2079, 'Shadow\'s Embrace', 2031678, 'Rank 3', 2031678, 2031676, 'Increases Shadow damage over time taken by $s1%.', 2031678, 5, 1, -1, 1);
 
 
-    -- Hunter
-        -- Aspect of the Viper
-        REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `castingTimeIndex`, `procFlags`, `baseLevel`, `spellLevel`, `durationIndex`, `manaCost`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effect2`, `effectDieSides1`, `effectDieSides2`, `effectBaseDice1`, `effectBaseDice2`, `effectBasePoints1`, `effectBasePoints2`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectApplyAuraName1`, `effectApplyAuraName2`, `effectAmplitude1`, `effectMiscValue2`, `spellVisual1`, `spellIconId`, `activeIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34028, 5302, 3, 327680, 1, 87376, 10, 10, 21, 20, 1, -1, -1, 6, 6, 1, 1, 1, 1, 3, -51, 0, 0, -1, 1, 1, 21, 79, 3000, 127, 3161, 32, 122, 'Aspect of the Viper', 2031678, '', 2031678, 'The hunter takes on the aspect of the viper, you gain $s1% of maximum mana every 3 sec, but your total damage done is reduced by $s2%.   Only one Aspect can be active at a time.', 2031678, 'Regenerating $s1% of maximum mana every 3 sec, but your total damage done is reduced by $s2%.', 2031678, 133, 1500, 9, 1048576, 1, 1, -1, 1, 1, 1);
+    -- Shaman
+        -- Water Shield
+            -- Rank 1
+            -- Aura (MP5)
+            REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `dispel`, `attributes`, `attributesEx`, `castingTimeIndex`, `procFlags`, `procChance`, `procCharges`, `baseLevel`, `spellLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effect2`, `effectDieSides1`, `effectDieSides2`, `effectBaseDice1`, `effectBaseDice2`, `effectBasePoints1`, `effectBasePoints2`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectApplyAuraName1`, `effectApplyAuraName2`, `effectAmplitude2`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34030, 5302, 3, 1, 327680, 1024, 1, 139944, 100, 3, 30, 30, 6, 1, -1, -1, 6, 6, 1, 1, 1, 1, 12, 19, 0.147, -1, -1, 1, 1, 42, 24, 5000, 34031, 37, 19, 'Water Shield', 2031678, 'Rank 1', 2031678, 'The caster is surrounded by $n balls of water, granting $s2 mana per 5 sec..  When a spell, melee or ranged attack hits the caster, $34031s1 mana is restored to the caster.  This expends one water ball.  Only one ball will fire every few seconds.  Lasts $d.', 2031678, 'Restores $s2 mana per 5 sec. Attacks and spells used against you restore $34031s1 mana.  3 charges.', 2031678, 133, 1500, 11, 1024, 1, 1, -1, 1, 1, 1);
+
+            -- Proc when hit (MP Restore)
+            REPLACE `mangos`.`spell_template` (`entry`, `build`, `category`, `attributes`, `castingTimeIndex`, `procChance`, `spellLevel`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `dmgClass`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34031, 4222, 4, 671088640, 1, 101, 35, 1, -1, -1, 30, 1, 1, 23, 0, -1, -1, 1, 0, 1, 'Restore Mana', 983070, 7274508, 'Restores $s1 mana.', 7274526, 983052, 13, 1, -1, 1, 1, 1);
+
+            -- Learn spell(for trainer):
+            REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `targets`, `castingTimeIndex`, `procChance`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `activeIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) 
+            VALUES (34032, 4222, 1, 262400, 256, 1, 101, 6, -1, -1, 36, 1, 1, -1, 0, -1, -1, 34030, 107, 32, 0, 'Water Shield', 7274526, 'Rank 1', 7274526, 7274508, 983052, -1, 1, 1, 1);
+
+            -- Skill Line Ability
+            REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`, `superseded_by_spell`) VALUES (15123, 5875, 374, 34030, 64, 1, 0);
+            
+            -- Trainer
+            REPLACE `mangos`.`npc_trainer_template` (`entry`, `spell`, `spellcost`, `reqlevel`) VALUES (10, 34032, 8000, 30);
+
+        -- Primal Strike
+            -- Spell
+            REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `attributesEx`, `attributesEx3`, `castingTimeIndex`, `procChance`, `baseLevel`, `spellLevel`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effect2`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `manaCostPercentage`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `customFlags`) VALUES (34033, 4695, 327700, 134217728, 1024, 1, 101, 4, 4, 2, 2, 173555, 64, 58, -1, -1, -1, 1, 6, 34034, 39, 200, 50, 'Primal Strike', 2031678, '', 2031678, 'Call upon the primals to enhance your next strike. This strike will then reduce the mana cost of your next Lava Strike by $34034s1%.', 2031678, 2031644, 6, 11, 68719476736, 2, 2, -1, 1, 1, 1, 128);
+
+            -- Proc (Gives Aura to reduce Lava Strike mana cost by 25%)
+            REPLACE `mangos`.`spell_template` (`entry`, `build`, `castingTimeIndex`, `procChance`, `procCharges`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectItemType1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `stanceBarOrder`, `dmgMultiplier1`) VALUES (34034, 4695, 1, 101, 1, 1, 1, -1, 6, 1, 1, -26, 0, -1, -1, 1, 108, 137438953472, 14, 37, 'Ignition', 983070, 983070, 'Reduces the mana cost of your next Lava Strike by $s1%.', 983070, 983052, 11, -1, 1);
+
+            UPDATE `mangos`.`spell_template` SET `attributes`=327680, `auraDescription`='The mana cost of your next Lava Strike is reduced.' WHERE  `entry`=34034;
 
         -- Learn spell(for trainer):
         REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `targets`, `castingTimeIndex`, `procChance`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `activeIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) 
-        VALUES (34029, 4222, 1, 262400, 256, 1, 101, 6, -1, -1, 36, 1, 1, -1, 0, -1, -1, 34028, 107, 32, 0, 'Aspect of the Viper', 7274526, '', 7274526, 7274508, 983052, -1, 1, 1, 1);
+        VALUES (34035, 4222, 1, 262400, 256, 1, 101, 6, -1, -1, 36, 1, 1, -1, 0, -1, -1, 34033, 107, 200, 0, 'Primal Strike', 7274526, '', 7274526, 7274508, 983052, -1, 1, 1, 1);
+
+        -- Skill Line Ability
+        REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`, `superseded_by_spell`) VALUES (15124, 5875, 373, 34033, 64, 1, 0);
+        
+        -- Trainer
+        REPLACE `mangos`.`npc_trainer_template` (`entry`, `spell`, `spellcost`, `reqlevel`) VALUES (10, 34035, 100, 4);
+        REPLACE `mangos`.`npc_trainer_template` (`entry`, `spell`, `spellcost`, `reqlevel`) VALUES (11, 34035, 100, 4);
+
+    -- Lava Strike
+        -- Spell
+            REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `attributesEx`, `attributesEx3`, `castingTimeIndex`, `procChance`, `baseLevel`, `spellLevel`, `manaCost`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effect2`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectTriggerSpell2`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `customFlags`) VALUES (34036, 4695, 2, 327700, 134217728, 1024, 1, 101, 10, 10, 40, 2, 2, 173555, 58, 64, 1, 1, 10, 1, -1, -1, 6, 1, 34037, 39, 37, 50, 'Lava Strike', 2031678, '', 2031678, 'A strong attack that converts your attack into Fire damage and adds $s1 Fire damage. This strike will then reduce the mana cost of your next Flame Shock by $34037s1%.', 2031678, 2031644, 11, 137438953472, 2, 2, -1, 1, 1, 1, 128);
+
+            UPDATE `mangos`.`spell_template` SET `maxLevel`=61, `manaCost`=0, `manaCostPercentage`=6, `effectRealPointsPerLevel1`=0.5, `effectBasePoints1`=4 WHERE  `entry`=34036;
+
+        -- Proc (Gives Aura to reduce Flame Shock mana cost by 25%)
+            REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `procCharges`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectItemType1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `spellFamilyName`, `stanceBarOrder`, `dmgMultiplier1`) VALUES (34037, 4695, 327680, 1, 101, 1, 1, 1, -1, 6, 1, 1, -26, 0, -1, -1, 1, 108, 268435456, 14, 678, 'Blazing Flames', 983070, 983070, 'Reduces the mana cost of your next Flame Shock by $s1%.', 983070, 'The mana cost of your next Flame Shock is reduced.', 983052, 11, -1, 1);
+
+            UPDATE `mangos`.`spell_template` SET `attributes`=327680 WHERE  `entry`=34037;
+
+        -- Learn spell(for trainer):
+        REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `targets`, `castingTimeIndex`, `procChance`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `activeIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) 
+        VALUES (34038, 4222, 1, 262400, 256, 1, 101, 6, -1, -1, 36, 1, 1, -1, 0, -1, -1, 34036, 107, 192, 0, 'Lava Strike', 7274526, '', 7274526, 7274508, 983052, -1, 1, 1, 1);
+
+        -- Skill Line Ability
+        REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`, `superseded_by_spell`) VALUES (15125, 5875, 373, 34036, 64, 1, 0);
+        
+        -- Trainer
+        REPLACE `mangos`.`npc_trainer_template` (`entry`, `spell`, `spellcost`, `reqlevel`) VALUES (10, 34038, 100, 10);
+
+    -- Frostbrand Strike
+        -- Spell
+            REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `attributesEx`, `attributesEx3`, `castingTimeIndex`, `procChance`, `baseLevel`, `spellLevel`, `manaCost`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effect2`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectTriggerSpell2`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `customFlags`) VALUES (34039, 4695, 4, 327700, 134217728, 1024, 1, 101, 20, 20, 40, 2, 2, 173555, 58, 64, 1, 1, 10, 1, -1, -1, 6, 1, 34040, 39, 501, 50, 'Frostbrand Strike', 2031678, '', 2031678, 'A strong attack that converts your attack into Frost damage and adds $s1 Frost damage. This strike will then reduce the mana cost of your next Frost Shock by $34040s1%.', 2031678, 2031644, 11, 274877906944, 2, 2, -1, 1, 1, 1, 128);
+
+            UPDATE `mangos`.`spell_template` SET `maxLevel`=61, `manaCost`=0, `manaCostPercentage`=6, `effectRealPointsPerLevel1`=0.5, `effectBasePoints1`=4 WHERE  `entry`=34039;
+
+        -- Proc (Gives Aura to reduce Frost Shock mana cost by 25%)
+            REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `procCharges`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectItemType1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `spellFamilyName`, `stanceBarOrder`, `dmgMultiplier1`) VALUES (34040, 4695, 327680, 1, 101, 1, 1, 1, -1, 6, 1, 1, -26, 0, -1, -1, 1, 108, 2147483648, 14, 501, 'Douse', 983070, 983070, 'Reduces the mana cost of your next Frost Shock by $s1%.', 983070, 'The mana cost of your next Frost Shock is reduced.', 983052, 11, -1, 1);
+
+            UPDATE `mangos`.`spell_template` SET `attributes`=327680 WHERE `entry`=34040;
+
+        -- Learn spell(for trainer):
+        REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `targets`, `castingTimeIndex`, `procChance`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `activeIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) 
+        VALUES (34041, 4222, 1, 262400, 256, 1, 101, 6, -1, -1, 36, 1, 1, -1, 0, -1, -1, 34039, 107, 501, 0, 'Frostbrand Strike', 7274526, '', 7274526, 7274508, 983052, -1, 1, 1, 1);
+
+        -- Skill Line Ability
+        REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`, `superseded_by_spell`) VALUES (15126, 5875, 373, 34039, 64, 1, 0);
+        
+        -- Trainer
+        REPLACE `mangos`.`npc_trainer_template` (`entry`, `spell`, `spellcost`, `reqlevel`) VALUES (10, 34041, 4000, 20);
+
+
+    -- Hunter
+        -- Aspect of the Viper
+        REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `castingTimeIndex`, `procFlags`, `baseLevel`, `spellLevel`, `durationIndex`, `manaCost`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effect2`, `effectDieSides1`, `effectDieSides2`, `effectBaseDice1`, `effectBaseDice2`, `effectBasePoints1`, `effectBasePoints2`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectApplyAuraName1`, `effectApplyAuraName2`, `effectAmplitude1`, `effectMiscValue2`, `spellVisual1`, `spellIconId`, `activeIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34028, 5302, 3, 327680, 1, 87376, 10, 10, 21, 20, 1, -1, -1, 6, 6, 1, 1, 1, 1, 3, -51, 0, 0, -1, 1, 1, 21, 79, 3000, 127, 3161, 1679, 122, 'Aspect of the Viper', 2031678, '', 2031678, 'The hunter takes on the aspect of the viper, you gain $s1% of maximum mana every 3 sec, but your total damage done is reduced by $s2%.   Only one Aspect can be active at a time.', 2031678, 'Regenerating $s1% of maximum mana every 3 sec, but your total damage done is reduced by $s2%.', 2031678, 133, 1500, 9, 1048576, 1, 1, -1, 1, 1, 1);
+
+        -- Learn spell(for trainer):
+        REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `targets`, `castingTimeIndex`, `procChance`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `activeIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) 
+        VALUES (34029, 4222, 1, 262400, 256, 1, 101, 6, -1, -1, 36, 1, 1, -1, 0, -1, -1, 34028, 107, 1679, 0, 'Aspect of the Viper', 7274526, '', 7274526, 7274508, 983052, -1, 1, 1, 1);
 
         -- Skill Line Ability
         REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`, `superseded_by_spell`) VALUES (15122, 5875, 50, 34028, 4, 1, 0);
