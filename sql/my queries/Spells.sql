@@ -1,5 +1,5 @@
--- 34011 NEXT SPELL
--- 15122 NEXT SKILL_LINE_ABILITY
+-- 34030 NEXT SPELL
+-- 15123 NEXT SKILL_LINE_ABILITY
 
 -- skill_line_ability class_mask uses enum CLASSES
 
@@ -1792,7 +1792,31 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
             REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `dispel`, `castingTimeIndex`, `procChance`, `durationIndex`, `rangeIndex`, `stackAmount`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `spellFamilyName`, `dmgClass`, `stanceBarOrder`, `dmgMultiplier1`) VALUES (33984, 5086, 5, 1, 1, 101, 29, 6, 3, -1, 6, 1, 1, 4, 0, -1, -1, 6, 4, 0, 2079, 'Shadow\'s Embrace', 2031678, 'Rank 3', 2031678, 2031676, 'Increases Shadow damage over time taken by $s1%.', 2031678, 5, 1, -1, 1);
 
 
--- Mage
+    -- Hunter
+        -- Aspect of the Viper
+        REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `castingTimeIndex`, `procFlags`, `baseLevel`, `spellLevel`, `durationIndex`, `manaCost`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effect2`, `effectDieSides1`, `effectDieSides2`, `effectBaseDice1`, `effectBaseDice2`, `effectBasePoints1`, `effectBasePoints2`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectApplyAuraName1`, `effectApplyAuraName2`, `effectAmplitude1`, `effectMiscValue2`, `spellVisual1`, `spellIconId`, `activeIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34028, 5302, 3, 327680, 1, 87376, 10, 10, 21, 20, 1, -1, -1, 6, 6, 1, 1, 1, 1, 3, -51, 0, 0, -1, 1, 1, 21, 79, 3000, 127, 3161, 32, 122, 'Aspect of the Viper', 2031678, '', 2031678, 'The hunter takes on the aspect of the viper, you gain $s1% of maximum mana every 3 sec, but your total damage done is reduced by $s2%.   Only one Aspect can be active at a time.', 2031678, 'Regenerating $s1% of maximum mana every 3 sec, but your total damage done is reduced by $s2%.', 2031678, 133, 1500, 9, 1048576, 1, 1, -1, 1, 1, 1);
+
+        -- Learn spell(for trainer):
+        REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `targets`, `castingTimeIndex`, `procChance`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `activeIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) 
+        VALUES (34029, 4222, 1, 262400, 256, 1, 101, 6, -1, -1, 36, 1, 1, -1, 0, -1, -1, 34028, 107, 32, 0, 'Aspect of the Viper', 7274526, '', 7274526, 7274508, 983052, -1, 1, 1, 1);
+
+        -- Skill Line Ability
+        REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`, `superseded_by_spell`) VALUES (15122, 5875, 50, 34028, 4, 1, 0);
+
+        -- Trainer
+        REPLACE `mangos`.`npc_trainer_template` (`entry`, `spell`, `spellcost`, `reqlevel`) VALUES (20, 34029, 8000, 30);
+
+        -- Mongoose Bite (Now Weapon Damage + X damage)
+        UPDATE `mangos`.`spell_template` SET `effect1`=121, `effectBasePoints1`=4, `description`='Counterattack the enemy for weapon damage plus $s1 damage.  Can only be performed after you dodge.' WHERE  `entry`=1495;
+        UPDATE `mangos`.`spell_template` SET `effect1`=121, `effectBasePoints1`=14, `description`='Counterattack the enemy for weapon damage plus $s1 damage.  Can only be performed after you dodge.' WHERE  `entry`=14269;
+        UPDATE `mangos`.`spell_template` SET `effect1`=121, `effectBasePoints1`=24, `description`='Counterattack the enemy for weapon damage plus $s1 damage.  Can only be performed after you dodge.' WHERE  `entry`=14270;
+        UPDATE `mangos`.`spell_template` SET `effect1`=121, `effectBasePoints1`=34, `description`='Counterattack the enemy for weapon damage plus $s1 damage.  Can only be performed after you dodge.' WHERE  `entry`=14271;
+
+
+    -- Mage
+        -- Evocation (Changed from 8m to 2m CD)
+        UPDATE `mangos`.`spell_template` SET `recoveryTime`=120000 WHERE  `entry`=12051 AND `build`=5875;
+
         -- Brilliance Aura
         REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `castingTimeIndex`, `interruptFlags`, `procChance`, `baseLevel`, `spellLevel`, `durationIndex`, `manaCost`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectRadiusIndex1`, `effectApplyAuraName1`, `effectAmplitude1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `preventionType`, `dmgMultiplier1`, `dmgMultiplier2`) VALUES (33843, 5464, 6, 65536, 1, 8, 101, 60, 60, 30, 350, 1, -1, 35, 1, 1, 0, 0, -1, 1, 11, 21, 5000, 0, 54, 'Brilliance Aura', 4128830, 'Rank 1', 4128830, 'Increases the mana regen of party members within $a1 yards by $s1% every 5 sec.  Lasts $d.', 4128830, 'Regenerate $s1% Mana per 5 sec.', 4128830, 133, 1500, 1, 1, 1);
 

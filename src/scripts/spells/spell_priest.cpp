@@ -239,14 +239,16 @@ struct PriestPenanceScript : public SpellScript
                 heal = 34009;
                 hurt = 34011;
                 break;
-            //case 34011:
-            //    heal = ;
-            //    hurt = ;
-            //case 34014:
-            //    heal = ;
-            //    hurt = ;
+            case 34013:
+                heal = 34015;
+                hurt = 34017;
+                break;
+            case 34019:
+                heal = 34021;
+                hurt = 34023;
+                break;
             default:
-                sLog.Out(LOG_SCRIPTS, LOG_LVL_ERROR, "Spell::EffectDummy: Spell %u not handled in HS", spell->m_spellInfo->Id);
+                sLog.Out(LOG_SCRIPTS, LOG_LVL_ERROR, "Spell::EffectDummy: Spell %u not handled in Penance", spell->m_spellInfo->Id);
                 return false;
             }
 
