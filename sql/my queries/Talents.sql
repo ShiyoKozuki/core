@@ -50,6 +50,18 @@
     -- Frostbite (Added Flurry)
     UPDATE `mangos`.`spell_template` SET `effectItemType1`=4296015872 WHERE  entry IN(11071, 12496, 12497) AND `build`=5464;
 
+-- Shaman
+    -- Improved Lightning Shield (Now works on Water Shield too)
+    UPDATE `mangos`.`spell_template` SET `effectItemType1`=549755814912, `name`='Improved Shields', `description`='Increases the damage done by your Lightning Shield orbs by $s1% and amount gained by your Water Shield orbs by $s1%.' WHERE  `entry`=16261;
+
+    UPDATE `mangos`.`spell_template` SET `effectItemType1`=549755814912, `name`='Improved Shields', `description`='Increases the damage done by your Lightning Shield orbs by $s1% and amount gained by your Water Shield orbs by $s1%.' WHERE  `entry`=16290;
+
+    UPDATE `mangos`.`spell_template` SET `effectItemType1`=549755814912, `name`='Improved Shields', `description`='Increases the damage done by your Lightning Shield orbs by $s1% and amount gained by your Water Shield orbs by $s1%.' WHERE  `entry`=16291;
+
+    -- Shamanistic Focus
+    -- TODO: just use this code to make a new talent
+    -- UPDATE `mangos`.`spell_template` SET `effect3`=6, `effectDieSides3`=1, `effectBaseDice3`=1, `effectBasePoints3`=-46, `effectBonusCoefficient3`=0, `effectImplicitTargetA3`=1, `effectApplyAuraName3`=108, `effectItemType3`=2416967680, `effectMiscValue3`=14, `name`='Shamanistic Focus', `description`='Allows you to use Two-Handed Axes and Two-Handed Maces. Additionally, reduces the mana cost of your Shock spells by $s3%.', `spellFamilyName`=11 WHERE  `entry`=16269 AND `build`=4297;
+
 -- Priest
 -- Inner Focus (Add Penance)
 UPDATE `mangos`.`spell_template` SET `effectItemType1`=29107945435, `effectItemType2`=29147545232 WHERE  `entry`=14751 AND `build`=5302;
