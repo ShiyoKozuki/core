@@ -1,4 +1,4 @@
--- NEXT talent ID is 1728
+-- NEXT talent ID is 1730
 -- Talents that grant a new spell (i.e. feral charge) need flags set to "1"
 -- Talents
 
@@ -51,6 +51,13 @@
     UPDATE `mangos`.`spell_template` SET `effectItemType1`=4296015872 WHERE  entry IN(11071, 12496, 12497) AND `build`=5464;
 
 -- Shaman
+    -- Ancestral Knowledge (Buffed to 2/4/6/8/10%)
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=1 WHERE  `entry`=17485;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=3 WHERE  `entry`=17486;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=5 WHERE  `entry`=17487;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=7 WHERE  `entry`=17488;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=9 WHERE  `entry`=17489;
+
     -- Improved Lightning Shield (Now works on Water Shield too)
     UPDATE `mangos`.`spell_template` SET `effectItemType1`=549755814912, `name`='Improved Shields', `description`='Increases the damage done by your Lightning Shield orbs by $s1% and amount gained by your Water Shield orbs by $s1%.' WHERE  `entry`=16261;
 
@@ -59,8 +66,86 @@
     UPDATE `mangos`.`spell_template` SET `effectItemType1`=549755814912, `name`='Improved Shields', `description`='Increases the damage done by your Lightning Shield orbs by $s1% and amount gained by your Water Shield orbs by $s1%.' WHERE  `entry`=16291;
 
     -- Shamanistic Focus
+        REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `procCharges`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectItemType1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `spellFamilyName`, `stanceBarOrder`, `dmgMultiplier1`) VALUES (34045, 4695, 464, 1, 101, 0, 21, 1, -1, 6, 1, 1, -46, 0, -1, -1, 1, 108, 2416967680, 14, 38, 'Shamanistic Focus', 983070, 983070, 'Reduces the mana cost of your Shock spells by $s1%.', 983070, '', 983052, 11, -1, 1);
     -- TODO: just use this code to make a new talent
     -- UPDATE `mangos`.`spell_template` SET `effect3`=6, `effectDieSides3`=1, `effectBaseDice3`=1, `effectBasePoints3`=-46, `effectBonusCoefficient3`=0, `effectImplicitTargetA3`=1, `effectApplyAuraName3`=108, `effectItemType3`=2416967680, `effectMiscValue3`=14, `name`='Shamanistic Focus', `description`='Allows you to use Two-Handed Axes and Two-Handed Maces. Additionally, reduces the mana cost of your Shock spells by $s3%.', `spellFamilyName`=11 WHERE  `entry`=16269 AND `build`=4297;
+
+    -- Toughness (3 points, 3/6/10% Armor, also grants 3/6/10% HP)
+    UPDATE `mangos`.`spell_template` SET `effect2`=6, `effectDieSides2`=1, `effectBaseDice2`=1, `effectBasePoints1`=2, `effectBasePoints2`=2, `effectImplicitTargetA2`=1, `effectApplyAuraName2`=133, `description`='Increases your armor value from items by $s1% and your total Health by $s2%.' WHERE  `entry`=16252;
+
+    UPDATE `mangos`.`spell_template` SET `effect2`=6, `effectDieSides2`=1, `effectBaseDice2`=1, `effectBasePoints1`=5, `effectBasePoints2`=5, `effectImplicitTargetA2`=1, `effectApplyAuraName2`=133, `description`='Increases your armor value from items by $s1% and your total Health by $s2%.' WHERE  `entry`=16306;
+
+    UPDATE `mangos`.`spell_template` SET `effect2`=6, `effectDieSides2`=1, `effectBaseDice2`=1, `effectBasePoints1`=9, `effectBasePoints2`=9, `effectImplicitTargetA2`=1, `effectApplyAuraName2`=133, `description`='Increases your armor value from items by $s1% and your total Health by $s2%.' WHERE  `entry`=16307;
+
+    -- Maelstrom Weapon (Your melee attacks have a 5% chance to reduce cast time and mana cost of Lightning Bolt and Chain Lightning by 4/8/12/16/20%. Stacks up to 5 times.)
+        -- Rank1
+        -- Aura that adds proc (This is the buff that procs the Aura)
+        REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procFlags`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectTriggerSpell1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34046, 5302, 192, 1, 4, 100, 21, 1, -1, 6, 1, 1, 0, -1, -1, 1, 42, 34047, 141, 'Maelstrom Weapon', 2031678, '', 2031628, 'Chance on melee attack to reduce the mana cost of Lightning Bolt and Chain Lightning by $34047s1% and cast time by $34047s2%. Stacks up to 5 times.', 2031678, 2031628, 11, -1, 1, 1, 1);
+
+        -- Spell Proc Event
+            REPLACE `mangos`.`spell_proc_event` (`entry`, `ppmRate`, `Cooldown`, `build_min`) VALUES (34046, 10, 5000, 5302);
+
+        -- Proced aura (This reduces the cast time and MP cost of lightning bolt and chain lightning)
+            REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `procCharges`, `durationIndex`, `rangeIndex`, `stackAmount`, `equippedItemClass`, `effect1`, `effect2`, `effectDieSides1`, `effectDieSides2`, `effectBaseDice1`, `effectBaseDice2`, `effectBasePoints1`, `effectBasePoints2`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectApplyAuraName1`, `effectApplyAuraName2`, `effectItemType1`, `effectItemType2`, `effectMiscValue1`, `effectMiscValue2`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `spellFamilyName`, `stanceBarOrder`, `dmgMultiplier1`, `script_name`) VALUES (34047, 4695, 327680, 1, 101, 1, 9, 1, 5, -1, 6, 6, 1, 1, 1, 1, -5, -5, 0, 0, -1, 1, 1, 108, 108, 3, 3, 14, 10, 141, 'Maelstrom Weapon', 983070, 983070, 'Reduces the mana cost of your next Lightning Bolt or Chain Lightning by S1% and cast time by $s2', 983070, 'The mana cost and cast time of your next Lightning Bolt or Chain Lightning is decreased.', 983052, 11, -1, 1,  '');
+
+            UPDATE `mangos`.`spell_template` SET `procFlags`=65536, `effect3`=0, `effectDieSides3`=0, `effectBaseDice3`=0, `effectImplicitTargetA3`=0, `effectApplyAuraName3`=0 WHERE  `entry`=34047;
+
+        -- Rank2
+        -- Aura that adds proc (This is the buff that procs the Aura)
+        REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procFlags`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectTriggerSpell1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34048, 5302, 192, 1, 4, 100, 21, 1, -1, 6, 1, 1, 0, -1, -1, 1, 42, 34049, 141, 'Maelstrom Weapon', 2031678, '', 2031628, 'Chance on melee attack to reduce the mana cost of Lightning Bolt and Chain Lightning by $34049s1% and cast time by $34049s2%. Stacks up to 5 times.', 2031678, 2031628, 11, -1, 1, 1, 1);
+
+        -- Spell Proc Event
+            REPLACE `mangos`.`spell_proc_event` (`entry`, `ppmRate`, `Cooldown`, `build_min`) VALUES (34048, 10, 5000, 5302);
+
+        -- Proced aura (This reduces the cast time and MP cost of lightning bolt and chain lightning)
+            REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `procCharges`, `durationIndex`, `rangeIndex`, `stackAmount`, `equippedItemClass`, `effect1`, `effect2`, `effectDieSides1`, `effectDieSides2`, `effectBaseDice1`, `effectBaseDice2`, `effectBasePoints1`, `effectBasePoints2`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectApplyAuraName1`, `effectApplyAuraName2`, `effectItemType1`, `effectItemType2`, `effectMiscValue1`, `effectMiscValue2`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `spellFamilyName`, `stanceBarOrder`, `dmgMultiplier1`, `script_name`) VALUES (34049, 4695, 327680, 1, 101, 1, 9, 1, 5, -1, 6, 6, 1, 1, 1, 1, -9, -9, 0, 0, -1, 1, 1, 108, 108, 3, 3, 14, 10, 141, 'Maelstrom Weapon', 983070, 983070, 'Reduces the mana cost of your next Lightning Bolt or Chain Lightning by S1% and cast time by $s2', 983070, 'The mana cost and cast time of your next Lightning Bolt or Chain Lightning is decreased.', 983052, 11, -1, 1, '');
+
+            UPDATE `mangos`.`spell_template` SET `procFlags`=65536, `effect3`=0, `effectDieSides3`=0, `effectBaseDice3`=0, `effectImplicitTargetA3`=0, `effectApplyAuraName3`=0 WHERE  `entry`=34049;
+
+        -- Rank3
+        -- Aura that adds proc (This is the buff that procs the Aura)
+        REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procFlags`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectTriggerSpell1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34050, 5302, 192, 1, 4, 100, 21, 1, -1, 6, 1, 1, 0, -1, -1, 1, 42, 34051, 141, 'Maelstrom Weapon', 2031678, '', 2031628, 'Chance on melee attack to reduce the mana cost of Lightning Bolt and Chain Lightning by $34051s1% and cast time by $34051s2%. Stacks up to 5 times.', 2031678, 2031628, 11, -1, 1, 1, 1);
+
+        -- Spell Proc Event
+            REPLACE `mangos`.`spell_proc_event` (`entry`, `ppmRate`, `Cooldown`, `build_min`) VALUES (34050, 10, 5000, 5302);
+
+        -- Proced aura (This reduces the cast time and MP cost of lightning bolt and chain lightning)
+            REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `procCharges`, `durationIndex`, `rangeIndex`, `stackAmount`, `equippedItemClass`, `effect1`, `effect2`, `effectDieSides1`, `effectDieSides2`, `effectBaseDice1`, `effectBaseDice2`, `effectBasePoints1`, `effectBasePoints2`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectApplyAuraName1`, `effectApplyAuraName2`, `effectItemType1`, `effectItemType2`, `effectMiscValue1`, `effectMiscValue2`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `spellFamilyName`, `stanceBarOrder`, `dmgMultiplier1`, `script_name`) VALUES (34051, 4695, 327680, 1, 101, 1, 9, 1, 5, -1, 6, 6, 1, 1, 1, 1, -13, -13, 0, 0, -1, 1, 1, 108, 108, 3, 3, 14, 10, 141, 'Maelstrom Weapon', 983070, 983070, 'Reduces the mana cost of your next Lightning Bolt or Chain Lightning by S1% and cast time by $s2', 983070, 'The mana cost and cast time of your next Lightning Bolt or Chain Lightning is decreased.', 983052, 11, -1, 1, '');
+
+            UPDATE `mangos`.`spell_template` SET `procFlags`=65536, `effect3`=0, `effectDieSides3`=0, `effectBaseDice3`=0, `effectImplicitTargetA3`=0, `effectApplyAuraName3`=0 WHERE  `entry`=34051;
+
+        -- Rank4
+        -- Aura that adds proc (This is the buff that procs the Aura)
+        REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procFlags`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectTriggerSpell1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34052, 5302, 192, 1, 4, 100, 21, 1, -1, 6, 1, 1, 0, -1, -1, 1, 42, 34053, 141, 'Maelstrom Weapon', 2031678, '', 2031628, 'Chance on melee attack to reduce the mana cost of Lightning Bolt and Chain Lightning by $34053s1% and cast time by $34053s2%. Stacks up to 5 times.', 2031678, 2031628, 11, -1, 1, 1, 1);
+
+        -- Spell Proc Event
+            REPLACE `mangos`.`spell_proc_event` (`entry`, `ppmRate`, `Cooldown`, `build_min`) VALUES (34052, 10, 5000, 5302);
+
+        -- Proced aura (This reduces the cast time and MP cost of lightning bolt and chain lightning)
+            REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `procCharges`, `durationIndex`, `rangeIndex`, `stackAmount`, `equippedItemClass`, `effect1`, `effect2`, `effectDieSides1`, `effectDieSides2`, `effectBaseDice1`, `effectBaseDice2`, `effectBasePoints1`, `effectBasePoints2`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectApplyAuraName1`, `effectApplyAuraName2`, `effectItemType1`, `effectItemType2`, `effectMiscValue1`, `effectMiscValue2`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `spellFamilyName`, `stanceBarOrder`, `dmgMultiplier1`, `script_name`) VALUES (34053, 4695, 327680, 1, 101, 1, 9, 1, 5, -1, 6, 6, 1, 1, 1, 1, -17, -17, 0, 0, -1, 1, 1, 108, 108, 3, 3, 14, 10, 141, 'Maelstrom Weapon', 983070, 983070, 'Reduces the mana cost of your next Lightning Bolt or Chain Lightning by S1% and cast time by $s2', 983070, 'The mana cost and cast time of your next Lightning Bolt or Chain Lightning is decreased.', 983052, 11, -1, 1, '');
+
+            UPDATE `mangos`.`spell_template` SET `procFlags`=65536, `effect3`=0, `effectDieSides3`=0, `effectBaseDice3`=0, `effectImplicitTargetA3`=0, `effectApplyAuraName3`=0 WHERE  `entry`=34053;
+
+        -- Rank5
+        -- Aura that adds proc (This is the buff that procs the Aura)
+        REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procFlags`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectTriggerSpell1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34054, 5302, 192, 1, 4, 100, 21, 1, -1, 6, 1, 1, 0, -1, -1, 1, 42, 34055, 141, 'Maelstrom Weapon', 2031678, '', 2031628, 'Chance on melee attack to reduce the mana cost of Lightning Bolt and Chain Lightning by $34055s1% and cast time by $34055s2%. Stacks up to 5 times.', 2031678, 2031628, 11, -1, 1, 1, 1);
+
+        -- Spell Proc Event
+            REPLACE `mangos`.`spell_proc_event` (`entry`, `ppmRate`, `Cooldown`, `build_min`) VALUES (34054, 10, 5000, 5302);
+
+        -- Proced aura (This reduces the cast time and MP cost of lightning bolt and chain lightning)
+            REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `procCharges`, `durationIndex`, `rangeIndex`, `stackAmount`, `equippedItemClass`, `effect1`, `effect2`, `effectDieSides1`, `effectDieSides2`, `effectBaseDice1`, `effectBaseDice2`, `effectBasePoints1`, `effectBasePoints2`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectApplyAuraName1`, `effectApplyAuraName2`, `effectItemType1`, `effectItemType2`, `effectMiscValue1`, `effectMiscValue2`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `spellFamilyName`, `stanceBarOrder`, `dmgMultiplier1`, `script_name`) VALUES (34055, 4695, 327680, 1, 101, 1, 9, 1, 5, -1, 6, 6, 1, 1, 1, 1, -21, -21, 0, 0, -1, 1, 1, 108, 108, 3, 3, 14, 10, 141, 'Maelstrom Weapon', 983070, 983070, 'Reduces the mana cost of your next Lightning Bolt or Chain Lightning by S1% and cast time by $s2', 983070, 'The mana cost and cast time of your next Lightning Bolt or Chain Lightning is decreased.', 983052, 11, -1, 1, '');
+
+            UPDATE `mangos`.`spell_template` SET `procFlags`=65536, `effect3`=0, `effectDieSides3`=0, `effectBaseDice3`=0, `effectImplicitTargetA3`=0, `effectApplyAuraName3`=0 WHERE  `entry`=34055;
+
+    -- Weapon Mastery (2 points, 5/10%)
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=4 WHERE  `entry`=29082;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=9 WHERE  `entry`=29084;
+
+    -- Mana Tide (Made baseline)
+        -- TODO: Spell for trainer to cast on player to learn spell
+        -- Trainer
+        REPLACE `mangos`.`npc_trainer_template` (`entry`, `spell`, `spellcost`, `reqlevel`) VALUES (10, 16190, 14000, 40);
 
 -- Priest
 -- Inner Focus (Add Penance)
