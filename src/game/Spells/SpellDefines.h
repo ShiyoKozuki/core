@@ -283,7 +283,8 @@ enum SpellEffects
     SPELL_EFFECT_NOSTALRIUS                = 131,
     SPELL_EFFECT_APPLY_AREA_AURA_RAID      = 132,
     SPELL_EFFECT_APPLY_AREA_AURA_OWNER     = 133,
-    TOTAL_SPELL_EFFECTS                    = 134
+    SPELL_EFFECT_ENERGIZE_PCT              = 134,
+    TOTAL_SPELL_EFFECTS                    = 135
 };
 
 enum SpellCastResult

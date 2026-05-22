@@ -186,6 +186,9 @@ pEffect SpellEffects[TOTAL_SPELL_EFFECTS] =
     &Spell::EffectApplyAreaAura,                            //129 SPELL_EFFECT_APPLY_AREA_AURA_ENEMY
     &Spell::EffectDespawnObject,                            //130 SPELL_EFFECT_DESPAWN_OBJECT
     &Spell::EffectNostalrius,                               //131 SPELL_EFFECT_NOSTALRIUS
+    &Spell::EffectUnused,                                   //132 
+    &Spell::EffectUnused,                                   //133 
+    &Spell::EffectEnergizePct,                              //134 SPELL_EFFECT_ENERGIZE_PCT
 };
 
 void Spell::EffectEmpty(SpellEffectIndex /*effIdx*/)
@@ -2024,6 +2027,43 @@ void Spell::EffectEnergize(SpellEffectIndex effIdx)
     info.energize.powerType = power;
     AddExecuteLogInfo(effIdx, info);
 #endif
+
+    m_caster->EnergizeBySpell(unitTarget, m_spellInfo->Id, damage, power);
+}
+
+void Spell::EffectEnergizePct(SpellEffectIndex effIdx)
+{
+    if (!unitTarget)
+        return;
+
+    if (!unitTarget->IsAlive())
+        return;
+
+    if (m_spellInfo->EffectMiscValue[effIdx] < 0 || m_spellInfo->EffectMiscValue[effIdx] >= MAX_POWERS)
+        return;
+
+    Powers power = Powers(m_spellInfo->EffectMiscValue[effIdx]);
+
+    uint32 maxPower = unitTarget->GetMaxPower(power);
+    if (maxPower == 0)
+        return;
+
+    if (damage < 0)
+        return;
+
+    // Arcane Torrent
+    //if (m_spellInfo->Id == 35994 || m_spellInfo->Id == 35995)
+    //{
+    //    if (Aura* manatap = unitTarget->GetAura(35996, EFFECT_INDEX_1))
+    //    {
+    //        if (damage *= manatap->GetStackAmount())
+    //            unitTarget->RemoveAurasDueToSpell(35996);
+    //    }
+    //    else
+    //        return;
+    //}
+
+    damage = damage * maxPower / 100.0f;
 
     m_caster->EnergizeBySpell(unitTarget, m_spellInfo->Id, damage, power);
 }

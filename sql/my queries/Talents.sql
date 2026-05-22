@@ -3,6 +3,30 @@
 -- Talents
 
 -- Mage
+    -- Improved Fireball (4/8/12/16/20% chance after casting Fireball next Fireblast has -100% mana cost)
+        UPDATE `mangos`.`spell_template` SET `procFlags`=87376, `procChance`=4, `effect2`=6, `effectDieSides2`=1, `effectBaseDice2`=1, `effectBonusCoefficient2`=0, `effectImplicitTargetA2`=1, `effectApplyAuraName2`=42, `effectTriggerSpell2`=34060, `effectItemType2`=1, `effectMiscValue2`=42, `description`='Reduces the casting time of your Fireball spell by $/1000;S1 sec.  Additonally, your Fireball spell has a $h% chance to reduce the mana cost of your next Fireblast by $34060s1%.' WHERE  `entry`=11069;
+
+        UPDATE `mangos`.`spell_template` SET `procFlags`=87376, `procChance`=8, `effect2`=6, `effectDieSides2`=1, `effectBaseDice2`=1, `effectBonusCoefficient2`=0, `effectImplicitTargetA2`=1, `effectApplyAuraName2`=42, `effectTriggerSpell2`=34060, `effectItemType2`=1, `effectMiscValue2`=42, `description`='Reduces the casting time of your Fireball spell by $/1000;S1 sec.  Additonally, your Fireball spell has a $h% chance to reduce the mana cost of your next Fireblast by $34060s1%.' WHERE  `entry`=12338;
+
+        UPDATE `mangos`.`spell_template` SET `procFlags`=87376, `procChance`=12, `effect2`=6, `effectDieSides2`=1, `effectBaseDice2`=1, `effectBonusCoefficient2`=0, `effectImplicitTargetA2`=1, `effectApplyAuraName2`=42, `effectTriggerSpell2`=34060, `effectItemType2`=1, `effectMiscValue2`=42, `description`='Reduces the casting time of your Fireball spell by $/1000;S1 sec.  Additonally, your Fireball spell has a $h% chance to reduce the mana cost of your next Fireblast by $34060s1%.' WHERE  `entry`=12339;
+
+        UPDATE `mangos`.`spell_template` SET `procFlags`=87376, `procChance`=16, `effect2`=6, `effectDieSides2`=1, `effectBaseDice2`=1, `effectBonusCoefficient2`=0, `effectImplicitTargetA2`=1, `effectApplyAuraName2`=42, `effectTriggerSpell2`=34060, `effectItemType2`=1, `effectMiscValue2`=42, `description`='Reduces the casting time of your Fireball spell by $/1000;S1 sec.  Additonally, your Fireball spell has a $h% chance to reduce the mana cost of your next Fireblast by $34060s1%.' WHERE  `entry`=12340;
+
+        UPDATE `mangos`.`spell_template` SET `procFlags`=87376, `procChance`=20, `effect2`=6, `effectDieSides2`=1, `effectBaseDice2`=1, `effectBonusCoefficient2`=0, `effectImplicitTargetA2`=1, `effectApplyAuraName2`=42, `effectTriggerSpell2`=34060, `effectItemType2`=1, `effectMiscValue2`=42, `description`='Reduces the casting time of your Fireball spell by $/1000;S1 sec.  Additonally, your Fireball spell has a $h% chance to reduce the mana cost of your next Fireblast by $34060s1%.' WHERE  `entry`=12341;
+
+        -- Proc that reduces Fireblast MP Cost
+        Replace `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procFlags`, `procChance`, `procCharges`, `durationIndex`, `rangeIndex`, `stackAmount`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectItemType1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `spellFamilyName`, `stanceBarOrder`, `dmgMultiplier1`) VALUES (34060, 4695, 327680, 1, 65536, 101, 1, 9, 1, 5, -1, 6, 1, 1, -101, 0, 0, -1, 1, 108, 2, 14, 185, 'Inferno', 983070, 983070, 'Reduces the mana cost of Fireblast by $s1%.', 983070, 'Your next Fireblast spell costs no mana.', 983052, 3, -1, 1);
+
+    -- Incinerate (Also reduces MP cost of Fire spells by 15/30%)
+    UPDATE `mangos`.`spell_template` SET `effect2`=6, `effectDieSides2`=1, `effectBaseDice2`=1, `effectBasePoints2`=-16, `effectImplicitTargetA2`=1, `effectApplyAuraName2`=108, `effectItemType2`=51543801879, `effectMiscValue2`=14, `description`='Increases the critical strike chance of your Fire Blast and Scorch spells by $s1%.  Additionally, reduces the mana cost of your Fire Spells by $s2%.' WHERE  `entry`=18459;
+
+    UPDATE `mangos`.`spell_template` SET `effect2`=6, `effectDieSides2`=1, `effectBaseDice2`=1, `effectBasePoints2`=-31, `effectImplicitTargetA2`=1, `effectApplyAuraName2`=108, `effectItemType2`=51543801879, `effectMiscValue2`=14, `description`='Increases the critical strike chance of your Fire Blast and Scorch spells by $s1%.  Additionally, reduces the mana cost of your Fire Spells by $s2%.' WHERE  `entry`=18460;
+
+    -- Master of the Elements (20/40/60% base MP refunded on Frost and Fire spell crits)
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=19 WHERE  `entry`=29074;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=39 WHERE  `entry`=29075;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=59 WHERE  `entry`=29076;
+
     -- Ice Barrier Now level 30 instead of 40. (Rank 1 Reduced spell level, absorbed amount and mana cost)
     UPDATE `mangos`.`spell_template` SET `baseLevel`=30, `spellLevel`=30, `manaCost`=245, `effectBasePoints1`=326 WHERE  `entry`=11426 AND `build`=5464;
 
@@ -76,6 +100,29 @@
     UPDATE `mangos`.`spell_template` SET `effect2`=6, `effectDieSides2`=1, `effectBaseDice2`=1, `effectBasePoints1`=5, `effectBasePoints2`=5, `effectImplicitTargetA2`=1, `effectApplyAuraName2`=133, `description`='Increases your armor value from items by $s1% and your total Health by $s2%.' WHERE  `entry`=16306;
 
     UPDATE `mangos`.`spell_template` SET `effect2`=6, `effectDieSides2`=1, `effectBaseDice2`=1, `effectBasePoints1`=9, `effectBasePoints2`=9, `effectImplicitTargetA2`=1, `effectApplyAuraName2`=133, `description`='Increases your armor value from items by $s1% and your total Health by $s2%.' WHERE  `entry`=16307;
+    
+    -- Anticipation (3/6/9% Dodge, Restore 2/4/6% of Max MP on Dodge)
+    -- Spell
+    UPDATE `mangos`.`spell_template` SET `procFlags`=40, `procChance`=100, `effect2`=6, `effectDieSides2`=0, `effectBaseDice2`=0, `effectBasePoints1`=2, `effectBasePoints2`=0, `effectBonusCoefficient2`=0, `effectImplicitTargetA2`=1, `effectApplyAuraName2`=42, `effectTriggerSpell2`=34057, `description`='Increases your chance to dodge by an additional $s1% and restore $34057s1% mana on a successful dodge.' WHERE  `entry`=16254;
+
+    REPLACE `mangos`.`spell_proc_event` (`entry`, `procEx`, `Cooldown`) VALUES (16254, 16, 1000);
+
+    -- Proc
+    REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `dispel`, `castingTimeIndex`, `procChance`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectMiscValue1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `dmgClass`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34057, 5302, 1, 1, 1, 101, 1, -1, -1, 134, 1, 1, 1, 1, -1, -1, 1, 0, 0, 1677, 'Anticipation Mana Restore', 2031678, '', 2031628, 'Restores $s1% mana.', 2031678, '', 2031678, 1, -1, 1, 1, 1);
+
+    UPDATE `mangos`.`spell_template` SET `procFlags`=40, `procChance`=100, `effect2`=6, `effectDieSides2`=0, `effectBaseDice2`=0, `effectBasePoints1`=5, `effectBasePoints2`=3, `effectBonusCoefficient2`=0, `effectImplicitTargetA2`=1, `effectApplyAuraName2`=42, `effectTriggerSpell2`=34058, `description`='Increases your chance to dodge by an additional $s1% and restore $34058s2% mana on a successful dodge.' WHERE  `entry`=16271;
+
+    REPLACE `mangos`.`spell_proc_event` (`entry`, `procEx`, `Cooldown`) VALUES (16271, 16, 1000);
+
+    -- Proc
+    REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `dispel`, `castingTimeIndex`, `procChance`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectMiscValue1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `dmgClass`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34058, 5302, 1, 1, 1, 101, 1, -1, -1, 134, 1, 1, 3, 1, -1, -1, 1, 0, 0, 1677, 'Anticipation Mana Restore', 2031678, '', 2031628, 'Restores $s1% mana.', 2031678, '', 2031678, 1, -1, 1, 1, 1);
+
+    UPDATE `mangos`.`spell_template` SET `procFlags`=40, `procChance`=100, `effect2`=6, `effectDieSides2`=0, `effectBaseDice2`=0, `effectBasePoints1`=0, `effectBasePoints2`=5, `effectBonusCoefficient2`=0, `effectImplicitTargetA2`=1, `effectApplyAuraName2`=42, `effectTriggerSpell2`=34059, `description`='Increases your chance to dodge by an additional $s1% and restore $34059s2% mana on a successful dodge.' WHERE  `entry`=16274;
+
+    REPLACE `mangos`.`spell_proc_event` (`entry`, `procEx`, `Cooldown`) VALUES (16274, 16, 1000);
+
+    -- Proc
+    REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `dispel`, `castingTimeIndex`, `procChance`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectMiscValue1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `dmgClass`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34059, 5302, 1, 1, 1, 101, 1, -1, -1, 134, 1, 1, 5, 1, -1, -1, 1, 0, 0, 1677, 'Anticipation Mana Restore', 2031678, '', 2031628, 'Restores $s1% mana.', 2031678, '', 2031678, 1, -1, 1, 1, 1);
 
     -- Maelstrom Weapon (Your melee attacks have a 5% chance to reduce cast time and mana cost of Lightning Bolt and Chain Lightning by 4/8/12/16/20%. Stacks up to 5 times.)
         -- Rank1
@@ -142,10 +189,13 @@
     UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=4 WHERE  `entry`=29082;
     UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=9 WHERE  `entry`=29084;
 
-    -- Mana Tide (Made baseline)
-        -- TODO: Spell for trainer to cast on player to learn spell
+    -- Mana Tide Totem Rank 1 (Made baseline)
+        -- Learn Spell (for trainer)
+        REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `targets`, `castingTimeIndex`, `procChance`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `activeIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) 
+        VALUES (34056, 4222, 1, 262400, 256, 1, 101, 6, -1, -1, 36, 1, 1, -1, 0, -1, -1, 16190, 107, 94, 0, 'Mana Tide Totem', 7274526, 'Rank 1', 7274526, 7274508, 983052, -1, 1, 1, 1);
+        
         -- Trainer
-        REPLACE `mangos`.`npc_trainer_template` (`entry`, `spell`, `spellcost`, `reqlevel`) VALUES (10, 16190, 14000, 40);
+        REPLACE `mangos`.`npc_trainer_template` (`entry`, `spell`, `spellcost`, `reqlevel`) VALUES (10, 34056, 14000, 40);
 
 -- Priest
 -- Inner Focus (Add Penance)

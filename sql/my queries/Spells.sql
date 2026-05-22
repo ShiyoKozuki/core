@@ -1,4 +1,4 @@
--- 34047 NEXT SPELL
+-- 34061 NEXT SPELL
 -- 15128 NEXT SKILL_LINE_ABILITY
 
 -- skill_line_ability class_mask uses enum CLASSES
@@ -19,6 +19,8 @@
 -- spellfamiylflag is enum ClassFlag
 
 -- To Trigger procs on target, use effect 64 (SPELL_EFFECT_TRIGGER_SPELL = 64), effectTriggerSpell1 (for the spell triggered) and effectImplicitTargetA1 6(for target unit)
+
+-- To Trigger procs on SELF, use effect 6(SPELL_EFFECT_APPLY_AURA), effectImplicitTargetA1 1, effectApplyAuraName 42(SPELL_AURA_PROC_TRIGGER_SPELL)
 
 -- Look at https://www.wowhead.com/classic/spell=12579/winters-chill to see how to add a "increased crit chance to target" mod on stuff. Like improved SoTCrusader (SPELL_AURA_MOD_ATTACKER_SPELL_CRIT_CHANCE = 179)
 
@@ -1923,6 +1925,16 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
 
 
     -- Mage
+        -- Mage Armor (50% Mana regeneration to continue while casting, Rank1 now level 10)
+        UPDATE `mangos`.`spell_template` SET `baseLevel`=10, `spellLevel`=10, `effectBasePoints2`=49 WHERE  `entry`=6117;
+        UPDATE `mangos`.`spell_template` SET `effectBasePoints2`=49 WHERE  `entry`=22782;
+        UPDATE `mangos`.`spell_template` SET `effectBasePoints2`=49 WHERE  `entry`=22783;
+
+        -- Trainer
+        REPLACE `mangos`.`npc_trainer_template` (`entry`, `spell`, `spellcost`, `reqlevel`) VALUES (1, 6121, 400, 10);
+
+        -- Mana gems (Quadrupled amount of MP restored)
+
         -- Evocation (Changed from 8m to 2m CD)
         UPDATE `mangos`.`spell_template` SET `recoveryTime`=120000 WHERE  `entry`=12051 AND `build`=5875;
 
@@ -3493,21 +3505,6 @@ UPDATE `mangos`.`spell_template` SET `reagent4`=7078, `reagent5`=7082, `reagent6
 
 
     -- Items / Gear
-        -- Elixir of Firepower (10 - > 25 Fire damage)
-            UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=24 WHERE  `entry`=7844 AND `build`=5464;
-
-        -- Elixir of Greater Firepower (40 -> 80)
-            UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=79 WHERE  `entry`=26276 AND `build`=5464;
-
-        -- Elixir of Frost Power (15 - > 25 Frost damage)
-            UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=24 WHERE  `entry`=21920 AND `build`=5464;
-
-        -- Elixir of Shadow Power (40 -> 80)
-            UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=79 WHERE  `entry`=11474 AND `build`=5464;
-
-        -- Greater Arcane Elixir (35 -> 70)
-            UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=69 WHERE  `entry`=17539 AND `build`=5464;
-
         -- +1 Fire weapon damage to attacks
             -- Aura
             REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procFlags`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectTriggerSpell1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33621, 5302, 448, 1, 20, 100, 21, 1, -1, 6, 1, 1, -1, 0, -1, -1, 1, 42, 33622, 1, 'Add Fire Dam - Weap 01', 8323134, 8323132, 'Adds $33622s1 fire damage to your weapon attack.', 2031678, 2031676, -1, 1, 1, 1);
@@ -3760,6 +3757,40 @@ UPDATE `mangos`.`spell_template` SET `reagent4`=7078, `reagent5`=7082, `reagent6
     -- Elixir of Fortitude (Now grants +450 Health)
     UPDATE `mangos`.`item_template` SET required_level = 35 WHERE `entry`=3825;
     UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=449 WHERE  `entry`=3593 AND `build`=4297;
+
+    -- Elixir of Firepower (10 - > 25 Fire damage)
+        UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=24 WHERE  `entry`=7844 AND `build`=5464;
+
+    -- Elixir of Greater Firepower (40 -> 80)
+        UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=79 WHERE  `entry`=26276 AND `build`=5464;
+
+    -- Elixir of Frost Power (15 - > 25 Frost damage)
+        UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=24 WHERE  `entry`=21920 AND `build`=5464;
+
+    -- Elixir of Shadow Power (40 -> 80)
+        UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=79 WHERE  `entry`=11474 AND `build`=5464;
+
+    -- Greater Arcane Elixir (35 -> 70)
+        UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=69 WHERE  `entry`=17539 AND `build`=5464;
+
+    -- Elixir of Defense (+6% Armor) 3220
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=5, `effectApplyAuraName1`=142 WHERE  `entry`=3220;
+
+    -- Elixir of Greater Defense (+8% Armor) 11349
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=7, `effectApplyAuraName1`=142 WHERE  `entry`=11349;
+
+    -- Elixir of Superior Defense (+10% Armor) 11348
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=9, `effectApplyAuraName1`=142 WHERE  `entry`=11348;
+
+    -- Elixir of Lesser Agility (+4% Melee AND Ranged Attack Speed) 3160
+    -- Elixir of Agility (+6% Melee AND Ranged Attack Speed) 11328
+    -- Elixir of Greater Agility (+8% Melee AND Ranged Attack Speed) 11334
+
+    -- Elixir of Ogre's Stength (+5% Attack Power) 3188
+    -- Elixir of Giants (+7% Attack Power) 11405
+    -- Elixir of Brute Force (+10% Attack) 17537
+
+    -- Elixir of Giant Growth (+5% HP +5% Attack Power) 8212
 
 -- Food
     -- Smoked Sagefish (Buffed to 12 MP5)
