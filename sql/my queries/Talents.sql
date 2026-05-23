@@ -412,10 +412,15 @@ UPDATE `mangos`.`spell_template` SET `effect2`=0, `effectDieSides2`=0, `effectBa
             -- Proc
             REPLACE`mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `attributesEx2`, `attributesEx3`, `castingTimeIndex`, `interruptFlags`, `procChance`, `maxLevel`, `baseLevel`, `spellLevel`, `rangeIndex`, `speed`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectRealPointsPerLevel1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `customFlags`) VALUES (34024, 5086, 1, 65536, 4194304, 512, 1, 8, 101, 56, 61, 61, 4, 20, -1, -1, 2, 1, 1, 0.6, 299, 0.24, -1, -1, 6, 7160, 1868, 50, 'Penance', 2031678, 'Rank 3', 2031678, 'Launches a volley of holy light at the target, causing $s1 Holy damage instantly and every 1 sec for 2 sec', 2031678, 2031676, 6, 17179869184, 1, 1, -1, 1, 1, 1, 128);
 
-    -- Skill Line Ability
-        REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`) VALUES (15119, 5875, 613, 34008, 16, 1);
-        REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`) VALUES (15120, 5875, 613, 34013, 16, 1);
-        REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`) VALUES (15121, 5875, 613, 34019, 16, 1);
+        -- Skill Line Ability
+            REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`) VALUES (15119, 5875, 613, 34008, 16, 1);
+            REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`) VALUES (15120, 5875, 613, 34013, 16, 1);
+            REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`) VALUES (15121, 5875, 613, 34019, 16, 1);
+
+        -- Spell Chain
+            REPLACE `mangos`.`spell_chain` (`spell_id`, `prev_spell`, `first_spell`, `rank`) VALUES (34008, 0,     34008, 1);
+            REPLACE `mangos`.`spell_chain` (`spell_id`, `prev_spell`, `first_spell`, `rank`) VALUES (34013, 34008, 34008, 2);
+            REPLACE `mangos`.`spell_chain` (`spell_id`, `prev_spell`, `first_spell`, `rank`) VALUES (34019, 34013, 34008, 3);
 
     -- Absolution (-5/10/15% MP cost to Curse Disease, Abolish Disease and Dispel Magic)
     REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectItemType1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `stanceBarOrder`, `dmgMultiplier1`) VALUES (34025, 4695, 464, 1, 101, 21, 1, -1, 6, 1, 1, -6, 0, -1, -1, 1, 108, 4294967296, 14, 1823, 'Absolution', 983070, '', 983070, 'Reduces the mana cost of Remove Disease, Abolish Disease and Dispel Magic by $s1%.', 983070, 983052, 6, -1, 1);

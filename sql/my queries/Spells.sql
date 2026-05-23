@@ -1,5 +1,5 @@
--- 34062 NEXT SPELL
--- 15128 NEXT SKILL_LINE_ABILITY
+-- 34085 NEXT SPELL
+-- 15138 NEXT SKILL_LINE_ABILITY
 
 -- skill_line_ability class_mask uses enum CLASSES
 
@@ -1985,9 +1985,6 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
                 REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `dispel`, `attributes`, `attributesEx2`, `stances`, `stancesNot`, `castingTimeIndex`, `recoveryTime`, `interruptFlags`, `procChance`, `maxLevel`, `baseLevel`, `spellLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectAmplitude1`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33861, 5302, 1, 1, 65536, 524288, 2147483648, 134217728, 1, 90000, 8, 101, 65, 60, 60, 8, 5, -1, -1, 6, 1, 1, 193, 0.2, -1, -1, 21, 8, 3000, 280, 36, 50, 'Water Ripple', 2031678, 'Rank 1', 2031678, 'Heals the target of $o1 damage over $d.', 2031678, 'Healing $s1 damage every $t1 seconds.', 2031678, 133, 1500, 6, 64, 1, 1, -1, 1, 1, 1);
 
         -- Ice Lance
-            -- TODO: Frost talents (Except shatter?) Don't work on this
-            -- TODO: More ranks (As many as there are frostbolt)
-            -- TODO: Skill chain (I started it)
             -- Rank 1
                 -- Spell
                     REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `dispel`, `attributes`, `castingTimeIndex`, `interruptFlags`, `procChance`, `maxLevel`, `baseLevel`, `spellLevel`, `manaCost`, `rangeIndex`, `speed`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectRealPointsPerLevel1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `customFlags`, `script_name`) VALUES (34066, 5464, 4, 1, 65536, 16, 15, 101, 14, 8, 8, 35, 4, 28, -1, -1, 2, 4, 1, 0.5, 11, 0.163, 0, -1, 6, 13, 186, 50, 'Ice Lance', 4128830, 'Rank 1', 4128830, 'Deals $s1 Frost damage to an enemy target. Causes triple damage against Frozen targets.', 4128830, 4128830, 133, 1500, 3, 137439084544, 1, 1, -1, 1, 1, 1, 128, 'spell_mage_ice_lance');
@@ -2004,7 +2001,7 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
 
             -- Rank 2
                 -- Spell
-                    REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `dispel`, `attributes`, `castingTimeIndex`, `interruptFlags`, `procChance`, `maxLevel`, `baseLevel`, `spellLevel`, `manaCost`, `rangeIndex`, `speed`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectRealPointsPerLevel1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `customFlags`, `script_name`) VALUES (34068, 5464, 4, 1, 65536, 16, 15, 101, 14, 8, 8, 50, 4, 28, -1, -1, 2, 4, 1, 0.5, 18, 0.163, 0, -1, 6, 13, 186, 50, 'Ice Lance', 4128830, 'Rank 2', 4128830, 'Deals $s1 Frost damage to an enemy target. Causes triple damage against Frozen targets.', 4128830, 4128830, 133, 1500, 3, 137439084544, 1, 1, -1, 1, 1, 1, 128, 'spell_mage_ice_lance');
+                    REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `dispel`, `attributes`, `castingTimeIndex`, `interruptFlags`, `procChance`, `maxLevel`, `baseLevel`, `spellLevel`, `manaCost`, `rangeIndex`, `speed`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectRealPointsPerLevel1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `customFlags`, `script_name`) VALUES (34068, 5464, 4, 1, 65536, 16, 15, 101, 20, 14, 14, 50, 4, 28, -1, -1, 2, 4, 1, 0.5, 19, 0.163, 0, -1, 6, 13, 186, 50, 'Ice Lance', 4128830, 'Rank 2', 4128830, 'Deals $s1 Frost damage to an enemy target. Causes triple damage against Frozen targets.', 4128830, 4128830, 133, 1500, 3, 137439084544, 1, 1, -1, 1, 1, 1, 128, 'spell_mage_ice_lance');
 
                 -- Learn spell(for trainer):
                     REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `targets`, `castingTimeIndex`, `procChance`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `activeIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) 
@@ -2018,7 +2015,7 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
 
             -- Rank 3
                 -- Spell
-                    REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `dispel`, `attributes`, `castingTimeIndex`, `interruptFlags`, `procChance`, `maxLevel`, `baseLevel`, `spellLevel`, `manaCost`, `rangeIndex`, `speed`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectRealPointsPerLevel1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `customFlags`, `script_name`) VALUES (34070, 5464, 4, 1, 65536, 16, 15, 101, 14, 8, 8, 65, 4, 28, -1, -1, 2, 4, 1, 0.5, 18, 0.163, 0, -1, 6, 13, 186, 50, 'Ice Lance', 4128830, 'Rank 3', 4128830, 'Deals $s1 Frost damage to an enemy target. Causes triple damage against Frozen targets.', 4128830, 4128830, 133, 1500, 3, 137439084544, 1, 1, -1, 1, 1, 1, 128, 'spell_mage_ice_lance');
+                    REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `dispel`, `attributes`, `castingTimeIndex`, `interruptFlags`, `procChance`, `maxLevel`, `baseLevel`, `spellLevel`, `manaCost`, `rangeIndex`, `speed`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectRealPointsPerLevel1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `customFlags`, `script_name`) VALUES (34070, 5464, 4, 1, 65536, 16, 15, 101, 26, 20, 20, 65, 4, 28, -1, -1, 2, 4, 1, 0.5, 27, 0.163, 0, -1, 6, 13, 186, 50, 'Ice Lance', 4128830, 'Rank 3', 4128830, 'Deals $s1 Frost damage to an enemy target. Causes triple damage against Frozen targets.', 4128830, 4128830, 133, 1500, 3, 137439084544, 1, 1, -1, 1, 1, 1, 128, 'spell_mage_ice_lance');
 
                 -- Learn spell(for trainer):
                     REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `targets`, `castingTimeIndex`, `procChance`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `activeIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) 
@@ -2030,10 +2027,111 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
                 -- Trainer
                     REPLACE `mangos`.`npc_trainer_template` (`entry`, `spell`, `spellcost`, `reqlevel`) VALUES (1, 34071, 2000, 20);
 
+            -- Rank 4
+                -- Spell
+                    REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `dispel`, `attributes`, `castingTimeIndex`, `interruptFlags`, `procChance`, `maxLevel`, `baseLevel`, `spellLevel`, `manaCost`, `rangeIndex`, `speed`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectRealPointsPerLevel1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `customFlags`, `script_name`) VALUES (34072, 5464, 4, 1, 65536, 16, 15, 101, 32, 26, 26, 100, 4, 28, -1, -1, 2, 4, 1, 0.5, 46, 0.163, 0, -1, 6, 13, 186, 50, 'Ice Lance', 4128830, 'Rank 4', 4128830, 'Deals $s1 Frost damage to an enemy target. Causes triple damage against Frozen targets.', 4128830, 4128830, 133, 1500, 3, 137439084544, 1, 1, -1, 1, 1, 1, 128, 'spell_mage_ice_lance');
+
+                -- Learn spell(for trainer):
+                    REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `targets`, `castingTimeIndex`, `procChance`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `activeIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) 
+                    VALUES (34073, 4222, 1, 262400, 256, 1, 101, 6, -1, -1, 36, 1, 1, -1, 0, -1, -1, 34072, 107, 186, 0, 'Ice Lance',7274526, 'Rank 4', 7274526, 7274508, 983052, -1, 1, 1, 1);
+
+                -- Skill Line Ability
+                    REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`, `superseded_by_spell`) VALUES (15131, 5875, 6, 34072, 128, 1, 0);
+                
+                -- Trainer
+                    REPLACE `mangos`.`npc_trainer_template` (`entry`, `spell`, `spellcost`, `reqlevel`) VALUES (1, 34073, 5000, 26);
+
+            -- Rank 5
+                -- Spell
+                    REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `dispel`, `attributes`, `castingTimeIndex`, `interruptFlags`, `procChance`, `maxLevel`, `baseLevel`, `spellLevel`, `manaCost`, `rangeIndex`, `speed`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectRealPointsPerLevel1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `customFlags`, `script_name`) VALUES (34074, 5464, 4, 1, 65536, 16, 15, 101, 38, 32, 32, 130, 4, 28, -1, -1, 2, 4, 1, 0.5, 64, 0.163, 0, -1, 6, 13, 186, 50, 'Ice Lance', 4128830, 'Rank 5', 4128830, 'Deals $s1 Frost damage to an enemy target. Causes triple damage against Frozen targets.', 4128830, 4128830, 133, 1500, 3, 137439084544, 1, 1, -1, 1, 1, 1, 128, 'spell_mage_ice_lance');
+
+                -- Learn spell(for trainer):
+                    REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `targets`, `castingTimeIndex`, `procChance`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `activeIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) 
+                    VALUES (34075, 4222, 1, 262400, 256, 1, 101, 6, -1, -1, 36, 1, 1, -1, 0, -1, -1, 34074, 107, 186, 0, 'Ice Lance',7274526, 'Rank 5', 7274526, 7274508, 983052, -1, 1, 1, 1);
+
+                -- Skill Line Ability
+                    REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`, `superseded_by_spell`) VALUES (15132, 5875, 6, 34074, 128, 1, 0);
+                
+                -- Trainer
+                    REPLACE `mangos`.`npc_trainer_template` (`entry`, `spell`, `spellcost`, `reqlevel`) VALUES (1, 34075, 10000, 32);
+
+            -- Rank 6
+                -- Spell
+                    REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `dispel`, `attributes`, `castingTimeIndex`, `interruptFlags`, `procChance`, `maxLevel`, `baseLevel`, `spellLevel`, `manaCost`, `rangeIndex`, `speed`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectRealPointsPerLevel1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `customFlags`, `script_name`) VALUES (34076, 5464, 4, 1, 65536, 16, 15, 101, 44, 38, 38, 160, 4, 28, -1, -1, 2, 4, 1, 0.5, 83, 0.163, 0, -1, 6, 13, 186, 50, 'Ice Lance', 4128830, 'Rank 6', 4128830, 'Deals $s1 Frost damage to an enemy target. Causes triple damage against Frozen targets.', 4128830, 4128830, 133, 1500, 3, 137439084544, 1, 1, -1, 1, 1, 1, 128, 'spell_mage_ice_lance');
+
+                -- Learn spell(for trainer):
+                    REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `targets`, `castingTimeIndex`, `procChance`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `activeIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) 
+                    VALUES (34077, 4222, 1, 262400, 256, 1, 101, 6, -1, -1, 36, 1, 1, -1, 0, -1, -1, 34076, 107, 186, 0, 'Ice Lance',7274526, 'Rank 6', 7274526, 7274508, 983052, -1, 1, 1, 1);
+
+                -- Skill Line Ability
+                    REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`, `superseded_by_spell`) VALUES (15133, 5875, 6, 34076, 128, 1, 0);
+                
+                -- Trainer
+                    REPLACE `mangos`.`npc_trainer_template` (`entry`, `spell`, `spellcost`, `reqlevel`) VALUES (1, 34077, 14000, 38);
+
+            -- Rank 7
+                -- Spell
+                    REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `dispel`, `attributes`, `castingTimeIndex`, `interruptFlags`, `procChance`, `maxLevel`, `baseLevel`, `spellLevel`, `manaCost`, `rangeIndex`, `speed`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectRealPointsPerLevel1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `customFlags`, `script_name`) VALUES (34078, 5464, 4, 1, 65536, 16, 15, 101, 50, 44, 44, 195, 4, 28, -1, -1, 2, 4, 1, 0.5, 106, 0.163, 0, -1, 6, 13, 186, 50, 'Ice Lance', 4128830, 'Rank 7', 4128830, 'Deals $s1 Frost damage to an enemy target. Causes triple damage against Frozen targets.', 4128830, 4128830, 133, 1500, 3, 137439084544, 1, 1, -1, 1, 1, 1, 128, 'spell_mage_ice_lance');
+
+                -- Learn spell(for trainer):
+                    REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `targets`, `castingTimeIndex`, `procChance`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `activeIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) 
+                    VALUES (34079, 4222, 1, 262400, 256, 1, 101, 6, -1, -1, 36, 1, 1, -1, 0, -1, -1, 34078, 107, 186, 0, 'Ice Lance',7274526, 'Rank 7', 7274526, 7274508, 983052, -1, 1, 1, 1);
+
+                -- Skill Line Ability
+                    REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`, `superseded_by_spell`) VALUES (15134, 5875, 6, 34078, 128, 1, 0);
+                
+                -- Trainer
+                    REPLACE `mangos`.`npc_trainer_template` (`entry`, `spell`, `spellcost`, `reqlevel`) VALUES (1, 34079, 2300, 44);
+
+            -- Rank 8
+                -- Spell
+                    REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `dispel`, `attributes`, `castingTimeIndex`, `interruptFlags`, `procChance`, `maxLevel`, `baseLevel`, `spellLevel`, `manaCost`, `rangeIndex`, `speed`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectRealPointsPerLevel1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `customFlags`, `script_name`) VALUES (34080, 5464, 4, 1, 65536, 16, 15, 101, 56, 50, 50, 225, 4, 28, -1, -1, 2, 4, 1, 0.5, 128, 0.163, 0, -1, 6, 13, 186, 50, 'Ice Lance', 4128830, 'Rank 8', 4128830, 'Deals $s1 Frost damage to an enemy target. Causes triple damage against Frozen targets.', 4128830, 4128830, 133, 1500, 3, 137439084544, 1, 1, -1, 1, 1, 1, 128, 'spell_mage_ice_lance');
+
+                -- Learn spell(for trainer):
+                    REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `targets`, `castingTimeIndex`, `procChance`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `activeIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) 
+                    VALUES (34081, 4222, 1, 262400, 256, 1, 101, 6, -1, -1, 36, 1, 1, -1, 0, -1, -1, 34080, 107, 186, 0, 'Ice Lance',7274526, 'Rank 8', 7274526, 7274508, 983052, -1, 1, 1, 1);
+
+                -- Skill Line Ability
+                    REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`, `superseded_by_spell`) VALUES (15135, 5875, 6, 34080, 128, 1, 0);
+                
+                -- Trainer
+                    REPLACE `mangos`.`npc_trainer_template` (`entry`, `spell`, `spellcost`, `reqlevel`) VALUES (1, 34081, 32000, 50);
+
+            -- Rank 9
+                -- Spell
+                    REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `dispel`, `attributes`, `castingTimeIndex`, `interruptFlags`, `procChance`, `maxLevel`, `baseLevel`, `spellLevel`, `manaCost`, `rangeIndex`, `speed`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectRealPointsPerLevel1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `customFlags`, `script_name`) VALUES (34082, 5464, 4, 1, 65536, 16, 15, 101, 60, 56, 56, 260, 4, 28, -1, -1, 2, 4, 1, 0.5, 155, 0.163, 0, -1, 6, 13, 186, 50, 'Ice Lance', 4128830, 'Rank 9', 4128830, 'Deals $s1 Frost damage to an enemy target. Causes triple damage against Frozen targets.', 4128830, 4128830, 133, 1500, 3, 137439084544, 1, 1, -1, 1, 1, 1, 128, 'spell_mage_ice_lance');
+
+                -- Learn spell(for trainer):
+                    REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `targets`, `castingTimeIndex`, `procChance`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `activeIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) 
+                    VALUES (34083, 4222, 1, 262400, 256, 1, 101, 6, -1, -1, 36, 1, 1, -1, 0, -1, -1, 34082, 107, 186, 0, 'Ice Lance',7274526, 'Rank 9', 7274526, 7274508, 983052, -1, 1, 1, 1);
+
+                -- Skill Line Ability
+                    REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`, `superseded_by_spell`) VALUES (15136, 5875, 6, 34082, 128, 1, 0);
+                
+                -- Trainer
+                    REPLACE `mangos`.`npc_trainer_template` (`entry`, `spell`, `spellcost`, `reqlevel`) VALUES (1, 34083, 38000, 56);
+
+            -- Rank 10
+                -- Spell
+                    REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `dispel`, `attributes`, `castingTimeIndex`, `interruptFlags`, `procChance`, `maxLevel`, `baseLevel`, `spellLevel`, `manaCost`, `rangeIndex`, `speed`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectRealPointsPerLevel1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `customFlags`, `script_name`) VALUES (34084, 5464, 4, 1, 65536, 16, 15, 101, 61, 60, 60, 290, 4, 28, -1, -1, 2, 4, 1, 0.5, 185, 0.163, 0, -1, 6, 13, 186, 50, 'Ice Lance', 4128830, 'Rank 10', 4128830, 'Deals $s1 Frost damage to an enemy target. Causes triple damage against Frozen targets.', 4128830, 4128830, 133, 1500, 3, 137439084544, 1, 1, -1, 1, 1, 1, 128, 'spell_mage_ice_lance');
+
+                -- Skill Line Ability
+                    REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`, `superseded_by_spell`) VALUES (15137, 5875, 6, 34084, 128, 1, 0);
+                
+                -- Trainer
+                    -- TODO: Spell book (Vendor / drop)
+
             -- Spell Chain
                 REPLACE `mangos`.`spell_chain` (`spell_id`, `prev_spell`, `first_spell`, `rank`) VALUES (34066, 0,     34066, 1);
                 REPLACE `mangos`.`spell_chain` (`spell_id`, `prev_spell`, `first_spell`, `rank`) VALUES (34068, 34066, 34066, 2);
                 REPLACE `mangos`.`spell_chain` (`spell_id`, `prev_spell`, `first_spell`, `rank`) VALUES (34070, 34068, 34066, 3);
+                REPLACE `mangos`.`spell_chain` (`spell_id`, `prev_spell`, `first_spell`, `rank`) VALUES (34072, 34070, 34066, 4);
+                REPLACE `mangos`.`spell_chain` (`spell_id`, `prev_spell`, `first_spell`, `rank`) VALUES (34074, 34072, 34066, 5);
+                REPLACE `mangos`.`spell_chain` (`spell_id`, `prev_spell`, `first_spell`, `rank`) VALUES (34076, 34074, 34066, 6);
+                REPLACE `mangos`.`spell_chain` (`spell_id`, `prev_spell`, `first_spell`, `rank`) VALUES (34078, 34076, 34066, 7);
+                REPLACE `mangos`.`spell_chain` (`spell_id`, `prev_spell`, `first_spell`, `rank`) VALUES (34080, 34078, 34066, 8);
+                REPLACE `mangos`.`spell_chain` (`spell_id`, `prev_spell`, `first_spell`, `rank`) VALUES (34082, 34080, 34066, 9);
+                REPLACE `mangos`.`spell_chain` (`spell_id`, `prev_spell`, `first_spell`, `rank`) VALUES (34084, 34082, 34066, 10);
 
         -- Flurry
             -- Rank 1
@@ -2276,8 +2374,6 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
 
         -- More ranks of Flurry
         -- More ranks of Frost Bomb
-
-        -- Ice Lance
 
 
     -- Dampen Magic / Amplify Magic (30m dura)
