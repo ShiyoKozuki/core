@@ -4489,6 +4489,11 @@ SET max_count = 20,
     stackable = 20
 WHERE entry IN(16893, 5232, 16896, 16895, 16892);
 
+-- Mana Gems (3 charges)
+UPDATE mangos . item_template
+SET spellcharges_1 = -3 
+where entry IN (5514, 5513, 8007, 8008);
+
 -- Elemental Invasions
 
 -- Baron Charr's Sceptre

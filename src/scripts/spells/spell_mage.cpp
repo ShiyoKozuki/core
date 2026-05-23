@@ -306,6 +306,76 @@ AuraScript* GetScript_MageCombustionBuff(SpellEntry const*)
 
 #endif
 
+struct MageIceLanceScript : SpellScript
+{
+    enum
+    {
+        SPELL_FOF_BUFF1 = 34063,
+        SPELL_FOF_BUFF2 = 34065,
+    };
+
+    bool OnEffectExecute(Spell* spell, SpellEffectIndex effIdx) const final
+    {
+        if (effIdx == EFFECT_INDEX_0 && spell->GetUnitTarget() && spell->m_casterUnit)
+        {
+            bool shouldTripleDamage = false;
+            bool isFrozen = false;
+
+            Aura* fofAura = spell->m_casterUnit->GetAura(SPELL_FOF_BUFF1, EFFECT_INDEX_0);
+
+            // Check second fof aura
+            if (!fofAura)
+            {
+                fofAura = spell->m_casterUnit->GetAura(SPELL_FOF_BUFF2, EFFECT_INDEX_0);
+            }
+
+            if (fofAura)
+                shouldTripleDamage = true;
+
+            // Check for Flurry / Frost Bomb on target (Counts as frozen)
+            Unit::SpellAuraHolderMap const& auras = spell->GetUnitTarget()->GetSpellAuraHolderMap();
+
+            for (const auto& itr : auras)
+            {
+                SpellEntry const* auraSpell = itr.second->GetSpellProto();
+
+                if (auraSpell->IsFitToFamily<SPELLFAMILY_MAGE, CF_MAGE_FROST_BOMB>() ||
+                    auraSpell->IsFitToFamily<SPELLFAMILY_MAGE, CF_MAGE_FLURRY>())
+                {
+                    shouldTripleDamage = true;
+                    isFrozen = true;
+                    break;
+                }
+            }
+
+            // Check if target is frozen in other ways
+            if (spell->GetUnitTarget()->IsFrozen())
+            {
+                shouldTripleDamage = true;
+                isFrozen = true;
+            }
+
+            // Triple damage against frozen targets
+            if (shouldTripleDamage)
+            {
+                spell->damage *= 3;
+                spell->m_currentBasePoints[EFFECT_INDEX_1] *= 3;
+            }
+
+            // Remove Fingers of Frost from self
+            if (fofAura && !isFrozen)
+                spell->m_casterUnit->RemoveAurasByCasterSpell(fofAura->GetId(), spell->m_caster->GetObjectGuid());
+        }
+
+        return true;
+    }
+};
+
+SpellScript* GetScript_MageIceLance(SpellEntry const*)
+{
+    return new MageIceLanceScript();
+}
+
 void AddSC_mage_spell_scripts()
 {
     Script* newscript;
@@ -345,4 +415,9 @@ void AddSC_mage_spell_scripts()
     newscript->GetAuraScript = &GetScript_MageCombustionBuff;
     newscript->RegisterSelf();
 #endif
+
+    newscript = new Script;
+    newscript->Name = "spell_mage_ice_lance";
+    newscript->GetSpellScript = &GetScript_MageIceLance;
+    newscript->RegisterSelf();
 }

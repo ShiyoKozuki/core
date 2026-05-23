@@ -1,4 +1,4 @@
--- NEXT talent ID is 1730
+-- NEXT talent ID is 1731
 -- Talents that grant a new spell (i.e. feral charge) need flags set to "1"
 -- Talents
 
@@ -27,6 +27,45 @@
     UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=39 WHERE  `entry`=29075;
     UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=59 WHERE  `entry`=29076;
 
+    -- Fire Power (Now also grants Ignite ticks a 20/40/60/80/100% chance to restore 2% Mana)
+        UPDATE `mangos`.`spell_template` SET `procFlags`=262144, `procChance`=20, `effect3`=6, `effectDieSides3`=1, `effectBaseDice3`=1, `effectImplicitTargetA3`=1, `effectApplyAuraName3`=42, `effectItemType3`=134217728, `effectTriggerSpell3`=34061, `description`='Increases the damage done by your Fire spells by $s1%.  In addition, each time your Ignite talent causes damage, you have a $h% chance to regain $34061s1% mana.' WHERE  `entry`=11124;
+
+        UPDATE `mangos`.`spell_template` SET `procFlags`=262144, `procChance`=40, `effect3`=6, `effectDieSides3`=1, `effectBaseDice3`=1, `effectImplicitTargetA3`=1, `effectApplyAuraName3`=42, `effectItemType3`=134217728, `effectTriggerSpell3`=34061, `description`='Increases the damage done by your Fire spells by $s1%.  In addition, each time your Ignite talent causes damage, you have a $h% chance to regain $34061s1% mana.' WHERE  `entry`=12378;
+
+        UPDATE `mangos`.`spell_template` SET `procFlags`=262144, `procChance`=60, `effect3`=6, `effectDieSides3`=1, `effectBaseDice3`=1, `effectImplicitTargetA3`=1, `effectApplyAuraName3`=42, `effectItemType3`=134217728, `effectTriggerSpell3`=34061, `description`='Increases the damage done by your Fire spells by $s1%.  In addition, each time your Ignite talent causes damage, you have a $h% chance to regain $34061s1% mana.' WHERE  `entry`=12398;
+
+        UPDATE `mangos`.`spell_template` SET `procFlags`=262144, `procChance`=80, `effect3`=6, `effectDieSides3`=1, `effectBaseDice3`=1, `effectImplicitTargetA3`=1, `effectApplyAuraName3`=42, `effectItemType3`=134217728, `effectTriggerSpell3`=34061, `description`='Increases the damage done by your Fire spells by $s1%.  In addition, each time your Ignite talent causes damage, you have a $h% chance to regain $34061s1% mana.' WHERE  `entry`=12399;
+
+        UPDATE `mangos`.`spell_template` SET `procFlags`=262144, `procChance`=100, `effect3`=6, `effectDieSides3`=1, `effectBaseDice3`=1, `effectImplicitTargetA3`=1, `effectApplyAuraName3`=42, `effectItemType3`=134217728, `effectTriggerSpell3`=34061, `description`='Increases the damage done by your Fire spells by $s1%.  In addition, each time your Ignite talent causes damage, you have a $h% chance to regain $34061s1% mana.' WHERE  `entry`=12400;
+
+    -- Proc that restores 2% Mana
+        REPLACE `mangos`.`spell_template` (`entry`, `build`, `category`, `castingTimeIndex`, `categoryRecoveryTime`, `procChance`, `baseLevel`, `spellLevel`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `dmgClass`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34061, 4222, 30, 1, 60000, 101, 28, 28, 1, -1, -1, 134, 1, 1, 1, 0, -1, -1, 1, 0, 283, 'Ignite Mana', 983070, 'Rank 1', 983070, 'Restores $s1% mana.', 7274526, 983052, 1, -1, 1, 1, 1);
+
+    -- Fingers of Frost
+        -- Rank 1
+            -- Spell (This is the aura that procs the actual buff)
+                REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `attributesEx3`, `castingTimeIndex`, `procFlags`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectItemType1`, `effectTriggerSpell1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `stanceBarOrder`, `dmgMultiplier1`) VALUES (34062, 5464, 2, 464, 67108864, 1, 87376, 10, 21, 1, -1, 6, 1, 1, -1, 0, -1, -1, 1, 42, 1048576, 34063, 142, 'Fingers of Frost', 4128830, '0', 4128830, 'Gives your Chill effects a $h% chance to grant you the Fingers of Frost effect, which causes your next Ice Lance to treat the target as if it were frozen. Lasts $34063d.', 4128830, 4128828, 3, -1, 1);
+
+            -- Proc (This is the actual buff)
+                REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `dispel`, `attributes`, `castingTimeIndex`, `procChance`, `baseLevel`, `spellLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `spellFamilyName`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34063, 5464, 2, 1, 327680, 1, 101, 10, 10, 9, 6, -1, -1, 6, 1, 1, 1, 0, -1, -1, 1, 4, 142, 'Fingers of Frost', 4128830, 4128828, 4128828, 'Your next Ice Lance spell treats the target as if it were frozen.', 4128830, 3, 1, 1, -1, 1, 1, 1);
+
+                UPDATE `mangos`.`spell_template` SET `procFlags`=65536, `procChance`=100, `effect1`=6, `effectApplyAuraName1`=42, `effectItemType1`=137438953472 WHERE  `entry`=34063;
+
+        -- Rank 2
+            -- Spell (This is the aura that procs the actual buff)
+                REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `attributesEx3`, `castingTimeIndex`, `procFlags`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectItemType1`, `effectTriggerSpell1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `stanceBarOrder`, `dmgMultiplier1`) VALUES (34064, 5464, 2, 464, 67108864, 1, 87376, 20, 21, 1, -1, 6, 1, 1, -1, 0, -1, -1, 1, 42, 1048576, 34065, 142, 'Fingers of Frost', 4128830, '0', 4128830, 'Gives your Chill effects a $h% chance to grant you the Fingers of Frost effect, which causes your next Ice Lance to treat the target as if it were frozen. Lasts $34065d.', 4128830, 4128828, 3, -1, 1);
+
+            -- Proc (This is the actual buff)
+                REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `dispel`, `attributes`, `castingTimeIndex`, `procChance`, `baseLevel`, `spellLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `spellFamilyName`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34065, 5464, 2, 1, 327680, 1, 101, 10, 10, 9, 6, -1, -1, 6, 1, 1, 1, 0, -1, -1, 1, 4, 142, 'Fingers of Frost', 4128830, 4128828, 4128828, 'Your next Ice Lance spell treats the target as if it were frozen.', 4128830, 3, 1, 1, -1, 1, 1, 1);
+
+                UPDATE `mangos`.`spell_template` SET `procFlags`=65536, `procChance`=100, `effect1`=6, `effectApplyAuraName1`=42, `effectItemType1`=137438953472 WHERE  `entry`=34063;
+
+
+    -- Brain Freeze
+
+    -- Improved Blizzard (Also Reduces MP cost of Blizzard by 15/30/45%)
+
+
     -- Ice Barrier Now level 30 instead of 40. (Rank 1 Reduced spell level, absorbed amount and mana cost)
     UPDATE `mangos`.`spell_template` SET `baseLevel`=30, `spellLevel`=30, `manaCost`=245, `effectBasePoints1`=326 WHERE  `entry`=11426 AND `build`=5464;
 
@@ -51,25 +90,25 @@
     UPDATE `mangos`.`spell_template` SET `effectItemType1`=34372321303 WHERE  `entry`=28682 AND `build`=5464;
 
     -- Elemental Precision (Added Flurry, Living Bomb, Meteor, and Frost Bomb)
-    UPDATE `mangos`.`spell_template` SET `effectItemType1`=124566635255 WHERE  `entry` IN (29438, 29439, 29440);
+    UPDATE `mangos`.`spell_template` SET `effectItemType1`=262005588727 WHERE  `entry` IN (29438, 29439, 29440);
 
     -- Clearcasting (Added Flurry, Living Bomb, Meteor, and Frost Bomb)
-    UPDATE `mangos`.`spell_template` SET `effectItemType1`=124566641399 WHERE  `entry`=12536 AND `build`=5464;
+    UPDATE `mangos`.`spell_template` SET `effectItemType1`=262005594871 WHERE  `entry`=12536 AND `build`=5464;
 
     -- Shatter (Added Flurry, Living Bomb, Meteor, and Frost Bomb)
-    UPDATE `mangos`.`spell_template` SET `effectItemType1`=124569260055 WHERE  entry IN (11170, 12982, 12983, 12984, 12985) AND `build`=5464;
+    UPDATE `mangos`.`spell_template` SET `effectItemType1`=262005594871 WHERE  entry IN (11170, 12982, 12983, 12984, 12985) AND `build`=5464;
 
     -- Frost Channeling (Added Flurry Summon Water Elemental and Frost Bomb)
-    UPDATE `mangos`.`spell_template` SET `effectItemType1`=81604902912 WHERE  entry IN(11160, 12518, 12519) AND `build`=5464;
+    UPDATE `mangos`.`spell_template` SET `effectItemType1`=219043856384 WHERE  entry IN(11160, 12518, 12519) AND `build`=5464;
 
     -- Artic Reach (Added Flurry and Frost Bomb)
-    UPDATE `mangos`.`spell_template` SET `effectItemType1`=73014444192 WHERE  entry IN(16757, 16758) AND `build`=5464;
+    UPDATE `mangos`.`spell_template` SET `effectItemType1`=210453397664 WHERE  entry IN(16757, 16758) AND `build`=5464;
 
     -- Piercing Ice (Added Flury and Frost Bomb)
-    UPDATE `mangos`.`spell_template` SET `effectItemType1`=4294968032, `effectItemType2`=68719476864 WHERE  entry IN(11151, 12952, 12953) AND `build`=4222;
+    UPDATE `mangos`.`spell_template` SET `effectItemType1`=141733921504, `effectItemType2`=68719476864 WHERE  entry IN(11151, 12952, 12953) AND `build`=4222;
 
     -- Ice Shards (Added Flurry and Frost Bomb)
-    UPDATE `mangos`.`spell_template` SET `effectItemType1`=73014444768 WHERE  entry IN (11207, 12672, 15047, 15052, 15053) AND `build`=4222;
+    UPDATE `mangos`.`spell_template` SET `effectItemType1`=210453398240 WHERE  entry IN (11207, 12672, 15047, 15052, 15053) AND `build`=4222;
 
     -- Frostbite (Added Flurry)
     UPDATE `mangos`.`spell_template` SET `effectItemType1`=4296015872 WHERE  entry IN(11071, 12496, 12497) AND `build`=5464;

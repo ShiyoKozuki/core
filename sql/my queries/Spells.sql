@@ -1,4 +1,4 @@
--- 34061 NEXT SPELL
+-- 34062 NEXT SPELL
 -- 15128 NEXT SKILL_LINE_ABILITY
 
 -- skill_line_ability class_mask uses enum CLASSES
@@ -1880,7 +1880,7 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
 
     -- Earth Strike
         -- Spell
-            REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `attributesEx`, `attributesEx3`, `castingTimeIndex`, `procChance`, `baseLevel`, `spellLevel`, `manaCost`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effect2`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectTriggerSpell2`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `customFlags`) VALUES (34042, 4695, 3, 327700, 134217728, 1024, 1, 101, 18, 18, 40, 2, 2, 173555, 58, 64, 1, 1, 10, 1, -1, -1, 6, 1, 34043, 39, 233, 50, 'Earth Strike', 2031678, '', 2031678, 'A strong attack that converts your attack into Nature damage plus $s1, causes a high amount of threat. This strike also increases your armor by $34043s1 for $34043d.', 2031678, 2031644, 11, 1099511627776, 2, 2, -1, 1, 1, 1, 128);
+            REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `attributesEx`, `attributesEx3`, `castingTimeIndex`, `procChance`, `baseLevel`, `spellLevel`, `manaCost`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effect2`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectTriggerSpell2`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `customFlags`) VALUES (34042, 4695, 3, 327700, 134217728, 1024, 1, 101, 18, 18, 40, 2, 2, 173555, 58, 64, 1, 1, 10, 1, -1, -1, 6, 1, 34043, 39, 233, 50, 'Earth Strike', 2031678, '', 2031678, 'A strong attack that converts your attack into Nature damage plus $s1, causes a high amount of threat. This strike also increases your armor by $34043s1% for $34043d.', 2031678, 2031644, 11, 1099511627776, 2, 2, -1, 1, 1, 1, 128);
 
             UPDATE `mangos`.`spell_template` SET `maxLevel`=61, `manaCost`=0, `manaCostPercentage`=40, `effectRealPointsPerLevel1`=0.5, `effectBasePoints1`=4 WHERE  `entry`=34042;
 
@@ -1933,7 +1933,19 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
         -- Trainer
         REPLACE `mangos`.`npc_trainer_template` (`entry`, `spell`, `spellcost`, `reqlevel`) VALUES (1, 6121, 400, 10);
 
-        -- Mana gems (Quadrupled amount of MP restored)
+        -- Mana gems (15/20/25/30% MP restored, 3 charges)
+        UPDATE `mangos`.`spell_template` SET `description`='Conjures a mana agate that can be used to instantly restore $5405s1% mana.\r\n\r\nConjured items disappear if logged out for more than 15 minutes.' WHERE  `entry`=759;
+
+        UPDATE `mangos`.`spell_template` SET `description`='Conjures a mana jade that can be used to instantly restore $10052s1% mana.\r\n\r\nConjured items disappear if logged out for more than 15 minutes.' WHERE  `entry`=3552;
+
+        UPDATE `mangos`.`spell_template` SET `description`='Conjures a mana citrine that can be used to instantly restore $10057s1% mana.\r\n\r\nConjured items disappear if logged out for more than 15 minutes.' WHERE  `entry`=10053;
+        
+        UPDATE `mangos`.`spell_template` SET `description`='Conjures a mana ruby that can be used to instantly restore $10058s1% mana.\r\n\r\nConjured items disappear if logged out for more than 15 minutes.' WHERE  `entry`=10054;
+
+        UPDATE `mangos`.`spell_template` SET `procCharges`=0, `effect1`=134, `effectDieSides1`=1, `effectBasePoints1`=14, `description`='Restores $s1% mana.' WHERE  `entry`=5405;
+        UPDATE `mangos`.`spell_template` SET `procCharges`=0, `effect1`=134, `effectDieSides1`=1, `effectBasePoints1`=19, `description`='Restores $s1% mana.' WHERE  `entry`=10052;
+        UPDATE `mangos`.`spell_template` SET `procCharges`=0, `effect1`=134, `effectDieSides1`=1, `effectBasePoints1`=24, `description`='Restores $s1% mana.' WHERE  `entry`=10057;
+        UPDATE `mangos`.`spell_template` SET `procCharges`=0, `effect1`=134, `effectDieSides1`=1, `effectBasePoints1`=29, `description`='Restores $s1% mana.' WHERE  `entry`=10058;
 
         -- Evocation (Changed from 8m to 2m CD)
         UPDATE `mangos`.`spell_template` SET `recoveryTime`=120000 WHERE  `entry`=12051 AND `build`=5875;
@@ -1971,6 +1983,57 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
 
             -- Pet Spell: Water Ripple (Renew clone, 90s CD)
                 REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `dispel`, `attributes`, `attributesEx2`, `stances`, `stancesNot`, `castingTimeIndex`, `recoveryTime`, `interruptFlags`, `procChance`, `maxLevel`, `baseLevel`, `spellLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectAmplitude1`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33861, 5302, 1, 1, 65536, 524288, 2147483648, 134217728, 1, 90000, 8, 101, 65, 60, 60, 8, 5, -1, -1, 6, 1, 1, 193, 0.2, -1, -1, 21, 8, 3000, 280, 36, 50, 'Water Ripple', 2031678, 'Rank 1', 2031678, 'Heals the target of $o1 damage over $d.', 2031678, 'Healing $s1 damage every $t1 seconds.', 2031678, 133, 1500, 6, 64, 1, 1, -1, 1, 1, 1);
+
+        -- Ice Lance
+            -- TODO: Frost talents (Except shatter?) Don't work on this
+            -- TODO: More ranks (As many as there are frostbolt)
+            -- TODO: Skill chain (I started it)
+            -- Rank 1
+                -- Spell
+                    REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `dispel`, `attributes`, `castingTimeIndex`, `interruptFlags`, `procChance`, `maxLevel`, `baseLevel`, `spellLevel`, `manaCost`, `rangeIndex`, `speed`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectRealPointsPerLevel1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `customFlags`, `script_name`) VALUES (34066, 5464, 4, 1, 65536, 16, 15, 101, 14, 8, 8, 35, 4, 28, -1, -1, 2, 4, 1, 0.5, 11, 0.163, 0, -1, 6, 13, 186, 50, 'Ice Lance', 4128830, 'Rank 1', 4128830, 'Deals $s1 Frost damage to an enemy target. Causes triple damage against Frozen targets.', 4128830, 4128830, 133, 1500, 3, 137439084544, 1, 1, -1, 1, 1, 1, 128, 'spell_mage_ice_lance');
+
+                -- Learn spell(for trainer):
+                    REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `targets`, `castingTimeIndex`, `procChance`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `activeIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) 
+                    VALUES (34067, 4222, 1, 262400, 256, 1, 101, 6, -1, -1, 36, 1, 1, -1, 0, -1, -1, 34066, 107, 186, 0, 'Ice Lance',7274526, 'Rank 1', 7274526, 7274508, 983052, -1, 1, 1, 1);
+
+                -- Skill Line Ability
+                    REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`, `superseded_by_spell`) VALUES (15128, 5875, 6, 34066, 128, 1, 0);
+                
+                -- Trainer
+                    REPLACE `mangos`.`npc_trainer_template` (`entry`, `spell`, `spellcost`, `reqlevel`) VALUES (1, 34067, 200, 8);
+
+            -- Rank 2
+                -- Spell
+                    REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `dispel`, `attributes`, `castingTimeIndex`, `interruptFlags`, `procChance`, `maxLevel`, `baseLevel`, `spellLevel`, `manaCost`, `rangeIndex`, `speed`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectRealPointsPerLevel1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `customFlags`, `script_name`) VALUES (34068, 5464, 4, 1, 65536, 16, 15, 101, 14, 8, 8, 50, 4, 28, -1, -1, 2, 4, 1, 0.5, 18, 0.163, 0, -1, 6, 13, 186, 50, 'Ice Lance', 4128830, 'Rank 2', 4128830, 'Deals $s1 Frost damage to an enemy target. Causes triple damage against Frozen targets.', 4128830, 4128830, 133, 1500, 3, 137439084544, 1, 1, -1, 1, 1, 1, 128, 'spell_mage_ice_lance');
+
+                -- Learn spell(for trainer):
+                    REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `targets`, `castingTimeIndex`, `procChance`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `activeIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) 
+                    VALUES (34069, 4222, 1, 262400, 256, 1, 101, 6, -1, -1, 36, 1, 1, -1, 0, -1, -1, 34068, 107, 186, 0, 'Ice Lance',7274526, 'Rank 2', 7274526, 7274508, 983052, -1, 1, 1, 1);
+
+                -- Skill Line Ability
+                    REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`, `superseded_by_spell`) VALUES (15129, 5875, 6, 34068, 128, 1, 0);
+                
+                -- Trainer
+                    REPLACE `mangos`.`npc_trainer_template` (`entry`, `spell`, `spellcost`, `reqlevel`) VALUES (1, 34069, 900, 14);
+
+            -- Rank 3
+                -- Spell
+                    REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `dispel`, `attributes`, `castingTimeIndex`, `interruptFlags`, `procChance`, `maxLevel`, `baseLevel`, `spellLevel`, `manaCost`, `rangeIndex`, `speed`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectRealPointsPerLevel1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `customFlags`, `script_name`) VALUES (34070, 5464, 4, 1, 65536, 16, 15, 101, 14, 8, 8, 65, 4, 28, -1, -1, 2, 4, 1, 0.5, 18, 0.163, 0, -1, 6, 13, 186, 50, 'Ice Lance', 4128830, 'Rank 3', 4128830, 'Deals $s1 Frost damage to an enemy target. Causes triple damage against Frozen targets.', 4128830, 4128830, 133, 1500, 3, 137439084544, 1, 1, -1, 1, 1, 1, 128, 'spell_mage_ice_lance');
+
+                -- Learn spell(for trainer):
+                    REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `targets`, `castingTimeIndex`, `procChance`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `activeIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) 
+                    VALUES (34071, 4222, 1, 262400, 256, 1, 101, 6, -1, -1, 36, 1, 1, -1, 0, -1, -1, 34070, 107, 186, 0, 'Ice Lance',7274526, 'Rank 3', 7274526, 7274508, 983052, -1, 1, 1, 1);
+
+                -- Skill Line Ability
+                    REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`, `superseded_by_spell`) VALUES (15130, 5875, 6, 34070, 128, 1, 0);
+                
+                -- Trainer
+                    REPLACE `mangos`.`npc_trainer_template` (`entry`, `spell`, `spellcost`, `reqlevel`) VALUES (1, 34071, 2000, 20);
+
+            -- Spell Chain
+                REPLACE `mangos`.`spell_chain` (`spell_id`, `prev_spell`, `first_spell`, `rank`) VALUES (34066, 0,     34066, 1);
+                REPLACE `mangos`.`spell_chain` (`spell_id`, `prev_spell`, `first_spell`, `rank`) VALUES (34068, 34066, 34066, 2);
+                REPLACE `mangos`.`spell_chain` (`spell_id`, `prev_spell`, `first_spell`, `rank`) VALUES (34070, 34068, 34066, 3);
 
         -- Flurry
             -- Rank 1
