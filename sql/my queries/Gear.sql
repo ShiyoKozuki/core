@@ -294,17 +294,17 @@ REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display
 
 REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `delay`, `range_mod`, `ammo_type`, `dmg_min1`, `dmg_max1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `max_durability`) VALUES (30178, 2, 2, 'Ancient Wood Bow', 20714, 4, 1751, 350, 15, -1, -1, 16, 21, 2800, 100, 2, 59, 109, -1, -1, -1, -1, -1, -1, -1, -1, 0, -1, 1, 2, 40);
 
-REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `delay`, `dmg_min1`, `dmg_max1`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `sheath`, `max_durability`) VALUES (30179, 2, 10, 'Simple Wood Staff', 20449, 2, 150, 30, 17, -1, -1, 5, 15, 3500, 7, 11, 9395, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 2, 2, 2, 35);
+REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `delay`, `dmg_min1`, `dmg_max1`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `sheath`, `max_durability`) VALUES (30179, 2, 10, 'Simple Wood Staff', 4994, 2, 150, 30, 17, -1, -1, 5, 15, 3500, 7, 11, 9395, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 2, 2, 2, 35);
 
-REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `delay`, `dmg_min1`, `dmg_max1`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `sheath`, `max_durability`) VALUES (30180, 2, 10, 'Maple Wood Staff', 20449, 2, 150, 30, 17, -1, -1, 5, 25, 3500, 7, 11, 9417, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 2, 2, 2, 35);
+REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `delay`, `dmg_min1`, `dmg_max1`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `sheath`, `max_durability`) VALUES (30180, 2, 10, 'Maple Wood Staff', 4994, 2, 150, 30, 17, -1, -1, 5, 25, 3500, 7, 11, 9417, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 2, 2, 2, 35);
 
-REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `delay`, `dmg_min1`, `dmg_max1`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `sheath`, `max_durability`) VALUES (30181, 2, 10, 'Walnut Wood Staff', 20449, 2, 150, 30, 17, -1, -1, 5, 35, 3500, 7, 11, 9345, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 2, 2, 2, 35);
+REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `delay`, `dmg_min1`, `dmg_max1`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `sheath`, `max_durability`) VALUES (30181, 2, 10, 'Walnut Wood Staff', 4994, 2, 150, 30, 17, -1, -1, 5, 35, 3500, 7, 11, 9345, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 2, 2, 2, 35);
 
-REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `delay`, `dmg_min1`, `dmg_max1`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `sheath`, `max_durability`) VALUES (30182, 2, 10, 'Chestnut Wood Staff', 20449, 3, 150, 30, 17, -1, -1, 5, 45, 3500, 7, 11, 15714, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 2, 2, 2, 35);
+REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `delay`, `dmg_min1`, `dmg_max1`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `sheath`, `max_durability`) VALUES (30182, 2, 10, 'Chestnut Wood Staff', 4994, 3, 150, 30, 17, -1, -1, 5, 45, 3500, 7, 11, 15714, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 2, 2, 2, 35);
 
-REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `delay`, `dmg_min1`, `dmg_max1`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `sheath`, `max_durability`) VALUES (30183, 2, 10, 'Rosewood Wood Staff', 20449, 3, 150, 30, 17, -1, -1, 5, 55, 3500, 7, 11, 14127, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 2, 2, 2, 35);
+REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `delay`, `dmg_min1`, `dmg_max1`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `sheath`, `max_durability`) VALUES (30183, 2, 10, 'Rosewood Wood Staff', 4994, 3, 150, 30, 17, -1, -1, 5, 55, 3500, 7, 11, 14127, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 2, 2, 2, 35);
 
-REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `delay`, `dmg_min1`, `dmg_max1`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `sheath`, `max_durability`) VALUES (30184, 2, 10, 'Ancient Wood Staff', 20449, 4, 150, 30, 17, -1, -1, 5, 60, 3500, 7, 11, 18056, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 2, 2, 2, 35);
+REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `delay`, `dmg_min1`, `dmg_max1`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `sheath`, `max_durability`) VALUES (30184, 2, 10, 'Ancient Wood Staff', 4994, 4, 150, 30, 17, -1, -1, 5, 60, 3500, 7, 11, 18056, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 2, 2, 2, 35);
 
 REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, required_level, `required_reputation_faction`, `required_reputation_rank`, `stackable`, `stat_type1`, `stat_value1`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `material`, `bonding`) VALUES (30185, 4, 'Stormwind Chain', 18172, 2, 3025, 605, 2, -1, -1, 1, 20, 72, 4, 0, 6, 4, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 3, 1);
 
@@ -338,7 +338,14 @@ REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quali
 
 REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`) VALUES (30199, 7, 'Rice Vinegar', 1443, 1, 500, 100, -1, -1, 30, 20, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0);
 
--- NEXT 30200
+REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `subclass`, `name`, `display_id`, `quality`, `flags`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `delay`, `range_mod`, `dmg_min1`, `dmg_max1`, `dmg_type1`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `max_durability`) VALUES (30200, 7, 2, 19, 'Chestnut Wand', 21101, 3, 32768, 26316, 5263, 26, -1, -1, 45, 40, 2000, 100, 65, 95, 6, 33794, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, -1, 2, 2, 55);
+
+REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `subclass`, `name`, `display_id`, `quality`, `flags`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `delay`, `range_mod`, `dmg_min1`, `dmg_max1`, `dmg_type1`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `max_durability`) VALUES (30201, 7, 2, 19, 'Rosewood Wand', 21101, 3, 32768, 26316, 5263, 26, -1, -1, 55, 50, 2000, 100, 79, 109, 6, 33794, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, -1, 2, 2, 55);
+
+
+REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `subclass`, `name`, `display_id`, `quality`, `flags`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `delay`, `range_mod`, `dmg_min1`, `dmg_max1`, `dmg_type1`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `max_durability`) VALUES (30202, 7, 2, 19, 'Ancient Wand', 21101, 4, 32768, 26316, 5263, 26, -1, -1, 65, 60, 2000, 100, 115, 145, 6, 33794, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, -1, 2, 2, 55);
+
+-- NEXT 30203
 
 
 -- Shields
@@ -968,9 +975,9 @@ WHERE entry = 5542;
 -- Red Woolen Boots
 UPDATE mangos . item_template
 SET stat_type1 = 6,
-    stat_value1 = 5,
+    stat_value1 = 3,
     stat_type2 = 7,
-    stat_value2 = 5
+    stat_value2 = 3
 WHERE entry = 4313;
 
 -- Woolen Boots
@@ -998,9 +1005,9 @@ UPDATE mangos . item_template
 SET quality = 2,
     bonding = 2,
     stat_type1 = 5,
-    stat_value1 = 4,
+    stat_value1 = 3,
     stat_type2 = 6,
-    stat_value2 = 4
+    stat_value2 = 3
 WHERE entry = 4311;
 
 -- Gray Woolen Robe
@@ -3948,6 +3955,15 @@ SET dmg_min1 = 13,
     spellid_1 = 33794, -- 5 Spell Penetration
     spelltrigger_1 = 1
 WHERE entry = 11288;
+
+-- Greater Mystic Wand
+UPDATE mangos . item_template
+SET quality = 3,
+    dmg_min1 = 55,
+    dmg_max1 = 85,
+    spellid_1 = 33794, -- 5 Spell Penetration
+    spelltrigger_1 = 1
+WHERE entry = 11290;
 
 -- Gravestone Scepter
 UPDATE mangos . item_template
@@ -7794,12 +7810,6 @@ SET delay = 3800,
     spellid_2 = 15907, -- +5 2H Axe
     spelltrigger_2 = 1
 WHERE entry = 11907;
-
--- Ley Staff
-UPDATE mangos . item_template
-SET spellid_1 = 9395, -- +5 Spell Damage
-    spelltrigger_1 = 1
-WHERE entry = 9513;
 
 -- Bastion of Stormwind
 UPDATE mangos . item_template
@@ -14204,6 +14214,42 @@ SET allowable_class = 64, -- Shaman
     spelltrigger_2 = 1
 WHERE entry = 16666;
 
+-- Enchanting Staves
+
+-- Chestnut Staff
+UPDATE mangos . item_template
+SET stat_type1 = 5,
+    stat_value1 = 12,
+    stat_type2 = 6,
+    stat_value2 = 12,
+    spellid_1 = 33795, -- 10 Spell Penetration
+    spelltrigger_1 = 1
+WHERE entry = 30182;
+
+-- Rosewood Staff
+UPDATE mangos . item_template
+SET stat_type1 = 5,
+    stat_value1 = 15,
+    stat_type2 = 6,
+    stat_value2 = 15,
+    spellid_1 = 33795, -- 10 Spell Penetration
+    spelltrigger_1 = 1
+WHERE entry = 30182;
+
+-- Ancient Staff
+UPDATE mangos . item_template
+SET stat_type1 = 5,
+    stat_value1 = 20,
+    stat_type2 = 6,
+    stat_value2 = 20,
+    spellid_1 = 33795, -- 10 Spell Penetration
+    spelltrigger_1 = 1
+WHERE entry = 30182;
+
+-- Enchanting Bows
+
+-- Enchanting Wands
+
 -- Conjured Items
 
 -- Soulshard
@@ -14326,7 +14372,6 @@ SET quality = 3,
     spellid_1 = 15465, -- +2% Physical Hit
     spelltrigger_1 = 1
 WHERE entry = 30080;
-
 
 -- Custom quest item stack sizes
 UPDATE mangos . item_template

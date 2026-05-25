@@ -191,7 +191,7 @@ UPDATE `mangos`.`creature_template` SET `rank`=1 WHERE  `entry`=4438 AND `patch`
 UPDATE `mangos`.`creature_template` SET `health_multiplier`=0.4, `damage_multiplier`=0.5 WHERE  `entry`=10940 AND `patch`=0;
 
 -- Archaedas HP adjusted due to 2x elite HP
-UPDATE `mangos`.`creature_template` SET `health_multiplier`=10 WHERE  `entry`=2748 AND `patch`=0;
+UPDATE `mangos`.`creature_template` SET `health_multiplier`=13 WHERE  `entry`=2748 AND `patch`=0;
 
 -- Eliza's Guard HP and damage reduced due to DMG and HP multiplier on normal mobs
 UPDATE `mangos`.`creature_template` SET `health_multiplier`=1.35, `damage_multiplier`=1.0 WHERE  `entry`=1871 AND `patch`=0;
@@ -218,7 +218,7 @@ UPDATE `mangos`.`creature_template` SET `health_multiplier`=1.2, `damage_multipl
 UPDATE `mangos`.`creature_template` SET `health_multiplier`=1.8, `damage_multiplier`=1.2 WHERE  `entry`=8318 AND `patch`=0;
 
 -- Princess Theradras adjusted due to 2x elite HP
-UPDATE `mangos`.`creature_template` SET `health_multiplier`=8 WHERE  `entry`=12201 AND `patch`=0;
+UPDATE `mangos`.`creature_template` SET `health_multiplier`=11 WHERE  `entry`=12201 AND `patch`=0;
 
 -- Deep Borer HP and damage reduced due to DMG and HP multiplier on normal mobs
 UPDATE `mangos`.`creature_template` SET `health_multiplier`=1.5, `damage_multiplier`=0.9 WHERE  `entry`=11789 AND `patch`=0;
@@ -233,7 +233,7 @@ UPDATE `mangos`.`creature_template` SET `health_multiplier`=1.5, `damage_multipl
 UPDATE `mangos`.`creature_template` SET `health_multiplier`=1.2, `damage_multiplier`=1.4 WHERE  `entry`=8437 AND `patch`=0;
 
 -- Aku'Mai reduced HP due to elite mobs having 2x HP
-UPDATE `mangos`.`creature_template` SET `health_multiplier`=7 WHERE  `entry`=4829 AND `patch`=0;
+UPDATE `mangos`.`creature_template` SET `health_multiplier`=11 WHERE  `entry`=4829 AND `patch`=0;
 
 -- Defias Strip Miner HP reduced due to normal mobs having 3x HP
 UPDATE `mangos`.`creature_template` SET `health_multiplier`=1.0 WHERE  `entry`=4416 AND `patch`=0;
