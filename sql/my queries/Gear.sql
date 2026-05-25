@@ -345,7 +345,17 @@ REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `subclass`, `name`,
 
 REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `subclass`, `name`, `display_id`, `quality`, `flags`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `delay`, `range_mod`, `dmg_min1`, `dmg_max1`, `dmg_type1`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `max_durability`) VALUES (30202, 7, 2, 19, 'Ancient Wand', 21101, 4, 32768, 26316, 5263, 26, -1, -1, 65, 60, 2000, 100, 115, 145, 6, 33794, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, -1, 2, 2, 55);
 
--- NEXT 30203
+REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `delay`, `block`, `armor`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `sheath`, `max_durability`, `disenchant_id`) VALUES (30203, 4, 6, 'Copper Heat Shield', 29896, 2, 4435, 435, 14, -1, -1, 15, 10, 0, 5, 340, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 2, 1, 4, 100, 47);
+
+REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `delay`, `block`, `armor`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `sheath`, `max_durability`, `disenchant_id`) VALUES (30204, 4, 6, 'Bronze Heat Shield', 29896, 2, 11820, 1820, 14, -1, -1, 25, 20, 0, 9, 520, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 2, 1, 4, 100, 47);
+
+REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `delay`, `block`, `armor`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `sheath`, `max_durability`, `disenchant_id`) VALUES (30205, 4, 6, 'Iron Heat Shield', 29896, 2, 44845, 4845, 14, -1, -1, 30, 35, 0, 14, 700, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 2, 1, 4, 100, 47);
+
+REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `delay`, `block`, `armor`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `sheath`, `max_durability`, `disenchant_id`) VALUES (30206, 4, 6, 'Mithril Heat Shield', 29896, 3, 110212, 10212, 14, -1, -1, 45, 40, 0, 25, 1612, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 2, 1, 4, 100, 47);
+
+REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `delay`, `block`, `armor`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `sheath`, `max_durability`, `disenchant_id`) VALUES (30207, 4, 6, 'Thorium Heat Shield', 29896, 3, 119888, 19888, 14, -1, -1, 55, 50, 0, 35, 1930, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 2, 1, 4, 100, 47);
+
+-- NEXT 30208
 
 
 -- Shields
@@ -14213,6 +14223,47 @@ SET allowable_class = 64, -- Shaman
     spellid_2 = 18384, -- +1% Spell Crit
     spelltrigger_2 = 1
 WHERE entry = 16666;
+
+-- Engineering Shields
+
+-- Copper Heat Shield
+UPDATE mangos . item_template
+SET stat_type1 = 7,
+    stat_value1 = 3,
+    fire_res = 5
+WHERE entry = 30203;
+
+-- Bronze Heat Shield
+UPDATE mangos . item_template
+SET stat_type1 = 7,
+    stat_value1 = 5,
+    fire_res = 8
+WHERE entry = 30204;
+
+-- Iron Heat Shield
+UPDATE mangos . item_template
+SET stat_type1 = 7,
+    stat_value1 = 7,
+    fire_res = 12
+WHERE entry = 30205;
+
+-- Mithril Heat Shield
+UPDATE mangos . item_template
+SET stat_type1 = 7,
+    stat_value1 = 12,
+    fire_res = 15,
+    spellid_1 = 33672, -- -1% Magic Damage Taken
+    spelltrigger_1 = 1
+WHERE entry = 30206;
+
+-- Thorium Heat Shield
+UPDATE mangos . item_template
+SET stat_type1 = 7,
+    stat_value1 = 15,
+    fire_res = 20,
+    spellid_1 = 33673, -- -2% Magic Damage Taken
+    spelltrigger_1 = 1
+WHERE entry = 30207;
 
 -- Enchanting Staves
 

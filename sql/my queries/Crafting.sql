@@ -53,7 +53,7 @@
 
 
             -- Skill Line Ability:
-            REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `req_skill_value`, `max_value`, `min_value`) VALUES (15139, 5875, 333, 34089, 1, 50, 90);
+            REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `req_skill_value`, `max_value`, `min_value`) VALUES (15139, 5875, 333, 34089, 1, 90, 50);
 
             -- Trainer (Enchanting - Journeyman)
                 REPLACE INTO `mangos`.`npc_trainer` (`entry`, `spell`, `spellcost`, `reqskill`, `reqskillvalue`) VALUES
@@ -83,7 +83,7 @@
                 REPLACE  `mangos`.`spell_template` (`entry`, `build`, `attributes`, `targets`, `castingTimeIndex`, `interruptFlags`, `procChance`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34092, 4222, 262400, 256, 1, 15, 101, 6, -1, -1, 36, 0, -1, -1, 34091, 107, 241, 'Maple Wood Staff', 983070, 7274508, 7274508, 983052, -1, 1, 1, 1);
 
             -- Skill Line Ability:
-            REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `req_skill_value`, `max_value`, `min_value`) VALUES (15140, 5875, 333, 34091, 1, 100, 140);
+            REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `req_skill_value`, `max_value`, `min_value`) VALUES (15140, 5875, 333, 34091, 1, 140, 100);
 
             -- Trainer (Enchanting - Expert)
                 REPLACE INTO `mangos`.`npc_trainer` (`entry`, `spell`, `spellcost`, `reqskill`, `reqskillvalue`) VALUES
@@ -107,7 +107,7 @@
                 REPLACE  `mangos`.`spell_template` (`entry`, `build`, `attributes`, `targets`, `castingTimeIndex`, `interruptFlags`, `procChance`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34094, 4222, 262400, 256, 1, 15, 101, 6, -1, -1, 36, 0, -1, -1, 34093, 107, 241, 'Walnut Wood Staff', 983070, 7274508, 7274508, 983052, -1, 1, 1, 1);
 
             -- Skill Line Ability:
-            REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `req_skill_value`, `max_value`, `min_value`) VALUES (15141, 5875, 333, 34093, 1, 150, 190);
+            REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `req_skill_value`, `max_value`, `min_value`) VALUES (15141, 5875, 333, 34093, 1, 190, 150);
 
             -- Trainer (Enchanting - Expert)
                 REPLACE INTO `mangos`.`npc_trainer` (`entry`, `spell`, `spellcost`, `reqskill`, `reqskillvalue`) VALUES
@@ -131,7 +131,7 @@
                 REPLACE  `mangos`.`spell_template` (`entry`, `build`, `attributes`, `targets`, `castingTimeIndex`, `interruptFlags`, `procChance`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34096, 4222, 262400, 256, 1, 15, 101, 6, -1, -1, 36, 0, -1, -1, 34095, 107, 241, 'Chestnut Wood Staff', 983070, 7274508, 7274508, 983052, -1, 1, 1, 1);
 
             -- Skill Line Ability:
-            REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `req_skill_value`, `max_value`, `min_value`) VALUES (15142, 5875, 333, 34095, 1, 200, 240);
+            REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `req_skill_value`, `max_value`, `min_value`) VALUES (15142, 5875, 333, 34095, 1, 240, 200);
 
             -- Trainer (Enchanting - Expert)
                 REPLACE INTO `mangos`.`npc_trainer` (`entry`, `spell`, `spellcost`, `reqskill`, `reqskillvalue`) VALUES
@@ -155,7 +155,7 @@
                 REPLACE  `mangos`.`spell_template` (`entry`, `build`, `attributes`, `targets`, `castingTimeIndex`, `interruptFlags`, `procChance`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34098, 4222, 262400, 256, 1, 15, 101, 6, -1, -1, 36, 0, -1, -1, 34097, 107, 241, 'Rosewood Wood Staff', 983070, 7274508, 7274508, 983052, -1, 1, 1, 1);
 
             -- Skill Line Ability:
-            REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `req_skill_value`, `max_value`, `min_value`) VALUES (15143, 5875, 333, 34097, 1, 250, 290);
+            REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `req_skill_value`, `max_value`, `min_value`) VALUES (15143, 5875, 333, 34097, 1, 290, 250);
 
             -- Trainer (Enchanting - Artisan)
                 REPLACE INTO `mangos`.`npc_trainer` (`entry`, `spell`, `spellcost`, `reqskill`, `reqskillvalue`) VALUES
@@ -174,7 +174,7 @@
                 REPLACE  `mangos`.`spell_template` (`entry`, `build`, `attributes`, `targets`, `castingTimeIndex`, `interruptFlags`, `procChance`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34100, 4222, 262400, 256, 1, 15, 101, 6, -1, -1, 36, 0, -1, -1, 34099, 107, 241, 'Ancient Wood Staff', 983070, 7274508, 7274508, 983052, -1, 1, 1, 1);
 
             -- Skill Line Ability:
-            REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `req_skill_value`, `max_value`, `min_value`) VALUES (15144, 5875, 333, 34099, 1, 300, 340);
+            REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `req_skill_value`, `max_value`, `min_value`) VALUES (15144, 5875, 333, 34099, 1, 340, 300);
 
             -- Trainer (Enchanting - Master)
                 REPLACE INTO `mangos`.`npc_trainer` (`entry`, `spell`, `spellcost`, `reqskill`, `reqskillvalue`) VALUES
@@ -189,9 +189,8 @@
             -- Learn spell(for trainer):
                 REPLACE  `mangos`.`spell_template` (`entry`, `build`, `attributes`, `targets`, `castingTimeIndex`, `interruptFlags`, `procChance`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34102, 4222, 262400, 256, 1, 15, 101, 6, -1, -1, 36, 0, -1, -1, 34101, 107, 1, 'Simple Wood Bow', 983070, 7274508, 7274508, 983052, -1, 1, 1, 1);
 
-
             -- Skill Line Ability:
-            REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `req_skill_value`, `max_value`, `min_value`) VALUES (15145, 5875, 333, 34101, 1, 50, 90);
+            REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `req_skill_value`, `max_value`, `min_value`) VALUES (15145, 5875, 333, 34101, 1, 90, 50);
 
             -- Trainer (Enchanting - Journeyman)
                 REPLACE INTO `mangos`.`npc_trainer` (`entry`, `spell`, `spellcost`, `reqskill`, `reqskillvalue`) VALUES
@@ -221,7 +220,7 @@
                 REPLACE  `mangos`.`spell_template` (`entry`, `build`, `attributes`, `targets`, `castingTimeIndex`, `interruptFlags`, `procChance`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34104, 4222, 262400, 256, 1, 15, 101, 6, -1, -1, 36, 0, -1, -1, 34103, 107, 1, 'Maple Wood Bow', 983070, 7274508, 7274508, 983052, -1, 1, 1, 1);
 
             -- Skill Line Ability:
-            REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `req_skill_value`, `max_value`, `min_value`) VALUES (15146, 5875, 333, 34103, 1, 100, 140);
+            REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `req_skill_value`, `max_value`, `min_value`) VALUES (15146, 5875, 333, 34103, 1, 140, 100);
 
             -- Trainer (Enchanting - Expert)
                 REPLACE INTO `mangos`.`npc_trainer` (`entry`, `spell`, `spellcost`, `reqskill`, `reqskillvalue`) VALUES
@@ -245,7 +244,7 @@
                 REPLACE  `mangos`.`spell_template` (`entry`, `build`, `attributes`, `targets`, `castingTimeIndex`, `interruptFlags`, `procChance`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34106, 4222, 262400, 256, 1, 15, 101, 6, -1, -1, 36, 0, -1, -1, 34105, 107, 1, 'Walnut Wood Bow', 983070, 7274508, 7274508, 983052, -1, 1, 1, 1);
 
             -- Skill Line Ability:
-            REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `req_skill_value`, `max_value`, `min_value`) VALUES (15147, 5875, 333, 34105, 1, 150, 190);
+            REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `req_skill_value`, `max_value`, `min_value`) VALUES (15147, 5875, 333, 34105, 1, 190, 150);
 
             -- Trainer (Enchanting - Expert)
                 REPLACE INTO `mangos`.`npc_trainer` (`entry`, `spell`, `spellcost`, `reqskill`, `reqskillvalue`) VALUES
@@ -269,7 +268,7 @@
                 REPLACE  `mangos`.`spell_template` (`entry`, `build`, `attributes`, `targets`, `castingTimeIndex`, `interruptFlags`, `procChance`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34108, 4222, 262400, 256, 1, 15, 101, 6, -1, -1, 36, 0, -1, -1, 34107, 107, 1, 'Chestnut Wood Bow', 983070, 7274508, 7274508, 983052, -1, 1, 1, 1);
 
             -- Skill Line Ability:
-            REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `req_skill_value`, `max_value`, `min_value`) VALUES (15148, 5875, 333, 34107, 1, 200, 240);
+            REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `req_skill_value`, `max_value`, `min_value`) VALUES (15148, 5875, 333, 34107, 1, 240, 200);
 
             -- Trainer (Enchanting - Expert)
                 REPLACE INTO `mangos`.`npc_trainer` (`entry`, `spell`, `spellcost`, `reqskill`, `reqskillvalue`) VALUES
@@ -293,7 +292,7 @@
                 REPLACE  `mangos`.`spell_template` (`entry`, `build`, `attributes`, `targets`, `castingTimeIndex`, `interruptFlags`, `procChance`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34110, 4222, 262400, 256, 1, 15, 101, 6, -1, -1, 36, 0, -1, -1, 34109, 107, 1, 'Rosewood Wood Bow', 983070, 7274508, 7274508, 983052, -1, 1, 1, 1);
 
             -- Skill Line Ability:
-            REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `req_skill_value`, `max_value`, `min_value`) VALUES (15149, 5875, 333, 34109, 1, 250, 290);
+            REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `req_skill_value`, `max_value`, `min_value`) VALUES (15149, 5875, 333, 34109, 1, 290, 250);
 
             -- Trainer (Enchanting - Artisan)
                 REPLACE INTO `mangos`.`npc_trainer` (`entry`, `spell`, `spellcost`, `reqskill`, `reqskillvalue`) VALUES
@@ -306,13 +305,13 @@
             -- Recipe
                 REPLACE `mangos`.`spell_template` (`entry`, `build`, `castUI`, `attributes`, `castingTimeIndex`, `interruptFlags`, `procChance`, `rangeIndex`, `reagent1`, `reagent2`, `reagent3`, `reagentCount1`, `reagentCount2`, `reagentCount3`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectItemType1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34111, 4222, 3, 65536, 7, 15, 101, 1, 666, 666, 666, 666, 666, 666, -1, 24, 1, 1, 0, -1, -1, 1, 666, 3182, 1, 'itemName', 7274526, 7274508, 7274508, 983052, -1, 1, 1, 1);
 
-                UPDATE `mangos`.`spell_template` SET `reagent1`=11291, `reagent2`=14344, `reagent3`=20725, `reagent4`=12803, `reagent5`=7080, `reagent6`=7082, `reagentCount1`=25, `reagentCount2`=15, `reagentCount3`=5, `reagentCount4`=15, `reagentCount5`=15, `reagentCount6`=15, `effectItemType1`=30178, `spellIconId`=364, `name`='Ancient Wood Bow' WHERE  `entry`=34111;
+                UPDATE `mangos`.`spell_template` SET `reagent1`=11291, `reagent2`=14344, `reagent3`=20725, `reagent4`=12803, `reagent5`=7080, `reagent6`=7076, `reagentCount1`=25, `reagentCount2`=15, `reagentCount3`=5, `reagentCount4`=15, `reagentCount5`=15, `reagentCount6`=15, `effectItemType1`=30178, `spellIconId`=364, `name`='Ancient Wood Bow' WHERE  `entry`=34111;
 
             -- Learn spell(for trainer):
                 REPLACE  `mangos`.`spell_template` (`entry`, `build`, `attributes`, `targets`, `castingTimeIndex`, `interruptFlags`, `procChance`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34112, 4222, 262400, 256, 1, 15, 101, 6, -1, -1, 36, 0, -1, -1, 34111, 107, 1, 'Ancient Wood Bow', 983070, 7274508, 7274508, 983052, -1, 1, 1, 1);
 
             -- Skill Line Ability:
-            REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `req_skill_value`, `max_value`, `min_value`) VALUES (15150, 5875, 333, 34111, 1, 300, 340);
+            REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `req_skill_value`, `max_value`, `min_value`) VALUES (15150, 5875, 333, 34111, 1, 340, 300);
 
             -- Trainer (Enchanting - Master)
                 REPLACE INTO `mangos`.`npc_trainer` (`entry`, `spell`, `spellcost`, `reqskill`, `reqskillvalue`) VALUES
@@ -328,7 +327,7 @@
                 REPLACE  `mangos`.`spell_template` (`entry`, `build`, `attributes`, `targets`, `castingTimeIndex`, `interruptFlags`, `procChance`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34114, 4222, 262400, 256, 1, 15, 101, 6, -1, -1, 36, 0, -1, -1, 34113, 107, 1624, 'Chestnut Wand', 983070, 7274508, 7274508, 983052, -1, 1, 1, 1);
 
             -- Skill Line Ability:
-            REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `req_skill_value`, `max_value`, `min_value`) VALUES (15151, 5875, 333, 34113, 1, 200, 240);
+            REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `req_skill_value`, `max_value`, `min_value`) VALUES (15151, 5875, 333, 34113, 1, 240, 200);
 
             -- Trainer (Enchanting - Expert)
                 REPLACE INTO `mangos`.`npc_trainer` (`entry`, `spell`, `spellcost`, `reqskill`, `reqskillvalue`) VALUES
@@ -352,7 +351,7 @@
                 REPLACE  `mangos`.`spell_template` (`entry`, `build`, `attributes`, `targets`, `castingTimeIndex`, `interruptFlags`, `procChance`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34116, 4222, 262400, 256, 1, 15, 101, 6, -1, -1, 36, 0, -1, -1, 34115, 107, 1624, 'Rosewood Wand', 983070, 7274508, 7274508, 983052, -1, 1, 1, 1);
 
             -- Skill Line Ability:
-            REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `req_skill_value`, `max_value`, `min_value`) VALUES (15152, 5875, 333, 34115, 1, 250, 290);
+            REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `req_skill_value`, `max_value`, `min_value`) VALUES (15152, 5875, 333, 34115, 1, 290, 250);
 
             -- Trainer (Enchanting - Artisan)
                 REPLACE INTO `mangos`.`npc_trainer` (`entry`, `spell`, `spellcost`, `reqskill`, `reqskillvalue`) VALUES
@@ -371,8 +370,165 @@
                 REPLACE  `mangos`.`spell_template` (`entry`, `build`, `attributes`, `targets`, `castingTimeIndex`, `interruptFlags`, `procChance`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34118, 4222, 262400, 256, 1, 15, 101, 6, -1, -1, 36, 0, -1, -1, 34117, 107, 1624, 'Ancient Wand', 983070, 7274508, 7274508, 983052, -1, 1, 1, 1);
 
             -- Skill Line Ability:
-            REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `req_skill_value`, `max_value`, `min_value`) VALUES (15153, 5875, 333, 34117, 1, 300, 340);
+            REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `req_skill_value`, `max_value`, `min_value`) VALUES (15153, 5875, 333, 34117, 1, 340, 300);
 
             -- Trainer (Enchanting - Master)
                 REPLACE INTO `mangos`.`npc_trainer` (`entry`, `spell`, `spellcost`, `reqskill`, `reqskillvalue`) VALUES
                     (11073, 34118, 250, 333, 300);
+
+    -- Engineering
+        -- Copper Heat Shield
+            -- Recipe
+                REPLACE `mangos`.`spell_template` (`entry`, `build`, `castUI`, `attributes`, `castingTimeIndex`, `interruptFlags`, `procChance`, `rangeIndex`, `reagent1`, `reagent2`, `reagent3`, `reagentCount1`, `reagentCount2`, `reagentCount3`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectItemType1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34119, 4222, 3, 65568, 7, 15, 101, 1, 666, 666, 666, 666, 666, 666, -1, 24, 1, 1, 0, -1, -1, 1, 666, 3182, 1, 'itemName', 7274526, 7274508, 7274508, 983052, -1, 1, 1, 1);
+
+                UPDATE `mangos`.`spell_template` SET `reagent1`=4361, `reagent2`=4363, `reagent3`=4359, `reagentCount1`=2, `reagentCount2`=2, `reagentCount3`=4, `effectItemType1`=30203, `spellVisual1`=395,`spellIconId`=413, `name`='Copper Heat Shield' WHERE  `entry`=34119;
+
+            -- Learn spell(for trainer):
+                REPLACE  `mangos`.`spell_template` (`entry`, `build`, `attributes`, `targets`, `castingTimeIndex`, `interruptFlags`, `procChance`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34120, 4222, 262400, 256, 1, 15, 101, 6, -1, -1, 36, 0, -1, -1, 34119, 107, 413, 'Copper Heat Shield', 983070, 7274508, 7274508, 983052, -1, 1, 1, 1);
+
+            -- Skill Line Ability:
+            REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `req_skill_value`, `max_value`, `min_value`) VALUES (15154, 5875, 202, 34119, 1, 90, 50);
+
+            -- Trainer (Engineering - Journeyman)
+                REPLACE INTO `mangos`.`npc_trainer` (`entry`, `spell`, `spellcost`, `reqskill`, `reqskillvalue`) VALUES
+                    (1702, 34120, 250, 202, 50),
+                    (3290, 34120, 250, 202, 50),
+                    (11026, 34120, 250, 202, 50),
+                    (11028, 34120, 250, 202, 50),
+                    (11037, 34120, 250, 202, 50),
+                    (3494, 34120, 250, 202, 50),
+                    (10993, 34120, 250, 202, 50);
+            -- Trainer (Engineering - Expert)
+                REPLACE INTO `mangos`.`npc_trainer` (`entry`, `spell`, `spellcost`, `reqskill`, `reqskillvalue`) VALUES
+                    (5518, 34120, 250, 202, 50),
+                    (11029, 34120, 250, 202, 50);
+            -- Trainer (Engineering - Artisan)
+                REPLACE INTO `mangos`.`npc_trainer` (`entry`, `spell`, `spellcost`, `reqskill`, `reqskillvalue`) VALUES
+                    (5174, 34120, 250, 202, 50);
+            -- Trainer (Engineering - Master)
+                REPLACE INTO `mangos`.`npc_trainer` (`entry`, `spell`, `spellcost`, `reqskill`, `reqskillvalue`) VALUES
+                    (8736, 34120, 250, 202, 50);
+        -- Bronze Heat Shield
+            -- Recipe
+                REPLACE `mangos`.`spell_template` (`entry`, `build`, `castUI`, `attributes`, `castingTimeIndex`, `interruptFlags`, `procChance`, `rangeIndex`, `reagent1`, `reagent2`, `reagent3`, `reagentCount1`, `reagentCount2`, `reagentCount3`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectItemType1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34121, 4222, 3, 65568, 7, 15, 101, 1, 666, 666, 666, 666, 666, 666, -1, 24, 1, 1, 0, -1, -1, 1, 666, 3182, 1, 'itemName', 7274526, 7274508, 7274508, 983052, -1, 1, 1, 1);
+
+                UPDATE `mangos`.`spell_template` SET `reagent1`=4371, `reagent2`=4375, `reagent3`=4382, `reagentCount1`=2, `reagentCount2`=2, `reagentCount3`=1, `effectItemType1`=30204, `spellVisual1`=395,`spellIconId`=413, `name`='Bronze Heat Shield' WHERE  `entry`=34121;
+
+            -- Learn spell(for trainer):
+                REPLACE  `mangos`.`spell_template` (`entry`, `build`, `attributes`, `targets`, `castingTimeIndex`, `interruptFlags`, `procChance`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34122, 4222, 262400, 256, 1, 15, 101, 6, -1, -1, 36, 0, -1, -1, 34121, 107, 413, 'Bronze Heat Shield', 983070, 7274508, 7274508, 983052, -1, 1, 1, 1);
+
+            -- Skill Line Ability:
+            REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `req_skill_value`, `max_value`, `min_value`) VALUES (15155, 5875, 202, 34121, 1, 140, 100);
+
+            -- Trainer (Engineering - Journeyman)
+                REPLACE INTO `mangos`.`npc_trainer` (`entry`, `spell`, `spellcost`, `reqskill`, `reqskillvalue`) VALUES
+                    (1702, 34122, 250, 202, 100),
+                    (3290, 34122, 250, 202, 100),
+                    (11026, 34122, 250, 202, 100),
+                    (11028, 34122, 250, 202, 100),
+                    (11037, 34122, 250, 202, 100),
+                    (3494, 34122, 250, 202, 100),
+                    (10993, 34122, 250, 202, 100);
+            -- Trainer (Engineering - Expert)
+                REPLACE INTO `mangos`.`npc_trainer` (`entry`, `spell`, `spellcost`, `reqskill`, `reqskillvalue`) VALUES
+                    (5518, 34122, 250, 202, 100),
+                    (11029, 34122, 250, 202, 100);
+            -- Trainer (Engineering - Artisan)
+                REPLACE INTO `mangos`.`npc_trainer` (`entry`, `spell`, `spellcost`, `reqskill`, `reqskillvalue`) VALUES
+                    (5174, 34122, 250, 202, 100);
+            -- Trainer (Engineering - Master)
+                REPLACE INTO `mangos`.`npc_trainer` (`entry`, `spell`, `spellcost`, `reqskill`, `reqskillvalue`) VALUES
+                    (8736, 34122, 250, 202, 100);
+        -- Iron Heat Shield
+            -- Recipe
+                REPLACE `mangos`.`spell_template` (`entry`, `build`, `castUI`, `attributes`, `castingTimeIndex`, `interruptFlags`, `procChance`, `rangeIndex`, `reagent1`, `reagent2`, `reagent3`, `reagentCount1`, `reagentCount2`, `reagentCount3`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectItemType1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34123, 4222, 3, 65568, 7, 15, 101, 1, 666, 666, 666, 666, 666, 666, -1, 24, 1, 1, 0, -1, -1, 1, 666, 3182, 1, 'itemName', 7274526, 7274508, 7274508, 983052, -1, 1, 1, 1);
+
+                UPDATE `mangos`.`spell_template` SET `reagent1`=4387, `reagent2`=4389, `reagent3`=3575, `reagentCount1`=2, `reagentCount2`=1, `reagentCount3`=4, `effectItemType1`=30205, `spellVisual1`=395,`spellIconId`=413, `name`='Iron Heat Shield' WHERE  `entry`=34123;
+
+            -- Learn spell(for trainer):
+                REPLACE  `mangos`.`spell_template` (`entry`, `build`, `attributes`, `targets`, `castingTimeIndex`, `interruptFlags`, `procChance`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34124, 4222, 262400, 256, 1, 15, 101, 6, -1, -1, 36, 0, -1, -1, 34123, 107, 413, 'Iron Heat Shield', 983070, 7274508, 7274508, 983052, -1, 1, 1, 1);
+
+            -- Skill Line Ability:
+            REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `req_skill_value`, `max_value`, `min_value`) VALUES (15156, 5875, 202, 34123, 1, 150, 190);
+
+            -- Trainer (Engineering - Journeyman)
+                REPLACE INTO `mangos`.`npc_trainer` (`entry`, `spell`, `spellcost`, `reqskill`, `reqskillvalue`) VALUES
+                    (1702, 34124, 250, 202, 150),
+                    (3290, 34124, 250, 202, 150),
+                    (11026, 34124, 250, 202, 150),
+                    (11028, 34124, 250, 202, 150),
+                    (11037, 34124, 250, 202, 150),
+                    (3494, 34124, 250, 202, 150),
+                    (10993, 34124, 250, 202, 150);
+            -- Trainer (Engineering - Expert)
+                REPLACE INTO `mangos`.`npc_trainer` (`entry`, `spell`, `spellcost`, `reqskill`, `reqskillvalue`) VALUES
+                    (5518, 34124, 250, 202, 150),
+                    (11029, 34124, 250, 202, 150);
+            -- Trainer (Engineering - Artisan)
+                REPLACE INTO `mangos`.`npc_trainer` (`entry`, `spell`, `spellcost`, `reqskill`, `reqskillvalue`) VALUES
+                    (5174, 34124, 250, 202, 150);
+            -- Trainer (Engineering - Master)
+                REPLACE INTO `mangos`.`npc_trainer` (`entry`, `spell`, `spellcost`, `reqskill`, `reqskillvalue`) VALUES
+                    (8736, 34124, 250, 202, 150);
+        -- Mithril Heat Shield
+            -- Recipe
+                REPLACE `mangos`.`spell_template` (`entry`, `build`, `castUI`, `attributes`, `castingTimeIndex`, `interruptFlags`, `procChance`, `rangeIndex`, `reagent1`, `reagent2`, `reagent3`, `reagentCount1`, `reagentCount2`, `reagentCount3`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectItemType1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34125, 4222, 3, 65568, 7, 15, 101, 1, 666, 666, 666, 666, 666, 666, -1, 24, 1, 1, 0, -1, -1, 1, 666, 3182, 1, 'itemName', 7274526, 7274508, 7274508, 983052, -1, 1, 1, 1);
+
+                UPDATE `mangos`.`spell_template` SET `reagent1`=10559, `reagent2`=10560, `reagent3`=10561, `reagentCount1`=4, `reagentCount2`=6, `reagentCount3`=4, `effectItemType1`=30206, `spellVisual1`=395,`spellIconId`=413, `name`='Mithril Heat Shield' WHERE  `entry`=34125;
+
+            -- Learn spell(for trainer):
+                REPLACE  `mangos`.`spell_template` (`entry`, `build`, `attributes`, `targets`, `castingTimeIndex`, `interruptFlags`, `procChance`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34126, 4222, 262400, 256, 1, 15, 101, 6, -1, -1, 36, 0, -1, -1, 34125, 107, 413, 'Mithril Heat Shield', 983070, 7274508, 7274508, 983052, -1, 1, 1, 1);
+
+            -- Skill Line Ability:
+            REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `req_skill_value`, `max_value`, `min_value`) VALUES (15157, 5875, 202, 34125, 1, 200, 240);
+
+            -- Trainer (Engineering - Journeyman)
+                REPLACE INTO `mangos`.`npc_trainer` (`entry`, `spell`, `spellcost`, `reqskill`, `reqskillvalue`) VALUES
+                    (1702, 34126, 250, 202, 200),
+                    (3290, 34126, 250, 202, 200),
+                    (11026, 34126, 250, 202, 200),
+                    (11028, 34126, 250, 202, 200),
+                    (11037, 34126, 250, 202, 200),
+                    (3494, 34126, 250, 202, 200),
+                    (10993, 34126, 250, 202, 200);
+            -- Trainer (Engineering - Expert)
+                REPLACE INTO `mangos`.`npc_trainer` (`entry`, `spell`, `spellcost`, `reqskill`, `reqskillvalue`) VALUES
+                    (5518, 34126, 250, 202, 200),
+                    (11029, 34126, 250, 202, 200);
+            -- Trainer (Engineering - Artisan)
+                REPLACE INTO `mangos`.`npc_trainer` (`entry`, `spell`, `spellcost`, `reqskill`, `reqskillvalue`) VALUES
+                    (5174, 34126, 250, 202, 200);
+            -- Trainer (Engineering - Master)
+                REPLACE INTO `mangos`.`npc_trainer` (`entry`, `spell`, `spellcost`, `reqskill`, `reqskillvalue`) VALUES
+                    (8736, 34126, 250, 202, 200);
+        -- Thorium Heat Shield
+            -- Recipe
+                REPLACE `mangos`.`spell_template` (`entry`, `build`, `castUI`, `attributes`, `castingTimeIndex`, `interruptFlags`, `procChance`, `rangeIndex`, `reagent1`, `reagent2`, `reagent3`, `reagentCount1`, `reagentCount2`, `reagentCount3`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectItemType1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34127, 4222, 3, 65568, 7, 15, 101, 1, 666, 666, 666, 666, 666, 666, -1, 24, 1, 1, 0, -1, -1, 1, 666, 3182, 1, 'itemName', 7274526, 7274508, 7274508, 983052, -1, 1, 1, 1);
+
+                UPDATE `mangos`.`spell_template` SET `reagent1`=15994, `reagent2`=16000, `reagent3`=18631, `reagentCount1`=4, `reagentCount2`=4, `reagentCount3`=3, `effectItemType1`=30207, `spellVisual1`=395,`spellIconId`=413, `name`='Thorium Heat Shield' WHERE  `entry`=34127;
+
+            -- Learn spell(for trainer):
+                REPLACE  `mangos`.`spell_template` (`entry`, `build`, `attributes`, `targets`, `castingTimeIndex`, `interruptFlags`, `procChance`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34128, 4222, 262400, 256, 1, 15, 101, 6, -1, -1, 36, 0, -1, -1, 34127, 107, 413, 'Thorium Heat Shield', 983070, 7274508, 7274508, 983052, -1, 1, 1, 1);
+
+            -- Skill Line Ability:
+            REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `req_skill_value`, `max_value`, `min_value`) VALUES (15158, 5875, 202, 34127, 1, 250, 290);
+
+            -- Trainer (Engineering - Journeyman)
+                REPLACE INTO `mangos`.`npc_trainer` (`entry`, `spell`, `spellcost`, `reqskill`, `reqskillvalue`) VALUES
+                    (1702, 34128, 250, 202, 250),
+                    (3290, 34128, 250, 202, 250),
+                    (11026, 34128, 250, 202, 250),
+                    (11028, 34128, 250, 202, 250),
+                    (11037, 34128, 250, 202, 250),
+                    (3494, 34128, 250, 202, 250),
+                    (10993, 34128, 250, 202, 250);
+            -- Trainer (Engineering - Expert)
+                REPLACE INTO `mangos`.`npc_trainer` (`entry`, `spell`, `spellcost`, `reqskill`, `reqskillvalue`) VALUES
+                    (5518, 34128, 250, 202, 250),
+                    (11029, 34128, 250, 202, 250);
+            -- Trainer (Engineering - Artisan)
+                REPLACE INTO `mangos`.`npc_trainer` (`entry`, `spell`, `spellcost`, `reqskill`, `reqskillvalue`) VALUES
+                    (5174, 34128, 250, 202, 250);
+            -- Trainer (Engineering - Master)
+                REPLACE INTO `mangos`.`npc_trainer` (`entry`, `spell`, `spellcost`, `reqskill`, `reqskillvalue`) VALUES
+                    (8736, 34128, 250, 202, 250);
