@@ -87,15 +87,15 @@
 
             -- Trainer (Enchanting - Expert)
                 REPLACE INTO `mangos`.`npc_trainer` (`entry`, `spell`, `spellcost`, `reqskill`, `reqskillvalue`) VALUES
-                    (1317, 34092, 250, 333, 100),
-                    (5157, 34092, 250, 333, 100),
-                    (7949, 34092, 250, 333, 100);
+                    (1317, 34092, 400, 333, 100),
+                    (5157, 34092, 400, 333, 100),
+                    (7949, 34092, 400, 333, 100);
             -- Trainer (Enchanting - Artisan)
                 REPLACE INTO `mangos`.`npc_trainer` (`entry`, `spell`, `spellcost`, `reqskill`, `reqskillvalue`) VALUES
-                    (11072, 34092, 250, 333, 100);
+                    (11072, 34092, 400, 333, 100);
             -- Trainer (Enchanting - Master)
                 REPLACE INTO `mangos`.`npc_trainer` (`entry`, `spell`, `spellcost`, `reqskill`, `reqskillvalue`) VALUES
-                    (11073, 34092, 250, 333, 100);
+                    (11073, 34092, 400, 333, 100);
 
         -- Walnut Wood Staff (Min: 150, Max: 190)
             -- Recipe
@@ -111,15 +111,15 @@
 
             -- Trainer (Enchanting - Expert)
                 REPLACE INTO `mangos`.`npc_trainer` (`entry`, `spell`, `spellcost`, `reqskill`, `reqskillvalue`) VALUES
-                    (1317, 34094, 250, 333, 150),
-                    (5157, 34094, 250, 333, 150),
-                    (7949, 34094, 250, 333, 150);
+                    (1317, 34094, 750, 333, 150),
+                    (5157, 34094, 750, 333, 150),
+                    (7949, 34094, 750, 333, 150);
             -- Trainer (Enchanting - Artisan)
                 REPLACE INTO `mangos`.`npc_trainer` (`entry`, `spell`, `spellcost`, `reqskill`, `reqskillvalue`) VALUES
-                    (11072, 34094, 250, 333, 150);
+                    (11072, 34094, 750, 333, 150);
             -- Trainer (Enchanting - Master)
                 REPLACE INTO `mangos`.`npc_trainer` (`entry`, `spell`, `spellcost`, `reqskill`, `reqskillvalue`) VALUES
-                    (11073, 34094, 250, 333, 150);
+                    (11073, 34094, 750, 333, 150);
                 
         -- Chestnut Wood Staff (Min: 200, Max: 240)
             -- Recipe
@@ -135,15 +135,15 @@
 
             -- Trainer (Enchanting - Expert)
                 REPLACE INTO `mangos`.`npc_trainer` (`entry`, `spell`, `spellcost`, `reqskill`, `reqskillvalue`) VALUES
-                    (1317, 34096, 250, 333, 200),
-                    (5157, 34096, 250, 333, 200),
-                    (7949, 34096, 250, 333, 200);
+                    (1317, 34096, 1600, 333, 200),
+                    (5157, 34096, 1600, 333, 200),
+                    (7949, 34096, 1600, 333, 200);
             -- Trainer (Enchanting - Artisan)
                 REPLACE INTO `mangos`.`npc_trainer` (`entry`, `spell`, `spellcost`, `reqskill`, `reqskillvalue`) VALUES
-                    (11072, 34096, 250, 333, 200);
+                    (11072, 34096, 1600, 333, 200);
             -- Trainer (Enchanting - Master)
                 REPLACE INTO `mangos`.`npc_trainer` (`entry`, `spell`, `spellcost`, `reqskill`, `reqskillvalue`) VALUES
-                    (11073, 34096, 250, 333, 200);
+                    (11073, 34096, 1600, 333, 200);
 
         -- Rosewood Wood Staff (Min: 250, Max: 290)
             -- Recipe
@@ -159,10 +159,10 @@
 
             -- Trainer (Enchanting - Artisan)
                 REPLACE INTO `mangos`.`npc_trainer` (`entry`, `spell`, `spellcost`, `reqskill`, `reqskillvalue`) VALUES
-                    (11072, 34098, 250, 333, 250);
+                    (11072, 34098, 2800, 333, 250);
             -- Trainer (Enchanting - Master)
                 REPLACE INTO `mangos`.`npc_trainer` (`entry`, `spell`, `spellcost`, `reqskill`, `reqskillvalue`) VALUES
-                    (11073, 34098, 250, 333, 250);
+                    (11073, 34098, 2800, 333, 250);
 
         -- Ancient Wood Staff (Min: 300, Max: 340)
             -- Recipe
@@ -178,7 +178,7 @@
 
             -- Trainer (Enchanting - Master)
                 REPLACE INTO `mangos`.`npc_trainer` (`entry`, `spell`, `spellcost`, `reqskill`, `reqskillvalue`) VALUES
-                    (11073, 34100, 250, 333, 300);
+                    (11073, 34100, 12500, 333, 300);
 
         -- Simple Wood Bow (Min: 50, Max: 90)
             -- Recipe
@@ -224,15 +224,15 @@
 
             -- Trainer (Enchanting - Expert)
                 REPLACE INTO `mangos`.`npc_trainer` (`entry`, `spell`, `spellcost`, `reqskill`, `reqskillvalue`) VALUES
-                    (1317, 34104, 250, 333, 100),
-                    (5157, 34104, 250, 333, 100),
-                    (7949, 34104, 250, 333, 100);
+                    (1317, 34104, 400, 333, 100),
+                    (5157, 34104, 400, 333, 100),
+                    (7949, 34104, 400, 333, 100);
             -- Trainer (Enchanting - Artisan)
                 REPLACE INTO `mangos`.`npc_trainer` (`entry`, `spell`, `spellcost`, `reqskill`, `reqskillvalue`) VALUES
-                    (11072, 34104, 250, 333, 100);
+                    (11072, 34104, 400, 333, 100);
             -- Trainer (Enchanting - Master)
                 REPLACE INTO `mangos`.`npc_trainer` (`entry`, `spell`, `spellcost`, `reqskill`, `reqskillvalue`) VALUES
-                    (11073, 34104, 250, 333, 100);
+                    (11073, 34104, 400, 333, 100);
 
         -- Walnut Wood Bow (Min: 150, Max: 190)
             -- Recipe
@@ -248,15 +248,15 @@
 
             -- Trainer (Enchanting - Expert)
                 REPLACE INTO `mangos`.`npc_trainer` (`entry`, `spell`, `spellcost`, `reqskill`, `reqskillvalue`) VALUES
-                    (1317, 34106, 250, 333, 150),
-                    (5157, 34106, 250, 333, 150),
-                    (7949, 34106, 250, 333, 150);
+                    (1317, 34106, 750, 333, 150),
+                    (5157, 34106, 750, 333, 150),
+                    (7949, 34106, 750, 333, 150);
             -- Trainer (Enchanting - Artisan)
                 REPLACE INTO `mangos`.`npc_trainer` (`entry`, `spell`, `spellcost`, `reqskill`, `reqskillvalue`) VALUES
-                    (11072, 34106, 250, 333, 150);
+                    (11072, 34106, 750, 333, 150);
             -- Trainer (Enchanting - Master)
                 REPLACE INTO `mangos`.`npc_trainer` (`entry`, `spell`, `spellcost`, `reqskill`, `reqskillvalue`) VALUES
-                    (11073, 34106, 250, 333, 150);
+                    (11073, 34106, 750, 333, 150);
                 
         -- Chestnut Wood Bow (Min: 200, Max: 240)
             -- Recipe
@@ -272,15 +272,15 @@
 
             -- Trainer (Enchanting - Expert)
                 REPLACE INTO `mangos`.`npc_trainer` (`entry`, `spell`, `spellcost`, `reqskill`, `reqskillvalue`) VALUES
-                    (1317, 34108, 250, 333, 200),
-                    (5157, 34108, 250, 333, 200),
-                    (7949, 34108, 250, 333, 200);
+                    (1317, 34108, 1600, 333, 200),
+                    (5157, 34108, 1600, 333, 200),
+                    (7949, 34108, 1600, 333, 200);
             -- Trainer (Enchanting - Artisan)
                 REPLACE INTO `mangos`.`npc_trainer` (`entry`, `spell`, `spellcost`, `reqskill`, `reqskillvalue`) VALUES
-                    (11072, 34108, 250, 333, 200);
+                    (11072, 34108, 1600, 333, 200);
             -- Trainer (Enchanting - Master)
                 REPLACE INTO `mangos`.`npc_trainer` (`entry`, `spell`, `spellcost`, `reqskill`, `reqskillvalue`) VALUES
-                    (11073, 34108, 250, 333, 200);
+                    (11073, 34108, 1600, 333, 200);
 
         -- Rosewood Wood Bow (Min: 250, Max: 290)
             -- Recipe
@@ -296,10 +296,10 @@
 
             -- Trainer (Enchanting - Artisan)
                 REPLACE INTO `mangos`.`npc_trainer` (`entry`, `spell`, `spellcost`, `reqskill`, `reqskillvalue`) VALUES
-                    (11072, 34110, 250, 333, 250);
+                    (11072, 34110, 2800, 333, 250);
             -- Trainer (Enchanting - Master)
                 REPLACE INTO `mangos`.`npc_trainer` (`entry`, `spell`, `spellcost`, `reqskill`, `reqskillvalue`) VALUES
-                    (11073, 34110, 250, 333, 250);
+                    (11073, 34110, 2800, 333, 250);
 
         -- Ancient Wood Bow (Min: 300, Max: 340)
             -- Recipe
@@ -315,7 +315,7 @@
 
             -- Trainer (Enchanting - Master)
                 REPLACE INTO `mangos`.`npc_trainer` (`entry`, `spell`, `spellcost`, `reqskill`, `reqskillvalue`) VALUES
-                    (11073, 34112, 250, 333, 300);
+                    (11073, 34112, 12500, 333, 300);
             
             -- Chestnut Wand (Min: 200, Max: 240)
             -- Recipe
@@ -331,15 +331,15 @@
 
             -- Trainer (Enchanting - Expert)
                 REPLACE INTO `mangos`.`npc_trainer` (`entry`, `spell`, `spellcost`, `reqskill`, `reqskillvalue`) VALUES
-                    (1317, 34114, 250, 333, 200),
-                    (5157, 34114, 250, 333, 200),
-                    (7949, 34114, 250, 333, 200);
+                    (1317, 34114, 1600, 333, 200),
+                    (5157, 34114, 1600, 333, 200),
+                    (7949, 34114, 1600, 333, 200);
             -- Trainer (Enchanting - Artisan)
                 REPLACE INTO `mangos`.`npc_trainer` (`entry`, `spell`, `spellcost`, `reqskill`, `reqskillvalue`) VALUES
-                    (11072, 34114, 250, 333, 200);
+                    (11072, 34114, 1600, 333, 200);
             -- Trainer (Enchanting - Master)
                 REPLACE INTO `mangos`.`npc_trainer` (`entry`, `spell`, `spellcost`, `reqskill`, `reqskillvalue`) VALUES
-                    (11073, 34114, 250, 333, 200);
+                    (11073, 34114, 1600, 333, 200);
 
         -- Rosewood Wand (Min: 250, Max: 290)
             -- Recipe
@@ -355,10 +355,10 @@
 
             -- Trainer (Enchanting - Artisan)
                 REPLACE INTO `mangos`.`npc_trainer` (`entry`, `spell`, `spellcost`, `reqskill`, `reqskillvalue`) VALUES
-                    (11072, 34116, 250, 333, 250);
+                    (11072, 34116, 2800, 333, 250);
             -- Trainer (Enchanting - Master)
                 REPLACE INTO `mangos`.`npc_trainer` (`entry`, `spell`, `spellcost`, `reqskill`, `reqskillvalue`) VALUES
-                    (11073, 34116, 250, 333, 250);
+                    (11073, 34116, 2800, 333, 250);
 
         -- Ancient Wand (Min: 300, Max: 340)
             -- Recipe
@@ -374,7 +374,7 @@
 
             -- Trainer (Enchanting - Master)
                 REPLACE INTO `mangos`.`npc_trainer` (`entry`, `spell`, `spellcost`, `reqskill`, `reqskillvalue`) VALUES
-                    (11073, 34118, 250, 333, 300);
+                    (11073, 34118, 12500, 333, 300);
 
     -- Engineering
         -- Copper Heat Shield
@@ -422,23 +422,23 @@
 
             -- Trainer (Engineering - Journeyman)
                 REPLACE INTO `mangos`.`npc_trainer` (`entry`, `spell`, `spellcost`, `reqskill`, `reqskillvalue`) VALUES
-                    (1702, 34122, 250, 202, 100),
-                    (3290, 34122, 250, 202, 100),
-                    (11026, 34122, 250, 202, 100),
-                    (11028, 34122, 250, 202, 100),
-                    (11037, 34122, 250, 202, 100),
-                    (3494, 34122, 250, 202, 100),
-                    (10993, 34122, 250, 202, 100);
+                    (1702, 34122, 400, 202, 100),
+                    (3290, 34122, 400, 202, 100),
+                    (11026, 34122, 400, 202, 100),
+                    (11028, 34122, 400, 202, 100),
+                    (11037, 34122, 400, 202, 100),
+                    (3494, 34122, 400, 202, 100),
+                    (10993, 34122, 400, 202, 100);
             -- Trainer (Engineering - Expert)
                 REPLACE INTO `mangos`.`npc_trainer` (`entry`, `spell`, `spellcost`, `reqskill`, `reqskillvalue`) VALUES
-                    (5518, 34122, 250, 202, 100),
-                    (11029, 34122, 250, 202, 100);
+                    (5518, 34122, 400, 202, 100),
+                    (11029, 34122, 400, 202, 100);
             -- Trainer (Engineering - Artisan)
                 REPLACE INTO `mangos`.`npc_trainer` (`entry`, `spell`, `spellcost`, `reqskill`, `reqskillvalue`) VALUES
-                    (5174, 34122, 250, 202, 100);
+                    (5174, 34122, 400, 202, 100);
             -- Trainer (Engineering - Master)
                 REPLACE INTO `mangos`.`npc_trainer` (`entry`, `spell`, `spellcost`, `reqskill`, `reqskillvalue`) VALUES
-                    (8736, 34122, 250, 202, 100);
+                    (8736, 34122, 400, 202, 100);
         -- Iron Heat Shield
             -- Recipe
                 REPLACE `mangos`.`spell_template` (`entry`, `build`, `castUI`, `attributes`, `castingTimeIndex`, `interruptFlags`, `procChance`, `rangeIndex`, `reagent1`, `reagent2`, `reagent3`, `reagentCount1`, `reagentCount2`, `reagentCount3`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectItemType1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34123, 4222, 3, 65568, 7, 15, 101, 1, 666, 666, 666, 666, 666, 666, -1, 24, 1, 1, 0, -1, -1, 1, 666, 3182, 1, 'itemName', 7274526, 7274508, 7274508, 983052, -1, 1, 1, 1);
@@ -451,25 +451,16 @@
             -- Skill Line Ability:
             REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `req_skill_value`, `max_value`, `min_value`) VALUES (15156, 5875, 202, 34123, 1, 150, 190);
 
-            -- Trainer (Engineering - Journeyman)
-                REPLACE INTO `mangos`.`npc_trainer` (`entry`, `spell`, `spellcost`, `reqskill`, `reqskillvalue`) VALUES
-                    (1702, 34124, 250, 202, 150),
-                    (3290, 34124, 250, 202, 150),
-                    (11026, 34124, 250, 202, 150),
-                    (11028, 34124, 250, 202, 150),
-                    (11037, 34124, 250, 202, 150),
-                    (3494, 34124, 250, 202, 150),
-                    (10993, 34124, 250, 202, 150);
             -- Trainer (Engineering - Expert)
                 REPLACE INTO `mangos`.`npc_trainer` (`entry`, `spell`, `spellcost`, `reqskill`, `reqskillvalue`) VALUES
-                    (5518, 34124, 250, 202, 150),
-                    (11029, 34124, 250, 202, 150);
+                    (5518, 34124, 750, 202, 150),
+                    (11029, 34124, 750, 202, 150);
             -- Trainer (Engineering - Artisan)
                 REPLACE INTO `mangos`.`npc_trainer` (`entry`, `spell`, `spellcost`, `reqskill`, `reqskillvalue`) VALUES
-                    (5174, 34124, 250, 202, 150);
+                    (5174, 34124, 750, 202, 150);
             -- Trainer (Engineering - Master)
                 REPLACE INTO `mangos`.`npc_trainer` (`entry`, `spell`, `spellcost`, `reqskill`, `reqskillvalue`) VALUES
-                    (8736, 34124, 250, 202, 150);
+                    (8736, 34124, 750, 202, 150);
         -- Mithril Heat Shield
             -- Recipe
                 REPLACE `mangos`.`spell_template` (`entry`, `build`, `castUI`, `attributes`, `castingTimeIndex`, `interruptFlags`, `procChance`, `rangeIndex`, `reagent1`, `reagent2`, `reagent3`, `reagentCount1`, `reagentCount2`, `reagentCount3`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectItemType1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34125, 4222, 3, 65568, 7, 15, 101, 1, 666, 666, 666, 666, 666, 666, -1, 24, 1, 1, 0, -1, -1, 1, 666, 3182, 1, 'itemName', 7274526, 7274508, 7274508, 983052, -1, 1, 1, 1);
@@ -482,25 +473,16 @@
             -- Skill Line Ability:
             REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `req_skill_value`, `max_value`, `min_value`) VALUES (15157, 5875, 202, 34125, 1, 200, 240);
 
-            -- Trainer (Engineering - Journeyman)
-                REPLACE INTO `mangos`.`npc_trainer` (`entry`, `spell`, `spellcost`, `reqskill`, `reqskillvalue`) VALUES
-                    (1702, 34126, 250, 202, 200),
-                    (3290, 34126, 250, 202, 200),
-                    (11026, 34126, 250, 202, 200),
-                    (11028, 34126, 250, 202, 200),
-                    (11037, 34126, 250, 202, 200),
-                    (3494, 34126, 250, 202, 200),
-                    (10993, 34126, 250, 202, 200);
             -- Trainer (Engineering - Expert)
                 REPLACE INTO `mangos`.`npc_trainer` (`entry`, `spell`, `spellcost`, `reqskill`, `reqskillvalue`) VALUES
-                    (5518, 34126, 250, 202, 200),
-                    (11029, 34126, 250, 202, 200);
+                    (5518, 34126, 2800, 202, 200),
+                    (11029, 34126, 2800, 202, 200);
             -- Trainer (Engineering - Artisan)
                 REPLACE INTO `mangos`.`npc_trainer` (`entry`, `spell`, `spellcost`, `reqskill`, `reqskillvalue`) VALUES
-                    (5174, 34126, 250, 202, 200);
+                    (5174, 34126, 2800, 202, 200);
             -- Trainer (Engineering - Master)
                 REPLACE INTO `mangos`.`npc_trainer` (`entry`, `spell`, `spellcost`, `reqskill`, `reqskillvalue`) VALUES
-                    (8736, 34126, 250, 202, 200);
+                    (8736, 34126, 2800, 202, 200);
         -- Thorium Heat Shield
             -- Recipe
                 REPLACE `mangos`.`spell_template` (`entry`, `build`, `castUI`, `attributes`, `castingTimeIndex`, `interruptFlags`, `procChance`, `rangeIndex`, `reagent1`, `reagent2`, `reagent3`, `reagentCount1`, `reagentCount2`, `reagentCount3`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectItemType1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34127, 4222, 3, 65568, 7, 15, 101, 1, 666, 666, 666, 666, 666, 666, -1, 24, 1, 1, 0, -1, -1, 1, 666, 3182, 1, 'itemName', 7274526, 7274508, 7274508, 983052, -1, 1, 1, 1);
@@ -513,22 +495,9 @@
             -- Skill Line Ability:
             REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `req_skill_value`, `max_value`, `min_value`) VALUES (15158, 5875, 202, 34127, 1, 250, 290);
 
-            -- Trainer (Engineering - Journeyman)
-                REPLACE INTO `mangos`.`npc_trainer` (`entry`, `spell`, `spellcost`, `reqskill`, `reqskillvalue`) VALUES
-                    (1702, 34128, 250, 202, 250),
-                    (3290, 34128, 250, 202, 250),
-                    (11026, 34128, 250, 202, 250),
-                    (11028, 34128, 250, 202, 250),
-                    (11037, 34128, 250, 202, 250),
-                    (3494, 34128, 250, 202, 250),
-                    (10993, 34128, 250, 202, 250);
-            -- Trainer (Engineering - Expert)
-                REPLACE INTO `mangos`.`npc_trainer` (`entry`, `spell`, `spellcost`, `reqskill`, `reqskillvalue`) VALUES
-                    (5518, 34128, 250, 202, 250),
-                    (11029, 34128, 250, 202, 250);
             -- Trainer (Engineering - Artisan)
                 REPLACE INTO `mangos`.`npc_trainer` (`entry`, `spell`, `spellcost`, `reqskill`, `reqskillvalue`) VALUES
-                    (5174, 34128, 250, 202, 250);
+                    (5174, 34128, 12500, 202, 250);
             -- Trainer (Engineering - Master)
                 REPLACE INTO `mangos`.`npc_trainer` (`entry`, `spell`, `spellcost`, `reqskill`, `reqskillvalue`) VALUES
-                    (8736, 34128, 250, 202, 250);
+                    (8736, 34128, 12500, 202, 250);
