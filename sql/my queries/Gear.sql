@@ -14595,7 +14595,31 @@ WHERE entry = 30207;
 
 -- Enchanting Staves
 
--- Chestnut Staff
+-- Simple Wood Staff
+UPDATE mangos . item_template
+SET stat_type1 = @ITEM_MOD_INT,
+    stat_value1 = 2,
+    stat_type2 = @ITEM_MOD_SPI,
+    stat_value2 = 2
+WHERE entry = 30179;
+
+-- Maple Wood Staff
+UPDATE mangos . item_template
+SET stat_type1 = @ITEM_MOD_INT,
+    stat_value1 = 4,
+    stat_type2 = @ITEM_MOD_SPI,
+    stat_value2 = 4
+WHERE entry = 30180;
+
+-- Walnut Wood Staff
+UPDATE mangos . item_template
+SET stat_type1 = @ITEM_MOD_INT,
+    stat_value1 = 7,
+    stat_type2 = @ITEM_MOD_SPI,
+    stat_value2 = 7
+WHERE entry = 30181;
+
+-- Chestnut Wood Staff
 UPDATE mangos . item_template
 SET stat_type1 = 5,
     stat_value1 = 12,
@@ -14605,7 +14629,7 @@ SET stat_type1 = 5,
     spelltrigger_1 = 1
 WHERE entry = 30182;
 
--- Rosewood Staff
+-- Rosewood Wood Staff
 UPDATE mangos . item_template
 SET stat_type1 = 5,
     stat_value1 = 15,
@@ -14615,7 +14639,7 @@ SET stat_type1 = 5,
     spelltrigger_1 = 1
 WHERE entry = 30182;
 
--- Ancient Staff
+-- Ancient Wood Staff
 UPDATE mangos . item_template
 SET stat_type1 = 5,
     stat_value1 = 20,
@@ -14626,6 +14650,41 @@ SET stat_type1 = 5,
 WHERE entry = 30182;
 
 -- Enchanting Bows
+-- Simple Wood Bow
+UPDATE mangos . item_template
+SET spellid_1 = 21428, -- +7 Ranged Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 30173;
+
+-- Maple Wood Bow
+UPDATE mangos . item_template
+SET spellid_1 = 21431, -- +14 Ranged Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 30174;
+
+-- Walnut Wood Bow
+UPDATE mangos . item_template
+SET spellid_1 = 21434, -- +22 Ranged Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 30175;
+
+-- Chestnut Wood Bow
+UPDATE mangos . item_template
+SET spellid_1 = 21435, -- +24 Ranged Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 21436;
+
+-- Rosewood Wood Bow
+UPDATE mangos . item_template
+SET spellid_1 = 21436, -- +26 Ranged Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 30177;
+
+-- Ancient Wood Bow
+UPDATE mangos . item_template
+SET spellid_1 = 21442, -- +41 Ranged Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 30178;
 
 -- Enchanting Wands
 
