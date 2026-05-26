@@ -108,6 +108,14 @@
 --     CLASS_DRUID         = 11,
 -- };
 
+SET
+    @ITEM_MOD_MANA      = 0,
+    @ITEM_MOD_HEALTH    = 1,
+    @ITEM_MOD_AGI       = 3,
+    @ITEM_MOD_STR       = 4,
+    @ITEM_MOD_INT       = 5,
+    @ITEM_MOD_SPI       = 6,
+    @ITEM_MOD_STAM      = 7;
 
 -- New Custom Items
 DELETE FROM `mangos`.`item_template` WHERE  `entry`=30104 AND `patch`=0;
@@ -1063,9 +1071,9 @@ WHERE entry = 6264;
 -- Colorful Kilt
 UPDATE mangos . item_template
 SET stat_type1 = 5,
-    stat_value1 = 5,
+    stat_value1 = 4,
     stat_type2 = 7,
-    stat_value2 = 8,
+    stat_value2 = 4,
     stat_type3 = 3,
     stat_value3 = 0
 WHERE entry = 10048;
@@ -4589,6 +4597,111 @@ WHERE entry = 18677;
 
 -- Deadmines
 
+-- Blackened Defias Armor
+UPDATE mangos . item_template
+SET stat_type1 = 4,
+    stat_value1 = 11,
+    stat_type2 = 7,
+    stat_value2 = 6,
+    stat_type3 = 0,
+    stat_value3 = 0
+WHERE entry = 10399;
+
+-- Blackened Defias Gloves
+UPDATE mangos . item_template
+SET stat_type1 = 3,
+    stat_value1 = 5,
+    stat_type2 = 0,
+    stat_value2 = 0,
+    stat_type3 = 0,
+    stat_value3 = 0
+WHERE entry = 10400;
+
+-- Blacked Defias Belt
+UPDATE mangos . item_template
+SET quality = 3,
+    stat_type1 = 0,
+    stat_value1 = 0,
+    stat_type2 = 0,
+    stat_value2 = 0,
+    stat_type3 = 0,
+    stat_value3 = 0,
+    spellid_1 = 9330, -- +18 Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 10403;
+
+-- Blackened Defias Leggings
+UPDATE mangos . item_template
+SET stat_type1 = 5,
+    stat_value1 = 5,
+    stat_type2 = 6,
+    stat_value2 = 5,
+    stat_type3 = 0,
+    stat_value3 = 0
+WHERE entry = 10400;
+
+-- Blackened Defias Boots
+UPDATE mangos . item_template
+SET stat_type1 = 3,
+    stat_value1 = 5,
+    stat_type2 = 0,
+    stat_value2 = 0,
+    stat_type3 = 0,
+    stat_value3 = 0
+WHERE entry = 10400;
+
+-- Impaling Harpoon
+UPDATE mangos . item_template
+SET quality = 3,
+    delay = 2400,
+    dmg_min1 = 36,
+    dmg_max1 = 55,
+    stat_type1 = 3,
+    stat_value1 = 12
+WHERE entry = 5200;
+
+-- Rockslicer
+UPDATE mangos . item_template
+SET quality = 3,
+    delay = 3300,
+    dmg_min1 = 48,
+    dmg_max1 = 73,
+    stat_type1 = 4,
+    stat_value1 = 11
+WHERE entry = 872;
+
+-- Thief's Blade
+UPDATE mangos . item_template
+SET quality = 3,
+    delay = 1700,
+    dmg_min1 = 17,
+    dmg_max1 = 32,
+    stat_type1 = 3,
+    stat_value1 = 7
+WHERE entry = 5192;
+
+-- Buzzer Blade
+UPDATE mangos . item_template
+SET quality = 3,
+    bonding = 1, -- BoP
+    delay = 1500,
+    dmg_min1 = 14,
+    dmg_max1 = 28,
+    stat_type1 = 3,
+    stat_value1 = 7
+WHERE entry = 2169;
+
+-- Buzz Saw
+UPDATE mangos . item_template
+SET quality = 3,
+    bonding = 1, -- BoP
+    delay = 2400,
+    dmg_min1 = 23,
+    dmg_max1 = 44,
+    stat_type1 = 4,
+    stat_value1 = 7
+WHERE entry = 1937;
+
 -- Lavishly Jeweled Ring
 UPDATE mangos . item_template
 SET spellid_1 = 33794, -- 5 Spell Penetration
@@ -4618,6 +4731,90 @@ SET spellid_1 = 7680, -- +13 Healing
 WHERE entry = 5198;
 
 -- Shadowfang Keep
+
+-- Eerie Stable Lantern
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 9395, -- +5 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 6341;
+
+-- Bloody Apron
+UPDATE mangos . item_template
+SET quality = 3,
+    stat_type1 = @ITEM_MOD_STAM,
+    stat_value1 = 12
+WHERE entry = 6226;
+
+-- Butcher's Slicer
+UPDATE mangos . item_template
+SET quality = 3,
+    delay = 2900,
+    dmg_min1 = 30,
+    dmg_max1 = 57,
+    stat_type1 = @ITEM_MOD_STR,
+    stat_value1 = 4,
+    stat_type2 = @ITEM_MOD_STAM,
+    stat_value2 = 3
+WHERE entry = 6633;
+
+-- Rift Bracers
+UPDATE mangos . item_template
+SET quality = 3,
+    armor = 88,
+    stat_type1 = @ITEM_MOD_STAM,
+    stat_value1 = 8
+WHERE entry = 5943;
+
+-- Baron's Scepter
+UPDATE mangos . item_template
+SET quality = 3,
+    delay = 2400,
+    dmg_min1 = 27,
+    dmg_max1 = 51,
+    stat_type1 = @ITEM_MOD_STR,
+    stat_value1 = 8
+WHERE entry = 6323;
+
+-- Haunting Blade
+UPDATE mangos . item_template
+SET quality = 3,
+    delay = 3800,
+    dmg_min1 = 66,
+    dmg_max1 = 99,
+    spellid_1 = 9335, -- +28 Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 6641;
+
+-- Arced War Axe
+UPDATE mangos . item_template
+SET quality = 3,
+    delay = 3300,
+    dmg_min1 = 57,
+    dmg_max1 = 86,
+    stat_type1 = @ITEM_MOD_STR,
+    stat_value1 = 10,
+    stat_type2 = @ITEM_MOD_STAM,
+    stat_value2 = 9
+WHERE entry = 3191;
+
+-- Girdle of the Blindwatcher
+UPDATE mangos . item_template
+SET quality = 3,
+    stat_type1 = @ITEM_MOD_INT,
+    stat_value1 = 8,
+    stat_type2 = @ITEM_MOD_STAM,
+    stat_value2 = 7
+WHERE entry = 6319;
+
+-- Wolfmaster Cape
+UPDATE mangos . item_template
+SET quality = 3,
+    stat_type1 = @ITEM_MOD_AGI,
+    stat_value1 = 5,
+    spellid_1 = 13383, -- +5 Defense
+    spelltrigger_1 = 1
+WHERE entry = 6314;
 
 -- Odo's Ley Staff
 UPDATE mangos . item_template
@@ -4653,6 +4850,83 @@ SET stat_type2 = 6,
 WHERE entry = 6392;
 
 -- BFD
+
+-- Darkwater Talwar
+UPDATE mangos . item_template
+SET quality = 3,
+    bonding = 1, -- BoP
+    delay = 2200,
+    dmg_min1 = 25,
+    dmg_max1 = 48,
+    stat_type1 = 4,
+    stat_value1 = 4
+WHERE entry = 11121;
+
+-- Glowing Thresher Cape
+UPDATE mangos . item_template
+SET quality = 3,
+    bonding = 1, -- BoP
+    stat_type1 = 5,
+    stat_value1 = 3,
+    stat_type2 = 6,
+    stat_value2 = 5
+WHERE entry = 6901;
+
+-- Bite of Serra'kis
+UPDATE mangos . item_template
+SET quality = 3,
+    bonding = 1, -- BoP
+    delay = 1300,
+    dmg_min1 = 16,
+    dmg_max1 = 30
+WHERE entry = 6904;
+
+-- Bands of Serra'kis
+UPDATE mangos . item_template
+SET quality = 3,
+    stat_type1 = 3,
+    stat_value1 = 6,
+    stat_type2 = 4,
+    stat_value2 = 4,
+    stat_type3 = 7,
+    stat_value3 = 2
+WHERE entry = 6902;
+
+-- Axe of the Enforcer
+UPDATE mangos . item_template
+SET quality = 3,
+    delay = 2600,
+    dmg_min1 = 31,
+    dmg_max1 = 58,
+    stat_type1 = 4,
+    stat_value1 = 4,
+    stat_type2 = 7,
+    stat_value2 = 3
+WHERE entry = 1454;
+
+-- Crested Scepter
+UPDATE mangos . item_template
+SET quality = 3,
+    delay = 2600,
+    dmg_min1 = 31,
+    dmg_max1 = 58,
+    stat_type1 = 5,
+    stat_value1 = 5,
+    stat_type2 = 7,
+    stat_value2 = 5
+WHERE entry = 3414;
+
+-- Reef Axe
+UPDATE mangos . item_template
+SET quality = 3,
+    delay = 3300,
+    dmg_min1 = 59,
+    dmg_max1 = 89,
+    stat_type1 = 7,
+    stat_value1 = 10,
+    spellid_1 = 9331, -- +20 Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 6905;
 
 -- Rod of the Sleepwalker
 UPDATE mangos . item_template
@@ -4740,6 +5014,60 @@ SET stat_type1 = 5,
 WHERE entry = 9492;
 
 -- RFK
+
+-- Armor Piercer
+UPDATE mangos . item_template
+SET quality = 3,
+    delay = 2600,
+    dmg_min1 = 49,
+    dmg_max1 = 74,
+    stat_type1 = @ITEM_MOD_AGI,
+    stat_value1 = 16
+WHERE entry = 6679;
+
+-- Whisperwind Headdress
+UPDATE mangos . item_template
+SET stat_type1 = @ITEM_MOD_STAM,
+    stat_value1 = 3,
+    stat_type2 = @ITEM_MOD_INT,
+    stat_value2 = 7,
+    stat_type3 = @ITEM_MOD_SPI,
+    stat_value3 = 7,
+    spellid_1 = 9415, -- +9 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 6688;
+
+-- Ferine Leggings
+UPDATE mangos . item_template
+SET stat_type1 = @ITEM_MOD_STR,
+    stat_value1 = 21,
+    stat_type2 = @ITEM_MOD_INT,
+    stat_value2 = 5,
+    stat_type3 = @ITEM_MOD_SPI,
+    stat_value3 = 8
+WHERE entry = 6690;
+
+-- Death Speaker Mantle
+UPDATE mangos . item_template
+SET stat_type1 = @ITEM_MOD_INT,
+    stat_value1 = 7,
+    stat_type2 = @ITEM_MOD_SPI,
+    stat_value2 = 3,
+    spellid_1 = 9395, -- +5 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 6685;
+
+-- Death Speaker Robes
+UPDATE mangos . item_template
+SET stat_type1 = @ITEM_MOD_STAM,
+    stat_value1 = 3,
+    stat_type2 = @ITEM_MOD_INT,
+    stat_value2 = 8,
+    stat_type3 = @ITEM_MOD_SPI,
+    stat_value3 = 6,
+    spellid_1 = 9395, -- +5 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 6682;
 
 -- Agamaggan's Clutch
 UPDATE mangos . item_template
