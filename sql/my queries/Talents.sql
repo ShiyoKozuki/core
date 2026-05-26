@@ -141,11 +141,11 @@
     UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=9 WHERE  `entry`=17489;
 
     -- Improved Lightning Shield (Now works on Water Shield too)
-    UPDATE `mangos`.`spell_template` SET `effectItemType1`=549755814912, `name`='Improved Shields', `description`='Increases the damage done by your Lightning Shield orbs by $s1% and amount gained by your Water Shield orbs by $s1%.' WHERE  `entry`=16261;
+    UPDATE `mangos`.`spell_template` SET `effectItemType1`=2748779070464, `name`='Improved Shields', `description`='Increases the damage done by your Lightning Shield orbs by $s1%, amount gained by your Water Shield orbs by $s1% and the amount healed by your Earth Shield orbs by $s1%.'  WHERE  `entry`=16261;
 
-    UPDATE `mangos`.`spell_template` SET `effectItemType1`=549755814912, `name`='Improved Shields', `description`='Increases the damage done by your Lightning Shield orbs by $s1% and amount gained by your Water Shield orbs by $s1%.' WHERE  `entry`=16290;
+    UPDATE `mangos`.`spell_template` SET `effectItemType1`=2748779070464, `name`='Improved Shields', `description`='Increases the damage done by your Lightning Shield orbs by $s1%, amount gained by your Water Shield orbs by $s1% and the amount healed by your Earth Shield orbs by $s1%.'  WHERE  `entry`=16290;
 
-    UPDATE `mangos`.`spell_template` SET `effectItemType1`=549755814912, `name`='Improved Shields', `description`='Increases the damage done by your Lightning Shield orbs by $s1% and amount gained by your Water Shield orbs by $s1%.' WHERE  `entry`=16291;
+    UPDATE `mangos`.`spell_template` SET `effectItemType1`=2748779070464, `name`='Improved Shields', `description`='Increases the damage done by your Lightning Shield orbs by $s1%, amount gained by your Water Shield orbs by $s1% and the amount healed by your Earth Shield orbs by $s1%.' WHERE  `entry`=16291;
 
     -- Shamanistic Focus
         REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `procCharges`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectItemType1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `spellFamilyName`, `stanceBarOrder`, `dmgMultiplier1`) VALUES (34045, 4695, 464, 1, 101, 0, 21, 1, -1, 6, 1, 1, -46, 0, -1, -1, 1, 108, 2416967680, 14, 38, 'Shamanistic Focus', 983070, 983070, 'Reduces the mana cost of your Shock spells by $s1%.', 983070, '', 983052, 11, -1, 1);

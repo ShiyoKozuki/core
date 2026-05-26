@@ -1,5 +1,5 @@
--- 34089 NEXT SPELL
--- 15138 NEXT SKILL_LINE_ABILITY
+-- 34142 NEXT SPELL
+-- 15164 NEXT SKILL_LINE_ABILITY
 
 -- skill_line_ability class_mask uses enum CLASSES
 
@@ -1799,7 +1799,7 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
         -- Water Shield
             -- Rank 1
             -- Aura (MP5)
-            REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `dispel`, `attributes`, `attributesEx`, `castingTimeIndex`, `procFlags`, `procChance`, `procCharges`, `baseLevel`, `spellLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effect2`, `effectDieSides1`, `effectDieSides2`, `effectBaseDice1`, `effectBaseDice2`, `effectBasePoints1`, `effectBasePoints2`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectApplyAuraName1`, `effectApplyAuraName2`, `effectAmplitude2`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34030, 5302, 3, 1, 327680, 1024, 1, 139944, 100, 3, 30, 30, 6, 1, -1, -1, 6, 6, 1, 1, 1, 1, 12, 19, 0.147, -1, -1, 1, 1, 42, 24, 5000, 34031, 722, 143, 'Water Shield', 2031678, 'Rank 1', 2031678, 'The caster is surrounded by $n balls of water, granting $s2 mana per 5 sec..  When a spell, melee or ranged attack hits the caster, $34031s1 mana is restored to the caster.  This expends one water ball.  Only one ball will fire every few seconds.  Lasts $d.', 2031678, 'Restores $s2 mana per 5 sec. Attacks and spells used against you restore $34031s1 mana.  3 charges.', 2031678, 133, 1500, 11, 1024, 1, 1, -1, 1, 1, 1);
+            REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `dispel`, `attributes`, `attributesEx`, `castingTimeIndex`, `procFlags`, `procChance`, `procCharges`, `baseLevel`, `spellLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effect2`, `effectDieSides1`, `effectDieSides2`, `effectBaseDice1`, `effectBaseDice2`, `effectBasePoints1`, `effectBasePoints2`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectApplyAuraName1`, `effectApplyAuraName2`, `effectAmplitude2`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34030, 5302, 3, 1, 327680, 1024, 1, 139944, 100, 3, 30, 30, 6, 1, -1, -1, 6, 6, 1, 1, 1, 1, 12, 19, 0, -1, -1, 1, 1, 42, 24, 5000, 34031, 722, 143, 'Water Shield', 2031678, 'Rank 1', 2031678, 'The caster is surrounded by $n balls of water, granting $s2 mana per 5 sec..  When a spell, melee or ranged attack hits the caster, $34031s1 mana is restored to the caster.  This expends one water ball.  Only one ball will fire every few seconds.  Lasts $d.', 2031678, 'Restores $s2 mana per 5 sec. Attacks and spells used against you restore $34031s1 mana.', 2031678, 133, 1500, 11, 0, 1, 1, -1, 1, 1, 1);
 
             -- Proc when hit (MP Restore)
             REPLACE `mangos`.`spell_template` (`entry`, `build`, `category`, `attributes`, `castingTimeIndex`, `procChance`, `spellLevel`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34031, 4222, 4, 671088640, 1, 101, 35, 1, -1, -1, 30, 1, 1, 23, 0, -1, -1, 1, 0, 1, 'Restore Mana', 983070, 7274508, 'Restores $s1 mana.', 7274526, 983052, 11, 549755813888, 1, -1, 1, 1, 1);
@@ -1813,6 +1813,102 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
             
             -- Trainer
             REPLACE `mangos`.`npc_trainer_template` (`entry`, `spell`, `spellcost`, `reqlevel`) VALUES (10, 34032, 8000, 30);
+
+            -- Rank 2
+            -- Aura (MP5)
+            REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `dispel`, `attributes`, `attributesEx`, `castingTimeIndex`, `procFlags`, `procChance`, `procCharges`, `baseLevel`, `spellLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effect2`, `effectDieSides1`, `effectDieSides2`, `effectBaseDice1`, `effectBaseDice2`, `effectBasePoints1`, `effectBasePoints2`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectApplyAuraName1`, `effectApplyAuraName2`, `effectAmplitude2`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34129, 5302, 3, 1, 327680, 1024, 1, 139944, 100, 3, 30, 30, 6, 1, -1, -1, 6, 6, 1, 1, 1, 1, 12, 24, 0, -1, -1, 1, 1, 42, 24, 5000, 34130, 722, 143, 'Water Shield', 2031678, 'Rank 2', 2031678, 'The caster is surrounded by $n balls of water, granting $s2 mana per 5 sec..  When a spell, melee or ranged attack hits the caster, $34130s1 mana is restored to the caster.  This expends one water ball.  Only one ball will fire every few seconds.  Lasts $d.', 2031678, 'Restores $s2 mana per 5 sec. Attacks and spells used against you restore $34130s1 mana.', 2031678, 133, 1500, 11, 0, 1, 1, -1, 1, 1, 1);
+
+            -- Proc when hit (MP Restore)
+            REPLACE `mangos`.`spell_template` (`entry`, `build`, `category`, `attributes`, `castingTimeIndex`, `procChance`, `spellLevel`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34130, 4222, 4, 671088640, 1, 101, 35, 1, -1, -1, 30, 1, 1, 33, 0, -1, -1, 1, 0, 1, 'Restore Mana', 983070, 7274508, 'Restores $s1 mana.', 7274526, 983052, 11, 549755813888, 1, -1, 1, 1, 1);
+
+            -- Learn spell(for trainer):
+            REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `targets`, `castingTimeIndex`, `procChance`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `activeIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) 
+            VALUES (34131, 4222, 1, 262400, 256, 1, 101, 6, -1, -1, 36, 1, 1, -1, 0, -1, -1, 34129, 107, 143, 0, 'Water Shield', 7274526, 'Rank 2', 7274526, 7274508, 983052, -1, 1, 1, 1);
+
+            -- Skill Line Ability
+            REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`, `superseded_by_spell`) VALUES (15159, 5875, 374, 34129, 64, 1, 0);
+            
+            -- Trainer
+            REPLACE `mangos`.`npc_trainer_template` (`entry`, `spell`, `spellcost`, `reqlevel`) VALUES (10, 34131, 20000, 40);
+
+            -- Rank 3
+            -- Aura (MP5)
+            REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `dispel`, `attributes`, `attributesEx`, `castingTimeIndex`, `procFlags`, `procChance`, `procCharges`, `baseLevel`, `spellLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effect2`, `effectDieSides1`, `effectDieSides2`, `effectBaseDice1`, `effectBaseDice2`, `effectBasePoints1`, `effectBasePoints2`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectApplyAuraName1`, `effectApplyAuraName2`, `effectAmplitude2`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34132, 5302, 3, 1, 327680, 1024, 1, 139944, 100, 3, 30, 30, 6, 1, -1, -1, 6, 6, 1, 1, 1, 1, 12, 29, 0, -1, -1, 1, 1, 42, 24, 5000, 34133, 722, 143, 'Water Shield', 2031678, 'Rank 3', 2031678, 'The caster is surrounded by $n balls of water, granting $s2 mana per 5 sec..  When a spell, melee or ranged attack hits the caster, $34133s1 mana is restored to the caster.  This expends one water ball.  Only one ball will fire every few seconds.  Lasts $d.', 2031678, 'Restores $s2 mana per 5 sec. Attacks and spells used against you restore $34133s1 mana.', 2031678, 133, 1500, 11, 0, 1, 1, -1, 1, 1, 1);
+
+            -- Proc when hit (MP Restore)
+            REPLACE `mangos`.`spell_template` (`entry`, `build`, `category`, `attributes`, `castingTimeIndex`, `procChance`, `spellLevel`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34133, 4222, 4, 671088640, 1, 101, 35, 1, -1, -1, 30, 1, 1, 43, 0, -1, -1, 1, 0, 1, 'Restore Mana', 983070, 7274508, 'Restores $s1 mana.', 7274526, 983052, 11, 549755813888, 1, -1, 1, 1, 1);
+
+            -- Learn spell(for trainer):
+            REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `targets`, `castingTimeIndex`, `procChance`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `activeIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) 
+            VALUES (34134, 4222, 1, 262400, 256, 1, 101, 6, -1, -1, 36, 1, 1, -1, 0, -1, -1, 34132, 107, 143, 0, 'Water Shield', 7274526, 'Rank 3', 7274526, 7274508, 983052, -1, 1, 1, 1);
+
+            -- Skill Line Ability
+            REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`, `superseded_by_spell`) VALUES (15160, 5875, 374, 34132, 64, 1, 0);
+            
+            -- Trainer
+            REPLACE `mangos`.`npc_trainer_template` (`entry`, `spell`, `spellcost`, `reqlevel`) VALUES (10, 34134, 28000, 50);
+
+            -- Rank 4
+            -- TODO: Drop / vendor recipe
+            -- Aura (MP5)
+            REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `dispel`, `attributes`, `attributesEx`, `castingTimeIndex`, `procFlags`, `procChance`, `procCharges`, `baseLevel`, `spellLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effect2`, `effectDieSides1`, `effectDieSides2`, `effectBaseDice1`, `effectBaseDice2`, `effectBasePoints1`, `effectBasePoints2`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectApplyAuraName1`, `effectApplyAuraName2`, `effectAmplitude2`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34135, 5302, 3, 1, 327680, 1024, 1, 139944, 100, 3, 30, 30, 6, 1, -1, -1, 6, 6, 1, 1, 1, 1, 12, 32, 0, -1, -1, 1, 1, 42, 24, 5000, 34136, 722, 143, 'Water Shield', 2031678, 'Rank 4', 2031678, 'The caster is surrounded by $n balls of water, granting $s2 mana per 5 sec..  When a spell, melee or ranged attack hits the caster, $34136s1 mana is restored to the caster.  This expends one water ball.  Only one ball will fire every few seconds.  Lasts $d.', 2031678, 'Restores $s2 mana per 5 sec. Attacks and spells used against you restore $34136s1 mana.', 2031678, 133, 1500, 11, 0, 1, 1, -1, 1, 1, 1);
+
+            -- Proc when hit (MP Restore)
+            REPLACE `mangos`.`spell_template` (`entry`, `build`, `category`, `attributes`, `castingTimeIndex`, `procChance`, `spellLevel`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34136, 4222, 4, 671088640, 1, 101, 35, 1, -1, -1, 30, 1, 1, 53, 0, -1, -1, 1, 0, 1, 'Restore Mana', 983070, 7274508, 'Restores $s1 mana.', 7274526, 983052, 11, 549755813888, 1, -1, 1, 1, 1);
+
+            -- Skill Line Ability
+            REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`, `superseded_by_spell`) VALUES (15161, 5875, 374, 34135, 64, 1, 0);
+
+            -- Spell Chain
+            REPLACE `mangos`.`spell_chain` (`spell_id`, `prev_spell`, `first_spell`, `rank`) VALUES (34030, 0,     34030, 1);
+            REPLACE `mangos`.`spell_chain` (`spell_id`, `prev_spell`, `first_spell`, `rank`) VALUES (34129, 34030, 34030, 2);
+            REPLACE `mangos`.`spell_chain` (`spell_id`, `prev_spell`, `first_spell`, `rank`) VALUES (34132, 34129, 34030, 3);
+            REPLACE `mangos`.`spell_chain` (`spell_id`, `prev_spell`, `first_spell`, `rank`) VALUES (34135, 34132, 34030, 4);
+
+        -- Earth Shield
+            -- TODO: Earth shield to work on resto talents that effect heals
+            -- TODO: Lightning / Water / Earth shield should overwrite eachother
+            -- TODO: Enhanced Shields should work on the proc, currenly only works on proc if procs on SELF...
+            -- Rank 1
+            -- Aura (+Pushback resistance)
+            REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `dispel`, `attributes`, `attributesEx`, `castingTimeIndex`, `procFlags`, `procChance`, `procCharges`, `baseLevel`, `spellLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effect2`, `effectDieSides1`, `effectDieSides2`, `effectBaseDice1`, `effectBaseDice2`, `effectBasePoints1`, `effectBasePoints2`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectApplyAuraName1`, `effectApplyAuraName2`, `effectAmplitude2`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34137, 5302, 3, 1, 327680, 1024, 1, 139944, 100, 6, 40, 40, 6, 5, -1, -1, 6, 6, 1, 1, 1, 1, 12, 29, 0, -1, -1, 21, 21, 42, 149, 5000, 34138, 6662, 66, 'Earth Shield', 2031678, 'Rank 1', 2031678, 'Protects the target with an earthen shield, giving a $s2% chance of ignoring spell interruption when damaged and causing attacks to heal the shielded target for $34138s1.  This effect can only occur once every few seconds.  6 charges.  Lasts 10 min.  Earth Shield can only be placed on one target at a time and only one Elemental Shield can be active on a target at a time.', 2031678, '$s2% chance to ignore spell interruption when damaged and attacks heal the shielded target for $34138s1.', 2031678, 133, 1500, 11, 0, 1, 1, -1, 1, 1, 1);
+
+            UPDATE `mangos`.`spell_template` SET `manaCost`=300 WHERE  `entry`=34137;
+
+            -- Spell Proc Event (3s ICD)
+            REPLACE `mangos`.`spell_proc_event` (`entry`, `Cooldown`) VALUES (34137, 3000);
+
+            -- Proc when hit (HP Restore)
+            REPLACE `mangos`.`spell_template` (`entry`, `build`, `category`, `attributes`, `castingTimeIndex`, `interruptFlags`, `procChance`, `spellLevel`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectMultipleValue1`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34138, 4222, 4, 671088640, 1, 8, 101, 25, 1, -1, 10, 1, 1, 149, 0, -1, -1, 1, 1, 0, 1, 50, 'Restore Health', 983070, 7274508, 'Restores $s1 health.', 7274526, 983052, 11, 2199023255552, 1, -1, 1, 1, 1);
+
+            -- Skill Line Ability
+            REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`, `superseded_by_spell`) VALUES (15162, 5875, 374, 34137, 64, 1, 0);
+
+            -- Rank 2
+            -- Aura (+Pushback resistance)
+            REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `dispel`, `attributes`, `attributesEx`, `castingTimeIndex`, `procFlags`, `procChance`, `procCharges`, `baseLevel`, `spellLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effect2`, `effectDieSides1`, `effectDieSides2`, `effectBaseDice1`, `effectBaseDice2`, `effectBasePoints1`, `effectBasePoints2`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectApplyAuraName1`, `effectApplyAuraName2`, `effectAmplitude2`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34139, 5302, 3, 1, 327680, 1024, 1, 139944, 100, 6, 40, 40, 6, 5, -1, -1, 6, 6, 1, 1, 1, 1, 12, 29, 0, -1, -1, 21, 21, 42, 149, 5000, 34140, 6662, 66, 'Earth Shield', 2031678, 'Rank 2', 2031678, 'Protects the target with an earthen shield, giving a $s2% chance of ignoring spell interruption when damaged and causing attacks to heal the shielded target for $34140s1.  This effect can only occur once every few seconds.  6 charges.  Lasts 10 min.  Earth Shield can only be placed on one target at a time and only one Elemental Shield can be active on a target at a time.', 2031678, '$s2% chance to ignore spell interruption when damaged and attacks heal the shielded target for $34140s1.', 2031678, 133, 1500, 11, 0, 1, 1, -1, 1, 1, 1);
+
+            UPDATE `mangos`.`spell_template` SET `manaCost`=375 WHERE  `entry`=34139;
+
+            -- Spell Proc Event (3s ICD)
+            REPLACE `mangos`.`spell_proc_event` (`entry`, `Cooldown`) VALUES (34139, 3000);
+
+            -- Proc when hit (HP Restore)
+            REPLACE `mangos`.`spell_template` (`entry`, `build`, `category`, `attributes`, `castingTimeIndex`, `interruptFlags`, `procChance`, `spellLevel`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectMultipleValue1`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34140, 4222, 4, 671088640, 1, 8, 101, 25, 1, -1, 10, 1, 1, 204, 0, -1, -1, 1, 1, 0, 1, 50, 'Restore Health', 983070, 7274508, 'Restores $s1 health.', 7274526, 983052, 11, 2199023255552, 1, -1, 1, 1, 1);
+
+            -- Skill Line Ability
+            REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`, `superseded_by_spell`) VALUES (15163, 5875, 374, 34139, 64, 1, 0);
+
+            -- Learn Spell (for trainer)
+            REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `targets`, `castingTimeIndex`, `procChance`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `activeIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) 
+            VALUES (34141, 4222, 1, 262400, 256, 1, 101, 6, -1, -1, 36, 1, 1, -1, 0, -1, -1, 34139, 107, 66, 0, 'Earth Shield', 7274526, 'Rank 2', 7274526, 7274508, 983052, -1, 1, 1, 1);
+            
+            -- Trainer
+            REPLACE `mangos`.`npc_trainer_template` (`entry`, `spell`, `spellcost`, `reqlevel`) VALUES (10, 34141, 54000, 60);
+
+            -- Spell Chain
+            REPLACE `mangos`.`spell_chain` (`spell_id`, `prev_spell`, `first_spell`, `rank`) VALUES (34137, 0,     34137, 1);
+            REPLACE `mangos`.`spell_chain` (`spell_id`, `prev_spell`, `first_spell`, `rank`) VALUES (34139, 34137, 34137, 2);
 
         -- Primal Strike
             -- Spell

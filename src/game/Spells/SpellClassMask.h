@@ -375,6 +375,7 @@ enum ClassFlag
     CF_SHAMAN_FROSTBRAND_STRIKE             = 38,   // CM1 00000011?
     CF_SHAMAN_WATER_SHIELD                  = 39,   // CM1 00000012?
     CF_SHAMAN_EARTH_STRIKE                  = 40,   // CM1 00000013?
+    CF_SHAMAN_EARTH_SHIELD                  = 41,   // CM1 00000013?
 };
 
 #endif // _SPELL_CLASS_MASK_H
