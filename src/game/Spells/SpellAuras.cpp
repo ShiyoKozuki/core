@@ -2327,7 +2327,7 @@ std::pair<unsigned int, float> GetShapeshiftDisplayInfo(ShapeshiftForm form, Uni
         break;
     }
     case FORM_GHOSTWOLF:
-        display_id = 4613;
+        //display_id = 4613;
         mod = 0.80f;
         break;
     case FORM_MOONKIN:
