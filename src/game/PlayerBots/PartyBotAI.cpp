@@ -1921,28 +1921,6 @@ void PartyBotAI::UpdateInCombatAI_Shaman()
                     return;
             }
 
-            if (m_spells.shaman.pFrostShock &&
-                pVictim->IsMoving() &&
-                CanTryToCastSpell(pVictim, m_spells.shaman.pFrostShock))
-            {
-                if (DoCastSpell(pVictim, m_spells.shaman.pFrostShock) == SPELL_CAST_OK)
-                    return;
-            }
-
-            if (m_spells.shaman.pStormstrike &&
-                CanTryToCastSpell(pVictim, m_spells.shaman.pStormstrike))
-            {
-                if (DoCastSpell(pVictim, m_spells.shaman.pStormstrike) == SPELL_CAST_OK)
-                    return;
-            }
-
-            if (m_spells.shaman.pChainLightning &&
-                CanTryToCastSpell(pVictim, m_spells.shaman.pChainLightning))
-            {
-                if (DoCastSpell(pVictim, m_spells.shaman.pChainLightning) == SPELL_CAST_OK)
-                    return;
-            }
-
             if (m_spells.shaman.pPurge &&
                 IsValidDispelTarget(pVictim, m_spells.shaman.pPurge) &&
                 CanTryToCastSpell(pVictim, m_spells.shaman.pPurge))
@@ -1958,8 +1936,23 @@ void PartyBotAI::UpdateInCombatAI_Shaman()
                     return;
             }
 
+            if (m_spells.shaman.pStormstrike &&
+                CanTryToCastSpell(pVictim, m_spells.shaman.pStormstrike))
+            {
+                if (DoCastSpell(pVictim, m_spells.shaman.pStormstrike) == SPELL_CAST_OK)
+                    return;
+            }
+
+            if (m_spells.shaman.pChainLightning &&
+                 GetRole() == ROLE_RANGE_DPS &&
+                CanTryToCastSpell(pVictim, m_spells.shaman.pChainLightning))
+            {
+                if (DoCastSpell(pVictim, m_spells.shaman.pChainLightning) == SPELL_CAST_OK)
+                    return;
+            }
+
             if (m_spells.shaman.pLightningBolt &&
-               (GetRole() == ROLE_RANGE_DPS || !me->CanReachWithMeleeAutoAttack(pVictim)) &&
+               GetRole() == ROLE_RANGE_DPS &&
                 CanTryToCastSpell(pVictim, m_spells.shaman.pLightningBolt))
             {
                 if (DoCastSpell(pVictim, m_spells.shaman.pLightningBolt) == SPELL_CAST_OK)
@@ -2288,15 +2281,6 @@ void PartyBotAI::UpdateInCombatAI_Mage()
                 return;
         }
 
-        if (m_spells.mage.pPyroblast &&
-           ((m_spells.mage.pPresenceOfMind && me->HasAura(m_spells.mage.pPresenceOfMind->Id)) ||
-            (!pVictim->IsInCombat() && (pVictim->GetMaxHealth() > me->GetMaxHealth()) && (me->GetDistance(pVictim) > 30.0f))) &&
-            CanTryToCastSpell(pVictim, m_spells.mage.pPyroblast))
-        {
-            if (DoCastSpell(pVictim, m_spells.mage.pPyroblast) == SPELL_CAST_OK)
-                return;
-        }
-
         if (m_spells.mage.pIceBlock &&
            (me->GetHealthPercent() < 20.0f) &&
             CanTryToCastSpell(me, m_spells.mage.pIceBlock))
@@ -2420,7 +2404,14 @@ void PartyBotAI::UpdateInCombatAI_Mage()
         {
             if (DoCastSpell(me, m_spells.mage.pPresenceOfMind) == SPELL_CAST_OK)
                 return;
-        } 
+        }
+
+        if (m_spells.mage.pPyroblast &&
+            CanTryToCastSpell(pVictim, m_spells.mage.pPyroblast))
+        {
+            if (DoCastSpell(pVictim, m_spells.mage.pPyroblast) == SPELL_CAST_OK)
+                return;
+        }
 
         if (m_spells.mage.pFrostbolt &&
             CanTryToCastSpell(pVictim, m_spells.mage.pFrostbolt))

@@ -166,6 +166,7 @@ void CombatBotBaseAI::PopulateSpellData()
     SpellEntry const* pFrostbrandWeapon = nullptr;
     SpellEntry const* pRockbiterWeapon = nullptr;
     SpellEntry const* pWindfuryWeapon = nullptr;
+    SpellEntry const* pFlametongueWeapon = nullptr;
 
     // Mage Polymorph
     SpellEntry const* pPolymorphSheep = nullptr;
@@ -469,6 +470,11 @@ void CombatBotBaseAI::PopulateSpellData()
                 {
                     if (IsHigherRankSpell(pFrostbrandWeapon))
                         pFrostbrandWeapon = pSpellEntry;
+                }
+                else if (pSpellEntry->SpellName[0].find("Flametongue Weapon") != std::string::npos)
+                {
+                    if (IsHigherRankSpell(pFlametongueWeapon))
+                        pFlametongueWeapon = pSpellEntry;
                 }
                 else if (pSpellEntry->SpellName[0].find("Rockbiter Weapon") != std::string::npos)
                 {
@@ -1886,8 +1892,8 @@ void CombatBotBaseAI::PopulateSpellData()
             //    airTotems.push_back(pGraceOfAirTotem);
             //if (pNatureResistanceTotem)
             //    airTotems.push_back(pNatureResistanceTotem);
-            //if (pWindfuryTotem)
-            //    airTotems.push_back(pWindfuryTotem);
+            if (pWindfuryTotem)
+                airTotems.push_back(pWindfuryTotem);
             //if (pWindwallTotem)
             //    airTotems.push_back(pWindwallTotem);
             //if (pTranquilAirTotem)
@@ -1898,12 +1904,12 @@ void CombatBotBaseAI::PopulateSpellData()
                 m_spells.shaman.pAirTotem = SelectRandomContainerElement(airTotems);
 
             std::vector<SpellEntry const*> earthTotems;
-            if (pEarthbindTotem)
-                earthTotems.push_back(pEarthbindTotem);
+            //if (pEarthbindTotem)
+            //    earthTotems.push_back(pEarthbindTotem);
             //if (pStoneclawtotem)
             //    earthTotems.push_back(pStoneclawtotem);
-            //if (pStoneskinTotem)
-            //    earthTotems.push_back(pStoneskinTotem);
+            if (pStoneskinTotem)
+                earthTotems.push_back(pStoneskinTotem);
             //if (pStrengthOfEarthTotem)
             //    earthTotems.push_back(pStrengthOfEarthTotem);
             if (pTremorTotem)
@@ -1912,10 +1918,10 @@ void CombatBotBaseAI::PopulateSpellData()
                 m_spells.shaman.pEarthTotem = SelectRandomContainerElement(earthTotems);
 
             std::vector<SpellEntry const*> fireTotems;
-            if (pFireNovaTotem)
-                fireTotems.push_back(pFireNovaTotem);
-            if (pMagmaTotem)
-                fireTotems.push_back(pMagmaTotem);
+            //if (pFireNovaTotem)
+            //    fireTotems.push_back(pFireNovaTotem);
+            //if (pMagmaTotem)
+            //    fireTotems.push_back(pMagmaTotem);
             if (pSearingTotem)
                 fireTotems.push_back(pSearingTotem);
             //if (pFlametongueTotem)
@@ -1928,12 +1934,12 @@ void CombatBotBaseAI::PopulateSpellData()
             std::vector<SpellEntry const*> waterTotems;
             //if (pFireResistanceTotem)
             //    waterTotems.push_back(pFireResistanceTotem);
-            //if (pDiseaseCleansingTotem)
-            //    waterTotems.push_back(pDiseaseCleansingTotem);
-            //if (pHealingStreamTotem)
-            //    waterTotems.push_back(pHealingStreamTotem);
-            //if (pManaSpringTotem)
-            //    waterTotems.push_back(pManaSpringTotem);
+            if (pDiseaseCleansingTotem)
+                waterTotems.push_back(pDiseaseCleansingTotem);
+            if (pHealingStreamTotem)
+                waterTotems.push_back(pHealingStreamTotem);
+            if (pManaSpringTotem)
+                waterTotems.push_back(pManaSpringTotem);
             if (pPoisonCleansingTotem)
                 waterTotems.push_back(pPoisonCleansingTotem);
             if (!waterTotems.empty())
@@ -1945,11 +1951,13 @@ void CombatBotBaseAI::PopulateSpellData()
             {
                 std::vector<SpellEntry const*> weaponBuffs;
                 if (pWindfuryWeapon)
-                    weaponBuffs.push_back(pWindfuryWeapon);
-                if (pRockbiterWeapon)
-                    weaponBuffs.push_back(pRockbiterWeapon);
-                if (pFrostbrandWeapon)
-                    weaponBuffs.push_back(pFrostbrandWeapon);
+                    m_spells.shaman.pWeaponBuff = pWindfuryWeapon;
+                if (pFlametongueWeapon)
+                    m_spells.shaman.pWeaponBuff = pFlametongueWeapon;
+                //if (pRockbiterWeapon)
+                //    weaponBuffs.push_back(pRockbiterWeapon);
+                //if (pFrostbrandWeapon)
+                //    weaponBuffs.push_back(pFrostbrandWeapon);
                 if (!weaponBuffs.empty())
                     m_spells.shaman.pWeaponBuff = SelectRandomContainerElement(weaponBuffs);
             }
