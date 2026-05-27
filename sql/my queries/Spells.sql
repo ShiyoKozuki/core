@@ -3972,13 +3972,17 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
 
 -- Alchemy Potions
     -- Elixir of Wisdom (Now grants MP5)
-    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=14, `effectApplyAuraName1`=24, `effectAmplitude1`=5000, `effectMiscValue1`=0, `name`='Lesser Intellect', `description`='Restores $s1 mana every $t1 seconds for $d.', `auraDescription`='Restores $s1 mana every $t1 seconds.' WHERE  `entry`=3166 AND `build`=4297;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=14, `effectApplyAuraName1`=24, `effectAmplitude1`=5000, `effectMiscValue1`=0, `name`='Lesser Intellect', `description`='Restores $s1 mana every $t1 seconds for $d.', `auraDescription`='Restores $s1 mana every $t1 seconds.' WHERE  `entry`=3166;
     
     -- Elixir of Greater Intellect (Now grants MP5)
-    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=29, `effectApplyAuraName1`=24, `effectAmplitude1`=5000, `effectMiscValue1`=0, `name`='Greater Intellect', `description`='Restores $s1 mana every $t1 seconds for $d.', `auraDescription`='Restores $s1 mana every $t1 seconds.' WHERE  `entry`=11396 AND `build`=4297;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=29, `effectApplyAuraName1`=24, `effectAmplitude1`=5000, `effectMiscValue1`=0, `name`='Greater Intellect', `description`='Restores $s1 mana every $t1 seconds for $d.', `auraDescription`='Restores $s1 mana every $t1 seconds.' WHERE  `entry`=11396;
 
-    -- Elixir of Sages (13447) - Replace int with 5% mana continues during combat
-    -- Mageblood Potion (20007)
+    -- Elixir of Sages (+55 Healing)
+    UPDATE `mangos`.`spell_template` SET `effect2`=0, `effectBasePoints1`=54, `effectBasePoints2`=0, `effectBonusCoefficient2`=-1, `effectImplicitTargetA2`=0, `effectApplyAuraName1`=135, `effectApplyAuraName2`=0, `effectMiscValue1`=126, `effectMiscValue2`=0, `description`='Increases healing done by spells and effects by up to $s1 for $d.', `auraDescription`='Increases healing done by spells and effects by up to $s1.' WHERE  `entry`=17535;
+
+    -- Mageblood Potion (12 -> 24 mp5)
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=23 WHERE  `entry`=24363;
+
     -- Strong Troll's Blood Potion
     -- Mighty Troll's Blood Potion
     UPDATE `mangos`.`spell_template` SET `effect2`=6, `effectDieSides2`=1, `effectBaseDice2`=1, `effectBasePoints1`=23, `effectBasePoints2`=9, `effectBonusCoefficient2`=0, `effectImplicitTargetA2`=1, `effectApplyAuraName2`=116, `description`='Regenerate $s1 health every 5 sec and $s2% of total Health regeneration may continue during combat for $d.', `auraDescription`='Regenerate $s1 health every 5 sec and $s2% of total Health regeneration may continue during combat.' WHERE  `entry`=3223 AND `build`=5464;
@@ -3993,36 +3997,44 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
     -- Elixir of Firepower (10 - > 25 Fire damage)
         UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=24 WHERE  `entry`=7844 AND `build`=5464;
 
-    -- Elixir of Greater Firepower (40 -> 80)
+    -- Elixir of Greater Firepower (40 -> 80 spellpower)
         UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=79 WHERE  `entry`=26276 AND `build`=5464;
 
     -- Elixir of Frost Power (15 - > 25 Frost damage)
         UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=24 WHERE  `entry`=21920 AND `build`=5464;
 
-    -- Elixir of Shadow Power (40 -> 80)
+    -- Elixir of Shadow Power (40 -> 80 shadow damage)
         UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=79 WHERE  `entry`=11474 AND `build`=5464;
 
-    -- Greater Arcane Elixir (35 -> 70)
+    -- Greater Arcane Elixir (35 -> 70 spell power)
         UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=69 WHERE  `entry`=17539 AND `build`=5464;
 
     -- Elixir of Defense (+6% Armor) 3220
-    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=5, `effectApplyAuraName1`=142 WHERE  `entry`=3220;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=5, `effectApplyAuraName1`=142, `description`='Increases armor by $s1% for $d.', `auraDescription`='Armor increased by $s1%.' WHERE  `entry`=3220;
 
     -- Elixir of Greater Defense (+8% Armor) 11349
-    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=7, `effectApplyAuraName1`=142 WHERE  `entry`=11349;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=7, `effectApplyAuraName1`=142, `description`='Increases armor by $s1% for $d.', `auraDescription`='Armor increased by $s1%.' WHERE  `entry`=11349;
 
     -- Elixir of Superior Defense (+10% Armor) 11348
-    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=9, `effectApplyAuraName1`=142 WHERE  `entry`=11348;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=9, `effectApplyAuraName1`=142, `description`='Increases armor by $s1% for $d.', `auraDescription`='Armor increased by $s1%.' WHERE  `entry`=11348;
 
-    -- Elixir of Lesser Agility (+4% Melee AND Ranged Attack Speed) 3160
-    -- Elixir of Agility (+6% Melee AND Ranged Attack Speed) 11328
-    -- Elixir of Greater Agility (+8% Melee AND Ranged Attack Speed) 11334
+    -- Elixir of Lesser Agility (+4% Melee AND Ranged Attack Speed)
+    UPDATE `mangos`.`spell_template` SET `effect2`=6, `effect3`=6, `effectDieSides2`=1, `effectDieSides3`=1, `effectBaseDice2`=1, `effectBaseDice3`=1, `effectBasePoints2`=3, `effectBasePoints3`=3, `effectBonusCoefficient2`=0, `effectBonusCoefficient3`=0, `effectImplicitTargetA2`=1, `effectImplicitTargetA3`=1, `effectApplyAuraName2`=140, `effectApplyAuraName3`=9, `description`='Increases Agility by $s1 as well as melee and ranged attack speed by $s2% for $d.', `auraDescription`='Agility increased by $s1, melee and ranged attack speed increased by $s2%.' WHERE  `entry`=3160;
 
-    -- Elixir of Ogre's Stength (+5% Attack Power) 3188
+    -- Elixir of Agility (+6% melee and ranged Attack Speed)
+    UPDATE `mangos`.`spell_template` SET `effect2`=6, `effect3`=6, `effectDieSides2`=1, `effectDieSides3`=1, `effectBaseDice2`=1, `effectBaseDice3`=1, `effectBasePoints2`=5, `effectBasePoints3`=5, `effectBonusCoefficient2`=0, `effectBonusCoefficient3`=0, `effectImplicitTargetA2`=1, `effectImplicitTargetA3`=1, `effectApplyAuraName2`=140, `effectApplyAuraName3`=9, `description`='Increases Agility by $s1 as well as melee and ranged attack speed by $s2% for $d.', `auraDescription`='Agility increased by $s1, melee and ranged attack speed increased by $s2%.' WHERE  `entry`=11328;
+
+    -- Elixir of Greater Agility (+8% melee and ranged Attack Speed)
+    UPDATE `mangos`.`spell_template` SET `effect2`=6, `effect3`=6, `effectDieSides2`=1, `effectDieSides3`=1, `effectBaseDice2`=1, `effectBaseDice3`=1, `effectBasePoints2`=7, `effectBasePoints3`=7, `effectBonusCoefficient2`=0, `effectBonusCoefficient3`=0, `effectImplicitTargetA2`=1, `effectImplicitTargetA3`=1, `effectApplyAuraName2`=140, `effectApplyAuraName3`=9, `description`='Increases Agility by $s1 as well as melee and ranged attack speed by $s2% for $d.', `auraDescription`='Agility increased by $s1, melee and ranged attack speed increased by $s2%.' WHERE  `entry`=11334;
+
+    -- Elixir of Ogre's Stength (+5% Attack Power) 3164
+    UPDATE `mangos`.`spell_template` SET `effect2`=6, `effect3`=6, `effectDieSides2`=1, `effectDieSides3`=1, `effectBaseDice2`=1, `effectBaseDice3`=1, `effectBasePoints2`=4, `effectBasePoints3`=4, `effectBonusCoefficient2`=0, `effectBonusCoefficient3`=0, `effectImplicitTargetA2`=1, `effectImplicitTargetA3`=1, `effectApplyAuraName2`=166, `effectApplyAuraName3`=167, `description`='Increases Strength by $s1 as well as melee and ranged attack speed by $s2% for $d.', `auraDescription`='Strength increased by $s1, melee and ranged attack power increased by $s2%.' WHERE  `entry`=3164;
+
     -- Elixir of Giants (+7% Attack Power) 11405
-    -- Elixir of Brute Force (+10% Attack) 17537
+    UPDATE `mangos`.`spell_template` SET `effect2`=6, `effect3`=6, `effectDieSides2`=1, `effectDieSides3`=1, `effectBaseDice2`=1, `effectBaseDice3`=1, `effectBasePoints2`=6, `effectBasePoints3`=6, `effectBonusCoefficient2`=0, `effectBonusCoefficient3`=0, `effectImplicitTargetA2`=1, `effectImplicitTargetA3`=1, `effectApplyAuraName2`=166, `effectApplyAuraName3`=167, `description`='Increases Strength by $s1 as well as melee and ranged attack speed by $s2% for $d.', `auraDescription`='Strength increased by $s1, melee and ranged attack power increased by $s2%.' WHERE  `entry`=11405;
 
-    -- Elixir of Giant Growth (+5% HP +5% Attack Power) 8212
+    -- Elixir of Brute Force (+10% Attack) 17537
+    UPDATE `mangos`.`spell_template` SET `effect2`=6, `effect3`=6, `effectDieSides2`=1, `effectDieSides3`=1, `effectBaseDice2`=1, `effectBaseDice3`=1, `effectBasePoints2`=9, `effectBasePoints3`=9, `effectBonusCoefficient2`=0, `effectBonusCoefficient3`=0, `effectImplicitTargetA2`=1, `effectImplicitTargetA3`=1, `effectApplyAuraName2`=166, `effectApplyAuraName3`=167, `description`='Increases Strength by $s1 as well as melee and ranged attack speed by $s2% for $d.', `auraDescription`='Strength increased by $s1, melee and ranged attack power increased by $s2%.' WHERE  `entry`=17537;
 
 -- Food
     -- Smoked Sagefish (Buffed to 12 MP5)
