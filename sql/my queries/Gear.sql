@@ -1499,9 +1499,9 @@ UPDATE mangos . item_template
 SET quality = 2,
     bonding = 2,
     stat_type1 = 5,
-    stat_value1 = 5,
+    stat_value1 = 2,
     stat_type2 = 6,
-    stat_value2 = 5
+    stat_value2 = 2
 WHERE entry = 4246;
 
 -- Fine Leather Tunic
@@ -1509,35 +1509,35 @@ UPDATE mangos . item_template
 SET quality = 2,
     bonding = 2,
     stat_type1 = 5,
-    stat_value1 = 7,
+    stat_value1 = 3,
     stat_type2 = 6,
-    stat_value2 = 7
+    stat_value2 = 3
 WHERE entry = 4243;
 
 -- Fine Leather Pants
 UPDATE mangos . item_template
 SET stat_type1 = 5,
-    stat_value1 = 7,
+    stat_value1 = 3,
     stat_type2 = 6,
-    stat_value2 = 7
+    stat_value2 = 3
 WHERE entry = 5958;
 
 -- Fine Leather Boots
 UPDATE mangos . item_template
 SET stat_type1 = 5,
-    stat_value1 = 5,
+    stat_value1 = 3,
     stat_type2 = 6,
-    stat_value2 = 5
+    stat_value2 = 3
 WHERE entry = 2312;
 
--- Fine Leather Boots
+-- Fine Leather Gloves
 UPDATE mangos . item_template
 SET quality = 2,
     bonding = 2,
     stat_type1 = 5,
-    stat_value1 = 5,
+    stat_value1 = 3,
     stat_type2 = 6,
-    stat_value2 = 5
+    stat_value2 = 3
 WHERE entry = 2307;
 
 -- Fine Leather Cloak
@@ -14981,6 +14981,7 @@ WHERE entry IN(12717, 18418, 22388, 14512, 14513, 14514, 12834, 12825, 18260, 20
 -- SUPER skimpy sexy Mail: Burnished Tunic (Display: 25769), Glimmering Mail Breastplate
 -- Skimpy plate armor: Vanguard Breastplate (display: 26846), Lord's Breastplate
 -- Skimpy Leather: Pridelord Pants(display: 27651)
+-- Super cute and sexy leather: Ceremonial Leather Loincloth + Bandit Boots
 -- Cool weapons: 
     -- 1h Swords
         -- Mercenary Blade
