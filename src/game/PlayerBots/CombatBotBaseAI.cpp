@@ -3050,8 +3050,15 @@ bool CombatBotBaseAI::CanTryToCastSpell(Unit const* pTarget, SpellEntry const* p
 
     if (pSpellEntry->IsSpellAppliesAura() && pTarget->HasAura(pSpellEntry->Id))
     {
+        // Exceptions (Fireball, sunder, etc)
         if (m_spells.warrior.pSunderArmor &&
             pSpellEntry == m_spells.warrior.pSunderArmor)
+        {
+            return true;
+        }
+
+        if (m_spells.mage.pFireball &&
+            pSpellEntry == m_spells.mage.pFireball)
         {
             return true;
         }
