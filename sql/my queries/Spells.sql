@@ -1,5 +1,6 @@
--- 34142 NEXT SPELL
+-- 34143 NEXT SPELL
 -- 15164 NEXT SKILL_LINE_ABILITY
+-- NEXT categoryRecoveryTime 10001
 
 -- skill_line_ability class_mask uses enum CLASSES
 
@@ -18,9 +19,9 @@
 -- effectItemType -> (spellFamilyFlags? It's the enum I don't know why this was referenced to me) is enum ClassFlag in SpellClassMask.h
 -- spellfamiylflag is enum ClassFlag
 
--- To Trigger procs on target, use effect 64 (SPELL_EFFECT_TRIGGER_SPELL = 64), effectTriggerSpell1 (for the spell triggered) and effectImplicitTargetA1 6(for target unit)
+-- To Trigger procs on cast, use effect 64 (SPELL_EFFECT_TRIGGER_SPELL = 64), effectTriggerSpell1 (for the spell triggered) and effectImplicitTargetA1 6(for target unit)
 
--- To Trigger procs on SELF, use effect 6(SPELL_EFFECT_APPLY_AURA), effectImplicitTargetA1 1, effectApplyAuraName 42(SPELL_AURA_PROC_TRIGGER_SPELL)
+-- To Trigger procs as an aura, use effect 6(SPELL_EFFECT_APPLY_AURA), effectImplicitTargetA1 1, effectApplyAuraName 42(SPELL_AURA_PROC_TRIGGER_SPELL)
 
 -- Look at https://www.wowhead.com/classic/spell=12579/winters-chill to see how to add a "increased crit chance to target" mod on stuff. Like improved SoTCrusader (SPELL_AURA_MOD_ATTACKER_SPELL_CRIT_CHANCE = 179)
 
@@ -1416,38 +1417,42 @@ UPDATE `mangos`.`spell_template` SET `manaCost`=185 WHERE  `entry`=6060 AND `bui
 UPDATE `mangos`.`spell_template` SET `manaCost`=230 WHERE  `entry`=10933 AND `build`=5302;
 UPDATE `mangos`.`spell_template` SET `manaCost`=280 WHERE  `entry`=10934 AND `build`=5302;
 
--- Holy Fire (Restores 1% of Max MP, 0 MP cost)
-UPDATE `mangos`.`spell_template` SET `manaCost`=0 WHERE  `entry`=14914;
-UPDATE `mangos`.`spell_template` SET `effect3`=30, `effectDieSides3`=1, `effectBaseDice3`=1, `effectBasePoints3`=99, `effectBonusCoefficient3`=1, `effectImplicitTargetA3`=1, 
-`description`='Consumes the enemy in holy flames that cause $s1 Holy damage and an additional $o2 Holy damage over $d and restores $s3 mana.' WHERE  `entry`=14914;
+-- Holy Fire (Instant cast, Restores 1% of Max MP, 0 MP cost, 10s cooldown)
+    UPDATE `mangos`.`spell_template` SET `manaCost`=0 WHERE  `entry`=14914;
+    UPDATE `mangos`.`spell_template` SET `effect3`=64, `category`=10001, `castingTimeIndex`=0, `categoryRecoveryTime`=15000, `effectDieSides3`=1, `effectBaseDice3`=1, `effectBasePoints3`=0, `effectBonusCoefficient3`=1, `effectImplicitTargetA3`=6, `effectTriggerSpell3`=34142,
+    `description`='Consumes the enemy in holy flames that cause $s1 Holy damage and an additional $o2 Holy damage over $d and restores $34142s1% mana.' WHERE  `entry`=14914;
 
-UPDATE `mangos`.`spell_template` SET `manaCost`=0 WHERE  `entry`=15262;
-UPDATE `mangos`.`spell_template` SET `effect3`=30, `effectDieSides3`=1, `effectBaseDice3`=1, `effectBasePoints3`=114, `effectBonusCoefficient3`=1, `effectImplicitTargetA3`=1, 
-`description`='Consumes the enemy in holy flames that cause $s1 Holy damage and an additional $o2 Holy damage over $d and restores $s3 mana.' WHERE  `entry`=15262;
+    UPDATE `mangos`.`spell_template` SET `manaCost`=0 WHERE  `entry`=15262;
+    UPDATE `mangos`.`spell_template` SET `effect3`=64, `category`=10001, `castingTimeIndex`=0, `categoryRecoveryTime`=15000, `effectDieSides3`=1, `effectBaseDice3`=1, `effectBasePoints3`=0, `effectBonusCoefficient3`=1, `effectImplicitTargetA3`=6, `effectTriggerSpell3`=34142,
+    `description`='Consumes the enemy in holy flames that cause $s1 Holy damage and an additional $o2 Holy damage over $d and restores $34142s1% mana.' WHERE  `entry`=15262;
 
-UPDATE `mangos`.`spell_template` SET `manaCost`=0 WHERE  `entry`=15263;
-UPDATE `mangos`.`spell_template` SET `effect3`=30, `effectDieSides3`=1, `effectBaseDice3`=1, `effectBasePoints3`=129, `effectBonusCoefficient3`=1, `effectImplicitTargetA3`=1, 
-`description`='Consumes the enemy in holy flames that cause $s1 Holy damage and an additional $o2 Holy damage over $d and restores $s3 mana.' WHERE  `entry`=15263;
+    UPDATE `mangos`.`spell_template` SET `manaCost`=0 WHERE  `entry`=15263;
+    UPDATE `mangos`.`spell_template` SET `effect3`=64, `category`=10001, `castingTimeIndex`=0, `categoryRecoveryTime`=15000, `effectDieSides3`=1, `effectBaseDice3`=1, `effectBasePoints3`=0, `effectBonusCoefficient3`=1, `effectImplicitTargetA3`=6, `effectTriggerSpell3`=34142,
+    `description`='Consumes the enemy in holy flames that cause $s1 Holy damage and an additional $o2 Holy damage over $d and restores $34142s1% mana.' WHERE  `entry`=15263;
 
-UPDATE `mangos`.`spell_template` SET `manaCost`=0 WHERE  `entry`=15264;
-UPDATE `mangos`.`spell_template` SET `effect3`=30, `effectDieSides3`=1, `effectBaseDice3`=1, `effectBasePoints3`=144, `effectBonusCoefficient3`=1, `effectImplicitTargetA3`=1, 
-`description`='Consumes the enemy in holy flames that cause $s1 Holy damage and an additional $o2 Holy damage over $d and restores $s3 mana.' WHERE  `entry`=15264;
+    UPDATE `mangos`.`spell_template` SET `manaCost`=0 WHERE  `entry`=15264;
+    UPDATE `mangos`.`spell_template` SET `effect3`=64, `category`=10001, `castingTimeIndex`=0, `categoryRecoveryTime`=15000, `effectDieSides3`=1, `effectBaseDice3`=1, `effectBasePoints3`=0, `effectBonusCoefficient3`=1, `effectImplicitTargetA3`=6, `effectTriggerSpell3`=34142,
+    `description`='Consumes the enemy in holy flames that cause $s1 Holy damage and an additional $o2 Holy damage over $d and restores $34142s1% mana.' WHERE  `entry`=15264;
 
-UPDATE `mangos`.`spell_template` SET `manaCost`=0 WHERE  `entry`=15265;
-UPDATE `mangos`.`spell_template` SET `effect3`=30, `effectDieSides3`=1, `effectBaseDice3`=1, `effectBasePoints3`=174, `effectBonusCoefficient3`=1, `effectImplicitTargetA3`=1, 
-`description`='Consumes the enemy in holy flames that cause $s1 Holy damage and an additional $o2 Holy damage over $d and restores $s3 mana.' WHERE  `entry`=15265;
+    UPDATE `mangos`.`spell_template` SET `manaCost`=0 WHERE  `entry`=15265;
+    UPDATE `mangos`.`spell_template` SET `effect3`=64, `category`=10001, `castingTimeIndex`=0, `categoryRecoveryTime`=15000, `effectDieSides3`=1, `effectBaseDice3`=1, `effectBasePoints3`=0, `effectBonusCoefficient3`=1, `effectImplicitTargetA3`=6, `effectTriggerSpell3`=34142,
+    `description`='Consumes the enemy in holy flames that cause $s1 Holy damage and an additional $o2 Holy damage over $d and restores $34142s1% mana.' WHERE  `entry`=15265;
 
-UPDATE `mangos`.`spell_template` SET `manaCost`=0 WHERE  `entry`=15266;
-UPDATE `mangos`.`spell_template` SET `effect3`=30, `effectDieSides3`=1, `effectBaseDice3`=1, `effectBasePoints3`=199, `effectBonusCoefficient3`=1, `effectImplicitTargetA3`=1, 
-`description`='Consumes the enemy in holy flames that cause $s1 Holy damage and an additional $o2 Holy damage over $d and restores $s3 mana.' WHERE  `entry`=15266;
+    UPDATE `mangos`.`spell_template` SET `manaCost`=0 WHERE  `entry`=15266;
+    UPDATE `mangos`.`spell_template` SET `effect3`=64, `category`=10001, `castingTimeIndex`=0, `categoryRecoveryTime`=15000, `effectDieSides3`=1, `effectBaseDice3`=1, `effectBasePoints3`=0, `effectBonusCoefficient3`=1, `effectImplicitTargetA3`=6, `effectTriggerSpell3`=34142,
+    `description`='Consumes the enemy in holy flames that cause $s1 Holy damage and an additional $o2 Holy damage over $d and restores $34142s1% mana.' WHERE  `entry`=15266;
 
-UPDATE `mangos`.`spell_template` SET `manaCost`=0 WHERE  `entry`=15267;
-UPDATE `mangos`.`spell_template` SET `effect3`=30, `effectDieSides3`=1, `effectBaseDice3`=1, `effectBasePoints3`=229, `effectBonusCoefficient3`=1, `effectImplicitTargetA3`=1, 
-`description`='Consumes the enemy in holy flames that cause $s1 Holy damage and an additional $o2 Holy damage over $d and restores $s3 mana.' WHERE  `entry`=15267;
+    UPDATE `mangos`.`spell_template` SET `manaCost`=0 WHERE  `entry`=15267;
+    UPDATE `mangos`.`spell_template` SET `effect3`=64, `category`=10001, `castingTimeIndex`=0, `categoryRecoveryTime`=15000, `effectDieSides3`=1, `effectBaseDice3`=1, `effectBasePoints3`=0, `effectBonusCoefficient3`=1, `effectImplicitTargetA3`=6, `effectTriggerSpell3`=34142, 
+    `description`='Consumes the enemy in holy flames that cause $s1 Holy damage and an additional $o2 Holy damage over $d and restores $34142s1% mana.' WHERE  `entry`=15267;
 
-UPDATE `mangos`.`spell_template` SET `manaCost`=0 WHERE  `entry`=15261;
-UPDATE `mangos`.`spell_template` SET `effect3`=30, `effectDieSides3`=1, `effectBaseDice3`=1, `effectBasePoints3`=254, `effectBonusCoefficient3`=1, `effectImplicitTargetA3`=1, 
-`description`='Consumes the enemy in holy flames that cause $s1 Holy damage and an additional $o2 Holy damage over $d and restores $s3 mana.' WHERE  `entry`=15261;
+    UPDATE `mangos`.`spell_template` SET `manaCost`=0 WHERE  `entry`=15261;
+    UPDATE `mangos`.`spell_template` SET `effect3`=64, `category`=10001, `castingTimeIndex`=0, `categoryRecoveryTime`=15000, `effectDieSides3`=1, `effectBaseDice3`=1, `effectBasePoints3`=0, `effectBonusCoefficient3`=1, `effectImplicitTargetA3`=6, `effectTriggerSpell3`=34142,
+    `description`='Consumes the enemy in holy flames that cause $s1 Holy damage and an additional $o2 Holy damage over $d and restores $34142s1% mana.' WHERE  `entry`=15261;
+
+    -- MP Restore Proc (1%)
+    REPLACE `mangos`.`spell_template` (`entry`, `build`, `category`, `castingTimeIndex`, `procChance`, `baseLevel`, `spellLevel`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `dmgClass`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34142, 4222, 30, 1, 101, 28, 28, 1, -1, -1, 134, 1, 1, 0, -1, -1, 1, 0, 283, 'Replenish Mana', 983070, 'Rank 1', 983070, 'Restores $s1% mana.', 7274526, 983052, 1, -1, 1, 1, 1);
+
 
 -- Stoneclaw Totem
 UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=199 WHERE  `entry`=5730;
@@ -2918,37 +2923,51 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
     REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `attributesEx`, `attributesEx3`, `castingTimeIndex`, `procChance`, `baseLevel`, `spellLevel`, `powerType`, `manaCost`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effect2`, `effectDieSides1`, `effectDieSides2`, `effectBaseDice1`, `effectBaseDice2`, `effectBasePoints1`, `effectBasePoints2`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `customFlags`) 
     VALUES (33395, 4695, 327700, 134217728, 1024, 1, 101, 
     8, 8, 0, 0, 2, 2, 173555, 30, 58, 1, 0, 1, 0, 
-    19, 0, -1, -1, -1, 1, 6, 39, 2038, 50, 'Crusader Strike', 2031678, 'Rank 1', 2031678, 'A melee attack that restores $s1 mana.', 2031678, 2031644, 4, 64, 2, 2, -1, 1, 1, 1, 128);
+    99, 0, -1, -1, -1, 1, 6, 39, 2038, 50, 'Crusader Strike', 2031678, 'Rank 1', 2031678, 'A melee attack that restores $s1 mana.', 2031678, 2031644, 4, 64, 2, 2, -1, 1, 1, 1, 128);
+    
+    UPDATE `mangos`.`spell_template` SET `recoveryTime`=12000 WHERE  `entry`=33395;
 
     REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `attributesEx`, `attributesEx3`, `castingTimeIndex`, `procChance`, `baseLevel`, `spellLevel`, `powerType`, `manaCost`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effect2`, `effectDieSides1`, `effectDieSides2`, `effectBaseDice1`, `effectBaseDice2`, `effectBasePoints1`, `effectBasePoints2`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`,  `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `customFlags`) 
     VALUES (33396, 4695, 327700, 134217728, 1024, 1, 101, 
     16, 16, 0, 0, 2, 2, 173555, 30, 58, 1, 0, 1, 0, 
-    39, 0, -1, -1, -1, 1, 6, 39, 2038, 50, 'Crusader Strike', 2031678, 'Rank 2', 2031678, 'A melee attack that restores $s1 mana.', 2031678, 2031644, 4, 64, 2, 2, -1, 1, 1, 1, 128);
+    139, 0, -1, -1, -1, 1, 6, 39, 2038, 50, 'Crusader Strike', 2031678, 'Rank 2', 2031678, 'A melee attack that restores $s1 mana.', 2031678, 2031644, 4, 64, 2, 2, -1, 1, 1, 1, 128);
+
+     UPDATE `mangos`.`spell_template` SET `recoveryTime`=12000 WHERE  `entry`=33396;
 
     REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `attributesEx`, `attributesEx3`, `castingTimeIndex`, `procChance`, `baseLevel`, `spellLevel`, `powerType`, `manaCost`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effect2`, `effectDieSides1`, `effectDieSides2`, `effectBaseDice1`, `effectBaseDice2`, `effectBasePoints1`, `effectBasePoints2`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`,  `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `customFlags`) 
     VALUES (33397, 4695, 327700, 134217728, 1024, 1, 101, 
     24, 24, 0, 0, 2, 2, 173555, 30, 58, 1, 0, 1, 0,
-    79, 0, -1, -1, -1, 1, 6, 39, 2038, 50, 'Crusader Strike', 2031678, 'Rank 3', 2031678, 'A melee attack that restores $s1 mana.', 2031678, 2031644, 4, 64, 2, 2, -1, 1, 1, 1, 128);
+    179, 0, -1, -1, -1, 1, 6, 39, 2038, 50, 'Crusader Strike', 2031678, 'Rank 3', 2031678, 'A melee attack that restores $s1 mana.', 2031678, 2031644, 4, 64, 2, 2, -1, 1, 1, 1, 128);
+
+     UPDATE `mangos`.`spell_template` SET `recoveryTime`=12000 WHERE  `entry`=33397;
 
     REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `attributesEx`, `attributesEx3`, `castingTimeIndex`, `procChance`, `baseLevel`, `spellLevel`, `powerType`, `manaCost`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effect2`, `effectDieSides1`, `effectDieSides2`, `effectBaseDice1`, `effectBaseDice2`, `effectBasePoints1`, `effectBasePoints2`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`,  `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `customFlags`) 
     VALUES (33398, 4695, 327700, 134217728, 1024, 1, 101, 
     32, 32, 0, 0, 2, 2, 173555, 30, 58, 1, 0, 1, 0,
-    139, 0, -1, -1, -1, 1, 6, 39, 2038, 50, 'Crusader Strike', 2031678, 'Rank 4', 2031678, 'A melee attack that restores $s1 mana.', 2031678, 2031644, 4, 64, 2, 2, -1, 1, 1, 1, 128);
+    199, 0, -1, -1, -1, 1, 6, 39, 2038, 50, 'Crusader Strike', 2031678, 'Rank 4', 2031678, 'A melee attack that restores $s1 mana.', 2031678, 2031644, 4, 64, 2, 2, -1, 1, 1, 1, 128);
+
+     UPDATE `mangos`.`spell_template` SET `recoveryTime`=12000 WHERE  `entry`=33398;
 
     REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `attributesEx`, `attributesEx3`, `castingTimeIndex`, `procChance`, `baseLevel`, `spellLevel`, `powerType`, `manaCost`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effect2`, `effectDieSides1`, `effectDieSides2`, `effectBaseDice1`, `effectBaseDice2`, `effectBasePoints1`, `effectBasePoints2`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`,  `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `customFlags`) 
     VALUES (33399, 4695, 327700, 134217728, 1024, 1, 101, 
     40, 40, 0, 0, 2, 2, 173555, 30, 58, 1, 0, 1, 0,
-    179, 0, -1, -1, -1, 1, 6, 39, 2038, 50, 'Crusader Strike', 2031678, 'Rank 5', 2031678, 'A melee attack that restores $s1 mana.', 2031678, 2031644, 4, 64, 2, 2, -1, 1, 1, 1, 128);
+    249, 0, -1, -1, -1, 1, 6, 39, 2038, 50, 'Crusader Strike', 2031678, 'Rank 5', 2031678, 'A melee attack that restores $s1 mana.', 2031678, 2031644, 4, 64, 2, 2, -1, 1, 1, 1, 128);
+
+     UPDATE `mangos`.`spell_template` SET `recoveryTime`=12000 WHERE  `entry`=33399;
 
     REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `attributesEx`, `attributesEx3`, `castingTimeIndex`, `procChance`, `baseLevel`, `spellLevel`, `powerType`, `manaCost`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effect2`, `effectDieSides1`, `effectDieSides2`, `effectBaseDice1`, `effectBaseDice2`, `effectBasePoints1`, `effectBasePoints2`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`,  `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `customFlags`) 
     VALUES (33400, 4695, 327700, 134217728, 1024, 1, 101, 
     48, 48, 0, 0, 2, 2, 173555, 30, 58, 1, 0, 1, 0,
-    199, 0, -1, -1, -1, 1, 6, 39, 2038, 50, 'Crusader Strike', 2031678, 'Rank 6', 2031678, 'A melee attack that restores $s1 mana.', 2031678, 2031644, 4, 64, 2, 2, -1, 1, 1, 1, 128);
+    299, 0, -1, -1, -1, 1, 6, 39, 2038, 50, 'Crusader Strike', 2031678, 'Rank 6', 2031678, 'A melee attack that restores $s1 mana.', 2031678, 2031644, 4, 64, 2, 2, -1, 1, 1, 1, 128);
+
+     UPDATE `mangos`.`spell_template` SET `recoveryTime`=12000 WHERE  `entry`=33400;
 
     REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `attributesEx`, `attributesEx3`, `castingTimeIndex`, `procChance`, `baseLevel`, `spellLevel`, `powerType`, `manaCost`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effect2`, `effectDieSides1`, `effectDieSides2`, `effectBaseDice1`, `effectBaseDice2`, `effectBasePoints1`, `effectBasePoints2`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`,  `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `customFlags`) 
     VALUES (33401, 4695, 327700, 134217728, 1024, 1, 101, 
     56, 56, 0, 0, 2, 2, 173555, 30, 58, 1, 0, 1, 0,
-    219, 0, -1, -1, -1, 1, 6, 39, 2038, 50, 'Crusader Strike', 2031678, 'Rank 7', 2031678, 'A melee attack that restores $s1 mana.', 2031678, 2031644, 4, 64, 2, 2, -1, 1, 1, 1, 128);
+    319, 0, -1, -1, -1, 1, 6, 39, 2038, 50, 'Crusader Strike', 2031678, 'Rank 7', 2031678, 'A melee attack that restores $s1 mana.', 2031678, 2031644, 4, 64, 2, 2, -1, 1, 1, 1, 128);
+
+     UPDATE `mangos`.`spell_template` SET `recoveryTime`=12000 WHERE  `entry`=33401;
 
     -- Skill line ability:
     REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`, `superseded_by_spell`) VALUES (15032, 5875, 184, 33395, 2, 1, 33396);
