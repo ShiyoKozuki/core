@@ -461,6 +461,11 @@ void CombatBotBaseAI::PopulateSpellData()
                     if (IsHigherRankSpell(m_spells.shaman.pLightningShield))
                         m_spells.shaman.pLightningShield = pSpellEntry;
                 }
+                else if (pSpellEntry->SpellName[0].find("Water Shield") != std::string::npos)
+                {
+                    if (IsHigherRankSpell(m_spells.shaman.pWaterShield))
+                        m_spells.shaman.pWaterShield = pSpellEntry;
+                }
                 else if (pSpellEntry->SpellName[0].find("Ghost Wolf") != std::string::npos)
                 {
                     if (IsHigherRankSpell(m_spells.shaman.pGhostWolf))
@@ -3347,6 +3352,157 @@ bool CombatBotBaseAI::SummonShamanTotems()
     {
         if (DoCastSpell(me, m_spells.shaman.pWaterTotem) == SPELL_CAST_OK)
             return true;
+    }
+
+    return false;
+}
+
+bool CombatBotBaseAI::CastBlessings()
+{
+    Group* pGroup = me->GetGroup();
+    if (pGroup)
+    {
+        for (GroupReference* itr = pGroup->GetFirstMember(); itr != nullptr; itr = itr->next())
+        {
+            SpellEntry const* firstSelectedBlessing = m_spells.paladin.pBlessingOfKings;
+            SpellEntry const* secondSelectedBlessing = m_spells.paladin.pBlessingOfLight;
+            SpellEntry const* bestBlessing = nullptr;
+
+            if (Player* pMember = itr->getSource())
+            {
+                if (me->IsValidHelpfulTarget(pMember) &&
+                    me->IsWithinLOSInMap(pMember) &&
+                    me->IsWithinDist(pMember, 30.0f))
+                {
+
+                    // Check if member already has a blessing from us
+                    if (HasMyBlessing(pMember))
+                    {
+                        continue;
+                    }
+
+                    // Melee DPS
+                    if (IsPurePhysicalDPS(pMember->GetClass()))
+                    {
+                        firstSelectedBlessing = m_spells.paladin.pBlessingOfSalvation;
+                        secondSelectedBlessing = m_spells.paladin.pBlessingOfMight;
+
+                        // Warrior tanks
+                        if (IsWearingShield(pMember))
+                        {
+                            firstSelectedBlessing = m_spells.paladin.pBlessingOfMight;
+                            secondSelectedBlessing = m_spells.paladin.pBlessingOfKings;
+                        }
+                    }
+
+                    // Caster DPS
+                    if (IsPureCasterDPS(pMember->GetClass()))
+                    {
+                        firstSelectedBlessing = m_spells.paladin.pBlessingOfSalvation;
+                        secondSelectedBlessing = m_spells.paladin.pBlessingOfWisdom;
+                    }
+
+                    // Hybrids
+                    if (IsHybridClass(pMember->GetClass()))
+                    {
+                        firstSelectedBlessing = m_spells.paladin.pBlessingOfWisdom;
+                        secondSelectedBlessing = m_spells.paladin.pBlessingOfKings;
+
+                        // Bear Form
+                        if (pMember->GetShapeshiftForm() == FORM_BEAR || pMember->GetShapeshiftForm() == FORM_DIREBEAR)
+                        {
+                            firstSelectedBlessing = m_spells.paladin.pBlessingOfMight;
+                            secondSelectedBlessing = m_spells.paladin.pBlessingOfKings;
+                        }
+
+                        // Cat Form
+                        if (pMember->GetShapeshiftForm() == FORM_CAT)
+                        {
+                            firstSelectedBlessing = m_spells.paladin.pBlessingOfSalvation;
+                            secondSelectedBlessing = m_spells.paladin.pBlessingOfMight;
+                        }
+                    }
+
+                    // Hunter
+                    if (pMember->GetClass() == CLASS_HUNTER)
+                    {
+                        firstSelectedBlessing = m_spells.paladin.pBlessingOfWisdom;
+                        secondSelectedBlessing = m_spells.paladin.pBlessingOfMight;
+                    }
+
+                    // Priest
+                    if (pMember->GetClass() == CLASS_PRIEST)
+                    {
+                        firstSelectedBlessing = m_spells.paladin.pBlessingOfWisdom;
+                        secondSelectedBlessing = m_spells.paladin.pBlessingOfKings;
+                    }
+
+                    bestBlessing = firstSelectedBlessing;
+
+                    // Do I have first blessing learned? If not, try second
+                    if (!bestBlessing)
+                        bestBlessing = secondSelectedBlessing;
+
+                    if (!bestBlessing)
+                        bestBlessing = m_spells.paladin.pBlessingOfKings;
+
+                    // Does target have buff? Try second blessing
+                    if (bestBlessing && pMember->HasAura(bestBlessing->Id))
+                        bestBlessing = secondSelectedBlessing;
+                        
+                    // Does target have 2nd blessing? Try BOK
+                    if (bestBlessing && pMember->HasAura(bestBlessing->Id))
+                        bestBlessing = m_spells.paladin.pBlessingOfKings;
+
+
+                    // Does target have BOK? Try BOL
+                    if (bestBlessing && pMember->HasAura(bestBlessing->Id))
+                        bestBlessing = m_spells.paladin.pBlessingOfLight;
+
+                    // Has BOL? Do nothing
+                    if (bestBlessing && pMember->HasAura(bestBlessing->Id))
+                        bestBlessing = nullptr;
+                        
+
+                    if (bestBlessing && 
+                        IsValidBuffTarget(pMember, bestBlessing) &&
+                        CanTryToCastSpell(pMember, bestBlessing) &&
+                        DoCastSpell(pMember, bestBlessing) == SPELL_CAST_OK)
+                    {
+                        m_isBuffing = true;
+                        me->ClearTarget();
+                        return true;
+                    }
+
+                }
+            }
+        }
+    }
+    return false;
+}
+
+bool CombatBotBaseAI::HasMyBlessing(Unit* target)
+{
+    Unit::SpellAuraHolderMap const& auras = target->GetSpellAuraHolderMap();
+
+    for (const auto& itr : auras)
+    {
+        SpellAuraHolder* holder = itr.second;
+        SpellEntry const* spellProto = holder->GetSpellProto();
+
+        // Only blessings
+        if (!spellProto->IsFitToFamilyMask<CF_PALADIN_BLESSINGS>())
+            continue;
+
+        // Must be Paladin family
+        if (spellProto->SpellFamilyName != SPELLFAMILY_PALADIN)
+            continue;
+
+        // Only blessings cast by me
+        if (holder->GetCasterGuid() != me->GetObjectGuid())
+            continue;
+
+        return true;
     }
 
     return false;

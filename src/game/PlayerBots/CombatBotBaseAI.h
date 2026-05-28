@@ -154,6 +154,8 @@ public:
     void UpdateVisualHonorRankBasedOnItems();
 
     bool SummonShamanTotems();
+    bool CastBlessings();
+    bool HasMyBlessing(Unit* target);
     SpellCastResult CastWeaponBuff(SpellEntry const* pSpellEntry, EquipmentSlots slot);
     void UseTrinketEffects();
     bool UseItemEffect(Item* pItem);
@@ -237,7 +239,6 @@ public:
         {
         case CLASS_WARRIOR:
         case CLASS_ROGUE:
-        case CLASS_HUNTER:
             return true;
         }
         return false;
@@ -248,6 +249,7 @@ public:
         {
         case CLASS_WARLOCK:
         case CLASS_MAGE:
+        case CLASS_HUNTER:
             return true;
         }
         return false;
@@ -409,6 +411,7 @@ public:
             SpellEntry const* pStormstrike;
             SpellEntry const* pElementalMastery;
             SpellEntry const* pLightningShield;
+            SpellEntry const* pWaterShield;
             SpellEntry const* pGhostWolf;
             SpellEntry const* pCureDisease;
             SpellEntry const* pCurePoison;

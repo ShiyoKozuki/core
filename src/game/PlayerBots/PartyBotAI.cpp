@@ -1331,231 +1331,9 @@ void PartyBotAI::UpdateOutOfCombatAI_Paladin()
         }
     }
 
-    // Blessings logic
-    // TODO: Kings logic (Need to track that the current blessing aura checking wasn't casted by you)
-    // TODO: BoSanc logic for tanks. Kept spamming wisdom after kings on self as a prot paladin
-    // TODO: LEvel 60 feral druid stuff using below TODO logic
-    // TODO: Refactor so that the blessing is changed via a var and then the DoCastSpell return logic is only run once using that var
-    if (me->GetLevel() == 60)
-    {
-        if (m_spells.paladin.pBlessingOfSalvation)
-        {
-            auto pSpellEntry = m_spells.paladin.pBlessingOfSalvation;
-            Group* pGroup = me->GetGroup();
-            if (pGroup)
-            {
-                for (GroupReference* itr = pGroup->GetFirstMember(); itr != nullptr; itr = itr->next())
-                {
-                    if (Player* pMember = itr->getSource())
-                    {
-                        bool pMemberIsFeralDruid = pMember->GetShapeshiftForm() == FORM_CAT || pMember->GetShapeshiftForm() == FORM_BEAR || pMember->GetShapeshiftForm() == FORM_DIREBEAR;
 
-                        if (me->IsValidHelpfulTarget(pMember) &&
-                            !pMember->IsGameMaster() &&
-                            IsValidBuffTarget(pMember, pSpellEntry) &&
-                            me->IsWithinLOSInMap(pMember) &&
-                            me->IsWithinDist(pMember, 30.0f) &&
-                            CanTryToCastSpell(pMember, m_spells.paladin.pBlessingOfSalvation) &&
-                            (IsPureDPSClass(pMember->GetClass())) &&
-                            !IsWearingShield(pMember) &&
-                            !pMemberIsFeralDruid)
-                        {
-                            //here's where it'd return..
-                            if (DoCastSpell(pMember, m_spells.paladin.pBlessingOfSalvation) == SPELL_CAST_OK)
-                            {
-                                m_isBuffing = true;
-                                me->ClearTarget();
-                                return;
-                            }
-
-                        }
-                    }
-                }
-            }
-        }
-    }
-    else
-    {
-        if (m_spells.paladin.pBlessingOfMight)
-        {
-            auto pSpellEntry = m_spells.paladin.pBlessingOfMight;
-            Group* pGroup = me->GetGroup();
-            if (pGroup)
-            {
-                for (GroupReference* itr = pGroup->GetFirstMember(); itr != nullptr; itr = itr->next())
-                {
-                    if (Player* pMember = itr->getSource())
-                    {
-                        bool isDPS = IsPureDPSClass(pMember->GetClass()) || pMember->GetShapeshiftForm() == FORM_CAT || pMember->GetShapeshiftForm() == FORM_BEAR || pMember->GetShapeshiftForm() == FORM_DIREBEAR;
-
-                        if (me->IsValidHelpfulTarget(pMember) &&
-                            !pMember->IsGameMaster() &&
-                            IsValidBuffTarget(pMember, pSpellEntry) &&
-                            me->IsWithinLOSInMap(pMember) &&
-                            me->IsWithinDist(pMember, 30.0f) &&
-                            pMember->GetClass() != CLASS_SHAMAN &&
-                            pMember->GetClass() != CLASS_PALADIN &&
-                            CanTryToCastSpell(pMember, m_spells.paladin.pBlessingOfMight) &&
-                            isDPS &&
-                            !IsWearingShield(pMember))
-                        {
-                            //here's where it'd return..
-                            if (DoCastSpell(pMember, m_spells.paladin.pBlessingOfMight) == SPELL_CAST_OK)
-                            {
-                                m_isBuffing = true;
-                                me->ClearTarget();
-                                return;
-                            }
-
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    if (m_spells.paladin.pBlessingOfWisdom)
-    {
-        auto pSpellEntry = m_spells.paladin.pBlessingOfWisdom;
-        Group* pGroup = me->GetGroup();
-        if (pGroup)
-        {
-            for (GroupReference* itr = pGroup->GetFirstMember(); itr != nullptr; itr = itr->next())
-            {
-                if (Player* pMember = itr->getSource())
-                {
-                    bool pMemberIsFeralDruid = pMember->GetShapeshiftForm() == FORM_CAT || pMember->GetShapeshiftForm() == FORM_BEAR || pMember->GetShapeshiftForm() == FORM_DIREBEAR;
-
-                    if (me->IsValidHelpfulTarget(pMember) &&
-                        !pMember->IsGameMaster() &&
-                        IsValidBuffTarget(pMember, pSpellEntry) &&
-                        me->IsWithinLOSInMap(pMember) &&
-                        me->IsWithinDist(pMember, 30.0f) &&
-                        CanTryToCastSpell(pMember, m_spells.paladin.pBlessingOfWisdom) &&
-                        (IsHealerClass(pMember->GetClass()) &&
-                        !pMemberIsFeralDruid))
-                    {
-                        //here's where it'd return..
-                        if (DoCastSpell(pMember, m_spells.paladin.pBlessingOfWisdom) == SPELL_CAST_OK)
-                        {
-                            m_isBuffing = true;
-                            me->ClearTarget();
-                            return;
-                        }
-
-                    }
-                }
-            }
-        }
-    }
-
-    if (m_role == ROLE_HEALER)
-    {
-        if (m_spells.paladin.pBlessingOfLight)
-        {
-            auto pSpellEntry = m_spells.paladin.pBlessingOfLight;
-            Group* pGroup = me->GetGroup();
-            if (pGroup)
-            {
-                for (GroupReference* itr = pGroup->GetFirstMember(); itr != nullptr; itr = itr->next())
-                {
-                    if (Player* pMember = itr->getSource())
-                    {
-                        if (me->IsValidHelpfulTarget(pMember) &&
-                            !pMember->IsGameMaster() &&
-                            IsValidBuffTarget(pMember, pSpellEntry) &&
-                            me->IsWithinLOSInMap(pMember) &&
-                            me->IsWithinDist(pMember, 30.0f) &&
-                            CanTryToCastSpell(pMember, m_spells.paladin.pBlessingOfLight) &&
-                            IsWearingShield(pMember) &&
-                            (pMember != me))
-                        {
-                            //here's where it'd return..
-                            if (DoCastSpell(pMember, m_spells.paladin.pBlessingOfLight) == SPELL_CAST_OK)
-                            {
-                                m_isBuffing = true;
-                                me->ClearTarget();
-                                return;
-                            }
-
-                        }
-                    }
-                }
-            }
-        }
-    }
-    else
-    {
-        if (m_spells.paladin.pBlessingOfKings)
-        {
-            auto pSpellEntry = m_spells.paladin.pBlessingOfKings;
-            Group* pGroup = me->GetGroup();
-            if (pGroup)
-            {
-                for (GroupReference* itr = pGroup->GetFirstMember(); itr != nullptr; itr = itr->next())
-                {
-                    if (Player* pMember = itr->getSource())
-                    {
-                        if (me->IsValidHelpfulTarget(pMember) &&
-                            !pMember->IsGameMaster() &&
-                            IsValidBuffTarget(pMember, pSpellEntry) &&
-                            me->IsWithinLOSInMap(pMember) &&
-                            me->IsWithinDist(pMember, 30.0f) &&
-                            CanTryToCastSpell(pMember, m_spells.paladin.pBlessingOfKings) &&
-                            IsWearingShield(pMember) &&
-                            (pMember != me))
-                        {
-                            //here's where it'd return..
-                            if (DoCastSpell(pMember, m_spells.paladin.pBlessingOfKings) == SPELL_CAST_OK)
-                            {
-                                m_isBuffing = true;
-                                me->ClearTarget();
-                                return;
-                            }
-
-                        }
-                    }
-                }
-            }
-        }
-        else
-        {
-            if (m_spells.paladin.pBlessingOfMight)
-            {
-                auto pSpellEntry = m_spells.paladin.pBlessingOfMight;
-                Group* pGroup = me->GetGroup();
-                if (pGroup)
-                {
-                    for (GroupReference* itr = pGroup->GetFirstMember(); itr != nullptr; itr = itr->next())
-                    {
-                        if (Player* pMember = itr->getSource())
-                        {
-                            if (me->IsValidHelpfulTarget(pMember) &&
-                                !pMember->IsGameMaster() &&
-                                IsValidBuffTarget(pMember, pSpellEntry) &&
-                                me->IsWithinLOSInMap(pMember) &&
-                                me->IsWithinDist(pMember, 30.0f) &&
-                                pMember->GetClass() != CLASS_SHAMAN &&
-                                pMember->GetClass() != CLASS_PALADIN &&
-                                CanTryToCastSpell(pMember, m_spells.paladin.pBlessingOfMight) &&
-                                IsWearingShield(pMember) &&
-                                (pMember != me))
-                            {
-                                //here's where it'd return..
-                                if (DoCastSpell(pMember, m_spells.paladin.pBlessingOfMight) == SPELL_CAST_OK)
-                                {
-                                    m_isBuffing = true;
-                                    me->ClearTarget();
-                                    return;
-                                }
-
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
+    if (CastBlessings())
+        return;
 
     if (m_isBuffing &&
         (!m_spells.paladin.pBlessingOfWisdom ||
@@ -1780,26 +1558,21 @@ void PartyBotAI::UpdateInCombatAI_Paladin()
                     return;
             }
 
-            if (me->GetPowerPercent(POWER_MANA) > 30.0f)
+            if (m_spells.paladin.pHolyStrike)
             {
-                if (m_spells.paladin.pHolyStrike)
+                if (CanTryToCastSpell(me, m_spells.paladin.pHolyStrike))
                 {
-                    if (CanTryToCastSpell(me, m_spells.paladin.pHolyStrike))
-                    {
-                        if (DoCastSpell(me, m_spells.paladin.pHolyStrike) == SPELL_CAST_OK)
-                            return;
-                    }
+                    if (DoCastSpell(me, m_spells.paladin.pHolyStrike) == SPELL_CAST_OK)
+                        return;
                 }
             }
-            else
+
+            if (m_spells.paladin.pCrusaderStrike)
             {
-                if (m_spells.paladin.pCrusaderStrike)
+                if (CanTryToCastSpell(me, m_spells.paladin.pCrusaderStrike))
                 {
-                    if (CanTryToCastSpell(me, m_spells.paladin.pCrusaderStrike))
-                    {
-                        if (DoCastSpell(me, m_spells.paladin.pCrusaderStrike) == SPELL_CAST_OK)
-                            return;
-                    }
+                    if (DoCastSpell(me, m_spells.paladin.pCrusaderStrike) == SPELL_CAST_OK)
+                        return;
                 }
             }
 
@@ -1877,11 +1650,23 @@ void PartyBotAI::UpdateOutOfCombatAI_Shaman()
             return;
     }
 
-    if (m_spells.shaman.pLightningShield &&
-        CanTryToCastSpell(me, m_spells.shaman.pLightningShield))
+    if (me->GetLevel() >= 30)
     {
-        if (DoCastSpell(me, m_spells.shaman.pLightningShield) == SPELL_CAST_OK)
-            return;
+        if (m_spells.shaman.pWaterShield &&
+            CanTryToCastSpell(me, m_spells.shaman.pWaterShield))
+        {
+            if (DoCastSpell(me, m_spells.shaman.pWaterShield) == SPELL_CAST_OK)
+                return;
+        }
+    }
+    else
+    {
+        if (m_spells.shaman.pLightningShield &&
+            CanTryToCastSpell(me, m_spells.shaman.pLightningShield))
+        {
+            if (DoCastSpell(me, m_spells.shaman.pLightningShield) == SPELL_CAST_OK)
+                return;
+        }
     }
 
     if (m_role == ROLE_HEALER &&
@@ -1906,6 +1691,13 @@ void PartyBotAI::UpdateInCombatAI_Shaman()
         if (DoCastSpell(me, m_spells.shaman.pManaTideTotem) == SPELL_CAST_OK)
             return;
     }
+
+        if (m_spells.shaman.pWaterShield &&
+            CanTryToCastSpell(me, m_spells.shaman.pWaterShield))
+        {
+            if (DoCastSpell(me, m_spells.shaman.pWaterShield) == SPELL_CAST_OK)
+                return;
+        }
 
     if (GetRole() != ROLE_HEALER)
     {
