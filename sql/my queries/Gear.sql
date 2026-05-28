@@ -1020,12 +1020,12 @@ WHERE entry = 6263;
 
 -- Heavy Woolen Cloak
 UPDATE mangos . item_template
-SET quality = 2,
+SET quality = 3,
     bonding = 2,
-    stat_type1 = 5,
+    stat_type1 = @ITEM_MOD_INT,
     stat_value1 = 3,
-    stat_type2 = 6,
-    stat_value2 = 3
+    stat_type2 = @ITEM_MOD_SPI,
+    stat_value2 = 6
 WHERE entry = 4311;
 
 -- Gray Woolen Robe
