@@ -1903,8 +1903,8 @@ void CombatBotBaseAI::PopulateSpellData()
             //    airTotems.push_back(pWindwallTotem);
             //if (pTranquilAirTotem)
             //    airTotems.push_back(pTranquilAirTotem);
-            if (pGroundingTotem)
-                airTotems.push_back(pGroundingTotem);
+            //if (pGroundingTotem)
+            //    airTotems.push_back(pGroundingTotem);
             if (!airTotems.empty())
                 m_spells.shaman.pAirTotem = SelectRandomContainerElement(airTotems);
 
@@ -1917,8 +1917,8 @@ void CombatBotBaseAI::PopulateSpellData()
                 earthTotems.push_back(pStoneskinTotem);
             //if (pStrengthOfEarthTotem)
             //    earthTotems.push_back(pStrengthOfEarthTotem);
-            if (pTremorTotem)
-                earthTotems.push_back(pTremorTotem);
+            //if (pTremorTotem)
+            //    earthTotems.push_back(pTremorTotem);
             if (!earthTotems.empty())
                 m_spells.shaman.pEarthTotem = SelectRandomContainerElement(earthTotems);
 
@@ -1939,14 +1939,14 @@ void CombatBotBaseAI::PopulateSpellData()
             std::vector<SpellEntry const*> waterTotems;
             //if (pFireResistanceTotem)
             //    waterTotems.push_back(pFireResistanceTotem);
-            if (pDiseaseCleansingTotem)
-                waterTotems.push_back(pDiseaseCleansingTotem);
+            //if (pDiseaseCleansingTotem)
+            //    waterTotems.push_back(pDiseaseCleansingTotem);
             if (pHealingStreamTotem)
                 waterTotems.push_back(pHealingStreamTotem);
-            if (pManaSpringTotem)
-                waterTotems.push_back(pManaSpringTotem);
-            if (pPoisonCleansingTotem)
-                waterTotems.push_back(pPoisonCleansingTotem);
+            //if (pManaSpringTotem)
+            //    waterTotems.push_back(pManaSpringTotem);
+            //if (pPoisonCleansingTotem)
+            //    waterTotems.push_back(pPoisonCleansingTotem);
             if (!waterTotems.empty())
                 m_spells.shaman.pWaterTotem = SelectRandomContainerElement(waterTotems);
 

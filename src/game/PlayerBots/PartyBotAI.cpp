@@ -1639,6 +1639,9 @@ void PartyBotAI::UpdateInCombatAI_Paladin()
     if (GetRole() == ROLE_MELEE_DPS &&
         me->GetHealthPercent() < 30.0f)
         HealInjuredTarget(me);
+
+    if (CastBlessings())
+        return;
 }
 
 void PartyBotAI::UpdateOutOfCombatAI_Shaman()
@@ -1755,6 +1758,13 @@ void PartyBotAI::UpdateInCombatAI_Shaman()
                 CanTryToCastSpell(pVictim, m_spells.shaman.pFlameShock))
             {
                 if (DoCastSpell(pVictim, m_spells.shaman.pFlameShock) == SPELL_CAST_OK)
+                    return;
+            }
+
+            if (m_spells.shaman.pFrostShock &&
+                CanTryToCastSpell(pVictim, m_spells.shaman.pFrostShock))
+            {
+                if (DoCastSpell(pVictim, m_spells.shaman.pFrostShock) == SPELL_CAST_OK)
                     return;
             }
 
@@ -2252,12 +2262,6 @@ void PartyBotAI::UpdateInCombatAI_Mage()
             if (DoCastSpell(pVictim, m_spells.mage.pFireball) == SPELL_CAST_OK)
                 return;
         }
-
-        if (me->HasSpell(PB_SPELL_SHOOT_WAND) &&
-           !me->IsMoving() &&
-           (me->GetPowerPercent(POWER_MANA) < 5.0f) &&
-           !me->GetCurrentSpell(CURRENT_AUTOREPEAT_SPELL))
-            me->CastSpell(pVictim, PB_SPELL_SHOOT_WAND, false);
     }
 }
 
@@ -2868,13 +2872,6 @@ void PartyBotAI::UpdateInCombatAI_Warlock()
             if (DoCastSpell(pVictim, m_spells.warlock.pShadowBolt) == SPELL_CAST_OK)
                 return;
         }
-
-        if (me->HasSpell(PB_SPELL_SHOOT_WAND) &&
-            !me->IsMoving() &&
-            (me->GetPowerPercent(POWER_MANA) < 5.0f) &&
-            (me->GetPowerPercent(POWER_HEALTH) < 25.0f) &&
-            !me->GetCurrentSpell(CURRENT_AUTOREPEAT_SPELL))
-            me->CastSpell(pVictim, PB_SPELL_SHOOT_WAND, false);
     }
 }
 
