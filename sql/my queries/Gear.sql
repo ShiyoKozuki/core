@@ -363,7 +363,46 @@ REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display
 
 REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `delay`, `block`, `armor`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `sheath`, `max_durability`, `disenchant_id`) VALUES (30207, 4, 6, 'Thorium Heat Shield', 29896, 3, 119888, 19888, 14, -1, -1, 55, 50, 0, 35, 1930, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 2, 1, 4, 100, 47);
 
--- NEXT 30208
+REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id`, `quality`, `flags`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30208, 2, 12, 'Soulshard Fragment', 21472, 1, 0, -1, -1, 1, 99, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 4, -1);
+
+REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`) VALUES (30210, 5, 'Ectoplasm', 30016, 2, 400, 100, -1, -1, 45, 20, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0);
+
+REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`) VALUES (30211, 5, 'Shimmering Dust', 20798, 2, 400, 100, -1, -1, 45, 20, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0);
+
+REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`) VALUES (30212, 5, 'Ancient Runestone', 28862, 2, 400, 100, -1, -1, 45, 20, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0);
+
+REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`) VALUES (30213, 5, 'Radiating Gemstone', 18649, 3, 400, 100, -1, -1, 45, 20, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0);
+
+REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`) VALUES (30214, 5, 'Durium Bar', 13063, 3, 400, 100, -1, -1, 45, 20, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0);
+
+REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`) VALUES (30215, 5, 'Old Gods Leather', 34174, 3, 400, 100, -1, -1, 45, 20, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0);
+
+REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`) VALUES (30216, 5, 'Ancient Log', 929, 3, 400, 100, -1, -1, 45, 20, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0);
+
+REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`) VALUES (30217, 5, 'Dragon Thread', 12105, 3, 400, 100, -1, -1, 45, 20, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0);
+
+REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`) VALUES (30218, 5, 'Void Star Fragment', 34471, 3, 400, 100, -1, -1, 45, 20, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0);
+
+REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`) VALUES (30219, 5, 'Titan Power Core', 16265, 3, 400, 100, -1, -1, 45, 20, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0);
+
+REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`) VALUES (30220, 5, 'Fel Grass', 3427, 3, 400, 100, -1, -1, 45, 20, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0);
+
+REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`) VALUES (30221, 5, 'Zeid\'s Shattered Rune Blade', 23526, 4, 400, 100, -1, -1, 45, 20, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0);
+
+REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`) VALUES (30222, 5, 'Ruthven\'s Nail', 20273, 4, 400, 100, -1, -1, 45, 20, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0);
+
+REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`) VALUES (30223, 5, 'Naphula\'s Phylactery Shard', 20784, 4, 400, 100, -1, -1, 45, 20, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0);
+
+REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`) VALUES (30224, 5, 'Orcus\'s Mandible', 34142, 4, 400, 100, -1, -1, 45, 20, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0);
+
+REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`) VALUES (30225, 5, 'Kirin Tor Rune Dust', 13123, 1, 400, 100, -1, -1, 45, 20, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0);
+
+REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`) VALUES (30226, 5, 'Mana Fragment', 30634, 1, 400, 100, -1, -1, 45, 20, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0);
+
+REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`) VALUES (30227, 5, 'Mana Infused Cloth Scraps', 35299, 1, 400, 100, -1, -1, 45, 20, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0);
+
+
+-- NEXT 30228
 
 
 -- Shields
@@ -1031,9 +1070,9 @@ WHERE entry = 4311;
 -- Gray Woolen Robe
 UPDATE mangos . item_template
 SET stat_type1 = 5,
-    stat_value1 = 7,
+    stat_value1 = 5,
     stat_type2 = 7,
-    stat_value2 = 7
+    stat_value2 = 5
 WHERE entry = 2585;
 
 -- Double-stitched Woolen Shoulders
@@ -1605,18 +1644,24 @@ WHERE entry = 5781;
 
 -- Belt
 UPDATE mangos . item_template
-SET stat_type1 = 5,
+SET quality = 3,
+    stat_type1 = @ITEM_MOD_STR,
     stat_value1 = 4,
-    stat_type2 = 6,
-    stat_value2 = 4
+    stat_type2 = @ITEM_MOD_INT,
+    stat_value2 = 4,
+    stat_type3 = @ITEM_MOD_SPI,
+    stat_value3 = 4
 WHERE entry = 5780;
 
 -- Bracers
 UPDATE mangos . item_template
-SET stat_type1 = 5,
-    stat_value1 = 4,
-    stat_type2 = 6,
-    stat_value2 = 4
+SET quality = 3,
+    stat_type1 = @ITEM_MOD_STR,
+    stat_value1 = 6,
+    stat_type2 = @ITEM_MOD_INT,
+    stat_value2 = 4,
+    stat_type3 = @ITEM_MOD_SPI,
+    stat_value3 = 4
 WHERE entry = 5783;
 
 -- Dark Leather Set
@@ -4732,6 +4777,15 @@ WHERE entry = 5198;
 
 -- Shadowfang Keep
 
+-- Rugged Spaulders
+UPDATE mangos . item_template
+SET quality = 3,
+    bonding = 1,
+    armor = 64,
+    stat_type1 = @ITEM_MOD_AGI,
+    stat_value1 = 8
+WHERE entry = 5254;
+
 -- Eerie Stable Lantern
 UPDATE mangos . item_template
 SET quality = 3,
@@ -4812,6 +4866,8 @@ UPDATE mangos . item_template
 SET quality = 3,
     stat_type1 = @ITEM_MOD_AGI,
     stat_value1 = 5,
+    stat_type2 = 0,
+    stat_value2 = 0,
     spellid_1 = 13383, -- +5 Defense
     spelltrigger_1 = 1
 WHERE entry = 6314;
@@ -4846,8 +4902,17 @@ WHERE entry = 6324;
 -- Belt of Arugal
 UPDATE mangos . item_template
 SET stat_type2 = 6,
-    stat_value2 = 10
+    stat_value2 = 5
 WHERE entry = 6392;
+
+-- Black Wolf Bracers
+UPDATE mangos . item_template
+SET quality = 3,
+    bonding = 1,
+    armor = 42,
+    stat_type1 = @ITEM_MOD_STAM,
+    stat_value1 = 8
+WHERE entry = 3230;
 
 -- BFD
 
@@ -5047,6 +5112,16 @@ SET stat_type1 = @ITEM_MOD_STR,
     stat_value3 = 8
 WHERE entry = 6690;
 
+-- Tusken Helm
+UPDATE mangos . item_template
+SET quality = 3,
+    armor = 185,
+    stat_type1 = @ITEM_MOD_STR,
+    stat_value1 = 12,
+    stat_type2 = @ITEM_MOD_AGI,
+    stat_value2 = 12
+WHERE entry = 6686;
+
 -- Death Speaker Mantle
 UPDATE mangos . item_template
 SET stat_type1 = @ITEM_MOD_INT,
@@ -5095,7 +5170,55 @@ SET spellid_1 = 9345, -- +16 Spell damage
     spelltrigger_1 = 1
 WHERE entry = 6689;
 
+-- Thornspike
+UPDATE mangos . item_template
+SET quality = 3,
+    bonding = 1, -- BOP
+    delay = 1700,
+    dmg_min1 = 24,
+    dmg_max1 = 46,
+    stat_type1 = @ITEM_MOD_AGI,
+    stat_value1 = 8
+WHERE entry = 6681;
+
 -- Scarlet Monastery
+
+-- Dog Training Gloves
+UPDATE mangos . item_template
+SET stat_type1 = @ITEM_MOD_STR,
+    stat_value1 = 8,
+    stat_type2 = @ITEM_MOD_AGI,
+    stat_value2 = 8
+WHERE entry = 7756;
+
+-- Loksey's Training Stick 30-40 AP
+UPDATE mangos . item_template
+SET quality = 3,
+    spellid_1 = 9336, -- +30 Attack Power
+    spelltrigger_1 = 1
+WHERE entry = 7710;
+
+-- Robe of Doan
+UPDATE mangos . item_template
+SET quality = 3,
+    stat_type1 = @ITEM_MOD_STAM,
+    stat_value1 = 4,
+    stat_type2 = @ITEM_MOD_SPI,
+    stat_value2 = 13,
+    spellid_1 = 9395, -- +5 Spell Damage
+    spelltrigger_1 = 1
+WHERE entry = 7711;
+
+-- Mantle of Doan
+UPDATE mangos . item_template
+SET quality = 3,
+    stat_type1 = @ITEM_MOD_INT,
+    stat_value1 = 9,
+    stat_type2 = @ITEM_MOD_SPI,
+    stat_value2 = 7,
+    spellid_1 = 23727, -- +1% Spell Hit
+    spelltrigger_1 = 1
+WHERE entry = 7712;
 
 -- Scarlet Chestpiece
 UPDATE mangos . item_template
@@ -10683,7 +10806,7 @@ WHERE entry = 4827;
 -- Nightwind Belt
 UPDATE mangos . item_template
 SET quality = 3,
-    spellid_1 = 21360, -- 2 MP/5
+    spellid_1 = 21359, -- 1 MP/5
     spelltrigger_1 = 1
 WHERE entry = 4828;
 
