@@ -1676,6 +1676,30 @@ void PartyBotAI::UpdateOutOfCombatAI_Shaman()
         FindAndHealInjuredAlly(80.0f, 80.0f))
         return;
 
+    if (m_spells.shaman.pCureDisease)
+    {
+        if (Unit* pFriend = SelectDispelTarget(m_spells.shaman.pCureDisease))
+        {
+            if (CanTryToCastSpell(pFriend, m_spells.shaman.pCureDisease))
+            {
+                if (DoCastSpell(pFriend, m_spells.shaman.pCureDisease) == SPELL_CAST_OK)
+                    return;
+            }
+        }
+    }
+
+    if (m_spells.shaman.pCurePoison)
+    {
+        if (Unit* pFriend = SelectDispelTarget(m_spells.shaman.pCurePoison))
+        {
+            if (CanTryToCastSpell(pFriend, m_spells.shaman.pCurePoison))
+            {
+                if (DoCastSpell(pFriend, m_spells.shaman.pCurePoison) == SPELL_CAST_OK)
+                    return;
+            }
+        }
+    }
+
     if (me->GetVictim())
     {
         if (SummonShamanTotems())
@@ -2034,6 +2058,18 @@ void PartyBotAI::UpdateInCombatAI_Hunter()
 
 void PartyBotAI::UpdateOutOfCombatAI_Mage()
 {
+    if (m_spells.mage.pRemoveLesserCurse)
+    {
+        if (Unit* pFriend = SelectDispelTarget(m_spells.mage.pRemoveLesserCurse))
+        {
+            if (CanTryToCastSpell(pFriend, m_spells.mage.pRemoveLesserCurse))
+            {
+                if (DoCastSpell(pFriend, m_spells.mage.pRemoveLesserCurse) == SPELL_CAST_OK)
+                    return;
+            }
+        }
+    }
+
     if (m_spells.mage.pArcaneBrilliance)
     {
         if (CanTryToCastSpell(me, m_spells.mage.pArcaneBrilliance))
@@ -2192,7 +2228,6 @@ void PartyBotAI::UpdateInCombatAI_Mage()
                 }
             }
         }
-
 
         if (m_spells.mage.pBlizzard &&
            (me->GetEnemyCountInRadiusAround(pVictim, 10.0f) > 3) &&
@@ -3551,6 +3586,18 @@ void PartyBotAI::UpdateOutOfCombatAI_Druid()
     if (m_role == ROLE_HEALER &&
         FindAndHealInjuredAlly(80.0f, 80.0f))
         return;
+
+    if (m_spells.druid.pRemoveCurse)
+    {
+        if (Unit* pFriend = SelectDispelTarget(m_spells.druid.pRemoveCurse))
+        {
+            if (CanTryToCastSpell(pFriend, m_spells.druid.pRemoveCurse))
+            {
+                if (DoCastSpell(pFriend, m_spells.druid.pRemoveCurse) == SPELL_CAST_OK)
+                    return;
+            }
+        }
+    }
 
     if (m_spells.druid.pGiftoftheWild)
     {

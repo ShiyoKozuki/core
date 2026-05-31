@@ -2374,11 +2374,6 @@ bool CombatBotBaseAI::IsValidDispelTarget(Unit const* pTarget, SpellEntry const*
             SpellAuraHolder* holder = aura.second;
             if ((1 << holder->GetSpellProto()->Dispel) & dispelMask)
             {
-                // Only dispel DoTs and CC spells
-                if (!holder->GetSpellProto()->IsSpellAppliesPeriodicAura() &&
-                    !holder->GetSpellProto()->IsCCSpell())
-                        return false;
-
                 if (holder->GetSpellProto()->Dispel == DISPEL_MAGIC ||
                     holder->GetSpellProto()->Dispel == DISPEL_DISEASE ||
                     holder->GetSpellProto()->Dispel == DISPEL_POISON)
@@ -2395,6 +2390,17 @@ bool CombatBotBaseAI::IsValidDispelTarget(Unit const* pTarget, SpellEntry const*
                                         bFoundOneDispell = true;
                     if (positive == friendly_dispel)
                         continue;
+
+                    // Friendly Magic dispels only remove DoTs and CC
+                    if (friendly_dispel &&
+                        holder->GetSpellProto()->Dispel == DISPEL_MAGIC &&
+                        (pSpellEntry == m_spells.priest.pDispelMagic ||
+                         pSpellEntry == m_spells.paladin.pCleanse) &&
+                        !holder->GetSpellProto()->IsSpellAppliesPeriodicAura() &&
+                        !holder->GetSpellProto()->IsCCSpell())
+                    {
+                        continue;
+                    }
                 }
                 bFoundOneDispell = true;
                 break;
