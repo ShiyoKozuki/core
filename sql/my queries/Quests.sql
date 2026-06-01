@@ -44,9 +44,13 @@
 -- how do distress beacon quests not replace item on starting? same with ship schedule
 
 -- Quest + Vendor + Repair npc flag = 
--- NEXT quest_template 30252
--- NEXT creature_template 90091
--- NEXT gameobject_template 987660
+-- NEXT quest_template 30256
+-- NEXT quest_end_script 5252
+-- NEXT creature_template 90093
+-- NEXT gameobject_template 987666
+-- NEXT gameobject_loot_template 42909
+
+-- NEXT gameobject 300406
 
 --     QUEST_TYPE_ELITE               = 1,
 --     QUEST_TYPE_LIFE                = 21,
@@ -59,6 +63,30 @@
 --     QUEST_TYPE_ESCORT              = 84,
 
 -- Faction = 35 to not make a friendly quest NPC not aggro creatures
+
+-- Gameobjects
+    -- gameobject_template: 
+        -- data0 column number of people required for "Rituals". Unsure what else it's for
+        -- data1 column contains the reference ID for gameobject_loot_template
+    -- pool_gameobject and pool_gameobject_template to set up pools for an object
+    -- pool_gameobject have to search for guid via gameobject, then search that description to get entire pool i.e. 'Rocket Car Parts - Thousand Needles'
+    -- pool_template to modify max spawn count (max_limit). 
+    -- entry in pool_template is pool_entry via pool_gameobject_template or pool_entry via pool_gameobject
+
+    -- flags
+
+    -- 1 = in use (can’t interact with the object)
+    -- 2 = Makes chests/doors locked (requiring a key, spell, event to open)
+    -- 4 = Untargetable
+    -- 8 = Transport (Object can transport (elevator, boat, car))
+    -- 16 = Player cant interact with the object.
+    -- 32 = No despawn (never despawn, typically for doors, they just change state)
+    -- 64 = Triggered (typically, summoned objects. Triggered by spell or other events)
+
+
+    -- documentation: https://github.com/cmangos/issues/wiki/Gameobject_template
+
+
 
 -- Add Blood Elf (High Elf) race to racemasks of quests
     UPDATE `mangos`.`quest_template` 
@@ -1351,6 +1379,162 @@ REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance
 REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `SuggestedPlayers`, `QuestFlags`, `SpecialFlags`, `ExclusiveGroup`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOId2`, `ReqCreatureOrGOId3`, `ReqCreatureOrGOCount1`, `ReqCreatureOrGOCount2`, `ReqCreatureOrGOCount3`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `DetailsEmote1`, `DetailsEmote2`, `DetailsEmote3`, `IncompleteEmote`, `CompleteEmote`, `OfferRewardEmote1`, `OfferRewardEmote2`, `OfferRewardEmote3`) VALUES (30008, 41, 58, 60, 5, 8, 1, 0, 'Ogre Round Up', 'Kill 20 Deadwind Warlocks, 10 Deadwind Maulers and 20 Deadwind Ogre Mages.', 'Kill 20 Deadwind Warlocks, 10 Deadwind Maulers and 20 Deadwind Ogre Mages.', 'Well done $N. Those Ogres must be pushed out of Deadwind Pass.', 'Karazhan is all I care about.', '', '', '', '', '', 7372, 7371, 7379, 20, 10, 20, 477, 250, 5800, 1, 1, 1, 5, 5, 1, 1, 5);
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90035, 30008);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90035, 30008);
+
+
+-- Soul Shard Fragment
+    -- Object 
+    Replace `mangos`.`gameobject_template` (`entry`, `patch`, `type`, `displayId`, `name`, `data0`, `data1`, `data3`, `data9`) VALUES (987660, 1, 3, 5746, 'Soulshard Fragment', 43, 42907, 1, 59);
+
+    -- Object Spawns
+        REPLACE `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (4100065, 987660, 0, -11144.9, -1997.07, 16.6595, 4.13683, 0, 0, 0.878722, -0.477334, 360, 360, 100, 1, 0, 0, 0, 10);
+        REPLACE `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (4100082, 987660, 0, -11050.2, -1909.55, -16.1079, 4.66069, 0, 0, 0.725147, -0.688594, 360, 360, 100, 1, 0, 0, 0, 10);
+        REPLACE `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (4100066, 987660, 0, -11192.2, -1975.47, 22.843, 3.23837, 0, 0, 0.998829, -0.0483706, 360, 360, 100, 1, 0, 0, 0, 10);
+        REPLACE `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (4100067, 987660, 0, -11153.1, -1963.64, 22.8584, 4.29081, 0, 0, 0.839406, -0.543505, 360, 360, 100, 1, 0, 0, 0, 10);
+        REPLACE `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (4100068, 987660, 0, -11088.7, -1956.62, 2.20438, 4.59632, 0, 0, 0.746928, -0.664905, 360, 360, 100, 1, 0, 0, 0, 10);
+        REPLACE `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (4100069, 987660, 0, -11061.7, -1901.15, -2.65591, 3.77952, 0, 0, 0.949561, -0.313584, 360, 360, 100, 1, 0, 0, 0, 10);
+        REPLACE `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (4100070, 987660, 0, -11105, -1907.91, 1.01614, 3.94446, 0, 0, 0.920503, -0.390736, 360, 360, 100, 1, 0, 0, 0, 10);
+        REPLACE `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (4100071, 987660, 0, -11026.1, -1902.85, -2.739, 0.441577, 0, 0, 0.218999, 0.975736, 360, 25, 100, 1, 0, 0, 0, 10);
+        REPLACE `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (4100072, 987660, 0, -11068.8, -1916.76, -6.11092, 0.558602, 0, 0, 0.275684, 0.961248, 360, 360, 100, 1, 0, 0, 0, 10);
+        REPLACE `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (4100073, 987660, 0, -11188.6, -1933.94, -14.3207, 3.99551, 0, 0, 0.91023, -0.414102, 360, 360, 100, 1, 0, 0, 0, 10);
+        REPLACE `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (4100074, 987660, 0, -11182, -1918.88, -14.6565, 0.377174, 0, 0, 0.187471, 0.98227, 360, 360, 100, 1, 0, 0, 0, 10);
+        REPLACE `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (4100075, 987660, 0, -11115.3, -1851.29, -10.195, 0.728247, 0, 0, 0.356131, 0.934436, 360, 360, 100, 1, 0, 0, 0, 10);
+        REPLACE `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (4100076, 987660, 0, -11074, -1851.78, -24.9589, 0.763586, 0, 0, 0.372585, 0.927998, 360, 360, 100, 1, 0, 0, 0, 10);
+        REPLACE `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (4100077, 987660, 0, -11038, -1934.6, -25.6881, 4.58377, 0, 0, 0.751087, -0.660204, 360, 360, 100, 1, 0, 0, 0, 10);
+        REPLACE `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (4100078, 987660, 0, -11018.2, -1832.82, -32.8327, 5.33383, 0, 0, 0.457052, -0.88944, 360, 360, 100, 1, 0, 0, 0, 10);
+        REPLACE `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (4100079, 987660, 0, -10920.1, -1848.92, -15.3825, 5.8035, 0, 0, 0.237552, -0.971375, 360, 360, 100, 1, 0, 0, 0, 10);
+        REPLACE `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (4100080, 987660, 0, -10928.2, -1898.79, -14.568, 3.65072, 0, 0, 0.967773, -0.251836, 360, 25, 100, 1, 0, 0, 0, 10);
+        REPLACE `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (4100083, 987660, 0, -11181.4, -2009.68, 22.7917, 0.201148, 0, 0, 0.100405, 0.994947, 360, 360, 100, 1, 0, 0, 0, 10);
+        REPLACE `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (4100084, 987660, 0, -11168.4, -1965.3, 35.7493, 1.57167, 0, 0, 0.707415, 0.706798, 360, 360, 100, 1, 0, 0, 0, 10);
+        REPLACE `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (4100085, 987660, 0, -11184.3, -1966.06, 35.7488, 3.18959, 0, 0, 0.999712, -0.0239959, 360, 360, 100, 1, 0, 0, 0, 10);
+        REPLACE `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (4100086, 987660, 0, -11149.8, -1968.13, 35.7491, 6.26914, 0, 0, 0.00702486, -0.999975, 360, 360, 100, 1, 0, 0, 0, 10);
+
+
+    -- Object loot (Soulshard Fragment)
+    REPLACE `mangos`.`gameobject_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (42907, 30208, 100);
+
+-- Eerie Altar
+    -- Object 
+        REPLACE `mangos`.`gameobject_template` (`entry`, `type`, `displayId`, `name`, `flags`) VALUES (987661, 2, 328, 'Eerie Altar', 4);
+
+    -- Object Spawns
+        REPLACE `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (4100081, 987661, 0, -10944.1, -1871.57, -17.8518, 6.21974, 0, 0, 0.0317174, -0.999497, 25, 25, 100, 1, 0, 0, 0, 10);
+
+    -- Quest
+        -- Quest Template
+            REPLACE `mangos`.`quest_template` (`entry`, `Method`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `SpecialFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `DetailsEmote1`, `IncompleteEmote`, `CompleteEmote`, `CompleteScript`) VALUES (30252, 0, 41, 58, 62, 264, 1, 'Ritual', '', '', '', 'There is an eerie looking altar before you. What happens if you put some Soulshard Fragments inside it?', '', '', '', '', '', 30208, 25, 0, 0, 0, 0, 0, 0, 5248);
+
+        -- Quest Relation
+            REPLACE `mangos`.`gameobject_questrelation` (`id`, `quest`) VALUES (987661, 30252);
+
+        -- Quest Involved Relation
+            REPLACE `mangos`.`gameobject_involvedrelation` (`id`, `quest`) VALUES (987661, 30252);
+
+        -- quest_end_script (Temp Summon Skeletal Warlord)
+            DELETE FROM `quest_end_scripts` WHERE `id`=5248;
+            INSERT INTO `quest_end_scripts` (`id`, `delay`, `priority`, `command`, `datalong`, `datalong2`, `datalong3`, `datalong4`, `target_param1`, `target_param2`, `target_type`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `condition_id`, `comments`) VALUES
+            (5248, 19, 0, 10, 90060, 60000, 0, 0, 0, 0, 0, 0, 0, 0, -1, 1, -10946.9, -1872.8, -17.7514, 0.41247, 0, 'Eerie Altar: Summon Boss');
+
+-- Corrupted Runestone
+    -- Object 
+        REPLACE `mangos`.`gameobject_template` (`entry`, `type`, `displayId`, `name`, `flags`) VALUES (987662, 2, 1027, 'Corrupted Runestone', 4);
+        REPLACE `mangos`.`gameobject_template` (`entry`, `type`, `displayId`, `name`, `flags`) VALUES (987663, 2, 1027, 'Corrupted Runestone', 4);
+        REPLACE `mangos`.`gameobject_template` (`entry`, `type`, `displayId`, `name`, `flags`) VALUES (987664, 2, 1027, 'Corrupted Runestone', 4);
+
+    -- Object Spawns
+        REPLACE `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (4100087, 987662, 0, -10779.9, -2155.12, 117.133, 3.60504, 0, 0, 0.973272, -0.229656, 25, 25, 100, 1, 0, 0, 0, 10);
+        REPLACE `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (4100088, 987663, 0, -10453.6, -2152.48, 91.0521, 1.39022, 0, 0, 0.64047, 0.767983, 25, 25, 100, 1, 0, 0, 0, 10);
+        REPLACE `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (4100089, 987664, 0, -10565, -1705.04, 99.7889, 5.0109, 0, 0, 0.594097, -0.804394, 25, 25, 100, 1, 0, 0, 0, 10);
+
+
+    -- TODO: 4100087 doesn't work, 4100088 works, 4100089 works. But they give multiple runestones? I'm confused
+    -- Quest
+        -- Quest Template
+            REPLACE `mangos`.`quest_template` (`entry`, `Method`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `SpecialFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `DetailsEmote1`, `IncompleteEmote`, `CompleteEmote`, `CompleteScript`) VALUES (30253, 0, 41, 58, 62, 264, 1, 'Runestone', '', '', '', 'It looks like a Soulshard Fragment could fit inside the hole here perfectly.', '', '', '', '', '', 30208, 1, 0, 0, 0, 0, 0, 0, 5249);
+
+            REPLACE `mangos`.`quest_template` (`entry`, `Method`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `SpecialFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `DetailsEmote1`, `IncompleteEmote`, `CompleteEmote`, `CompleteScript`) VALUES (30254, 0, 41, 58, 62, 264, 1, 'Runestone', '', '', '', 'It looks like a Soulshard Fragment could fit inside the hole here perfectly.', '', '', '', '', '', 30208, 1, 0, 0, 0, 0, 0, 0, 5250);
+
+            REPLACE `mangos`.`quest_template` (`entry`, `Method`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `SpecialFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `DetailsEmote1`, `IncompleteEmote`, `CompleteEmote`, `CompleteScript`) VALUES (30255, 0, 41, 58, 62, 264, 1, 'Runestone', '', '', '', 'It looks like a Soulshard Fragment could fit inside the hole here perfectly.', '', '', '', '', '', 30208, 1, 0, 0, 0, 0, 0, 0, 5251);
+
+        -- Quest Relation
+            REPLACE `mangos`.`gameobject_questrelation` (`id`, `quest`) VALUES (987662, 30253);
+            REPLACE `mangos`.`gameobject_questrelation` (`id`, `quest`) VALUES (987663, 30254);
+            REPLACE `mangos`.`gameobject_questrelation` (`id`, `quest`) VALUES (987664, 30255);
+
+        -- Quest Involved Relation
+            REPLACE `mangos`.`gameobject_involvedrelation` (`id`, `quest`) VALUES (987662, 30253);
+            REPLACE `mangos`.`gameobject_involvedrelation` (`id`, `quest`) VALUES (987663, 30254);
+            REPLACE `mangos`.`gameobject_involvedrelation` (`id`, `quest`) VALUES (987664, 30255);
+
+        -- quest_end_script (Give item)
+            DELETE FROM `quest_end_scripts` WHERE `id`=5249;
+            INSERT INTO `quest_end_scripts` (`id`, `delay`, `priority`, `command`, `datalong`, `datalong2`, `datalong3`, `datalong4`, `target_param1`, `target_param2`, `target_type`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `condition_id`, `comments`) VALUES
+            (5249, 0, 0, 81, 4100087, 3600, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Corrupted Runestone: Despawn Object'),
+            (5249, 1, 0, 17, 30212, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Corrupted Runestone: Give Player Item');
+
+            DELETE FROM `quest_end_scripts` WHERE `id`=5250;
+            INSERT INTO `quest_end_scripts` (`id`, `delay`, `priority`, `command`, `datalong`, `datalong2`, `datalong3`, `datalong4`, `target_param1`, `target_param2`, `target_type`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `condition_id`, `comments`) VALUES
+            (5250, 0, 0, 81, 4100088, 3600, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Corrupted Runestone: Despawn Object'),
+            (5250, 1, 0, 17, 30212, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Corrupted Runestone: Give Player Item');
+
+
+            DELETE FROM `quest_end_scripts` WHERE `id`=5251;
+            INSERT INTO `quest_end_scripts` (`id`, `delay`, `priority`, `command`, `datalong`, `datalong2`, `datalong3`, `datalong4`, `target_param1`, `target_param2`, `target_type`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `condition_id`, `comments`) VALUES
+            (5251, 0, 0, 81, 4100089, 3600, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Corrupted Runestone: Despawn Object'),
+            (5251, 1, 0, 17, 30212, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Corrupted Runestone: Give Player Item');
+
+
+    -- Kirin Tor Coffer
+        -- Object
+            REPLACE `mangos`.`gameobject_template` (`entry`, `type`, `displayId`, `name`, `faction`, `data0`, `data1`, `data3`, `data10`, `data12`, `mingold`, `maxgold`) VALUES (987665, 3, 10, 'Kirin Tor Coffer', 94, 57, 42908, 1, 1, 1, 1500, 2500);
+
+        -- Object Spawns
+        -- Don't forget 30m respawn timer (1800)
+        REPLACE `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (4100090, 987665, 0, -11052.1, -1906.41, -15.2643, 5.14985, 0, 0, 0.536824, -0.843695, 1800, 1800, 100, 1, 0, 0, 0, 10);
+        REPLACE `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (4100091, 987665, 0, -11185.9, -1935.93, -14.327, 0.41076, 0, 0, 0.203939, 0.978984, 1800, 1800, 100, 1, 0, 0, 0, 10);
+        REPLACE `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (4100092, 987665, 0, -11148.6, -1969.97, 35.7492, 3.01043, 0, 0, 0.99785, 0.0655359, 1800, 1800, 100, 1, 0, 0, 0, 10);
+        REPLACE `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (4100093, 987665, 0, -11061.1, -2039.2, 31.114, 2.48263, 0, 0, 0.94621, 0.323554, 1800, 1800, 100, 1, 0, 0, 0, 10);
+        REPLACE `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (4100094, 987665, 0, -10992.6, -2055.83, 92.9714, 2.29492, 0, 0, 0.911723, 0.410806, 1800, 1800, 100, 1, 0, 0, 0, 10);
+        REPLACE `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (4100095, 987665, 0, -11168.6, -2454.08, 107.879, 5.85904, 0, 0, 0.210484, -0.977597, 1800, 1800, 100, 1, 0, 0, 0, 10);
+        REPLACE `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (4100096, 987665, 0, -11094, -2462.02, 113.397, 1.76712, 0, 0, 0.773002, 0.634403, 1800, 1800, 100, 1, 0, 0, 0, 10);
+        REPLACE `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (4100097, 987665, 0, -10896.8, -2350.27, 117.749, 1.27231, 0, 0, 0.594109, 0.804385, 1800, 1800, 100, 1, 0, 0, 0, 10);
+        REPLACE `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (4100098, 987665, 0, -10770.7, -2174.83, 122.246, 3.14549, 0, 0, 0.999998, -0.00194983, 1800, 1800, 100, 1, 0, 0, 0, 10);
+        REPLACE `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (4100099, 987665, 0, -10733.8, -2078.53, 136.75, 1.13096, 0, 0, 0.53582, 0.844332, 1800, 1800, 100, 1, 0, 0, 0, 10);
+        REPLACE `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (4100100, 987665, 0, -10424.3, -2135.67, 91.821, 3.69135, 0, 0, 0.962458, -0.271431, 1800, 1800, 100, 1, 0, 0, 0, 10);
+        REPLACE `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (4100101, 987665, 0, -10277.8, -2050.65, 55.9284, 2.2258, 0, 0, 0.896984, 0.442063, 1800, 1800, 100, 1, 0, 0, 0, 10);
+        REPLACE `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (4100102, 987665, 0, -10348.5, -1886.9, 39.1211, 2.31219, 0, 0, 0.915237, 0.402917, 1800, 1800, 100, 1, 0, 0, 0, 10);
+        REPLACE `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (4100103, 987665, 0, -10549, -1877.68, 116.145, 2.03337, 0, 0, 0.850369, 0.526187, 1800, 1800, 100, 1, 0, 0, 0, 10);
+        REPLACE `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (4100104, 987665, 0, -10697.7, -1930.37, 98.3556, 4.14607, 0, 0, 0.876506, -0.48139, 1800, 1800, 100, 1, 0, 0, 0, 10);
+        REPLACE `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (4100105, 987665, 0, -10944.6, -1987.69, 75.0819, 2.32705, 0, 0, 0.918205, 0.396105, 1800, 1800, 100, 1, 0, 0, 0, 10);
+        REPLACE `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (4100106, 987665, 0, -11072.9, -2129.64, 6.71916, 2.18017, 0, 0, 0.886666, 0.462411, 1800, 1800, 100, 1, 0, 0, 0, 10);
+
+        -- Loot Template
+        DELETE FROM `gameobject_loot_template` WHERE `entry`=42908; -- To ensure duplicate entries are not added
+        INSERT INTO `mangos`.`gameobject_loot_template` (`entry`, `item`, `ChanceOrQuestChance`, `groupid`, `patch_min`) VALUES (42908, 30228, 0, 0, 1);
+
+    -- TODO: Fix the boss summoned by the Eerie Altar, using one of my bosses unsure if one I want
+    -- TODO: Add crafting mats, put them as drops form the Eeerie Altar boss and the trash inside the "Crypt" cave
+    -- TODO: Add Soulshard Fragments as a rare (1-5%) drop from the mobs inside the Crypt
+    -- TODO: Quest inside "Crypt" cave to escort someone out
+    -- TODO: Quest inside "Crypt" cave to spawn a wave of mobs (Costs Soulshard Fragments)
+    -- TODO: Chests outside "Crypt" cave that cost Soulshard Fragments to open (give new craft mats)
+    -- TODO: Objects using the floating  red crystal in Ashenvale by Satyrs you can trade Soulshard Fragments for 1 hr buffs
+    -- TODO: Chests all over deadwind pass that drop the base "white" craft mat you need 20+ of for each craft
+    -- TODO: Make the other craft items I made green or blue, and the boss ones epic
+    -- TODO: AOE spots
+    -- TODO: Mobs and stuff on the Tower that leads to the Karazhan "Back entrance"
+    -- TODO: Another white item that chests always drop, used as a "currency" for quests to buy stuff
+
+    -- "Crypt Cave" mobs
+        -- Ghosts:
+            -- Wailing spectre - 12377
+            -- damned soul - 12378
+            -- restless shade - 7370
+
+            -- Humanoids:
+            -- unliving caretaker - 12379
+            -- unliving resident - 12380
+
+
 -- Class quests
 
 -- Warrior 

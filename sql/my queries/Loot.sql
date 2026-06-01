@@ -1,5 +1,7 @@
 -- Creature drops
 
+-- NEXT creature_loot_template id 17083
+
 -- For grouped drops (I.e. bosses)
 -- SELECT * FROM reference_loot_template WHERE item = 30135;
 
@@ -435,3 +437,28 @@ INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuest
     INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (7371, 30193, 0.1);
     INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (7372, 30193, 0.1);
     INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (7379, 30193, 0.1);
+
+-- Deadwind pass drops
+    -- Ogres
+        -- Deadwind Ogre Ring
+        INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (7369, 30193, 0.1);
+        INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (7371, 30193, 0.1);
+        INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (7372, 30193, 0.1);
+        INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (7379, 30193, 0.1);
+
+    -- Fel Grass
+    INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`, `patch_min`) VALUES (17081, 30220, 25, 10);
+    -- Dragon Thread
+    INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`, `patch_min`) VALUES (17082, 30217, 25, 10);
+    -- Ancient Log
+    INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`, `patch_min`) VALUES (17083, 30216, 25, 10);
+    -- Durium Bar
+    INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`, `patch_min`) VALUES (17084, 30214, 25, 10);
+    -- Titans Power Core
+    INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`, `patch_min`) VALUES (17085, 30219, 25, 10);
+    -- Void Star Fragment
+    INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`, `patch_min`) VALUES (17086, 30218, 25, 10);
+    -- Old Gods Leather
+    INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`, `patch_min`) VALUES (17087, 30215, 25, 10);
+    -- Radiating Gemstone
+    INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`, `patch_min`) VALUES (17088, 30213, 25, 10);
