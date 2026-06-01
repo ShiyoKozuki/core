@@ -446,6 +446,16 @@ void CombatBotBaseAI::PopulateSpellData()
                     if (IsHigherRankSpell(m_spells.shaman.pPurge))
                         m_spells.shaman.pPurge = pSpellEntry;
                 }
+                else if (pSpellEntry->SpellName[0].find("Cure Poison") != std::string::npos)
+                {
+                    if (IsHigherRankSpell(m_spells.shaman.pCurePoison))
+                        m_spells.shaman.pCurePoison = pSpellEntry;
+                }
+                else if (pSpellEntry->SpellName[0].find("Cure Disease") != std::string::npos)
+                {
+                    if (IsHigherRankSpell(m_spells.shaman.pCureDisease))
+                        m_spells.shaman.pCureDisease = pSpellEntry;
+                }
                 else if (pSpellEntry->SpellName[0].find("Stormstrike") != std::string::npos)
                 {
                     if (IsHigherRankSpell(m_spells.shaman.pStormstrike))

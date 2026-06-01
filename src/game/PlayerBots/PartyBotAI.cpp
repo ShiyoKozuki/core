@@ -704,12 +704,6 @@ void PartyBotAI::UpdateAI(uint32 const diff)
         me->SetHealthPercent(100.0f);
         me->SetPowerPercent(me->GetPowerType(), 100.0f);
 
-        if (urand(0, 1) || me->GetRace() == RACE_BLOODELF)
-        {
-            me->ToggleFlag(PLAYER_FLAGS, PLAYER_FLAGS_HIDE_HELM);
-            me->ToggleFlag(PLAYER_FLAGS, PLAYER_FLAGS_HIDE_CLOAK);
-        }
-
         uint32 newzone, newarea;
         me->GetZoneAndAreaId(newzone, newarea);
         me->UpdateZone(newzone, newarea);
@@ -1302,31 +1296,27 @@ void PartyBotAI::UpdateOutOfCombatAI_Paladin()
             return;
     }
 
-    if (me->GetLevel() < 42)
+    // Cleanse / Purify
+    if (m_spells.paladin.pCleanse)
     {
-        if (m_spells.paladin.pPurify)
+        if (Unit* pFriend = SelectDispelTarget(m_spells.paladin.pCleanse))
         {
-            if (Unit* pFriend = SelectDispelTarget(m_spells.paladin.pPurify))
+            if (CanTryToCastSpell(pFriend, m_spells.paladin.pCleanse))
             {
-                if (CanTryToCastSpell(pFriend, m_spells.paladin.pPurify))
-                {
-                    if (DoCastSpell(pFriend, m_spells.paladin.pPurify) == SPELL_CAST_OK)
-                        return;
-                }
+                if (DoCastSpell(pFriend, m_spells.paladin.pCleanse) == SPELL_CAST_OK)
+                    return;
             }
         }
     }
-    else
+
+    if (m_spells.paladin.pPurify)
     {
-        if (m_spells.paladin.pCleanse)
+        if (Unit* pFriend = SelectDispelTarget(m_spells.paladin.pPurify))
         {
-            if (Unit* pFriend = SelectDispelTarget(m_spells.paladin.pCleanse))
+            if (CanTryToCastSpell(pFriend, m_spells.paladin.pPurify))
             {
-                if (CanTryToCastSpell(pFriend, m_spells.paladin.pCleanse))
-                {
-                    if (DoCastSpell(pFriend, m_spells.paladin.pCleanse) == SPELL_CAST_OK)
-                        return;
-                }
+                if (DoCastSpell(pFriend, m_spells.paladin.pPurify) == SPELL_CAST_OK)
+                    return;
             }
         }
     }
@@ -1381,31 +1371,27 @@ void PartyBotAI::UpdateInCombatAI_Paladin()
         }
     }
 
-    if (me->GetLevel() < 42)
+    // Cleanse / Purify
+    if (m_spells.paladin.pCleanse)
     {
-        if (m_spells.paladin.pPurify)
+        if (Unit* pFriend = SelectDispelTarget(m_spells.paladin.pCleanse))
         {
-            if (Unit* pFriend = SelectDispelTarget(m_spells.paladin.pPurify))
+            if (CanTryToCastSpell(pFriend, m_spells.paladin.pCleanse))
             {
-                if (CanTryToCastSpell(pFriend, m_spells.paladin.pPurify))
-                {
-                    if (DoCastSpell(pFriend, m_spells.paladin.pPurify) == SPELL_CAST_OK)
-                        return;
-                }
+                if (DoCastSpell(pFriend, m_spells.paladin.pCleanse) == SPELL_CAST_OK)
+                    return;
             }
         }
     }
-    else
+
+    if (m_spells.paladin.pPurify)
     {
-        if (m_spells.paladin.pCleanse)
+        if (Unit* pFriend = SelectDispelTarget(m_spells.paladin.pPurify))
         {
-            if (Unit* pFriend = SelectDispelTarget(m_spells.paladin.pCleanse))
+            if (CanTryToCastSpell(pFriend, m_spells.paladin.pPurify))
             {
-                if (CanTryToCastSpell(pFriend, m_spells.paladin.pCleanse))
-                {
-                    if (DoCastSpell(pFriend, m_spells.paladin.pCleanse) == SPELL_CAST_OK)
-                        return;
-                }
+                if (DoCastSpell(pFriend, m_spells.paladin.pPurify) == SPELL_CAST_OK)
+                    return;
             }
         }
     }
