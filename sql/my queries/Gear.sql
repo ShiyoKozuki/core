@@ -395,14 +395,16 @@ REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quali
 
 REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`) VALUES (30224, 5, 'Orcus\'s Mandible', 34142, 4, 400, 100, -1, -1, 45, 20, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0);
 
-REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`) VALUES (30225, 5, 'Kirin Tor Rune Dust', 13123, 1, 400, 100, -1, -1, 45, 20, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0);
+REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`) VALUES (30225, 5, 'Kirin Tor Rune Dust', 13123, 2, 400, 100, -1, -1, 45, 20, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0);
 
-REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`) VALUES (30226, 5, 'Mana Fragment', 30634, 1, 400, 100, -1, -1, 45, 20, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0);
+REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`) VALUES (30226, 5, 'Mana Fragment', 30634, 2, 400, 100, -1, -1, 45, 20, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0);
 
-REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`) VALUES (30227, 5, 'Mana Infused Cloth Scraps', 35299, 1, 400, 100, -1, -1, 45, 20, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0);
+REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`) VALUES (30227, 5, 'Mana Infused Cloth Scraps', 35299, 2, 400, 100, -1, -1, 45, 20, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0);
+
+REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`) VALUES (30228, 5, 'Karazhan Memento', 9657, 1, 400, 100, -1, -1, 45, 20, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0);
 
 
--- NEXT 30228
+-- NEXT 30229
 
 
 -- Shields
@@ -4916,6 +4918,13 @@ WHERE entry = 3230;
 
 -- BFD
 
+-- Naga Heartpiercer
+UPDATE mangos . item_template
+SET delay = 2400,
+    dmg_min1 = 13,
+    dmg_max1 = 37
+WHERE entry = 3078;
+
 -- Darkwater Talwar
 UPDATE mangos . item_template
 SET quality = 3,
@@ -5002,7 +5011,7 @@ WHERE entry = 1155;
 -- Ghamoo-ra's Bind
 UPDATE mangos . item_template
 SET quality = 2,
-    bonding = 2,
+    bonding = 1,
     stat_type1 = 7,
     stat_value1 = 0,
     stat_type2 = 5,
@@ -15145,7 +15154,6 @@ UPDATE mangos . item_template
 SET display_id = 3058
 WHERE entry = 7921;
 
-
 -- Misc
 
 -- Disable new pvp gear and use old PvP gear
@@ -15156,6 +15164,19 @@ WHERE required_honor_rank >= 7 AND patch BETWEEN 3 AND 9;
 UPDATE creature_template
 SET patch = patch + 10
 WHERE entry = 12777 AND patch = 9;
+
+-- Change all green and blue BOP's to BOE that do not require a craft skill, reputation, or honor rank and are not a quest reward (required_level > 0) and have a sell price
+UPDATE `mangos`.`item_template`
+    SET `bonding` = 2
+    WHERE `bonding` = 1
+        AND `inventory_type` > 0
+        AND `quality` IN (2, 3)
+        AND `required_reputation_faction` = 0
+        AND `required_honor_rank` = 0
+        AND `required_skill` = 0
+        AND `required_spell` = 0
+        AND `sell_price` > 0
+        AND `required_level` > 0;
 
 -- Do SET forbidden_items.patch = forbidden_items.patch - 10 to revert
 -- UPDATE forbidden_items
