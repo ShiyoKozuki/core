@@ -926,10 +926,10 @@ SpellAuraProcResult Unit::HandleDummyAuraProc(Unit* pVictim, uint32 amount, uint
                     basepoints[0] = amount;
 
                     // don't heal for 0
-                    if (basepoints[0] < 1)
-                        basepoints[0] = 1;
+                    if (amount < 1)
+                        return SPELL_AURA_PROC_FAILED;
 
-                    CastCustomSpell(this, 34002, basepoints[0], {}, {}, true, castItem, triggeredByAura);
+                    CastCustomSpell(this, 34002, amount, {}, {}, true, castItem, triggeredByAura);
                     return SPELL_AURA_PROC_OK; // no hidden cooldown
                 }
             }
