@@ -406,6 +406,9 @@ public:
             SpellEntry const* pEarthShock;
             SpellEntry const* pFlameShock;
             SpellEntry const* pFrostShock;
+            SpellEntry const* pPrimalStrike;
+            SpellEntry const* pLavaStrike;
+            SpellEntry const* pFrostbrandStrike;
             SpellEntry const* pNaturesSwiftness;
             SpellEntry const* pPurge;
             SpellEntry const* pStormstrike;

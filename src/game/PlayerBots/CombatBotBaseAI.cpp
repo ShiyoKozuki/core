@@ -436,6 +436,21 @@ void CombatBotBaseAI::PopulateSpellData()
                     if (IsHigherRankSpell(m_spells.shaman.pFrostShock))
                         m_spells.shaman.pFrostShock = pSpellEntry;
                 }
+                else if (pSpellEntry->SpellName[0].find("Primal Strike") != std::string::npos)
+                {
+                    if (IsHigherRankSpell(m_spells.shaman.pPrimalStrike))
+                        m_spells.shaman.pPrimalStrike = pSpellEntry;
+                }
+                else if (pSpellEntry->SpellName[0].find("Lava Strike") != std::string::npos)
+                {
+                    if (IsHigherRankSpell(m_spells.shaman.pLavaStrike))
+                        m_spells.shaman.pLavaStrike = pSpellEntry;
+                }
+                else if (pSpellEntry->SpellName[0].find("Frostbrand Strike") != std::string::npos)
+                {
+                    if (IsHigherRankSpell(m_spells.shaman.pFrostbrandStrike))
+                        m_spells.shaman.pFrostbrandStrike = pSpellEntry;
+                }
                 else if (pSpellEntry->SpellName[0].find("Nature's Swiftness") != std::string::npos)
                 {
                     if (IsHigherRankSpell(m_spells.shaman.pNaturesSwiftness))

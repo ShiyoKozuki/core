@@ -35,7 +35,8 @@ enum PartyBotSpells
     PB_SPELL_AUTO_SHOT = 75,
     PB_SPELL_SHOOT_WAND = 5019,
     PB_SPELL_HONORLESS_TARGET = 2479,
-    PB_SPELL_INFERNO = 34060
+    PB_SPELL_INFERNO = 34060,
+    PB_SPELL_IGNITION = 34034,
 };
 
 enum PartyBotTalents
@@ -1764,6 +1765,36 @@ void PartyBotAI::UpdateInCombatAI_Shaman()
                 }
             }
 
+            if (GetRole() == ROLE_MELEE_DPS)
+            {
+                // Strikes Logic
+                if (!me->HasAura(PB_SPELL_IGNITION))
+                {
+                    if (m_spells.shaman.pPrimalStrike &&
+                        CanTryToCastSpell(pVictim, m_spells.shaman.pPrimalStrike))
+                    {
+                        if (DoCastSpell(pVictim, m_spells.shaman.pPrimalStrike) == SPELL_CAST_OK)
+                            return;
+                    }
+                }
+                else
+                {
+                    if (m_spells.shaman.pLavaStrike &&
+                        CanTryToCastSpell(pVictim, m_spells.shaman.pLavaStrike))
+                    {
+                        if (DoCastSpell(pVictim, m_spells.shaman.pLavaStrike) == SPELL_CAST_OK)
+                            return;
+                    }
+
+                    if (m_spells.shaman.pFrostbrandStrike &&
+                        CanTryToCastSpell(pVictim, m_spells.shaman.pFrostbrandStrike))
+                    {
+                        if (DoCastSpell(pVictim, m_spells.shaman.pFrostbrandStrike) == SPELL_CAST_OK)
+                            return;
+                    }
+                }
+            }
+
             if (m_spells.shaman.pFlameShock &&
                 CanTryToCastSpell(pVictim, m_spells.shaman.pFlameShock))
             {
@@ -1785,20 +1816,21 @@ void PartyBotAI::UpdateInCombatAI_Shaman()
                     return;
             }
 
-            if (m_spells.shaman.pChainLightning &&
-                 GetRole() == ROLE_RANGE_DPS &&
-                CanTryToCastSpell(pVictim, m_spells.shaman.pChainLightning))
+            if (GetRole() == ROLE_RANGE_DPS)
             {
-                if (DoCastSpell(pVictim, m_spells.shaman.pChainLightning) == SPELL_CAST_OK)
-                    return;
-            }
+                if (m_spells.shaman.pChainLightning &&
+                    CanTryToCastSpell(pVictim, m_spells.shaman.pChainLightning))
+                {
+                    if (DoCastSpell(pVictim, m_spells.shaman.pChainLightning) == SPELL_CAST_OK)
+                        return;
+                }
 
-            if (m_spells.shaman.pLightningBolt &&
-               GetRole() == ROLE_RANGE_DPS &&
-                CanTryToCastSpell(pVictim, m_spells.shaman.pLightningBolt))
-            {
-                if (DoCastSpell(pVictim, m_spells.shaman.pLightningBolt) == SPELL_CAST_OK)
-                    return;
+                if (m_spells.shaman.pLightningBolt &&
+                    CanTryToCastSpell(pVictim, m_spells.shaman.pLightningBolt))
+                {
+                    if (DoCastSpell(pVictim, m_spells.shaman.pLightningBolt) == SPELL_CAST_OK)
+                        return;
+                }
             }
         }
     }
