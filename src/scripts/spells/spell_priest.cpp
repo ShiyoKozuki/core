@@ -266,6 +266,102 @@ SpellScript* GetScript_PriestPenance(SpellEntry const*)
     return new PriestPenanceScript();
 }
 
+struct PriestAtonementScript : public SpellScript
+{
+    bool OnEffectExecute(Spell* spell, SpellEffectIndex effIdx) const final
+    {
+        if (effIdx == EFFECT_INDEX_0 && spell->GetUnitTarget() && spell->m_casterUnit && spell->GetCaster())
+        {
+            // Atonement healing is halved against the priest themselves
+            if (spell->GetUnitTarget() == spell->m_casterUnit)
+            {
+                // damage member is used as the base healing amount in spell healing functions
+                spell->damage *= 0.5;
+                spell->m_currentBasePoints[EFFECT_INDEX_1] *= 0.5;
+            }
+        }
+        return true;
+    }
+};
+
+SpellScript* GetScript_PriestAtonement(SpellEntry const*)
+{
+    return new PriestAtonementScript();
+}
+
+
+struct PriestDevouringPlagueScript : public SpellScript
+{
+    enum
+    {
+        SPELL_SHADOW_ORBS = 34157,
+    };
+
+    SpellCastResult OnCheckCast(Spell* spell, bool /*strict*/) const final
+    {
+#if SUPPORTED_CLIENT_BUILD > CLIENT_BUILD_1_10_2
+        if (spell->m_casterUnit)
+        {
+            if (spell->m_casterUnit->HasAura(SPELL_SHADOW_ORBS))
+            {
+                Aura* shadowOrbsAura = spell->m_casterUnit->GetAura(SPELL_SHADOW_ORBS, EFFECT_INDEX_0);
+                SpellAuraHolder* holder = shadowOrbsAura->GetHolder();
+
+                if (holder)
+                {
+                    uint16 stacks = holder->GetStackAmount();
+
+                     // Devouring Plague requires 3 stacks
+                    if (stacks >= 3)
+                        return SPELL_CAST_OK;
+                }
+            }
+        }
+#endif
+        return SPELL_FAILED_TARGET_AURASTATE;
+    }
+
+    bool OnEffectExecute(Spell* spell, SpellEffectIndex effIdx) const final
+    {
+        if (effIdx == EFFECT_INDEX_0 && spell->GetUnitTarget() && spell->m_casterUnit)
+        {
+            Aura* shadowOrbsAura = spell->m_casterUnit->GetAura(SPELL_SHADOW_ORBS, EFFECT_INDEX_0);
+
+            if (!shadowOrbsAura)
+                return false;
+
+            SpellAuraHolder* holder = shadowOrbsAura->GetHolder();
+
+            if (!holder)
+                return false;
+
+            uint16 stacks = holder->GetStackAmount();
+
+            // Devouring Plague requires 3 stacks
+            if (stacks < 3)
+                return false;
+
+            // Remove Shadow Orbs aura from self if stacks are exactl else
+            if (stacks == 3)
+            {
+                // Remove Shadow Orbs aura from self
+                spell->m_casterUnit->RemoveAurasByCasterSpell(shadowOrbsAura->GetId(), spell->m_caster->GetObjectGuid());
+            }
+            else // Remove 3 stacks of Shadow Orbs
+            {
+                holder->SetStackAmount(stacks - 3);
+            }
+        }
+
+        return true;
+    }
+};
+
+SpellScript* GetScript_PriestDevouringPlague(SpellEntry const*)
+{
+    return new PriestDevouringPlagueScript();
+}
+
 void AddSC_priest_spell_scripts()
 {
     Script* newscript;
@@ -293,5 +389,15 @@ void AddSC_priest_spell_scripts()
     newscript = new Script;
     newscript->Name = "spell_priest_penance";
     newscript->GetSpellScript = &GetScript_PriestPenance;
+    newscript->RegisterSelf();
+
+    newscript = new Script;
+    newscript->Name = "spell_priest_atonement";
+    newscript->GetSpellScript = &GetScript_PriestAtonement;
+    newscript->RegisterSelf();
+
+    newscript = new Script;
+    newscript->Name = "spell_priest_devouring_plague";
+    newscript->GetSpellScript = &GetScript_PriestDevouringPlague;
     newscript->RegisterSelf();
 }

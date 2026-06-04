@@ -1,4 +1,4 @@
--- NEXT talent ID is 1732
+-- NEXT talent ID is 1735
 -- Talents that grant a new spell (i.e. feral charge) need flags set to "1"
 -- Talents
 
@@ -259,12 +259,12 @@
 -- Inner Focus (Add Penance)
 UPDATE `mangos`.`spell_template` SET `effectItemType1`=29107945435, `effectItemType2`=29147545232 WHERE  `entry`=14751 AND `build`=5302;
 
--- Mental Agility (-2% -> -3% Per Rank)
-UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=-4 WHERE  `entry`=14520;
-UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=-7 WHERE  `entry`=14780;
-UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=-10 WHERE  `entry`=14781;
-UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=-13 WHERE  `entry`=14782;
-UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=-16 WHERE  `entry`=14783;
+-- Mental Agility (-2% -> -3% Per Rank and added Shadow Word: Death)
+UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=-4, `effectItemType1`=139624300875 WHERE  `entry`=14520;
+UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=-7, `effectItemType1`=139624300875 WHERE  `entry`=14780;
+UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=-10, `effectItemType1`=139624300875 WHERE  `entry`=14781;
+UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=-13, `effectItemType1`=139624300875 WHERE  `entry`=14782;
+UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=-16, `effectItemType1`=139624300875 WHERE  `entry`=14783;
 
 -- Improved Inner Fire (Inner Fire increases your Spell damage and healing by 3/6/9%)
 UPDATE `mangos`.`spell_template` SET `effect2`=6, `effectDieSides2`=1, `effectBaseDice2`=1, `effectBasePoints2`=-1, `effectImplicitTargetA2`=1, `effectApplyAuraName2`=108, `effectItemType2`=26238828241, `effectMiscValue2`=8, `procCharges`=0, `description`='A burst of Holy energy fills the caster, increasing armor by $s1.  Lasts $d.' WHERE `entry`=588;
@@ -296,7 +296,7 @@ UPDATE `mangos`.`spell_template` SET `effect2`=6, `effectDieSides2`=1, `effectBa
     VALUES (34001, 5464, 4, 464, 67108864, 1, 87376, 100, 21, 1, -1, 6, 1, 1, -1, 0, -1, -1, 1, 4, 128, 34002, 332, 'Atonement', 4128830, '0', 4128830, 'When you deal damage with Smite, you instantly heal all party members within 30 yards equal to 100% of the damage dealt.  If the Priest is healed through Atonement, the effect is reduced in half.', 4128830, 4128828, 6, -1, 1);
 
     -- Proc (AoE heal)
-    REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `attributesEx2`, `castingTimeIndex`, `procChance`, `baseLevel`, `spellLevel`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectRadiusIndex1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `spellFamilyName`, `stanceBarOrder`, `dmgMultiplier1`) VALUES (34002, 5464, 5, 134217728, 268435456, 1, 101, 1, 1, 4, -1, 10, 0, -1, -1, 20, 10, 3542, 150, 'Atonement', 4128830, 4128828, 4128828, 'When you deal damage with Smite, you instantly heal all party members within 30 yards equal to 100% of the damage dealt.  If the Priest is healed through Atonement, the effect is reduced in half', 4128830, 6, -1, 1);
+    REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `attributesEx2`, `castingTimeIndex`, `procChance`, `baseLevel`, `spellLevel`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectRadiusIndex1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `spellFamilyName`, `stanceBarOrder`, `dmgMultiplier1`, `script_name`) VALUES (34002, 5464, 5, 134217728, 268435456, 1, 101, 1, 1, 4, -1, 10, 0, -1, -1, 20, 10, 3542, 150, 'Atonement', 4128830, 4128828, 4128828, 'When you deal damage with Smite, you instantly heal all party members within 30 yards equal to 100% of the damage dealt.  If the Priest is healed through Atonement, the effect is reduced in half', 4128830, 6, -1, 1, 'spell_priest_atonement');
 
 -- Evangelism
     -- Rank 1
@@ -308,25 +308,25 @@ UPDATE `mangos`.`spell_template` SET `effect2`=6, `effectDieSides2`=1, `effectBa
     REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `dispel`, `attributes`, `castingTimeIndex`, `procFlags`, `procChance`, `procCharges`, `baseLevel`, `spellLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectItemType1`, `effectMiscValue1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `spellFamilyName`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) 
     VALUES (34004, 5464, 2, 1, 327680, 1, 87376, 100, 0, 10, 10, 85, 6, -1, -1, 6, 1, 1, 49, 0, -1, -1, 1, 108, 8590983296, 8, 0, 1873, 'Evangelism', 4128830, 4128828, 4128828, 'Increases the damage done by your Smite, Holy Fire, and Penance spells by $s2% and reduces the mana cost of those spells by $s1%', 4128830, 6, 1, 1, -1, 1, 1, 1);
 
-    UPDATE `mangos`.`spell_template` SET `stackAmount`=5, `effect1`=6, `effect2`=6, `effectDieSides1`=1, `effectDieSides2`=1, `effectBaseDice1`=1, `effectBaseDice2`=1, `effectBasePoints1`=-4, `effectBasePoints2`=1, `effectImplicitTargetA1`=1, `effectImplicitTargetA2`=1, `effectApplyAuraName1`=108, `effectApplyAuraName2`=108, `effectItemType1`=25770852480, `effectItemType2`=17180917888, `effectMiscValue1`=14, `effectMiscValue2`=8 WHERE entry = 34004;
+    UPDATE `mangos`.`spell_template` SET `stackAmount`=5, `effect1`=6, `effect2`=6, `effectDieSides1`=1, `effectDieSides2`=1, `effectBaseDice1`=1, `effectBaseDice2`=1, `effectBasePoints1`=-4, `effectBasePoints2`=1, `effectImplicitTargetA1`=1, `effectImplicitTargetA2`=1, `effectApplyAuraName1`=108, `effectApplyAuraName2`=108, `effectItemType1`=25770852480, `effectItemType2`=17180917888, `effectMiscValue1`=14, `effectMiscValue2`=8, `durationIndex`=18 WHERE entry = 34004;
 
     -- Rank 2
     -- Spell (This is the aura that procs the actual buff)
     REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `attributesEx3`, `castingTimeIndex`, `procFlags`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectItemType1`, `effectTriggerSpell1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `stanceBarOrder`, `dmgMultiplier1`) 
-    VALUES (34005, 5464, 2, 464, 67108864, 1, 87376, 100, 21, 1, -1, 6, 1, 1, -1, 0, -1, -1, 1, 42, 128, 34006, 1873, 'Evangelism', 4128830, '0', 4128830, 'When you cast Smite you gain Evangelism. Increases the damage done by your Smite, Holy Fire, and Penance spells by $34004s2% and reduces the mana cost of those spells by $34006s1%. Stacks up to 5 times.  Lasts for 20 sec.', 4128830, 4128828, 6, -1, 1);
+    VALUES (34005, 5464, 2, 464, 67108864, 1, 87376, 100, 21, 1, -1, 6, 1, 1, -1, 0, -1, -1, 1, 42, 128, 34006, 1873, 'Evangelism', 4128830, '0', 4128830, 'When you cast Smite you gain Evangelism. Increases the damage done by your Smite, Holy Fire, and Penance spells by $34006s2% and reduces the mana cost of those spells by $34006s1%. Stacks up to 5 times.  Lasts for 20 sec.', 4128830, 4128828, 6, -1, 1);
 
     -- Proc (This is the actual buff)
     REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `dispel`, `attributes`, `castingTimeIndex`, `procFlags`, `procChance`, `procCharges`, `baseLevel`, `spellLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectItemType1`, `effectMiscValue1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `spellFamilyName`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) 
     VALUES (34006, 5464, 2, 1, 327680, 1, 87376, 100, 0, 10, 10, 85, 6, -1, -1, 6, 1, 1, 49, 0, -1, -1, 1, 108, 8590983296, 8, 0, 1873, 'Evangelism', 4128830, 4128828, 4128828, 'Increases the damage done by your Smite, Holy Fire, and Penance spells by $s2% and reduces the mana cost of those spells by $s1%', 4128830, 6, 1, 1, -1, 1, 1, 1);
 
-    UPDATE `mangos`.`spell_template` SET `stackAmount`=5, `effect1`=6, `effect2`=6, `effectDieSides1`=1, `effectDieSides2`=1, `effectBaseDice1`=1, `effectBaseDice2`=1, `effectBasePoints1`=-7, `effectBasePoints2`=3, `effectImplicitTargetA1`=1, `effectImplicitTargetA2`=1, `effectApplyAuraName1`=108, `effectApplyAuraName2`=108, `effectItemType1`=25770852480, `effectItemType2`=17180917888, `effectMiscValue1`=14, `effectMiscValue2`=8 WHERE entry = 34006;
+    UPDATE `mangos`.`spell_template` SET `stackAmount`=5, `effect1`=6, `effect2`=6, `effectDieSides1`=1, `effectDieSides2`=1, `effectBaseDice1`=1, `effectBaseDice2`=1, `effectBasePoints1`=-7, `effectBasePoints2`=3, `effectImplicitTargetA1`=1, `effectImplicitTargetA2`=1, `effectApplyAuraName1`=108, `effectApplyAuraName2`=108, `effectItemType1`=25770852480, `effectItemType2`=17180917888, `effectMiscValue1`=14, `effectMiscValue2`=8, `durationIndex`=18 WHERE entry = 34006;
 
 -- Archangel
-    REPLACE `mangos`.`spell_template` (`entry`, `build`, `dispel`, `attributes`, `attributesEx2`, `stances`, `castingTimeIndex`, `recoveryTime`, `procFlags`, `procChance`, `procCharges`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effect2`, `effectDieSides1`, `effectDieSides2`, `effectBaseDice1`, `effectBaseDice2`, `effectBasePoints1`, `effectBasePoints2`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectApplyAuraName1`, `effectApplyAuraName2`, `effectItemType1`, `effectItemType2`, `effectMiscValue1`, `effectMiscValue2`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `spellFamilyName`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `script_name`) VALUES (34007, 5302, 1, 33882112, 524288, 134217728, 1, 180000, 87376, 100, 0, 21, 1, -1, 6, 6, 1, 1, 1, 1, -101, 24, 0, 0, -1, 1, 1, 108, 107, 3338141659, 8741199424, 14, 7, 7370, 1880, 'Archangel', 2031678, 2031676, 'Instantly restores $s3 mana and increases your healing done by $s2% for each stack.  Lasts 18 sec.', 2031678, 'Healing done increased.', 2031678, 6, 1, 1, -1, 1, 1, 'spell_priest_archangel');
+    REPLACE `mangos`.`spell_template` (`entry`, `build`, `dispel`, `attributes`, `attributesEx2`, `stances`, `castingTimeIndex`, `recoveryTime`, `procFlags`, `procChance`, `procCharges`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effect2`, `effectDieSides1`, `effectDieSides2`, `effectBaseDice1`, `effectBaseDice2`, `effectBasePoints1`, `effectBasePoints2`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectApplyAuraName1`, `effectApplyAuraName2`, `effectItemType1`, `effectItemType2`, `effectMiscValue1`, `effectMiscValue2`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `spellFamilyName`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `script_name`) VALUES (34007, 5302, 1, 33882112, 524288, 134217728, 1, 180000, 87376, 100, 0, 21, 1, -1, 6, 6, 1, 1, 1, 1, -101, 24, 0, 0, -1, 1, 1, 108, 107, 3338141659, 8741199424, 14, 7, 0, 1880, 'Archangel', 2031678, 2031676, 'Consumes your Evangelism effect.  Instantly restores $s3% mana and increases your healing done by $s2% for each stack.  Lasts 18 sec.', 2031678, 'Healing done increased.', 2031678, 6, 1, 1, -1, 1, 1, 'spell_priest_archangel');
 
     UPDATE `mangos`.`spell_template` SET `recoveryTime`=30000, `maxLevel`=61, `baseLevel`=20, `spellLevel`=20, `durationIndex`=9, `powerType`=0, `manaCost`=0, `effect1`=30, `effect2`=6, `effect3`=77, `effectDieSides1`=1, `effectDieSides2`=1, `effectBaseDice2`=1, `effectRealPointsPerLevel1`=15, `effectBasePoints1`=99, `effectBasePoints2`=2, `effectBonusCoefficient1`=0, `effectImplicitTargetA1`=1, `effectImplicitTargetA2`=21, `effectImplicitTargetA3`=1, `effectApplyAuraName2`=108, `effectApplyAuraName3`=4, `effectItemType1`=0, `effectItemType2`=8741199424, `effectMiscValue1`=0, `effectMiscValue2`=8, `spellFamilyFlags`=0 WHERE  `entry`=34007;
 
-    UPDATE `mangos`.`spell_template` SET `effect1`=77, `effect3`=30, `effectDieSides3`=1, `effectBaseDice3`=1, `effectRealPointsPerLevel1`=0, `effectRealPointsPerLevel3`=10, `effectBasePoints1`=0, `effectBasePoints3`=99, `effectBonusCoefficient3`=0, `effectApplyAuraName1`=4, `effectApplyAuraName3`=108 WHERE  `entry`=34007 AND `build`=5302;
+    UPDATE `mangos`.`spell_template` SET `effect1`=77, `effect3`=134, `effectDieSides3`=1, `effectBaseDice3`=1, `effectRealPointsPerLevel1`=0, `effectRealPointsPerLevel3`=0, `effectBasePoints1`=0, `effectBasePoints3`=0, `effectBonusCoefficient3`=0, `effectApplyAuraName1`=4, `effectApplyAuraName3`=108 WHERE  `entry`=34007 AND `build`=5302;
 
     -- Skill Line Ability
     REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`) VALUES (15118, 5875, 613, 34007, 16, 1);
@@ -440,6 +440,112 @@ UPDATE `mangos`.`spell_template` SET `effect2`=0, `effectDieSides2`=0, `effectBa
             REPLACE `mangos`.`spell_chain` (`spell_id`, `prev_spell`, `first_spell`, `rank`) VALUES (34008, 0,     34008, 1);
             REPLACE `mangos`.`spell_chain` (`spell_id`, `prev_spell`, `first_spell`, `rank`) VALUES (34013, 34008, 34008, 2);
             REPLACE `mangos`.`spell_chain` (`spell_id`, `prev_spell`, `first_spell`, `rank`) VALUES (34019, 34013, 34008, 3);
+
+    -- Spirit Tap (3 points, 33/66/100%)
+    UPDATE `mangos`.`spell_template` SET `procChance`=33 WHERE  `entry`=15270 AND `build`=5302;
+    UPDATE `mangos`.`spell_template` SET `procChance`=66 WHERE  `entry`=15335 AND `build`=5302;
+    UPDATE `mangos`.`spell_template` SET `procChance`=100 WHERE  `entry`=15336 AND `build`=5302;
+
+    -- Improved Spirit Tap (SW: Pain Proc)
+        -- Rank 1
+            -- Spell (SW: Pain Proc)
+                REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procFlags`, `procChance`, `baseLevel`, `spellLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectItemType1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `dmgMultiplier1`) VALUES (34154, 5302, 464, 1, 327680, 5, 1, 1, 21, 1, -1, 6, 1, 1, 0, -1, -1, 1, 112, 1, 10001, 152, 'Improved Spirit Tap', 2031678, 'Rank 1', 2031678, 'Gives your Shadow Word: Pain spell a $h% chance to grant a $34156s1% bonus to your Spirit.  For the duration, your Mana will regenerate at a $34156s2% rate while casting.  Lasts $34156d', 2031678, 2031676, 6, 1);
+
+                -- Spell Proc Event
+                REPLACE `mangos`.`spell_proc_event` (`entry`, `SpellFamilyName`, `SpellFamilyMask0`, `SpellFamilyMask1`, `SpellFamilyMask2`, `procFlags`) VALUES (34154, 6, 32768, 32768, 32768, 262144);
+
+        -- Rank 2
+            -- Spell (SW: Pain Proc)
+                REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procFlags`, `procChance`, `baseLevel`, `spellLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectItemType1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `dmgMultiplier1`) VALUES (34155, 5302, 464, 1, 327680, 10, 1, 1, 21, 1, -1, 6, 1, 1, 0, -1, -1, 1, 112, 1, 10001, 152, 'Improved Spirit Tap', 2031678, 'Rank 1', 2031678, 'Gives your Shadow Word: Pain spell a $h% chance to grant a $34156s1% bonus to your Spirit.  For the duration, your Mana will regenerate at a $34156s2% rate while casting.  Lasts $34156d', 2031678, 2031676, 6, 1);
+
+                -- Spell Proc Event
+                REPLACE `mangos`.`spell_proc_event` (`entry`, `SpellFamilyName`, `SpellFamilyMask0`, `SpellFamilyMask1`, `SpellFamilyMask2`, `procFlags`) VALUES (34155, 6, 32768, 32768, 32768, 262144);
+
+            -- Proc (This is the actual buff)
+                REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `dispel`, `castingTimeIndex`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effect2`, `effectDieSides1`, `effectDieSides2`, `effectBaseDice1`, `effectBaseDice2`, `effectBasePoints1`, `effectBasePoints2`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectApplyAuraName1`, `effectApplyAuraName2`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`) VALUES (34156, 4375, 5, 1, 1, 101, 31, 1, -1, 6, 6, 1, 1, 1, 1, 49, 32, 0, 1, -1, 1, 1, 137, 134, 4, 152, 'Improved Spirit Tap', 2031646, 'Rank 1', 2031646, 2031644, 'Spirit increased by $s1% and allows $s2% of mana regeneration while casting.', 2031646, -1, 1, 1);
+
+                UPDATE `mangos`.`spell_template` SET `spellFamilyName`=6 WHERE  `entry`=34156 AND `build`=4375;
+
+    -- Improved Mind Blast (2 points, -1.25 / -2.5 sec cooldown, 50/100% chance to generate a Shadow Orb)
+        UPDATE `mangos`.`spell_template` SET `procFlags`=87376, `procChance`=50, `effect2`=6, `effectBasePoints1`=-1251, `effectImplicitTargetA2`=1, `effectApplyAuraName2`=42, `effectItemType2`=8192, `effectTriggerSpell2`= 34157, `description`='Reduces the cooldown of your Mind Blast spell by $/1000;S1 sec.  In addition, your Mind Blast spell has a $h% chance of granting you a Shadow Orb. Stacks up to 5 times.' WHERE  `entry`=15273;
+
+        UPDATE `mangos`.`spell_template` SET `procFlags`=87376, `procChance`=100, `effect2`=6, `effectBasePoints1`=-2501, `effectImplicitTargetA2`=1, `effectApplyAuraName2`=42, `effectItemType2`=8192, `effectTriggerSpell2`= 34157, `description`='Reduces the cooldown of your Mind Blast spell by $/1000;S1 sec.  In addition, your Mind Blast spell has a $h% chance of granting you a Shadow Orb. Stacks up to 5 times.' WHERE  `entry`=15312;
+
+    -- Shadow Orbs
+        REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `dispel`, `castingTimeIndex`, `procChance`, `durationIndex`, `rangeIndex`, `stackAmount`, `equippedItemClass`, `effect1`, `effect2`, `effectDieSides1`, `effectDieSides2`, `effectBaseDice1`, `effectBaseDice2`, `effectBasePoints1`, `effectBasePoints2`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectApplyAuraName1`, `effectApplyAuraName2`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`) VALUES (34157, 4375, 5, 1, 1, 101, 21, 1, 5, -1, 6, 6, 1, 1, 1, 1, 49, 32, 0, 1, -1, 1, 1, 137, 134, 4, 92, 'Shadow Orbs', 2031646, '', 2031646, 2031644, 'Generated by Mind Blast and Shadow Word: Death. Used to cast Devouring Plague.', 2031646, -1, 1, 1);
+
+        UPDATE `mangos`.`spell_template` SET `spellFamilyName`=6 WHERE  `entry`=34157;
+
+
+    -- Shadow Affinity (Added Vampiric Touch and Shadow Word: Death)
+    UPDATE `mangos`.`spell_template` SET `effectItemType1`=206268260608 WHERE  `entry`=15318;
+    UPDATE `mangos`.`spell_template` SET `effectItemType1`=206268260608 WHERE  `entry`=15272;
+    UPDATE `mangos`.`spell_template` SET `effectItemType1`=206268260608 WHERE  `entry`=15320;
+
+    -- Shadow Focus (Now also reduces MP cost of Shadow spells by 2/4/6/8/10% + Added Vampiric Touch and Shadow Word: Death)
+        UPDATE `mangos`.`spell_template` SET `effect2`=6, `effectDieSides2`=1, `effectBaseDice2`=1, `effectBasePoints2`=-4, `effectImplicitTargetA2`=1, `effectApplyAuraName2`=108, `effectMultipleValue2`=14, `effectItemType1`=206268243968, `effectItemType2`=206268243968, `effectMiscValue2`=14, `description`='Reduces your target\'s chance to resist your Shadow spells by $s1%, and reduces the mana cost of your Shadow spells by $s2%.' WHERE  `entry`=15260;
+
+        UPDATE `mangos`.`spell_template` SET `effect2`=6, `effectDieSides2`=1, `effectBaseDice2`=1, `effectBasePoints2`=-7, `effectImplicitTargetA2`=1, `effectApplyAuraName2`=108, `effectMultipleValue2`=14, `effectItemType1`=206268243968, `effectItemType2`=206268243968, `effectMiscValue2`=14, `description`='Reduces your target\'s chance to resist your Shadow spells by $s1%, and reduces the mana cost of your Shadow spells by $s2%.' WHERE  `entry`=15327;
+
+        UPDATE `mangos`.`spell_template` SET `effect2`=6, `effectDieSides2`=1, `effectBaseDice2`=1, `effectBasePoints2`=-10, `effectImplicitTargetA2`=1, `effectApplyAuraName2`=108, `effectMultipleValue2`=14, `effectItemType1`=206268243968, `effectItemType2`=206268243968, `effectMiscValue2`=14, `description`='Reduces your target\'s chance to resist your Shadow spells by $s1%, and reduces the mana cost of your Shadow spells by $s2%.' WHERE  `entry`=15328;
+
+        UPDATE `mangos`.`spell_template` SET `effect2`=6, `effectDieSides2`=1, `effectBaseDice2`=1, `effectBasePoints2`=-13, `effectImplicitTargetA2`=1, `effectApplyAuraName2`=108, `effectMultipleValue2`=14, `effectItemType1`=206268243968, `effectItemType2`=206268243968, `effectMiscValue2`=14, `description`='Reduces your target\'s chance to resist your Shadow spells by $s1%, and reduces the mana cost of your Shadow spells by $s2%.' WHERE  `entry`=15329;
+
+        UPDATE `mangos`.`spell_template` SET `effect2`=6, `effectDieSides2`=1, `effectBaseDice2`=1, `effectBasePoints2`=-16, `effectImplicitTargetA2`=1, `effectApplyAuraName2`=108, `effectMultipleValue2`=14, `effectItemType1`=206268243968, `effectItemType2`=206268243968, `effectMiscValue2`=14, `description`='Reduces your target\'s chance to resist your Shadow spells by $s1%, and reduces the mana cost of your Shadow spells by $s2%.' WHERE  `entry`=15330;
+
+    -- Shadow Reach (Added Vampiric Touch and Shadow Word: Death)
+    UPDATE `mangos`.`spell_template` SET `effectItemType1`=206267654144 WHERE  `entry`=17322;
+    UPDATE `mangos`.`spell_template` SET `effectItemType1`=206267654144 WHERE  `entry`=17323;
+    UPDATE `mangos`.`spell_template` SET `effectItemType1`=206267654144 WHERE  `entry`=17325;
+
+    -- Shadow Weaving (2 points 50/100% and Added Vampiric Touch and Shadow Word: Death)
+        UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=49, `effectItemType1`=206200938496 WHERE  `entry`=15257 AND `build`=5464;
+        UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=99, `effectItemType1`=206200938496 WHERE  `entry`=15331 AND `build`=5464;
+
+    -- Vampiric Embrace (Buffed to 30% baseline, improved talents removed)
+        UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=29 WHERE  `entry`=15286 AND `build`=5302;
+
+    -- Darkness (2 points 5/10% and Added Vampiric Touch and Shadow Word: Death))
+        UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=4, `effectItemType1`=137472516096, `effectItemType2`=68727898112 WHERE  `entry`=15259 AND `build`=4375;
+        UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=9, `effectItemType1`=137472516096, `effectItemType2`=68727898112 WHERE  `entry`=15307 AND `build`=4375;
+
+    -- Vampiric Touch
+        -- TODO: DOts myself with an aura that does nothing?
+        -- Rank 1
+            -- Spell 
+                REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `dispel`, `attributes`, `attributesEx2`, `stances`, `castingTimeIndex`, `interruptFlags`, `procFlags`, `procChance`, `maxLevel`, `baseLevel`, `spellLevel`, `durationIndex`, `manaCost`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effect2`, `effectDieSides1`, `effectDieSides2`, `effectBaseDice1`, `effectBaseDice2`, `effectBasePoints1`, `effectBasePoints2`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectApplyAuraName1`, `effectApplyAuraName2`, `effectAmplitude1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34149, 4375, 5, 1, 327680, 524288, 134217728, 16, 8, 655360, 100, 59, 40, 40, 8, 325, 4, -1, -1, 6, 6, 1, 1, 1, 1, 89, 4, 0.167, -1, -1, 6, 0, 3, 4, 3000, 71, 195, 'Vampiric Touch', 2031646, 'Rank 1', 2031646, 'Causes $o1 Shadow damage over $d  to your target and causes all party members to gain mana equal to 5% of any Shadow spell damage you deal.', 2031646, 'Priest\'s party gains mana equal to 5% of Shadow spell damage caused by the priest.', 2031646, 133, 1500, 6, 68719476736, 1, 1, -1, 1, 1, 1);
+
+                -- Spell proc event (Only proc on shadow damage school)
+                    REPLACE `mangos`.`spell_proc_event` (`entry`, `SchoolMask`) VALUES (34149, 32);
+
+                -- Skill Line Ability
+                    REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`) VALUES (15164, 5875, 78, 34149, 16, 1);
+
+        -- Rank 2
+            -- Spell
+                REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `dispel`, `attributes`, `attributesEx2`, `stances`, `castingTimeIndex`, `interruptFlags`, `procFlags`, `procChance`, `maxLevel`, `baseLevel`, `spellLevel`, `durationIndex`, `manaCost`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effect2`, `effectDieSides1`, `effectDieSides2`, `effectBaseDice1`, `effectBaseDice2`, `effectBasePoints1`, `effectBasePoints2`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectApplyAuraName1`, `effectApplyAuraName2`, `effectAmplitude1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34152, 4375, 5, 1, 327680, 524288, 134217728, 16, 8, 655360, 100, 59, 40, 40, 8, 400, 4, -1, -1, 6, 6, 1, 1, 1, 1, 119, 4, 0.167, -1, -1, 6, 0, 3, 4, 3000, 71, 195, 'Vampiric Touch', 2031646, 'Rank 2', 2031646, 'Causes $o1 Shadow damage over $d  to your target and causes all party members to gain mana equal to 5% of any Shadow spell damage you deal.', 2031646, 'Priest\'s party gains mana equal to 5% of Shadow spell damage caused by the priest.', 2031646, 133, 1500, 6, 68719476736, 1, 1, -1, 1, 1, 1);
+
+                -- Spell proc event (Only proc on shadow damage school)
+                    REPLACE `mangos`.`spell_proc_event` (`entry`, `SchoolMask`) VALUES (34152, 32);
+
+            -- Skill Line Ability
+                REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`) VALUES (15165, 5875, 78, 34152, 16, 1);
+
+            -- Learn spell(for trainer):
+                REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `targets`, `castingTimeIndex`, `procChance`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `activeIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) 
+                VALUES (34153, 4222, 1, 262400, 256, 1, 101, 6, -1, -1, 36, 1, 1, -1, 0, -1, -1, 34152, 107, 195, 0, 'Vampiric Touch', 7274526, 'Rank 2', 7274526, 7274508, 983052, -1, 1, 1, 1);
+
+            -- Trainer
+                REPLACE `mangos`.`npc_trainer_template` (`entry`, `spell`, `spellcost`, `reqlevel`) VALUES (8, 34153, 54000, 60);
+
+            -- Spell Chain
+                REPLACE `mangos`.`spell_chain` (`spell_id`, `prev_spell`, `first_spell`, `rank`) VALUES (34149, 0,     34149, 1);
+                REPLACE `mangos`.`spell_chain` (`spell_id`, `prev_spell`, `first_spell`, `rank`) VALUES (34152, 34149, 34149, 2);
+
+            -- Proc (Mana Restore)
+            REPLACE `mangos`.`spell_template` (`entry`, `build`, `category`, `attributes`, `castingTimeIndex`, `procChance`, `spellLevel`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `dmgClass`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34150, 4222, 4, 671088640, 1, 101, 35, 1, -1, -1, 30, 1, 1, 0, -1, -1, 1, 3542, 1, 'Vampiric Touch', 983070, 7274508, '', 7274526, 983052, 13, 1, -1, 1, 1, 1);
+
+            UPDATE `mangos`.`spell_template` SET `school`=5, `effectImplicitTargetA1`=20, `effectRadiusIndex1`=10 WHERE  `entry`=34150 AND `build`=4222;
 
     -- Absolution (-5/10/15% MP cost to Curse Disease, Abolish Disease and Dispel Magic)
     REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectItemType1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `stanceBarOrder`, `dmgMultiplier1`) VALUES (34025, 4695, 464, 1, 101, 21, 1, -1, 6, 1, 1, -6, 0, -1, -1, 1, 108, 4294967296, 14, 1823, 'Absolution', 983070, '', 983070, 'Reduces the mana cost of Remove Disease, Abolish Disease and Dispel Magic by $s1%.', 983070, 983052, 6, -1, 1);

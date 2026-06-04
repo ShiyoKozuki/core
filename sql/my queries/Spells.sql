@@ -1,5 +1,5 @@
--- 34144 NEXT SPELL
--- 15164 NEXT SKILL_LINE_ABILITY
+-- 34168 NEXT SPELL
+-- 15171 NEXT SKILL_LINE_ABILITY
 -- NEXT categoryRecoveryTime 10001
 
 -- skill_line_ability class_mask uses enum CLASSES
@@ -19,9 +19,9 @@
 -- effectItemType -> (spellFamilyFlags? It's the enum I don't know why this was referenced to me) is enum ClassFlag in SpellClassMask.h
 -- spellfamiylflag is enum ClassFlag
 
--- To Trigger procs on cast, use effect 64 (SPELL_EFFECT_TRIGGER_SPELL = 64), effectTriggerSpell1 (for the spell triggered) and effectImplicitTargetA1 6(for target unit)
+-- To Trigger procs on a spell CAST, use effect 64 (SPELL_EFFECT_TRIGGER_SPELL = 64), effectTriggerSpell1 (for the spell triggered) and effectImplicitTargetA1 6(for target unit)
 
--- To Trigger procs as an aura, use effect 6(SPELL_EFFECT_APPLY_AURA), effectImplicitTargetA1 1, effectApplyAuraName 42(SPELL_AURA_PROC_TRIGGER_SPELL)
+-- To Trigger procs from an AURA, use effect 6(SPELL_EFFECT_APPLY_AURA), effectImplicitTargetA1 1, effectApplyAuraName 42(SPELL_AURA_PROC_TRIGGER_SPELL)
 
 -- Look at https://www.wowhead.com/classic/spell=12579/winters-chill to see how to add a "increased crit chance to target" mod on stuff. Like improved SoTCrusader (SPELL_AURA_MOD_ATTACKER_SPELL_CRIT_CHANCE = 179)
 
@@ -835,6 +835,18 @@
         -- -20 (spellId 26283)
 
     -- MP cost reduction (SPELL_AURA_MOD_POWER_COST_SCHOOL_PCT = 72? SPELL_AURA_MOD_POWER_COST_SCHOOL = 73 ?)
+    -- Mana to continue to regenerate while casting
+        -- 5%
+        -- 6%
+        -- 7%
+        -- 8%
+        -- 9%
+        -- 10%
+        -- 12%
+        -- 13%
+        -- 14%
+        -- 15%
+
 
     -- Feral AP
         -- 30
@@ -895,11 +907,18 @@
     DELETE FROM `mangos`.`playercreateinfo_spell` WHERE  `race`=5 AND `class`=8 AND `spell`=7744;
     DELETE FROM `mangos`.`playercreateinfo_spell` WHERE  `race`=5 AND `class`=9 AND `spell`=7744;
 
-    -- Priest racial spells (Fear Ward, Desperate Prayer)
+    -- Priest racial spells (Fear Ward, Desperate Prayer, Devouring Plague)
     -- Given to Dwarf, Human, and Blood Elf
     UPDATE `mangos`.`skill_line_ability` SET 
     `race_mask`=517 
-    WHERE spell_id IN(6346, 13908, 19236, 19238, 19240, 19241, 19242, 19243);
+    WHERE spell_id IN(6346, 13908, 19236, 19238, 19240, 19241, 19242, 19243, 2944, 19276, 19277, 19278, 19279, 19280);
+
+    -- Devouring Plague added to alliance trainers
+        REPLACE `mangos`.`npc_trainer_template` (`entry`, `spell`, `spellcost`, `reqlevel`) VALUES (8, 19276, 400, 28);
+        REPLACE `mangos`.`npc_trainer_template` (`entry`, `spell`, `spellcost`, `reqlevel`) VALUES (8, 19277, 700, 36);
+        REPLACE `mangos`.`npc_trainer_template` (`entry`, `spell`, `spellcost`, `reqlevel`) VALUES (8, 19278, 1200, 44);
+        REPLACE `mangos`.`npc_trainer_template` (`entry`, `spell`, `spellcost`, `reqlevel`) VALUES (8, 19279, 1900, 52);
+        REPLACE `mangos`.`npc_trainer_template` (`entry`, `spell`, `spellcost`, `reqlevel`) VALUES (8, 19280, 2300, 60);
 
     -- Blood Elf
     -- +15 Enchanting
@@ -1028,10 +1047,10 @@ UPDATE `mangos`.`spell_template` SET `manaCost`=0 WHERE  `entry`=11683;
 UPDATE `mangos`.`spell_template` SET `manaCost`=0 WHERE  `entry`=11684;
 
 -- Drain Soul (Only usable on targets <= 20% HP, damage increased by 4x)
-UPDATE `mangos`.`spell_template` SET `targetAuraState`=2, `description`='Drains the soul of the target, causing $o2 Shadow damage over $d.  If the target dies while being drained, and yields experience or honor, the caster gains a Soul Shard.  Soul Shards are required for other spells.  Only usable on enemies that have 20% or less health.' WHERE  `entry`=1120;
-UPDATE `mangos`.`spell_template` SET `targetAuraState`=2, `description`='Drains the soul of the target, causing $o2 Shadow damage over $d.  If the target dies while being drained, and yields experience or honor, the caster gains a Soul Shard.  Soul Shards are required for other spells.  Only usable on enemies that have 20% or less health.' WHERE  `entry`=8288;
-UPDATE `mangos`.`spell_template` SET `targetAuraState`=2, `description`='Drains the soul of the target, causing $o2 Shadow damage over $d.  If the target dies while being drained, and yields experience or honor, the caster gains a Soul Shard.  Soul Shards are required for other spells.  Only usable on enemies that have 20% or less health.' WHERE  `entry`=8289;
-UPDATE `mangos`.`spell_template` SET `targetAuraState`=2, `description`='Drains the soul of the target, causing $o2 Shadow damage over $d.  If the target dies while being drained, and yields experience or honor, the caster gains a Soul Shard.  Soul Shards are required for other spells.  Only usable on enemies that have 20% or less health.' WHERE  `entry`=11675;
+UPDATE `mangos`.`spell_template` SET `attributesEx4`=512, `targetAuraState`=2, `description`='Drains the soul of the target, causing $o2 Shadow damage over $d.  If the target dies while being drained, and yields experience or honor, the caster gains a Soul Shard.  Soul Shards are required for other spells.  Only usable on enemies that have 20% or less health.' WHERE  `entry`=1120;
+UPDATE `mangos`.`spell_template` SET `attributesEx4`=512, `targetAuraState`=2, `description`='Drains the soul of the target, causing $o2 Shadow damage over $d.  If the target dies while being drained, and yields experience or honor, the caster gains a Soul Shard.  Soul Shards are required for other spells.  Only usable on enemies that have 20% or less health.' WHERE  `entry`=8288;
+UPDATE `mangos`.`spell_template` SET `attributesEx4`=512, `targetAuraState`=2, `description`='Drains the soul of the target, causing $o2 Shadow damage over $d.  If the target dies while being drained, and yields experience or honor, the caster gains a Soul Shard.  Soul Shards are required for other spells.  Only usable on enemies that have 20% or less health.' WHERE  `entry`=8289;
+UPDATE `mangos`.`spell_template` SET `attributesEx4`=512, `targetAuraState`=2, `description`='Drains the soul of the target, causing $o2 Shadow damage over $d.  If the target dies while being drained, and yields experience or honor, the caster gains a Soul Shard.  Soul Shards are required for other spells.  Only usable on enemies that have 20% or less health.' WHERE  `entry`=11675;
 UPDATE `mangos`.`spell_template` SET `effectBasePoints2`=87 WHERE  `entry`=1120;
 UPDATE `mangos`.`spell_template` SET `effectBasePoints2`=247 WHERE  `entry`=8288;
 UPDATE `mangos`.`spell_template` SET `effectBasePoints2`=471 WHERE  `entry`=8289;
@@ -1919,7 +1938,7 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
             -- Spell
             REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `attributesEx`, `attributesEx3`, `castingTimeIndex`, `procChance`, `baseLevel`, `spellLevel`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effect2`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `manaCostPercentage`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `customFlags`) VALUES (34033, 4695, 327700, 134217728, 1024, 1, 101, 4, 4, 2, 2, 173555, 64, 58, -1, -1, -1, 1, 6, 34034, 39, 200, 50, 'Primal Strike', 2031678, '', 2031678, 'Call upon the primals to enhance your next strike. This strike will then reduce the mana cost of your next Lava Strike by $34034s1%.', 2031678, 2031644, 6, 11, 68719476736, 2, 2, -1, 1, 1, 1, 128);
 
-            UPDATE `mangos`.`spell_template` SET `maxLevel`=61, `baseLevel`=6, `spellLevel`=6, `effectDieSides2`=1, `effectBaseDice2`=1, `effectRealPointsPerLevel2`=0.5, `effectBasePoints1`=7, `description`='Call upon the primals to enhance your next strike, dealing weapon damage plus $s2. This strike will then reduce the mana cost of your next Lava Strike, Frostbrand Strike or Earth Strike by $34034s1%.' WHERE  `entry`=34033;
+            UPDATE `mangos`.`spell_template` SET `maxLevel`=61, `baseLevel`=6, `spellLevel`=6, `recoveryTime`=8000, `effectDieSides2`=1, `effectBaseDice2`=1, `effectRealPointsPerLevel2`=0.5, `effectBasePoints1`=7, `description`='Call upon the primals to enhance your next strike, dealing weapon damage plus $s2. This strike will then reduce the mana cost of your next Lava Strike, Frostbrand Strike or Earth Strike by $34034s1%.' WHERE  `entry`=34033;
 
             -- Proc (Gives Aura to reduce Lava Strike mana cost by 25%)
             REPLACE `mangos`.`spell_template` (`entry`, `build`, `castingTimeIndex`, `procChance`, `procCharges`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectItemType1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `stanceBarOrder`, `dmgMultiplier1`) VALUES (34034, 4695, 1, 101, 1, 1, 1, -1, 6, 1, 1, -86, 0, -1, -1, 1, 108, 1511828488192, 14, 37, 'Ignition', 983070, 983070, 'Reduces the mana cost of your next Lava Strike, Frostbrand Strike or Earth Strike by $s1%.', 983070, 983052, 11, -1, 1);
@@ -1941,7 +1960,7 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
         -- Spell
             REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `attributesEx`, `attributesEx3`, `castingTimeIndex`, `procChance`, `baseLevel`, `spellLevel`, `manaCost`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effect2`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectTriggerSpell2`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `customFlags`) VALUES (34036, 4695, 2, 327700, 134217728, 1024, 1, 101, 10, 10, 6, 2, 2, 173555, 58, 64, 1, 1, 10, 1, -1, -1, 6, 1, 34037, 39, 184, 50, 'Lava Strike', 2031678, '', 2031678, 'A strong attack that converts your attack into Fire damage plus $s1. This strike will then reduce the mana cost of your next Flame Shock by $34037s1%.', 2031678, 2031644, 11, 137438953472, 2, 2, -1, 1, 1, 1, 128);
 
-            UPDATE `mangos`.`spell_template` SET `maxLevel`=61, `manaCost`=0, `manaCostPercentage`=40, `effectRealPointsPerLevel1`=0.5, `effectBasePoints1`=4 WHERE  `entry`=34036;
+            UPDATE `mangos`.`spell_template` SET `maxLevel`=61, `manaCost`=0, `recoveryTime`=15000, `manaCostPercentage`=40, `effectRealPointsPerLevel1`=0.5, `effectBasePoints1`=4 WHERE  `entry`=34036;
 
         -- Proc (Gives Aura to reduce Flame Shock mana cost by 25%)
             REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `procCharges`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectItemType1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `spellFamilyName`, `stanceBarOrder`, `dmgMultiplier1`) VALUES (34037, 4695, 327680, 1, 101, 1, 1, 1, -1, 6, 1, 1, -26, 0, -1, -1, 1, 108, 268435456, 14, 678, 'Blazing Flames', 983070, 983070, 'Reduces the mana cost of your next Flame Shock by $s1%.', 983070, 'The mana cost of your next Flame Shock is reduced.', 983052, 11, -1, 1);
@@ -1962,7 +1981,7 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
         -- Spell
             REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `attributesEx`, `attributesEx3`, `castingTimeIndex`, `procChance`, `baseLevel`, `spellLevel`, `manaCost`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effect2`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectTriggerSpell2`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `customFlags`) VALUES (34039, 4695, 4, 327700, 134217728, 1024, 1, 101, 20, 20, 6, 2, 2, 173555, 58, 64, 1, 1, 10, 1, -1, -1, 6, 1, 34040, 39, 501, 50, 'Frostbrand Strike', 2031678, '', 2031678, 'A strong attack that converts your attack into Frost damage plus $s1. This strike will then reduce the mana cost of your next Frost Shock by $34040s1%.', 2031678, 2031644, 11, 274877906944, 2, 2, -1, 1, 1, 1, 128);
 
-            UPDATE `mangos`.`spell_template` SET `maxLevel`=61, `manaCost`=0, `manaCostPercentage`=40, `effectRealPointsPerLevel1`=0.5, `effectBasePoints1`=4 WHERE  `entry`=34039;
+            UPDATE `mangos`.`spell_template` SET `maxLevel`=61, `recoveryTime`=15000, `manaCost`=0, `manaCostPercentage`=40, `effectRealPointsPerLevel1`=0.5, `effectBasePoints1`=4 WHERE  `entry`=34039;
 
         -- Proc (Gives Aura to reduce Frost Shock mana cost by 25%)
             REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `procCharges`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectItemType1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `spellFamilyName`, `stanceBarOrder`, `dmgMultiplier1`) VALUES (34040, 4695, 327680, 1, 101, 1, 1, 1, -1, 6, 1, 1, -26, 0, -1, -1, 1, 108, 2147483648, 14, 501, 'Douse', 983070, 983070, 'Reduces the mana cost of your next Frost Shock by $s1%.', 983070, 'The mana cost of your next Frost Shock is reduced.', 983052, 11, -1, 1);
@@ -1983,10 +2002,10 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
         -- Spell
             REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `attributesEx`, `attributesEx3`, `castingTimeIndex`, `procChance`, `baseLevel`, `spellLevel`, `manaCost`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effect2`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectTriggerSpell2`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `customFlags`) VALUES (34042, 4695, 3, 327700, 134217728, 1024, 1, 101, 18, 18, 40, 2, 2, 173555, 58, 64, 1, 1, 10, 1, -1, -1, 6, 1, 34043, 39, 233, 50, 'Earth Strike', 2031678, '', 2031678, 'A strong attack that converts your attack into Nature damage plus $s1, causes a high amount of threat. This strike also increases your armor by $34043s1% for $34043d.', 2031678, 2031644, 11, 1099511627776, 2, 2, -1, 1, 1, 1, 128);
 
-            UPDATE `mangos`.`spell_template` SET `maxLevel`=61, `manaCost`=0, `manaCostPercentage`=40, `effectRealPointsPerLevel1`=0.5, `effectBasePoints1`=4 WHERE  `entry`=34042;
+            UPDATE `mangos`.`spell_template` SET `maxLevel`=61, `manaCost`=0, `recoveryTime`=15000, `manaCostPercentage`=40, `effectRealPointsPerLevel1`=0.5, `effectBasePoints1`=4 WHERE  `entry`=34042;
 
         -- Proc (Gives Aura to increase armor by 20% for 10 seconds)
-            REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `procCharges`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectItemType1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `spellFamilyName`, `stanceBarOrder`, `dmgMultiplier1`) VALUES (34043, 4695, 327680, 1, 101, 1, 1, 1, -1, 6, 1, 1, -26, 0, -1, -1, 1, 108, 2147483648, 14, 233, 'Earthern Bulwark', 983070, 983070, 'Increases your armor by $s1% for $d.', 983070, 'Your armor is increased.', 983052, 11, -1, 1);
+            REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `procCharges`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectItemType1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `spellFamilyName`, `stanceBarOrder`, `dmgMultiplier1`) VALUES (34043, 4695, 327680, 1, 101, 1, 9, 1, -1, 6, 1, 1, -26, 0, -1, -1, 1, 108, 2147483648, 14, 233, 'Earthern Bulwark', 983070, 983070, 'Increases your armor by $s1% for $d.', 983070, 'Your armor is increased.', 983052, 11, -1, 1);
 
             UPDATE `mangos`.`spell_template` SET `attributes`=327680 WHERE `entry`=34043;
             UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=19, `effectApplyAuraName1`=101, `effectItemType1`=0, `effectMiscValue1`=1 WHERE  `entry`=34043 AND `build`=4695;
@@ -2024,6 +2043,73 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
         UPDATE `mangos`.`spell_template` SET `effect1`=121, `effectBasePoints1`=24, `description`='Counterattack the enemy for weapon damage plus $s1 damage.  Can only be performed after you dodge.' WHERE  `entry`=14270;
         UPDATE `mangos`.`spell_template` SET `effect1`=121, `effectBasePoints1`=34, `description`='Counterattack the enemy for weapon damage plus $s1 damage.  Can only be performed after you dodge.' WHERE  `entry`=14271;
 
+    -- Priest
+        -- Devouring Plague (No longer has a cooldown, requires 3 Shadow Orbs to cast)
+            UPDATE `mangos`.`spell_template` SET `categoryRecoveryTime`=0, `description`='Consumes all Shadow Orbs to afflict the target with a disease that causes $o1 Shadow damage over $d.  Damage caused by the Devouring Plague heals the caster.  Requires 3 Shadow Orbs to cast.', `script_name`='spell_priest_devouring_plague' WHERE  `entry`=2944;
+
+            UPDATE `mangos`.`spell_template` SET `categoryRecoveryTime`=0, `description`='Consumes all Shadow Orbs to afflict the target with a disease that causes $o1 Shadow damage over $d.  Damage caused by the Devouring Plague heals the caster.  Requires 3 Shadow Orbs to cast.', `script_name`='spell_priest_devouring_plague' WHERE  `entry`=19276;
+
+            UPDATE `mangos`.`spell_template` SET `categoryRecoveryTime`=0, `description`='Consumes all Shadow Orbs to afflict the target with a disease that causes $o1 Shadow damage over $d.  Damage caused by the Devouring Plague heals the caster.  Requires 3 Shadow Orbs to cast.', `script_name`='spell_priest_devouring_plague' WHERE  `entry`=19277;
+
+            UPDATE `mangos`.`spell_template` SET `categoryRecoveryTime`=0, `description`='Consumes all Shadow Orbs to afflict the target with a disease that causes $o1 Shadow damage over $d.  Damage caused by the Devouring Plague heals the caster.  Requires 3 Shadow Orbs to cast.', `script_name`='spell_priest_devouring_plague' WHERE  `entry`=19278;
+
+            UPDATE `mangos`.`spell_template` SET `categoryRecoveryTime`=0, `description`='Consumes all Shadow Orbs to afflict the target with a disease that causes $o1 Shadow damage over $d.  Damage caused by the Devouring Plague heals the caster.  Requires 3 Shadow Orbs to cast.', `script_name`='spell_priest_devouring_plague' WHERE  `entry`=19279;
+
+            UPDATE `mangos`.`spell_template` SET `categoryRecoveryTime`=0, `description`='Consumes all Shadow Orbs to afflict the target with a disease that causes $o1 Shadow damage over $d.  Damage caused by the Devouring Plague heals the caster.  Requires 3 Shadow Orbs to cast.', `script_name`='spell_priest_devouring_plague' WHERE  `entry`=19280;
+
+        -- Shadow Word: Death (Only usable on targets Below 35%, shares CD with Holy Fire, generates 1 Shadow Orb)
+            -- TODO: Also casts Shadow Weaving on self..unsure why. Probably because the trigger spell triggers on self? Will it still trigger if I make the trigger 0 instead of 1 for effect2? Do I need to spell script the trigger instead?
+            -- Rank 1 (Lvl 34)
+                REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `category`, `attributes`, `attributesEx2`, `attributesEx4`, `stances`, `castingTimeIndex`, `categoryRecoveryTime`, `interruptFlags`, `procFlags`, `procChance`, `maxLevel`, `baseLevel`, `spellLevel`, `manaCost`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effect2`, `effectDieSides1`, `effectBaseDice1`, `effectRealPointsPerLevel1`, `effectBasePoints1`, `effectBasePoints2`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectApplyAuraName2`, `effectTriggerSpell2`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `targetAuraState`, `customFlags`) VALUES (34158, 4222, 5, 10001, 65536, 524288, 512, 134217728, 0, 15000, 15, 87376, 100, 39, 34, 34, 120, 4, -1, -1, 2, 64, 15, 1, 1.6, 269, 6, 0.429, -1, -1, 6, 1, 0, 34157, 3057, 160, 'Shadow Word: Death', 983070, 'Rank 1', 983070, 'Blasts the target for $s1 Shadow damage.  Only usable on targets below 20% health.  Generates 1 Shadow Orb.', 983070, 983052, 133, 1500, 6, 137438953472, 1, 1, -1, 1, 1, 1, 2, 128);
+
+            -- Rank 2 (Lvl 40)
+                REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `category`, `attributes`, `attributesEx2`, `attributesEx4`, `stances`, `castingTimeIndex`, `categoryRecoveryTime`, `interruptFlags`, `procFlags`, `procChance`, `maxLevel`, `baseLevel`, `spellLevel`, `manaCost`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effect2`, `effectDieSides1`, `effectBaseDice1`, `effectRealPointsPerLevel1`, `effectBasePoints1`, `effectBasePoints2`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectApplyAuraName2`, `effectTriggerSpell2`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `targetAuraState`, `customFlags`) VALUES (34159, 4222, 5, 10001, 65536, 524288, 512, 134217728, 0, 15000, 15, 87376, 100, 45, 40, 40, 185, 4, -1, -1, 2, 64, 15, 1, 1.6, 319, 6, 0.429, -1, -1, 6, 1, 0, 34157, 3057, 160, 'Shadow Word: Death', 983070, 'Rank 2', 983070, 'Blasts the target for $s1 Shadow damage.  Only usable on targets below 20% health.  Generates 1 Shadow Orb.', 983070, 983052, 133, 1500, 6, 137438953472, 1, 1, -1, 1, 1, 1, 2, 128);
+
+            -- Rank 3 (Lvl 46)
+                REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `category`, `attributes`, `attributesEx2`, `attributesEx4`, `stances`, `castingTimeIndex`, `categoryRecoveryTime`, `interruptFlags`, `procFlags`, `procChance`, `maxLevel`, `baseLevel`, `spellLevel`, `manaCost`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effect2`, `effectDieSides1`, `effectBaseDice1`, `effectRealPointsPerLevel1`, `effectBasePoints1`, `effectBasePoints2`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectApplyAuraName2`, `effectTriggerSpell2`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `targetAuraState`, `customFlags`) VALUES (34160, 4222, 5, 10001, 65536, 524288, 512, 134217728, 0, 15000, 15, 87376, 100, 51, 46, 46, 215, 4, -1, -1, 2, 64, 15, 1, 1.6, 399, 6, 0.429, -1, -1, 6, 1, 0, 34157, 3057, 160, 'Shadow Word: Death', 983070, 'Rank 3', 983070, 'Blasts the target for $s1 Shadow damage.  Only usable on targets below 20% health.  Generates 1 Shadow Orb.', 983070, 983052, 133, 1500, 6, 137438953472, 1, 1, -1, 1, 1, 1, 2, 128);
+
+            -- Rank 4 (Lvl 52)
+                REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `category`, `attributes`, `attributesEx2`, `attributesEx4`, `stances`, `castingTimeIndex`, `categoryRecoveryTime`, `interruptFlags`, `procFlags`, `procChance`, `maxLevel`, `baseLevel`, `spellLevel`, `manaCost`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effect2`, `effectDieSides1`, `effectBaseDice1`, `effectRealPointsPerLevel1`, `effectBasePoints1`, `effectBasePoints2`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectApplyAuraName2`, `effectTriggerSpell2`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `targetAuraState`, `customFlags`) VALUES (34161, 4222, 5, 10001, 65536, 524288, 512, 134217728, 0, 15000, 15, 87376, 100, 57, 52, 52, 250, 4, -1, -1, 2, 64, 15, 1, 1.6, 489, 6, 0.429, -1, -1, 6, 1, 0, 34157, 3057, 160, 'Shadow Word: Death', 983070, 'Rank 4', 983070, 'Blasts the target for $s1 Shadow damage.  Only usable on targets below 20% health.  Generates 1 Shadow Orb.', 983070, 983052, 133, 1500, 6, 137438953472, 1, 1, -1, 1, 1, 1, 2, 128);
+
+            -- Rank 5 (Lvl 58)
+                REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `category`, `attributes`, `attributesEx2`, `attributesEx4`, `stances`, `castingTimeIndex`, `categoryRecoveryTime`, `interruptFlags`, `procFlags`, `procChance`, `maxLevel`, `baseLevel`, `spellLevel`, `manaCost`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effect2`, `effectDieSides1`, `effectBaseDice1`, `effectRealPointsPerLevel1`, `effectBasePoints1`, `effectBasePoints2`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectApplyAuraName2`, `effectTriggerSpell2`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `targetAuraState`, `customFlags`) VALUES (34162, 4222, 5, 10001, 65536, 524288, 512, 134217728, 0, 15000, 15, 87376, 100, 61, 58, 58, 290, 4, -1, -1, 2, 64, 15, 1, 1.6, 599, 6, 0.429, -1, -1, 6, 1, 0, 34157, 3057, 160, 'Shadow Word: Death', 983070, 'Rank 5', 983070, 'Blasts the target for $s1 Shadow damage.  Only usable on targets below 20% health.  Generates 1 Shadow Orb.', 983070, 983052, 133, 1500, 6, 137438953472, 1, 1, -1, 1, 1, 1, 2, 128);
+
+        -- Skill Line Ability
+            REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`) VALUES (15166, 5875, 78, 34158, 16, 1);
+            REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`) VALUES (15167, 5875, 78, 34159, 16, 1);
+            REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`) VALUES (15168, 5875, 78, 34160, 16, 1);
+            REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`) VALUES (15169, 5875, 78, 34161, 16, 1);
+            REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`) VALUES (15170, 5875, 78, 34162, 16, 1);
+
+        -- Learn spell(for trainer):
+            REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `targets`, `castingTimeIndex`, `procChance`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `activeIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) 
+            VALUES (34163, 4222, 1, 262400, 256, 1, 101, 6, -1, -1, 36, 1, 1, -1, 0, -1, -1, 34158, 107, 160, 0, 'Shadow Word: Death', 7274526, 'Rank 1', 7274526, 7274508, 983052, -1, 1, 1, 1);
+
+            REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `targets`, `castingTimeIndex`, `procChance`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `activeIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) 
+            VALUES (34164, 4222, 1, 262400, 256, 1, 101, 6, -1, -1, 36, 1, 1, -1, 0, -1, -1, 34159, 107, 160, 0, 'Shadow Word: Death', 7274526, 'Rank 2', 7274526, 7274508, 983052, -1, 1, 1, 1);
+
+            REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `targets`, `castingTimeIndex`, `procChance`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `activeIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) 
+            VALUES (34165, 4222, 1, 262400, 256, 1, 101, 6, -1, -1, 36, 1, 1, -1, 0, -1, -1, 34160, 107, 160, 0, 'Shadow Word: Death', 7274526, 'Rank 3', 7274526, 7274508, 983052, -1, 1, 1, 1);
+
+            REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `targets`, `castingTimeIndex`, `procChance`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `activeIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) 
+            VALUES (34166, 4222, 1, 262400, 256, 1, 101, 6, -1, -1, 36, 1, 1, -1, 0, -1, -1, 34161, 107, 160, 0, 'Shadow Word: Death', 7274526, 'Rank 4', 7274526, 7274508, 983052, -1, 1, 1, 1);
+
+            REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `targets`, `castingTimeIndex`, `procChance`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `activeIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) 
+            VALUES (34167, 4222, 1, 262400, 256, 1, 101, 6, -1, -1, 36, 1, 1, -1, 0, -1, -1, 34162, 107, 160, 0, 'Shadow Word: Death', 7274526, 'Rank 5', 7274526, 7274508, 983052, -1, 1, 1, 1);
+
+        -- Trainer
+            REPLACE `mangos`.`npc_trainer_template` (`entry`, `spell`, `spellcost`, `reqlevel`) VALUES (8, 34163, 12000, 34);
+            REPLACE `mangos`.`npc_trainer_template` (`entry`, `spell`, `spellcost`, `reqlevel`) VALUES (8, 34164, 18000, 40);
+            REPLACE `mangos`.`npc_trainer_template` (`entry`, `spell`, `spellcost`, `reqlevel`) VALUES (8, 34165, 26000, 46);
+            REPLACE `mangos`.`npc_trainer_template` (`entry`, `spell`, `spellcost`, `reqlevel`) VALUES (8, 34166, 38000, 52);
+            REPLACE `mangos`.`npc_trainer_template` (`entry`, `spell`, `spellcost`, `reqlevel`) VALUES (8, 34167, 44000, 58);
+
+        -- Spell Chain
+            REPLACE `mangos`.`spell_chain` (`spell_id`, `prev_spell`, `first_spell`, `rank`) VALUES (34158, 0,     34158, 1);
+            REPLACE `mangos`.`spell_chain` (`spell_id`, `prev_spell`, `first_spell`, `rank`) VALUES (34159, 34158, 34158, 2);
+            REPLACE `mangos`.`spell_chain` (`spell_id`, `prev_spell`, `first_spell`, `rank`) VALUES (34160, 34159, 34158, 3);
+            REPLACE `mangos`.`spell_chain` (`spell_id`, `prev_spell`, `first_spell`, `rank`) VALUES (34161, 34160, 34158, 4);
+            REPLACE `mangos`.`spell_chain` (`spell_id`, `prev_spell`, `first_spell`, `rank`) VALUES (34162, 34161, 34158, 5);
 
     -- Mage
         -- Mage Armor (50% Mana regeneration to continue while casting, Rank1 now level 10)

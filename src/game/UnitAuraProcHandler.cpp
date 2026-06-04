@@ -932,6 +932,27 @@ SpellAuraProcResult Unit::HandleDummyAuraProc(Unit* pVictim, uint32 amount, uint
                     CastCustomSpell(this, 34002, amount, {}, {}, true, castItem, triggeredByAura);
                     return SPELL_AURA_PROC_OK; // no hidden cooldown
                 }
+                // Vampiric Touch
+                case 34149:
+                case 34152:
+                {
+                    if (!pVictim || !pVictim->IsAlive())
+                        return SPELL_AURA_PROC_FAILED;
+
+                    // pVictim is caster of aura
+                    if (triggeredByAura->GetCasterGuid() != pVictim->GetObjectGuid())
+                        return SPELL_AURA_PROC_FAILED;
+
+                    // mp restore amount
+                    basepoints[0] = dither(triggerAmount * amount / 100);
+
+                    // don't restore 0 MP
+                    if (basepoints[0] < 1)
+                        basepoints[0] = 1;
+
+                    pVictim->CastCustomSpell(pVictim, 34150, basepoints[0], {}, {}, true, castItem, triggeredByAura);
+                    return SPELL_AURA_PROC_OK;                                // no hidden cooldown
+                }
             }
             break;
         }
@@ -1714,9 +1735,14 @@ SpellAuraProcResult Unit::HandleOverrideClassScriptAuraProc(Unit* pVictim, uint3
 
     switch (scriptId)
     {
-        case 4309: // Crepuscule
+        case 4309: // Nightfall
         {
             triggered_spell_id = 17941;
+            break;
+        }
+        case 10001: // Improved Spirit Tap
+        {
+            triggered_spell_id = 34156;
             break;
         }
         case 836:                                           // Improved Blizzard (Rank 1)
