@@ -44,10 +44,10 @@
 -- how do distress beacon quests not replace item on starting? same with ship schedule
 
 -- Quest + Vendor + Repair npc flag = 
--- NEXT quest_template 30256
--- NEXT quest_end_script 5252
--- NEXT creature_template 90093
--- NEXT gameobject_template 987666
+-- NEXT quest_template 30260
+-- NEXT quest_end_script 5253
+-- NEXT creature_template 90100
+-- NEXT gameobject_template 987667
 -- NEXT gameobject_loot_template 42909
 
 -- NEXT gameobject 300406
@@ -214,8 +214,8 @@ UPDATE `mangos`.`quest_template` SET `RewChoiceItemId4`=30074, `RewChoiceItemCou
 -- ST quests offer all rewards
 UPDATE `mangos`.`quest_template` SET `RewChoiceItemId1`=0, `RewChoiceItemId2`=0, `RewChoiceItemId3`=0, `RewChoiceItemCount1`=0, `RewChoiceItemCount2`=0, `RewChoiceItemCount3`=0, `RewItemId1`=20521, `RewItemId2`=20130, `RewItemId3`=20517, `RewItemCount1`=1, `RewItemCount2`=1, `RewItemCount3`=1 WHERE  `entry`=8425 AND `patch`=6;
 
--- Retrieval for Mauren add Minor Libram of Consecration and Minor Idol Elune of as a reward
-UPDATE `mangos`.`quest_template` SET `RewChoiceItemId1`=6677, `RewChoiceItemId2`=30129, `RewChoiceItemId3`=30138, `RewChoiceItemCount1`=1, `RewChoiceItemCount2`=1, `RewChoiceItemCount3`=1, `RewItemId1`=0, `RewItemCount1`=0 WHERE  `entry`=1078 AND `patch`=0;
+-- Retrieval for Mauren add Minor Libram of Consecration Minor Totem of Nullification and Minor Idol of Elune as a reward
+UPDATE `mangos`.`quest_template` SET `RewChoiceItemId1`=6677, `RewChoiceItemId2`=30129, `RewChoiceItemId3`=30138, `RewChoiceItemId4`=30251, `RewChoiceItemCount1`=1, `RewChoiceItemCount2`=1, `RewChoiceItemCount3`=1, `RewChoiceItemCount4`=1, `RewItemId1`=0, `RewItemCount1`=0 WHERE  `entry`=1078 AND `patch`=0;
 
 -- Bring the Light Reward (Choice between Vanquisher Sword and Tomoe)
 UPDATE `mangos`.`quest_template` SET `RewChoiceItemId1`=10823, `RewChoiceItemId2`=30146, `RewChoiceItemCount1`=1, `RewChoiceItemCount2`=1, `RewItemId1`=10824, `RewItemId2`=0 WHERE  `entry`=3636 AND `patch`=0;
@@ -331,8 +331,8 @@ UPDATE `mangos`.`quest_template` SET `RewChoiceItemId1`=4744, `RewChoiceItemId2`
 -- Hints of a New Plague add Barbarians Sword as a reward
 UPDATE `mangos`.`quest_template` SET `RewChoiceItemId3`=30124, `RewChoiceItemCount3`=1 WHERE  `entry`=661 AND `patch`=0;
 
--- Wanted! Otto and Falconcrestadd Lesser Libram of Consecration and Lesser Idol of Elune as a reward
-UPDATE `mangos`.`quest_template` SET `RewChoiceItemId3`=30130, `RewChoiceItemId4`=30139, `RewChoiceItemCount3`=1, `RewChoiceItemCount4`=1 WHERE  `entry`=685 AND `patch`=0;
+-- Wanted! Otto and Falconcrestadd Lesser Libram of Consecration, Lesser Totem of Nullification and Lesser Idol of Elune as a reward
+UPDATE `mangos`.`quest_template` SET `RewChoiceItemId3`=30130, `RewChoiceItemId4`=30139, `RewChoiceItemId5`=30252, `RewChoiceItemCount3`=1, `RewChoiceItemCount4`=1, `RewChoiceItemCount5`=1 WHERE  `entry`=685 AND `patch`=0;
 
 REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewMoneyMaxLevel`) VALUES (30039, 45, 30, 31, 8, 'Foul Magic', 'I have felt a strangeness in the air... a feeling that simmers in my blood. I had my suspicions. I set off to find the source of my unease and discovered to the west, at Northfold Manor, the residual traces of demonic summoning. As I got close, my blood began to boil and the rage within me grew.', 'Get 10 Bloodstone Amulets for Captain Nials at Refuge Pointe.', 'Very good, $N.  With the deaths of those Syndicate members we should have an easier time receiving supplies from Southshore.$B$BPerhaps our cause yet has hope.', 'Get 10 Bloodstone Amulets for Captain Nials at Refuge Pointe.', '', '', '', '', '', 4495, 10, 72, 100, 2650, 1500);
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (2700, 30039);
@@ -1421,7 +1421,8 @@ REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90035, 3000
 
     -- Quest
         -- Quest Template
-            REPLACE `mangos`.`quest_template` (`entry`, `Method`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `SpecialFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `DetailsEmote1`, `IncompleteEmote`, `CompleteEmote`, `CompleteScript`) VALUES (30252, 0, 41, 58, 62, 264, 1, 'Ritual', '', '', '', 'There is an eerie looking altar before you. What happens if you put some Soulshard Fragments inside it?', '', '', '', '', '', 30208, 25, 0, 0, 0, 0, 0, 0, 5248);
+            -- Gem of the North + Winterstone - > Spawns ???
+                REPLACE `mangos`.`quest_template` (`entry`, `Method`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `SpecialFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `ReqItemId2`, `ReqItemCount2`, `ReqItemId3`, `ReqItemCount3`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `DetailsEmote1`, `IncompleteEmote`, `CompleteEmote`, `CompleteScript`) VALUES (30252, 0, 41, 58, 62, 264, 1, 'Ritual', '', '', '', 'There is an eerie looking altar before you. What happens if you put some Soulshard Fragments inside it?', '', '', '', '', '', 30208, 25, 30229, 1, 30234, 1, 0, 0, 0, 0, 0, 0, 10000);
 
         -- Quest Relation
             REPLACE `mangos`.`gameobject_questrelation` (`id`, `quest`) VALUES (987661, 30252);
@@ -1430,9 +1431,10 @@ REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90035, 3000
             REPLACE `mangos`.`gameobject_involvedrelation` (`id`, `quest`) VALUES (987661, 30252);
 
         -- quest_end_script (Temp Summon Skeletal Warlord)
-            DELETE FROM `quest_end_scripts` WHERE `id`=5248;
+            DELETE FROM `quest_end_scripts` WHERE `id`=10000;
             INSERT INTO `quest_end_scripts` (`id`, `delay`, `priority`, `command`, `datalong`, `datalong2`, `datalong3`, `datalong4`, `target_param1`, `target_param2`, `target_type`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `condition_id`, `comments`) VALUES
-            (5248, 19, 0, 10, 90060, 60000, 0, 0, 0, 0, 0, 0, 0, 0, -1, 1, -10946.9, -1872.8, -17.7514, 0.41247, 0, 'Eerie Altar: Summon Boss');
+            (10000, 19, 0, 10, 90060, 60000, 0, 0, 0, 0, 0, 0, 0, 0, -1, 1, -10946.9, -1872.8, -17.7514, 0.41247, 0, 'Eerie Altar: Summon Boss');
+
 
 -- Corrupted Runestone
     -- Object 
@@ -1445,15 +1447,13 @@ REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90035, 3000
         REPLACE `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (4100088, 987663, 0, -10453.6, -2152.48, 91.0521, 1.39022, 0, 0, 0.64047, 0.767983, 25, 25, 100, 1, 0, 0, 0, 10);
         REPLACE `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (4100089, 987664, 0, -10565, -1705.04, 99.7889, 5.0109, 0, 0, 0.594097, -0.804394, 25, 25, 100, 1, 0, 0, 0, 10);
 
-
-    -- TODO: 4100087 doesn't work, 4100088 works, 4100089 works. But they give multiple runestones? I'm confused
     -- Quest
         -- Quest Template
-            REPLACE `mangos`.`quest_template` (`entry`, `Method`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `SpecialFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `DetailsEmote1`, `IncompleteEmote`, `CompleteEmote`, `CompleteScript`) VALUES (30253, 0, 41, 58, 62, 264, 1, 'Runestone', '', '', '', 'It looks like a Soulshard Fragment could fit inside the hole here perfectly.', '', '', '', '', '', 30208, 1, 0, 0, 0, 0, 0, 0, 5249);
+            REPLACE `mangos`.`quest_template` (`entry`, `Method`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `SpecialFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `DetailsEmote1`, `IncompleteEmote`, `CompleteEmote`, `CompleteScript`) VALUES (30253, 0, 41, 58, 62, 264, 1, 'Runestone', '', '', '', 'It looks like a Soulshard Fragment could fit inside the hole here perfectly.', '', '', '', '', '', 30208, 1, 0, 0, 0, 0, 0, 0, 10001);
 
-            REPLACE `mangos`.`quest_template` (`entry`, `Method`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `SpecialFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `DetailsEmote1`, `IncompleteEmote`, `CompleteEmote`, `CompleteScript`) VALUES (30254, 0, 41, 58, 62, 264, 1, 'Runestone', '', '', '', 'It looks like a Soulshard Fragment could fit inside the hole here perfectly.', '', '', '', '', '', 30208, 1, 0, 0, 0, 0, 0, 0, 5250);
+            REPLACE `mangos`.`quest_template` (`entry`, `Method`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `SpecialFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `DetailsEmote1`, `IncompleteEmote`, `CompleteEmote`, `CompleteScript`) VALUES (30254, 0, 41, 58, 62, 264, 1, 'Runestone', '', '', '', 'It looks like a Soulshard Fragment could fit inside the hole here perfectly.', '', '', '', '', '', 30208, 1, 0, 0, 0, 0, 0, 0, 10002);
 
-            REPLACE `mangos`.`quest_template` (`entry`, `Method`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `SpecialFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `DetailsEmote1`, `IncompleteEmote`, `CompleteEmote`, `CompleteScript`) VALUES (30255, 0, 41, 58, 62, 264, 1, 'Runestone', '', '', '', 'It looks like a Soulshard Fragment could fit inside the hole here perfectly.', '', '', '', '', '', 30208, 1, 0, 0, 0, 0, 0, 0, 5251);
+            REPLACE `mangos`.`quest_template` (`entry`, `Method`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `SpecialFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `DetailsEmote1`, `IncompleteEmote`, `CompleteEmote`, `CompleteScript`) VALUES (30255, 0, 41, 58, 62, 264, 1, 'Runestone', '', '', '', 'It looks like a Soulshard Fragment could fit inside the hole here perfectly.', '', '', '', '', '', 30208, 1, 0, 0, 0, 0, 0, 0, 10003);
 
         -- Quest Relation
             REPLACE `mangos`.`gameobject_questrelation` (`id`, `quest`) VALUES (987662, 30253);
@@ -1466,21 +1466,21 @@ REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90035, 3000
             REPLACE `mangos`.`gameobject_involvedrelation` (`id`, `quest`) VALUES (987664, 30255);
 
         -- quest_end_script (Give item)
-            DELETE FROM `quest_end_scripts` WHERE `id`=5249;
+            DELETE FROM `quest_end_scripts` WHERE `id`=10001;
             INSERT INTO `quest_end_scripts` (`id`, `delay`, `priority`, `command`, `datalong`, `datalong2`, `datalong3`, `datalong4`, `target_param1`, `target_param2`, `target_type`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `condition_id`, `comments`) VALUES
-            (5249, 0, 0, 81, 4100087, 3600, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Corrupted Runestone: Despawn Object'),
-            (5249, 1, 0, 17, 30212, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Corrupted Runestone: Give Player Item');
+            (10001, 0, 0, 81, 4100087, 3600, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Corrupted Runestone: Despawn Object'),
+            (10001, 1, 0, 17, 30212, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Corrupted Runestone: Give Player Item');
 
-            DELETE FROM `quest_end_scripts` WHERE `id`=5250;
+            DELETE FROM `quest_end_scripts` WHERE `id`=10002;
             INSERT INTO `quest_end_scripts` (`id`, `delay`, `priority`, `command`, `datalong`, `datalong2`, `datalong3`, `datalong4`, `target_param1`, `target_param2`, `target_type`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `condition_id`, `comments`) VALUES
-            (5250, 0, 0, 81, 4100088, 3600, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Corrupted Runestone: Despawn Object'),
-            (5250, 1, 0, 17, 30212, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Corrupted Runestone: Give Player Item');
+            (10002, 0, 0, 81, 4100088, 3600, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Corrupted Runestone: Despawn Object'),
+            (10002, 1, 0, 17, 30212, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Corrupted Runestone: Give Player Item');
 
 
-            DELETE FROM `quest_end_scripts` WHERE `id`=5251;
+            DELETE FROM `quest_end_scripts` WHERE `id`=10003;
             INSERT INTO `quest_end_scripts` (`id`, `delay`, `priority`, `command`, `datalong`, `datalong2`, `datalong3`, `datalong4`, `target_param1`, `target_param2`, `target_type`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `condition_id`, `comments`) VALUES
-            (5251, 0, 0, 81, 4100089, 3600, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Corrupted Runestone: Despawn Object'),
-            (5251, 1, 0, 17, 30212, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Corrupted Runestone: Give Player Item');
+            (10003, 0, 0, 81, 4100089, 3600, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Corrupted Runestone: Despawn Object'),
+            (10003, 1, 0, 17, 30212, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Corrupted Runestone: Give Player Item');
 
 
     -- Kirin Tor Coffer
@@ -1511,18 +1511,59 @@ REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90035, 3000
         DELETE FROM `gameobject_loot_template` WHERE `entry`=42908; -- To ensure duplicate entries are not added
         INSERT INTO `mangos`.`gameobject_loot_template` (`entry`, `item`, `ChanceOrQuestChance`, `groupid`, `patch_min`) VALUES (42908, 30228, 0, 0, 1);
 
-    -- TODO: Fix the boss summoned by the Eerie Altar, using one of my bosses unsure if one I want
-    -- TODO: Add crafting mats, put them as drops form the Eeerie Altar boss and the trash inside the "Crypt" cave
-    -- TODO: Add Soulshard Fragments as a rare (1-5%) drop from the mobs inside the Crypt
+-- Ogre Mound
+    -- Object 
+        REPLACE `mangos`.`gameobject_template` (`entry`, `type`, `displayId`, `name`, `faction`, `flags`) VALUES (987666, 2, 20, 'Ogre Mound', 84, 4);
+
+    -- Object Spawns
+        -- TODO: X y z o needed?
+        REPLACE INTO `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (4100107, 987666, 0, 0, 0, 0, 0, 0, 0, 0.861692, 0.507432, 25, 25, 100, 1, 0, 0, 0, 10);
+
+    -- Quest
+        -- Quest Template
+            REPLACE `mangos`.`quest_template` (`entry`, `Method`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `SpecialFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `DetailsEmote1`, `IncompleteEmote`, `CompleteEmote`, `CompleteScript`) VALUES (30256, 0, 41, 58, 62, 264, 1, 'Tribute', '', '', '', 'There is an Ogre Mound before you. Place an item in it in Tribute to the nearby Ogres?', '', '', '', '', '', 30237, 1, 0, 0, 0, 0, 0, 0, 10004);
+
+        -- Quest Relation
+            REPLACE `mangos`.`gameobject_questrelation` (`id`, `quest`) VALUES (987666, 30256);
+
+        -- Quest Involved Relation
+            REPLACE `mangos`.`gameobject_involvedrelation` (`id`, `quest`) VALUES (987666, 30256);
+
+        -- quest_end_script (Temp Summon Highlord Ogrok)
+            DELETE FROM `quest_end_scripts` WHERE `id`=10004;
+            INSERT INTO `quest_end_scripts` (`id`, `delay`, `priority`, `command`, `datalong`, `datalong2`, `datalong3`, `datalong4`, `target_param1`, `target_param2`, `target_type`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `condition_id`, `comments`) VALUES
+            (10004, 19, 0, 10, 90094, 60000, 0, 0, 0, 0, 0, 0, 0, 0, -1, 1,-10813.6, -2094.34, 117.132, 2.07719, 0, 'Ogre Mound: Summon Highlord Ogrok');
+
+-- NPC for Karazhan Mementos
+    -- Creature Template
+        REPLACE INTO `mangos`.`creature_template` (`entry`, `name`, `subname`, `level_min`, `level_max`, `faction`, `npc_flags`, `display_id1`, `display_probability1`, `display_total_probability`, `type`, `unit_class`, `armor_multiplier`, `equipment_id`, `static_flags1`, `flags_extra`) VALUES (90099, 'Prospector Ariden', 'Explorers\' League', 16, 16, 55, 2, 1277, 1, 1, 7, 1, 2, 2917, 4718662, 2);
+
+    -- Creature (Spawn)
+        REPLACE INTO `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000128, 90099, 0, 0, 0, 0, 0, -10434.7, -2137.54, 90.7795, 3.41392, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
+
+    -- Quest
+        REPLACE `mangos`.`quest_template` (`entry`, `Method`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `SpecialFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewItemId1`, `RewItemCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `DetailsEmote1`, `IncompleteEmote`, `CompleteEmote`) VALUES (30257, 0, 41, 58, 62, 264, 1, 'Karazhan Memento - Kirin Tor Rune Dust', '', '', 'Bring me anything interesting you find around Karazhan.', 'Bring me anything interesting you find around Karazhan.', '', '', '', '', '', 30228, 25, 30225, 1, 0, 0, 0, 0, 0, 0);
+
+        REPLACE `mangos`.`quest_template` (`entry`, `Method`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `SpecialFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewItemId1`, `RewItemCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `DetailsEmote1`, `IncompleteEmote`, `CompleteEmote`) VALUES (30258, 0, 41, 58, 62, 264, 1, 'Karazhan Memento - Mana Fragment', '', '', 'Bring me anything interesting you find around Karazhan.', 'Bring me anything interesting you find around Karazhan.', '', '', '', '', '', 30228, 25, 30226, 1, 0, 0, 0, 0, 0, 0);
+
+        REPLACE `mangos`.`quest_template` (`entry`, `Method`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `SpecialFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewItemId1`, `RewItemCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `DetailsEmote1`, `IncompleteEmote`, `CompleteEmote`) VALUES (30259, 0, 41, 58, 62, 264, 1, 'Karazhan Memento - Mana Infused Cloth Scraps', '', '', 'Bring me anything interesting you find around Karazhan.', 'Bring me anything interesting you find around Karazhan.', '', '', '', '', '', 30228, 25, 30227, 1, 0, 0, 0, 0, 0, 0);
+
+        -- Quest Relation
+            REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90099, 30257);
+            REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90099, 30258);
+            REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90099, 30259);
+
+        -- Quest Involved Relation
+            REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90099, 30257);
+            REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90099, 30258);
+            REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90099, 30259);
+
+
+    -- TODO: Fix the boss summoned by the Eerie Altar, using one of my bosses unsure which one I want
     -- TODO: Quest inside "Crypt" cave to escort someone out
     -- TODO: Quest inside "Crypt" cave to spawn a wave of mobs (Costs Soulshard Fragments)
-    -- TODO: Chests outside "Crypt" cave that cost Soulshard Fragments to open (give new craft mats)
     -- TODO: Objects using the floating  red crystal in Ashenvale by Satyrs you can trade Soulshard Fragments for 1 hr buffs
-    -- TODO: Chests all over deadwind pass that drop the base "white" craft mat you need 20+ of for each craft
-    -- TODO: Make the other craft items I made green or blue, and the boss ones epic
     -- TODO: AOE spots
-    -- TODO: Mobs and stuff on the Tower that leads to the Karazhan "Back entrance"
-    -- TODO: Another white item that chests always drop, used as a "currency" for quests to buy stuff
 
     -- "Crypt Cave" mobs
         -- Ghosts:
