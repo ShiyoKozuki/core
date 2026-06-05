@@ -2721,6 +2721,32 @@ bool ChatHandler::HandleDieHelper(Unit* target)
     return true;
 }
 
+bool ChatHandler::HandleHideShouldersCommand(char* /*args*/)
+{
+    Unit* target = GetSelectedUnit();
+
+    if (!target)
+    {
+        SendSysMessage(LANG_SELECT_CHAR_OR_CREATURE);
+        SetSentErrorMessage(true);
+        return false;
+    }
+
+    if (Player* player = target->ToPlayer())
+    {
+        bool hidden = !player->IsHideShoulders();
+        player->SetCharVar("hide_shoulders", hidden ? "1" : "0");
+        player->SetHideShoulders(hidden);
+        player->SendSysMessage(hidden ? "Shoulders hidden." : "Shoulders shown.");
+
+        Item* shoulders = player->GetItemByPos(INVENTORY_SLOT_BAG_0, EQUIPMENT_SLOT_SHOULDERS);
+        player->SetVisibleItemSlot(EQUIPMENT_SLOT_SHOULDERS, shoulders);
+        player->SendForcedObjectUpdate();
+    }
+
+    return true;
+}
+
 bool ChatHandler::HandleFearCommand(char* args)
 {
     Unit* target = GetSelectedUnit();
