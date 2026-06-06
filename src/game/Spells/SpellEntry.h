@@ -854,8 +854,8 @@ class SpellEntry
 
         bool IsElementalShield() const
         {
-            // family flags 19 (Lightning), 2093 (Earth), 143 (Water), proc shield from T2 8 pieces bonus
-            return SpellIconID == 19 || SpellIconID == 2093 || SpellIconID == 143
+            // family flags 19 (Lightning), 2093 (Earth), 2102 (Water), proc shield from T2 8 pieces bonus
+            return SpellIconID == 19 || SpellIconID == 2093 || SpellIconID == 2102
             || Id == 23552;
         }
 
