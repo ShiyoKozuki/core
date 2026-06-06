@@ -1982,7 +1982,7 @@ void CombatBotBaseAI::PopulateSpellData()
                 std::vector<SpellEntry const*> weaponBuffs;
                 if (pWindfuryWeapon)
                     m_spells.shaman.pWeaponBuff = pWindfuryWeapon;
-                if (pFlametongueWeapon)
+                else if (pFlametongueWeapon)
                     m_spells.shaman.pWeaponBuff = pFlametongueWeapon;
                 //if (pRockbiterWeapon)
                 //    weaponBuffs.push_back(pRockbiterWeapon);
