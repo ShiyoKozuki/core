@@ -929,6 +929,11 @@ void CombatBotBaseAI::PopulateSpellData()
                     if (IsHigherRankSpell(m_spells.mage.pPyroblast))
                         m_spells.mage.pPyroblast = pSpellEntry;
                 }
+                else if (pSpellEntry->SpellName[0].find("Living Bomb") != std::string::npos)
+                {
+                    if (IsHigherRankSpell(m_spells.mage.pLivingBomb))
+                        m_spells.mage.pLivingBomb = pSpellEntry;
+                }
                 else if (pSpellEntry->SpellName[0].find("Evocation") != std::string::npos)
                 {
                     if (IsHigherRankSpell(m_spells.mage.pEvocation))

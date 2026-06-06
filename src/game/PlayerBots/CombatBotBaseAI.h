@@ -485,6 +485,7 @@ public:
             SpellEntry const* pRemoveLesserCurse;
             SpellEntry const* pScorch;
             SpellEntry const* pPyroblast;
+            SpellEntry const* pLivingBomb;
             SpellEntry const* pEvocation;
             SpellEntry const* pIceBlock;
             SpellEntry const* pBlizzard;

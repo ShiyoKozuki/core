@@ -2285,6 +2285,13 @@ void PartyBotAI::UpdateInCombatAI_Mage()
                 return;
         }
 
+        if (m_spells.mage.pLivingBomb &&
+            CanTryToCastSpell(pVictim, m_spells.mage.pLivingBomb))
+        {
+            if (DoCastSpell(pVictim, m_spells.mage.pLivingBomb) == SPELL_CAST_OK)
+                return;
+        }
+
         if (m_spells.mage.pPyroblast &&
             CanTryToCastSpell(pVictim, m_spells.mage.pPyroblast))
         {
