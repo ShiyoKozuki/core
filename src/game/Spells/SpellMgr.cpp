@@ -1242,6 +1242,10 @@ bool SpellMgr::IsNoStackSpellDueToSpell(uint32 spellId_1, uint32 spellId_2) cons
                 if (spellInfo_1->SpellIconID == 220 && spellInfo_2->SpellIconID == 220 &&
                         !spellInfo_1->IsFitToFamilyMask(spellInfo_2->SpellFamilyFlags))
                     return false;
+
+                // Shaman Shields
+                if (spellInfo_1->IsElementalShield() && spellInfo_2->IsElementalShield())
+                    return true;
             }
             // Bloodlust and Bloodthirst (multi-family check)
             if (spellInfo_1->Id == 2825 && spellInfo_2->SpellIconID == 38 && spellInfo_2->SpellVisual == 0)

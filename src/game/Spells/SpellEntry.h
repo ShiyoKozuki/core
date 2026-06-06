@@ -854,8 +854,9 @@ class SpellEntry
 
         bool IsElementalShield() const
         {
-            // family flags 10 (Lightning), 42 (Earth), 37 (Water), proc shield from T2 8 pieces bonus
-            return IsFitToFamilyMask<CF_SHAMAN_LIGHTNING_SHIELD>() || Id == 23552;
+            // family flags 19 (Lightning), 2093 (Earth), 143 (Water), proc shield from T2 8 pieces bonus
+            return SpellIconID == 19 || SpellIconID == 2093 || SpellIconID == 143
+            || Id == 23552;
         }
 
         bool IsFromBehindOnlySpell() const
