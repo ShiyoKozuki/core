@@ -1765,36 +1765,6 @@ void PartyBotAI::UpdateInCombatAI_Shaman()
                 }
             }
 
-            if (GetRole() == ROLE_MELEE_DPS)
-            {
-                // Strikes Logic
-                if (!me->HasAura(PB_SPELL_IGNITION))
-                {
-                    if (m_spells.shaman.pPrimalStrike &&
-                        CanTryToCastSpell(pVictim, m_spells.shaman.pPrimalStrike))
-                    {
-                        if (DoCastSpell(pVictim, m_spells.shaman.pPrimalStrike) == SPELL_CAST_OK)
-                            return;
-                    }
-                }
-                else
-                {
-                    if (m_spells.shaman.pLavaStrike &&
-                        CanTryToCastSpell(pVictim, m_spells.shaman.pLavaStrike))
-                    {
-                        if (DoCastSpell(pVictim, m_spells.shaman.pLavaStrike) == SPELL_CAST_OK)
-                            return;
-                    }
-
-                    if (m_spells.shaman.pFrostbrandStrike &&
-                        CanTryToCastSpell(pVictim, m_spells.shaman.pFrostbrandStrike))
-                    {
-                        if (DoCastSpell(pVictim, m_spells.shaman.pFrostbrandStrike) == SPELL_CAST_OK)
-                            return;
-                    }
-                }
-            }
-
             if (m_spells.shaman.pFlameShock &&
                 CanTryToCastSpell(pVictim, m_spells.shaman.pFlameShock))
             {
