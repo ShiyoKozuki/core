@@ -37,6 +37,7 @@ enum PartyBotSpells
     PB_SPELL_HONORLESS_TARGET = 2479,
     PB_SPELL_INFERNO = 34060,
     PB_SPELL_IGNITION = 34034,
+    PB_SPELL_IGNITE_DOT = 12654
 };
 
 enum PartyBotTalents
@@ -2256,6 +2257,7 @@ void PartyBotAI::UpdateInCombatAI_Mage()
         }
 
         if (m_spells.mage.pLivingBomb &&
+            pVictim->HasAura(PB_SPELL_IGNITE_DOT) &&
             CanTryToCastSpell(pVictim, m_spells.mage.pLivingBomb))
         {
             if (DoCastSpell(pVictim, m_spells.mage.pLivingBomb) == SPELL_CAST_OK)
