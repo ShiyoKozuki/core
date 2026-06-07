@@ -376,6 +376,32 @@ SpellScript* GetScript_MageIceLance(SpellEntry const*)
     return new MageIceLanceScript();
 }
 
+struct MageLivingBombScript : SpellScript
+{
+    enum
+    {
+        SPELL_IGNITE_DOT = 12654
+    };
+
+
+    SpellCastResult OnCheckCast(Spell* spell, bool /*strict*/) const final
+    {
+#if SUPPORTED_CLIENT_BUILD > CLIENT_BUILD_1_10_2
+        if (Unit* target = spell->m_targets.getUnitTarget())
+        {
+            if (target->HasAura(SPELL_IGNITE_DOT))
+                return SPELL_CAST_OK;
+        }
+#endif
+        return SPELL_FAILED_TARGET_AURASTATE;
+    }
+};
+
+SpellScript* GetScript_MageLivingBomb(SpellEntry const*)
+{
+    return new MageLivingBombScript();
+}
+
 void AddSC_mage_spell_scripts()
 {
     Script* newscript;
@@ -419,5 +445,10 @@ void AddSC_mage_spell_scripts()
     newscript = new Script;
     newscript->Name = "spell_mage_ice_lance";
     newscript->GetSpellScript = &GetScript_MageIceLance;
+    newscript->RegisterSelf();
+
+    newscript = new Script;
+    newscript->Name = "spell_mage_living_bomb";
+    newscript->GetSpellScript = &GetScript_MageLivingBomb;
     newscript->RegisterSelf();
 }
