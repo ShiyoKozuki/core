@@ -70,27 +70,50 @@
 -- INVTYPE_QUIVER                              = 27,
 -- INVTYPE_RELIC                               = 28
 
--- ITEM_SUBCLASS_WEAPON_AXE                    = 0,
--- ITEM_SUBCLASS_WEAPON_AXE2                   = 1,
--- ITEM_SUBCLASS_WEAPON_BOW                    = 2,
--- ITEM_SUBCLASS_WEAPON_GUN                    = 3,
--- ITEM_SUBCLASS_WEAPON_MACE                   = 4,
--- ITEM_SUBCLASS_WEAPON_MACE2                  = 5,
--- ITEM_SUBCLASS_WEAPON_POLEARM                = 6,
--- ITEM_SUBCLASS_WEAPON_SWORD                  = 7,
--- ITEM_SUBCLASS_WEAPON_SWORD2                 = 8,
--- ITEM_SUBCLASS_WEAPON_obsolete               = 9,
--- ITEM_SUBCLASS_WEAPON_STAFF                  = 10,
--- ITEM_SUBCLASS_WEAPON_EXOTIC                 = 11,
--- ITEM_SUBCLASS_WEAPON_EXOTIC2                = 12,
--- ITEM_SUBCLASS_WEAPON_FIST                   = 13,
--- ITEM_SUBCLASS_WEAPON_MISC                   = 14,
--- ITEM_SUBCLASS_WEAPON_DAGGER                 = 15,
--- ITEM_SUBCLASS_WEAPON_THROWN                 = 16,
--- ITEM_SUBCLASS_WEAPON_SPEAR                  = 17,
--- ITEM_SUBCLASS_WEAPON_CROSSBOW               = 18,
--- ITEM_SUBCLASS_WEAPON_WAND                   = 19,
--- ITEM_SUBCLASS_WEAPON_FISHING_POLE           = 20
+-- enum ItemClass
+-- {
+--     ITEM_CLASS_CONSUMABLE                       = 0,
+--     ITEM_CLASS_CONTAINER                        = 1,
+--     ITEM_CLASS_WEAPON                           = 2,
+--     ITEM_CLASS_GEM                              = 3,
+--     ITEM_CLASS_ARMOR                            = 4,
+--     ITEM_CLASS_REAGENT                          = 5,
+--     ITEM_CLASS_PROJECTILE                       = 6,
+--     ITEM_CLASS_TRADE_GOODS                      = 7,
+--     ITEM_CLASS_GENERIC                          = 8,
+--     ITEM_CLASS_RECIPE                           = 9,
+--     ITEM_CLASS_MONEY                            = 10,
+--     ITEM_CLASS_QUIVER                           = 11,
+--     ITEM_CLASS_QUEST                            = 12,
+--     ITEM_CLASS_KEY                              = 13,
+--     ITEM_CLASS_PERMANENT                        = 14,
+--     ITEM_CLASS_JUNK                             = 15
+-- };
+
+-- enum ItemSubclassWeapon
+-- {
+    -- ITEM_SUBCLASS_WEAPON_AXE                    = 0,
+    -- ITEM_SUBCLASS_WEAPON_AXE2                   = 1,
+    -- ITEM_SUBCLASS_WEAPON_BOW                    = 2,
+    -- ITEM_SUBCLASS_WEAPON_GUN                    = 3,
+    -- ITEM_SUBCLASS_WEAPON_MACE                   = 4,
+    -- ITEM_SUBCLASS_WEAPON_MACE2                  = 5,
+    -- ITEM_SUBCLASS_WEAPON_POLEARM                = 6,
+    -- ITEM_SUBCLASS_WEAPON_SWORD                  = 7,
+    -- ITEM_SUBCLASS_WEAPON_SWORD2                 = 8,
+    -- ITEM_SUBCLASS_WEAPON_obsolete               = 9,
+    -- ITEM_SUBCLASS_WEAPON_STAFF                  = 10,
+    -- ITEM_SUBCLASS_WEAPON_EXOTIC                 = 11,
+    -- ITEM_SUBCLASS_WEAPON_EXOTIC2                = 12,
+    -- ITEM_SUBCLASS_WEAPON_FIST                   = 13,
+    -- ITEM_SUBCLASS_WEAPON_MISC                   = 14,
+    -- ITEM_SUBCLASS_WEAPON_DAGGER                 = 15,
+    -- ITEM_SUBCLASS_WEAPON_THROWN                 = 16,
+    -- ITEM_SUBCLASS_WEAPON_SPEAR                  = 17,
+    -- ITEM_SUBCLASS_WEAPON_CROSSBOW               = 18,
+    -- ITEM_SUBCLASS_WEAPON_WAND                   = 19,
+    -- ITEM_SUBCLASS_WEAPON_FISHING_POLE           = 20
+-- }
 
 -- allowable_class
 -- enum Classes
@@ -107,6 +130,8 @@
 --     // CLASS_UNK2       = 10,unused
 --     CLASS_DRUID         = 11,
 -- };
+
+-- area_bound area table: https://github.com/cmangos/issues/wiki/AreaTable.dbc
 
 SET
     @ITEM_MOD_MANA      = 0,
@@ -439,13 +464,13 @@ REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display
 
 REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `delay`, `armor`, `arcane_res`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `max_durability`) VALUES (30246, 4, 1, 'Karazhan Defender\'s Spiked Platemail', 27356, 4, 666666, 6666, 5, -1, -1, 65, 60, 0, 700, 20, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 2, 7, 50);
 
-REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `description`, `display_id`, `quality`, `buy_price`, `sell_price`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`) VALUES (30247, 5, 'Small Monster Bait', 'May attract monsters.', 20658, 1, 0, 0, -1, -1, 45, 20, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0);
+-- TODO: Medium Monster bait: 30247
 
-REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `description`, `display_id`, `quality`, `buy_price`, `sell_price`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`) VALUES (30248, 5, 'Medium Monster Bait', 'May attract monsters.', 20658, 2, 0, 0, -1, -1, 45, 20, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0);
+-- TODO: Medium Monster bait: 30248
 
-REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `description`, `display_id`, `quality`, `buy_price`, `sell_price`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`) VALUES (30249, 5, 'Large Monster Bait', 'May attract monsters.', 20658, 3, 0, 0, -1, -1, 45, 20, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0);
+REPLACE `mangos`.`item_template` (`entry`, `name`, `description`, `display_id`, `quality`, `allowable_class`, `allowable_race`, `delay`, `spellid_1`, `spellcharges_1`, `spellcooldown_1`, `spellcategory_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `material`) VALUES (30249, 'Large Monster Bait', 'May attract monsters in Deadwind Pass.', 4113, 3, -1, -1, 0, 34172, -1, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3);
 
-REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `description`, `display_id`, `quality`, `buy_price`, `sell_price`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`) VALUES (30250, 5, 'Large Canister', 'Does not seem safe.', 20658, 3, 0, 0, -1, -1, 45, 20, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0);
+-- TODO: Large Canister (Description: Does not seem safe.): 30250
 
 REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `max_count`, `delay`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `disenchant_id`) VALUES (30251, 8, 4, 9, 'Minor Totem of Nullification', 34957, 2, 4500, 1500, 28, 32767, -1, 35, 1, 0, 34168, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 2, 48);
 
@@ -4296,7 +4321,7 @@ SET quality = 3,
     delay = 3800,
     dmg_min1 = 88,
     dmg_max1 = 132,
-    spellid_1 = 15714, -- +22 Spell Damage
+    spellid_1 = 25975, -- +10 Spell Penetration
     spelltrigger_1 = 1
 WHERE entry = 3852;
 
@@ -4499,7 +4524,7 @@ SET quality = 4,
     delay = 3600,
     dmg_min1 = 166,
     dmg_max1 = 250,
-    spellid_3 = 15715, -- +25 Spell Damage
+    spellid_3 = 26283, -- +20 Spell Penetration
     spelltrigger_3 = 1
 WHERE entry = 12776;
 
@@ -4859,7 +4884,7 @@ SET quality = 3,
     bonding = 1,
     armor = 64,
     stat_type1 = @ITEM_MOD_AGI,
-    stat_value1 = 8
+    stat_value1 = 6
 WHERE entry = 5254;
 
 -- Eerie Stable Lantern
@@ -5128,7 +5153,7 @@ SET stat_type1 = 5,
     stat_value1 = 6,
     stat_type2 = 6,
     stat_value2 = 15,
-    spellid_2 = 7681, -- +15 Healing
+    spellid_2 = 25975, -- +10 Spell Penetration
     spelltrigger_2 = 1
 WHERE entry = 9449;
 
@@ -5428,19 +5453,19 @@ WHERE entry = 7720;
 
 -- Triune Amulet
 UPDATE mangos . item_template
-SET stat_type1 = 5,
-    stat_value1 = 4,
-    stat_type2 = 6,
-    stat_value2 = 4,
-    stat_type3 = 0,
-    stat_value3 = 0,
-    spellid_1 = 7680, -- +13 Healing
+SET stat_type1 = @ITEM_MOD_INT,
+    stat_value1 = 7,
+    stat_type2 = @ITEM_MOD_STAM,
+    stat_value2 = 7,
+    stat_type3 = @ITEM_MOD_SPI,
+    stat_value3 = 7,
+    spellid_1 = 23688, -- 2% chance on successful spellcast to allow 100% of your Mana regeneration to continue while casting for 15 sec. (Proc chance: 2%)
     spelltrigger_1 = 1
 WHERE entry = 7722;
 
 -- Mograine's Might
 UPDATE mangos . item_template
-SET spellid_1 = 15714, -- +22 Spell Damage
+SET spellid_1 = 25975, -- 10 Spell Penetration
     spelltrigger_1 = 1
 WHERE entry = 7723;
 
@@ -5473,7 +5498,7 @@ SET stat_type1 = 5,
     stat_value2 = 0,
     stat_type3 = 0,
     stat_value3 = 0,
-    spellid_1 = 9415, -- +9 Spell Damage
+    spellid_1 = 33794, -- 5 Spell Penetration
     spelltrigger_1 = 1
 WHERE entry = 10769;
 
@@ -5503,7 +5528,7 @@ WHERE entry = 10761;
 -- Galgann's Firehammer
 UPDATE mangos . item_template
 SET quality = 3,
-    dmg_type1 = 2, -- Fire
+    dmg_type1 = 0, -- Physical
     dmg_min1 = 50, 
     dmg_max1 = 90, 
     spellppmrate_1 = 15 
@@ -5536,32 +5561,32 @@ WHERE entry = 9455;
 
 -- Grimlok's Tribal Vestments
 UPDATE mangos . item_template
-SET stat_type1 = 5,
-    stat_value1 = 7,
-    stat_type2 = 6,
-    stat_value2 = 7,
-    stat_type3 = 0,
-    stat_value3 = 0,
-    spellid_1 = 23688, -- 2% chance on successful spellcast to allow 100% of your Mana regeneration to continue while casting for 15 sec. (Proc chance: 2%)
-    spelltrigger_1 = 1
+SET stat_type1 = @ITEM_MOD_STAM,
+    stat_value1 = 10,
+    stat_type2 = @ITEM_MOD_INT,
+    stat_value2 = 5,
+    stat_type3 = @ITEM_MOD_SPI,
+    stat_value3 = 20,
+    spellid_1 = 0, 
+    spelltrigger_1 = 0
 WHERE entry = 9415;
 
 -- Stoneweaver Leggings
 UPDATE mangos . item_template
-SET stat_type1 = 5,
-    stat_value1 = 5,
-    stat_type2 = 6,
-    stat_value2 = 5,
-    stat_type3 = 0,
-    stat_value3 = 0,
-    spellid_1 = 23688, -- 2% chance on successful spellcast to allow 100% of your Mana regeneration to continue while casting for 15 sec. (Proc chance: 2%)
-    spelltrigger_1 = 1
+SET stat_type1 = @ITEM_MOD_STAM,
+    stat_value1 = 9,
+    stat_type2 = @ITEM_MOD_INT,
+    stat_value2 = 8,
+    stat_type3 = @ITEM_MOD_SPI,
+    stat_value3 = 15,
+    spellid_1 = 0, 
+    spelltrigger_1 = 0
 WHERE entry = 9407;
 
 -- Archaedic Stone
 UPDATE mangos . item_template
 SET armor = 0,
-    spellid_1 = 9345, -- +16 Spell Damage
+    spellid_1 = 33795, -- 10 Spell Penetration
     spelltrigger_1 = 1
 WHERE entry = 11118;
 
@@ -5632,15 +5657,19 @@ WHERE entry = 12471;
 
 -- Charstone Dirk
 UPDATE mangos . item_template
-SET spellid_1 = 9406, -- +18 Healing
+SET spellid_1 = 33795, -- 10 Spell Penetration
     spelltrigger_1 = 1,
-    spellid_3 = 15464, -- +1% Physical Hit
-    spelltrigger_3 = 1
+    spellid_3 = 0, -- +1% Physical Hit
+    spelltrigger_3 = 0
 WHERE entry = 17710;
 
 -- Cloud Stone
 UPDATE mangos . item_template
-SET spellid_1 = 9408, -- +22 Healing
+SET stat_type1 = @ITEM_MOD_INT,
+    stat_value1 = 3,
+    stat_type2 = @ITEM_MOD_SPI,
+    stat_value2 = 3,
+    spellid_1 = 33795, -- 10 Spell Penetration
     spelltrigger_1 = 1
 WHERE entry = 17737;
 
@@ -5652,11 +5681,11 @@ WHERE entry = 17943;
 
 -- Satyr's Lash
 UPDATE mangos . item_template
-SET dmg_min1 = 23,
-    dmg_max1 = 44,
-    dmg_type2 = 5, -- Shadow
-    dmg_min2 = 23,
-    dmg_max2 = 44
+SET dmg_min1 = 46,
+    dmg_max1 = 88,
+    dmg_type2 = 0, -- Shadow
+    dmg_min2 = 0,
+    dmg_max2 = 0
 WHERE entry = 17752;
 
 -- Satyrmane Sash
@@ -5665,7 +5694,7 @@ SET stat_type1 = 5,
     stat_value1 = 6,
     stat_type2 = 7,
     stat_value2 = 5,
-    spellid_1 = 9415, -- +9 Spell Damage
+    spellid_1 = 33795, -- 10 Spell Penetration
     spelltrigger_1 = 1
 WHERE entry = 17755;
 
@@ -5683,7 +5712,7 @@ SET stat_type1 = 5,
     stat_value2 = 6,
     stat_type3 = 7,
     stat_value3 = 5,
-    spellid_1 = 9417, -- +12 spell damage
+    spellid_1 = 33795, -- 10 Spell Penetration
     spelltrigger_1 = 1
 WHERE entry = 17707;
 
@@ -5705,7 +5734,7 @@ SET stat_type1 = 5,
     stat_value1 = 15,
     stat_type2 = 6,
     stat_value2 = 15,
-    spellid_2 = 15714, -- +22 Spell Damage
+    spellid_2 = 26283, -- 20 Spell Penetration
     spelltrigger_2 = 1
 WHERE entry = 17766;
 
@@ -5737,7 +5766,7 @@ WHERE entry = 17750;
 
 -- Inventor's Focal Sword
 UPDATE mangos . item_template
-SET spellid_2 = 9415, -- +9 Spell Damage
+SET spellid_1 = 33795, -- 10 Spell Penetration
     spelltrigger_1 = 2
 WHERE entry = 17719;
 
@@ -5767,12 +5796,12 @@ WHERE entry = 10785;
 
 -- Warrior's Embrace
 UPDATE mangos . item_template
-SET armor = 725,
-    stat_type1 = 4,
-    stat_value1 = 8,
-    stat_type2 = 7,
-    stat_value2 = 24,
-    spellid_1 = 21471, -- +2% Shield Block
+SET armor = 567,
+    stat_type1 = @ITEM_MOD_INT,
+    stat_value1 = 24,
+    stat_type2 = 0,
+    stat_value2 = 0,
+    spellid_1 = 9408, -- +22 Healing
     spelltrigger_1 = 1
 WHERE entry = 10845;
 
@@ -5788,7 +5817,11 @@ WHERE entry = 10804;
 UPDATE mangos . item_template
 SET delay = 3700,
     dmg_min1 = 151,
-    dmg_max1 = 211
+    dmg_max1 = 211,
+    stat_type1 = @ITEM_MOD_AGI,
+    stat_value1 = 25,
+    stat_type2 = 0,
+    stat_value2 = 0
 WHERE entry = 10799;
 
 -- Smoldering Claw
@@ -5819,12 +5852,6 @@ SET stat_type1 = 5,
     spelltrigger_1 = 1
 WHERE entry = 10846;
 
--- Horns of Eranikus
-UPDATE mangos . item_template
-SET spellid_1 = 9408, -- +22 Healing
-    spelltrigger_1 = 1
-WHERE entry = 10833;
-
 -- Firebreather
 UPDATE mangos . item_template
 SET delay = 2200,
@@ -5834,19 +5861,19 @@ WHERE entry = 10797;
 
 -- Vestments of the Atal'ai Prophet
 UPDATE mangos . item_template
-SET  spellid_1 = 9408, -- +22 Healing
+SET spellid_1 = 9408, -- +22 Healing
     spelltrigger_1 = 1
 WHERE entry = 10806;
 
 -- Kilt of the Atal'ai Prophet
 UPDATE mangos . item_template
-SET  spellid_1 = 9408, -- +22 Healing
+SET spellid_1 = 9408, -- +22 Healing
     spelltrigger_1 = 1
 WHERE entry = 10807;
 
 -- Gloves of the Atal'ai Prophet
 UPDATE mangos . item_template
-SET  spellid_1 = 7680, -- +13 Healing
+SET spellid_1 = 7680, -- +13 Healing
     spelltrigger_1 = 1
 WHERE entry = 10808;
 
@@ -7069,7 +7096,7 @@ SET quality = 4,
     stat_value2 = 25,
     stat_type3 = 7,
     stat_value3 = 15,
-    spellid_1 = 26158, -- +60 Spell Damage
+    spellid_1 = 26283, -- +20 Spell Penetration
     spelltrigger_1 = 1,
     spellid_2 = 21365, -- 9 MP/5
     spelltrigger_2 = 1
@@ -8360,8 +8387,8 @@ WHERE entry = 5815;
 
 -- Spellcrafter Wand
 UPDATE mangos . item_template
-SET dmg_min1 = 32,
-    dmg_max1 = 52,
+SET dmg_min1 = 39,
+    dmg_max1 = 63,
     spellid_1 = 9395, -- +5 Spell Damage
     spelltrigger_1 = 1
 WHERE entry = 6677;
@@ -8811,7 +8838,7 @@ UPDATE mangos . item_template
 SET delay = 2000,
     dmg_min1 = 35,
     dmg_max1 = 65,
-    spellid_1 = 9343, -- +14 Spell Damage
+    spellid_1 = 25975, -- 10 Spell Penetration
     spelltrigger_1 = 1
 WHERE entry = 1264;
 
@@ -8930,10 +8957,10 @@ WHERE entry = 3209;
 -- Silver Spade
 UPDATE mangos . item_template
 SET quality = 3,
-    delay = 2000,
-    dmg_min1 = 55,
-    dmg_max1 = 85,
-  spellid_1 = 14127, -- +28 Spell Damage
+    delay = 3700,
+    dmg_min1 = 89,
+    dmg_max1 = 134,
+    spellid_1 = 25975, -- 10 Spell Penetration
     spelltrigger_1 = 1
 WHERE entry = 4128;
 
@@ -10358,11 +10385,14 @@ SET spellid_1 = 9415, -- +1 Damage
     spelltrigger_1 = 1
 WHERE entry = 15856;
 
--- Magebane Scion (Hidden Treasures) TODO
--- UPDATE mangos . item_template
--- SET spellid_1 = 9415, -- +9 Spell Damage
-    -- spelltrigger_1 = 1
--- WHERE entry = 15857;
+UPDATE mangos . item_template
+SET stat_type1 = @ITEM_MOD_INT,
+    stat_value1 = 8,
+    stat_type2 = @ITEM_MOD_SPI,
+    stat_value2 = 8,
+    spellid_1 = 33795, -- 10 Spell Penetration
+    spelltrigger_1 = 1
+WHERE entry = 15857;
 
 -- Crown of the Penitent (Houses of the Holy)
 UPDATE mangos . item_template
@@ -13991,6 +14021,8 @@ SET stat_type1 = 4,
     stat_value1 = 8,
     stat_type2 = 5,
     stat_value2 = 8,
+    stat_type3 = 0,
+    stat_value3 = 0,
     spellid_1 = 7680, -- +13 Healing
     spelltrigger_1 = 1
 WHERE entry = 13010;
@@ -14436,6 +14468,16 @@ SET stat_type1 = @ITEM_MOD_INT,
     spellid_1 = 9395, -- +5 Spell Damage
     spelltrigger_1 = 1
 WHERE entry = 16769;
+
+-- Basilisk Bone
+UPDATE mangos . item_template
+SET stat_type1 = @ITEM_MOD_STAM,
+    stat_value1 = 8,
+    stat_type2 = @ITEM_MOD_INT,
+    stat_value2 = 8,
+    spellid_1 = 33795, -- 10 Spell Penetration
+    spelltrigger_1 = 1
+WHERE entry = 13030;
 
 -- Epic BOE's 
 
