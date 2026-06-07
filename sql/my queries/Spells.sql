@@ -1,4 +1,4 @@
--- 34173 NEXT SPELL
+-- 34174 NEXT SPELL
 -- 15171 NEXT SKILL_LINE_ABILITY
 -- NEXT category 10004
 
@@ -2419,9 +2419,14 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
             REPLACE `mangos`.`spell_chain` (`spell_id`, `prev_spell`, `first_spell`, `rank`) VALUES (34162, 34161, 34158, 5);
 
     -- Mage
+        -- Improved Arcane Missles proc that makes next Arcane Missles free to cast
+            Replace `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procFlags`, `procChance`, `procCharges`, `durationIndex`, `rangeIndex`, `stackAmount`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectItemType1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `spellFamilyName`, `stanceBarOrder`, `dmgMultiplier1`) VALUES (34173, 4695, 327680, 1, 65536, 101, 1, 9, 1, 0, -1, 6, 1, 1, -101, 0, 0, -1, 1, 108, 2048, 14, 225, 'Arcane Missles!', 983070, 983070, 'Reduces the mana cost of Arcane Missles by $s1%.', 983070, '', 983052, 3, -1, 1);
 
-        -- Improved Fireball Proc that reduces Fireblast MP Cost
-            Replace `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procFlags`, `procChance`, `procCharges`, `durationIndex`, `rangeIndex`, `stackAmount`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectItemType1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `spellFamilyName`, `stanceBarOrder`, `dmgMultiplier1`) VALUES (34060, 4695, 327680, 1, 65536, 101, 1, 9, 1, 0, -1, 6, 1, 1, -101, 0, 0, -1, 1, 108, 2, 14, 2091, 'Inferno', 983070, 983070, 'Reduces the mana cost of Fireblast by $s1%.', 983070, 'Your next Fireblast spell costs no mana.', 983052, 3, -1, 1);
+            UPDATE `mangos`.`spell_template` SET `spellVisual1`=12540 WHERE  `entry`=34173;
+
+
+        -- Improved Fireball Proc that makes next Fire Blast free to cast
+            Replace `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procFlags`, `procChance`, `procCharges`, `durationIndex`, `rangeIndex`, `stackAmount`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectItemType1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `spellFamilyName`, `stanceBarOrder`, `dmgMultiplier1`) VALUES (34060, 4695, 327680, 1, 65536, 101, 1, 9, 1, 0, -1, 6, 1, 1, -101, 0, 0, -1, 1, 108, 2, 14, 2091, 'Fire Blast!', 983070, 983070, 'Reduces the mana cost of Fire Blast by $s1%.', 983070, '', 983052, 3, -1, 1);
 
             UPDATE `mangos`.`spell_template` SET `spellVisual1`=10691 WHERE  `entry`=34060;
 
@@ -2761,21 +2766,21 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
                 REPLACE `mangos`.`npc_trainer_template` (`entry`, `spell`, `spellcost`, `reqlevel`) VALUES (1, 33902, 58000, 56);
 
         -- Pyroblast reduce upfront damage, increase DOT damage, 30s duration, 3s cast
-            UPDATE `mangos`.`spell_template` SET `castingTimeIndex`=14, `category`=10003, `categoryRecoveryTime`=12000, `recoveryTime`=0, `durationIndex`=85, `effectDieSides1`=23, `effectBasePoints1`=70, `effectBasePoints2`=39 WHERE  `entry`=11366;
+            UPDATE `mangos`.`spell_template` SET `castingTimeIndex`=14, `category`=10003, `categoryRecoveryTime`=12000, `recoveryTime`=0, `durationIndex`=32, `effectDieSides1`=23, `effectBasePoints1`=70, `effectBasePoints2`=39, `effectAmplitude2`=1000 WHERE  `entry`=11366;
 
-            UPDATE `mangos`.`spell_template` SET `castingTimeIndex`=14, `category`=10003, `categoryRecoveryTime`=12000, `recoveryTime`=0, `durationIndex`=85, `effectDieSides1`=23, `effectBasePoints1`=90, `effectBasePoints2`=64 WHERE  `entry`=12505;
+            UPDATE `mangos`.`spell_template` SET `castingTimeIndex`=14, `category`=10003, `categoryRecoveryTime`=12000, `recoveryTime`=0, `durationIndex`=32, `effectDieSides1`=23, `effectBasePoints1`=90, `effectBasePoints2`=64, `effectAmplitude2`=1000  WHERE  `entry`=12505;
 
-            UPDATE `mangos`.`spell_template` SET `castingTimeIndex`=14, `category`=10003, `categoryRecoveryTime`=12000, `recoveryTime`=0, `durationIndex`=85, `effectDieSides1`=23, `effectBasePoints1`=128, `effectBasePoints2`=89 WHERE  `entry`=12522;
+            UPDATE `mangos`.`spell_template` SET `castingTimeIndex`=14, `category`=10003, `categoryRecoveryTime`=12000, `recoveryTime`=0, `durationIndex`=32, `effectDieSides1`=23, `effectBasePoints1`=128, `effectBasePoints2`=89, `effectAmplitude2`=1000  WHERE  `entry`=12522;
 
-            UPDATE `mangos`.`spell_template` SET `castingTimeIndex`=14, `category`=10003, `categoryRecoveryTime`=12000, `recoveryTime`=0, `durationIndex`=85, `effectDieSides1`=23, `effectBasePoints1`=164, `effectBasePoints2`=114 WHERE  `entry`=12523;
+            UPDATE `mangos`.`spell_template` SET `castingTimeIndex`=14, `category`=10003, `categoryRecoveryTime`=12000, `recoveryTime`=0, `durationIndex`=32, `effectDieSides1`=23, `effectBasePoints1`=164, `effectBasePoints2`=114, `effectAmplitude2`=1000  WHERE  `entry`=12523;
 
-            UPDATE `mangos`.`spell_template` SET `castingTimeIndex`=14, `category`=10003, `categoryRecoveryTime`=12000, `recoveryTime`=0, `durationIndex`=85, `effectDieSides1`=23, `effectBasePoints1`=203, `effectBasePoints2`=144 WHERE  `entry`=12524;
+            UPDATE `mangos`.`spell_template` SET `castingTimeIndex`=14, `category`=10003, `categoryRecoveryTime`=12000, `recoveryTime`=0, `durationIndex`=32, `effectDieSides1`=23, `effectBasePoints1`=203, `effectBasePoints2`=144, `effectAmplitude2`=1000  WHERE  `entry`=12524;
 
-            UPDATE `mangos`.`spell_template` SET `castingTimeIndex`=14, `category`=10003, `categoryRecoveryTime`=12000, `recoveryTime`=0, `durationIndex`=85, `effectDieSides1`=23, `effectBasePoints1`=252, `effectBasePoints2`=169 WHERE  `entry`=12525;
+            UPDATE `mangos`.`spell_template` SET `castingTimeIndex`=14, `category`=10003, `categoryRecoveryTime`=12000, `recoveryTime`=0, `durationIndex`=32, `effectDieSides1`=23, `effectBasePoints1`=252, `effectBasePoints2`=169,`effectAmplitude2`=1000  WHERE  `entry`=12525;
 
-            UPDATE `mangos`.`spell_template` SET `castingTimeIndex`=14, `category`=10003, `categoryRecoveryTime`=12000, `recoveryTime`=0, `durationIndex`=85, `effectDieSides1`=23, `effectBasePoints1`=300, `effectBasePoints2`=204 WHERE  `entry`=12526;
+            UPDATE `mangos`.`spell_template` SET `castingTimeIndex`=14, `category`=10003, `categoryRecoveryTime`=12000, `recoveryTime`=0, `durationIndex`=32, `effectDieSides1`=23, `effectBasePoints1`=300, `effectBasePoints2`=204,`effectAmplitude2`=1000  WHERE  `entry`=12526;
 
-            UPDATE `mangos`.`spell_template` SET `castingTimeIndex`=14, `category`=10003, `categoryRecoveryTime`=12000, `recoveryTime`=0, `durationIndex`=85, `effectDieSides1`=23, `effectBasePoints1`=357, `effectBasePoints2`=244 WHERE  `entry`=18809;
+            UPDATE `mangos`.`spell_template` SET `castingTimeIndex`=14, `category`=10003, `categoryRecoveryTime`=12000, `recoveryTime`=0, `durationIndex`=32, `effectDieSides1`=23, `effectBasePoints1`=357, `effectBasePoints2`=244, `effectAmplitude2`=1000  WHERE  `entry`=18809;
 
         -- Living Bomb
             -- Rank 1 (30)

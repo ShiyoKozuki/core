@@ -864,6 +864,11 @@ void CombatBotBaseAI::PopulateSpellData()
                     if (IsHigherRankSpell(m_spells.mage.pArcaneExplosion))
                         m_spells.mage.pArcaneExplosion = pSpellEntry;
                 }
+                else if (pSpellEntry->SpellName[0].find("Arcane Missles") != std::string::npos)
+                {
+                    if (IsHigherRankSpell(m_spells.mage.pArcaneMissles))
+                        m_spells.mage.pArcaneMissles = pSpellEntry;
+                }
                 else if (pSpellEntry->SpellName[0].find("Frost Nova") != std::string::npos)
                 {
                     if (IsHigherRankSpell(m_spells.mage.pFrostNova))

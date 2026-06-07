@@ -15315,6 +15315,7 @@ WHERE entry IN(12717, 18418, 22388, 14512, 14513, 14514, 12834, 12825, 18260, 20
 -- Skimpy plate armor: Vanguard Breastplate (display: 26846), Lord's Breastplate
 -- Skimpy Leather: Pridelord Pants(display: 27651)
 -- Super cute and sexy leather: Ceremonial Leather Loincloth + Bandit Boots
+-- Hide Side Boob Cloth: https://www.wowhead.com/classic/item=6610/sages-robe
 -- Cool weapons: 
     -- 1h Swords
         -- Mercenary Blade

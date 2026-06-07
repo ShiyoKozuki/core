@@ -476,6 +476,7 @@ public:
             SpellEntry const* pFireBlast;
             SpellEntry const* pFireball;
             SpellEntry const* pArcaneExplosion;
+            SpellEntry const* pArcaneMissles;
             SpellEntry const* pFrostNova;
             SpellEntry const* pConeofCold;
             SpellEntry const* pBlink;

@@ -35,8 +35,9 @@ enum PartyBotSpells
     PB_SPELL_AUTO_SHOT = 75,
     PB_SPELL_SHOOT_WAND = 5019,
     PB_SPELL_HONORLESS_TARGET = 2479,
-    PB_SPELL_INFERNO = 34060,
+    PB_SPELL_FIRE_BLAST_PROC = 34060,
     PB_SPELL_IGNITION = 34034,
+    PB_SPELL_ARCANE_MISSLES_PROC = 34173,
     PB_SPELL_IGNITE_DOT = 12654
 };
 
@@ -2264,18 +2265,26 @@ void PartyBotAI::UpdateInCombatAI_Mage()
                 return;
         }
 
-        if (m_spells.mage.pPyroblast &&
-            CanTryToCastSpell(pVictim, m_spells.mage.pPyroblast))
+        if (m_spells.mage.pArcaneMissles &&
+            me->HasAura(PB_SPELL_ARCANE_MISSLES_PROC) && 
+            CanTryToCastSpell(pVictim, m_spells.mage.pArcaneMissles))
         {
-            if (DoCastSpell(pVictim, m_spells.mage.pPyroblast) == SPELL_CAST_OK)
+            if (DoCastSpell(pVictim, m_spells.mage.pArcaneMissles) == SPELL_CAST_OK)
                 return;
         }
 
         if (m_spells.mage.pFireBlast &&
-            me->HasAura(PB_SPELL_INFERNO) && 
+            me->HasAura(PB_SPELL_FIRE_BLAST_PROC) && 
             CanTryToCastSpell(pVictim, m_spells.mage.pFireBlast))
         {
             if (DoCastSpell(pVictim, m_spells.mage.pFireBlast) == SPELL_CAST_OK)
+                return;
+        }
+
+        if (m_spells.mage.pPyroblast &&
+            CanTryToCastSpell(pVictim, m_spells.mage.pPyroblast))
+        {
+            if (DoCastSpell(pVictim, m_spells.mage.pPyroblast) == SPELL_CAST_OK)
                 return;
         }
 
