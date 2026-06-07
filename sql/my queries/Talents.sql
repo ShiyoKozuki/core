@@ -17,10 +17,12 @@
         -- Proc that reduces Fireblast MP Cost
         Replace `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procFlags`, `procChance`, `procCharges`, `durationIndex`, `rangeIndex`, `stackAmount`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectItemType1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `spellFamilyName`, `stanceBarOrder`, `dmgMultiplier1`) VALUES (34060, 4695, 327680, 1, 65536, 101, 1, 9, 1, 0, -1, 6, 1, 1, -101, 0, 0, -1, 1, 108, 2, 14, 2091, 'Inferno', 983070, 983070, 'Reduces the mana cost of Fireblast by $s1%.', 983070, 'Your next Fireblast spell costs no mana.', 983052, 3, -1, 1);
 
-    -- Incinerate (Also reduces MP cost of Fire spells by 15/30%)
-    UPDATE `mangos`.`spell_template` SET `effect2`=6, `effectDieSides2`=1, `effectBaseDice2`=1, `effectBasePoints2`=-16, `effectImplicitTargetA2`=1, `effectApplyAuraName2`=108, `effectItemType2`=51543801879, `effectMiscValue2`=14, `description`='Increases the critical strike chance of your Fire Blast and Scorch spells by $s1%.  Additionally, reduces the mana cost of your Fire Spells by $s2%.' WHERE  `entry`=18459;
+        UPDATE `mangos`.`spell_template` SET `spellVisual1`=10691 WHERE  `entry`=34060;
 
-    UPDATE `mangos`.`spell_template` SET `effect2`=6, `effectDieSides2`=1, `effectBaseDice2`=1, `effectBasePoints2`=-31, `effectImplicitTargetA2`=1, `effectApplyAuraName2`=108, `effectItemType2`=51543801879, `effectMiscValue2`=14, `description`='Increases the critical strike chance of your Fire Blast and Scorch spells by $s1%.  Additionally, reduces the mana cost of your Fire Spells by $s2%.' WHERE  `entry`=18460;
+    -- Incinerate (Also reduces MP cost of Fire spells by 15/30%)
+    UPDATE `mangos`.`spell_template` SET `effect2`=6, `effectDieSides2`=1, `effectBaseDice2`=1, `effectBasePoints2`=-11, `effectImplicitTargetA2`=1, `effectApplyAuraName2`=108, `effectItemType2`=51543801879, `effectMiscValue2`=14, `description`='Increases the critical strike chance of your Fire Blast and Scorch spells by $s1%.  Additionally, reduces the mana cost of your Fire Spells by $s2%.' WHERE  `entry`=18459;
+
+    UPDATE `mangos`.`spell_template` SET `effect2`=6, `effectDieSides2`=1, `effectBaseDice2`=1, `effectBasePoints2`=-21, `effectImplicitTargetA2`=1, `effectApplyAuraName2`=108, `effectItemType2`=51543801879, `effectMiscValue2`=14, `description`='Increases the critical strike chance of your Fire Blast and Scorch spells by $s1%.  Additionally, reduces the mana cost of your Fire Spells by $s2%.' WHERE  `entry`=18460;
 
     -- Master of the Elements (20/40/60% base MP refunded on Frost and Fire spell crits)
     UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=19 WHERE  `entry`=29074;
@@ -49,7 +51,7 @@
             -- Proc (This is the actual buff)
                 REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `dispel`, `attributes`, `castingTimeIndex`, `procChance`, `baseLevel`, `spellLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `spellFamilyName`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34063, 5464, 2, 1, 327680, 1, 101, 10, 10, 9, 6, -1, -1, 6, 1, 1, 1, 0, -1, -1, 1, 4, 2082, 'Fingers of Frost', 4128830, 4128828, 4128828, 'Your next Ice Lance spell treats the target as if it were frozen.', 4128830, 3, 1, 1, -1, 1, 1, 1);
 
-                UPDATE `mangos`.`spell_template` SET `procFlags`=65536, `procChance`=100, `effect1`=6, `effectApplyAuraName1`=42, `effectItemType1`=137438953472 WHERE  `entry`=34063;
+                UPDATE `mangos`.`spell_template` SET `procFlags`=65536, `procChance`=100, `effect1`=6, `effectApplyAuraName1`=42, `effectItemType1`=137438953472, `spellVisual1`=12032  WHERE  `entry`=34063;
 
         -- Rank 2
             -- Spell (This is the aura that procs the actual buff)
@@ -58,7 +60,7 @@
             -- Proc (This is the actual buff)
                 REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `dispel`, `attributes`, `castingTimeIndex`, `procChance`, `baseLevel`, `spellLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `spellFamilyName`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34065, 5464, 2, 1, 327680, 1, 101, 10, 10, 9, 6, -1, -1, 6, 1, 1, 1, 0, -1, -1, 1, 4, 2082, 'Fingers of Frost', 4128830, 4128828, 4128828, 'Your next Ice Lance spell treats the target as if it were frozen.', 4128830, 3, 1, 1, -1, 1, 1, 1);
 
-                UPDATE `mangos`.`spell_template` SET `procFlags`=65536, `procChance`=100, `effect1`=6, `effectApplyAuraName1`=42, `effectItemType1`=137438953472 WHERE  `entry`=34063;
+                UPDATE `mangos`.`spell_template` SET `procFlags`=65536, `procChance`=100, `effect1`=6, `effectApplyAuraName1`=42, `effectItemType1`=137438953472, `spellVisual1`=12032  WHERE  `entry`=34065;
 
 
     -- Brain Freeze
@@ -70,6 +72,8 @@
             -- Proc (This is the actual buff)
             REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procFlags`, `procChance`, `procCharges`, `durationIndex`, `rangeIndex`, `stackAmount`, `equippedItemClass`, `effect1`, `effect2`, `effectDieSides1`, `effectDieSides2`, `effectBaseDice1`, `effectBaseDice2`, `effectBasePoints1`, `effectBasePoints2`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectApplyAuraName1`, `effectApplyAuraName2`, `effectItemType1`, `effectItemType2`, `effectMiscValue1`, `effectMiscValue2`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `spellFamilyName`, `stanceBarOrder`, `dmgMultiplier1`) VALUES (34086, 4695, 327680, 1, 65536, 101, 1, 9, 1, 5, -1, 6, 6, 1, 1, 1, 1, -101, -101, 0, 0, -1, 1, 1, 108, 108, 1, 1, 14, 10, 2080, 'Brain Freeze', 983070, 983070, 'Your next Fireball spell has no cast time and costs no mana.', 983070, 'Your next Fireball spell has no cast time and costs no mana.', 983052, 3, -1, 1);
 
+            UPDATE `mangos`.`spell_template` SET `spellVisual1`=1405 WHERE  `entry`=34086;
+
         -- Rank 2
             -- Spell (This is the aura that procs the actual buff)
             REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `attributesEx3`, `castingTimeIndex`, `procFlags`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectItemType1`, `effectTriggerSpell1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `stanceBarOrder`, `dmgMultiplier1`) 
@@ -77,6 +81,8 @@
 
             -- Proc (This is the actual buff)
             REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procFlags`, `procChance`, `procCharges`, `durationIndex`, `rangeIndex`, `stackAmount`, `equippedItemClass`, `effect1`, `effect2`, `effectDieSides1`, `effectDieSides2`, `effectBaseDice1`, `effectBaseDice2`, `effectBasePoints1`, `effectBasePoints2`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectApplyAuraName1`, `effectApplyAuraName2`, `effectItemType1`, `effectItemType2`, `effectMiscValue1`, `effectMiscValue2`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `spellFamilyName`, `stanceBarOrder`, `dmgMultiplier1`) VALUES (34088, 4695, 327680, 1, 65536, 101, 1, 9, 1, 5, -1, 6, 6, 1, 1, 1, 1, -101, -101, 0, 0, -1, 1, 1, 108, 108, 1, 1, 14, 10, 2080, 'Brain Freeze', 983070, 983070, 'Your next Fireball spell has no cast time and costs no mana.', 983070, 'Your next Fireball spell has no cast time and costs no mana.', 983052, 3, -1, 1);
+
+            UPDATE `mangos`.`spell_template` SET `spellVisual1`=1405 WHERE  `entry`=34088;
 
     -- Winter's Chill (3 points, 33/66/100%)
     UPDATE `mangos`.`spell_template` SET `procChance`=33 WHERE  `entry`=11180;
