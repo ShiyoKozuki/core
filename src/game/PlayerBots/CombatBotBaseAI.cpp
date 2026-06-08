@@ -3425,15 +3425,9 @@ bool CombatBotBaseAI::CastBlessings()
                     // Melee DPS
                     if (IsPurePhysicalDPS(pMember->GetClass()))
                     {
-                        firstSelectedBlessing = m_spells.paladin.pBlessingOfSalvation;
-                        secondSelectedBlessing = m_spells.paladin.pBlessingOfMight;
+                        firstSelectedBlessing = m_spells.paladin.pBlessingOfMight;
+                        secondSelectedBlessing = m_spells.paladin.pBlessingOfSalvation;
 
-                        // Warrior tanks
-                        if (IsWearingShield(pMember))
-                        {
-                            firstSelectedBlessing = m_spells.paladin.pBlessingOfMight;
-                            secondSelectedBlessing = m_spells.paladin.pBlessingOfKings;
-                        }
                     }
 
                     // Caster DPS

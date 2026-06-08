@@ -923,7 +923,7 @@ SpellAuraProcResult Unit::HandleDummyAuraProc(Unit* pVictim, uint32 amount, uint
                         return SPELL_AURA_PROC_FAILED;
 
                     // heal amount
-                    basepoints[0] = amount;
+                    dither(amount *= 0.70);
 
                     // don't heal for 0
                     if (amount < 1)
