@@ -43,7 +43,8 @@ enum PartyBotSpells
 
 enum PartyBotTalents
 {
-    PB_TALENT_IGNITE_R5 = 12848
+    PB_TALENT_IGNITE_R5 = 12848,
+    PB_TALENT_MAELSTROM_WEAPON_R5 = 34055
 };
 
 #define PB_UPDATE_INTERVAL 1000
@@ -1689,11 +1690,10 @@ void PartyBotAI::UpdateOutOfCombatAI_Shaman()
         }
     }
 
+    me->UnsummonAllTotems();
+
     if (me->GetVictim())
     {
-        if (SummonShamanTotems())
-            return;
-
         UpdateInCombatAI_Shaman();
     }
 }
@@ -1719,6 +1719,33 @@ void PartyBotAI::UpdateInCombatAI_Shaman()
     {
         if (Unit* pVictim = me->GetVictim())
         {
+            // Maelstrom Weapon Logic
+            if (Aura* maelstromWeaponAura = me->GetAura(PB_TALENT_MAELSTROM_WEAPON_R5, EFFECT_INDEX_0))
+            {
+                if (SpellAuraHolder* holder = maelstromWeaponAura->GetHolder())
+                {
+                    uint16 stacks = holder->GetStackAmount();
+
+                    // Only try to cast Chain Lightning / Lightning Bolt at 5 Maelstrom Weapon stacks
+                    if (stacks >= 5)
+                    {
+                        if (m_spells.shaman.pChainLightning &&
+                            CanTryToCastSpell(pVictim, m_spells.shaman.pChainLightning))
+                        {
+                            if (DoCastSpell(pVictim, m_spells.shaman.pChainLightning) == SPELL_CAST_OK)
+                                return;
+                        }
+
+                        if (m_spells.shaman.pLightningBolt &&
+                            CanTryToCastSpell(pVictim, m_spells.shaman.pLightningBolt))
+                        {
+                            if (DoCastSpell(pVictim, m_spells.shaman.pLightningBolt) == SPELL_CAST_OK)
+                                return;
+                        }
+                    }
+                }
+            }
+
             if (m_spells.shaman.pElementalMastery &&
                 me->GetAttackers().empty() &&
                 CanTryToCastSpell(me, m_spells.shaman.pElementalMastery))

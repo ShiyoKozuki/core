@@ -3363,6 +3363,16 @@ void CombatBotBaseAI::UpdateVisualHonorRankBasedOnItems()
 
 bool CombatBotBaseAI::SummonShamanTotems()
 {
+    // If role is melee dps, don't summon totems far from the enemy
+    if (GetRole() == ROLE_MELEE_DPS)
+    {
+        if (Unit* pVictim = me->GetVictim())
+        {
+            if (me->GetCombatDistance(pVictim) > 10.0f)
+                return false;
+        }
+    }
+
     if (m_spells.shaman.pAirTotem &&
         !me->GetTotem(TOTEM_SLOT_AIR) &&
         CanTryToCastSpell(me, m_spells.shaman.pAirTotem))
