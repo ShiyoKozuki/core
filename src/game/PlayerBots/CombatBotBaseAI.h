@@ -490,6 +490,7 @@ public:
             SpellEntry const* pEvocation;
             SpellEntry const* pIceBlock;
             SpellEntry const* pBlizzard;
+            SpellEntry const* pFlamestrike;
             SpellEntry const* pBlastWave;
             SpellEntry const* pCombustion;
         } mage;

@@ -37,10 +37,10 @@ bool BasicAI::IsProximityAggroAllowedFor(Unit* pTarget) const
     }
 
     // Don't aggro bots unless the zone is Alterac Valley
-    if (pTarget->IsPlayer() &&
-        static_cast<Player const*>(pTarget)->IsBot() &&
-        (pTarget->GetZoneId() != 2597))
-        return false;
+    //if (pTarget->IsPlayer() &&
+    //    static_cast<Player const*>(pTarget)->IsBot() &&
+    //    (pTarget->GetZoneId() != 2597))
+    //    return false;
 
     if (!m_creature->GetVictim())
         return true;

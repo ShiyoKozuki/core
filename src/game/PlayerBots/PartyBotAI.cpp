@@ -200,8 +200,15 @@ bool PartyBotAI::DrinkAndEat()
     if (me->GetVictim())
         return false;
 
+    float drinkThreshold = 100.0f;
+
+
+    if (GetRole() == ROLE_MELEE_DPS || me->GetClass() == CLASS_WARLOCK || me->GetClass() == CLASS_HUNTER)
+        drinkThreshold = 25.0f;
+
+
     bool const needToEat = me->GetHealthPercent() < 70.0f;
-    bool const needToDrink = (me->GetPowerType() == POWER_MANA) && (me->GetPowerPercent(POWER_MANA) < 100.0f);
+    bool const needToDrink = (me->GetPowerType() == POWER_MANA) && (me->GetPowerPercent(POWER_MANA) < drinkThreshold);
 
     if (!needToEat && !needToDrink)
         return false;
@@ -828,6 +835,8 @@ void PartyBotAI::UpdateAI(uint32 const diff)
 
     if (!me->IsInCombat() && !pLeader->IsInCombat() && !pLeader->IsMounted())
     {
+        me->UnsummonAllTotems();
+
         if (DrinkAndEat())
         {
             if (!me->IsWithinDistInMap(pLeader, 50.0f))
@@ -1690,8 +1699,6 @@ void PartyBotAI::UpdateOutOfCombatAI_Shaman()
         }
     }
 
-    me->UnsummonAllTotems();
-
     if (me->GetVictim())
     {
         UpdateInCombatAI_Shaman();
@@ -2199,7 +2206,7 @@ void PartyBotAI::UpdateInCombatAI_Mage()
             }
         }
 
-        if (me->GetEnemyCountInRadiusAround(me, 10.0f) > 3)
+        if (me->GetEnemyCountInRadiusAround(me, 10.0f) > 2)
         {
             if (m_spells.mage.pConeofCold && !me->IsMoving() &&
                 CanTryToCastSpell(me, m_spells.mage.pConeofCold))
@@ -2246,8 +2253,16 @@ void PartyBotAI::UpdateInCombatAI_Mage()
             }
         }
 
+        if (m_spells.mage.pFlamestrike &&
+           (me->GetEnemyCountInRadiusAround(pVictim, 10.0f) > 2) &&
+            CanTryToCastSpell(pVictim, m_spells.mage.pFlamestrike))
+        {
+            if (DoCastSpell(pVictim, m_spells.mage.pFlamestrike) == SPELL_CAST_OK)
+                return;
+        }
+
         if (m_spells.mage.pBlizzard &&
-           (me->GetEnemyCountInRadiusAround(pVictim, 10.0f) > 3) &&
+           (me->GetEnemyCountInRadiusAround(pVictim, 10.0f) > 2) &&
             CanTryToCastSpell(pVictim, m_spells.mage.pBlizzard))
         {
             if (DoCastSpell(pVictim, m_spells.mage.pBlizzard) == SPELL_CAST_OK)
@@ -2258,7 +2273,7 @@ void PartyBotAI::UpdateInCombatAI_Mage()
         {
             if (Unit* pTarget = SelectAttackerDifferentFrom(pVictim))
             {
-                if (pTarget->GetHealthPercent() > 20.0f &&
+                if (pTarget->GetHealthPercent() > 80.0f &&
                     CanTryToCastSpell(pTarget, m_spells.mage.pPolymorph) &&
                     CanUseCrowdControl(m_spells.mage.pPolymorph, pTarget))
                 {

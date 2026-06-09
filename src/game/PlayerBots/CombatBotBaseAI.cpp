@@ -864,7 +864,7 @@ void CombatBotBaseAI::PopulateSpellData()
                     if (IsHigherRankSpell(m_spells.mage.pArcaneExplosion))
                         m_spells.mage.pArcaneExplosion = pSpellEntry;
                 }
-                else if (pSpellEntry->SpellName[0].find("Arcane Missles") != std::string::npos)
+                else if (pSpellEntry->SpellName[0].find("Arcane Missiles") != std::string::npos)
                 {
                     if (IsHigherRankSpell(m_spells.mage.pArcaneMissles))
                         m_spells.mage.pArcaneMissles = pSpellEntry;
@@ -953,6 +953,11 @@ void CombatBotBaseAI::PopulateSpellData()
                 {
                     if (IsHigherRankSpell(m_spells.mage.pBlizzard))
                         m_spells.mage.pBlizzard = pSpellEntry;
+                }
+                else if (pSpellEntry->SpellName[0].find("Flamestrike") != std::string::npos)
+                {
+                    if (IsHigherRankSpell(m_spells.mage.pFlamestrike))
+                        m_spells.mage.pFlamestrike = pSpellEntry;
                 }
                 else if (pSpellEntry->SpellName[0].find("Blast Wave") != std::string::npos)
                 {
@@ -3096,7 +3101,7 @@ bool CombatBotBaseAI::CanTryToCastSpell(Unit const* pTarget, SpellEntry const* p
 
     if (pSpellEntry->IsSpellAppliesAura() && pTarget->HasAura(pSpellEntry->Id))
     {
-        // Exceptions (Fireball, sunder, etc)
+        // Exceptions (Fireball, Frostbolt, Sunder Armor, etc)
         if (m_spells.warrior.pSunderArmor &&
             pSpellEntry == m_spells.warrior.pSunderArmor)
         {
@@ -3105,6 +3110,12 @@ bool CombatBotBaseAI::CanTryToCastSpell(Unit const* pTarget, SpellEntry const* p
 
         if (m_spells.mage.pFireball &&
             pSpellEntry == m_spells.mage.pFireball)
+        {
+            return true;
+        }
+
+        if (m_spells.mage.pFrostbolt &&
+            pSpellEntry == m_spells.mage.pFrostbolt)
         {
             return true;
         }
