@@ -221,9 +221,12 @@ UPDATE `mangos`.`spell_template` SET `effect2`=0, `effectDieSides2`=0, `effectBa
     -- Vampiric Embrace (Buffed to 30% baseline, improved talents removed)
         UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=29 WHERE  `entry`=15286 AND `build`=5302;
 
-    -- Darkness (2 points 5/10% and Added Vampiric Touch and Shadow Word: Death))
-        UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=4, `effectItemType1`=137472516096, `effectItemType2`=68727898112 WHERE  `entry`=15259 AND `build`=4375;
-        UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=9, `effectItemType1`=137472516096, `effectItemType2`=68727898112 WHERE  `entry`=15307 AND `build`=4375;
+    -- Darkness (Added Vampiric Touch and Shadow Word: Death))
+        UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=1, `effectItemType1`=137472516096, `effectItemType2`=68727898112 WHERE  `entry`=15259 AND `build`=4375;
+        UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=3, `effectItemType1`=137472516096, `effectItemType2`=68727898112 WHERE  `entry`=15307 AND `build`=4375;
+        UPDATE `mangos`.`spell_template` SET `effectItemType1`=137472516096, `effectItemType2`=68727898112 WHERE  `entry`=15308;
+        UPDATE `mangos`.`spell_template` SET `effectItemType1`=137472516096, `effectItemType2`=68727898112 WHERE  `entry`=15309;
+        UPDATE `mangos`.`spell_template` SET `effectItemType1`=137472516096, `effectItemType2`=68727898112 WHERE  `entry`=15310;
 
     -- Remove Shadowform Visual Effect (spellVisual1 was 3619)
         UPDATE `mangos`.`spell_template` SET `spellVisual1`=0 WHERE  `entry`=15473 AND `build`=5302;
