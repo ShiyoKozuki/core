@@ -289,7 +289,6 @@ SpellScript* GetScript_PriestAtonement(SpellEntry const*)
     return new PriestAtonementScript();
 }
 
-
 struct PriestDevouringPlagueScript : public SpellScript
 {
     enum
@@ -362,6 +361,40 @@ SpellScript* GetScript_PriestDevouringPlague(SpellEntry const*)
     return new PriestDevouringPlagueScript();
 }
 
+struct PriestShadowWordDeathScript : public SpellScript
+{
+    bool OnEffectExecute(Spell* spell, SpellEffectIndex effIdx) const final
+    {
+        if (effIdx == EFFECT_INDEX_0 && spell->GetUnitTarget() && spell->m_casterUnit)
+        {
+            // If not duplicated effect damage self and gain a Shadow Orb stack
+            if (spell->GetUnitTarget() != spell->m_casterUnit)
+            {
+                // Duplicate effect on self if target is still alive
+                auto targetHP = spell->GetUnitTarget()->GetHealth();
+                int32 damage = spell->damage;
+
+                if (targetHP > damage)
+                {
+                    // Self damage is half of the spells damage
+                    uint32 damage = int32(spell->damage * 0.5f); // Self damage is half of the spells damage
+                    spell->m_casterUnit->CastCustomSpell(spell->GetUnitTarget(), 34178, damage, {}, {}, true, nullptr);
+                }
+
+                // Gain a Shadow Orb
+                spell->m_casterUnit->CastSpell(spell->m_casterUnit, 34157, true);
+            }
+        }
+
+        return true;
+    }
+};
+
+SpellScript* GetScript_PriestShadowWordDeath(SpellEntry const*)
+{
+    return new PriestShadowWordDeathScript();
+}
+
 void AddSC_priest_spell_scripts()
 {
     Script* newscript;
@@ -399,5 +432,10 @@ void AddSC_priest_spell_scripts()
     newscript = new Script;
     newscript->Name = "spell_priest_devouring_plague";
     newscript->GetSpellScript = &GetScript_PriestDevouringPlague;
+    newscript->RegisterSelf();
+
+    newscript = new Script;
+    newscript->Name = "spell_priest_shadow_word_death";
+    newscript->GetSpellScript = &GetScript_PriestShadowWordDeath;
     newscript->RegisterSelf();
 }
