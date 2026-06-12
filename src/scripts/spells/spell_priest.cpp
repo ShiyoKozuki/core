@@ -374,7 +374,8 @@ struct PriestShadowWordDeathScript : public SpellScript
                 auto targetHP = spell->GetUnitTarget()->GetHealth();
                 int32 damage = spell->damage;
 
-                if (targetHP > damage)
+                // Check if target already dead and won't die from this spells damage
+                if (!spell->GetUnitTarget()->IsDead() && targetHP > damage)
                 {
                     // Self damage is half of the spells damage
                     uint32 damage = int32(spell->damage * 0.5f); // Self damage is half of the spells damage
