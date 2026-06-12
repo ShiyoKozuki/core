@@ -714,6 +714,25 @@ SpellScript* GetScript_SummonBlackQirajiBattleTank(SpellEntry const*)
     return new SummonBlackQirajiBattleTankScript();
 }
 
+
+// 34172 - Summon Apedemak (Large Monster Bait)
+struct LargeMonsterBaitScript : public SpellScript
+{
+    SpellCastResult OnCheckCast(Spell* spell, bool /*strict*/) const final
+    {
+        // Can only be used in Deadwind Pass
+        if (spell->m_casterUnit->GetZoneId() != 41)
+            return SPELL_FAILED_NOT_HERE;
+
+        return SPELL_CAST_OK;
+    }
+};
+
+SpellScript* GetScript_LargeMonsterBait(SpellEntry const*)
+{
+    return new LargeMonsterBaitScript();
+}
+
 // 4060 - Discombobulate (Discombobulator Ray)
 struct DiscombobulateAuraScript : public AuraScript
 {
@@ -930,5 +949,10 @@ void AddSC_item_spell_scripts()
     newscript = new Script;
     newscript->Name = "spell_ashbringer";
     newscript->GetAuraScript = &GetScript_Ashbringer;
+    newscript->RegisterSelf();
+
+    newscript = new Script;
+    newscript->Name = "spell_large_monster_bait";
+    newscript->GetSpellScript = &GetScript_LargeMonsterBait;
     newscript->RegisterSelf();
 }

@@ -44,14 +44,14 @@
 -- how do distress beacon quests not replace item on starting? same with ship schedule
 
 -- Quest + Vendor + Repair npc flag = 
--- NEXT quest_template 30264
--- NEXT quest_end_script 10008
+-- NEXT quest_template 30266
+-- NEXT quest_end_script 10009
 -- NEXT generic_script 9000001
 -- NEXT creature_movement_scripts 9000001
 
 -- NEXT creature_template 90101
--- NEXT gameobject_template 987667
--- NEXT gameobject_loot_template 42909
+-- NEXT gameobject_template 987670
+-- NEXT gameobject_loot_template 42911
 
 -- NEXT gameobject 300406
 
@@ -1371,7 +1371,6 @@ REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLeve
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90035, 30008);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90035, 30008);
 
-
 -- Soul Shard Fragment
     -- Object 
     Replace `mangos`.`gameobject_template` (`entry`, `patch`, `type`, `displayId`, `name`, `data0`, `data1`, `data3`, `data9`) VALUES (987660, 1, 3, 5746, 'Soulshard Fragment', 43, 42907, 1, 59);
@@ -1530,9 +1529,22 @@ REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90035, 3000
 
         -- Loot Template
         DELETE FROM `gameobject_loot_template` WHERE `entry`=42908; -- To ensure duplicate entries are not added
-        INSERT INTO `mangos`.`gameobject_loot_template` (`entry`, `item`, `ChanceOrQuestChance`, `groupid`, `patch_min`) VALUES (42908, 30228, 0, 0, 1);
+        INSERT INTO `mangos`.`gameobject_loot_template` (`entry`, `item`, `ChanceOrQuestChance`, `groupid`, `patch_min`) VALUES (42908, 30228, 100, 0, 1);
 
--- Ogre Mound
+    -- Curtana
+        -- Object
+            REPLACE `mangos`.`gameobject_template` (`entry`, `type`, `displayId`, `name`, `faction`, `data0`, `data1`, `data3`, `data10`, `data12`, `mingold`, `maxgold`) VALUES (987667, 3, 4175, 'Curtana', 94, 57, 42909, 1, 1, 1, 0, 0);
+
+        -- Object Spawns
+        -- Don't forget 4hr respawn timer (7200)
+            REPLACE INTO `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (4100108, 987667, 0, -11405.9, -2152.9, 34.6624, 4.71169, 0, 0, 0.707354, -0.706859, 7200, 7200, 100, 1, 0, 0, 0, 10);
+
+
+        -- Loot Template
+        DELETE FROM `gameobject_loot_template` WHERE `entry`=42909; -- To ensure duplicate entries are not added
+        INSERT INTO `mangos`.`gameobject_loot_template` (`entry`, `item`, `ChanceOrQuestChance`, `groupid`, `patch_min`) VALUES (42909, 30255, 100, 0, 1);
+
+-- Ogre Mound (Used to summon Highlord Ogrok)
     -- Object 
         REPLACE `mangos`.`gameobject_template` (`entry`, `type`, `displayId`, `name`, `faction`, `flags`) VALUES (987666, 2, 20, 'Ogre Mound', 84, 4);
 
@@ -1555,6 +1567,52 @@ REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90035, 3000
             INSERT INTO `quest_end_scripts` (`id`, `delay`, `priority`, `command`, `datalong`, `datalong2`, `datalong3`, `datalong4`, `target_param1`, `target_param2`, `target_type`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `condition_id`, `comments`) VALUES
             (10004, 5, 0, 10, 90094, 60000, 0, 0, 0, 0, 0, 0, 0, 0, -1, 1,-10813.6, -2094.34, 117.132, 2.07719, 0, 'Ogre Mound: Summon Highlord Ogrok');
 
+-- Enchanted Dirt (Used to summon Ogopogo)
+    -- Object 
+        REPLACE `mangos`.`gameobject_template` (`entry`, `type`, `displayId`, `name`, `faction`, `flags`) VALUES (987668, 2, 20, 'Enchanted Dirt', 84, 4);
+
+    -- Object Spawns
+        REPLACE INTO `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (4100109, 987668, 0, -11074.5, -2132.78, 6.18172, 2.35391, 0, 0, 0.923442, 0.383737, 25, 25, 100, 1, 0, 0, 0, 10);
+
+    -- Quest
+        -- Quest Template
+            -- Don't forget to add the quest_end_script to the end under `CompleteScript`!!
+            REPLACE `mangos`.`quest_template` (`entry`, `Method`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `SpecialFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `DetailsEmote1`, `IncompleteEmote`, `CompleteEmote`, `CompleteScript`) VALUES (30264, 0, 41, 58, 62, 264, 1, 'Enchanted Dirt', '', '', '', 'There is a carving here that says something but it is hard to read. "C...t...a...na".', '', '', '', '', '', 30255, 1, 0, 0, 0, 0, 0, 0, 10008);
+
+        -- Quest Relation
+            REPLACE `mangos`.`gameobject_questrelation` (`id`, `quest`) VALUES (987668, 30264);
+
+        -- Quest Involved Relation
+            REPLACE `mangos`.`gameobject_involvedrelation` (`id`, `quest`) VALUES (987668, 30264);
+
+        -- quest_end_script (Temp Summon Ogopogo)
+            DELETE FROM `quest_end_scripts` WHERE `id`=10008;
+            INSERT INTO `quest_end_scripts` (`id`, `delay`, `priority`, `command`, `datalong`, `datalong2`, `datalong3`, `datalong4`, `target_param1`, `target_param2`, `target_type`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `condition_id`, `comments`) VALUES
+            (10008, 5, 0, 10, 90098, 60000, 0, 0, 0, 0, 0, 0, 0, 0, -1, 1, 0, 0, 0 ,0 , 0, 'Enchanted Dirt: Summon Ogopogo');
+
+    -- Curtana
+        -- Object
+            REPLACE `mangos`.`gameobject_template` (`entry`, `type`, `displayId`, `name`, `faction`, `data0`, `data1`, `data3`, `data10`, `data12`, `mingold`, `maxgold`) VALUES (987669, 3, 32, 'Aged Karazhan Ale', 94, 57, 42910, 1, 1, 1, 0, 0);
+
+        -- Object Spawns
+        -- TODO: Respawn time (5m)
+            REPLACE INTO `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (4100110, 987669, 0, -11163.5, -2101.39, 31.239, 4.67878, 0, 0, 0.718888, -0.695126, 300, 360, 100, 1, 0, 0, 0, 10);
+            REPLACE INTO `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (4100111, 987669, 0, -11208, -2107.14, 31.2399, 4.47064, 0, 0, 0.78721, -0.616685, 300, 360, 100, 1, 0, 0, 0, 10);
+            REPLACE INTO `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (4100112, 987669, 0, -11175, -2158.29, 22.7066, 4.5688, 0, 0, 0.756006, -0.654564, 300, 360, 100, 1, 0, 0, 0, 10);
+            REPLACE INTO `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (4100113, 987669, 0, -11073.6, -2195.31, 14.7724, 1.56465, 0, 0, 0.704931, 0.709275, 300, 360, 100, 1, 0, 0, 0, 10);
+            REPLACE INTO `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (4100114, 987669, 0, -11237, -2215.04, 22.7048, 0.00562239, 0, 0, 0.00281119, 0.999996, 300, 360, 100, 1, 0, 0, 0, 10);
+            REPLACE INTO `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (4100115, 987669, 0, -11363, -2216.69, 23.2868, 4.62769, 0, 0, 0.736408, -0.676537, 300, 360, 100, 1, 0, 0, 0, 10);
+            REPLACE INTO `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (4100116, 987669, 0, -11211.1, -2142.23, 22.7061, 1.54501, 0, 0, 0.697931, 0.716165, 300, 360, 100, 1, 0, 0, 0, 10);
+            REPLACE INTO `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (4100117, 987669, 0, -11412.7, -2179.67, 23.2035, 3.0569, 0, 0, 0.999104, 0.0423318, 300, 360, 100, 1, 0, 0, 0, 10);
+            REPLACE INTO `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (4100118, 987669, 0, -11246.3, -2206.71, 22.7044, 4.68269, 0, 0, 0.71753, -0.696528, 300, 360, 100, 1, 0, 0, 0, 10);
+            REPLACE INTO `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (4100119, 987669, 0, -11074.7, -2221.24, 15.7904, 4.65363, 0, 0, 0.727574, -0.686029, 300, 360, 100, 1, 0, 0, 0, 10);
+            REPLACE INTO `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (4100120, 987669, 0, -11209.2, -2130.9, 26.9735, 3.12996, 0, 0, 0.999983, 0.00581853, 300, 360, 100, 1, 0, 0, 0, 10);
+
+
+        -- Loot Template
+        DELETE FROM `gameobject_loot_template` WHERE `entry`=42910; -- To ensure duplicate entries are not added
+        INSERT INTO `mangos`.`gameobject_loot_template` (`entry`, `item`, `ChanceOrQuestChance`, `groupid`, `patch_min`) VALUES (42910, 30256, 100, 0, 1);
+
 -- NPC for Karazhan Mementos
     -- Creature Template
         REPLACE INTO `mangos`.`creature_template` (`entry`, `name`, `subname`, `level_min`, `level_max`, `faction`, `npc_flags`, `display_id1`, `display_probability1`, `display_total_probability`, `type`, `unit_class`, `armor_multiplier`, `equipment_id`, `static_flags1`, `flags_extra`) VALUES (90099, 'Prospector Ariden', 'Explorers\' League', 16, 16, 55, 2, 1277, 1, 1, 7, 1, 2, 2917, 4718662, 2);
@@ -1562,22 +1620,26 @@ REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90035, 3000
     -- Creature (Spawn)
         REPLACE INTO `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000128, 90099, 0, 0, 0, 0, 0, -10434.7, -2137.54, 90.7795, 3.41392, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
 
-    -- Quest
+    -- Quest(s)
         REPLACE `mangos`.`quest_template` (`entry`, `Method`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `SpecialFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewItemId1`, `RewItemCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `DetailsEmote1`, `IncompleteEmote`, `CompleteEmote`) VALUES (30257, 0, 41, 58, 62, 264, 1, 'Karazhan Memento - Kirin Tor Rune Dust', '', '', 'Bring me anything interesting you find around Karazhan.', 'Bring me anything interesting you find around Karazhan.', '', '', '', '', '', 30228, 25, 30225, 1, 0, 0, 0, 0, 0, 0);
 
         REPLACE `mangos`.`quest_template` (`entry`, `Method`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `SpecialFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewItemId1`, `RewItemCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `DetailsEmote1`, `IncompleteEmote`, `CompleteEmote`) VALUES (30258, 0, 41, 58, 62, 264, 1, 'Karazhan Memento - Mana Fragment', '', '', 'Bring me anything interesting you find around Karazhan.', 'Bring me anything interesting you find around Karazhan.', '', '', '', '', '', 30228, 25, 30226, 1, 0, 0, 0, 0, 0, 0);
 
         REPLACE `mangos`.`quest_template` (`entry`, `Method`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `SpecialFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewItemId1`, `RewItemCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `DetailsEmote1`, `IncompleteEmote`, `CompleteEmote`) VALUES (30259, 0, 41, 58, 62, 264, 1, 'Karazhan Memento - Mana Infused Cloth Scraps', '', '', 'Bring me anything interesting you find around Karazhan.', 'Bring me anything interesting you find around Karazhan.', '', '', '', '', '', 30228, 25, 30227, 1, 0, 0, 0, 0, 0, 0);
 
+        REPLACE `mangos`.`quest_template` (`entry`, `Method`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `SpecialFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `DetailsEmote1`, `IncompleteEmote`, `CompleteEmote`) VALUES (30265, 0, 41, 58, 62, 264, 1, 'Thousand Year Brew', '', '', 'I heard there\'s a basement underneath Karazhan full of very old beer. Being a Dwarf, I ened to try this! Bring me Agred Beer from the the crypts underneath Karazhan.', 'Please bring me Aged Beer from the crypts underneath Karazhan.', '', '', '', '', '', 30256, 8, 477, 150, 390, 25, 1, 1);
+
         -- Quest Relation
             REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90099, 30257);
             REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90099, 30258);
             REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90099, 30259);
+            REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90099, 30265);
 
         -- Quest Involved Relation
             REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90099, 30257);
             REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90099, 30258);
             REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90099, 30259);
+            REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90099, 30265);
 
 -- Escort NPC + Quest
     -- TODO: It was working, then I changed NPC to despawn, added xyzo pos for guy to spawn, removed target and now its all broken
@@ -1591,6 +1653,8 @@ REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90035, 3000
     -- TODO: Aggro enemies aggrod to player or be aggressive or something
     -- TODO: Xelnu not despawn OOC 
     -- TODO: Yell text doesnt work
+    -- TODO: Repeatable beer quest to click the barrels in the basement by curtana
+    -- TODO: Make sure all creature and object spawns are accounted for in these files with correct respawn timers (Creatures.sql and Quests.sql) 
 
     -- Creature
         REPLACE INTO `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000132, 90100, 0, 0, 0, 0, 0, -11021.9, -2046.25, 40.7051, 0.619303, 25, 25, 5, 100, 100, 1, 0, 0, 0, 10);
@@ -1641,7 +1705,7 @@ REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90035, 3000
     -- TODO: Need to escort female NPC up the tower and then it turns into Xelnu (Zelda OOT reference)
     -- TODO: Broken sword from DK boss should work like broken blade of heroes where a bsm can "repair" it
     -- TODO: Copy radiation bolt animation from gnomergan
-    -- TODO: Use radiation poisoning visual for the disease from oggoppo
+    -- TODO: Use radiation poisoning visual for the disease from Ogopogo
     -- TODO: Finish crafted gear
 
 

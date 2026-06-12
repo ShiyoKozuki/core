@@ -132,6 +132,8 @@
 -- };
 
 -- area_bound area table: https://github.com/cmangos/issues/wiki/AreaTable.dbc
+-- flags 2048 = lootable by anyone
+-- max_count = max amount you can have an item (i.e. 1 to make it "unique" or /rare/ex)
 
 SET
     @ITEM_MOD_MANA      = 0,
@@ -266,7 +268,7 @@ REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id
 REPLACE `item_template` (`entry`, `patch`, `class`, `subclass`, `name`, `description`, `display_id`, `quality`, `flags`, `buy_count`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `required_skill`, `required_skill_rank`, `required_spell`, `required_honor_rank`, `required_city_rank`, `required_reputation_faction`, `required_reputation_rank`, `max_count`, `stackable`, `container_slots`, `stat_type1`, `stat_value1`, `stat_type2`, `stat_value2`, `stat_type3`, `stat_value3`, `stat_type4`, `stat_value4`, `stat_type5`, `stat_value5`, `stat_type6`, `stat_value6`, `stat_type7`, `stat_value7`, `stat_type8`, `stat_value8`, `stat_type9`, `stat_value9`, `stat_type10`, `stat_value10`, `delay`, `range_mod`, `ammo_type`, `dmg_min1`, `dmg_max1`, `dmg_type1`, `dmg_min2`, `dmg_max2`, `dmg_type2`, `dmg_min3`, `dmg_max3`, `dmg_type3`, `dmg_min4`, `dmg_max4`, `dmg_type4`, `dmg_min5`, `dmg_max5`, `dmg_type5`, `block`, `armor`, `holy_res`, `fire_res`, `nature_res`, `frost_res`, `shadow_res`, `arcane_res`, `spellid_1`, `spelltrigger_1`, `spellcharges_1`, `spellppmrate_1`, `spellcooldown_1`, `spellcategory_1`, `spellcategorycooldown_1`, `spellid_2`, `spelltrigger_2`, `spellcharges_2`, `spellppmrate_2`, `spellcooldown_2`, `spellcategory_2`, `spellcategorycooldown_2`, `spellid_3`, `spelltrigger_3`, `spellcharges_3`, `spellppmrate_3`, `spellcooldown_3`, `spellcategory_3`, `spellcategorycooldown_3`, `spellid_4`, `spelltrigger_4`, `spellcharges_4`, `spellppmrate_4`, `spellcooldown_4`, `spellcategory_4`, `spellcategorycooldown_4`, `spellid_5`, `spelltrigger_5`, `spellcharges_5`, `spellppmrate_5`, `spellcooldown_5`, `spellcategory_5`, `spellcategorycooldown_5`, `bonding`, `page_text`, `page_language`, `page_material`, `start_quest`, `lock_id`, `material`, `sheath`, `random_property`, `set_id`, `max_durability`, `area_bound`, `map_bound`, `duration`, `bag_family`, `disenchant_id`, `food_type`, `min_money_loot`, `max_money_loot`, `wrapped_gift`, `extra_flags`, `other_team_entry`) VALUES (30121, 7, 4, 0, 'Geomancer\'s Ring', '', 31657, 3, 0, 1, 0, 0, 11, 64, -1, 65, 60, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 3, 10, 4, 10, 5, 10, 6, 10, 7, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10058, 0, 0, 0, 600000, 0, -1, 9346, 1, 0, 0, -1, 0, -1, 21363, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 49, 0, 0, 0, 0, 0, 1);
 REPLACE `item_template` (`entry`, `patch`, `class`, `subclass`, `name`, `description`, `display_id`, `quality`, `flags`, `buy_count`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `required_skill`, `required_skill_rank`, `required_spell`, `required_honor_rank`, `required_city_rank`, `required_reputation_faction`, `required_reputation_rank`, `max_count`, `stackable`, `container_slots`, `stat_type1`, `stat_value1`, `stat_type2`, `stat_value2`, `stat_type3`, `stat_value3`, `stat_type4`, `stat_value4`, `stat_type5`, `stat_value5`, `stat_type6`, `stat_value6`, `stat_type7`, `stat_value7`, `stat_type8`, `stat_value8`, `stat_type9`, `stat_value9`, `stat_type10`, `stat_value10`, `delay`, `range_mod`, `ammo_type`, `dmg_min1`, `dmg_max1`, `dmg_type1`, `dmg_min2`, `dmg_max2`, `dmg_type2`, `dmg_min3`, `dmg_max3`, `dmg_type3`, `dmg_min4`, `dmg_max4`, `dmg_type4`, `dmg_min5`, `dmg_max5`, `dmg_type5`, `block`, `armor`, `holy_res`, `fire_res`, `nature_res`, `frost_res`, `shadow_res`, `arcane_res`, `spellid_1`, `spelltrigger_1`, `spellcharges_1`, `spellppmrate_1`, `spellcooldown_1`, `spellcategory_1`, `spellcategorycooldown_1`, `spellid_2`, `spelltrigger_2`, `spellcharges_2`, `spellppmrate_2`, `spellcooldown_2`, `spellcategory_2`, `spellcategorycooldown_2`, `spellid_3`, `spelltrigger_3`, `spellcharges_3`, `spellppmrate_3`, `spellcooldown_3`, `spellcategory_3`, `spellcategorycooldown_3`, `spellid_4`, `spelltrigger_4`, `spellcharges_4`, `spellppmrate_4`, `spellcooldown_4`, `spellcategory_4`, `spellcategorycooldown_4`, `spellid_5`, `spelltrigger_5`, `spellcharges_5`, `spellppmrate_5`, `spellcooldown_5`, `spellcategory_5`, `spellcategorycooldown_5`, `bonding`, `page_text`, `page_language`, `page_material`, `start_quest`, `lock_id`, `material`, `sheath`, `random_property`, `set_id`, `max_durability`, `area_bound`, `map_bound`, `duration`, `bag_family`, `disenchant_id`, `food_type`, `min_money_loot`, `max_money_loot`, `wrapped_gift`, `extra_flags`, `other_team_entry`) VALUES (30122, 7, 4, 0, 'Geomancer\'s Ring +1', '', 31657, 4, 0, 1, 0, 0, 11, 64, -1, 65, 60, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 3, 12, 4, 12, 5, 12, 6, 12, 7, 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10058, 0, 0, 0, 600000, 0, -1, 14799, 1, 0, 0, -1, 0, -1, 21626, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 49, 0, 0, 0, 0, 0, 1);
 REPLACE `item_template` (`entry`, `patch`, `class`, `subclass`, `name`, `description`, `display_id`, `quality`, `flags`, `buy_count`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `required_skill`, `required_skill_rank`, `required_spell`, `required_honor_rank`, `required_city_rank`, `required_reputation_faction`, `required_reputation_rank`, `max_count`, `stackable`, `container_slots`, `stat_type1`, `stat_value1`, `stat_type2`, `stat_value2`, `stat_type3`, `stat_value3`, `stat_type4`, `stat_value4`, `stat_type5`, `stat_value5`, `stat_type6`, `stat_value6`, `stat_type7`, `stat_value7`, `stat_type8`, `stat_value8`, `stat_type9`, `stat_value9`, `stat_type10`, `stat_value10`, `delay`, `range_mod`, `ammo_type`, `dmg_min1`, `dmg_max1`, `dmg_type1`, `dmg_min2`, `dmg_max2`, `dmg_type2`, `dmg_min3`, `dmg_max3`, `dmg_type3`, `dmg_min4`, `dmg_max4`, `dmg_type4`, `dmg_min5`, `dmg_max5`, `dmg_type5`, `block`, `armor`, `holy_res`, `fire_res`, `nature_res`, `frost_res`, `shadow_res`, `arcane_res`, `spellid_1`, `spelltrigger_1`, `spellcharges_1`, `spellppmrate_1`, `spellcooldown_1`, `spellcategory_1`, `spellcategorycooldown_1`, `spellid_2`, `spelltrigger_2`, `spellcharges_2`, `spellppmrate_2`, `spellcooldown_2`, `spellcategory_2`, `spellcategorycooldown_2`, `spellid_3`, `spelltrigger_3`, `spellcharges_3`, `spellppmrate_3`, `spellcooldown_3`, `spellcategory_3`, `spellcategorycooldown_3`, `spellid_4`, `spelltrigger_4`, `spellcharges_4`, `spellppmrate_4`, `spellcooldown_4`, `spellcategory_4`, `spellcategorycooldown_4`, `spellid_5`, `spelltrigger_5`, `spellcharges_5`, `spellppmrate_5`, `spellcooldown_5`, `spellcategory_5`, `spellcategorycooldown_5`, `bonding`, `page_text`, `page_language`, `page_material`, `start_quest`, `lock_id`, `material`, `sheath`, `random_property`, `set_id`, `max_durability`, `area_bound`, `map_bound`, `duration`, `bag_family`, `disenchant_id`, `food_type`, `min_money_loot`, `max_money_loot`, `wrapped_gift`, `extra_flags`, `other_team_entry`) VALUES (30123, 7, 4, 0, 'Geomancer\'s Ring +2', '', 31657, 4, 0, 1, 0, 0, 11, 64, -1, 65, 60, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 3, 14, 4, 14, 5, 14, 6, 14, 7, 14, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10058, 0, 0, 0, 600000, 0, -1, 15714, 1, 0, 0, -1, 0, -1, 21364, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 49, 0, 0, 0, 0, 0, 1);
-REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `stat_type1`, `stat_value1`, `stat_type2`, `stat_value2`, `delay`, `dmg_min1`, `dmg_max1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `sheath`, `max_durability`, `disenchant_id`) VALUES (30124, 2, 8, 'Royal Swordsman\'s Blade', 20172, 3, 55621, 11124, 17, -1, -1, 35, 5, 12, 7, 5, 2200, 52, 102, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 1, 1, 100, 43);
+REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `stat_type1`, `stat_value1`, `stat_type2`, `stat_value2`, `delay`, `dmg_min1`, `dmg_max1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `sheath`, `max_durability`, `disenchant_id`) VALUES (30124, 2, 8, 'Royal Swordsman\'s Blade', 20172, 3, 55621, 11124, 17, -1, -1, 35, 5, 12, 7, 5, 2200, 39, 79, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 1, 1, 100, 43);
 REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `stat_type1`, `stat_value1`, `delay`, `dmg_min1`, `dmg_max1`, `shadow_res`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `sheath`, `max_durability`, `disenchant_id`) VALUES (30125, 2, 8, 'Braveheart', 20249, 3, 61404, 12280, 17, -1, -1, 36, 7, 8, 3400, 90, 160, 15, 15808, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 1, 1, 100, 44);
 REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `delay`, `dmg_min1`, `dmg_max1`, `shadow_res`, `spellid_1`, `spelltrigger_1`, `spellppmrate_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellid_2`, `spelltrigger_2`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `sheath`, `max_durability`, `disenchant_id`) VALUES (30126, 2, 8, 'Demonic Sword', 28598, 3, 114557, 22911, 17, -1, -1, 44, 3400, 102, 162, -20, 18214, 2, 10, -1, -1, 15810, 1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 1, 1, 100, 45);
 REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `delay`, `dmg_min1`, `dmg_max1`, `frost_res`, `shadow_res`, `spellid_1`, `spelltrigger_1`, `spellppmrate_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellid_2`, `spelltrigger_2`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `sheath`, `max_durability`, `disenchant_id`) VALUES (30127, 2, 8, 'Chaosbringer', 20189, 3, 146225, 29245, 17, 1535, -1, 48, 3400, 106, 186, 20, 20, 16411, 2, 10, -1, -1, 15810, 1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 1, 1, 100, 46);
@@ -470,7 +472,7 @@ REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display
 
 REPLACE `mangos`.`item_template` (`entry`, `name`, `description`, `display_id`, `quality`, `allowable_class`, `allowable_race`, `delay`, `spellid_1`, `spellcharges_1`, `spellcooldown_1`, `spellcategory_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `material`) VALUES (30249, 'Large Monster Bait', 'May attract monsters in Deadwind Pass.', 4113, 3, -1, -1, 0, 34172, -1, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3);
 
--- TODO: Large Canister (Description: Does not seem safe.): 30250
+REPLACE `mangos`.`item_template` (`entry`, `name`, `description`, `display_id`, `quality`, `allowable_class`, `allowable_race`, `delay`, `spellid_1`, `spellcharges_1`, `spellcooldown_1`, `spellcategory_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `material`) VALUES (30250, 'Large Canister', 'CAUTION', 6393, 3, -1, -1, 0, 34174, -1, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3);
 
 REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `max_count`, `delay`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `disenchant_id`) VALUES (30251, 8, 4, 9, 'Minor Totem of Nullification', 34957, 2, 4500, 1500, 28, 32767, -1, 35, 1, 0, 34168, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 2, 48);
 
@@ -482,38 +484,60 @@ REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `subclass`, `name`,
 
 REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `max_count`, `delay`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `disenchant_id`) VALUES (30254, 8, 4, 9, 'Major Totem of Nullification', 34957, 4, 34500, 11500, 28, 32767, -1, 35, 1, 0, 34171, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 2, 2, 48);
 
+REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `max_count`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `stat_type1`, `stat_value1`, `delay`, `dmg_min1`, `dmg_max1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `material`, `sheath`, `max_durability`) VALUES (30255, 2, 7, 'Curtana', 4788, 1, 1, 13, 8, -1, 6, 1, 6, 7, 2360, 1, 2, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 3, 30);
+
+REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quality`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `page_language`) VALUES (30256, 12, 'Barrel of Aged Karazhan Ale', 7923, 1, -1, -1, 1, 8, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 4, 7);
 
 
--- NEXT 30255
+-- NEXT 30257
 
 -- Karazhan Crafted gear
-    -- TODO: Chance on spell cast to allow 100% of MP to continue to generate whilr casting
     -- Karazhan Caretaker's Silken Blouse 
-    UPDATE mangos . item_template
-    SET stat_type1 = @ITEM_MOD_INT,
-        stat_value1 = 15,
-        stat_type2 = @ITEM_MOD_SPI,
-        stat_value2 = 30,
-        stat_type3 = @ITEM_MOD_STAM,
-        stat_value3 = 7
-    WHERE entry = 30239;
+        UPDATE mangos . item_template
+        SET stat_type1 = @ITEM_MOD_INT,
+            stat_value1 = 15,
+            stat_type2 = @ITEM_MOD_SPI,
+            stat_value2 = 30,
+            stat_type3 = @ITEM_MOD_STAM,
+            stat_value3 = 7,
+            spellid_1 = 9408, -- +22 Healing
+            spelltrigger_1 = 1,
+            spellid_2 = 23688, -- 2% chance on successful spellcast to allow 100% of your Mana regeneration to continue while casting for 15 sec. (Proc chance: 2%)
+            spelltrigger_2 = 1
+        WHERE entry = 30239;
     
-    -- Karazhan Caretaker's Satin Blouse  TODO: Chance on spell cast to allow 100% of MP to continue to generate while casting
-    -- Karazhan Caretaker's Assaulter's Jacket -- TODO: Chance on hit increase energy / rage regeneration by 2/sec
+    -- Karazhan Caretaker's Satin Blouse 
+        UPDATE mangos . item_template
+        SET stat_type1 = @ITEM_MOD_INT,
+            stat_value1 = 30,
+            stat_type2 = @ITEM_MOD_SPI,
+            stat_value2 = 15,
+            stat_type3 = @ITEM_MOD_STAM,
+            stat_value3 = 7,
+            spellid_1 = 26283, -- +20 Spell Penetration
+            spelltrigger_1 = 1,
+            spellid_2 = 23688, -- 2% chance on successful spellcast to allow 100% of your Mana regeneration to continue while casting for 15 sec. (Proc chance: 2%)
+            spelltrigger_2 = 1
+        WHERE entry = 30240;
+
+    -- Karazhan Caretaker's Assaulter's Jacket
+        UPDATE mangos . item_template
+        SET stat_type1 = @ITEM_MOD_AGI,
+            stat_value1 = 15,
+            stat_type2 = @ITEM_MOD_STAM,
+            stat_value2 = 7,
+            stat_type3 = 0,
+            stat_value3 = 0,
+            spellid_1 = 15817, -- +64 Attack Power
+            spelltrigger_1 = 1,      
+            spellid_2 = 33763, -- +10% Melee Haste
+            spelltrigger_2 = 1
+        WHERE entry = 30241;
     -- Karazhan Caretaker's Sage's Jacket -- TODO: Chance on spell cast to allow 100% of MP to continue to generate while casting
     -- Karazhan Defender's Hardened Chainmail TODO: Chance on hit to cause attacks to ignore x amount of targets armor
     -- Karazhan Defender's Patterned Chainmail TODO: Chance on spell cast to allow 100% of MP to continue to generate while casting
     -- Karazhan Defender's Reinforced Platemail TODO: Chance on hit to cause attacks to ignore x amount of targets armor
     -- Karazhan Defender's Spiked Platemail TODO: Chance when hit to gain an absorb shield
-
--- Shields
--- Maple, Walnut, Chestnut, Rosewood, Ancient wood items (use itemId as base: 4470)
--- Also uses essences/dust
-
--- Buff crafted eng guns
-
-
--- flags 2048 = lootable by anyone
 
 -- Vendor Prices
 
@@ -702,6 +726,7 @@ INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (90
 INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (90036, 20727, 0);
 INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (90036, 18292, 0);
 INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (90036, 13520, 0);
+INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (90036, 30250, 0);
 
 -- Wintersaber Trainers Quartermaster 
 INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (10618, 30028, 0);
@@ -1097,8 +1122,8 @@ WHERE entry = 4309;
 
 -- Spidersilk Boots
 UPDATE mangos . item_template
-SET spellid_1 = 9395, -- +5 Spell Damage
-    spelltrigger_1 = 1
+SET spellid_1 = 0,
+    spelltrigger_1 = 0
 WHERE entry = 4320;
 
 -- Green Woolen Vest
@@ -1336,7 +1361,7 @@ WHERE entry = 4325;
 -- Crimson Silk Belt
 UPDATE mangos . item_template
 SET quality = 3,
-    spellid_1 = 9415, -- +9 Spell Damage
+    spellid_1 = 9395, -- +5 Spell Damage
     spelltrigger_1 = 1
 WHERE entry = 7055;
 
@@ -5165,12 +5190,10 @@ WHERE entry = 9446;
 
 -- Electrocutioner Lagnut
 UPDATE mangos . item_template
-SET stat_type1 = 7,
-    stat_value1 = 0,
-    stat_type2 = 5,
-    stat_value2 = 0,
-    spellid_1 = 23688, -- 2% chance on successful spellcast to allow 100% of your Mana regeneration to continue while casting for 15 sec. (Proc chance: 2%)
-    spelltrigger_1 = 1
+SET stat_type1 = @ITEM_MOD_STAM,
+    stat_value1 = 4,
+    stat_type2 = @ITEM_MOD_SPI,
+    stat_value2 = 9
 WHERE entry = 9447;
 
 -- Charged Gear
@@ -5220,12 +5243,13 @@ WHERE entry = 6688;
 
 -- Ferine Leggings
 UPDATE mangos . item_template
-SET stat_type1 = @ITEM_MOD_STR,
-    stat_value1 = 21,
+SET quality = 3,
+    stat_type1 = @ITEM_MOD_STR,
+    stat_value1 = 18,
     stat_type2 = @ITEM_MOD_INT,
-    stat_value2 = 5,
+    stat_value2 = 3,
     stat_type3 = @ITEM_MOD_SPI,
-    stat_value3 = 8
+    stat_value3 = 6
 WHERE entry = 6690;
 
 -- Tusken Helm
@@ -5254,7 +5278,8 @@ WHERE entry = 2816;
 
 -- Death Speaker Mantle
 UPDATE mangos . item_template
-SET stat_type1 = @ITEM_MOD_INT,
+SET quality = 3,
+    stat_type1 = @ITEM_MOD_INT,
     stat_value1 = 7,
     stat_type2 = @ITEM_MOD_SPI,
     stat_value2 = 3,
@@ -5264,7 +5289,8 @@ WHERE entry = 6685;
 
 -- Death Speaker Robes
 UPDATE mangos . item_template
-SET stat_type1 = @ITEM_MOD_STAM,
+SET quality = 3,
+    stat_type1 = @ITEM_MOD_STAM,
     stat_value1 = 3,
     stat_type2 = @ITEM_MOD_INT,
     stat_value2 = 8,
@@ -5459,8 +5485,8 @@ SET stat_type1 = @ITEM_MOD_INT,
     stat_value2 = 7,
     stat_type3 = @ITEM_MOD_SPI,
     stat_value3 = 7,
-    spellid_1 = 23688, -- 2% chance on successful spellcast to allow 100% of your Mana regeneration to continue while casting for 15 sec. (Proc chance: 2%)
-    spelltrigger_1 = 1
+    spellid_1 = 0, -- 2% chance on successful spellcast to allow 100% of your Mana regeneration to continue while casting for 15 sec. (Proc chance: 2%)
+    spelltrigger_1 = 0
 WHERE entry = 7722;
 
 -- Mograine's Might
@@ -8322,8 +8348,8 @@ WHERE entry = 11868;
 
 -- Guerrilla Cleaver
 UPDATE mangos . item_template
-SET dmg_min1 = 55,
-    dmg_max1 = 85
+SET dmg_min1 = 42,
+    dmg_max1 = 78
 WHERE entry = 4126;
 
 -- Grom'gol Buckler
@@ -8928,12 +8954,10 @@ WHERE entry = 9609;
 
 -- Civinad Robes (The Grand Betrayal)
 UPDATE mangos . item_template
-SET stat_type1 = 7,
-    stat_value1 = 3,
-    stat_type2 = 6,
-    stat_value2 = 9,
-    spellid_1 = 33794, -- 5 Spell Penetration
-    spelltrigger_1 = 1
+SET stat_type1 = @ITEM_MOD_STAM,
+    stat_value1 = 7,
+    stat_type2 = @ITEM_MOD_SPI,
+    stat_value2 = 18
 WHERE entry = 9623;
 
 -- Talvash's Gold Ring (Gnome Improvement)
@@ -9047,7 +9071,7 @@ WHERE entry = 6970;
 UPDATE mangos . item_template
 SET quality = 3,
     armor = 300,
-    spellid_1 = 9140, -- +10 Attack Power
+    spellid_1 = 9331, -- +20 Attack Power
     spelltrigger_1 = 1
 WHERE entry = 6971;
 
@@ -9362,9 +9386,9 @@ WHERE entry = 5812;
 
 -- Fish Gutter (Stormwind Ho!) 3755
 UPDATE mangos . item_template
-SET delay = 2700,
-    dmg_min1 = 44,
-    dmg_max1 = 74,
+SET delay = 2200,
+    dmg_min1 = 27,
+    dmg_max1 = 51,
     stat_type1 = 5,
     stat_value1 = 8
 WHERE entry = 3755;
@@ -9513,7 +9537,7 @@ SET stat_type1 = 5,
     stat_type2 = 6,
     stat_value2 = 0,
     spellid_1 = 33751, -- -5% Threat
-    spelltrigger_1 = 0,
+    spelltrigger_1 = 1,
     spellcooldown_1 = 600000
 WHERE entry = 2917;
 
@@ -14348,25 +14372,22 @@ WHERE entry = 1314;
 
 -- Stonemason Trousers
 UPDATE mangos . item_template
-SET stat_type3 = 5,
-    stat_value3 = 4
-WHERE entry = 1934;
-
--- Stonemason Trousers
-UPDATE mangos . item_template
-SET stat_type3 = 5,
+SET quality = 3,
+    stat_type3 = 5,
     stat_value3 = 4
 WHERE entry = 1934;
 
 -- Smelting Pants
 UPDATE mangos . item_template
-SET stat_type3 = 4,
+SET quality = 3,
+    stat_type3 = 4,
     stat_value3 = 4
 WHERE entry = 5199;
 
 -- Foreman's Gloves
 UPDATE mangos . item_template
-SET stat_type2 = 6,
+SET quality = 3,
+    stat_type2 = 6,
     stat_value2 = 5
 WHERE entry = 2167;
 
@@ -15198,7 +15219,7 @@ UPDATE mangos. item_template
 SET required_reputation_faction = 477, -- Caretakers of Karazhan
     required_reputation_rank = 7, -- Exalted
     bonding = 1
-WHERE entry IN(30020, 30022, 30027, 30024, 20727, 18292, 13520);
+WHERE entry IN(30020, 30022, 30027, 30024, 20727, 18292, 13520, 30250);
 
 UPDATE mangos. item_template 
 SET required_reputation_faction = 589, -- Wintersaber Trainers
@@ -15315,7 +15336,15 @@ WHERE entry IN(12717, 18418, 22388, 14512, 14513, 14514, 12834, 12825, 18260, 20
 -- Skimpy plate armor: Vanguard Breastplate (display: 26846), Lord's Breastplate
 -- Skimpy Leather: Pridelord Pants(display: 27651)
 -- Super cute and sexy leather: Ceremonial Leather Loincloth + Bandit Boots
--- Hide Side Boob Cloth: https://www.wowhead.com/classic/item=6610/sages-robe
+
+-- Cloth:
+    -- Hide Side Boob: https://www.wowhead.com/classic/item=6610/sages-robe
+    -- Side Boob + Shoulderless: Elder's Robe
+    -- Sexy: Ritual Shroud
+    -- Shoulderless Cleavage: Civinad Robes
+    -- Shoulderless Black minor cleavage: Silver-thread robe
+
+
 -- Cool weapons: 
     -- 1h Swords
         -- Mercenary Blade

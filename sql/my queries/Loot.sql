@@ -141,9 +141,9 @@ SET ChanceOrQuestChance = 20
 WHERE item IN(5134, 11407, 4582, 5117, 11404, 19933);
 
 -- Cloth
--- 45%
+-- 25%
 UPDATE mangos . creature_loot_template
-SET ChanceOrQuestChance = 45
+SET ChanceOrQuestChance = 25
 WHERE item IN(2589, 2592, 4306, 4338, 14047) AND ChanceOrQuestChance >= 20;
 
 -- Food & Drink
@@ -446,19 +446,67 @@ INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuest
         INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (7372, 30193, 0.1);
         INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (7379, 30193, 0.1);
 
-    -- Fel Grass
+        -- Diorite
+        INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (7369, 30237, 1);
+        INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (7371, 30237, 1);
+        INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (7372, 30237, 1);
+        INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (7379, 30237, 1);
+
+        -- Ogre Necklace
+        INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (7369, 30238, 1);
+        INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (7371, 30238, 1);
+        INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (7372, 30238, 1);
+        INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (7379, 30238, 1);
+
+        -- Wailing spectre
+            -- Shimmering Dust
+                INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (12377, 30211, 1);
+
+        -- Damned soul
+            -- Shimmering Dust
+                INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (12378, 30211, 1);
+
+        -- Restless Shade
+            -- Ectoplasm
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (7370, 30211, 1);
+
+        -- Unliving Caretaker
+            -- Ectoplasm
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (12379, 30210, 1);
+            
+        -- Unliving Resident
+            -- Ectoplasm
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (12380, 30210, 1);
+
+    -- Overlord Xelnu
     INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`, `patch_min`) VALUES (17081, 30220, 25, 10);
-    -- Dragon Thread
+    INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`, `patch_min`) VALUES (17081, 30229, 100, 10);
+
+    -- Tinnin
     INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`, `patch_min`) VALUES (17082, 30217, 25, 10);
-    -- Ancient Log
+    INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`, `patch_min`) VALUES (17082, 30230, 100, 10);
+
+    -- Dame Blanche
     INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`, `patch_min`) VALUES (17083, 30216, 25, 10);
-    -- Durium Bar
+    INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`, `patch_min`) VALUES (17083, 30231, 100, 10);
+    
+    -- Highlord Ogrok
     INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`, `patch_min`) VALUES (17084, 30214, 25, 10);
-    -- Titans Power Core
+    INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`, `patch_min`) VALUES (17084, 30232, 100, 10);
+
+    -- Enkidu
     INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`, `patch_min`) VALUES (17085, 30219, 25, 10);
-    -- Void Star Fragment
+    INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`, `patch_min`) VALUES (17085, 30233, 100, 10);
+
+    -- Byrgen
     INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`, `patch_min`) VALUES (17086, 30218, 25, 10);
-    -- Old Gods Leather
+    INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`, `patch_min`) VALUES (17086, 30234, 100, 10);
+
+    -- Apademak
     INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`, `patch_min`) VALUES (17087, 30215, 25, 10);
-    -- Radiating Gemstone
+    INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`, `patch_min`) VALUES (17087, 30235, 100, 10);
+
+    -- Ogopogo
     INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`, `patch_min`) VALUES (17088, 30213, 25, 10);
+    INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`, `patch_min`) VALUES (17088, 30236, 100, 10);
+

@@ -1,13 +1,25 @@
 -- 50000: Hostile Player Within 5 Yards Of The Source
--- NEXT SCRIPT 2090104
+-- NEXT creature_ai_event 9003805
+-- NEXT creature_ai_script 2090106
+
+-- DO NOT REMOVE UNUSED SCRIPT ACTIONS
+
 UPDATE `conditions` SET `flags`=2 WHERE `condition_entry`=50000;
 
 
 -- General Narka
-    -- Removing unused script actions.
-    DELETE FROM `creature_ai_scripts` WHERE `id` IN (2090102, 2090103);
     -- Events list for General Narka
     DELETE FROM `creature_ai_events` WHERE `creature_id`=90038;
+    
+-- Events list for Highlord Ogrok
+DELETE FROM `creature_ai_events` WHERE `creature_id`=90094;
+INSERT INTO `creature_ai_events` (`id`, `creature_id`, `condition_id`, `event_type`, `event_inverse_phase_mask`, `event_chance`, `event_flags`, `event_param1`, `event_param2`, `event_param3`, `event_param4`, `action1_script`, `action2_script`, `action3_script`, `comment`) VALUES
+(9003803, 90094, 0, 2, 0, 100, 4, 25, 0, 0, 0, 2090104, 0, 0, 'Highlord Ogrok - Enrage at low HP');
+
+DELETE FROM `creature_ai_scripts` WHERE `id`=2090104;
+INSERT INTO `creature_ai_scripts` (`id`, `delay`, `priority`, `command`, `datalong`, `datalong2`, `datalong3`, `datalong4`, `target_param1`, `target_param2`, `target_type`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `condition_id`, `comments`) VALUES
+(2090104, 0, 0, 15, 8599, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Highlord Ogrok - Cast Enrage');
+
 
 -- Events list for Torn Fin Tidehunter
 DELETE FROM `creature_ai_events` WHERE `creature_id`=2377;
