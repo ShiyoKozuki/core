@@ -44,9 +44,12 @@
 -- how do distress beacon quests not replace item on starting? same with ship schedule
 
 -- Quest + Vendor + Repair npc flag = 
--- NEXT quest_template 30260
--- NEXT quest_end_script 5253
--- NEXT creature_template 90100
+-- NEXT quest_template 30264
+-- NEXT quest_end_script 10008
+-- NEXT generic_script 9000001
+-- NEXT creature_movement_scripts 9000001
+
+-- NEXT creature_template 90101
 -- NEXT gameobject_template 987667
 -- NEXT gameobject_loot_template 42909
 
@@ -63,6 +66,7 @@
 --     QUEST_TYPE_ESCORT              = 84,
 
 -- Faction = 35 to not make a friendly quest NPC not aggro creatures
+-- Faction = 10 friendly NPC that gets aggrod by mobs
 
 -- Gameobjects
     -- gameobject_template: 
@@ -1335,19 +1339,6 @@ REPLACE `mangos`.`faction_template` (`id`, `build`, `faction_id`, `faction_flags
 REPLACE `mangos`.`faction_template` (`id`, `build`, `faction_id`, `faction_flags`, `our_mask`, `friendly_mask`, `hostile_mask`, `friend_faction1`) VALUES (1683, 4222, 477, 33, 2, 2, 4, 471);
 
 -- REPLACE `mangos`.`creature_template` (`entry`, `name`, `subname`, `level_min`, `level_max`, `faction`, `npc_flags`, `display_id1`, `display_probability1`, `display_total_probability`, `health_multiplier`, `damage_multiplier`, `base_attack_time`, `fire_res`, `arcane_res`, `unit_class`, `unit_flags`, `type`, `ai_name`, `equipment_id`, `flags_extra`) VALUES (90035, 'Maximillian Arturo', 'Caretaker of Karazhan', 58, 58, 1681, 2, 1724, 1, 1, 3, 0.8, 1000, 100, 100, 1, 4096, 7, '', 264, 524296);
-REPLACE INTO `creature_template` 
-(`entry`, `name`, `subname`, `level_min`, `level_max`, `faction`, `npc_flags`, `display_id1`, `display_probability1`, `display_total_probability`, `health_multiplier`, `damage_multiplier`, `base_attack_time`, `fire_res`, `arcane_res`, `unit_class`, `type`, `ai_name`, `equipment_id`, `flags_extra`) 
-VALUES 
-(90035, 'Maximillian Arturo', 'Caretaker of Karazhan', 58, 58, 1681, 2, 1724, 1, 1, 3, 0.8, 1000, 100, 100, 1, 7, '', 264, 524296);
-
-REPLACE `mangos`.`creature` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `wander_distance`) VALUES (2000037, 90035, 0, -10451.66, -1720.62, 85.05, 1.8897, 0);
--- REPLACE `mangos`.`creature_template` (`entry`, `name`, `subname`, `level_min`, `level_max`, `faction`, `npc_flags`, `display_id1`, `display_probability1`, `display_total_probability`, `health_multiplier`, `damage_multiplier`, `base_attack_time`, `fire_res`, `arcane_res`, `unit_class`, `unit_flags`, `type`, `ai_name`, `equipment_id`, `flags_extra`) VALUES (90036, 'Wade Wells', 'Caretaker of Karazhan', 58, 58, 1681, 4, 10591, 1, 1, 3, 0.8, 1000, 100, 100, 1, 4096, 7, '', 264, 524296);
-REPLACE INTO `creature_template` 
-(`entry`, `name`, `subname`, `level_min`, `level_max`, `faction`, `npc_flags`, `display_id1`, `unit_class`, `flags_extra`) 
-VALUES 
-(90036, 'Wade Wells', 'Caretaker of Karazhan', 58, 58, 1681, 4, 10591, 1, 524296);
-
-REPLACE `mangos`.`creature` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `wander_distance`) VALUES (2000038, 90036, 0, -10453.53, -1721.077, 84.94, 1.8964, 0);
 
 REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `SuggestedPlayers`, `QuestFlags`, `SpecialFlags`, `ExclusiveGroup`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOId2`, `ReqCreatureOrGOCount1`, `ReqCreatureOrGOCount2`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `DetailsEmote1`, `DetailsEmote2`, `DetailsEmote3`, `IncompleteEmote`, `CompleteEmote`, `OfferRewardEmote1`, `OfferRewardEmote2`, `OfferRewardEmote3`) VALUES (30003, 41, 58, 60, 5, 8, 1, 0, 'Clear the Crypts', 'Rid the Crypts underneath Karazhan of Damned Souls, and Wailing Spectres.', 'Kill 25 Damned Souls and 25 Wailing Spectres.', 'Well done $N. Now the ghostly presence should be lowered.', 'Karazhan is all I care about.', '', '', '', '', '', 12378, 12377, 25, 25, 477, 250, 5800, 1, 1, 1, 5, 5, 1, 1, 5);
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90035, 30003);
@@ -1421,20 +1412,50 @@ REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90035, 3000
 
     -- Quest
         -- Quest Template
-            -- Gem of the North + Winterstone - > Spawns ???
-                REPLACE `mangos`.`quest_template` (`entry`, `Method`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `SpecialFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `ReqItemId2`, `ReqItemCount2`, `ReqItemId3`, `ReqItemCount3`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `DetailsEmote1`, `IncompleteEmote`, `CompleteEmote`, `CompleteScript`) VALUES (30252, 0, 41, 58, 62, 264, 1, 'Ritual', '', '', '', 'There is an eerie looking altar before you. What happens if you put some Soulshard Fragments inside it?', '', '', '', '', '', 30208, 25, 30229, 1, 30234, 1, 0, 0, 0, 0, 0, 0, 10000);
+            -- Gem of the North + Winterstone - > Spawns Skeletal Warlord
+                REPLACE `mangos`.`quest_template` (`entry`, `Method`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `SpecialFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `ReqItemId2`, `ReqItemCount2`, `ReqItemId3`, `ReqItemCount3`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `DetailsEmote1`, `IncompleteEmote`, `CompleteEmote`, `CompleteScript`) VALUES (30252, 0, 41, 58, 62, 264, 1, 'Ritual', '', '', '', 'There is an eerie looking altar before you.', '', '', '', '', '', 30208, 25, 30229, 1, 30234, 1, 0, 0, 0, 0, 0, 0, 10000);
+
+            -- Gem of the South + Summerstone - > Spawns Ghoul
+                REPLACE `mangos`.`quest_template` (`entry`, `Method`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `SpecialFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `ReqItemId2`, `ReqItemCount2`, `ReqItemId3`, `ReqItemCount3`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `DetailsEmote1`, `IncompleteEmote`, `CompleteEmote`, `CompleteScript`) VALUES (30260, 0, 41, 58, 62, 264, 1, 'Ritual', '', '', '', 'There is an eerie looking altar before you.', '', '', '', '', '', 30208, 25, 30229, 1, 30232, 1, 0, 0, 0, 0, 0, 0, 10000);
+
+            -- Gem of the East + Springstone - > Spawns Skeletal Mage
+                REPLACE `mangos`.`quest_template` (`entry`, `Method`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `SpecialFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `ReqItemId2`, `ReqItemCount2`, `ReqItemId3`, `ReqItemCount3`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `DetailsEmote1`, `IncompleteEmote`, `CompleteEmote`, `CompleteScript`) VALUES (30261, 0, 41, 58, 62, 264, 1, 'Ritual', '', '', '', 'There is an eerie looking altar before you.', '', '', '', '', '', 30208, 25, 30230, 1, 30236, 1, 0, 0, 0, 0, 0, 0, 10000);
+
+            -- Gem of the West + Autumnstone - > Spawns Gargoyle
+                REPLACE `mangos`.`quest_template` (`entry`, `Method`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `SpecialFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `ReqItemId2`, `ReqItemCount2`, `ReqItemId3`, `ReqItemCount3`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `DetailsEmote1`, `IncompleteEmote`, `CompleteEmote`, `CompleteScript`) VALUES (30262, 0, 41, 58, 62, 264, 1, 'Ritual', '', '', '', 'There is an eerie looking altar before you.', '', '', '', '', '', 30208, 25, 30231, 1, 30235, 1, 0, 0, 0, 0, 0, 0, 10000);
 
         -- Quest Relation
             REPLACE `mangos`.`gameobject_questrelation` (`id`, `quest`) VALUES (987661, 30252);
+            REPLACE `mangos`.`gameobject_questrelation` (`id`, `quest`) VALUES (987661, 30260);
+            REPLACE `mangos`.`gameobject_questrelation` (`id`, `quest`) VALUES (987661, 30261);
+            REPLACE `mangos`.`gameobject_questrelation` (`id`, `quest`) VALUES (987661, 30262);
 
         -- Quest Involved Relation
             REPLACE `mangos`.`gameobject_involvedrelation` (`id`, `quest`) VALUES (987661, 30252);
+            REPLACE `mangos`.`gameobject_involvedrelation` (`id`, `quest`) VALUES (987661, 30260);
+            REPLACE `mangos`.`gameobject_involvedrelation` (`id`, `quest`) VALUES (987661, 30261);
+            REPLACE `mangos`.`gameobject_involvedrelation` (`id`, `quest`) VALUES (987661, 30262);
 
-        -- quest_end_script (Temp Summon Skeletal Warlord)
-            DELETE FROM `quest_end_scripts` WHERE `id`=10000;
-            INSERT INTO `quest_end_scripts` (`id`, `delay`, `priority`, `command`, `datalong`, `datalong2`, `datalong3`, `datalong4`, `target_param1`, `target_param2`, `target_type`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `condition_id`, `comments`) VALUES
-            (10000, 19, 0, 10, 90060, 60000, 0, 0, 0, 0, 0, 0, 0, 0, -1, 1, -10946.9, -1872.8, -17.7514, 0.41247, 0, 'Eerie Altar: Summon Boss');
+        -- quest_end_script 
+            -- (Temp Summon Skeletal Warlord)
+                DELETE FROM `quest_end_scripts` WHERE `id`=10000;
+                INSERT INTO `quest_end_scripts` (`id`, `delay`, `priority`, `command`, `datalong`, `datalong2`, `datalong3`, `datalong4`, `target_param1`, `target_param2`, `target_type`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `condition_id`, `comments`) VALUES
+                (10000, 5, 0, 10, 90060, 60000, 0, 0, 0, 0, 0, 0, 0, 0, -1, 1, -10946.9, -1872.8, -17.7514, 0.41247, 0, 'Eerie Altar: Summon Skeletal Warlord');
 
+            -- (Temp Summon Ghoul)
+                DELETE FROM `quest_end_scripts` WHERE `id`=10005;
+                INSERT INTO `quest_end_scripts` (`id`, `delay`, `priority`, `command`, `datalong`, `datalong2`, `datalong3`, `datalong4`, `target_param1`, `target_param2`, `target_type`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `condition_id`, `comments`) VALUES
+                (10005, 5, 0, 10, 90061, 60000, 0, 0, 0, 0, 0, 0, 0, 0, -1, 1, -10946.9, -1872.8, -17.7514, 0.41247, 0, 'Eerie Altar: Summon Ghoul');
+
+            -- (Temp Summon Skeletal Mage)
+                DELETE FROM `quest_end_scripts` WHERE `id`=10006;
+                INSERT INTO `quest_end_scripts` (`id`, `delay`, `priority`, `command`, `datalong`, `datalong2`, `datalong3`, `datalong4`, `target_param1`, `target_param2`, `target_type`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `condition_id`, `comments`) VALUES
+                (10006, 5, 0, 10, 90067, 60000, 0, 0, 0, 0, 0, 0, 0, 0, -1, 1, -10946.9, -1872.8, -17.7514, 0.41247, 0, 'Eerie Altar: Summon Skeletal Mage');
+
+            -- (Temp Summon Gargoyle)
+                DELETE FROM `quest_end_scripts` WHERE `id`=10007;
+                INSERT INTO `quest_end_scripts` (`id`, `delay`, `priority`, `command`, `datalong`, `datalong2`, `datalong3`, `datalong4`, `target_param1`, `target_param2`, `target_type`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `condition_id`, `comments`) VALUES
+                (10007, 5, 0, 10, 90065, 60000, 0, 0, 0, 0, 0, 0, 0, 0, -1, 1, -10946.9, -1872.8, -17.7514, 0.41247, 0, 'Eerie Altar: Summon Gargoyle');
 
 -- Corrupted Runestone
     -- Object 
@@ -1516,8 +1537,8 @@ REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90035, 3000
         REPLACE `mangos`.`gameobject_template` (`entry`, `type`, `displayId`, `name`, `faction`, `flags`) VALUES (987666, 2, 20, 'Ogre Mound', 84, 4);
 
     -- Object Spawns
-        -- TODO: X y z o needed?
-        REPLACE INTO `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (4100107, 987666, 0, 0, 0, 0, 0, 0, 0, 0.861692, 0.507432, 25, 25, 100, 1, 0, 0, 0, 10);
+        REPLACE `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (4100107, 987666, 0, -10812.3, -2098.57, 117.131, 2.11545, 0, 0, 0.871241, 0.490856, 25, 25, 100, 1, 0, 0, 0, 10);
+
 
     -- Quest
         -- Quest Template
@@ -1532,7 +1553,7 @@ REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90035, 3000
         -- quest_end_script (Temp Summon Highlord Ogrok)
             DELETE FROM `quest_end_scripts` WHERE `id`=10004;
             INSERT INTO `quest_end_scripts` (`id`, `delay`, `priority`, `command`, `datalong`, `datalong2`, `datalong3`, `datalong4`, `target_param1`, `target_param2`, `target_type`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `condition_id`, `comments`) VALUES
-            (10004, 19, 0, 10, 90094, 60000, 0, 0, 0, 0, 0, 0, 0, 0, -1, 1,-10813.6, -2094.34, 117.132, 2.07719, 0, 'Ogre Mound: Summon Highlord Ogrok');
+            (10004, 5, 0, 10, 90094, 60000, 0, 0, 0, 0, 0, 0, 0, 0, -1, 1,-10813.6, -2094.34, 117.132, 2.07719, 0, 'Ogre Mound: Summon Highlord Ogrok');
 
 -- NPC for Karazhan Mementos
     -- Creature Template
@@ -1558,12 +1579,71 @@ REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90035, 3000
             REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90099, 30258);
             REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90099, 30259);
 
+-- Escort NPC + Quest
+    -- TODO: It was working, then I changed NPC to despawn, added xyzo pos for guy to spawn, removed target and now its all broken
+    -- TODO: Maybe he spawned in wrong spot and is still up somewhere?, cause i spawned him without mins sign on x/y...but it does error still
+    -- TODO: is it the creature_movement_scripts ?
+    -- TODO: Or it needs a target and me removing it breaks it?
+    -- TODO: Or despawn in same script as fail and then spawn - > despawn in that order so that target exists? (slight delay before despawning so alive when boss is summoned)
+    -- ERROR: FindScriptTargets: Failed to find target for script with id 9000000 (target_param1: 30263), (target_param2: 0), (target_type: 21).
+    -- TODO: Put spirit back to spawn pos after completion? How does the Defias Traitor do that?
+    -- https://github.com/vmangos/core/commit/10093b654f5a6ae89e4d34ad1514672eb11bc00b#diff-9bc809fbb897a1cf4299b64d530ce52d80a572ec5252ee228c6716e98bb8321b
+    -- TODO: Aggro enemies aggrod to player or be aggressive or something
+    -- TODO: Xelnu not despawn OOC 
+    -- TODO: Yell text doesnt work
+
+    -- Creature
+        REPLACE INTO `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000132, 90100, 0, 0, 0, 0, 0, -11021.9, -2046.25, 40.7051, 0.619303, 25, 25, 5, 100, 100, 1, 0, 0, 0, 10);
+
+    -- Creature Template
+        REPLACE INTO `creature_template` (`entry`, `patch`, `name`, `subname`, `level_min`, `level_max`, `faction`, `npc_flags`, `gossip_menu_id`, `display_id1`, `display_id2`, `display_id3`, `display_id4`, `display_scale1`, `display_scale2`, `display_scale3`, `display_scale4`, `display_probability1`, `display_probability2`, `display_probability3`, `display_probability4`, `display_total_probability`, `mount_display_id`, `speed_walk`, `speed_run`, `detection_range`, `call_for_help_range`, `leash_range`, `type`, `pet_family`, `rank`, `unit_class`, `xp_multiplier`, `health_multiplier`, `mana_multiplier`, `armor_multiplier`, `damage_multiplier`, `damage_variance`, `damage_school`, `base_attack_time`, `ranged_attack_time`, `holy_res`, `fire_res`, `nature_res`, `frost_res`, `shadow_res`, `arcane_res`, `trainer_type`, `trainer_spell`, `trainer_class`, `trainer_race`, `loot_id`, `pickpocket_loot_id`, `skinning_loot_id`, `gold_min`, `gold_max`, `spell_id1`, `spell_id2`, `spell_id3`, `spell_id4`, `spell_list_id`, `pet_spell_list_id`, `spawn_spell_id`, `auras`, `ai_name`, `movement_type`, `inhabit_type`, `civilian`, `racial_leader`, `equipment_id`, `trainer_id`, `vendor_id`, `mechanic_immune_mask`, `school_immune_mask`, `immunity_flags`, `static_flags1`, `static_flags2`, `flags_extra`, `script_name`) VALUES (90100, 0, 'Scared Spirit', NULL, 60, 60, 10, 2, 0, 10481, 10481, 10481, 10481, 0, 0, 0, 0, 25, 25, 25, 25, 100, 0, 1, 1.14286, 20, 5, 0, 6, 0, 0, 1, 1, 2, 2, 1.25, 1.0, 0.14, 0, 2000, 2000, 0, 168, 168, 168, 168, 168, 0, 0, 0, 0, 0, 0, 0, 0, 0, 22687, 0, 0, 0, 0, 0, 0, '16331', '', 1, 3, 0, 0, 0, 0, 0, 8413718, 0, 0, 0, 0, 0, '');
+
+    -- Quest (escort)
+        REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `MaxLevel`, `QuestLevel`, `QuestFlags`, `SpecialFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `DetailsEmote1`, `CompleteEmote`, `OfferRewardEmote1`, `StartScript`) VALUES (30263, 41, 58, 0, 61, 2, 2, 'Scared Spirit Escort', 'Please help me! Im scared and lost and need to find my way back to Karazhan.', 'Escort the Scared Spirit back to Karazhan.', 'Thank you.', 'Please help me!', 'Escort the Scared Spirit back to Karazhan.', '', '', '', '', 6, 1, 21, 30263);
+        
+    -- Quest Relation
+        REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90100, 30263);
+
+    -- Quest Involved Relation
+        REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90100, 30263);
+
+    -- Start script for quest Scared Spirit Escort.
+        DELETE FROM `quest_start_scripts` WHERE `id`=30263;
+        INSERT INTO `quest_start_scripts` (`id`, `delay`, `priority`, `command`, `datalong`, `datalong2`, `datalong3`, `datalong4`, `target_param1`, `target_param2`, `target_type`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `condition_id`, `comments`) VALUES
+        (30263, 0, 0, 61, 30263, 600, 0, 0, 0, 0, 0, 8, 0, 9000000, 1019, 9000000, 0, 0, 0, 0, 0, 'Scared Spirit Escort: Start Scripted Map Event'),
+        (30263, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 'Scared Spirit Escort: Scared Spirit - Say Text'),
+        (30263, 0, 2, 4, 147, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Scared Spirit Escort: Scared Spirit - Remove Questgiver Flag'),
+        (30263, 0, 4, 60, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Scared Spirit Escort: Scared Spirit - Start Waypoints');
+
+
+    -- Fail script for quest Scared Spirit Escort.
+        DELETE FROM `generic_scripts` WHERE `id`=9000000;
+        INSERT INTO `generic_scripts` (`id`, `delay`, `priority`, `command`, `datalong`, `datalong2`, `datalong3`, `datalong4`, `target_param1`, `target_param2`, `target_type`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `condition_id`, `comments`) VALUES
+        (9000000, 0, 0, 70, 30263, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Scared Spirit Escort Failed: Player - Fail Quest'),
+        (9000000, 7200, 0, 71, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Scared Spirit Escort Failed: Scared Spirit - Respawn');
+
+    -- Waypoint scripts for Scared Spirit.
+        DELETE FROM `creature_movement_scripts` WHERE `id`=9000000;
+        INSERT INTO `creature_movement_scripts` (`id`, `delay`, `priority`, `command`, `datalong`, `datalong2`, `datalong3`, `datalong4`, `target_param1`, `target_param2`, `target_type`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `condition_id`, `comments`) VALUES
+        (9000000, 0, 0, 20, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Scared Spirit - Move Idle'),
+        (9000000, 1, 0, 10, 90091, 360000, 0, 0, 0, 0, 0, 0, 0, 0, -1, 1, 0, 0, 0, 0, 0, 'Scared Spirit Summon Creature - Overlord Xelnu'),
+        (9000000, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 5947, 101, 0, 0, 0, 0, 0, 0, 0, 'Scared Spirit - Say Text'),
+        (9000000, 1, 1, 62, 30263, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Scared Spirit - End Scripted Map Event'),
+        (9000000, 8, 0, 18, 0, 7200, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Scared Spirit - Despawn Creature');
+
 
     -- TODO: Fix the boss summoned by the Eerie Altar, using one of my bosses unsure which one I want
     -- TODO: Quest inside "Crypt" cave to escort someone out
     -- TODO: Quest inside "Crypt" cave to spawn a wave of mobs (Costs Soulshard Fragments)
     -- TODO: Objects using the floating  red crystal in Ashenvale by Satyrs you can trade Soulshard Fragments for 1 hr buffs
     -- TODO: AOE spots
+    -- TODO: Some cliff you need to jump down to from the main road that has an object thats used to spawn Ogopogo or in a crypt / cave (are there more?)
+    -- TODO: Need to escort female NPC up the tower and then it turns into Xelnu (Zelda OOT reference)
+    -- TODO: Broken sword from DK boss should work like broken blade of heroes where a bsm can "repair" it
+    -- TODO: Copy radiation bolt animation from gnomergan
+    -- TODO: Use radiation poisoning visual for the disease from oggoppo
+    -- TODO: Finish crafted gear
+
 
     -- "Crypt Cave" mobs
         -- Ghosts:
