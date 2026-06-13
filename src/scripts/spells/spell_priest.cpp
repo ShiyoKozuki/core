@@ -367,27 +367,24 @@ struct PriestShadowWordDeathScript : public SpellScript
     {
         if (effIdx == EFFECT_INDEX_0 && spell->GetUnitTarget() && spell->m_casterUnit)
         {
-            // If not duplicated effect damage self and gain a Shadow Orb stack
-            if (spell->GetUnitTarget() != spell->m_casterUnit)
-            {
-                // Duplicate effect on self if target is still alive
-                auto targetHP = spell->GetUnitTarget()->GetHealth();
-                int32 damage = spell->damage;
-
-                // Check if target already dead and won't die from this spells damage
-                if (!spell->GetUnitTarget()->IsDead() && targetHP > damage)
-                {
-                    // Self damage is half of the spells damage
-                    uint32 damage = int32(spell->damage * 0.5f); // Self damage is half of the spells damage
-                    spell->m_casterUnit->CastCustomSpell(spell->GetUnitTarget(), 34178, damage, {}, {}, true, nullptr);
-                }
-
-                // Gain a Shadow Orb
-                spell->m_casterUnit->CastSpell(spell->m_casterUnit, 34157, true);
-            }
+            // Gain a Shadow Orb
+            spell->m_casterUnit->CastSpell(spell->m_casterUnit, 34157, true);
         }
 
         return true;
+    }
+
+    void OnAfterHit(Spell* spell) const
+    {
+        // Check if target already dead
+        if (spell->GetUnitTarget() && !spell->GetUnitTarget()->IsDead())
+        {
+            // Self damage is half of the spells damage
+            uint32 damage = int32(spell->damage * 0.5f); // Self damage is half of the spells damage
+
+            // Damage self
+            spell->m_casterUnit->CastCustomSpell(spell->GetUnitTarget(), 34178, damage, {}, {}, true, nullptr);
+        }
     }
 };
 
