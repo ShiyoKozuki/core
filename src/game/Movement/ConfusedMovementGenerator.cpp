@@ -23,6 +23,7 @@
 #include "MoveSplineInit.h"
 #include "MoveSpline.h"
 #include "PathFinder.h"
+#include "Utilities/Random.h"
 #include "Transport.h"
 
 template<class T>
@@ -78,7 +79,6 @@ bool ConfusedMovementGenerator<T>::Update(T &unit, uint32 const& diff)
     path.ExcludeSteepSlopes();
     path.setPathLengthLimit(4.0f);
     path.calculate(x, y, z, false, true);
-    path.CutPathWithDynamicLoS();
 
     Movement::MoveSplineInit init(unit, "ConfusedMovementGenerator<T>::Update");
     init.Move(&path);
@@ -91,6 +91,7 @@ template<>
 void ConfusedMovementGenerator<Player>::Finalize(Player &unit)
 {
     unit.ClearUnitState(UNIT_STATE_CONFUSED);
+    unit.SetWalk(false, false);
     unit.StopMoving();
     unit.UpdateControl();
 }
@@ -99,6 +100,7 @@ template<>
 void ConfusedMovementGenerator<Creature>::Finalize(Creature &unit)
 {
     unit.ClearUnitState(UNIT_STATE_CONFUSED);
+    unit.SetWalk(!unit.HasUnitState(UNIT_STATE_RUNNING), false);
     unit.UpdateControl();
 }
 

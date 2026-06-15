@@ -1130,13 +1130,6 @@ bool SpellEntry::CanTriggerWeaponProcs() const
     // All weapon based abilities can trigger weapon procs,
     // even if they do no damage, or break on damage, like Sap.
     // https://www.youtube.com/watch?v=klMsyF_Kz5o
-
-    // Don't proc on Sap,  Gouge or Blind, Blizzard era bug
-    if (IsFitToFamily<SPELLFAMILY_ROGUE, CF_ROGUE_SAP>() ||
-        IsFitToFamily<SPELLFAMILY_ROGUE, CF_ROGUE_GOUGE>() ||
-        IsFitToFamily<SPELLFAMILY_ROGUE, CF_ROGUE_BLIND>())
-        return false;
-
     if (EquippedItemClass == ITEM_CLASS_WEAPON && rangeIndex == SPELL_RANGE_IDX_COMBAT)
         return true;
 

@@ -26,6 +26,7 @@
 #include "GridNotifiers.h"
 #include "GridNotifiersImpl.h"
 #include "CellImpl.h"
+#include "Utilities/Random.h"
 
 bool ChatHandler::HandleGUIDCommand(char* /*args*/)
 {
@@ -585,9 +586,9 @@ bool ChatHandler::HandleUnitFactionInfoCommand(char* args)
     PSendSysMessage("Faction Template Id: %u", pFactionTemplate->ID);
     PSendSysMessage("Faction Template Flags: %s", FlagsToString(pFactionTemplate->factionFlags, FactionTemplateFlagToString).c_str());
     PSendSysMessage("Own Mask: %s", FlagsToString(pFactionTemplate->ourMask, FactionMaskToString).c_str());
-    
+
     PSendSysMessage("Hostile Mask: %s", FlagsToString(pFactionTemplate->hostileMask, FactionMaskToString).c_str());
-    
+
     std::string enemies;
     for (uint32 i = 0; i < 4; i++)
     {
@@ -927,7 +928,7 @@ bool ChatHandler::HandlePvPCommand(char* args)
     Unit* pTarget = GetSelectedUnit();
     if (!pTarget)
         return false;
-    
+
     bool value;
     if (!ExtractOnOff(&args, value))
     {
@@ -2448,7 +2449,7 @@ bool ChatHandler::HandleDamageCommand(char* args)
     SpellSchoolMask schoolmask = GetSchoolMask(school);
 
     if (schoolmask & SPELL_SCHOOL_MASK_NORMAL)
-        damage = ditheru(player->CalcArmorReducedDamage(target, damage));
+        damage = rand_ditheru(player->CalcArmorReducedDamage(target, damage));
 
     // melee damage by specific school
     uint32 absorb = 0;
@@ -2645,7 +2646,7 @@ bool ChatHandler::HandleCooldownClearCommand(char* args)
             return false;
         }
 
-        target->RemoveSpellCooldown(*spellEntry);
+        target->RemoveSpellCooldown(spellEntry);
         PSendSysMessage(LANG_REMOVE_COOLDOWN, spell_id, target == m_session->GetPlayer() ? GetMangosString(LANG_YOU) : tNameLink.c_str());
     }
     return true;
@@ -2797,7 +2798,7 @@ bool ChatHandler::HandleKnockBackCommand(char* args)
     }
 
     Player* player = GetSession()->GetPlayer();
-    
+
     float horizontalSpeed = 10.0f;
     ExtractFloat(&args, horizontalSpeed);
     float verticalSpeed = 10.0f;

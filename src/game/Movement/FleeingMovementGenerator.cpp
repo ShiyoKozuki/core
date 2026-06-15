@@ -25,6 +25,7 @@
 #include "PathFinder.h"
 #include "MoveMap.h"
 #include "Map.h"
+#include "Utilities/Random.h"
 
 #define SEARCH_RANDOM_RADIUS 5.0f
 #define MIN_QUIET_DISTANCE 28.0f
@@ -55,7 +56,6 @@ void FleeingMovementGenerator<T>::_setTargetLocation(T &owner)
     path.ExcludeSteepSlopes();
     path.setPathLengthLimit(30.0f);
     path.calculate(x, y, z);
-    path.CutPathWithDynamicLoS();
     if (path.getPathType() & PATHFIND_NOPATH)
     {
         i_nextCheckTime.Reset(urand(1000, 1500));

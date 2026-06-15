@@ -30,6 +30,7 @@
 #include "Spell.h"
 #include "SpellAuras.h"
 #include "Chat.h"
+#include "Utilities/Random.h"
 #include "TargetedMovementGenerator.h"
 
 enum BattleBotSpells
@@ -267,6 +268,7 @@ bool BattleBotAI::DrinkAndEat()
                 if (DoCastSpell(me, m_spells.rogue.pStealth) == SPELL_CAST_OK)
                     return true;
             }
+            me->RemoveSpellCooldown(pSpellEntry);
         }
         return true;
     }
@@ -281,7 +283,7 @@ bool BattleBotAI::DrinkAndEat()
         if (SpellEntry const* pSpellEntry = sSpellMgr.GetSpellEntry(currentWater))
         {
             me->CastSpell(me, pSpellEntry, true);
-            me->RemoveSpellCooldown(*pSpellEntry);
+            me->RemoveSpellCooldown(pSpellEntry);
         }
         return true;
     }
@@ -319,7 +321,7 @@ float BattleBotAI::GetMaxAggroDistanceForMap() const
     BattleGround* bg = me->GetBattleGround();
     if (!bg || bg->GetTypeID() != BATTLEGROUND_AV)
         return 50.0f;
-    
+
     return 30.0f;
 }
 
@@ -334,16 +336,7 @@ bool BattleBotAI::AttackStart(Unit* pVictim)
     if (me->Attack(pVictim, true))
     {
         ClearPath();
-
-        if ((m_role == ROLE_RANGE_DPS || m_role == ROLE_HEALER) &&
-            IsRangedDamageClass(me->GetClass()) &&
-            me->GetPowerPercent(POWER_MANA) > 10.0f &&
-            me->GetCombatDistance(pVictim) > 8.0f)
-            me->SetCasterChaseDistance(25.0f);
-        else if (me->HasDistanceCasterMovement())
-            me->SetCasterChaseDistance(0.0f);
-
-        me->GetMotionMaster()->MoveChase(pVictim, 1.0f, m_role == ROLE_MELEE_DPS ? 3.0f : 0.0f);
+        BeginChasing(pVictim);
         return true;
     }
 
@@ -595,6 +588,7 @@ void BattleBotAI::OnPacketReceived(WorldPacket const* packet)
     //printf("Bot received %s\n", LookupOpcodeName(packet->GetOpcode()));
     switch (packet->GetOpcode())
     {
+#if SUPPORTED_CLIENT_BUILD > CLIENT_BUILD_1_4_2
         case MSG_PVP_LOG_DATA:
         {
             if (!me)
@@ -608,15 +602,16 @@ void BattleBotAI::OnPacketReceived(WorldPacket const* packet)
                     botEntry->requestRemoval = true;
                 else
                 {
-                    std::unique_ptr<WorldPacket> data = std::make_unique<WorldPacket>(CMSG_LEAVE_BATTLEFIELD);
+                    auto data = std::make_unique<WorldPackets::Battleground::LeaveBattlefield>();
 #if SUPPORTED_CLIENT_BUILD > CLIENT_BUILD_1_8_4
-                    *data << uint32(me->GetMapId());
+                    data->mapId = me->GetMapId();
 #endif
                     me->GetSession()->QueuePacket(std::move(data));
                 }
             }
             return;
         }
+#endif
     }
 
     CombatBotBaseAI::OnPacketReceived(packet);
@@ -662,7 +657,7 @@ void BattleBotAI::UpdateWaypointMovement()
             return;
 
     if (StartNewPathToObjective())
-        return; 
+        return;
 
     if (StartNewPathFromBeginning())
         return;
@@ -915,7 +910,7 @@ void BattleBotAI::UpdateAI(uint32 const diff)
             OnJustDied();
             return;
         }
-        
+
         if (me->InBattleGround())
         {
             if (me->GetDeathState() == CORPSE)
@@ -933,7 +928,7 @@ void BattleBotAI::UpdateAI(uint32 const diff)
                 //me->SendCreateUpdateToPlayer(pLeader);
             }
         }
-        
+
         return;
     }
     else
@@ -947,7 +942,10 @@ void BattleBotAI::UpdateAI(uint32 const diff)
     }
 
     if (me->HasUnitState(UNIT_STATE_CAN_NOT_REACT_OR_LOST_CONTROL))
+    {
+        BreakCrowdControlEffects();
         return;
+    }
 
     if (me->GetCurrentSpell(CURRENT_AUTOREPEAT_SPELL))
     {
@@ -1115,7 +1113,7 @@ void BattleBotAI::UpdateAI(uint32 const diff)
 
             if (UseMount())
                 return;
-            
+
             UpdateWaypointMovement();
         }
         return;
@@ -2164,7 +2162,7 @@ void BattleBotAI::UpdateInCombatAI_Paladin()
             me->CastSpell(me, m_spells.paladin.pSealOfRighteousness, false);
         }
     }
-    
+
     if (Unit* pVictim = me->GetVictim())
     {
 
@@ -2233,7 +2231,7 @@ void BattleBotAI::UpdateInCombatAI_Paladin()
         if (me->GetMotionMaster()->GetCurrentMovementGeneratorType() == IDLE_MOTION_TYPE &&
            !me->CanReachWithMeleeAutoAttack(pVictim))
         {
-            me->GetMotionMaster()->MoveChase(pVictim);
+            BeginChasing(pVictim);
         }
     }
 
@@ -2701,7 +2699,7 @@ void BattleBotAI::UpdateInCombatAI_Hunter()
         if (me->GetMotionMaster()->GetCurrentMovementGeneratorType() == IDLE_MOTION_TYPE
             && me->GetDistance(pVictim) > 30.0f)
         {
-            me->GetMotionMaster()->MoveChase(pVictim, 25.0f);
+            BeginChasing(pVictim);
         }
 
         if (me->HasSpell(BB_SPELL_AUTO_SHOT) &&
@@ -3036,7 +3034,7 @@ void BattleBotAI::UpdateInCombatAI_Mage()
         if (me->GetMotionMaster()->GetCurrentMovementGeneratorType() == IDLE_MOTION_TYPE
             && me->GetDistance(pVictim) > 30.0f)
         {
-            me->GetMotionMaster()->MoveChase(pVictim, 25.0f);
+            BeginChasing(pVictim);
         }
         else if (pVictim->CanReachWithMeleeAutoAttack(me) &&
                 (pVictim->GetVictim() == me) &&
@@ -3129,7 +3127,7 @@ void BattleBotAI::UpdateInCombatAI_Mage()
         {
             if (DoCastSpell(me, m_spells.mage.pPresenceOfMind) == SPELL_CAST_OK)
                 return;
-        } 
+        }
 
         // Blink after targets out of range offensively if it's safe to do so
         if (m_spells.mage.pBlink &&
@@ -3581,6 +3579,7 @@ void BattleBotAI::UpdateInCombatAI_Priest()
                         return;
                 }
             }
+            BeginChasing(pVictim);
         }
 
         if (me->GetShapeshiftForm() == FORM_NONE)
@@ -4047,7 +4046,7 @@ void BattleBotAI::UpdateInCombatAI_Warlock()
         if (me->GetMotionMaster()->GetCurrentMovementGeneratorType() == IDLE_MOTION_TYPE
             && me->GetDistance(pVictim) > 30.0f)
         {
-            me->GetMotionMaster()->MoveChase(pVictim, 25.0f);
+            BeginChasing(pVictim);
         }
 
         //if (m_spells.warlock.pHowlofTerror &&
@@ -4326,7 +4325,7 @@ void BattleBotAI::UpdateInCombatAI_Warrior()
         if (me->GetMotionMaster()->GetCurrentMovementGeneratorType() == IDLE_MOTION_TYPE
             && !me->CanReachWithMeleeAutoAttack(pVictim))
         {
-            me->GetMotionMaster()->MoveChase(pVictim);
+            BeginChasing(pVictim);
         }
 
         if (m_spells.warrior.pHeroicStrike &&
@@ -4428,7 +4427,7 @@ void BattleBotAI::UpdateInCombatAI_Rogue()
                 (me->GetHealthPercent() < 10.0f))
             {
                 if (m_spells.rogue.pPreparation &&
-                    !me->IsSpellReady(m_spells.rogue.pVanish->Id) &&
+                    !me->IsSpellReady(m_spells.rogue.pVanish) &&
                     CanTryToCastSpell(me, m_spells.rogue.pPreparation))
                 {
                     if (DoCastSpell(me, m_spells.rogue.pPreparation) == SPELL_CAST_OK)
@@ -4988,7 +4987,7 @@ void BattleBotAI::UpdateInCombatAI_Druid()
             (me->GetPowerPercent(POWER_MANA) > 30.0f))
             me->RemoveSpellsCausingAura(SPELL_AURA_MOD_SHAPESHIFT);
     }
-    
+
     if (Unit* pVictim = me->GetVictim())
     {
         ShapeshiftForm const form = me->GetShapeshiftForm();
@@ -5030,7 +5029,7 @@ void BattleBotAI::UpdateInCombatAI_Druid()
                 if (me->GetMotionMaster()->GetCurrentMovementGeneratorType() == IDLE_MOTION_TYPE
                     && !me->CanReachWithMeleeAutoAttack(pVictim))
                 {
-                    me->GetMotionMaster()->MoveChase(pVictim);
+                    BeginChasing(pVictim);
                 }
 
                 if (me->HasAuraType(SPELL_AURA_MOD_STEALTH))
@@ -5139,7 +5138,7 @@ void BattleBotAI::UpdateInCombatAI_Druid()
                     if (DoCastSpell(pVictim, m_spells.druid.pClaw) == SPELL_CAST_OK)
                         return;
                 }
-                
+
                 break;
             }
             case FORM_BEAR:
@@ -5148,7 +5147,7 @@ void BattleBotAI::UpdateInCombatAI_Druid()
                 if (me->GetMotionMaster()->GetCurrentMovementGeneratorType() == IDLE_MOTION_TYPE
                     && !me->CanReachWithMeleeAutoAttack(pVictim))
                 {
-                    me->GetMotionMaster()->MoveChase(pVictim);
+                    BeginChasing(pVictim);
                 }
 
                 if (m_spells.druid.pEnrage &&
@@ -5258,6 +5257,9 @@ void BattleBotAI::UpdateInCombatAI_Druid()
                         me->GetMotionMaster()->MoveChase(pVictim, 25.0f);
                     }
                     else if (pVictim->CanReachWithMeleeAutoAttack(me) &&
+                    BeginChasing(pVictim);
+                }
+                else if (pVictim->CanReachWithMeleeAutoAttack(me) &&
                         (pVictim->GetVictim() == me) &&
                         !me->HasUnitState(UNIT_STATE_ROOT) &&
                         IsMeleeDamageClass(pVictim->GetClass()) &&

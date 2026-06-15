@@ -11,6 +11,7 @@
 #include "PathFinder.h"
 #include "MoveMap.h"
 #include "Map.h"
+#include "Utilities/Random.h"
 
 template<class T>
 void FearMovementGenerator<T>::_setTargetLocation(T &owner)
@@ -37,7 +38,6 @@ void FearMovementGenerator<T>::_setTargetLocation(T &owner)
     path.ExcludeSteepSlopes();
     path.setPathLengthLimit(PATH_LENGTH_LIMIT);
     path.calculate(x, y, z);
-    path.CutPathWithDynamicLoS();
 
     if (path.getPathType() & PATHFIND_NOPATH)
     {
@@ -251,7 +251,7 @@ bool TimedFearMovementGenerator::Update(Unit & owner, uint32 const&  time_diff)
         owner.ClearUnitState(UNIT_STATE_FLEEING_MOVE);
         return true;
     }
-    
+
     i_totalFleeTime.Update(time_diff);
 
     if (i_totalFleeTime.Passed())

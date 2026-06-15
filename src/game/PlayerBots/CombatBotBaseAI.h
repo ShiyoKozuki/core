@@ -121,6 +121,7 @@ public:
     Unit* SelectHealTarget(float selfHealPercent = 100.0f, float groupHealPercent = 100.0f) const;
     Unit* SelectPeriodicHealTarget(float selfHealPercent = 100.0f, float groupHealPercent = 100.0f) const;
     Player* SelectBuffTarget(SpellEntry const* pSpellEntry) const;
+    Player* SelectBuffTarget(SpellEntry const* pSingleSpellEntry, SpellEntry const* pGroupSpellEntry, SpellEntry const*& pSelectedSpellEntry) const;
     Player* SelectDispelTarget(SpellEntry const* pSpellEntry) const;
     Player* SelectFreedomTarget() const;
     bool IsValidBuffTarget(Unit const* pTarget, SpellEntry const* pSpellEntry) const;
@@ -152,13 +153,14 @@ public:
     void AddHunterAmmo();
     uint8 GetHighestHonorRankFromEquippedItems() const;
     void UpdateVisualHonorRankBasedOnItems();
-
+    void BeginChasing(Unit* pVictim) const;
     bool SummonShamanTotems();
     bool CastBlessings();
     bool HasMyBlessing(Unit* target);
     SpellCastResult CastWeaponBuff(SpellEntry const* pSpellEntry, EquipmentSlots slot);
-    void UseTrinketEffects();
-    bool UseItemEffect(Item* pItem);
+    bool UseTrinketEffects(bool onlyToBreakCC = false);
+    bool UseItemEffect(Item* pItem, bool onlyToBreakCC = false);
+    void BreakCrowdControlEffects();
 
     virtual void UpdateInCombatAI() = 0;
     virtual void UpdateOutOfCombatAI() = 0;
