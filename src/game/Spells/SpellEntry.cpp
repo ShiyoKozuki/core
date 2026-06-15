@@ -374,6 +374,9 @@ DiminishingGroup SpellEntry::GetDiminishingReturnsGroup(bool triggered) const
             if (Id == 13181)
                 return DIMINISHING_NONE;
 #endif
+            // Custom No DR
+            if (Id == 34182) // Shock Spikes Stun
+                return DIMINISHING_NONE;
             break;
         }
 
