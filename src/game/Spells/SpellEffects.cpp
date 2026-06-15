@@ -3082,6 +3082,18 @@ void Spell::EffectEnchantItemTmp(SpellEffectIndex effIdx)
     if (!itemTarget)
         return;
 
+    // Shaman weapon enchants (Dual Wield Support
+    // If main hand already has a temp enchant, use offhand instead
+    if (itemTarget == pCaster->GetItemByPos(INVENTORY_SLOT_BAG_0, EQUIPMENT_SLOT_MAINHAND) &&
+        itemTarget->GetEnchantmentId(TEMP_ENCHANTMENT_SLOT))
+    {
+        if (Item* offhand = pCaster->GetItemByPos(INVENTORY_SLOT_BAG_0, EQUIPMENT_SLOT_OFFHAND))
+            itemTarget = offhand;
+    }
+
+    if (!itemTarget)
+        return;
+
     uint32 enchantId  = m_spellInfo->EffectMiscValue[effIdx];
     uint32 charges    = sSpellMgr.GetSpellEnchantCharges(m_spellInfo->Id);
 
