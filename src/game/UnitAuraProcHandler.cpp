@@ -923,7 +923,7 @@ SpellAuraProcResult Unit::HandleDummyAuraProc(Unit* pVictim, uint32 amount, uint
                         return SPELL_AURA_PROC_FAILED;
 
                     // heal amount
-                    dither(amount *= 0.70);
+                    rand_dither(amount *= 0.70);
 
                     // don't heal for 0
                     if (amount < 1)
@@ -944,7 +944,7 @@ SpellAuraProcResult Unit::HandleDummyAuraProc(Unit* pVictim, uint32 amount, uint
                         return SPELL_AURA_PROC_FAILED;
 
                     // mp restore amount
-                    basepoints[0] = dither(triggerAmount * amount / 100);
+                    basepoints[0] = rand_dither(triggerAmount * amount / 100);
 
                     // don't restore 0 MP
                     if (basepoints[0] < 1)

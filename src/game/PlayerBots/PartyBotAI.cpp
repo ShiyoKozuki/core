@@ -1475,7 +1475,6 @@ void PartyBotAI::UpdateOutOfCombatAI_Paladin()
             {
                 if (DoCastSpell(pFriend, m_spells.paladin.pCleanse) == SPELL_CAST_OK)
                     return;
-                }
             }
         }
     }
@@ -2494,6 +2493,8 @@ void PartyBotAI::UpdateInCombatAI_Mage()
 
 void PartyBotAI::UpdateOutOfCombatAI_Priest()
 {
+    SpellEntry const* pBuffSpell = nullptr;
+
     if (m_role == ROLE_HEALER &&
         FindAndHealInjuredAlly(80.0f, 80.0f))
         return;

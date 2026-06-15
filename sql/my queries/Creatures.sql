@@ -72,11 +72,6 @@
 
 -- graveyards = WorldSafeLocs.dbc and world_safe_facing.sql to set facing @ the spirit healer
 
--- Double the armor of any mob < 2.0 multiplier and > 0 multiplier
-UPDATE mangos . creature_template
-SET armor_multiplier = 2.0
-WHERE armor_multiplier < 2.0 AND armor_multiplier > 0;
-
 -- Combat Reach
 UPDATE mangos . creature_display_info_addon 
 SET combat_reach = 1
@@ -94,7 +89,7 @@ UPDATE `mangos`.`creature` SET `movement_type`=2 WHERE  `guid` IN (2000115, 2000
 UPDATE `mangos`.`creature_template` SET `damage_multiplier`=1.10 WHERE  `entry`=4030 AND `patch`=0;
 
 -- Jandice Barov correct Curse of Blood spellId
-UPDATE `mangos`.`creature_template` SET `spell_id1`=16098 WHERE  `entry`=10503 AND `patch`=0;
+-- UPDATE `mangos`.`creature_template` SET `spell_id1`=16098 WHERE  `entry`=10503 AND `patch`=0; -- TODO:
 
 -- AOE camp mobs (Is this wrong? I buffed it 3x after nerfing it, unsure if it should've been x2 instead)
 
@@ -342,7 +337,7 @@ UPDATE `mangos`.`creature_template` SET `rank`=1, `health_multiplier`=2, `mana_m
 UPDATE `mangos`.`creature_template` SET `rank`=1, `health_multiplier`=5, `mana_multiplier`=25, `damage_multiplier`=3.5, `shadow_res`=125, `spell_id1`=0, `spell_id2`=0, `spell_id3`=0, `spell_list_id`=200079 WHERE  `entry`=9517;
 
 -- Twilight Flamereaver
-UPDATE `mangos`.`creature_template` SET `spell_id1`=15732 WHERE  `entry`=15201 AND `patch`=6;
+-- UPDATE `mangos`.`creature_template` SET `spell_id1`=15732 WHERE  `entry`=15201 AND `patch`=6; -- TODO
 
 -- Strath Gargoyles movement speed
 UPDATE `mangos`.`creature_template` SET `speed_run`=0.5 WHERE  `entry`=10408 AND `patch`=0;

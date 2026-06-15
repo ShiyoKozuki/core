@@ -258,7 +258,7 @@ bool BattleBotAI::DrinkAndEat()
         if (SpellEntry const* pSpellEntry = sSpellMgr.GetSpellEntry(currentFood))
         {
             me->CastSpell(me, pSpellEntry, true);
-            me->RemoveSpellCooldown(*pSpellEntry);
+            me->RemoveSpellCooldown(pSpellEntry);
             if ((me->GetClass() == CLASS_ROGUE) &&
                 m_spells.rogue.pStealth &&
                 CanTryToCastSpell(me, m_spells.rogue.pStealth) &&
@@ -1758,7 +1758,7 @@ void BattleBotAI::UpdateFlagCarrierAI()
                 if (m_spells.rogue.pBlind)
                 {
                     if (m_spells.rogue.pPreparation &&
-                        !me->IsSpellReady(m_spells.rogue.pBlind->Id) &&
+                        !me->IsSpellReady(m_spells.rogue.pBlind) &&
                         CanTryToCastSpell(me, m_spells.rogue.pPreparation))
                     {
                         if (DoCastSpell(me, m_spells.rogue.pPreparation) == SPELL_CAST_OK)
@@ -4383,7 +4383,7 @@ void BattleBotAI::UpdateOutOfCombatAI_Rogue()
                 if (SpellEntry const* pSpellEntry = sSpellMgr.GetSpellEntry(BB_CHEAP_SHOT))
                 {
                     me->CastSpell(pVictim, pSpellEntry, false);
-                    me->RemoveSpellCooldown(*pSpellEntry);
+                    me->RemoveSpellCooldown(pSpellEntry);
                     return;
                 }
             }
@@ -4416,7 +4416,7 @@ void BattleBotAI::UpdateInCombatAI_Rogue()
                 if (SpellEntry const* pSpellEntry = sSpellMgr.GetSpellEntry(BB_CHEAP_SHOT))
                 {
                     me->CastSpell(pVictim, pSpellEntry, false);
-                    me->RemoveSpellCooldown(*pSpellEntry);
+                    me->RemoveSpellCooldown(pSpellEntry);
                     return;
                 }
             }
@@ -4455,7 +4455,7 @@ void BattleBotAI::UpdateInCombatAI_Rogue()
             !me->CanReachWithMeleeAutoAttack(pVictim))
         {
             if (m_spells.rogue.pPreparation &&
-                !me->IsSpellReady(m_spells.rogue.pVanish->Id) &&
+                !me->IsSpellReady(m_spells.rogue.pVanish) &&
                 CanTryToCastSpell(me, m_spells.rogue.pPreparation))
             {
                 if (DoCastSpell(me, m_spells.rogue.pPreparation) == SPELL_CAST_OK)
@@ -4477,7 +4477,7 @@ void BattleBotAI::UpdateInCombatAI_Rogue()
             !me->CanReachWithMeleeAutoAttack(pVictim))
         {
             if (m_spells.rogue.pPreparation &&
-                !me->IsSpellReady(m_spells.rogue.pBlind->Id) &&
+                !me->IsSpellReady(m_spells.rogue.pBlind) &&
                 CanTryToCastSpell(me, m_spells.rogue.pPreparation))
             {
                 if (DoCastSpell(me, m_spells.rogue.pPreparation) == SPELL_CAST_OK)
@@ -4745,7 +4745,7 @@ void BattleBotAI::UpdateOutOfCombatAI_Druid()
                 if (SpellEntry const* pSpellEntry = sSpellMgr.GetSpellEntry(BB_POUNCE))
                 {
                     me->CastSpell(pVictim, pSpellEntry, false);
-                    me->RemoveSpellCooldown(*pSpellEntry);
+                    me->RemoveSpellCooldown(pSpellEntry);
                     return;
                 }
             }
@@ -5040,7 +5040,7 @@ void BattleBotAI::UpdateInCombatAI_Druid()
                         if (SpellEntry const* pSpellEntry = sSpellMgr.GetSpellEntry(BB_POUNCE))
                         {
                             me->CastSpell(pVictim, pSpellEntry, false);
-                            me->RemoveSpellCooldown(*pSpellEntry);
+                            me->RemoveSpellCooldown(pSpellEntry);
                             return;
                         }
                     }
@@ -5251,14 +5251,10 @@ void BattleBotAI::UpdateInCombatAI_Druid()
             {
                 if (m_role == ROLE_RANGE_DPS)
                 {
-                    if (me->GetMotionMaster()->GetCurrentMovementGeneratorType() == IDLE_MOTION_TYPE &&
-                        me->GetDistance(pVictim) > 30.0f)
+                    if (me->GetMotionMaster()->GetCurrentMovementGeneratorType() == IDLE_MOTION_TYPE && me->GetDistance(pVictim) > 30.0f)
                     {
-                        me->GetMotionMaster()->MoveChase(pVictim, 25.0f);
+                        BeginChasing(pVictim);
                     }
-                    else if (pVictim->CanReachWithMeleeAutoAttack(me) &&
-                    BeginChasing(pVictim);
-                }
                 else if (pVictim->CanReachWithMeleeAutoAttack(me) &&
                         (pVictim->GetVictim() == me) &&
                         !me->HasUnitState(UNIT_STATE_ROOT) &&

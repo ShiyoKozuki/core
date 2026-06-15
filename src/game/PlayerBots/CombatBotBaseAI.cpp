@@ -3199,7 +3199,7 @@ bool CombatBotBaseAI::CanTryToCastPetSpell(Unit const* pTarget, SpellEntry const
 {
     Pet* pPet = me->GetPet();
 
-    if (!pPet->IsSpellReady(pSpellEntry->Id))
+    if (!pPet->IsSpellReady(pSpellEntry))
         return false;
 
     if (pSpellEntry->TargetAuraState &&
