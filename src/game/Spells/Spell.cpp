@@ -4468,21 +4468,6 @@ static void WriteGuidHelper(WorldPacket& data, Object* pCaster)
 #endif
 }
 
-static void WriteGuidHelper(WorldPacket& data, Object* pCaster)
-{
-#if SUPPORTED_CLIENT_BUILD > CLIENT_BUILD_1_8_4
-    if (pCaster)
-        data << pCaster->GetPackGUID();
-    else
-        data << ObjectGuid().WriteAsPacked();
-#else
-    if (pCaster)
-        data << pCaster->GetGUID();
-    else
-        data << uint64(0);
-#endif
-}
-
 void Spell::SendSpellStart()
 {
     if (!IsNeedSendToClient())

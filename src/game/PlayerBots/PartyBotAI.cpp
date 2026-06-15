@@ -2252,7 +2252,6 @@ void PartyBotAI::UpdateOutOfCombatAI_Mage()
         }
     }
 
-    if (m_spells.mage.pArcaneBrilliance)
     SpellEntry const* pBuffSpell = nullptr;
     if (Player* pTarget = SelectBuffTarget(m_spells.mage.pArcaneIntellect, m_spells.mage.pArcaneBrilliance, pBuffSpell))
     {
@@ -3774,7 +3773,6 @@ void PartyBotAI::UpdateOutOfCombatAI_Druid()
         }
     }
 
-    if (m_spells.druid.pGiftoftheWild)
     SpellEntry const* pBuffSpell = nullptr;
     if (Player* pTarget = SelectBuffTarget(m_spells.druid.pMarkoftheWild, m_spells.druid.pGiftoftheWild, pBuffSpell))
     {
@@ -3788,7 +3786,6 @@ void PartyBotAI::UpdateOutOfCombatAI_Druid()
             }
         }
     }
-
     if (m_spells.druid.pThorns)
     {
         if (Player* pTarget = SelectBuffTarget(m_spells.druid.pThorns))

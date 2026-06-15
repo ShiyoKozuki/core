@@ -22430,18 +22430,6 @@ void Player::AddCooldown(SpellEntry const* spellEntry, ItemPrototype const* item
             }
         }
     }
-
-    // Shooting with Wands should trigger GCD. Without this check GCD is only client side but not server side.
-    if (spellCategory && recTime)
-    {
-        if (SpellCategoryEntry const* pCategoryEntry = sSpellCategoryStore.LookupEntry(spellCategory))
-        {
-            if (pCategoryEntry->Flags & SCF_COOLDOWN_IS_GLOBAL)
-            {
-                m_GCDCatMap.emplace(SPELLCATEGORY_GLOBAL, std::chrono::milliseconds(recTime) + sWorld.GetCurrentClockTime());
-            }
-        }
-    }
 }
 
 void Player::RemoveSpellCooldown(SpellEntry const* spellEntry, bool updateClient /*= true*/)
