@@ -792,6 +792,48 @@ AuraScript* GetScript_Ashbringer(SpellEntry const*)
     return new AshbringerAuraScript();
 }
 
+enum
+{
+    NPC_RESTLESS_SHADE = 7370,
+};
+
+struct GhostVacuumScript : public SpellScript
+{
+    SpellCastResult OnCheckCast(Spell* spell, bool /*strict*/) const final
+    {
+        if (!spell->m_targets.getUnitTarget() || spell->m_targets.getUnitTarget()->GetEntry() != NPC_RESTLESS_SHADE)
+            return SPELL_FAILED_BAD_TARGETS;
+
+        return SPELL_CAST_OK;
+    }
+
+    bool OnEffectExecute(Spell* spell, SpellEffectIndex effIdx) const final
+    {
+        if (effIdx != EFFECT_INDEX_0)
+            return true;
+
+        Player* player = spell->m_casterUnit->ToPlayer();
+        if (!player)
+            return true;
+
+        uint32 itemId = 6666;
+        uint32 count = 1;
+
+        ItemPosCountVec dest;
+        InventoryResult msg = player->CanStoreNewItem(NULL_BAG, NULL_SLOT, dest, itemId, count);
+
+        if (msg == EQUIP_ERR_OK)
+            player->StoreNewItem(dest, itemId, true);
+
+        return true;
+    }
+};
+
+SpellScript* GetScript_GhostVacuum(SpellEntry const*)
+{
+    return new GhostVacuumScript();
+}
+
 void AddSC_item_spell_scripts()
 {
     Script* newscript;
@@ -954,5 +996,10 @@ void AddSC_item_spell_scripts()
     newscript = new Script;
     newscript->Name = "spell_large_monster_bait";
     newscript->GetSpellScript = &GetScript_LargeMonsterBait;
+    newscript->RegisterSelf();
+
+    newscript = new Script;
+    newscript->Name = "spell_ghost_vacuum";
+    newscript->GetSpellScript = &GetScript_GhostVacuum;
     newscript->RegisterSelf();
 }

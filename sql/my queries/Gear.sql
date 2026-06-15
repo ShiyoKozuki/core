@@ -131,6 +131,41 @@
 --     CLASS_DRUID         = 11,
 -- };
 
+-- enum ItemPrototypeFlags
+-- {
+--     ITEM_FLAG_NO_PICKUP                       = 0x00000001, // not used
+--     ITEM_FLAG_CONJURED                        = 0x00000002,
+--     ITEM_FLAG_LOOTABLE                        = 0x00000004, // affect only non container items that can be "open" for loot. It or lockid set enable for client show "Right click to open". See also ITEM_DYNFLAG_UNLOCKED
+--     ITEM_FLAG_EXOTIC                          = 0x00000008, // not used in pre-3.x
+--     ITEM_FLAG_DEPRECATED                      = 0x00000010, // can't repeat old note: appears red icon (like when item durability==0)
+--     ITEM_FLAG_INDESTRUCTIBLE                  = 0x00000020, // used for totem. Item can not be destroyed, except by using spell (item can be reagent for spell and then allowed)
+--     ITEM_FLAG_PLAYERCAST                      = 0x00000040, // ? old note: usable
+--     ITEM_FLAG_NO_EQUIP_COOLDOWN               = 0x00000080,
+--     ITEM_FLAG_INTBONUSINSTEAD                 = 0x00000100,
+--     ITEM_FLAG_WRAPPER                         = 0x00000200, // used or not used wrapper
+--     ITEM_FLAG_IGNORE_BAG_SPACE                = 0x00000400, // ignore bag space at new item creation?
+--     ITEM_FLAG_PARTY_LOOT                      = 0x00000800, // determines if item is party loot or not
+--     ITEM_FLAG_BRIEFSPELLEFFECTS               = 0x00001000, // not used in pre-3.x
+--     ITEM_FLAG_CHARTER                         = 0x00002000, // guild charter
+--     ITEM_FLAG_HAS_TEXT                        = 0x00004000, // Only readable items have this (but not all)
+--     ITEM_FLAG_NO_DISENCHANT                   = 0x00008000,
+--     ITEM_FLAG_REAL_DURATION                   = 0x00010000,
+--     ITEM_FLAG_NO_CREATOR                      = 0x00020000, // last used flag in 1.12.1
+
+--     ITEM_FLAG_UNIQUE_EQUIPPED                 = 0x00080000, // custom server side check, in client added in 2.x
+-- };
+
+-- enum ItemBondingType
+-- {
+--     NO_BIND                                     = 0,
+--     BIND_WHEN_PICKED_UP                         = 1,
+--     BIND_WHEN_EQUIPPED                          = 2,
+--     BIND_WHEN_USE                               = 3,
+--     BIND_QUEST_ITEM                             = 4,
+--     BIND_QUEST_ITEM1                            = 5         // not used in game
+-- };
+
+
 -- area_bound area table: https://github.com/cmangos/issues/wiki/AreaTable.dbc
 -- flags 2048 = lootable by anyone
 -- max_count = max amount you can have an item (i.e. 1 to make it "unique" or /rare/ex)
@@ -450,21 +485,21 @@ REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `description`, `disp
 
 REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `description`, `display_id`, `quality`, `buy_price`, `sell_price`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`) VALUES (30238, 5, 'Ogre Necklace', 'A pearl necklace worn by the Ogres.  It is too large for people to wear.', 20658, 1, 0, 0, -1, -1, 45, 20, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0);
 
-REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `delay`, `armor`, `arcane_res`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `max_durability`) VALUES (30239, 4, 1, 'Karazhan Caretaker\'s Silken Blouse', 27529, 4, 666666, 6666, 5, -1, -1, 65, 60, 0, 100, 20, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 2, 7, 50);
+REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `delay`, `armor`, `arcane_res`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `max_durability`) VALUES (30239, 4, 1, 'Karazhan Caretaker\'s Silken Blouse', 27529, 4, 6000, 16750, 5, -1, -1, 65, 60, 0, 100, 20, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 2, 7, 50);
 
-REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `delay`, `armor`, `arcane_res`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `max_durability`) VALUES (30240, 4, 1, 'Karazhan Caretaker\'s Satin Blouse', 27529, 4, 666666, 6666, 5, -1, -1, 65, 60, 0, 100, 20, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 2, 7, 50);
+REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `delay`, `armor`, `arcane_res`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `max_durability`) VALUES (30240, 4, 1, 'Karazhan Caretaker\'s Satin Blouse', 27529, 4, 6000, 16750, 5, -1, -1, 65, 60, 0, 100, 20, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 2, 7, 50);
 
-REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `delay`, `armor`, `arcane_res`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `max_durability`) VALUES (30241, 4, 1, 'Karazhan Caretaker\'s Assaulter\'s Jacket', 16870, 4, 666666, 6666, 5, -1, -1, 65, 60, 0, 200, 20, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 2, 7, 50);
+REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `delay`, `armor`, `arcane_res`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `max_durability`) VALUES (30241, 4, 1, 'Karazhan Caretaker\'s Assaulter\'s Jacket', 16870, 4, 6000, 16750, 5, -1, -1, 65, 60, 0, 200, 20, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 2, 7, 50);
 
-REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `delay`, `armor`, `arcane_res`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `max_durability`) VALUES (30242, 4, 1, 'Karazhan Caretaker\'s Sage\'s Jacket', 16870, 4, 666666, 6666, 5, -1, -1, 65, 60, 0, 200, 20, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 2, 7, 50);
+REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `delay`, `armor`, `arcane_res`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `max_durability`) VALUES (30242, 4, 1, 'Karazhan Caretaker\'s Sage\'s Jacket', 16870, 4, 6000, 16750, 5, -1, -1, 65, 60, 0, 200, 20, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 2, 7, 50);
 
-REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `delay`, `armor`, `arcane_res`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `max_durability`) VALUES (30244, 4, 1, 'Karazhan Defender\'s Hardened Chainmail', 13011, 4, 666666, 6666, 5, -1, -1, 65, 60, 0, 400, 20, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 2, 7, 50);
+REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `delay`, `armor`, `arcane_res`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `max_durability`) VALUES (30243, 4, 1, 'Karazhan Defender\'s Hardened Chainmail', 13011, 4, 6000, 16750, 5, -1, -1, 65, 60, 0, 400, 20, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 2, 7, 50);
 
-REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `delay`, `armor`, `arcane_res`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `max_durability`) VALUES (30244, 4, 1, 'Karazhan Defender\'s Patterned Chainmail', 13011, 4, 666666, 6666, 5, -1, -1, 65, 60, 0, 400, 20, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 2, 7, 50);
+REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `delay`, `armor`, `arcane_res`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `max_durability`) VALUES (30244, 4, 1, 'Karazhan Defender\'s Patterned Chainmail', 13011, 4, 6000, 16750, 5, -1, -1, 65, 60, 0, 400, 20, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 2, 7, 50);
 
-REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `delay`, `armor`, `arcane_res`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `max_durability`) VALUES (30245, 4, 1, 'Karazhan Defender\'s Reinforced Platemail', 27356, 4, 666666, 6666, 5, -1, -1, 65, 60, 0, 700, 20, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 2, 7, 50);
+REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `delay`, `armor`, `arcane_res`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `max_durability`) VALUES (30245, 4, 1, 'Karazhan Defender\'s Reinforced Platemail', 27356, 4, 6000, 16750, 5, -1, -1, 65, 60, 0, 700, 20, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 2, 7, 50);
 
-REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `delay`, `armor`, `arcane_res`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `max_durability`) VALUES (30246, 4, 1, 'Karazhan Defender\'s Spiked Platemail', 27356, 4, 666666, 6666, 5, -1, -1, 65, 60, 0, 700, 20, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 2, 7, 50);
+REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `delay`, `armor`, `arcane_res`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `max_durability`) VALUES (30246, 4, 1, 'Karazhan Defender\'s Spiked Platemail', 27356, 4, 6000, 16750, 5, -1, -1, 65, 60, 0, 700, 20, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 2, 7, 50);
 
 -- TODO: Medium Monster bait: 30247
 
@@ -488,8 +523,12 @@ REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display
 
 REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quality`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `page_language`) VALUES (30256, 12, 'Barrel of Aged Karazhan Ale', 7923, 1, -1, -1, 1, 8, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 4, 7);
 
+REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `delay`, `armor`, `arcane_res`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `max_durability`) VALUES (30257, 4, 1, 'Karazhan Defender\'s Holy Platemail', 27356, 4, 6000, 16750, 5, -1, -1, 65, 60, 0, 700, 20, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 2, 7, 50);
 
--- NEXT 30257
+REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quality`, `flags`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `max_count`, `delay`, `spellid_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`) VALUES (30258, 12, 'Ghost Vacuum', 25456, 1, 64, -1, -1, 30, 15, 1, 0, 34179, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1);
+
+
+-- NEXT 30259
 
 -- Karazhan Crafted gear
     -- Karazhan Caretaker's Silken Blouse 
@@ -533,11 +572,87 @@ REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quali
             spellid_2 = 33763, -- +10% Melee Haste
             spelltrigger_2 = 1
         WHERE entry = 30241;
-    -- Karazhan Caretaker's Sage's Jacket -- TODO: Chance on spell cast to allow 100% of MP to continue to generate while casting
-    -- Karazhan Defender's Hardened Chainmail TODO: Chance on hit to cause attacks to ignore x amount of targets armor
-    -- Karazhan Defender's Patterned Chainmail TODO: Chance on spell cast to allow 100% of MP to continue to generate while casting
-    -- Karazhan Defender's Reinforced Platemail TODO: Chance on hit to cause attacks to ignore x amount of targets armor
-    -- Karazhan Defender's Spiked Platemail TODO: Chance when hit to gain an absorb shield
+
+    -- Karazhan Caretaker's Sage's Jacket
+        UPDATE mangos . item_template
+        SET stat_type1 = @ITEM_MOD_INT,
+            stat_value1 = 15,
+            stat_type2 = @ITEM_MOD_SPI,
+            stat_value2 = 30,
+            stat_type3 = @ITEM_MOD_STAM,
+            stat_value3 = 7,
+            spellid_1 = 9346, -- +18 Spell Damage
+            spelltrigger_1 = 1,
+            spellid_2 = 23688, -- 2% chance on successful spellcast to allow 100% of your Mana regeneration to continue while casting for 15 sec. (Proc chance: 2%)
+            spelltrigger_2 = 1
+        WHERE entry = 30242;
+
+    -- Karazhan Defender's Hardened Chainmail
+        UPDATE mangos . item_template
+        SET stat_type1 = @ITEM_MOD_AGI,
+            stat_value1 = 15,
+            stat_type2 = @ITEM_MOD_STAM,
+            stat_value2 = 7,
+            stat_type3 = 0,
+            stat_value3 = 0,
+            spellid_1 = 15817, -- +64 Attack Power
+            spelltrigger_1 = 1,      
+            spellid_2 = 33726, -- +250 Armor Penetration
+            spelltrigger_2 = 1
+        WHERE entry = 30243;
+
+    -- Karazhan Defender's Patterned Chainmail
+        UPDATE mangos . item_template
+        SET stat_type1 = @ITEM_MOD_INT,
+            stat_value1 = 30,
+            stat_type2 = @ITEM_MOD_STAM,
+            stat_value2 = 7,
+            stat_type3 = 0,
+            stat_value3 = 0,
+            spellid_1 = 9346, -- +18 Spell Damage
+            spelltrigger_1 = 1,
+            spellid_2 = 18384, -- +1% Spell Crit
+            spelltrigger_2 = 1
+        WHERE entry = 30244;
+
+    -- Karazhan Defender's Reinforced Platemail
+        UPDATE mangos . item_template
+        SET stat_type1 = @ITEM_MOD_STR,
+            stat_value1 = 15,
+            stat_type2 = @ITEM_MOD_STAM,
+            stat_value2 = 30,
+            stat_type3 = @ITEM_MOD_AGI,
+            stat_value3 = 7,
+            spellid_1 = 33726, -- +250 Armor Penetration
+            spelltrigger_1 = 1
+        WHERE entry = 30245;
+
+    -- Karazhan Defender's Spiked Platemail
+        UPDATE mangos . item_template
+        SET stat_type1 = @ITEM_MOD_STR,
+            stat_value1 = 30,
+            stat_type2 = @ITEM_MOD_STAM,
+            stat_value2 = 15,
+            stat_type3 = @ITEM_MOD_AGI,
+            stat_value3 = 7,
+            spellid_1 = 33726, -- +250 Armor Penetration
+            spelltrigger_1 = 1
+        WHERE entry = 30246;
+
+    -- Karazhan Defender's Holy Platemail
+        UPDATE mangos . item_template
+        SET stat_type1 = @ITEM_MOD_INT,
+            stat_value1 = 30,
+            stat_type2 = @ITEM_MOD_STAM,
+            stat_value2 = 7,
+            stat_type3 = 0,
+            stat_value3 = 0,
+            spellid_1 = 9346, -- +18 Spell Damage
+            spelltrigger_1 = 1,
+            spellid_2 = 18384, -- +1% Spell Crit
+            spelltrigger_2 = 1
+        WHERE entry = 30257;
+
 
 -- Vendor Prices
 
@@ -569,227 +684,6 @@ INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (90
 UPDATE mangos.item_template
 SET buy_price = 2000
 WHERE entry IN (10310, 10309, 10307, 10308, 10305);
-
--- Vendors
-
--- Reagent Vendors
-INSERT IGNORE npc_vendor(entry, item)
-SELECT creature_template.entry, item_template.entry
-FROM (SELECT DISTINCT entry FROM creature_template) creature_template
-JOIN (SELECT DISTINCT entry FROM item_template) item_template
-WHERE creature_template.entry IN (3323, 1307, 1351, 16015, 3335, 4878, 2805, 1257, 3351, 3490, 4083, 8361, 5151, 3562, 12784, 12795, 13476, 1275, 5110, 4575, 983, 958, 4562, 12096, 1308, 3500, 3700, 10364, 12097, 1463, 1673, 3970, 5139, 3542, 4220, 14739, 15175) AND item_template.entry IN (5512, 5511, 5509, 5510, 9421, 16896, 10310, 10309, 10307, 10308, 10305);
-
--- Cooking Supplier Vendor (SW / IF Darnassus only)
-    -- Ground Wasabi and Rice Vinegar
-        REPLACE `mangos`.`npc_vendor` (`entry`, `slot`, `item`) VALUES (4223, 7, 30198);
-        REPLACE `mangos`.`npc_vendor` (`entry`, `slot`, `item`) VALUES (4223, 8, 30199);
-        REPLACE `mangos`.`npc_vendor` (`entry`, `slot`, `item`) VALUES (5160, 7, 30198);
-        REPLACE `mangos`.`npc_vendor` (`entry`, `slot`, `item`) VALUES (5160, 8, 30199);
-        REPLACE `mangos`.`npc_vendor` (`entry`, `slot`, `item`) VALUES (5483, 7, 30198);
-        REPLACE `mangos`.`npc_vendor` (`entry`, `slot`, `item`) VALUES (5483, 8, 30199);
-
--- Silverwing Rep Vendor (WSG)
-INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (14753, 30000, 159);
-INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (14753, 30001, 159);
-INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (14753, 30002, 159);
-INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (14753, 30037, 160);
-INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (14753, 30038, 160);
-INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (14753, 30039, 160);
-INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (14753, 30040, 160);
-INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (14753, 30041, 160);
-
-
-INSERT IGNORE npc_vendor(entry, item)
-SELECT creature_template.entry, item_template.entry
-FROM (SELECT DISTINCT entry FROM creature_template) creature_template
-JOIN (SELECT DISTINCT entry FROM item_template) item_template
-WHERE creature_template.entry IN (14753) AND item_template.entry IN (5512, 5511, 5509, 5510, 9421);
-
-
--- The League of Arathor Rep Vendor (AB)
-INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (15127, 30003, 0);
-INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (15127, 30004, 0);
-INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (15127, 30005, 0);
-INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (15127, 30006, 0);
-INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (15127, 20056, 0);
-INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (15127, 20044, 0);
-INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (15127, 20051, 0);
-INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (15127, 20120, 0);
-INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (15127, 20122, 0);
-INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (15127, 20119, 0);
-INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (15127, 20118, 0);
-
-INSERT IGNORE npc_vendor(entry, item)
-SELECT creature_template.entry, item_template.entry
-FROM (SELECT DISTINCT entry FROM creature_template) creature_template
-JOIN (SELECT DISTINCT entry FROM item_template) item_template
-WHERE creature_template.entry IN (15127) AND item_template.entry IN (5512, 5511, 5509, 5510, 9421);
-
--- Stormpike Guard (AV)
-INSERT IGNORE npc_vendor(entry, item)
-SELECT creature_template.entry, item_template.entry
-FROM (SELECT DISTINCT entry FROM creature_template) creature_template
-JOIN (SELECT DISTINCT entry FROM item_template) item_template
-WHERE creature_template.entry IN (13216) AND item_template.entry IN (5512, 5511, 5509, 5510, 9421);
-
-INSERT IGNORE npc_vendor(entry, item)
-SELECT creature_template.entry, item_template.entry
-FROM (SELECT DISTINCT entry FROM creature_template) creature_template
-JOIN (SELECT DISTINCT entry FROM item_template) item_template
-WHERE creature_template.entry IN (13217) AND item_template.entry IN (5512, 5511, 5509, 5510, 9421);
-
--- Shaman Trainer (Stormwind)
-INSERT IGNORE `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (90034, 5175, 0, 0);
-INSERT IGNORE `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (90034, 5176, 0, 0);
-INSERT IGNORE `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (90034, 5177, 0, 0);
-INSERT IGNORE `npc_vendor` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (90034, 5178, 0, 0);
-
--- PvP Armor Vendor (ID: 12777, vendorID: 1277701)
-INSERT IGNORE `mangos`.`npc_vendor_template` (`entry`, `item`) VALUES (1277701, 22857);
-INSERT IGNORE `mangos`.`npc_vendor_template` (`entry`, `item`) VALUES (1277701, 22867);
-INSERT IGNORE `mangos`.`npc_vendor_template` (`entry`, `item`) VALUES (1277701, 22876);
-INSERT IGNORE `mangos`.`npc_vendor_template` (`entry`, `item`) VALUES (1277701, 22887);
-INSERT IGNORE `mangos`.`npc_vendor_template` (`entry`, `item`) VALUES (1277701, 23259);
-INSERT IGNORE `mangos`.`npc_vendor_template` (`entry`, `item`) VALUES (1277701, 23260);
-
-INSERT IGNORE `mangos`.`npc_vendor_template` (`entry`, `item`) VALUES (1277701, 16577);
-INSERT IGNORE `mangos`.`npc_vendor_template` (`entry`, `item`) VALUES (1277701, 16578);
-INSERT IGNORE `mangos`.`npc_vendor_template` (`entry`, `item`) VALUES (1277701, 16580);
-INSERT IGNORE `mangos`.`npc_vendor_template` (`entry`, `item`) VALUES (1277701, 16573);
-INSERT IGNORE `mangos`.`npc_vendor_template` (`entry`, `item`) VALUES (1277701, 16574);
-INSERT IGNORE `mangos`.`npc_vendor_template` (`entry`, `item`) VALUES (1277701, 16579);
-
-INSERT IGNORE `mangos`.`npc_vendor_template` (`entry`, `item`) VALUES (1277702, 22857);
-INSERT IGNORE `mangos`.`npc_vendor_template` (`entry`, `item`) VALUES (1277702, 22867);
-INSERT IGNORE `mangos`.`npc_vendor_template` (`entry`, `item`) VALUES (1277702, 22876);
-INSERT IGNORE `mangos`.`npc_vendor_template` (`entry`, `item`) VALUES (1277702, 22887);
-INSERT IGNORE `mangos`.`npc_vendor_template` (`entry`, `item`) VALUES (1277702, 23259);
-INSERT IGNORE `mangos`.`npc_vendor_template` (`entry`, `item`) VALUES (1277702, 23260);
-
-INSERT IGNORE `mangos`.`npc_vendor_template` (`entry`, `item`) VALUES (1277702, 16577);
-INSERT IGNORE `mangos`.`npc_vendor_template` (`entry`, `item`) VALUES (1277702, 16578);
-INSERT IGNORE `mangos`.`npc_vendor_template` (`entry`, `item`) VALUES (1277702, 16580);
-INSERT IGNORE `mangos`.`npc_vendor_template` (`entry`, `item`) VALUES (1277702, 16573);
-INSERT IGNORE `mangos`.`npc_vendor_template` (`entry`, `item`) VALUES (1277702, 16574);
-INSERT IGNORE `mangos`.`npc_vendor_template` (`entry`, `item`) VALUES (1277702, 16579);
-
--- Timbermaw Rep
-INSERT IGNORE `mangos`.`npc_vendor_template` (`entry`, `item`, `maxcount`, `incrtime`) VALUES (11557, 18260, 1, 7200);
-INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (11557, 13522, 0);
-
--- Thorium Brotherhood rep
-INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (12944, 20729, 131);
-
--- Wildhammer Rep Vendor (471)
-UPDATE `mangos`.`creature_template` SET `npc_flags`=6 WHERE  `entry`=5635 AND `patch`=0; -- Quest Giver + Vendor flags
-INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (5635, 30047, 0);
-INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (5635, 30048, 0);
-INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (5635, 30049, 0);
-INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (5635, 30050, 0);
-INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (5635, 30051, 0);
-INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (5635, 30052, 0);
-INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (5635, 30053, 0);
-INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (5635, 30054, 0);
-INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (5635, 30055, 0);
-INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (5635, 30059, 0);
-INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (5635, 30114, 0);
-INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (5635, 30115, 0);
-INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (5635, 20730, 0);
-INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (5635, 16055, 0);
-
-
--- Nethergarde Defenders Quartermaster
-UPDATE `mangos`.`creature_template` SET `npc_flags`=6 WHERE  `entry`=5393 AND `patch`=0;
-INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (5393, 30008, 0);
-INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (5393, 30009, 0);
-INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (5393, 30010, 0);
-INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (5393, 30011, 0);
-INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (5393, 30012, 0);
-INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (5393, 30013, 0);
-INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (5393, 30014, 0);
-INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (5393, 30015, 0);
-INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (5393, 18259, 0);
-INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (5393, 18291, 0);
-INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (5393, 13521, 0);
-
-
--- Caretaker of Karazhan Quartermaster (Rep vendor)
-INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (90036, 30019, 0);
-INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (90036, 30020, 0);
-INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (90036, 30021, 0);
-INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (90036, 30022, 0);
-INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (90036, 30023, 0);
-INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (90036, 30024, 0);
-INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (90036, 30025, 0);
-INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (90036, 30026, 0);
-INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (90036, 30027, 0);
-INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (90036, 20727, 0);
-INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (90036, 18292, 0);
-INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (90036, 13520, 0);
-INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (90036, 30250, 0);
-
--- Wintersaber Trainers Quartermaster 
-INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (10618, 30028, 0);
-INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (10618, 30029, 0);
-INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (10618, 30030, 0);
-INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (10618, 30031, 0);
-INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (10618, 30032, 0);
-INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (10618, 30033, 0);
-INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (10618, 30034, 0);
-INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (10618, 30035, 0);
-INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (10618, 30036, 0);
-INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (10618, 20728, 0);
-INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (10618, 18290, 0);
-INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (10618, 13519, 0);
-
--- Stormwind Quartermaster
-    -- NPC
-    REPLACE `mangos`.`creature_template` (`entry`, `name`, `subname`, `level_min`, `level_max`, `faction`, `npc_flags`, `display_id1`, `display_probability1`, `display_total_probability`, `mount_display_id`, `detection_range`, `type`, `rank`, `unit_class`, `health_multiplier`, `armor_multiplier`, `damage_multiplier`, `loot_id`, `gold_min`, `gold_max`, `ai_name`, `static_flags1`, `flags_extra`) VALUES (90056, 'Captain Steven Burgo', 'Stormwind Quartermaster', 62, 62, 12, 4, 1688, 1, 1, 2410, 20, 7, 1, 1, 10, 2, 7, 466, 1, 873, '', 138936320, 2);
-
-    REPLACE  `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000098, 90056, 0, 0, 0, 0, 0, -8831.62, 541.958, 96.9113, 0.813253, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
-
-    -- Items
-    REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90056, 0, 30185, 0, 0, 0, 0);
-    REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90056, 0, 30189, 0, 0, 0, 0);
-    REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90056, 0, 30194, 0, 0, 0, 0);
-
-
--- Ironforge Quartermaster
-    -- NPC
-    REPLACE `mangos`.`creature_template` (`entry`, `patch`, `name`, `subname`, `level_min`, `level_max`, `faction`, `npc_flags`, `gossip_menu_id`, `display_id1`, `display_probability1`, `display_total_probability`, `mount_display_id`, `detection_range`, `type`, `rank`, `unit_class`, `health_multiplier`, `armor_multiplier`, `damage_multiplier`, `equipment_id`, `static_flags1`, `flags_extra`) VALUES (90057, 7, 'Marshal Ironfoot', 'Ironforge Quartermaster', 60, 60, 55, 4, 6772, 15662, 100, 100, 2786, 20, 7, 1, 1, 10, 2, 4.55, 15701, 138936326, 2);
-
-    REPLACE `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000099, 90057, 0, 0, 0, 0, 0, -4816.96, -1161.38, 502.21, 4.31764, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
-
-    -- Items
-    REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90057, 0, 30186, 0, 0, 0, 0);
-    REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90057, 0, 30190, 0, 0, 0, 0);
-    REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90057, 0, 30195, 0, 0, 0, 0);
-
-
--- Gnomergan Quartermaster
-    -- NPC
-    REPLACE `mangos`.`creature_template` (`entry`, `name`, `subname`, `level_min`, `level_max`, `faction`, `npc_flags`, `gossip_menu_id`, `display_id1`, `display_scale1`, `mount_display_id`, `type`, `unit_class`, `health_multiplier`, `armor_multiplier`, `damage_multiplier`, `equipment_id`, `static_flags1`, `flags_extra`) VALUES (90058, 'Master Tinker Trini ', 'Gnomergan Quartermaster', 24, 24, 875, 4, 4137, 10571, 1.15, 2786, 7, 1, 1.02, 2, 0.9, 11028, 138936390, 2);
-
-    REPLACE `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000100, 90058, 0, 0, 0, 0, 0, -4828.81, -1157.43, 502.209, 4.30891, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
-
-    -- Items
-    REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90058, 0, 30187, 0, 0, 0, 0);
-    REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90058, 0, 30191, 0, 0, 0, 0);
-    REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90058, 0, 30196, 0, 0, 0, 0);
-
-
-
--- Darnassus Quartermaster
-    -- NPC
-    REPLACE `mangos`.`creature_template` (`entry`, `patch`, `name`, `subname`, `level_min`, `level_max`, `faction`, `npc_flags`, `display_id1`, `display_probability1`, `display_total_probability`, `mount_display_id`, `speed_run`, `detection_range`, `type`, `rank`, `unit_class`, `health_multiplier`, `armor_multiplier`, `damage_multiplier`, `gold_min`, `gold_max`, `spell_id1`, `spell_id2`, `spell_list_id`, `ai_name`, `equipment_id`, `static_flags1`) VALUES (90059, 1, 'Moon Priestess Lasara', 'Darnassus Quartermaster', 60, 60, 79, 4, 14418, 100, 100, 9991, 1.42857, 20, 7, 1, 1, 3, 2, 5, 1, 844, 14030, 15572, 143790, '', 14379, 273154050);
-
-    REPLACE `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000101, 90059, 0, 0, 0, 0, 1, 8648.85, 841.166, 23.2623, 3.12062, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
-
-    -- Items
-    REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90059, 0, 30188, 0, 0, 0, 0);
-    REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90059, 0, 30192, 0, 0, 0, 0);
-    REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90059, 0, 30197, 0, 0, 0, 0);
-
 
 -- Alchemists' Stone Recipe
 INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`) VALUES (8157, 28, 13517, 1, 3600, 3);
@@ -921,7 +815,7 @@ WHERE entry = 4373;
 -- Green Tinted Goggles
 UPDATE mangos . item_template
 SET quality = 3,
-    spellid_1 = 9330, -- +18 Attack Power
+    spellid_1 = 9336, -- +30 Attack Power
     spelltrigger_1 = 1
 WHERE entry = 4385;
 
@@ -1372,7 +1266,7 @@ SET quality = 3,
     stat_value1 = 4,
     stat_type2 = 6,
     stat_value2 = 4,
-    spellid_1 = 9415, -- +9 Spell Damage
+    spellid_1 = 9395, -- +5 Spell Damage
     spelltrigger_1 = 1
 WHERE entry = 7056;
 
@@ -1595,12 +1489,13 @@ WHERE entry = 5963;
 -- Barbaric Harness
 UPDATE mangos . item_template
 SET quality = 3,
-    stat_type1 = 4,
-    stat_value1 = 12,
-    stat_type2 = 5,
-    stat_value2 = 7,
-    stat_type3 = 6,
-    stat_value3 = 7
+    armor = 150,
+    stat_type1 = @ITEM_MOD_STR,
+    stat_value1 = 7,
+    stat_type2 = @ITEM_MOD_STAM,
+    stat_value2 = 15,
+    stat_type3 = 0,
+    stat_value3 = 0
 WHERE entry = 5739;
 
 -- Barbaric Belt
@@ -2095,9 +1990,9 @@ WHERE entry = 8193;
 
 -- helm
 UPDATE mangos . item_template
-SET quality = 3,
-    spellid_1 = 9140, -- +10 Attack Power
-    spelltrigger_1 = 1
+SET quality = 2,
+    spellid_1 = 0, -- +10 Attack Power
+    spelltrigger_1 = 0
 WHERE entry = 8176;
 
 -- shoulders
@@ -9110,24 +9005,24 @@ WHERE entry = 6974;
 UPDATE mangos . item_template
 SET quality = 4,
     delay = 3600,
-    dmg_min1 = 144,
-    dmg_max1 = 194
+    dmg_min1 = 120,
+    dmg_max1 = 180
 WHERE entry = 6977;
 
 -- Whirlwind Axe
 UPDATE mangos . item_template
 SET quality = 4,
     delay = 3600,
-    dmg_min1 = 144,
-    dmg_max1 = 194
+    dmg_min1 = 120,
+    dmg_max1 = 180
 WHERE entry = 6975;
 
 -- Whirlwind Warhammer
 UPDATE mangos . item_template
 SET quality = 4,
     delay = 3600,
-    dmg_min1 = 144,
-    dmg_max1 = 194
+    dmg_min1 = 120,
+    dmg_max1 = 180
 WHERE entry = 6976;
 
 -- Archeus
@@ -9700,7 +9595,11 @@ WHERE entry = 5016;
 
 -- Durtfeet Stompers (Hungry!)
 UPDATE mangos . item_template
-SET spellid_1 = 33792, -- 3 Spell Penetration
+SET stat_type1 = @ITEM_MOD_INT,
+    stat_value1 = 4,
+    stat_type2 = @ITEM_MOD_SPI,
+    stat_value2 = 9,
+    spellid_1 = 33792, -- 3 Spell Penetration
     spelltrigger_1 = 1
 WHERE entry = 9519;
 
@@ -9725,7 +9624,7 @@ WHERE entry = 4121;
 
 -- Captain Rackmore's Tiller (Claim Rackmore's Treasure!)
 UPDATE mangos . item_template
-SET spellid_1 = 9395, -- +5 Spell Damage
+SET spellid_1 = 33794, -- 5 Spell Penetration
     spelltrigger_1 = 1
 WHERE entry = 16789;
 
@@ -15329,20 +15228,32 @@ SET bonding = 1 -- BOP
 WHERE entry IN(12717, 18418, 22388, 14512, 14513, 14514, 12834, 12825, 18260, 20730, 20727, 20728, 18259, 20731, 20735, 20736, 18260, 12720, 12725, 12726, 12727, 12696, 
 15763, 15751, 15726, 15733, 15730, 18657, 18658, 16049, 13501, 13518, 18257);
 
--- Display IDs
--- Cute Mail: Fortified chain (display: 1019) Infantry Tunic (display: 3057), Copper Chain Vest
--- Cute Mail Legs: Infantry Leggings (Display: 3058)
--- SUPER skimpy sexy Mail: Burnished Tunic (Display: 25769), Glimmering Mail Breastplate
--- Skimpy plate armor: Vanguard Breastplate (display: 26846), Lord's Breastplate
--- Skimpy Leather: Pridelord Pants(display: 27651)
--- Super cute and sexy leather: Ceremonial Leather Loincloth + Bandit Boots
+-- Cosmetics
+    -- Cloth:
+        -- Hide Shoudlers + Side Boob: https://www.wowhead.com/classic/item=6610/sages-robe
+        -- Side Boob + Shoulderless: Elder's Robe
+        -- Sexy: Ritual Shroud
+        -- Shoulderless Cleavage: Civinad Robes
+        -- Shoulderless Black minor cleavage: Silver-thread robe
+        -- Shoulderless cleavage kinda black: Thistlefur Robe
 
--- Cloth:
-    -- Hide Side Boob: https://www.wowhead.com/classic/item=6610/sages-robe
-    -- Side Boob + Shoulderless: Elder's Robe
-    -- Sexy: Ritual Shroud
-    -- Shoulderless Cleavage: Civinad Robes
-    -- Shoulderless Black minor cleavage: Silver-thread robe
+    -- Leather
+        -- Dervish Tunic
+        -- Ceremonial Leather Loincloth 
+        -- Bandit Boots
+        -- Pridelord Pants(display: 27651)
+
+    -- Mail
+        -- Fortified chain (display: 1019) 
+        -- Infantry Tunic (display: 3057)
+        -- Copper Chain Vest
+        -- Infantry Leggings (Display: 3058)
+        -- Burnished Tunic (Display: 25769)
+        -- Glimmering Mail Breastplate
+
+    -- Plate
+        -- Vanguard Breastplate (display: 26846)
+        -- Lord's Breastplate
 
 
 -- Cool weapons: 

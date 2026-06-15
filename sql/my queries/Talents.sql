@@ -1,4 +1,4 @@
--- NEXT talent ID is 1736
+-- NEXT talent ID is 1737
 -- Talents that grant a new spell (i.e. feral charge) need flags set to "1"
 -- Talents
 
@@ -123,10 +123,6 @@
 
     UPDATE `mangos`.`spell_template` SET `effect2`=6, `effectDieSides2`=1, `effectBaseDice2`=1, `effectBasePoints1`=9, `effectBasePoints2`=9, `effectImplicitTargetA2`=1, `effectApplyAuraName2`=133, `description`='Increases your armor value from items by $s1% and your total Health by $s2%.' WHERE  `entry`=16307;
     
-    -- Weapon Mastery (2 points, 5/10%)
-    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=4 WHERE  `entry`=29082;
-    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=9 WHERE  `entry`=29084;
-
 -- Priest
 -- Inner Focus (Add Penance)
 UPDATE `mangos`.`spell_template` SET `effectItemType1`=29107945435, `effectItemType2`=29147545232 WHERE  `entry`=14751 AND `build`=5302;
