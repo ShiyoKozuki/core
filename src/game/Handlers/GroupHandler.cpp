@@ -439,9 +439,10 @@ void WorldSession::HandleRaidTargetUpdateOpcode(WorldPackets::Group::RaidTargetU
         group->SendTargetIconList(this);
     else // target icon update
     {
-        if (!group->IsLeader(GetPlayer()->GetObjectGuid()) &&
-            !group->IsAssistant(GetPlayer()->GetObjectGuid()))
-            return;
+        //if (!group->IsLeader(GetPlayer()->GetObjectGuid()) &&
+        //    !group->IsAssistant(GetPlayer()->GetObjectGuid()))
+        //    return;
+        //  Custom: Allow anyone to mark targets
 
         group->SetTargetIcon(packet.iconId, packet.guid);
     }
