@@ -82,8 +82,8 @@ UPDATE mangos . creature_display_info_addon
 SET combat_reach = 2
 WHERE display_id IN(59, 60, 12170);
 
--- Has path nodes, so set movement type to path nodes
-UPDATE `mangos`.`creature` SET `movement_type`=2 WHERE  `guid` IN (2000115, 2000127, 2000133, 2000130);
+-- Has path nodes, so set movement type to waypoint
+UPDATE `mangos`.`creature` SET `movement_type`=2 WHERE  `guid` IN (2000115, 2000127, 2000133, 2000130, 2000144, 2000145, 2000146, 2000147, 2000148);
 
 -- Vengful Spirit damage reduced (Not captured)
 UPDATE `mangos`.`creature_template` SET `damage_multiplier`=1.10 WHERE  `entry`=4030 AND `patch`=0;
@@ -667,6 +667,26 @@ DELETE from mangos.creature where guid IN (9408, 9409, 9319, 9410, 9155, 9150, 9
             REPLACE INTO `creature_movement_template` (`entry`, `point`, `position_x`, `position_y`, `position_z`, `orientation`, `waittime`, `wander_distance`, `script_id`, `path_id`) VALUES (90101, 12, -11172.4, -2172, 22.723, 100, 0, 0, 0, 0);
             REPLACE INTO `creature_movement_template` (`entry`, `point`, `position_x`, `position_y`, `position_z`, `orientation`, `waittime`, `wander_distance`, `script_id`, `path_id`) VALUES (90101, 13, -11175.8, -2218.69, 22.738, 100, 0, 0, 0, 0);
             REPLACE INTO `creature_movement_template` (`entry`, `point`, `position_x`, `position_y`, `position_z`, `orientation`, `waittime`, `wander_distance`, `script_id`, `path_id`) VALUES (90101, 14, -11208.7, -2217.25, 22.7499, 100, 0, 0, 0, 0);
+
+        -- Karazhan "Tower" patrolls
+            REPLACE INTO `creature_movement` (`id`, `point`, `position_x`, `position_y`, `position_z`, `orientation`, `waittime`, `wander_distance`, `script_id`, `path_id`) VALUES (2000144, 1, -11010.3, -2038.19, 79.9262, 100, 0, 0, 0, 0);
+            REPLACE INTO `creature_movement` (`id`, `point`, `position_x`, `position_y`, `position_z`, `orientation`, `waittime`, `wander_distance`, `script_id`, `path_id`) VALUES (2000144, 2, -11026, -2051.13, 79.9178, 100, 0, 0, 0, 0);
+            REPLACE INTO `creature_movement` (`id`, `point`, `position_x`, `position_y`, `position_z`, `orientation`, `waittime`, `wander_distance`, `script_id`, `path_id`) VALUES (2000144, 3, -11012.9, -2070.67, 68.6658, 100, 0, 0, 0, 0);
+            REPLACE INTO `creature_movement` (`id`, `point`, `position_x`, `position_y`, `position_z`, `orientation`, `waittime`, `wander_distance`, `script_id`, `path_id`) VALUES (2000144, 4, -11002.1, -2061.61, 68.6722, 100, 0, 0, 0, 0);
+            REPLACE INTO `creature_movement` (`id`, `point`, `position_x`, `position_y`, `position_z`, `orientation`, `waittime`, `wander_distance`, `script_id`, `path_id`) VALUES (2000144, 5, -11001.1, -2035.56, 68.2061, 100, 0, 0, 0, 0);
+            REPLACE INTO `creature_movement` (`id`, `point`, `position_x`, `position_y`, `position_z`, `orientation`, `waittime`, `wander_distance`, `script_id`, `path_id`) VALUES (2000144, 6, -11018.3, -2048.14, 55.618, 100, 0, 0, 0, 0);
+            REPLACE INTO `creature_movement` (`id`, `point`, `position_x`, `position_y`, `position_z`, `orientation`, `waittime`, `wander_distance`, `script_id`, `path_id`) VALUES (2000144, 7, -11012.7, -2057.96, 55.618, 100, 0, 0, 0, 0);
+            REPLACE INTO `creature_movement` (`id`, `point`, `position_x`, `position_y`, `position_z`, `orientation`, `waittime`, `wander_distance`, `script_id`, `path_id`) VALUES (2000145, 1, -11025.8, -2052.83, 79.8925, 100, 0, 0, 0, 0);
+            REPLACE INTO `creature_movement` (`id`, `point`, `position_x`, `position_y`, `position_z`, `orientation`, `waittime`, `wander_distance`, `script_id`, `path_id`) VALUES (2000145, 2, -11014.1, -2068.27, 68.6535, 100, 0, 0, 0, 0);
+            REPLACE INTO `creature_movement` (`id`, `point`, `position_x`, `position_y`, `position_z`, `orientation`, `waittime`, `wander_distance`, `script_id`, `path_id`) VALUES (2000146, 1, -11000.6, -2036.42, 68.2066, 100, 0, 0, 0, 0);
+            REPLACE INTO `creature_movement` (`id`, `point`, `position_x`, `position_y`, `position_z`, `orientation`, `waittime`, `wander_distance`, `script_id`, `path_id`) VALUES (2000146, 2, -10998.2, -2064.82, 68.6702, 100, 0, 0, 0, 0);
+            REPLACE INTO `creature_movement` (`id`, `point`, `position_x`, `position_y`, `position_z`, `orientation`, `waittime`, `wander_distance`, `script_id`, `path_id`) VALUES (2000147, 1, -11003.2, -2050.28, 49.4726, 100, 0, 0, 0, 0);
+            REPLACE INTO `creature_movement` (`id`, `point`, `position_x`, `position_y`, `position_z`, `orientation`, `waittime`, `wander_distance`, `script_id`, `path_id`) VALUES (2000147, 2, -11011.3, -2057.77, 55.6169, 100, 0, 0, 0, 0);
+            REPLACE INTO `creature_movement` (`id`, `point`, `position_x`, `position_y`, `position_z`, `orientation`, `waittime`, `wander_distance`, `script_id`, `path_id`) VALUES (2000147, 3, -11018.4, -2049.22, 55.6169, 100, 0, 0, 0, 0);
+            REPLACE INTO `creature_movement` (`id`, `point`, `position_x`, `position_y`, `position_z`, `orientation`, `waittime`, `wander_distance`, `script_id`, `path_id`) VALUES (2000147, 4, -11004.5, -2037.84, 68.2066, 100, 0, 0, 0, 0);
+            REPLACE INTO `creature_movement` (`id`, `point`, `position_x`, `position_y`, `position_z`, `orientation`, `waittime`, `wander_distance`, `script_id`, `path_id`) VALUES (2000148, 1, -11018.8, -2048.94, 55.6177, 100, 0, 0, 0, 0);
+            REPLACE INTO `creature_movement` (`id`, `point`, `position_x`, `position_y`, `position_z`, `orientation`, `waittime`, `wander_distance`, `script_id`, `path_id`) VALUES (2000148, 2, -11005.9, -2036.86, 68.2059, 100, 0, 0, 0, 0);
+
 
 
 

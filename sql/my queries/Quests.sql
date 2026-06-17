@@ -44,7 +44,7 @@
 -- how do distress beacon quests not replace item on starting? same with ship schedule
 
 -- Quest + Vendor + Repair npc flag = 
--- NEXT quest_template 30266
+-- NEXT quest_template 30267
 -- NEXT quest_end_script 10009
 -- NEXT generic_script 9000001
 -- NEXT creature_movement_scripts 9000001
@@ -575,17 +575,21 @@ REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90035, 3000
 
         REPLACE `mangos`.`quest_template` (`entry`, `Method`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `SpecialFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `DetailsEmote1`, `IncompleteEmote`, `CompleteEmote`) VALUES (30265, 0, 41, 58, 62, 264, 1, 'Thousand Year Brew', '', '', 'I heard there\'s a basement underneath Karazhan full of very old beer. Being a Dwarf, I ened to try this! Bring me Agred Beer from the the crypts underneath Karazhan.', 'Please bring me Aged Beer from the crypts underneath Karazhan.', '', '', '', '', '', 30256, 8, 477, 150, 390, 25, 1, 1);
 
+        REPLACE `mangos`.`quest_template` (`entry`, `Method`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `SpecialFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `DetailsEmote1`, `IncompleteEmote`, `CompleteEmote`) VALUES (30266, 0, 41, 58, 62, 264, 1, 'Shade Essences', '', '', 'Grab a Ghost Vacuum from Wade Wells and then use it to gather Shade Essences from the Restless Shades in Deadwind Pass when their HP is critical.', 'Grab a Ghost Vacuum from Wade Wells and then use it to gather Shade Essences from the Restless Shades in Deadwind Pass when their HP is critical.', '', '', '', '', '', 30061, 5, 477, 150, 390, 25, 1, 1);
+
         -- Quest Relation
             REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90099, 30257);
             REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90099, 30258);
             REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90099, 30259);
             REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90099, 30265);
+            REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90099, 30266);
 
         -- Quest Involved Relation
             REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90099, 30257);
             REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90099, 30258);
             REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90099, 30259);
             REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90099, 30265);
+            REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90099, 30266);
 
 -- Escort NPC + Quest
     -- TODO: It was working, then I changed NPC to despawn, added xyzo pos for guy to spawn, removed target and now its all broken

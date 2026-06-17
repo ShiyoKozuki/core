@@ -801,8 +801,15 @@ struct GhostVacuumScript : public SpellScript
 {
     SpellCastResult OnCheckCast(Spell* spell, bool /*strict*/) const final
     {
-        if (!spell->m_targets.getUnitTarget() || spell->m_targets.getUnitTarget()->GetEntry() != NPC_RESTLESS_SHADE)
+        if (Unit* pTarget = spell->m_targets.getUnitTarget())
+        {
+            if (pTarget->GetEntry() != NPC_RESTLESS_SHADE || pTarget->GetHealthPercent() > 25.0f || pTarget->IsDead())
+                return SPELL_FAILED_BAD_TARGETS;
+        }
+        else
+        {
             return SPELL_FAILED_BAD_TARGETS;
+        }
 
         return SPELL_CAST_OK;
     }
@@ -812,18 +819,29 @@ struct GhostVacuumScript : public SpellScript
         if (effIdx != EFFECT_INDEX_0)
             return true;
 
-        Player* player = spell->m_casterUnit->ToPlayer();
-        if (!player)
+        Player* pPlayer = spell->m_casterUnit->ToPlayer();
+        if (!pPlayer)
             return true;
 
-        uint32 itemId = 6666;
+        Unit* pTarget = spell->m_targets.getUnitTarget();
+        if (!pTarget)
+            return true;
+
+        uint32 itemId = 30061;
         uint32 count = 1;
 
         ItemPosCountVec dest;
-        InventoryResult msg = player->CanStoreNewItem(NULL_BAG, NULL_SLOT, dest, itemId, count);
+        InventoryResult msg = pPlayer->CanStoreNewItem(NULL_BAG, NULL_SLOT, dest, itemId, count);
 
         if (msg == EQUIP_ERR_OK)
-            player->StoreNewItem(dest, itemId, true);
+        {
+            pPlayer->StoreNewItem(dest, itemId, true);
+
+            // Kill the Target (Restless Shade)
+
+            if (pTarget->IsAlive())
+                pPlayer->DealDamage(pTarget, pTarget->GetHealth(), nullptr, DIRECT_DAMAGE, SPELL_SCHOOL_MASK_NORMAL, nullptr, false);
+        }
 
         return true;
     }
