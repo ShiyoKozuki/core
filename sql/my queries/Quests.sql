@@ -646,6 +646,7 @@ REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90035, 3000
         (9000000, 8, 0, 18, 0, 7200, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Scared Spirit - Despawn Creature');
 
 
+    -- TODO: 1 patrolling peron on each of final 2 floors to roof before Xelnu (there's already a 3rd spawn can use for top, but one below needs a 3rd)
     -- TODO: Fix the boss summoned by the Eerie Altar, using one of my bosses unsure which one I want
     -- TODO: Quest inside "Crypt" cave to escort someone out
     -- TODO: Quest inside "Crypt" cave to spawn a wave of mobs (Costs Soulshard Fragments)

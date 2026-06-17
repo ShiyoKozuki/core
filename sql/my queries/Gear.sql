@@ -5238,7 +5238,18 @@ WHERE entry = 6681;
 
 -- Scarlet Monastery
 
---
+-- Bloody Brass Knuckles
+UPDATE mangos . item_template
+SET quality = 3,
+    bonding = 1, -- BOP
+    delay = 1600,
+    dmg_min1 = 25,
+    dmg_max1 = 55,
+    stat_type1 = @ITEM_MOD_STR,
+    stat_value1 = 12,
+    stat_type2 = 0,
+    stat_value2 = 0
+WHERE entry = 7683;
 
 -- Dog Training Gloves
 UPDATE mangos . item_template
@@ -5362,7 +5373,10 @@ WHERE entry = 7718;
 
 -- Dusty Mail Boots
 UPDATE mangos . item_template
-SET spellid_1 = 21624, -- 2 MP/5
+SET quality = 3,
+    stat_type1 = @ITEM_MOD_SPI,
+    stat_value1 = 7,
+    spellid_1 = 9142, -- +14 Attack Power
     spelltrigger_1 = 1
 WHERE entry = 19509;
 
