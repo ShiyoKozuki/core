@@ -533,8 +533,10 @@ REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quali
 
 REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id`, `quality`, `flags`, `stackable`, `allowable_class`, `allowable_race`, `item_level`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30061, 2, 12, 'Captured Shade Essence', 6513, 1, 2048, 12, -1, -1, 1, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 4, -1);
 
+REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `flags`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `max_count`, `delay`, `spellid_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcharges_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`) VALUES (30262, 12, 'Holy Spear', 32446, 1, 1500, 375, 64, -1, -1, 30, 15, 1, 0, 34184, -1, -1, 1, -1, -1, -1, -1, -1, -1, 0, 0, 1);
 
--- NEXT 30262
+
+-- NEXT 30263
 
 -- Karazhan Crafted gear
     -- Karazhan Caretaker's Silken Blouse 
@@ -5413,6 +5415,14 @@ SET spellid_1 = 25975, -- 10 Spell Penetration
 WHERE entry = 7723;
 
 -- RFD
+
+-- Gluttons Cleaver
+UPDATE mangos . item_template
+SET quality = 3,
+    delay = 2000,
+    dmg_min1 = 39,
+    dmg_max1 = 73
+WHERE entry = 10772;
 
 -- Icemetal Barbute
 UPDATE mangos . item_template
@@ -15264,6 +15274,7 @@ WHERE entry IN(12717, 18418, 22388, 14512, 14513, 14514, 12834, 12825, 18260, 20
         -- Ceremonial Leather Loincloth 
         -- Bandit Boots
         -- Pridelord Pants(display: 27651)
+        -- Archer's Jerkin (Shows tummy, nice for "Ranger" look)
 
     -- Mail
         -- Fortified chain (display: 1019) 
