@@ -795,6 +795,7 @@ AuraScript* GetScript_Ashbringer(SpellEntry const*)
 enum
 {
     NPC_RESTLESS_SHADE = 7370,
+    ITEM_CAPTURED_SHADE_ESSENCE = 30061
 };
 
 struct GhostVacuumScript : public SpellScript
@@ -827,20 +828,20 @@ struct GhostVacuumScript : public SpellScript
         if (!pTarget)
             return true;
 
-        uint32 itemId = 30061;
         uint32 count = 1;
 
         ItemPosCountVec dest;
-        InventoryResult msg = pPlayer->CanStoreNewItem(NULL_BAG, NULL_SLOT, dest, itemId, count);
+        InventoryResult msg = pPlayer->CanStoreNewItem(NULL_BAG, NULL_SLOT, dest, ITEM_CAPTURED_SHADE_ESSENCE, count);
 
         if (msg == EQUIP_ERR_OK)
         {
-            pPlayer->StoreNewItem(dest, itemId, true);
+            pPlayer->StoreNewItem(dest, ITEM_CAPTURED_SHADE_ESSENCE, true);
 
             // Kill the Target (Restless Shade)
-
             if (pTarget->IsAlive())
                 pPlayer->DealDamage(pTarget, pTarget->GetHealth(), nullptr, DIRECT_DAMAGE, SPELL_SCHOOL_MASK_NORMAL, nullptr, false);
+
+            return false;
         }
 
         return true;
@@ -851,6 +852,54 @@ SpellScript* GetScript_GhostVacuum(SpellEntry const*)
 {
     return new GhostVacuumScript();
 }
+
+enum
+{
+    NPC_ENKIDU = 90095,
+    SPELL_TITAN_SHIELD = 34183
+};
+
+struct HolySpearScript : public SpellScript
+{
+    SpellCastResult OnCheckCast(Spell* spell, bool /*strict*/) const final
+    {
+        if (Unit* pTarget = spell->m_targets.getUnitTarget())
+        {
+            if (pTarget->GetEntry() != NPC_ENKIDU || pTarget->IsDead())
+                return SPELL_FAILED_BAD_TARGETS;
+        }
+        else
+        {
+            return SPELL_FAILED_BAD_TARGETS;
+        }
+
+        return SPELL_CAST_OK;
+    }
+
+    bool OnEffectExecute(Spell* spell, SpellEffectIndex effIdx) const final
+    {
+        if (effIdx != EFFECT_INDEX_0)
+            return true;
+
+        Unit* pTarget = spell->m_targets.getUnitTarget();
+        if (!pTarget)
+            return true;
+
+        if (pTarget->IsAlive())
+        {
+            pTarget->RemoveAurasDueToSpell(SPELL_TITAN_SHIELD);
+            return false;
+        }
+
+        return true;
+    }
+};
+
+SpellScript* GetScript_HolySpear(SpellEntry const*)
+{
+    return new HolySpearScript();
+}
+
 
 void AddSC_item_spell_scripts()
 {
@@ -1019,5 +1068,10 @@ void AddSC_item_spell_scripts()
     newscript = new Script;
     newscript->Name = "spell_ghost_vacuum";
     newscript->GetSpellScript = &GetScript_GhostVacuum;
+    newscript->RegisterSelf();
+
+    newscript = new Script;
+    newscript->Name = "spell_holy_spear";
+    newscript->GetSpellScript = &GetScript_HolySpear;
     newscript->RegisterSelf();
 }

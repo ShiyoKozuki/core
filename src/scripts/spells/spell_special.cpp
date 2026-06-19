@@ -586,6 +586,48 @@ AuraScript* GetScript_Stoneform(SpellEntry const*)
     return new StoneformAuraScript();
 }
 
+struct FelGemSpellScript : public SpellScript
+{
+    bool OnEffectExecute(Spell* spell, SpellEffectIndex effIdx) const final
+    {
+        if (effIdx != EFFECT_INDEX_0)
+        {
+            return true;
+        }
+
+        Unit* pTarget = spell->m_targets.getUnitTarget();
+        if (!pTarget)
+        {
+            return true;
+        }
+
+        if (pTarget->IsAlive())
+        {
+            // First roll if it should be a buff or debuff
+            if (roll_chance_i(25)) // 25% Chance of being a buff
+            {
+                // Now roll the buff
+                auto selectedSpell = urand(0, 7) + 34186; // Buff aura spellIds are 34186 - 34193
+                pTarget->CastSpell(pTarget, selectedSpell, true);
+            }
+            else
+            {
+                // Now roll the debuff
+                auto selectedSpell = urand(0, 7) + 34194; // Buff aura spellIds are 34194 - 34201
+                pTarget->CastSpell(pTarget, selectedSpell, true);
+            }
+
+            return false;
+        }
+        return true;
+    }
+};
+
+SpellScript* GetScript_FelGem(SpellEntry const*)
+{
+    return new FelGemSpellScript();
+}
+
 void AddSC_special_spell_scripts()
 {
     Script* newscript;
@@ -701,5 +743,10 @@ void AddSC_special_spell_scripts()
     newscript = new Script;
     newscript->Name = "spell_flamethrower";
     newscript->GetAuraScript = &GetScript_Flamethrower;
+    newscript->RegisterSelf();
+
+    newscript = new Script;
+    newscript->Name = "spell_fel_gem";
+    newscript->GetSpellScript = &GetScript_FelGem;
     newscript->RegisterSelf();
 }

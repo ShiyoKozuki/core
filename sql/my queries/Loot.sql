@@ -1,6 +1,6 @@
 -- Creature drops
 
--- NEXT creature_loot_template id 17083
+-- NEXT creature_loot_template id 17090
 
 -- For grouped drops (I.e. bosses)
 -- SELECT * FROM reference_loot_template WHERE item = 30135;
@@ -509,4 +509,7 @@ INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuest
     -- Ogopogo
     INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`, `patch_min`) VALUES (17088, 30213, 25, 10);
     INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`, `patch_min`) VALUES (17088, 30236, 100, 10);
+
+    -- Zombie Mother
+    INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`, `patch_min`) VALUES (17089, 30213, 100, 10);
 
