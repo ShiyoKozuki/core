@@ -338,7 +338,7 @@ struct MageIceLanceScript : SpellScript
                 SpellEntry const* auraSpell = itr.second->GetSpellProto();
 
                 if (auraSpell->IsFitToFamily<SPELLFAMILY_MAGE, CF_MAGE_FROST_BOMB>() ||
-                    auraSpell->IsFitToFamily<SPELLFAMILY_MAGE, CF_MAGE_FLURRY>())
+                    auraSpell->IsFitToFamily<SPELLFAMILY_MAGE, CF_MAGE_FLURRY_CHANNEL>())
                 {
                     shouldTripleDamage = true;
                     isFrozen = true;

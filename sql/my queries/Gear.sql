@@ -386,13 +386,13 @@ REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quali
 
 REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, required_level, `required_reputation_faction`, `required_reputation_rank`, `stackable`, `stat_type1`, `stat_value1`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `material`, `bonding`) VALUES (30188, 4, 'Darnassus Chain', 18172, 2, 3025, 605, 2, -1, -1, 1, 20, 69, 4, 0, 3, 4, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 3, 1);
 
-REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, required_level, `required_reputation_faction`, `required_reputation_rank`, `delay`, `spellid_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `disenchant_id`) VALUES (30189, 9, 4, 'Badge of Stormwind', 35620, 2, 18570, 4642, 12, -1, -1, 40, 30, 72, 5, 0, 33831, 300000, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0);
+REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, required_level, `required_reputation_faction`, `required_reputation_rank`, `delay`, `spellid_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `disenchant_id`) VALUES (30189, 9, 4, 'Badge of Stormwind', 59973, 2, 18570, 4642, 12, -1, -1, 40, 30, 72, 4, 0, 33831, 300000, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0);
 
-REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, required_level, `required_reputation_faction`, `required_reputation_rank`, `delay`, `spellid_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `disenchant_id`) VALUES (30190, 9, 4, 'Badge of Ironforge', 35620, 2, 18570, 4642, 12, -1, -1, 40, 30, 47, 5, 0, 33832, 300000, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0);
+REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, required_level, `required_reputation_faction`, `required_reputation_rank`, `delay`, `spellid_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `disenchant_id`) VALUES (30190, 9, 4, 'Badge of Ironforge', 59977, 2, 18570, 4642, 12, -1, -1, 40, 30, 47, 4, 0, 33832, 300000, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0);
 
-REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, required_level, `required_reputation_faction`, `required_reputation_rank`, `delay`, `spellid_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `disenchant_id`) VALUES (30191, 9, 4, 'Badge of Gnomergan', 35620, 2, 18570, 4642, 12, -1, -1, 40, 30, 54, 5, 0, 33833, 300000, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0);
+REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, required_level, `required_reputation_faction`, `required_reputation_rank`, `delay`, `spellid_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `disenchant_id`) VALUES (30191, 9, 4, 'Badge of Gnomergan', 59976, 2, 18570, 4642, 12, -1, -1, 40, 30, 54, 4, 0, 33833, 300000, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0);
 
-REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, required_level, `required_reputation_faction`, `required_reputation_rank`, `delay`, `spellid_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `disenchant_id`) VALUES (30192, 9, 4, 'Badge of Darnassus', 35620, 2, 18570, 4642, 12, -1, -1, 40, 30, 69, 5, 0, 33834, 300000, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0);
+REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, required_level, `required_reputation_faction`, `required_reputation_rank`, `delay`, `spellid_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `disenchant_id`) VALUES (30192, 9, 4, 'Badge of Darnassus', 59975, 2, 18570, 4642, 12, -1, -1, 40, 30, 69, 4, 0, 33834, 300000, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0);
 
 REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `description`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `stat_type1`, `stat_value1`, `stat_type2`, `stat_value2`, `delay`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `disenchant_id`) VALUES (30193, 4, 'Deadwind Ogre Ring', 'This ring was once owned by Medivh.', 32323, 4, 12400, 2400, 11, -1, -1, 58, 58, 4, 6, 6, 10, 0, 33761, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 2, 1, 0);
 
@@ -535,8 +535,9 @@ REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id
 
 REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `flags`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `max_count`, `delay`, `spellid_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcharges_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`) VALUES (30262, 12, 'Holy Spear', 32446, 1, 1500, 375, 64, -1, -1, 30, 15, 1, 0, 34184, -1, -1, 1, -1, -1, -1, -1, -1, -1, 0, 0, 1);
 
+REPLACE `mangos`.`item_template` (`entry`, `name`, `description`, `display_id`, `quality`, `allowable_class`, `allowable_race`, `delay`, `spellid_1`, `spellcharges_1`, `spellcooldown_1`, `spellcategory_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `material`) VALUES (30263, 'Aquarian abjuration: head', 'The inscription reads: "In accordance with the ancient aquarian pact, may the bane be lifted from thy forbidden artifact." This prayer is necessary in purifying a cursed crown.', 57346, 3, -1, -1, 0, 0, -1, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3);
 
--- NEXT 30263
+-- NEXT 30264
 
 -- Karazhan Crafted gear
     -- Karazhan Caretaker's Silken Blouse 
@@ -5416,6 +5417,27 @@ WHERE entry = 7723;
 
 -- RFD
 
+-- Swine Fists
+UPDATE mangos . item_template
+SET stat_type1 = @ITEM_MOD_STR,
+    stat_value1 = 11,
+    stat_type2 = @ITEM_MOD_SPI,
+    stat_value2 = 11
+WHERE entry = 10760;
+
+-- Silky Spider Cape
+UPDATE mangos . item_template
+SET stat_type1 = @ITEM_MOD_STAM,
+    stat_value1 = 5,
+    stat_type2 = @ITEM_MOD_SPI,
+    stat_value2 = 11
+WHERE entry = 10776;
+
+-- Arachnid Gloves
+UPDATE mangos . item_template
+SET armor = 124
+WHERE entry = 10777;
+
 -- Gluttons Cleaver
 UPDATE mangos . item_template
 SET quality = 3,
@@ -5423,6 +5445,16 @@ SET quality = 3,
     dmg_min1 = 39,
     dmg_max1 = 73
 WHERE entry = 10772;
+
+-- Deathchill Armor
+UPDATE mangos . item_template
+SET stat_type1 = @ITEM_MOD_STAM,
+    stat_value1 = 3,
+    stat_type2 = @ITEM_MOD_STR,
+    stat_value2 = 9,
+    stat_type3 = @ITEM_MOD_SPI,
+    stat_value3 = 20
+WHERE entry = 10764;
 
 -- Icemetal Barbute
 UPDATE mangos . item_template
@@ -5478,6 +5510,56 @@ WHERE entry = 10761;
 
 -- Uldaman
 
+-- Revelosh's Boots
+UPDATE mangos . item_template
+SET quality = 3,
+    armor = 227,
+    stat_type1 = @ITEM_MOD_STAM,
+    stat_value1 = 10
+WHERE entry = 9387;
+
+-- Revelosh's Spaulders
+UPDATE mangos . item_template
+SET quality = 3,
+    armor = 93,
+    stat_type1 = @ITEM_MOD_STAM,
+    stat_value1 = 10
+WHERE entry = 9389;
+
+-- Revelosh's Gloves
+UPDATE mangos . item_template
+SET quality = 3,
+    armor = 36,
+    stat_type1 = @ITEM_MOD_SPI,
+    stat_value1 = 10
+WHERE entry = 9390;
+
+-- Revelosh's Armguards
+UPDATE mangos . item_template
+SET quality = 3,
+    armor = 111,
+    stat_type1 = @ITEM_MOD_SPI,
+    stat_value1 = 8
+WHERE entry = 9388;
+
+-- Ironshod Bludgeon
+UPDATE mangos . item_template
+SET stat_type1 = @ITEM_MOD_STR,
+    stat_value1 = 20,
+    stat_type2 = @ITEM_MOD_STAM,
+    stat_value2 = 8
+WHERE entry = 9408;
+
+-- Rockshard Pauldrons
+UPDATE mangos . item_template
+SET quality = 3,
+    armor = 205,
+    stat_type1 = @ITEM_MOD_INT,
+    stat_value1 = 15,
+    stat_type2 = @ITEM_MOD_SPI,
+    stat_value2 = 15
+WHERE entry = 9411;
+
 -- Galgann's Firehammer
 UPDATE mangos . item_template
 SET quality = 3,
@@ -5500,9 +5582,9 @@ UPDATE mangos . item_template
 SET quality = 3,
     armor = 200,
     fire_res = -15,
-    stat_type1 = 4,
+    stat_type1 = @ITEM_MOD_STR,
     stat_value1 = 20,
-    stat_type2 = 7,
+    stat_type2 = @ITEM_MOD_STAM,
     stat_value2 = 10
 WHERE entry = 9414;
 
@@ -14971,8 +15053,6 @@ SET spellid_1 = 21442, -- +41 Ranged Attack Power
     spelltrigger_1 = 1
 WHERE entry = 30178;
 
--- Enchanting Wands
-
 -- Conjured Items
 
 -- Soulshard
@@ -15268,6 +15348,9 @@ WHERE entry IN(12717, 18418, 22388, 14512, 14513, 14514, 12834, 12825, 18260, 20
         -- Shoulderless Cleavage: Civinad Robes
         -- Shoulderless Black minor cleavage: Silver-thread robe
         -- Shoulderless cleavage kinda black: Thistlefur Robe
+        -- Shoulderless + Purple: Elder's Robe
+        -- Shoulderless + Back shown: Geomancer's Wraps
+        -- INV_Chest_Christmas01 and INV_Chest_Christmas02?
 
     -- Leather
         -- Dervish Tunic
@@ -15275,6 +15358,7 @@ WHERE entry IN(12717, 18418, 22388, 14512, 14513, 14514, 12834, 12825, 18260, 20
         -- Bandit Boots
         -- Pridelord Pants(display: 27651)
         -- Archer's Jerkin (Shows tummy, nice for "Ranger" look)
+        -- Cutthroat's Vest (very lewd)
 
     -- Mail
         -- Fortified chain (display: 1019) 
