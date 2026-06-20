@@ -19,7 +19,9 @@ REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (2708, 30033);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (2708, 30033);
 
 -- Hillsbrad
+-- Yeti Fur Cloak item requirements (remove Wool Cloth and Hillmans Cloak)
 UPDATE `mangos`.`quest_template` SET `Objectives`='Bring Bartolo Ginsetti of Southshore a Fine Thread and 10 clumps of Yeti Fur.', `ReqItemId1`=2321, `ReqItemId2`=3720, `ReqItemId3`=0, `ReqItemId4`=0, `ReqItemCount2`=10, `ReqItemCount3`=0, `ReqItemCount4`=0 WHERE  `entry`=565 AND `patch`=0;
+
 REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOId2`, `ReqCreatureOrGOCount1`, `ReqCreatureOrGOCount2`, `RewXP`, `RewOrReqMoney`, `RewMoneyMaxLevel`, `DetailsEmote1`) VALUES (30034, 267, 25, 30, 8, 'Down the Coast II', 'There is a group of Naga\'s south near Arathi. Please eliminate as many of them as you can.', 'Kill 10 Daggerspine Shorestalker and 10 Daggerspine Screamer then return to Lieutenant Farren Orinelle in Southshore.', 'The threat has been eliminated, thank you so much!', 'Another ale, please, the last one just seemed to have disappeared!$b$bLight, how much longer am I going to be stuck out here?$b$bOh, it\'s you, $n. Have you killed those Naga yet?', '', '', '', '', '', 2368, 2370, 10, 10, 1850, 2100, 1140, 7);
 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (2228, 30034);
 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (2228, 30034);

@@ -216,18 +216,6 @@ UPDATE `mangos`.`quest_template` SET `RewChoiceItemId4`=30074, `RewChoiceItemCou
 -- ST quests offer all rewards
 UPDATE `mangos`.`quest_template` SET `RewChoiceItemId1`=0, `RewChoiceItemId2`=0, `RewChoiceItemId3`=0, `RewChoiceItemCount1`=0, `RewChoiceItemCount2`=0, `RewChoiceItemCount3`=0, `RewItemId1`=20521, `RewItemId2`=20130, `RewItemId3`=20517, `RewItemCount1`=1, `RewItemCount2`=1, `RewItemCount3`=1 WHERE  `entry`=8425 AND `patch`=6;
 
--- Retrieval for Mauren add Minor Libram of Consecration Minor Totem of Nullification and Minor Idol of Elune as a reward
-UPDATE `mangos`.`quest_template` SET `RewChoiceItemId1`=6677, `RewChoiceItemId2`=30129, `RewChoiceItemId3`=30138, `RewChoiceItemId4`=30251, `RewChoiceItemCount1`=1, `RewChoiceItemCount2`=1, `RewChoiceItemCount3`=1, `RewChoiceItemCount4`=1, `RewItemId1`=0, `RewItemCount1`=0 WHERE  `entry`=1078 AND `patch`=0;
-
--- Bring the Light Reward (Added Choice between Vanquisher Sword, Tomoe and Acha d'Armas)
-UPDATE `mangos`.`quest_template` SET `RewChoiceItemId1`=10823, `RewChoiceItemId2`=30146, `RewChoiceItemId3`=30259, `RewChoiceItemCount1`=1, `RewChoiceItemCount2`=1, `RewChoiceItemCount3`=1, `RewItemId1`=10824, `RewItemId2`=0 WHERE  `entry`=3636 AND `patch`=0;
-
--- In the Name of the Light (Added Tigerfangs)
-UPDATE `mangos`.`quest_template` SET `RewChoiceItemId4`=11262, `RewChoiceItemId5`=30147, `RewChoiceItemCount4`=1, `RewChoiceItemCount5`=1 WHERE  `entry`=1053 AND `patch`=0;
-
--- Corruption of Earth and Seed (Added Engetsuto and Gerwitz's Axe)
-UPDATE `mangos`.`quest_template` SET `RewChoiceItemId4`=30148, `RewChoiceItemId5`=30260, `RewChoiceItemCount4`=1, `RewChoiceItemCount5`=1 WHERE  `entry`=7065 AND `patch`=0;
-
 -- Druid ST class quest (All rewards + added a Feral Fangs for Feral)
 UPDATE `mangos`.`quest_template` SET `RewChoiceItemId1`=0, `RewChoiceItemId2`=0, `RewChoiceItemId3`=0, `RewChoiceItemCount1`=0, `RewChoiceItemCount2`=0, `RewChoiceItemCount3`=0, `RewItemId1`=22274, `RewItemId2`=22272, `RewItemId3`=22458, `RewItemId4`=30149, `RewItemCount1`=1, `RewItemCount2`=1, `RewItemCount3`=1, `RewItemCount4`=1 WHERE  `entry`=9053 AND `patch`=8;
 
@@ -249,12 +237,37 @@ UPDATE `mangos`.`quest_template` SET `RewChoiceItemId1`=0, `RewChoiceItemId2`=0,
 -- Paladin ST class quest (All rewards)
 UPDATE `mangos`.`quest_template` SET `RewChoiceItemId1`=0, `RewChoiceItemId2`=0, `RewChoiceItemId3`=0, `RewChoiceItemCount1`=0, `RewChoiceItemCount2`=0, `RewChoiceItemCount3`=0, `RewItemId1`=20504, `RewItemId2`=20512, `RewItemId3`=20505, `RewItemCount1`=1, `RewItemCount2`=1, `RewItemCount3`=1 WHERE  `entry`=8418;
 
--- ??? - Blasted Lands
+-- New quest rewards
+    -- Wanted! Marez Cowl add Blood-tinged Armor as a reward
+    UPDATE `mangos`.`quest_template` SET `RewChoiceItemId1`=4744, `RewChoiceItemId2`=4507, `RewChoiceItemCount1`=1, `RewChoiceItemCount2`=1, `RewItemId1`=0, `RewItemCount1`=0 WHERE  `entry`=684 AND `patch`=0;
+
+    -- Hints of a New Plague add Barbarians Sword as a reward
+    UPDATE `mangos`.`quest_template` SET `RewChoiceItemId3`=30124, `RewChoiceItemCount3`=1 WHERE  `entry`=661 AND `patch`=0;
+
+    -- Wanted! Otto and Falconcrestadd Lesser Libram of Consecration, Lesser Totem of Nullification and Lesser Idol of Elune as a reward
+    UPDATE `mangos`.`quest_template` SET `RewChoiceItemId3`=30130, `RewChoiceItemId4`=30139, `RewChoiceItemId5`=30252, `RewChoiceItemCount3`=1, `RewChoiceItemCount4`=1, `RewChoiceItemCount5`=1 WHERE  `entry`=685 AND `patch`=0;
+
+    -- Retrieval for Mauren add Minor Libram of Consecration Minor Totem of Nullification and Minor Idol of Elune as a reward
+    UPDATE `mangos`.`quest_template` SET `RewChoiceItemId1`=6677, `RewChoiceItemId2`=30129, `RewChoiceItemId3`=30138, `RewChoiceItemId4`=30251, `RewChoiceItemCount1`=1, `RewChoiceItemCount2`=1, `RewChoiceItemCount3`=1, `RewChoiceItemCount4`=1, `RewItemId1`=0, `RewItemCount1`=0 WHERE  `entry`=1078 AND `patch`=0;
+
+    -- Bring the Light Reward (Added Choice between Vanquisher Sword, Tomoe and Acha d'Armas)
+    UPDATE `mangos`.`quest_template` SET `RewChoiceItemId1`=10823, `RewChoiceItemId2`=30146, `RewChoiceItemId3`=30259, `RewChoiceItemCount1`=1, `RewChoiceItemCount2`=1, `RewChoiceItemCount3`=1, `RewItemId1`=10824, `RewItemId2`=0 WHERE  `entry`=3636 AND `patch`=0;
+
+    -- In the Name of the Light (Added Tigerfangs)
+    UPDATE `mangos`.`quest_template` SET `RewChoiceItemId4`=11262, `RewChoiceItemId5`=30147, `RewChoiceItemCount4`=1, `RewChoiceItemCount5`=1 WHERE  `entry`=1053 AND `patch`=0;
+
+    -- Corruption of Earth and Seed (Added Engetsuto and Gerwitz's Axe)
+    UPDATE `mangos`.`quest_template` SET `RewChoiceItemId4`=30148, `RewChoiceItemId5`=30260, `RewChoiceItemCount4`=1, `RewChoiceItemCount5`=1 WHERE  `entry`=7065 AND `patch`=0;
+
+-- Quest adjustments
+    -- Yeti Fur Cloak item requirements (remove Wool Cloth and Hillmans Cloak)
+    UPDATE `mangos`.`quest_template` SET `Objectives`='Bring Bartolo Ginsetti of Southshore a Fine Thread and 10 clumps of Yeti Fur.', `ReqItemId1`=2321, `ReqItemId2`=3720, `ReqItemId3`=0, `ReqItemId4`=0, `ReqItemCount2`=10, `ReqItemCount3`=0, `ReqItemCount4`=0 WHERE  `entry`=565 AND `patch`=0;
+
+-- ??? Rep - Blasted Lands
 REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (8716, 30007, 20);
 REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (8717, 30007, 20);
 REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (8718, 30007, 20);
 REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (12396, 30007, 20);
-
 
 REPLACE `mangos`.`faction` (`id`, `build`, `reputation_list_id`, `base_rep_race_mask1`, `base_rep_race_mask2`, `base_rep_race_mask3`, `base_rep_value1`, `base_rep_value2`, `base_rep_value3`, `reputation_flags1`, `reputation_flags2`, `name`, `description`) VALUES (476, 5302, 55, 73, 178, 4, 150, -42000, 500, 16, 22, 'Nethergarde Defenders', 'Stout defenders of the Dark Portal.');
 REPLACE `mangos`.`faction_template` (`id`, `build`, `faction_id`, `hostile_mask`, `friend_faction1`) VALUES (1678, 4222, 476, 4, 471);
@@ -559,10 +572,6 @@ REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90035, 3000
         INSERT INTO `mangos`.`gameobject_loot_template` (`entry`, `item`, `ChanceOrQuestChance`, `groupid`, `patch_min`) VALUES (42910, 30256, 100, 0, 1);
 
     -- Fel Gem (Trade Soulshards for random buff OR debuff)
-        -- TODO: Quest and spell
-        -- TODO: Need to add new object for red soul gem (19879) and replace 19879 with them below so can be added to quest relation and Involved Relation
-        -- TODO: Delete the 19879 spawns here from database as well
-
         -- Object
         REPLACE `mangos`.`gameobject_template` (`entry`, `type`, `displayId`, `name`, `flags`) VALUES (987670, 2, 327, 'Fel Gem', 4);
 
@@ -603,7 +612,6 @@ REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90035, 3000
             (10009, 1, 0, 15, 34185, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Fel Gem: Cast Spell on Player');
 
 
-
 -- NPC for Karazhan Mementos
     -- Creature Template
         REPLACE INTO `mangos`.`creature_template` (`entry`, `name`, `subname`, `level_min`, `level_max`, `faction`, `npc_flags`, `display_id1`, `display_probability1`, `display_total_probability`, `type`, `unit_class`, `armor_multiplier`, `equipment_id`, `static_flags1`, `flags_extra`) VALUES (90099, 'Prospector Ariden', 'Explorers\' League', 16, 16, 55, 2, 1277, 1, 1, 7, 1, 2, 2917, 4718662, 2);
@@ -637,23 +645,6 @@ REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90035, 3000
             REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90099, 30266);
 
 -- Escort NPC + Quest
-    -- TODO: It was working, then I changed NPC to despawn, added xyzo pos for guy to spawn, removed target and now its all broken
-    -- TODO: Maybe he spawned in wrong spot and is still up somewhere?, cause i spawned him without mins sign on x/y...but it does error still
-    -- TODO: is it the creature_movement_scripts ?
-    -- TODO: Or it needs a target and me removing it breaks it?
-    -- TODO: Or despawn in same script as fail and then spawn - > despawn in that order so that target exists? (slight delay before despawning so alive when boss is summoned)
-    -- ERROR: FindScriptTargets: Failed to find target for script with id 9000000 (target_param1: 30263), (target_param2: 0), (target_type: 21).
-    -- TODO: Put spirit back to spawn pos after completion? How does the Defias Traitor do that?
-    -- TODO: Kinelory also assists players that aggrod mobs
-    -- https://github.com/vmangos/core/commit/10093b654f5a6ae89e4d34ad1514672eb11bc00b#diff-9bc809fbb897a1cf4299b64d530ce52d80a572ec5252ee228c6716e98bb8321b
-    -- TODO: Aggro enemies aggrod to player or be aggressive or something
-    -- TODO: Xelnu not despawn OOC 
-    -- TODO: Make sure all creature and object spawns are accounted for in these files with correct respawn timers (Creatures.sql and Quests.sql) 
-    -- TODO: Use Unholy Shield (8909) and Ironfur (33526) to make a DR shield for Enkidu with infinite duration, put in his auras (replace 8909).  
-    -- TODO: Add an item to remove the shield that drops from undead mother, code it in item script
-    -- TODO: Grouped (2-3 mob) patrolls in cave/cellar
-    -- TODO: Despawn Fel Gems for 16m after event
-
     -- Creature
         REPLACE INTO `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000132, 90100, 0, 0, 0, 0, 0, -11021.9, -2046.25, 40.7051, 0.619303, 25, 25, 5, 100, 100, 1, 0, 0, 0, 10);
 
@@ -694,7 +685,22 @@ REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90035, 3000
         (9000000, 1, 1, 62, 30263, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Scared Spirit - End Scripted Map Event'),
         (9000000, 8, 0, 18, 0, 7200, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Scared Spirit - Despawn Creature');
 
-
+    -- TODO: It was working, then I changed NPC to despawn, added xyzo pos for guy to spawn, removed target and now its all broken
+    -- TODO: Maybe he spawned in wrong spot and is still up somewhere?, cause i spawned him without mins sign on x/y...but it does error still
+    -- TODO: is it the creature_movement_scripts ?
+    -- TODO: Or it needs a target and me removing it breaks it?
+    -- TODO: Or despawn in same script as fail and then spawn - > despawn in that order so that target exists? (slight delay before despawning so alive when boss is summoned)
+    -- ERROR: FindScriptTargets: Failed to find target for script with id 9000000 (target_param1: 30263), (target_param2: 0), (target_type: 21).
+    -- TODO: Put spirit back to spawn pos after completion? How does the Defias Traitor do that?
+    -- TODO: Kinelory also assists players that aggrod mobs
+    -- https://github.com/vmangos/core/commit/10093b654f5a6ae89e4d34ad1514672eb11bc00b#diff-9bc809fbb897a1cf4299b64d530ce52d80a572ec5252ee228c6716e98bb8321b
+    -- TODO: Aggro enemies aggrod to player or be aggressive or something
+    -- TODO: Xelnu not despawn OOC 
+    -- TODO: Make sure all creature and object spawns are accounted for in these files with correct respawn timers (Creatures.sql and Quests.sql) 
+    -- TODO: Use Unholy Shield (8909) and Ironfur (33526) to make a DR shield for Enkidu with infinite duration, put in his auras (replace 8909).  
+    -- TODO: Add an item to remove the shield that drops from undead mother, code it in item script
+    -- TODO: Grouped (2-3 mob) patrolls in cave/cellar
+    -- TODO: Quest to collect an item from Fel mobs spawned by portals that are in Desolace
     -- TODO: 1 patrolling peron on each of final 2 floors to roof before Xelnu (there's already a 3rd spawn can use for top, but one below needs a 3rd)
     -- TODO: Fix the boss summoned by the Eerie Altar, using one of my bosses unsure which one I want
     -- TODO: Quest inside "Crypt" cave to escort someone out
@@ -709,11 +715,12 @@ REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90035, 3000
     -- TODO: Dalinda Malem AI attacks stuff on her own, copy her for Scared Spirit
     -- TODO: More stuff underwater
     -- TODO: Locked chests only rogue can open that give craft mats (pickpocket too!)
+    -- TODO: Abjurations
     -- TODO: Finish crafted gear (Bait recipe should take level 300+ fish)
     -- TODO: Special weapon drops or from rep vendor that give stuff like the gnomergan Underwater Breathing staff (Detect invis? Detect traps? etc)
     -- TODO: +Demon damage ring from Karazhan? or elementals or something
     -- TODO: More innerconnected crafting, like iron buckles needed to make belts. can even turn the drops into an item that's used for by other crafters l ike rubber soles or w/e
-
+    -- TODO: Multi level crafts (craft body, then craft that with other mats to make a better body, etc). Can even come from multiple crafts
 
     -- "Crypt Cave" mobs
         -- Ghosts:
