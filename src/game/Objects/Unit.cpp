@@ -3734,6 +3734,13 @@ bool Unit::RemoveNoStackAurasDueToAuraHolder(SpellAuraHolder* holder)
 
         bool is_spellSpecPerTarget = Spells::IsSingleFromSpellSpecificPerTarget(spellId_spec, i_spellId_spec);
 
+        bool frostboltFlurry = (spellProto->IsFitToFamilyMask<CF_MAGE_FROSTBOLT>() && i_spellProto->IsFitToFamilyMask<CF_MAGE_FLURRY_CHANNEL>()) ||
+
+            (i_spellProto->IsFitToFamilyMask<CF_MAGE_FROSTBOLT>() && spellProto->IsFitToFamilyMask<CF_MAGE_FLURRY_CHANNEL>());
+
+        if (frostboltFlurry)
+            is_spellSpecPerTarget = false;
+
         // HoTs in 1.x must be per target also
         if (!is_spellSpecPerTarget && firstInChain && firstInChain == sSpellMgr.GetFirstSpellInChain(i_spellId))
             is_spellSpecPerTarget = true;

@@ -1068,6 +1068,10 @@ bool SpellMgr::IsNoStackSpellDueToSpell(uint32 spellId_1, uint32 spellId_2) cons
                 // Ignite and Living Bomb
                 if (spellInfo_1->IsFitToFamilyMask<CF_MAGE_IGNITE>() || spellInfo_1->IsFitToFamilyMask<CF_MAGE_LIVING_BOMB>())
                         return false;
+
+                // Frostbolt and Flurry
+                if (spellInfo_1->IsFitToFamilyMask<CF_MAGE_FROSTBOLT>() || spellInfo_1->IsFitToFamilyMask<CF_MAGE_FLURRY_CHANNEL>())
+                    return false;
             }
             // Detect Invisibility and Mana Shield (multi-family check)
             if (spellInfo_2->Id == 132 && spellInfo_1->SpellIconID == 209 && spellInfo_1->SpellVisual == 968)

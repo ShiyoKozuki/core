@@ -61,6 +61,7 @@ enum ClassFlag
     CF_MAGE_FROST_BOMB                      = 36,   // CM0 1000000000
     CF_MAGE_ICE_LANCE                       = 37,   // CM0 1000000000
     CF_MAGE_DISINTEGRATE                    = 38,   // CM0 1000000000
+    CF_MAGE_FLURRY_CHANNEL                  = 39,   // CM0 1000000000?
 
     // -- Warrior (4)
     CF_WARRIOR_CHARGE                       = 0,    // CM0 00000001

@@ -78,28 +78,28 @@
     UPDATE `mangos`.`spell_template` SET `effectItemType1`=34372321303 WHERE  `entry`=28682 AND `build`=5464;
 
     -- Elemental Precision (Added Flurry, Living Bomb, Meteor, and Frost Bomb)
-    UPDATE `mangos`.`spell_template` SET `effectItemType1`=262005588727 WHERE  `entry` IN (29438, 29439, 29440);
+    UPDATE `mangos`.`spell_template` SET `effectItemType1`=811761402615 WHERE  `entry` IN (29438, 29439, 29440);
 
     -- Clearcasting (Added Flurry, Living Bomb, Meteor, and Frost Bomb)
     UPDATE `mangos`.`spell_template` SET `effectItemType1`=262005594871 WHERE  `entry`=12536 AND `build`=5464;
 
     -- Shatter (Added Flurry, Living Bomb, Meteor, and Frost Bomb)
-    UPDATE `mangos`.`spell_template` SET `effectItemType1`=262005594871 WHERE  entry IN (11170, 12982, 12983, 12984, 12985) AND `build`=5464;
+    UPDATE `mangos`.`spell_template` SET `effectItemType1`=811761408759 WHERE  entry IN (11170, 12982, 12983, 12984, 12985) AND `build`=5464;
 
     -- Frost Channeling (Added Flurry Summon Water Elemental and Frost Bomb)
-    UPDATE `mangos`.`spell_template` SET `effectItemType1`=219043856384 WHERE  entry IN(11160, 12518, 12519) AND `build`=5464;
+    UPDATE `mangos`.`spell_template` SET `effectItemType1`=768799670272 WHERE  entry IN(11160, 12518, 12519) AND `build`=5464;
 
     -- Artic Reach (Added Flurry and Frost Bomb)
-    UPDATE `mangos`.`spell_template` SET `effectItemType1`=210453397664 WHERE  entry IN(16757, 16758) AND `build`=5464;
+    UPDATE `mangos`.`spell_template` SET `effectItemType1`=760209211552 WHERE  entry IN(16757, 16758) AND `build`=5464;
 
     -- Piercing Ice (Added Flury and Frost Bomb)
-    UPDATE `mangos`.`spell_template` SET `effectItemType1`=141733921504, `effectItemType2`=68719476864 WHERE  entry IN(11151, 12952, 12953) AND `build`=4222;
+    UPDATE `mangos`.`spell_template` SET `effectItemType1`=687194768096, `effectItemType2`=68719476864 WHERE  entry IN(11151, 12952, 12953) AND `build`=4222;
 
     -- Ice Shards (Added Flurry and Frost Bomb)
-    UPDATE `mangos`.`spell_template` SET `effectItemType1`=210453398240 WHERE  entry IN (11207, 12672, 15047, 15052, 15053) AND `build`=4222;
+    UPDATE `mangos`.`spell_template` SET `effectItemType1`=755914244832 WHERE  entry IN (11207, 12672, 15047, 15052, 15053) AND `build`=4222;
 
     -- Frostbite (Added Flurry)
-    UPDATE `mangos`.`spell_template` SET `effectItemType1`=4296015872 WHERE  entry IN(11071, 12496, 12497) AND `build`=5464;
+    UPDATE `mangos`.`spell_template` SET `effectItemType1`=549756862464 WHERE  entry IN(11071, 12496, 12497) AND `build`=5464;
 
 -- Shaman
     -- Ancestral Knowledge (Buffed to 2/4/6/8/10%)
