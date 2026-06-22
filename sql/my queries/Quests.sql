@@ -721,6 +721,9 @@ REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90035, 3000
     -- TODO: +Demon damage ring from Karazhan? or elementals or something
     -- TODO: More innerconnected crafting, like iron buckles needed to make belts. can even turn the drops into an item that's used for by other crafters l ike rubber soles or w/e
     -- TODO: Multi level crafts (craft body, then craft that with other mats to make a better body, etc). Can even come from multiple crafts
+    -- TODO: How did Book of the Ancients quest make the boss aggro spawner on spawn?
+    -- TODO: "Waves" of mobs spawning event for something
+    -- TODO: Event like "The Grimtotem Weapon" from TBC where you have to drop an item then kill mobs near it
 
     -- "Crypt Cave" mobs
         -- Ghosts:

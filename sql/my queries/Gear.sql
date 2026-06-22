@@ -90,6 +90,21 @@
 --     ITEM_CLASS_JUNK                             = 15
 -- };
 
+-- enum ItemSubclassArmor
+-- {
+--     ITEM_SUBCLASS_ARMOR_MISC                    = 0,
+--     ITEM_SUBCLASS_ARMOR_CLOTH                   = 1,
+--     ITEM_SUBCLASS_ARMOR_LEATHER                 = 2,
+--     ITEM_SUBCLASS_ARMOR_MAIL                    = 3,
+--     ITEM_SUBCLASS_ARMOR_PLATE                   = 4,
+--     ITEM_SUBCLASS_ARMOR_BUCKLER                 = 5,
+--     ITEM_SUBCLASS_ARMOR_SHIELD                  = 6,
+--     ITEM_SUBCLASS_ARMOR_LIBRAM                  = 7,
+--     ITEM_SUBCLASS_ARMOR_IDOL                    = 8,
+--     ITEM_SUBCLASS_ARMOR_TOTEM                   = 9
+-- };
+
+
 -- enum ItemSubclassWeapon
 -- {
     -- ITEM_SUBCLASS_WEAPON_AXE                    = 0,
@@ -165,10 +180,52 @@
 --     BIND_QUEST_ITEM1                            = 5         // not used in game
 -- };
 
-
 -- area_bound area table: https://github.com/cmangos/issues/wiki/AreaTable.dbc
 -- flags 2048 = lootable by anyone
 -- max_count = max amount you can have an item (i.e. 1 to make it "unique" or /rare/ex)
+
+SET
+    @INVTYPE_NON_EQUIP = 0,
+    @INVTYPE_HEAD = 1,
+    @INVTYPE_NECK = 2,
+    @INVTYPE_SHOULDERS = 3,
+    @INVTYPE_TABARD = 4,
+    @INVTYPE_CHEST = 5,
+    @INVTYPE_WAIST = 6,
+    @INVTYPE_LEGS = 7,
+    @INVTYPE_FEET = 8,
+    @INVTYPE_WRISTS = 9,
+    @INVTYPE_HANDS = 10,
+    @INVTYPE_FINGER = 11,
+    @INVTYPE_TRINKET = 12,
+    @INVTYPE_WEAPON = 13,
+    @INVTYPE_SHIELD = 14,
+    @INVTYPE_RANGED = 15,
+    @INVTYPE_CLOAK = 16,
+    @INVTYPE_2HWEAPON = 17,
+    @INVTYPE_BAG = 18,
+    @INVTYPE_TABARD = 19,
+    @INVTYPE_ROBE = 20,
+    @INVTYPE_WEAPONMAINHAND = 21,
+    @INVTYPE_WEAPONOFFHAND = 22,
+    @INVTYPE_HOLDABLE = 23,
+    @INVTYPE_AMMO = 24,
+    @INVTYPE_THROWN = 25,
+    @INVTYPE_RANGEDRIGHT = 26,
+    @INVTYPE_QUIVER = 27,
+    @INVTYPE_RELIC = 28;
+
+SET
+    @ITEM_SUBCLASS_ARMOR_MISC                    = 0,
+    @ITEM_SUBCLASS_ARMOR_CLOTH                   = 1,
+    @ITEM_SUBCLASS_ARMOR_LEATHER                 = 2,
+    @ITEM_SUBCLASS_ARMOR_MAIL                    = 3,
+    @ITEM_SUBCLASS_ARMOR_PLATE                   = 4,
+    @ITEM_SUBCLASS_ARMOR_BUCKLER                 = 5,
+    @ITEM_SUBCLASS_ARMOR_SHIELD                  = 6,
+    @ITEM_SUBCLASS_ARMOR_LIBRAM                  = 7,
+    @ITEM_SUBCLASS_ARMOR_IDOL                    = 8,
+    @ITEM_SUBCLASS_ARMOR_TOTEM                   = 9;
 
 SET
     @ITEM_MOD_MANA      = 0,
@@ -179,6 +236,19 @@ SET
     @ITEM_MOD_SPI       = 6,
     @ITEM_MOD_STAM      = 7;
 
+SET
+    @CLASS_WARRIOR      = 1,
+    @CLASS_PALADIN      = 2,
+    @CLASS_HUNTER       = 4,
+    @CLASS_ROGUE        = 8,
+    @CLASS_PRIEST       = 16,
+    @CLASS_DEATH_KNIGHT = 32,
+    @CLASS_SHAMAN       = 64,
+    @CLASS_MAGE         = 128,
+    @CLASS_WARLOCK      = 256,
+    @CLASS_UNK2         = 512,
+    @CLASS_DRUID        = 1024;
+    
 -- New Custom Items
 DELETE FROM `mangos`.`item_template` WHERE  `entry`=30104 AND `patch`=0;
 REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id`, `quality`, `flags`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `max_count`, `stat_type1`, `stat_value1`, `stat_type2`, `stat_value2`, `stat_type3`, `stat_value3`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30000, 4, 4, 'Sentinel\'s Ring', 9832, 3, 32768, 750000, 18750, 11, -1, -1, 63, 58, 1, 4, 12, 3, 11, 7, 8, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 4);
@@ -381,7 +451,7 @@ REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quali
 REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, required_level, `required_reputation_faction`, `required_reputation_rank`, `stackable`, `stat_type1`, `stat_value1`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `material`, `bonding`) VALUES (30186, 4, 'Ironforge Chain', 18172, 2, 3025, 605, 2, -1, -1, 1, 20, 47, 4, 0, 4, 4, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 3, 1);
 
 
-REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, required_level, `required_reputation_faction`, `required_reputation_rank`, `stackable`, `stat_type1`, `stat_value1`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `material`, `bonding`) VALUES (30187, 4, 'Gnomergan Chain', 18172, 2, 3025, 605, 2, -1, -1, 1, 20, 54, 4, 0, 5, 4, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 3, 1);
+REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, required_level, `required_reputation_faction`, `required_reputation_rank`, `stackable`, `stat_type1`, `stat_value1`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `material`, `bonding`) VALUES (30187, 4, 'Gnomeregan Chain', 18172, 2, 3025, 605, 2, -1, -1, 1, 20, 54, 4, 0, 5, 4, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 3, 1);
 
 
 REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, required_level, `required_reputation_faction`, `required_reputation_rank`, `stackable`, `stat_type1`, `stat_value1`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `material`, `bonding`) VALUES (30188, 4, 'Darnassus Chain', 18172, 2, 3025, 605, 2, -1, -1, 1, 20, 69, 4, 0, 3, 4, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 3, 1);
@@ -390,7 +460,7 @@ REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id
 
 REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, required_level, `required_reputation_faction`, `required_reputation_rank`, `delay`, `spellid_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `disenchant_id`) VALUES (30190, 9, 4, 'Badge of Ironforge', 59977, 2, 18570, 4642, 12, -1, -1, 40, 30, 47, 4, 0, 33832, 300000, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0);
 
-REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, required_level, `required_reputation_faction`, `required_reputation_rank`, `delay`, `spellid_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `disenchant_id`) VALUES (30191, 9, 4, 'Badge of Gnomergan', 59976, 2, 18570, 4642, 12, -1, -1, 40, 30, 54, 4, 0, 33833, 300000, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0);
+REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, required_level, `required_reputation_faction`, `required_reputation_rank`, `delay`, `spellid_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `disenchant_id`) VALUES (30191, 9, 4, 'Badge of Gnomeregan', 59976, 2, 18570, 4642, 12, -1, -1, 40, 30, 54, 4, 0, 33833, 300000, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0);
 
 REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, required_level, `required_reputation_faction`, `required_reputation_rank`, `delay`, `spellid_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `disenchant_id`) VALUES (30192, 9, 4, 'Badge of Darnassus', 59975, 2, 18570, 4642, 12, -1, -1, 40, 30, 69, 4, 0, 33834, 300000, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0);
 
@@ -400,7 +470,7 @@ REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quali
 
 REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_reputation_faction`, `required_reputation_rank`, `max_count`, `container_slots`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30195, 1, 'Revered Ironforge Pouch', 19595, 2, 12500, 2500, 18, -1, -1, 52, 47, 6, 1, 14, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 8);
 
-REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_reputation_faction`, `required_reputation_rank`, `max_count`, `container_slots`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30196, 1, 'Revered Gnomergan Pouch', 19595, 2, 12500, 2500, 18, -1, -1, 52, 54, 6, 1, 14, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 8);
+REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_reputation_faction`, `required_reputation_rank`, `max_count`, `container_slots`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30196, 1, 'Revered Gnomeregan Pouch', 19595, 2, 12500, 2500, 18, -1, -1, 52, 54, 6, 1, 14, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 8);
 
 REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_reputation_faction`, `required_reputation_rank`, `max_count`, `container_slots`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30197, 1, 'Revered Darnassus Pouch', 19595, 2, 12500, 2500, 18, -1, -1, 52, 69, 6, 1, 14, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 8);
 
@@ -527,9 +597,9 @@ REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display
 
 REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `flags`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `max_count`, `delay`, `spellid_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcharges_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`) VALUES (30258, 12, 'Ghost Vacuum', 25456, 1, 1500, 375, 64, -1, -1, 30, 15, 1, 0, 34179, -1, -1, 25, -1, -1, -1, -1, -1, -1, 0, 0, 1);
 
-REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `stat_type1`, `stat_value1`, `delay`, `dmg_min1`, `dmg_max1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `sheath`, `max_durability`, `disenchant_id`) VALUES (30259, 2, 'Acha d\'Armas', 19135, 3, 52432, 17796, 21, -1, -1, 15, 4, 15, 2200, 46, 86, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 1, 3, 50, 21);
+REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `stat_type1`, `stat_value1`, `delay`, `dmg_min1`, `dmg_max1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `sheath`, `max_durability`, `disenchant_id`) VALUES (30259, 2, 'Acha d\'Armas', 48156, 3, 52432, 17796, 21, -1, -1, 15, 4, 15, 2200, 46, 86, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 1, 3, 50, 21);
 
-REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `delay`, `dmg_min1`, `dmg_max1`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `sheath`, `max_durability`, `disenchant_id`) VALUES (30260, 2, 'Gerwitz\'s Axe', 28523, 3, 114483, 32854, 13, -1, -1, 55, 2700, 66, 124, 33725, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 1, 3, 75, 31);
+REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `delay`, `dmg_min1`, `dmg_max1`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `sheath`, `max_durability`, `disenchant_id`) VALUES (30260, 2, 'Gerwitz\'s Axe', 70214, 3, 114483, 32854, 13, -1, -1, 55, 2700, 66, 124, 33725, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 1, 3, 75, 31);
 
 REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id`, `quality`, `flags`, `stackable`, `allowable_class`, `allowable_race`, `item_level`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30061, 2, 12, 'Captured Shade Essence', 6513, 1, 2048, 12, -1, -1, 1, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 4, -1);
 
@@ -537,7 +607,64 @@ REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quali
 
 REPLACE `mangos`.`item_template` (`entry`, `name`, `description`, `display_id`, `quality`, `allowable_class`, `allowable_race`, `delay`, `spellid_1`, `spellcharges_1`, `spellcooldown_1`, `spellcategory_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `material`) VALUES (30263, 'Aquarian abjuration: head', 'The inscription reads: "In accordance with the ancient aquarian pact, may the bane be lifted from thy forbidden artifact." This prayer is necessary in purifying a cursed crown.', 57346, 3, -1, -1, 0, 0, -1, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3);
 
--- NEXT 30264
+REPLACE `mangos`.`item_template` (`entry`, `name`, `description`, `display_id`, `quality`, `allowable_class`, `allowable_race`, `delay`, `spellid_1`, `spellcharges_1`, `spellcooldown_1`, `spellcategory_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `material`) VALUES (30264, 'Aquarian abjuration: shoulders', 'The inscription reads: "In accordance with the ancient aquarian pact, may the bane be lifted from thy forbidden artifact." This prayer is necessary in purifying a cursed shoulders.', 57346, 3, -1, -1, 0, 0, -1, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3);
+
+REPLACE `mangos`.`item_template` (`entry`, `name`, `description`, `display_id`, `quality`, `allowable_class`, `allowable_race`, `delay`, `spellid_1`, `spellcharges_1`, `spellcooldown_1`, `spellcategory_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `material`) VALUES (30265, 'Aquarian abjuration: body', 'The inscription reads: "In accordance with the ancient aquarian pact, may the bane be lifted from thy forbidden artifact." This prayer is necessary in purifying a cursed dalmatica.', 57346, 3, -1, -1, 0, 0, -1, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3);
+
+REPLACE `mangos`.`item_template` (`entry`, `name`, `description`, `display_id`, `quality`, `allowable_class`, `allowable_race`, `delay`, `spellid_1`, `spellcharges_1`, `spellcooldown_1`, `spellcategory_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `material`) VALUES (30266, 'Aquarian abjuration: hands', 'The inscription reads: "In accordance with the ancient aquarian pact, may the bane be lifted from thy forbidden artifact." This prayer is necessary in purifying a cursed mitts.', 57346, 3, -1, -1, 0, 0, -1, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3);
+
+REPLACE `mangos`.`item_template` (`entry`, `name`, `description`, `display_id`, `quality`, `allowable_class`, `allowable_race`, `delay`, `spellid_1`, `spellcharges_1`, `spellcooldown_1`, `spellcategory_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `material`) VALUES (30267, 'Aquarian abjuration: feet', 'The inscription reads: "In accordance with the ancient aquarian pact, may the bane be lifted from thy forbidden artifact." This prayer is necessary in purifying a cursed pumps.', 57346, 3, -1, -1, 0, 0, -1, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3);
+
+-- Zenith
+REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `stat_type1`, `stat_value1`, `stat_type2`, `stat_value2`, `stat_type3`, `stat_value3`, `delay`, `armor`, `arcane_res`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `set_id`, `max_durability`, `disenchant_id`) VALUES (30268, 8, 4, 1, 'Zenith Crown', 48726, 4, 0, 0, @INVTYPE_HEAD, 400, -1, 65, 60, @ITEM_MOD_INT, 20, @ITEM_MOD_SPI, 27, @ITEM_MOD_STAM, 5, 0, 83, 10, 18033, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 7, 0, 50, 49);
+
+REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `stat_type1`, `stat_value1`, `stat_type2`, `stat_value2`, `stat_type3`, `stat_value3`, `delay`, `armor`, `arcane_res`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `set_id`, `max_durability`, `disenchant_id`) VALUES (30270, 8, 4, 1, 'Zenith Shoulders', 48729, 4, 0, 0, @INVTYPE_SHOULDERS, 400, -1, 65, 60, @ITEM_MOD_INT, 23, @ITEM_MOD_SPI, 13, @ITEM_MOD_STAM, 3, 0, 76, 7, 26283, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 7, 0, 50, 49);
+
+REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `stat_type1`, `stat_value1`, `stat_type2`, `stat_value2`, `stat_type3`, `stat_value3`, `delay`, `armor`, `arcane_res`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `set_id`, `max_durability`, `disenchant_id`) VALUES (30269, 8, 4, 1, 'Dalmatica', 48730, 4, 0, 0, @INVTYPE_CHEST, 400, -1, 65, 60, @ITEM_MOD_INT, 27, @ITEM_MOD_SPI, 20, @ITEM_MOD_STAM, 5, 0, 102, 20, 9346, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 7, 0, 50, 49);
+
+REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `stat_type1`, `stat_value1`, `stat_type2`, `stat_value2`, `stat_type3`, `stat_value3`, `delay`, `armor`, `arcane_res`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `set_id`, `max_durability`, `disenchant_id`) VALUES (30271, 8, 4, 1, 'Zenith Mitts', 48728, 4, 0, 0, @INVTYPE_HANDS, 400, -1, 65, 60, @ITEM_MOD_INT, 15, @ITEM_MOD_SPI, 15, @ITEM_MOD_STAM, 2, 0, 63, 7, 14794, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 7, 0, 50, 49);
+
+REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `stat_type1`, `stat_value1`, `stat_type2`, `stat_value2`, `stat_type3`, `stat_value3`, `delay`, `armor`, `arcane_res`, `spellid_1`, `spelltrigger_1`, `spellid_2`, `spelltrigger_2`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `set_id`, `max_durability`, `disenchant_id`) VALUES (30272, 8, 4, 1, 'Zenith Pumps', 52104, 4, 0, 0, @INVTYPE_FEET, 400, -1, 65, 60, @ITEM_MOD_INT, 15, @ITEM_MOD_SPI, 18, @ITEM_MOD_STAM, 2, 0, 70, 7, 17866, 1, 17890, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 7, 0, 50, 49);
+
+-- Hecatomb
+REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `stat_type1`, `stat_value1`, `stat_type2`, `stat_value2`, `stat_type3`, `stat_value3`, `delay`, `armor`, `arcane_res`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `set_id`, `max_durability`, `disenchant_id`) VALUES (30273, 8, 4, @ITEM_SUBCLASS_ARMOR_LEATHER, 'Hecatomb Cap', 48752, 4, 0, 0, @INVTYPE_HEAD, 1032, -1, 65, 60, @ITEM_MOD_STR, 19, @ITEM_MOD_AGI, 20, @ITEM_MOD_STAM, 9, 0, 163, 10, 33758, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 7, 0, 50, 49);
+
+REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `stat_type1`, `stat_value1`, `stat_type2`, `stat_value2`, `stat_type3`, `stat_value3`, `delay`, `armor`, `arcane_res`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `set_id`, `max_durability`, `disenchant_id`) VALUES (30274, 8, 4, @ITEM_SUBCLASS_ARMOR_LEATHER, 'Hecatomb Shoulders', 48754, 4, 0, 0, @INVTYPE_SHOULDERS, 1032, -1, 65, 60, @ITEM_MOD_STR, 12, @ITEM_MOD_AGI, 12, @ITEM_MOD_STAM, 3, 0, 150, 7, 33769, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 7, 0, 50, 49);
+
+REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `stat_type1`, `stat_value1`, `stat_type2`, `stat_value2`, `stat_type3`, `stat_value3`, `delay`, `armor`, `arcane_res`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `set_id`, `max_durability`, `disenchant_id`) VALUES (30275, 8, 4, @ITEM_SUBCLASS_ARMOR_LEATHER, 'Hecatomb Harness', 48755, 4, 0, 0, @INVTYPE_CHEST, 1032, -1, 65, 60, @ITEM_MOD_STR, 29, @ITEM_MOD_AGI, 10, @ITEM_MOD_STAM, 20, 0, 275, 20, 33664, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 7, 0, 50, 49);
+
+REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `stat_type1`, `stat_value1`, `stat_type2`, `stat_value2`, `stat_type3`, `stat_value3`, `delay`, `armor`, `arcane_res`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `set_id`, `max_durability`, `disenchant_id`) VALUES (30276, 8, 4, @ITEM_SUBCLASS_ARMOR_LEATHER, 'Hecatomb Mittens', 48751, 4, 0, 0, @INVTYPE_HANDS, 1032, -1, 65, 60, @ITEM_MOD_INT, 15, @ITEM_MOD_SPI, 15, @ITEM_MOD_STAM, 2, 0, 125, 7, 9346, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 7, 0, 50, 49);
+
+REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `stat_type1`, `stat_value1`, `stat_type2`, `stat_value2`, `stat_type3`, `stat_value3`, `delay`, `armor`, `arcane_res`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `set_id`, `max_durability`, `disenchant_id`) VALUES (30277, 8, 4, @ITEM_SUBCLASS_ARMOR_LEATHER, 'Hecatomb Leggings', 64701, 4, 0, 0, @INVTYPE_FEET, 1032, -1, 65, 60, @ITEM_MOD_INT, 15, @ITEM_MOD_SPI, 18, @ITEM_MOD_STAM, 2, 0, 138, 7, 18031, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 7, 0, 50, 49);
+
+
+-- Crimson
+-- TODO: Armor
+REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `stat_type1`, `stat_value1`, `stat_type2`, `stat_value2`, `stat_type3`, `stat_value3`, `delay`, `armor`, `arcane_res`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `set_id`, `max_durability`, `disenchant_id`) VALUES (30278, 8, 4, @ITEM_SUBCLASS_ARMOR_MAIL,  'Crimson Mask', 48761, 4, 0, 0, @INVTYPE_HEAD, @CLASS_HUNTER | @CLASS_SHAMAN, -1, 65, 60, @ITEM_MOD_AGI, 15, @ITEM_MOD_INT, 18, @ITEM_MOD_STAM, 9, 0, 83, 10, 15810, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 7, 0, 50, 49);
+
+REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `stat_type1`, `stat_value1`, `stat_type2`, `stat_value2`, `stat_type3`, `stat_value3`, `delay`, `armor`, `arcane_res`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `set_id`, `max_durability`, `disenchant_id`) VALUES (30279, 8, 4, @ITEM_SUBCLASS_ARMOR_MAIL,  'Crimson Shoulders', 48763, 4, 0, 0, @INVTYPE_SHOULDERS, @CLASS_HUNTER | @CLASS_SHAMAN, -1, 65, 60, @ITEM_MOD_INT, 23, @ITEM_MOD_SPI, 13, @ITEM_MOD_STAM, 7, 0, 83, 7, 9346, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 7, 0, 50, 49);
+
+REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `stat_type1`, `stat_value1`, `stat_type2`, `stat_value2`, `stat_type3`, `stat_value3`, `delay`, `armor`, `arcane_res`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `set_id`, `max_durability`, `disenchant_id`) VALUES (30280, 8, 4, @ITEM_SUBCLASS_ARMOR_MAIL,  'Crimson Scale Mail', 48759, 4, 0, 0, @INVTYPE_CHEST, @CLASS_HUNTER | @CLASS_SHAMAN, -1, 65, 60, @ITEM_MOD_AGI, 20, @ITEM_MOD_INT, 14, @ITEM_MOD_STAM, 12, 0, 83, 20, 15817, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 7, 0, 50, 49);
+
+REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `stat_type1`, `stat_value1`, `stat_type2`, `stat_value2`, `stat_type3`, `stat_value3`, `delay`, `armor`, `arcane_res`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `set_id`, `max_durability`, `disenchant_id`) VALUES (30281, 8, 4, @ITEM_SUBCLASS_ARMOR_MAIL,  'Crimson Finger Gauntlets', 48760, 4, 0, 0, @INVTYPE_HANDS, @CLASS_HUNTER | @CLASS_SHAMAN, -1, 65, 60, @ITEM_MOD_AGI, 12, @ITEM_MOD_INT, 12, @ITEM_MOD_STAM, 7, 0, 83, 7, 15808, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 7, 0, 50, 49);
+
+REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `stat_type1`, `stat_value1`, `stat_type2`, `stat_value2`, `stat_type3`, `stat_value3`, `delay`, `armor`, `arcane_res`, `spellid_1`, `spelltrigger_1`, `spellid_2`, `spelltrigger_2`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `set_id`, `max_durability`, `disenchant_id`) VALUES (30282, 8, 4, @ITEM_SUBCLASS_ARMOR_MAIL,  'Crimson Greaves', 52052, 4, 0, 0, @INVTYPE_FEET, @CLASS_HUNTER | @CLASS_SHAMAN, -1, 65, 60, @ITEM_MOD_INT, 15, @ITEM_MOD_STAM, 7, 0, 0, 0, 83, 7, 18031, 1, 21363, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 7, 0, 50, 49);
+
+-- Koenig
+-- TODO: Armor
+REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `stat_type1`, `stat_value1`, `stat_type2`, `stat_value2`, `stat_type3`, `stat_value3`, `delay`, `armor`, `arcane_res`, `spellid_1`, `spelltrigger_1`, `spellid_2`, `spelltrigger_2`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `set_id`, `max_durability`, `disenchant_id`) VALUES (30283, 8, 4, @ITEM_SUBCLASS_ARMOR_PLATE,  'Koenig Schaller', 48799, 4, 0, 0, @INVTYPE_HEAD, @CLASS_WARRIOR | @CLASS_PALADIN, -1, 65, 60, @ITEM_MOD_STAM, 35, @ITEM_MOD_INT, 20, 0, 0, 0, 83, 10, 21423, 1, 21364, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 7, 0, 50, 49);
+
+REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `stat_type1`, `stat_value1`, `stat_type2`, `stat_value2`, `stat_type3`, `stat_value3`, `delay`, `armor`, `arcane_res`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `set_id`, `max_durability`, `disenchant_id`) VALUES (30284, 8, 4, @ITEM_SUBCLASS_ARMOR_PLATE,  'Koenig Epaulettes', 48801, 4, 0, 0, @INVTYPE_SHOULDERS, @CLASS_WARRIOR | @CLASS_PALADIN, -1, 65, 60, @ITEM_MOD_STR, 12, @ITEM_MOD_AGI, 11, @ITEM_MOD_STAM, 12, 0, 83, 7, 33776, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 7, 0, 50, 49);
+
+REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `stat_type1`, `stat_value1`, `stat_type2`, `stat_value2`, `stat_type3`, `stat_value3`, `delay`, `armor`, `arcane_res`, `spellid_1`, `spelltrigger_1`, `spellid_2`, `spelltrigger_2`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `set_id`, `max_durability`, `disenchant_id`) VALUES (30285, 8, 4, @ITEM_SUBCLASS_ARMOR_PLATE,  'Koenig Cuirass', 48797, 4, 0, 0, @INVTYPE_CHEST, @CLASS_WARRIOR | @CLASS_PALADIN, -1, 65, 60, @ITEM_MOD_INT, 27, @ITEM_MOD_STAM, 15, 0, 0, 0, 83, 20, 18035, 1, 21364, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 7, 0, 50, 49);
+
+REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `stat_type1`, `stat_value1`, `stat_type2`, `stat_value2`, `stat_type3`, `stat_value3`, `delay`, `armor`, `arcane_res`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `set_id`, `max_durability`, `disenchant_id`) VALUES (30286, 8, 4, @ITEM_SUBCLASS_ARMOR_PLATE,  'Koenig Handschuhs', 48798, 4, 0, 0, @INVTYPE_HANDS, @CLASS_WARRIOR | @CLASS_PALADIN, -1, 65, 60, @ITEM_MOD_STR, 10, @ITEM_MOD_STAM, 25, 0, 0, 0, 83, 7, 33739, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 7, 0, 50, 49);
+
+REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `stat_type1`, `stat_value1`, `stat_type2`, `stat_value2`, `stat_type3`, `stat_value3`, `delay`, `armor`, `arcane_res`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `set_id`, `max_durability`, `disenchant_id`) VALUES (30287, 8, 4, @ITEM_SUBCLASS_ARMOR_PLATE,  'Koenig Schuhs', 51131, 4, 0, 0, @INVTYPE_FEET, @CLASS_WARRIOR | @CLASS_PALADIN, -1, 65, 60, @ITEM_MOD_STR, 18, @ITEM_MOD_AGI, 15, @ITEM_MOD_STAM, 12, 0, 83, 7, 0, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 7, 0, 50, 49);
+
+-- NEXT 30288
+
+-- Priest T5? Or w/e, with the weird hood. 46031 (Head) 46033 (shoulders) 46035 (Body) 46029(Gloves)
 
 -- Karazhan Crafted gear
     -- Karazhan Caretaker's Silken Blouse 
@@ -5060,7 +5187,7 @@ SET stat_type1 = 7,
     spelltrigger_1 = 1
 WHERE entry = 6910;
 
--- Gnomergan
+-- Gnomeregan
 
 -- Royal Diplomatic Scepter
 UPDATE mangos . item_template
