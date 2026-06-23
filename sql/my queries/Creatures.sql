@@ -235,7 +235,7 @@ UPDATE `mangos`.`creature_template` SET `level_min`=56, `level_max`=56 WHERE  `e
 -- UPDATE `mangos`.`creature_template` SET `spell_id2`=16098 WHERE  `entry`=9236 AND `patch`=0;
 
 -- Silver Stream Mine (Dun Morogh)
-DELETE from mangos.creature where guid IN (9408, 9409, 9319, 9410, 9155, 9150, 9192, 9414);
+-- DELETE from mangos.creature where guid IN (9408, 9409, 9319, 9410, 9155, 9150, 9192, 9414);
 
 -- Scholo spawns to delete
 -- Object GUID is: Creature (Entry: 10485 Guid: 48773)

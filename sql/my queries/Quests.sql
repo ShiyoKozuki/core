@@ -685,6 +685,124 @@ REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90035, 3000
         (9000000, 1, 1, 62, 30263, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Scared Spirit - End Scripted Map Event'),
         (9000000, 8, 0, 18, 0, 7200, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Scared Spirit - Despawn Creature');
 
+    -- Abjuration Quest Givers
+        -- Creature Template
+            REPLACE `mangos`.`creature_template` (`entry`, `name`, `subname`, `level_min`, `level_max`, `faction`, `npc_flags`, `display_id1`, `display_probability1`, `display_total_probability`, `type`, `unit_class`, `damage_multiplier`, `civilian`, `equipment_id`, `static_flags1`, `flags_extra`) VALUES (90103, 'Alphollon C Meriard', 'Priestess of Elune', 13, 13, 80, 2, 4399, 1, 1, 7, 1, 0.75, 1, 4190, 138936390, 2);
+
+            REPLACE `mangos`.`creature_template` (`entry`, `name`, `subname`, `level_min`, `level_max`, `faction`, `npc_flags`, `display_id1`, `display_probability1`, `display_total_probability`, `type`, `unit_class`, `health_multiplier`, `damage_multiplier`, `equipment_id`, `static_flags1`, `flags_extra`) VALUES (90104, 'Charlaimagnat', 'Priestess of Elune', 55, 55, 80, 2, 6840, 1, 1, 7, 2, 1.3, 1.1, 7740, 138936326, 2);
+
+            REPLACE `mangos`.`creature_template` (`entry`, `name`, `subname`, `level_min`, `level_max`, `faction`, `npc_flags`, `gossip_menu_id`, `display_id1`, `display_probability1`, `display_total_probability`, `type`, `unit_class`, `health_multiplier`, `armor_multiplier`, `damage_multiplier`, `equipment_id`, `trainer_id`, `static_flags1`, `flags_extra`) VALUES (90105, 'Chasalvige', 'Priestess of Elune', 50, 50, 80, 2, 4573, 2201, 1, 1, 7, 8, 1.25, 0.9, 1.4, 4091, 0, 138936390, 2);
+
+            REPLACE `mangos`.`creature_template` (`entry`, `name`, `subname`, `level_min`, `level_max`, `faction`, `npc_flags`, `gossip_menu_id`, `display_id1`, `display_probability1`, `display_total_probability`, `type`, `unit_class`, `health_multiplier`, `damage_multiplier`, `civilian`, `equipment_id`, `static_flags1`, `flags_extra`) VALUES (90106, 'Prerivon', 'Priestess of Elune', 40, 40, 80, 2, 4572, 2202, 1, 1, 7, 8, 1.15, 1.5, 1, 4092, 138936390, 2);
+
+        -- Creature
+            REPLACE `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000149, 90103, 0, 0, 0, 0, 1, 9623.91, 2490.84, 1354.81, 6.14488, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
+            REPLACE `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000150, 90104, 0, 0, 0, 0, 1, 9623.64, 2488.56, 1354.81, 6.20378, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
+            REPLACE `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000151, 90105, 0, 0, 0, 0, 1, 9623.15, 2485.88, 1354.81, 6.0742, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
+            REPLACE `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000152, 90106, 0, 0, 0, 0, 1, 9622.28, 2483.37, 1354.81, 6.08205, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
+
+    -- Quests
+        -- Zenith Abjurations
+            REPLACE `mangos`.`quest_template` (`entry`, `Method`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `SpecialFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `ReqItemId2`, `ReqItemCount2`, `RewItemId1`, `RewItemCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `DetailsEmote1`, `IncompleteEmote`, `CompleteEmote`) VALUES (30268, 0, 1657, 58, 62, 264, 1, 'Abjuration - Zenith (Helm)', '', '', 'Bring me anything interesting you find around Karazhan.', 'May the holy light guide you on your journey.', '', '', '', '', '', 30263, 1, 30288, 1, 30268, 1, 0, 0, 0, 0, 0, 0);
+
+            REPLACE `mangos`.`quest_template` (`entry`, `Method`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `SpecialFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `ReqItemId2`, `ReqItemCount2`, `RewItemId1`, `RewItemCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `DetailsEmote1`, `IncompleteEmote`, `CompleteEmote`) VALUES (30269, 0, 1657, 58, 62, 264, 1, 'Abjuration - Zenith (Shoulders)', '', '', 'Bring me anything interesting you find around Karazhan.', 'May the holy light guide you on your journey.', '', '', '', '', '', 30264, 1, 30289, 1, 30269, 1, 0, 0, 0, 0, 0, 0);
+
+            REPLACE `mangos`.`quest_template` (`entry`, `Method`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `SpecialFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `ReqItemId2`, `ReqItemCount2`, `RewItemId1`, `RewItemCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `DetailsEmote1`, `IncompleteEmote`, `CompleteEmote`) VALUES (30270, 0, 1657, 58, 62, 264, 1, 'Abjuration - Zenith (Body)', '', '', 'Bring me anything interesting you find around Karazhan.', 'May the holy light guide you on your journey.', '', '', '', '', '', 30265, 1, 30290, 1, 30270, 1, 0, 0, 0, 0, 0, 0);
+
+            REPLACE `mangos`.`quest_template` (`entry`, `Method`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `SpecialFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `ReqItemId2`, `ReqItemCount2`, `RewItemId1`, `RewItemCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `DetailsEmote1`, `IncompleteEmote`, `CompleteEmote`) VALUES (30271, 0, 1657, 58, 62, 264, 1, 'Abjuration - Zenith (Gloves)', '', '', 'Bring me anything interesting you find around Karazhan.', 'May the holy light guide you on your journey.', '', '', '', '', '', 30266, 1, 30291, 1, 30271, 1, 0, 0, 0, 0, 0, 0);
+
+            REPLACE `mangos`.`quest_template` (`entry`, `Method`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `SpecialFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `ReqItemId2`, `ReqItemCount2`, `RewItemId1`, `RewItemCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `DetailsEmote1`, `IncompleteEmote`, `CompleteEmote`) VALUES (30272, 0, 1657, 58, 62, 264, 1, 'Abjuration - Zenith (Feet)', '', '', 'Bring me anything interesting you find around Karazhan.', 'May the holy light guide you on your journey.', '', '', '', '', '', 30267, 1, 30292, 1, 30272, 1, 0, 0, 0, 0, 0, 0);
+            
+        -- Quest Relation
+            REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90103, 30268);
+            REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90103, 30269);
+            REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90103, 30270);
+            REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90103, 30271);
+            REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90103, 30272);
+
+        -- Quest Involved Relation
+            REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90103, 30268);
+            REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90103, 30269);
+            REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90103, 30270);
+            REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90103, 30271);
+            REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90103, 30272);
+
+        -- Hecatomb Abjurations
+            REPLACE `mangos`.`quest_template` (`entry`, `Method`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `SpecialFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `ReqItemId2`, `ReqItemCount2`, `RewItemId1`, `RewItemCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `DetailsEmote1`, `IncompleteEmote`, `CompleteEmote`) VALUES (30273, 0, 1657, 58, 62, 264, 1, 'Abjuration - Hecatomb (Helm)', '', '', 'Bring me anything interesting you find around Karazhan.', 'May the holy light guide you on your journey.', '', '', '', '', '', 30308, 1, 30293, 1, 30273, 1, 0, 0, 0, 0, 0, 0);
+
+            REPLACE `mangos`.`quest_template` (`entry`, `Method`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `SpecialFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `ReqItemId2`, `ReqItemCount2`, `RewItemId1`, `RewItemCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `DetailsEmote1`, `IncompleteEmote`, `CompleteEmote`) VALUES (30274, 0, 1657, 58, 62, 264, 1, 'Abjuration - Hecatomb (Shoulders)', '', '', 'Bring me anything interesting you find around Karazhan.', 'May the holy light guide you on your journey.', '', '', '', '', '', 30309, 1, 30294, 1, 30274, 1, 0, 0, 0, 0, 0, 0);
+
+            REPLACE `mangos`.`quest_template` (`entry`, `Method`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `SpecialFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `ReqItemId2`, `ReqItemCount2`, `RewItemId1`, `RewItemCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `DetailsEmote1`, `IncompleteEmote`, `CompleteEmote`) VALUES (30275, 0, 1657, 58, 62, 264, 1, 'Abjuration - Hecatomb (Body)', '', '', 'Bring me anything interesting you find around Karazhan.', 'May the holy light guide you on your journey.', '', '', '', '', '', 30310, 1, 30295, 1, 30275, 1, 0, 0, 0, 0, 0, 0);
+
+            REPLACE `mangos`.`quest_template` (`entry`, `Method`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `SpecialFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `ReqItemId2`, `ReqItemCount2`, `RewItemId1`, `RewItemCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `DetailsEmote1`, `IncompleteEmote`, `CompleteEmote`) VALUES (30276, 0, 1657, 58, 62, 264, 1, 'Abjuration - Hecatomb (Gloves)', '', '', 'Bring me anything interesting you find around Karazhan.', 'May the holy light guide you on your journey.', '', '', '', '', '', 30311, 1, 30296, 1, 30276, 1, 0, 0, 0, 0, 0, 0);
+
+            REPLACE `mangos`.`quest_template` (`entry`, `Method`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `SpecialFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `ReqItemId2`, `ReqItemCount2`, `RewItemId1`, `RewItemCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `DetailsEmote1`, `IncompleteEmote`, `CompleteEmote`) VALUES (30277, 0, 1657, 58, 62, 264, 1, 'Abjuration - Hecatomb (Feet)', '', '', 'Bring me anything interesting you find around Karazhan.', 'May the holy light guide you on your journey.', '', '', '', '', '', 30312, 1, 30297, 1, 30277, 1, 0, 0, 0, 0, 0, 0);
+        
+    -- Quest Relation
+        REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90104, 30273);
+        REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90104, 30274);
+        REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90104, 30275);
+        REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90104, 30276);
+        REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90104, 30277);
+
+    -- Quest Involved Relation
+        REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90104, 30273);
+        REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90104, 30274);
+        REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90104, 30275);
+        REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90104, 30276);
+        REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90104, 30277);
+
+        -- Crimson Abjuration
+            REPLACE `mangos`.`quest_template` (`entry`, `Method`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `SpecialFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `ReqItemId2`, `ReqItemCount2`, `RewItemId1`, `RewItemCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `DetailsEmote1`, `IncompleteEmote`, `CompleteEmote`) VALUES (30278, 0, 1657, 58, 62, 264, 1, 'Abjuration - Crimson (Helm)', '', '', 'Bring me anything interesting you find around Karazhan.', 'May the holy light guide you on your journey.', '', '', '', '', '', 30313, 1, 30298, 1, 30278, 1, 0, 0, 0, 0, 0, 0);
+
+            REPLACE `mangos`.`quest_template` (`entry`, `Method`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `SpecialFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `ReqItemId2`, `ReqItemCount2`, `RewItemId1`, `RewItemCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `DetailsEmote1`, `IncompleteEmote`, `CompleteEmote`) VALUES (30279, 0, 1657, 58, 62, 264, 1, 'Abjuration - Crimson (Shoulders)', '', '', 'Bring me anything interesting you find around Karazhan.', 'May the holy light guide you on your journey.', '', '', '', '', '', 30314, 1, 30299, 1, 30279, 1, 0, 0, 0, 0, 0, 0);
+
+            REPLACE `mangos`.`quest_template` (`entry`, `Method`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `SpecialFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `ReqItemId2`, `ReqItemCount2`, `RewItemId1`, `RewItemCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `DetailsEmote1`, `IncompleteEmote`, `CompleteEmote`) VALUES (30280, 0, 1657, 58, 62, 264, 1, 'Abjuration - Crimson (Body)', '', '', 'Bring me anything interesting you find around Karazhan.', 'May the holy light guide you on your journey.', '', '', '', '', '', 30315, 1, 30300, 1, 30280, 1, 0, 0, 0, 0, 0, 0);
+
+            REPLACE `mangos`.`quest_template` (`entry`, `Method`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `SpecialFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `ReqItemId2`, `ReqItemCount2`, `RewItemId1`, `RewItemCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `DetailsEmote1`, `IncompleteEmote`, `CompleteEmote`) VALUES (30281, 0, 1657, 58, 62, 264, 1, 'Abjuration - Crimson (Gloves)', '', '', 'Bring me anything interesting you find around Karazhan.', 'May the holy light guide you on your journey.', '', '', '', '', '', 30316, 1, 30301, 1, 30281, 1, 0, 0, 0, 0, 0, 0);
+
+            REPLACE `mangos`.`quest_template` (`entry`, `Method`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `SpecialFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `ReqItemId2`, `ReqItemCount2`, `RewItemId1`, `RewItemCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `DetailsEmote1`, `IncompleteEmote`, `CompleteEmote`) VALUES (30282, 0, 1657, 58, 62, 264, 1, 'Abjuration - Crimson (Feet)', '', '', 'Bring me anything interesting you find around Karazhan.', 'May the holy light guide you on your journey.', '', '', '', '', '', 30317, 1, 30302, 1, 30282, 1, 0, 0, 0, 0, 0, 0);
+        
+    -- Quest Relation
+        REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90105, 30278);
+        REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90105, 30279);
+        REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90105, 30280);
+        REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90105, 30281);
+        REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90105, 30282);
+
+    -- Quest Involved Relation
+        REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90105, 30278);
+        REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90105, 30279);
+        REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90105, 30280);
+        REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90105, 30281);
+        REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90105, 30282);
+
+        -- Koenig Abjuration
+
+            REPLACE `mangos`.`quest_template` (`entry`, `Method`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `SpecialFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `ReqItemId2`, `ReqItemCount2`, `RewItemId1`, `RewItemCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `DetailsEmote1`, `IncompleteEmote`, `CompleteEmote`) VALUES (30283, 0, 1657, 58, 62, 264, 1, 'Abjuration - Koenig (Helm)', '', '', 'Bring me anything interesting you find around Karazhan.', 'May the holy light guide you on your journey.', '', '', '', '', '', 30318, 1, 30303, 1, 30283, 1, 0, 0, 0, 0, 0, 0);
+
+            REPLACE `mangos`.`quest_template` (`entry`, `Method`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `SpecialFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `ReqItemId2`, `ReqItemCount2`, `RewItemId1`, `RewItemCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `DetailsEmote1`, `IncompleteEmote`, `CompleteEmote`) VALUES (30284, 0, 1657, 58, 62, 264, 1, 'Abjuration - Koenig (Shoulders)', '', '', 'Bring me anything interesting you find around Karazhan.', 'May the holy light guide you on your journey.', '', '', '', '', '', 30319, 1, 30304, 1, 30284, 1, 0, 0, 0, 0, 0, 0);
+
+            REPLACE `mangos`.`quest_template` (`entry`, `Method`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `SpecialFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `ReqItemId2`, `ReqItemCount2`, `RewItemId1`, `RewItemCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `DetailsEmote1`, `IncompleteEmote`, `CompleteEmote`) VALUES (30285, 0, 1657, 58, 62, 264, 1, 'Abjuration - Koenig (Body)', '', '', 'Bring me anything interesting you find around Karazhan.', 'May the holy light guide you on your journey.', '', '', '', '', '', 30320, 1, 30305, 1, 30285, 1, 0, 0, 0, 0, 0, 0);
+
+            REPLACE `mangos`.`quest_template` (`entry`, `Method`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `SpecialFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `ReqItemId2`, `ReqItemCount2`, `RewItemId1`, `RewItemCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `DetailsEmote1`, `IncompleteEmote`, `CompleteEmote`) VALUES (30286, 0, 1657, 58, 62, 264, 1, 'Abjuration - Koenig (Gloves)', '', '', 'Bring me anything interesting you find around Karazhan.', 'May the holy light guide you on your journey.', '', '', '', '', '', 30321, 1, 30306, 1, 30286, 1, 0, 0, 0, 0, 0, 0);
+
+            REPLACE `mangos`.`quest_template` (`entry`, `Method`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `SpecialFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `ReqItemId2`, `ReqItemCount2`, `RewItemId1`, `RewItemCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `DetailsEmote1`, `IncompleteEmote`, `CompleteEmote`) VALUES (30287, 0, 1657, 58, 62, 264, 1, 'Abjuration - Koenig (Feet)', '', '', 'Bring me anything interesting you find around Karazhan.', 'May the holy light guide you on your journey.', '', '', '', '', '', 30322, 1, 30307, 1, 30287, 1, 0, 0, 0, 0, 0, 0);
+        
+    -- Quest Relation
+        REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90106, 30283);
+        REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90106, 30284);
+        REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90106, 30285);
+        REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90106, 30286);
+        REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90106, 30287);
+
+    -- Quest Involved Relation
+        REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90106, 30283);
+        REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90106, 30284);
+        REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90106, 30285);
+        REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90106, 30286);
+        REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90106, 30287);
+
     -- TODO: It was working, then I changed NPC to despawn, added xyzo pos for guy to spawn, removed target and now its all broken
     -- TODO: Maybe he spawned in wrong spot and is still up somewhere?, cause i spawned him without mins sign on x/y...but it does error still
     -- TODO: is it the creature_movement_scripts ?
@@ -724,6 +842,8 @@ REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90035, 3000
     -- TODO: How did Book of the Ancients quest make the boss aggro spawner on spawn?
     -- TODO: "Waves" of mobs spawning event for something
     -- TODO: Event like "The Grimtotem Weapon" from TBC where you have to drop an item then kill mobs near it
+    -- TODO: Special item from the ghost vacuum quest that is needed for blanche dame (Banshee)
+    -- TODO: Skill books from rep (exalted)
 
     -- "Crypt Cave" mobs
         -- Ghosts:
