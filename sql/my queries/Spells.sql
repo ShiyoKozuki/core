@@ -1,6 +1,6 @@
 -- 34186 NEXT SPELL
 -- 15171 NEXT SKILL_LINE_ABILITY
--- NEXT category 10004
+-- NEXT category 10006
 
 -- skill_line_ability class_mask uses enum CLASSES
 
@@ -518,6 +518,102 @@ SET
     @CASTING_TIME_850_MS         = 197,
     @CASTING_TIME_900_MS         = 198,
     @CASTING_TIME_333_MS         = 199;
+
+SET
+    @TARGET_NONE                                   = 0,
+    @TARGET_UNIT_CASTER                            = 1,
+    @TARGET_UNIT_ENEMY_NEAR_CASTER                 = 2,
+    @TARGET_UNIT_FRIEND_NEAR_CASTER                = 3,
+    @TARGET_UNIT_NEAR_CASTER                       = 4,
+    @TARGET_UNIT_CASTER_PET                        = 5,
+    @TARGET_UNIT_ENEMY                             = 6,
+    @TARGET_ENUM_UNITS_SCRIPT_AOE_AT_SRC_LOC       = 7,
+    @TARGET_ENUM_UNITS_SCRIPT_AOE_AT_DEST_LOC      = 8,
+    @TARGET_LOCATION_CASTER_HOME_BIND              = 9,
+    @TARGET_LOCATION_CASTER_DIVINE_BIND_NYI        = 10,
+    @TARGET_PLAYER_NYI                             = 11,
+    @TARGET_PLAYER_NEAR_CASTER_NYI                 = 12,
+    @TARGET_PLAYER_ENEMY_NYI                       = 13,
+    @TARGET_PLAYER_FRIEND_NYI                      = 14,
+    @TARGET_ENUM_UNITS_ENEMY_AOE_AT_SRC_LOC        = 15,
+    @TARGET_ENUM_UNITS_ENEMY_AOE_AT_DEST_LOC       = 16,
+    @TARGET_LOCATION_DATABASE                      = 17,
+    @TARGET_LOCATION_CASTER_DEST                   = 18,
+    @TARGET_UNK_19                                 = 19,
+    @TARGET_ENUM_UNITS_PARTY_WITHIN_CASTER_RANGE   = 20,
+    @TARGET_UNIT_FRIEND                            = 21,
+    @TARGET_LOCATION_CASTER_SRC                    = 22,
+    @TARGET_GAMEOBJECT                             = 23,
+    @TARGET_ENUM_UNITS_ENEMY_IN_CONE_24            = 24,
+    @TARGET_UNIT                                   = 25,
+    @TARGET_LOCKED                                 = 26,
+    @TARGET_UNIT_CASTER_MASTER                     = 27,
+    @TARGET_ENUM_UNITS_ENEMY_AOE_AT_DYNOBJ_LOC     = 28,
+    @TARGET_ENUM_UNITS_FRIEND_AOE_AT_DYNOBJ_LOC    = 29,
+    @TARGET_ENUM_UNITS_FRIEND_AOE_AT_SRC_LOC       = 30,
+    @TARGET_ENUM_UNITS_FRIEND_AOE_AT_DEST_LOC      = 31,
+    @TARGET_LOCATION_UNIT_MINION_POSITION          = 32,
+    @TARGET_ENUM_UNITS_PARTY_AOE_AT_SRC_LOC        = 33,
+    @TARGET_ENUM_UNITS_PARTY_AOE_AT_DEST_LOC       = 34,
+    @TARGET_UNIT_PARTY                             = 35,
+    @TARGET_ENUM_UNITS_ENEMY_WITHIN_CASTER_RANGE   = 36,
+    @TARGET_UNIT_FRIEND_AND_PARTY                  = 37,
+    @TARGET_UNIT_SCRIPT_NEAR_CASTER                = 38,
+    @TARGET_LOCATION_CASTER_FISHING_SPOT           = 39,
+    @TARGET_GAMEOBJECT_SCRIPT_NEAR_CASTER          = 40,
+    @TARGET_LOCATION_CASTER_FRONT_RIGHT            = 41,
+    @TARGET_LOCATION_CASTER_BACK_RIGHT             = 42,
+    @TARGET_LOCATION_CASTER_BACK_LEFT              = 43,
+    @TARGET_LOCATION_CASTER_FRONT_LEFT             = 44,
+    @TARGET_UNIT_FRIEND_CHAIN_HEAL                 = 45,
+    @TARGET_LOCATION_SCRIPT_NEAR_CASTER            = 46,
+    @TARGET_LOCATION_CASTER_FRONT                  = 47,
+    @TARGET_LOCATION_CASTER_BACK                   = 48,
+    @TARGET_LOCATION_CASTER_LEFT                   = 49,
+    @TARGET_LOCATION_CASTER_RIGHT                  = 50,
+    @TARGET_ENUM_GAMEOBJECTS_SCRIPT_AOE_AT_SRC_LOC = 51,
+    @TARGET_ENUM_GAMEOBJECTS_SCRIPT_AOE_AT_DEST_LOC= 52,
+    @TARGET_LOCATION_CASTER_TARGET_POSITION        = 53,
+    @TARGET_ENUM_UNITS_ENEMY_IN_CONE_54            = 54,
+    @TARGET_LOCATION_CASTER_FRONT_LEAP             = 55,
+    @TARGET_ENUM_UNITS_RAID_WITHIN_CASTER_RANGE    = 56,
+    @TARGET_UNIT_RAID                              = 57,
+    @TARGET_UNIT_RAID_NEAR_CASTER                  = 58,
+    @TARGET_ENUM_UNITS_FRIEND_IN_CONE              = 59,
+    @TARGET_ENUM_UNITS_SCRIPT_IN_CONE_60           = 60,
+    @TARGET_UNIT_RAID_AND_CLASS                    = 61,
+    @TARGET_PLAYER_RAID_NYI                        = 62,
+    @TARGET_LOCATION_UNIT_POSITION                 = 63,
+    @TARGET_LOCATION_UNIT_FRONT                    = 64,
+    @TARGET_LOCATION_UNIT_BACK                     = 65,
+    @TARGET_LOCATION_UNIT_RIGHT                    = 66,
+    @TARGET_LOCATION_UNIT_LEFT                     = 67,
+    @TARGET_LOCATION_UNIT_FRONT_RIGHT              = 68,
+    @TARGET_LOCATION_UNIT_BACK_RIGHT               = 69,
+    @TARGET_LOCATION_UNIT_BACK_LEFT                = 70,
+    @TARGET_LOCATION_UNIT_FRONT_LEFT               = 71,
+    @TARGET_LOCATION_CASTER_RANDOM_SIDE            = 72,
+    @TARGET_LOCATION_CASTER_RANDOM_CIRCUMFERENCE   = 73,
+    @TARGET_LOCATION_UNIT_RANDOM_SIDE              = 74,
+    @TARGET_LOCATION_UNIT_RANDOM_CIRCUMFERENCE     = 75,
+    @TARGET_LOCATION_DYNOBJ_POSITION               = 76,
+    @TARGET_UNIT_CHANNEL_TARGET                    = 77,
+    @TARGET_LOCATION_NORTH                         = 78,
+    @TARGET_LOCATION_SOUTH                         = 79,
+    @TARGET_LOCATION_EAST                          = 80,
+    @TARGET_LOCATION_WEST                          = 81,
+    @TARGET_LOCATION_NE                            = 82,
+    @TARGET_LOCATION_NW                            = 83,
+    @TARGET_LOCATION_SE                            = 84,
+    @TARGET_LOCATION_SW                            = 85,
+    @TARGET_LOCATION_RANDOM_SIDE                   = 86,
+    @TARGET_LOCATION_CURRENT_REFERENCE             = 87,
+    @TARGET_ENUM_UNITS_SCRIPT_AOE_AT_DYNOBJ_LOC    = 88,
+    @TARGET_LOCATION_TRAJECTORY                    = 89,
+    @TARGET_UNIT_CASTER_COMPANION                  = 90,
+    @TARGET_LOCATION_RANDOM_CIRCUMFERENCE          = 91,
+    @TARGET_UNIT_CASTER_SUMMONER                   = 92,
+    @TARGET_CORPSE_ENEMY_NEAR_CASTER_NYI           = 93;
 
 -- Gear Mods
     -- Armor Penetration
@@ -2151,7 +2247,7 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
             REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `dispel`, `attributes`, `attributesEx`, `castingTimeIndex`, `procFlags`, `procChance`, `procCharges`, `baseLevel`, `spellLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effect2`, `effectDieSides1`, `effectDieSides2`, `effectBaseDice1`, `effectBaseDice2`, `effectBasePoints1`, `effectBasePoints2`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectApplyAuraName1`, `effectApplyAuraName2`, `effectAmplitude2`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34030, 5302, 3, 1, 327680, 1024, 1, 139944, 100, 3, 30, 30, 6, 1, -1, -1, 6, 6, 1, 1, 1, 1, 12, 19, 0, -1, -1, 1, 1, 42, 24, 5000, 34031, 7358, 2102, 'Water Shield', 2031678, 'Rank 1', 2031678, 'The caster is surrounded by $n balls of water, granting $s2 mana per 5 sec.  When a spell, melee or ranged attack hits the caster, $34031s1 mana is restored to the caster.  This expends one water ball.  Only one ball will fire every few seconds.  Lasts $d.', 2031678, 'Restores $s2 mana per 5 sec. Attacks and spells used against you restore $34031s1 mana.', 2031678, 133, 1500, 11, 0, 1, 1, -1, 1, 1, 1);
 
             -- Spell Proc Event (3s ICD)
-            REPLACE `mangos`.`spell_proc_event` (`entry`, `Cooldown`) VALUES (34030, 3000);
+            REPLACE `mangos`.`spell_proc_event` (`entry`, `Cooldown`) VALUES (34030, 3500);
             
             -- Proc when hit (MP Restore)
             REPLACE `mangos`.`spell_template` (`entry`, `build`, `category`, `attributes`, `castingTimeIndex`, `procChance`, `spellLevel`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34031, 4222, 4, 671088640, 1, 101, 35, 1, -1, -1, 30, 1, 1, 23, 0, -1, -1, 1, 0, 1, 'Restore Mana', 983070, 7274508, 'Restores $s1 mana.', 7274526, 983052, 11, 549755813888, 1, -1, 1, 1, 1);
@@ -2173,7 +2269,7 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
             REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `dispel`, `attributes`, `attributesEx`, `castingTimeIndex`, `procFlags`, `procChance`, `procCharges`, `baseLevel`, `spellLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effect2`, `effectDieSides1`, `effectDieSides2`, `effectBaseDice1`, `effectBaseDice2`, `effectBasePoints1`, `effectBasePoints2`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectApplyAuraName1`, `effectApplyAuraName2`, `effectAmplitude2`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34129, 5302, 3, 1, 327680, 1024, 1, 139944, 100, 3, 30, 30, 6, 1, -1, -1, 6, 6, 1, 1, 1, 1, 12, 24, 0, -1, -1, 1, 1, 42, 24, 5000, 34130, 7358, 2102, 'Water Shield', 2031678, 'Rank 2', 2031678, 'The caster is surrounded by $n balls of water, granting $s2 mana per 5 sec.  When a spell, melee or ranged attack hits the caster, $34130s1 mana is restored to the caster.  This expends one water ball.  Only one ball will fire every few seconds.  Lasts $d.', 2031678, 'Restores $s2 mana per 5 sec. Attacks and spells used against you restore $34130s1 mana.', 2031678, 133, 1500, 11, 0, 1, 1, -1, 1, 1, 1);
 
             -- Spell Proc Event (3s ICD)
-            REPLACE `mangos`.`spell_proc_event` (`entry`, `Cooldown`) VALUES (34129, 3000);
+            REPLACE `mangos`.`spell_proc_event` (`entry`, `Cooldown`) VALUES (34129, 3500);
 
             -- Proc when hit (MP Restore)
             REPLACE `mangos`.`spell_template` (`entry`, `build`, `category`, `attributes`, `castingTimeIndex`, `procChance`, `spellLevel`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34130, 4222, 4, 671088640, 1, 101, 35, 1, -1, -1, 30, 1, 1, 33, 0, -1, -1, 1, 0, 1, 'Restore Mana', 983070, 7274508, 'Restores $s1 mana.', 7274526, 983052, 11, 549755813888, 1, -1, 1, 1, 1);
@@ -2195,7 +2291,7 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
             REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `dispel`, `attributes`, `attributesEx`, `castingTimeIndex`, `procFlags`, `procChance`, `procCharges`, `baseLevel`, `spellLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effect2`, `effectDieSides1`, `effectDieSides2`, `effectBaseDice1`, `effectBaseDice2`, `effectBasePoints1`, `effectBasePoints2`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectApplyAuraName1`, `effectApplyAuraName2`, `effectAmplitude2`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34132, 5302, 3, 1, 327680, 1024, 1, 139944, 100, 3, 30, 30, 6, 1, -1, -1, 6, 6, 1, 1, 1, 1, 12, 29, 0, -1, -1, 1, 1, 42, 24, 5000, 34133, 7358, 2102, 'Water Shield', 2031678, 'Rank 3', 2031678, 'The caster is surrounded by $n balls of water, granting $s2 mana per 5 sec.  When a spell, melee or ranged attack hits the caster, $34133s1 mana is restored to the caster.  This expends one water ball.  Only one ball will fire every few seconds.  Lasts $d.', 2031678, 'Restores $s2 mana per 5 sec. Attacks and spells used against you restore $34133s1 mana.', 2031678, 133, 1500, 11, 0, 1, 1, -1, 1, 1, 1);
 
             -- Spell Proc Event (3s ICD)
-            REPLACE `mangos`.`spell_proc_event` (`entry`, `Cooldown`) VALUES (34132, 3000);
+            REPLACE `mangos`.`spell_proc_event` (`entry`, `Cooldown`) VALUES (34132, 3500);
 
             -- Proc when hit (MP Restore)
             REPLACE `mangos`.`spell_template` (`entry`, `build`, `category`, `attributes`, `castingTimeIndex`, `procChance`, `spellLevel`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34133, 4222, 4, 671088640, 1, 101, 35, 1, -1, -1, 30, 1, 1, 43, 0, -1, -1, 1, 0, 1, 'Restore Mana', 983070, 7274508, 'Restores $s1 mana.', 7274526, 983052, 11, 549755813888, 1, -1, 1, 1, 1);
@@ -2218,7 +2314,7 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
             REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `dispel`, `attributes`, `attributesEx`, `castingTimeIndex`, `procFlags`, `procChance`, `procCharges`, `baseLevel`, `spellLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effect2`, `effectDieSides1`, `effectDieSides2`, `effectBaseDice1`, `effectBaseDice2`, `effectBasePoints1`, `effectBasePoints2`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectApplyAuraName1`, `effectApplyAuraName2`, `effectAmplitude2`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34135, 5302, 3, 1, 327680, 1024, 1, 139944, 100, 3, 30, 30, 6, 1, -1, -1, 6, 6, 1, 1, 1, 1, 12, 32, 0, -1, -1, 1, 1, 42, 24, 5000, 34136, 7358, 2102, 'Water Shield', 2031678, 'Rank 4', 2031678, 'The caster is surrounded by $n balls of water, granting $s2 mana per 5   When a spell, melee or ranged attack hits the caster, $34136s1 mana is restored to the caster.  This expends one water ball.  Only one ball will fire every few seconds.  Lasts $d.', 2031678, 'Restores $s2 mana per 5 sec. Attacks and spells used against you restore $34136s1 mana.', 2031678, 133, 1500, 11, 0, 1, 1, -1, 1, 1, 1);
 
             -- Spell Proc Event (3s ICD)
-            REPLACE `mangos`.`spell_proc_event` (`entry`, `Cooldown`) VALUES (34135, 3000);
+            REPLACE `mangos`.`spell_proc_event` (`entry`, `Cooldown`) VALUES (34135, 3500);
 
             -- Proc when hit (MP Restore)
             REPLACE `mangos`.`spell_template` (`entry`, `build`, `category`, `attributes`, `castingTimeIndex`, `procChance`, `spellLevel`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34136, 4222, 4, 671088640, 1, 101, 35, 1, -1, -1, 30, 1, 1, 53, 0, -1, -1, 1, 0, 1, 'Restore Mana', 983070, 7274508, 'Restores $s1 mana.', 7274526, 983052, 11, 549755813888, 1, -1, 1, 1, 1);
@@ -2245,7 +2341,7 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
             UPDATE `mangos`.`spell_template` SET `manaCost`=300 WHERE  `entry`=34137;
 
             -- Spell Proc Event (3s ICD)
-            REPLACE `mangos`.`spell_proc_event` (`entry`, `Cooldown`) VALUES (34137, 3000);
+            REPLACE `mangos`.`spell_proc_event` (`entry`, `Cooldown`) VALUES (34137, 3500);
 
             -- Proc when hit (HP Restore)
             REPLACE `mangos`.`spell_template` (`entry`, `build`, `category`, `attributes`, `castingTimeIndex`, `interruptFlags`, `procChance`, `spellLevel`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectMultipleValue1`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34138, 4222, 4, 671088640, 1, 8, 101, 25, 1, -1, 10, 1, 1, 149, 0, -1, -1, 1, 1, 0, 1, 50, 'Restore Health', 983070, 7274508, 'Restores $s1 health.', 7274526, 983052, 11, 2199023255552, 1, -1, 1, 1, 1);
@@ -2262,7 +2358,7 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
             UPDATE `mangos`.`spell_template` SET `manaCost`=375 WHERE  `entry`=34139;
 
             -- Spell Proc Event (3s ICD)
-            REPLACE `mangos`.`spell_proc_event` (`entry`, `Cooldown`) VALUES (34139, 3000);
+            REPLACE `mangos`.`spell_proc_event` (`entry`, `Cooldown`) VALUES (34139, 3500);
 
             -- Proc when hit (HP Restore)
             REPLACE `mangos`.`spell_template` (`entry`, `build`, `category`, `attributes`, `castingTimeIndex`, `interruptFlags`, `procChance`, `spellLevel`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectMultipleValue1`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34140, 4222, 4, 671088640, 1, 8, 101, 25, 1, -1, 10, 1, 1, 204, 0, -1, -1, 1, 1, 0, 1, 50, 'Restore Health', 983070, 7274508, 'Restores $s1 health.', 7274526, 983052, 11, 2199023255552, 1, -1, 1, 1, 1);
@@ -2964,6 +3060,8 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
                 -- Spell
                     REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `attributesEx`, `castingTimeIndex`, `recoveryTime`, `interruptFlags`, `channelInterruptFlags`, `procChance`, `maxLevel`, `baseLevel`, `spellLevel`, `durationIndex`, `manaCost`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effect2`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectApplyAuraName1`, `effectApplyAuraName2`, `effectAmplitude1`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `spellFamilyFlags`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `customFlags`) VALUES (33847, 5464, 4, 536936704, 268453004, 1, 30000, 15, 31756, 101, 39, 30, 30, 28, 240, 4, -1, -1, 6, 6, 0, 0, -1, 1, 6, 23, 4, 1000, 33848, 0, 2076, 50, 'Flurry', 4128830, 'Rank 1', 4128830, 'Launches a flurry of frost at the enemy, causing $33848s1 Frost damage each second for $d and slowing movement speed by $33848s2% for $33848d.  Counts as Frozen for Ice Lance.', 4128830, 4128828, 133, 1500, 3, 4294967296, 1, -1, 1, 1, 1, 128);
 
+                    UPDATE `mangos`.`spell_template` SET `category`=10004, `categoryRecoveryTime`=60000, `recoveryTime`=0 WHERE  `entry`=33847;
+
                 -- Proc
                     REPLACE`mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `attributesEx2`, `attributesEx3`, `castingTimeIndex`, `interruptFlags`, `procChance`, `maxLevel`, `baseLevel`, `spellLevel`, `rangeIndex`, `speed`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectRealPointsPerLevel1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `customFlags`) VALUES (33848, 5086, 4, 65536, 4194304, 512, 1, 8, 101, 39, 30, 30, 4, 20, -1, -1, 2, 1, 1, 0.6, 82, 0.24, -1, -1, 6, 2147, 2076, 50, 'Flurry', 2031678, 'Rank 1', 2031678, 'Launches a flurry of frost enemy, causing $s1 Frost damage.', 2031678, 2031676, 3, 549756862464, 1, 1, -1, 1, 1, 1, 128);
 
@@ -2975,6 +3073,8 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
             -- Rank 2
                 -- Spell
                     REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `attributesEx`, `castingTimeIndex`, `recoveryTime`, `interruptFlags`, `channelInterruptFlags`, `procChance`, `maxLevel`, `baseLevel`, `spellLevel`, `durationIndex`, `manaCost`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effect2`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectApplyAuraName1`, `effectApplyAuraName2`, `effectAmplitude1`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `spellFamilyFlags`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `customFlags`) VALUES (33894, 5464, 4, 536936704, 268453004, 1, 30000, 15, 31756, 101, 47, 40, 40, 28, 280, 4, -1, -1, 6, 6, 0, 0, -1, 1, 6, 23, 4, 1000, 33895, 0, 2076, 50, 'Flurry', 4128830, 'Rank 2', 4128830, 'Launches a flurry of frost at the enemy, causing $33895s1 Frost damage each second for $d and slowing movement speed by $33895s2% for $33895d.  Counts as Frozen for Ice Lance.', 4128830, 4128828, 133, 1500, 3, 4294967296, 1, -1, 1, 1, 1, 128);
+
+                    UPDATE `mangos`.`spell_template` SET `category`=10004, `categoryRecoveryTime`=60000, `recoveryTime`=0 WHERE  `entry`=33894;
 
                 -- Proc
                     REPLACE`mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `attributesEx2`, `attributesEx3`, `castingTimeIndex`, `interruptFlags`, `procChance`, `maxLevel`, `baseLevel`, `spellLevel`, `rangeIndex`, `speed`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectRealPointsPerLevel1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `customFlags`) VALUES (33895, 5086, 4, 65536, 4194304, 512, 1, 8, 101, 47, 40, 40, 4, 20, -1, -1, 2, 1, 1, 0.6, 114, 0.24, -1, -1, 6, 2147, 2076, 50, 'Flurry', 2031678, 'Rank 2', 2031678, 'Launches a flurry of frost enemy, causing $s1 Frost damage.', 2031678, 2031676, 3, 549756862464, 1, 1, -1, 1, 1, 1, 128);
@@ -2989,6 +3089,8 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
                 -- Spell
                     REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `attributesEx`, `castingTimeIndex`, `recoveryTime`, `interruptFlags`, `channelInterruptFlags`, `procChance`, `maxLevel`, `baseLevel`, `spellLevel`, `durationIndex`, `manaCost`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effect2`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectApplyAuraName1`, `effectApplyAuraName2`, `effectAmplitude1`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `spellFamilyFlags`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `customFlags`) VALUES (33897, 5464, 4, 536936704, 268453004, 1, 30000, 15, 31756, 101, 55, 48, 48, 28, 320, 4, -1, -1, 6, 6, 0, 0, -1, 1, 6, 23, 4, 1000, 33898, 0, 2076, 50, 'Flurry', 4128830, 'Rank 3', 4128830, 'Launches a flurry of frost at the enemy, causing $33898s1 Frost damage each second for $d and slowing movement speed by $33898s2% for $33898d.  Counts as Frozen for Ice Lance.', 4128830, 4128828, 133, 1500, 3, 4294967296, 1, -1, 1, 1, 1, 128);
 
+                    UPDATE `mangos`.`spell_template` SET `category`=10004, `categoryRecoveryTime`=60000, `recoveryTime`=0 WHERE  `entry`=33897;
+
                 -- Proc
                     REPLACE`mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `attributesEx2`, `attributesEx3`, `castingTimeIndex`, `interruptFlags`, `procChance`, `maxLevel`, `baseLevel`, `spellLevel`, `rangeIndex`, `speed`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectRealPointsPerLevel1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `customFlags`) VALUES (33898, 5086, 4, 65536, 4194304, 512, 1, 8, 101, 55, 48, 48, 4, 20, -1, -1, 2, 1, 1, 0.6, 150, 0.24, -1, -1, 6, 2147, 2076, 50, 'Flurry', 2031678, 'Rank 3', 2031678, 'Launches a flurry of frost enemy, causing $s1 Frost damage.', 2031678, 2031676, 3, 549756862464, 1, 1, -1, 1, 1, 1, 128);
 
@@ -3001,6 +3103,8 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
                 -- Rank 4
                     -- Spell
                         REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `attributesEx`, `castingTimeIndex`, `recoveryTime`, `interruptFlags`, `channelInterruptFlags`, `procChance`, `maxLevel`, `baseLevel`, `spellLevel`, `durationIndex`, `manaCost`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effect2`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectApplyAuraName1`, `effectApplyAuraName2`, `effectAmplitude1`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `spellFamilyFlags`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `customFlags`) VALUES (33900, 5464, 4, 536936704, 268453004, 1, 30000, 15, 31756, 101, 59, 56, 56, 28, 360, 4, -1, -1, 6, 6, 0, 0, -1, 1, 6, 23, 4, 1000, 33901, 0, 2076, 50, 'Flurry', 4128830, 'Rank 4', 4128830, 'Launches a flurry of frost at the enemy, causing $33901s1 Frost damage each second for $d and slowing movement speed by $33901s2% for $33901d.  Counts as Frozen for Ice Lance.', 4128830, 4128828, 133, 1500, 3, 4294967296, 1, -1, 1, 1, 1, 128);
+
+                        UPDATE `mangos`.`spell_template` SET `category`=10004, `categoryRecoveryTime`=60000, `recoveryTime`=0 WHERE  `entry`=33900;
 
                     -- Proc
                         REPLACE`mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `attributesEx2`, `attributesEx3`, `castingTimeIndex`, `interruptFlags`, `procChance`, `maxLevel`, `baseLevel`, `spellLevel`, `rangeIndex`, `speed`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectRealPointsPerLevel1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `customFlags`) VALUES (33901, 5086, 4, 65536, 4194304, 512, 1, 8, 101, 59, 56, 56, 4, 20, -1, -1, 2, 1, 1, 0.6, 191, 0.24, -1, -1, 6, 2147, 2076, 50, 'Flurry', 2031678, 'Rank 4', 2031678, 'Launches a flurry of frost enemy, causing $s1 Frost damage.', 2031678, 2031676, 3, 549756862464, 1, 1, -1, 1, 1, 1, 128);
@@ -3015,6 +3119,8 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
                     -- TODO: Spell Book drop
                     -- Spell
                         REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `attributesEx`, `castingTimeIndex`, `recoveryTime`, `interruptFlags`, `channelInterruptFlags`, `procChance`, `maxLevel`, `baseLevel`, `spellLevel`, `durationIndex`, `manaCost`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effect2`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectApplyAuraName1`, `effectApplyAuraName2`, `effectAmplitude1`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `spellFamilyFlags`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `customFlags`) VALUES (33903, 5464, 4, 536936704, 268453004, 1, 30000, 15, 31756, 101, 61, 60, 60, 28, 400, 4, -1, -1, 6, 6, 0, 0, -1, 1, 6, 23, 4, 1000, 33904, 0, 2076, 50, 'Flurry', 4128830, 'Rank 5', 4128830, 'Launches a flurry of frost at the enemy, causing $33904s1 Frost damage each second for $d and slowing movement speed by $33904s2% for $33904d.  Counts as Frozen for Ice Lance.', 4128830, 4128828, 133, 1500, 3, 4294967296, 1, -1, 1, 1, 1, 128);
+
+                        UPDATE `mangos`.`spell_template` SET `category`=10004, `categoryRecoveryTime`=60000, `recoveryTime`=0 WHERE  `entry`=33903;
 
                     -- Proc
                         REPLACE`mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `attributesEx2`, `attributesEx3`, `castingTimeIndex`, `interruptFlags`, `procChance`, `maxLevel`, `baseLevel`, `spellLevel`, `rangeIndex`, `speed`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectRealPointsPerLevel1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `customFlags`) VALUES (33904, 5086, 4, 65536, 4194304, 512, 1, 8, 101, 61, 60, 60, 4, 20, -1, -1, 2, 1, 1, 0.6, 229, 0.24, -1, -1, 6, 2147, 2076, 50, 'Flurry', 2031678, 'Rank 5', 2031678, 'Launches a flurry of frost enemy, causing $s1 Frost damage.', 2031678, 2031676, 3, 549756862464, 1, 1, -1, 1, 1, 1, 128);
@@ -3143,6 +3249,8 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
                 -- Spell
                     REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `dispel`, `attributesEx`, `castingTimeIndex`, `recoveryTime`, `interruptFlags`, `procChance`, `maxLevel`, `baseLevel`, `spellLevel`, `durationIndex`, `manaCost`, `rangeIndex`, `equippedItemClass`, `effect1`, `effect2`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectApplyAuraName1`, `effectApplyAuraName2`, `effectAmplitude1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `script_name`) VALUES (33885, 5086, 4, 1, 2048, 5, 15000, 13, 101, 53, 40, 40, 35, 200, 4, -1, 6, 77, 1, 24, 149, 1.0, -1, -1, 6, 6, 3, 4, 4000, 144, 2075, 'Frost Bomb', 2031678, 'Rank 1', 2031676, 'Places a Frost Bomb on the target.  After $t1 sec, the bomb explodes, dealing $s1 Frost damage to the target.  Consumes all stacks of Winter\'s Chill on the target to deal 50% increased damage per stack consumed.  Can critically strike.  Counts as Frozen for Ice Lance.', 2031678, '$s1 Frost damage inflicted after $t1 sec.', 2031678, 3, 68719476736, 1, 1, -1, 1, 1, 1, 'spell_mage_frost_bomb');
 
+                    UPDATE `mangos`.`spell_template` SET `category`=10005, `categoryRecoveryTime`=45000, `recoveryTime`=0 WHERE  `entry`=33885;
+
                 -- Learn spell(for trainer):
                     REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `targets`, `castingTimeIndex`, `procChance`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `activeIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) 
                     VALUES (33886, 4222, 1, 262400, 256, 1, 101, 6, -1, -1, 36, 1, 1, -1, 0, -1, -1, 33885, 107, 2075, 0, 'Frost Bomb', 7274526, 'Rank 1', 7274526, 7274508, 983052, -1, 1, 1, 1);
@@ -3150,6 +3258,8 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
             -- Rank 2
                 -- Spell
                     REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `dispel`, `attributesEx`, `castingTimeIndex`, `recoveryTime`, `interruptFlags`, `procChance`, `maxLevel`, `baseLevel`, `spellLevel`, `durationIndex`, `manaCost`, `rangeIndex`, `equippedItemClass`, `effect1`, `effect2`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectApplyAuraName1`, `effectApplyAuraName2`, `effectAmplitude1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `script_name`) VALUES (33887, 5086, 4, 1, 2048, 5, 15000, 13, 101, 61, 54, 54, 35, 250, 4, -1, 6, 77, 1, 24, 224, 1.0, -1, -1, 6, 6, 3, 4, 4000, 144, 2075, 'Frost Bomb', 2031678, 'Rank 2', 2031676, 'Places a Frost Bomb on the target.  After $t1 sec, the bomb explodes, dealing $s1 Frost damage to the target.  Consumes all stacks of Winter\'s Chill on the target to deal 50% increased damage per stack consumed.  Can critically strike.  Counts as Frozen for Ice Lance.', 2031678, '$s1 Frost damage inflicted after $t1 sec.', 2031678, 3, 68719476736, 1, 1, -1, 1, 1, 1, 'spell_mage_frost_bomb');
+
+                    UPDATE `mangos`.`spell_template` SET `category`=10005, `categoryRecoveryTime`=45000, `recoveryTime`=0 WHERE  `entry`=33887;
 
                 -- Learn spell(for trainer):
                     REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `targets`, `castingTimeIndex`, `procChance`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `activeIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) 
@@ -3193,7 +3303,7 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
             -- Object
                 REPLACE gameobject_template
                 (entry, patch, type, displayId, name, faction, size, data0, data1)
-                VALUES (987659, 0, 22, 4396, 'Portal to Theramore', 115, 1, 33883, 0);
+                VALUES (987659, 0, 22, 7848, 'Portal to Theramore', 115, 1, 33883, 0);
 
             -- Portal effect
                 REPLACE `mangos`.`spell_template` (`entry`, `build`, `castingTimeIndex`, `procChance`, `rangeIndex`, `equippedItemClass`, `effect1`, `effect2`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectImplicitTargetB1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `dmgMultiplier1`, `dmgMultiplier2`) VALUES (33883, 5086, 1, 101, 12, -1, 5, 77, 1, 1, -1, 0, 1, -1, 25, 25, 17, 2074, 'Portal Effect: Theramore', 2031678, 2031676, 2031676, 2031676, 1, 1);
