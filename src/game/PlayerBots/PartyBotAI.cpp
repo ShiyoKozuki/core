@@ -40,7 +40,12 @@ enum PartyBotSpells
     PB_SPELL_FIRE_BLAST_PROC = 34060,
     PB_SPELL_IGNITION = 34034,
     PB_SPELL_ARCANE_MISSLES_PROC = 34173,
-    PB_SPELL_IGNITE_DOT = 12654
+    PB_SPELL_IGNITE_DOT = 12654,
+    PB_SPELL_FINGERS_OF_FROST1 = 34063,
+    PB_SPELL_FINGERS_OF_FROST2 = 34065,
+    PB_SPELL_BRAIN_FREEZE1 = 34086,
+    PB_SPELL_BRAIN_FREEZE2 = 34088,
+    PB_SPELL_WINTERS_CHILL = 12579,
 };
 
 enum PartyBotTalents
@@ -2239,6 +2244,18 @@ void PartyBotAI::UpdateInCombatAI_Hunter()
 
 void PartyBotAI::UpdateOutOfCombatAI_Mage()
 {
+    if (m_spells.mage.pBrillianceAura &&
+        !me->HasAura(m_spells.mage.pBrillianceAura->Id) &&
+        CanTryToCastSpell(me, m_spells.mage.pBrillianceAura))
+    {
+        if (DoCastSpell(me, m_spells.mage.pBrillianceAura) == SPELL_CAST_OK)
+        {
+            m_isBuffing = true;
+            me->ClearTarget();
+            return;
+        }
+    }
+
     if (m_spells.mage.pRemoveLesserCurse)
     {
         if (Unit* pFriend = SelectDispelTarget(m_spells.mage.pRemoveLesserCurse))
@@ -2294,8 +2311,21 @@ void PartyBotAI::UpdateOutOfCombatAI_Mage()
         m_isBuffing = false;
     }
 
-    if (me->GetVictim())
+    if (Unit* pVictim = me->GetVictim())
+    {
+        if (Pet* pPet = me->GetPet())
+        {
+            if (!pPet->GetVictim())
+            {
+                pPet->GetCharmInfo()->SetIsCommandAttack(true);
+                pPet->AI()->AttackStart(pVictim);
+            }
+        }
+
         UpdateInCombatAI_Mage();
+    }
+    else
+        SummonPetIfNeeded();
 }
 
 void PartyBotAI::UpdateInCombatAI_Mage()
@@ -2442,11 +2472,51 @@ void PartyBotAI::UpdateInCombatAI_Mage()
                 return;
         }
 
+        bool shouldIceLance =
+            me->HasAura(PB_SPELL_FINGERS_OF_FROST1) || me->HasAura(PB_SPELL_FINGERS_OF_FROST2) ||
+            pVictim->IsFrozen() ||
+            (m_spells.mage.pFrostBomb && pVictim->HasAura(m_spells.mage.pFrostBomb->Id)) ||
+            (m_spells.mage.pFlurry && pVictim->HasAura(m_spells.mage.pFlurry->Id));
+
+        if (m_spells.mage.pIceLance &&
+            shouldIceLance &&
+            CanTryToCastSpell(pVictim, m_spells.mage.pIceLance))
+        {
+            if (DoCastSpell(pVictim, m_spells.mage.pIceLance) == SPELL_CAST_OK)
+                return;
+        }
+
+        Aura* wintersChill = pVictim->GetAura(PB_SPELL_WINTERS_CHILL, EFFECT_INDEX_0);
+
+        if (m_spells.mage.pFrostBomb &&
+            wintersChill &&
+            wintersChill->GetStackAmount() >= 5 &&
+            CanTryToCastSpell(pVictim, m_spells.mage.pFrostBomb))
+        {
+            if (DoCastSpell(pVictim, m_spells.mage.pFrostBomb) == SPELL_CAST_OK)
+                return;
+        }
+
         if (m_spells.mage.pLivingBomb &&
             pVictim->HasAura(PB_SPELL_IGNITE_DOT) &&
             CanTryToCastSpell(pVictim, m_spells.mage.pLivingBomb))
         {
             if (DoCastSpell(pVictim, m_spells.mage.pLivingBomb) == SPELL_CAST_OK)
+                return;
+        }
+
+        if (m_spells.mage.pFlurry &&
+            CanTryToCastSpell(pVictim, m_spells.mage.pFlurry))
+        {
+            if (DoCastSpell(pVictim, m_spells.mage.pFlurry) == SPELL_CAST_OK)
+                return;
+        }
+
+        if (m_spells.mage.pFireball &&
+            (me->HasAura(PB_SPELL_BRAIN_FREEZE1) || me->HasAura(PB_SPELL_BRAIN_FREEZE2)) &&
+            CanTryToCastSpell(pVictim, m_spells.mage.pFireball))
+        {
+            if (DoCastSpell(pVictim, m_spells.mage.pFireball) == SPELL_CAST_OK)
                 return;
         }
 

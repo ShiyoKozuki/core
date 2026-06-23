@@ -35,6 +35,7 @@ enum CombatBotSpells
     SPELL_TAME_BEAST = 13481,
     SPELL_REVIVE_PET = 982,
     SPELL_CALL_PET = 883,
+    SPELL_SUMMON_WATER_ELEMENTAL = 33846,
 
     PET_WOLF    = 565,
     PET_CAT     = 681,
@@ -851,6 +852,21 @@ void CombatBotBaseAI::PopulateSpellData()
                     if (IsHigherRankSpell(m_spells.mage.pFrostbolt))
                         m_spells.mage.pFrostbolt = pSpellEntry;
                 }
+                else if (pSpellEntry->SpellName[0].find("Ice Lance") != std::string::npos)
+                {
+                    if (IsHigherRankSpell(m_spells.mage.pIceLance))
+                        m_spells.mage.pIceLance = pSpellEntry;
+                }
+                else if (pSpellEntry->SpellName[0].find("Flurry") != std::string::npos)
+                {
+                    if (IsHigherRankSpell(m_spells.mage.pFlurry))
+                        m_spells.mage.pFlurry = pSpellEntry;
+                }
+                else if (pSpellEntry->SpellName[0].find("Frost Bomb") != std::string::npos)
+                {
+                    if (IsHigherRankSpell(m_spells.mage.pFrostBomb))
+                        m_spells.mage.pFrostBomb = pSpellEntry;
+                }
                 else if (pSpellEntry->SpellName[0].find("Fire Blast") != std::string::npos)
                 {
                     if (IsHigherRankSpell(m_spells.mage.pFireBlast))
@@ -970,6 +986,11 @@ void CombatBotBaseAI::PopulateSpellData()
                 {
                     if (IsHigherRankSpell(m_spells.mage.pCombustion))
                         m_spells.mage.pCombustion = pSpellEntry;
+                }
+                else if (pSpellEntry->SpellName[0].find("Brilliance Aura") != std::string::npos)
+                {
+                    if (IsHigherRankSpell(m_spells.mage.pBrillianceAura))
+                        m_spells.mage.pBrillianceAura = pSpellEntry;
                 }
                 break;
             }
@@ -2686,6 +2707,14 @@ void CombatBotBaseAI::SummonPetIfNeeded()
             vSummons.push_back(SPELL_SUMMON_SUCCUBUS);
         if (!vSummons.empty())
             me->CastSpell(me, SelectRandomContainerElement(vSummons), true);
+    }
+    else if (me->GetClass() == CLASS_MAGE)
+    {
+        if (me->GetPetGuid() || me->GetCharmGuid())
+            return;
+
+        if (me->HasSpell(SPELL_SUMMON_WATER_ELEMENTAL))
+            me->CastSpell(me, SPELL_SUMMON_WATER_ELEMENTAL, true);
     }
 }
 

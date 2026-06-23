@@ -475,6 +475,9 @@ public:
             SpellEntry const* pDampenMagic;
             SpellEntry const* pPolymorph;
             SpellEntry const* pFrostbolt;
+            SpellEntry const* pIceLance;
+            SpellEntry const* pFlurry;
+            SpellEntry const* pFrostBomb;
             SpellEntry const* pFireBlast;
             SpellEntry const* pFireball;
             SpellEntry const* pArcaneExplosion;
@@ -495,6 +498,7 @@ public:
             SpellEntry const* pFlamestrike;
             SpellEntry const* pBlastWave;
             SpellEntry const* pCombustion;
+            SpellEntry const* pBrillianceAura;
         } mage;
         struct
         {
