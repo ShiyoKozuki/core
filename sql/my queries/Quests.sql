@@ -778,7 +778,6 @@ REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90035, 3000
         REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90105, 30282);
 
         -- Koenig Abjuration
-
             REPLACE `mangos`.`quest_template` (`entry`, `Method`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `SpecialFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `ReqItemId2`, `ReqItemCount2`, `RewItemId1`, `RewItemCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `DetailsEmote1`, `IncompleteEmote`, `CompleteEmote`) VALUES (30283, 0, 1657, 58, 62, 264, 1, 'Abjuration - Koenig (Helm)', '', '', 'Bring me anything interesting you find around Karazhan.', 'May the holy light guide you on your journey.', '', '', '', '', '', 30318, 1, 30303, 1, 30283, 1, 0, 0, 0, 0, 0, 0);
 
             REPLACE `mangos`.`quest_template` (`entry`, `Method`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `SpecialFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `ReqItemId2`, `ReqItemCount2`, `RewItemId1`, `RewItemCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `DetailsEmote1`, `IncompleteEmote`, `CompleteEmote`) VALUES (30284, 0, 1657, 58, 62, 264, 1, 'Abjuration - Koenig (Shoulders)', '', '', 'Bring me anything interesting you find around Karazhan.', 'May the holy light guide you on your journey.', '', '', '', '', '', 30319, 1, 30304, 1, 30284, 1, 0, 0, 0, 0, 0, 0);
@@ -841,9 +840,13 @@ REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90035, 3000
     -- TODO: Multi level crafts (craft body, then craft that with other mats to make a better body, etc). Can even come from multiple crafts
     -- TODO: How did Book of the Ancients quest make the boss aggro spawner on spawn?
     -- TODO: "Waves" of mobs spawning event for something
+    -- TODO: Item that spawns mobs like Ghost-o-plasm Round Up quest you can buy for rep and they drop items needed for a quest to turn in for Ghost Vacuum (remove from vendor)
     -- TODO: Event like "The Grimtotem Weapon" from TBC where you have to drop an item then kill mobs near it
     -- TODO: Special item from the ghost vacuum quest that is needed for blanche dame (Banshee)
     -- TODO: Skill books from rep (exalted)
+    -- TODO: Recipes random drops from the lesser elite rare roaming NMs
+    -- TODO: Karazhan caretaker gear turned into PANTS
+    -- TODO: T1 bosses drop a pop item (seal of x) that pops T2 OR T3 boss
 
     -- "Crypt Cave" mobs
         -- Ghosts:

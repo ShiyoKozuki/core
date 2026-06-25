@@ -513,3 +513,8 @@ INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuest
     -- Zombie Mother
     INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`, `patch_min`) VALUES (17089, 30213, 100, 10);
 
+    -- Skeletal Warlord (T2)
+    -- Ghoul (T2)
+    -- Skeletal Mage (T2)
+    -- Gargoyle (T2)
+

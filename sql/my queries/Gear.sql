@@ -529,7 +529,7 @@ REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quali
 
 REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`) VALUES (30216, 5, 'Ancient Log', 929, 3, 400, 100, -1, -1, 45, 20, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0);
 
-REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`) VALUES (30217, 5, 'Dragon Thread', 12105, 3, 400, 100, -1, -1, 45, 20, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0);
+REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`) VALUES (30217, 5, 'Rainbow Thread', 12105, 3, 400, 100, -1, -1, 45, 20, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0);
 
 REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`) VALUES (30218, 5, 'Void Star Fragment', 34471, 3, 400, 100, -1, -1, 45, 20, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0);
 
@@ -5632,14 +5632,14 @@ WHERE entry = 19509;
 
 -- Whitemane's Chapeau
 UPDATE mangos . item_template
-SET stat_type1 = 5,
+SET stat_type1 = @ITEM_MOD_STAM,
     stat_value1 = 9,
-    stat_type2 = 6,
-    stat_value2 = 9,
-    stat_type3 = 0,
-    stat_value3 = 0,
-    spellid_1 = 7680, -- +13 Healing
-    spelltrigger_1 = 1
+    stat_type2 = @ITEM_MOD_INT,
+    stat_value2 = 14,
+    stat_type3 = @ITEM_MOD_SPI,
+    stat_value3 = 14,
+    spellid_1 = 0,
+    spelltrigger_1 = 0
 WHERE entry = 7720;
 
 -- Triune Amulet
@@ -8614,9 +8614,9 @@ WHERE entry = 4115;
 
 -- Rock Pulverizer
 UPDATE mangos . item_template
-SET quality = 3,
-    dmg_min1 = 113,
-    dmg_max1 = 183
+SET quality = 2,
+    dmg_min1 = 92,
+    dmg_max1 = 139
 WHERE entry = 4983;
 
 -- Razzeric's Customized Seatbelt
@@ -8626,7 +8626,7 @@ SET quality = 3,
     stat_value1 = 6,
     stat_type2 = 0,
     stat_value2 = 0,
-    spellid_1 = 9417, -- +12 spell damage
+    spellid_1 = 9395, -- +5 Spell Damage
     spelltrigger_1 = 1
 WHERE entry = 6726;
 
@@ -8956,9 +8956,9 @@ WHERE entry = 3763;
 
 -- Ryedol's Hammer
 UPDATE mangos . item_template
-SET quality = 3,
-    dmg_min1 = 57,
-    dmg_max1 = 87,
+SET quality = 2,
+    dmg_min1 = 33,
+    dmg_max1 = 62,
     spellid_1 = 21363, -- 5 MP/5
     spelltrigger_1 = 1
 WHERE entry = 4978;
@@ -15612,6 +15612,7 @@ WHERE entry IN(12717, 18418, 22388, 14512, 14513, 14514, 12834, 12825, 18260, 20
         -- Infantry Leggings (Display: 3058)
         -- Burnished Tunic (Display: 25769)
         -- Glimmering Mail Breastplate
+        -- (Bare back) Sparkleshell Breastplate 
 
     -- Plate
         -- Vanguard Breastplate (display: 26846)
