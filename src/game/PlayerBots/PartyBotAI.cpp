@@ -1817,6 +1817,7 @@ void PartyBotAI::UpdateOutOfCombatAI_Shaman()
     if (me->GetLevel() >= 30)
     {
         if (m_spells.shaman.pWaterShield &&
+            !me->HasAura(m_spells.shaman.pWaterShield->Id) &&
             CanTryToCastSpell(me, m_spells.shaman.pWaterShield))
         {
             if (DoCastSpell(me, m_spells.shaman.pWaterShield) == SPELL_CAST_OK)
@@ -1826,6 +1827,7 @@ void PartyBotAI::UpdateOutOfCombatAI_Shaman()
     else
     {
         if (m_spells.shaman.pLightningShield &&
+            !me->HasAura(m_spells.shaman.pLightningShield->Id) &&
             CanTryToCastSpell(me, m_spells.shaman.pLightningShield))
         {
             if (DoCastSpell(me, m_spells.shaman.pLightningShield) == SPELL_CAST_OK)
@@ -1877,12 +1879,20 @@ void PartyBotAI::UpdateInCombatAI_Shaman()
             return;
     }
 
-        if (m_spells.shaman.pWaterShield &&
-            CanTryToCastSpell(me, m_spells.shaman.pWaterShield))
-        {
-            if (DoCastSpell(me, m_spells.shaman.pWaterShield) == SPELL_CAST_OK)
-                return;
-        }
+    if (m_spells.shaman.pWeaponBuff &&
+        CanTryToCastSpell(me, m_spells.shaman.pWeaponBuff))
+    {
+        if (CastWeaponBuff(m_spells.shaman.pWeaponBuff, EQUIPMENT_SLOT_MAINHAND) == SPELL_CAST_OK)
+            return;
+    }
+
+    if (m_spells.shaman.pWaterShield &&
+        !me->HasAura(m_spells.shaman.pWaterShield->Id) &&
+        CanTryToCastSpell(me, m_spells.shaman.pWaterShield))
+    {
+        if (DoCastSpell(me, m_spells.shaman.pWaterShield) == SPELL_CAST_OK)
+            return;
+    }
 
     if (GetRole() != ROLE_HEALER)
     {
@@ -2293,17 +2303,6 @@ void PartyBotAI::UpdateOutOfCombatAI_Mage()
         }
     }
 
-    if (m_spells.mage.pIceBarrier &&
-        CanTryToCastSpell(me, m_spells.mage.pIceBarrier))
-    {
-        if (DoCastSpell(me, m_spells.mage.pIceBarrier) == SPELL_CAST_OK)
-        {
-            m_isBuffing = true;
-            me->ClearTarget();
-            return;
-        }
-    }
-
     if (m_isBuffing &&
        (!m_spells.mage.pArcaneIntellect ||
         !me->HasGCD(m_spells.mage.pArcaneIntellect)))
@@ -2324,8 +2323,6 @@ void PartyBotAI::UpdateOutOfCombatAI_Mage()
 
         UpdateInCombatAI_Mage();
     }
-    else
-        SummonPetIfNeeded();
 }
 
 void PartyBotAI::UpdateInCombatAI_Mage()
@@ -2344,6 +2341,14 @@ void PartyBotAI::UpdateInCombatAI_Mage()
             CanTryToCastSpell(me, m_spells.mage.pIceBlock))
         {
             if (DoCastSpell(me, m_spells.mage.pIceBlock) == SPELL_CAST_OK)
+                return;
+        }
+
+        if (m_spells.mage.pIceBarrier &&
+            (me->GetHealthPercent() < 75.0f) &&
+            CanTryToCastSpell(me, m_spells.mage.pIceBarrier))
+        {
+            if (DoCastSpell(me, m_spells.mage.pIceBarrier) == SPELL_CAST_OK)
                 return;
         }
 
@@ -2428,6 +2433,7 @@ void PartyBotAI::UpdateInCombatAI_Mage()
 
         if (m_spells.mage.pFlamestrike &&
            (me->GetEnemyCountInRadiusAround(pVictim, 10.0f) > 2) &&
+            (me->GetAttackers().size() < 3) && // too much pushback
             CanTryToCastSpell(pVictim, m_spells.mage.pFlamestrike))
         {
             if (DoCastSpell(pVictim, m_spells.mage.pFlamestrike) == SPELL_CAST_OK)
@@ -2436,6 +2442,7 @@ void PartyBotAI::UpdateInCombatAI_Mage()
 
         if (m_spells.mage.pBlizzard &&
            (me->GetEnemyCountInRadiusAround(pVictim, 10.0f) > 2) &&
+            (me->GetAttackers().size() < 1) && // too much pushback
             CanTryToCastSpell(pVictim, m_spells.mage.pBlizzard))
         {
             if (DoCastSpell(pVictim, m_spells.mage.pBlizzard) == SPELL_CAST_OK)
@@ -2454,6 +2461,13 @@ void PartyBotAI::UpdateInCombatAI_Mage()
                         return;
                 }
             }
+        }
+
+        if (m_spells.mage.pWaterElemental &&
+            CanTryToCastSpell(me, m_spells.mage.pWaterElemental))
+        {
+            if (DoCastSpell(me, m_spells.mage.pWaterElemental) == SPELL_CAST_OK)
+                return;
         }
 
         if (m_spells.mage.pArcanePower &&

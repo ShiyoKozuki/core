@@ -35,7 +35,6 @@ enum CombatBotSpells
     SPELL_TAME_BEAST = 13481,
     SPELL_REVIVE_PET = 982,
     SPELL_CALL_PET = 883,
-    SPELL_SUMMON_WATER_ELEMENTAL = 33846,
 
     PET_WOLF    = 565,
     PET_CAT     = 681,
@@ -991,6 +990,11 @@ void CombatBotBaseAI::PopulateSpellData()
                 {
                     if (IsHigherRankSpell(m_spells.mage.pBrillianceAura))
                         m_spells.mage.pBrillianceAura = pSpellEntry;
+                }
+                else if (pSpellEntry->SpellName[0].find("Summon Water Elemental") != std::string::npos)
+                {
+                    if (IsHigherRankSpell(m_spells.mage.pWaterElemental))
+                        m_spells.mage.pWaterElemental = pSpellEntry;
                 }
                 break;
             }
@@ -2708,14 +2712,6 @@ void CombatBotBaseAI::SummonPetIfNeeded()
         if (!vSummons.empty())
             me->CastSpell(me, SelectRandomContainerElement(vSummons), true);
     }
-    else if (me->GetClass() == CLASS_MAGE)
-    {
-        if (me->GetPetGuid() || me->GetCharmGuid())
-            return;
-
-        if (me->HasSpell(SPELL_SUMMON_WATER_ELEMENTAL))
-            me->CastSpell(me, SPELL_SUMMON_WATER_ELEMENTAL, true);
-    }
 }
 
 void CombatBotBaseAI::LearnArmorProficiencies()
@@ -3671,8 +3667,23 @@ SpellCastResult CombatBotBaseAI::CastWeaponBuff(SpellEntry const* pSpellEntry, E
     Item* pWeapon = me->GetItemByPos(INVENTORY_SLOT_BAG_0, slot);
     if (!pWeapon)
         return SPELL_FAILED_ITEM_NOT_FOUND;
+
     if (pWeapon->GetEnchantmentId(TEMP_ENCHANTMENT_SLOT))
-        return SPELL_FAILED_ITEM_ALREADY_ENCHANTED;
+    {
+        // Shaman dual wield weapon enchantments logic
+        if (me->GetClass() == CLASS_SHAMAN)
+        {
+            if (Item* offhand = me->GetItemByPos(INVENTORY_SLOT_BAG_0, EQUIPMENT_SLOT_OFFHAND))
+            {
+                if (offhand->GetEnchantmentId(TEMP_ENCHANTMENT_SLOT))
+                    return SPELL_FAILED_ITEM_ALREADY_ENCHANTED;
+            }
+            else
+                return SPELL_FAILED_ITEM_ALREADY_ENCHANTED;
+        }
+        else
+            return SPELL_FAILED_ITEM_ALREADY_ENCHANTED;
+    }
 
     Spell* spell = new Spell(me, pSpellEntry, true, ObjectGuid(), nullptr, nullptr, nullptr);
     SpellCastTargets targets;
