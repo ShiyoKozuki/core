@@ -187,6 +187,10 @@ bool Pet::LoadPetFromDB(Player* owner, uint32 petEntry, uint32 petNumber, bool c
         return false;
     }
 
+    // Water Elemental lasts 45 seconds
+    if (creatureInfo->entry == 90069)
+        m_duration = 45000;
+
 
     uint32 summon_spell_id = m_pTmpCache->createdBySpell;
     SpellEntry const* spellInfo = sSpellMgr.GetSpellEntry(summon_spell_id);

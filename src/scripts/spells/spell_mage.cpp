@@ -168,12 +168,24 @@ struct MageWaterElementalScript : SpellScript
             if (!pet)
                 return true;
 
-            // List of spells
+            // List of spells to unlearn
+            const std::vector<uint32> spellsToUnLearn{
+                10220, // Ice Armor
+                71, // Defensive Stance
+                355, // Taunt
+                33861 // Water Ripple (Renew)
+            };
+
+            for (uint32 spellId : spellsToUnLearn)
+            {
+                if (spellId && pet->HasSpell(spellId))
+                    pet->UnlearnSpell(spellId, false);
+            }
+
+            // List of spells to learn
             const std::vector<uint32> spellsToLearn{
-                10220,  // Ice Armor
-                71,     // Defensive Stance
-                355,    // Taunt
-                33861   // Water Ripple (Renew)
+                34202, // Water Jet
+                34204, // Water Bolt
             };
 
             for (uint32 spellId : spellsToLearn)
@@ -199,27 +211,7 @@ struct MageFrostBombScript : public AuraScript
         SPELL_WINTERS_CHILL = 12579
     };
 
-    // Snapshot Winter's Chill once
-    int32 OnAuraValueCalculate(Aura* aura, Unit* caster, Unit* target, SpellEntry const* /*spellProto*/, SpellEffectIndex effIdx, Item* /*castItem*/, int32 value) override
-    {
-        if (effIdx != EFFECT_INDEX_0 || !target)
-            return value;
-
-        Aura* wintersChill = target->GetAura(SPELL_WINTERS_CHILL, EFFECT_INDEX_0);
-        if (!wintersChill)
-            return value;
-
-        uint16 stacks = std::min<uint16>(wintersChill->GetStackAmount(), 5);
-
-        value = int32(float(value) * (1.0f + 0.50f * stacks));
-
-        // Consume Winter's Chill ONCE
-        target->RemoveAurasDueToSpell(SPELL_WINTERS_CHILL);
-
-        return value;
-    }
-
-    // Apply crits to Frost Bomb ticks
+    // Apply Winters Chill and Crits to Frost Bomb ticks
     void OnPeriodicCalculateAmount(Aura* aura, float& amount) override
     {
         Unit* caster = aura->GetCaster();
@@ -229,16 +221,33 @@ struct MageFrostBombScript : public AuraScript
         if (!caster || !target)
             return;
 
-        bool isCrit = caster->IsSpellCrit(target, spellProto, GetSchoolMask(spellProto->School), BASE_ATTACK);
-
-        if (!isCrit)
-            return;
-
         uint32 dmg = uint32(amount);
 
-        dmg = caster->SpellCriticalDamageBonus(spellProto, dmg, target, nullptr);
+        // Check for Winters chill and apply damage bonus
+        Aura* wintersChill = target->GetAura(SPELL_WINTERS_CHILL, EFFECT_INDEX_0);
+
+        if (wintersChill)
+        {
+            uint16 stacks = std::min<uint16>(wintersChill->GetStackAmount(), 5);
+
+            dmg = int32(float(dmg) * (1.0f + 0.50f * stacks));
+        }
+
+        // Check if it crit, then apply crit damage bonus`
+        bool isCrit = caster->IsSpellCrit(target, spellProto, GetSchoolMask(spellProto->School), BASE_ATTACK);
+
+        if (isCrit)
+        {
+            dmg = caster->SpellCriticalDamageBonus(spellProto, dmg, target, nullptr);
+        }
 
         amount = float(dmg);
+    }
+
+    void OnPeriodicTickEnd(Aura* aura) override
+    {
+        if (Unit* target = aura->GetTarget())
+            target->RemoveAurasDueToSpell(SPELL_WINTERS_CHILL);
     }
 };
 
@@ -400,6 +409,30 @@ SpellScript* GetScript_MageLivingBomb(SpellEntry const*)
     return new MageLivingBombScript();
 }
 
+struct MageWaterJetScript : public AuraScript
+{
+    enum
+    {
+        SPELL_FROST_EXPOSURE = 34203
+    };
+
+    void OnPeriodicTickEnd(Aura* aura) override
+    {
+        Unit* pCaster = aura->GetCaster();
+        Unit* pTarget = aura->GetTarget();
+
+        if (pCaster && pTarget)
+        {
+            pCaster->CastSpell(pTarget, SPELL_FROST_EXPOSURE, true);
+        }
+    }
+};
+
+AuraScript* GetScript_MageWaterJet(SpellEntry const*)
+{
+    return new MageWaterJetScript();
+}
+
 void AddSC_mage_spell_scripts()
 {
     Script* newscript;
@@ -448,5 +481,10 @@ void AddSC_mage_spell_scripts()
     newscript = new Script;
     newscript->Name = "spell_mage_living_bomb";
     newscript->GetSpellScript = &GetScript_MageLivingBomb;
+    newscript->RegisterSelf();
+
+    newscript = new Script;
+    newscript->Name = "spell_mage_water_jet";
+    newscript->GetAuraScript = &GetScript_MageWaterJet;
     newscript->RegisterSelf();
 }
