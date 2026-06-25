@@ -342,7 +342,7 @@ REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id
 REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id`, `quality`, `flags`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30071, 2, 12, 'Dreadmaul Orb', 16209, 1, 0, -1, -1, 1, 12, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 4, -1);
 REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id`, `quality`, `flags`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30072, 2, 12, 'Fel Artifact', 19316, 1, 0, -1, -1, 1, 12, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 4, -1);
 REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id`, `quality`, `flags`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30073, 2, 12, 'Shadowsworn Pendant', 15420, 1, 2048, -1, -1, 1, 150, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 4, -1);
-REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `stat_type1`, `stat_value1`, `stat_type2`, `stat_value2`, `delay`, `dmg_min1`, `dmg_max1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `sheath`, `max_durability`, `disenchant_id`) VALUES (30074, 2, 7, 'Whirlwind Shortsword', 20154, 4, 91277, 18255, 13, 1, -1, 44, 4, 7, 7, 7, 2200, 67, 87, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 1, 3, 90, 45);
+REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `stat_type1`, `stat_value1`, `stat_type2`, `stat_value2`, `delay`, `dmg_min1`, `dmg_max1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `sheath`, `max_durability`, `disenchant_id`) VALUES (30074, 2, 7, 'Whirlwind Shortsword', 20154, 4, 91277, 18255, 13, 1, -1, 44, 4, 7, 7, 7, 2200, 55, 85, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 1, 3, 90, 45);
 REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id`, `quality`, `flags`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30075, 2, 12, 'Titan Artifact', 7148, 1, 2048, -1, -1, 1, 1, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 4, -1);
 REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id`, `quality`, `flags`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30076, 2, 12, 'Blackrock Head', 3914, 1, 0, -1, -1, 1, 20, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 4, -1);
 REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id`, `quality`, `flags`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30077, 2, 12, 'Blackrock Medal', 20219, 1, 0, -1, -1, 1, 12, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 4, -1);
@@ -1520,7 +1520,7 @@ SET quality = 3,
     stat_value1 = 4,
     stat_type2 = 6,
     stat_value2 = 4,
-    spellid_1 = 9395, -- +5 Spell Damage
+    spellid_1 = 9295, -- +12 Fire Damage
     spelltrigger_1 = 1
 WHERE entry = 7056;
 
@@ -5875,10 +5875,10 @@ WHERE entry = 11118;
 
 -- Jinxed Hoodoo Kilt
 UPDATE mangos . item_template
-SET spellid_1 = 17988, -- +24 Nature Damage
-    spelltrigger_1 = 1,
-    spellid_2 = 17823, -- +26 Arcane Damage
-    spelltrigger_2 = 1
+SET spellid_1 = 0, -- +24 Nature Damage
+    spelltrigger_1 = 0,
+    spellid_2 = 0, -- +26 Arcane Damage
+    spelltrigger_2 = 0
 WHERE entry = 9474;
 
 -- Gahz'rilla Fang
@@ -5935,22 +5935,45 @@ WHERE entry = 12471;
 
 -- Maraudon
 
+-- Megashot Rifle
+UPDATE mangos . item_template
+SET delay = 2600,
+    dmg_min1 = 55,
+    dmg_max1 = 85
+WHERE entry = 17717;
+
+-- Grovekeeper's Drape
+UPDATE mangos . item_template
+SET stat_type1 = @ITEM_MOD_AGI,
+    stat_value1 = 9,
+    stat_type2 = @ITEM_MOD_STAM,
+    stat_value2 = 7
+WHERE entry = 17739;
+
+-- Noxxion's Shackles
+UPDATE mangos . item_template
+SET stat_type1 = @ITEM_MOD_STR,
+    stat_value1 = 9,
+    stat_type2 = @ITEM_MOD_STAM,
+    stat_value2 = 5
+WHERE entry = 17746;
+
 -- Charstone Dirk
 UPDATE mangos . item_template
 SET spellid_1 = 33795, -- 10 Spell Penetration
     spelltrigger_1 = 1,
-    spellid_3 = 0, -- +1% Physical Hit
+    spellid_3 = 0,
     spelltrigger_3 = 0
 WHERE entry = 17710;
 
 -- Cloud Stone
 UPDATE mangos . item_template
 SET stat_type1 = @ITEM_MOD_INT,
-    stat_value1 = 3,
+    stat_value1 = 10,
     stat_type2 = @ITEM_MOD_SPI,
-    stat_value2 = 3,
-    spellid_1 = 33795, -- 10 Spell Penetration
-    spelltrigger_1 = 1
+    stat_value2 = 10,
+    spellid_1 = 0,
+    spelltrigger_1 = 0
 WHERE entry = 17737;
 
 -- Fist of Stone
@@ -5963,7 +5986,7 @@ WHERE entry = 17943;
 UPDATE mangos . item_template
 SET dmg_min1 = 46,
     dmg_max1 = 88,
-    dmg_type2 = 0, -- Shadow
+    dmg_type2 = 0,
     dmg_min2 = 0,
     dmg_max2 = 0
 WHERE entry = 17752;
@@ -5980,8 +6003,10 @@ WHERE entry = 17755;
 
 -- Heart of Noxxion
 UPDATE mangos . item_template
-SET stat_type1 = 3,
-    stat_value1 = 7
+SET stat_type1 = 0,
+    stat_value1 = 0,
+    spellid_2 = 9140, -- +10 Attack Power
+    spelltrigger_2 = 1
 WHERE entry = 17744;
 
 -- Gemshard Heart
@@ -6020,22 +6045,22 @@ WHERE entry = 17766;
 
 -- Vinerot Sandals
 UPDATE mangos . item_template
-SET stat_type1 = 5,
-    stat_value1 = 7,
-    stat_type2 = 6,
-    stat_value2 = 7,
-    spellid_1 = 7681, -- +15 Healing
-    spelltrigger_1 = 1
+SET stat_type1 = @ITEM_MOD_INT,
+    stat_value1 = 12,
+    stat_type2 = @ITEM_MOD_SPI,
+    stat_value2 = 12,
+    spellid_1 = 0,
+    spelltrigger_1 = 0
 WHERE entry = 17748;
 
 -- Rotgrip Mantle
 UPDATE mangos . item_template
-SET stat_type1 = 5,
-    stat_value1 = 8,
-    stat_type2 = 6,
-    stat_value2 = 6,
-    spellid_1 = 9415, -- +9 Spell Damage
-    spelltrigger_1 = 1
+SET stat_type1 = @ITEM_MOD_INT,
+    stat_value1 = 17,
+    stat_type2 = @ITEM_MOD_SPI,
+    stat_value2 = 11,
+    spellid_1 = 0,
+    spelltrigger_1 = 0
 WHERE entry = 17732;
 
 -- Chloromesh Girdle
