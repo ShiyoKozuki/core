@@ -46,6 +46,7 @@ enum PartyBotSpells
     PB_SPELL_BRAIN_FREEZE1 = 34086,
     PB_SPELL_BRAIN_FREEZE2 = 34088,
     PB_SPELL_WINTERS_CHILL = 12579,
+    PB_SPELL_SWEEPING_STRIKES = 12292,
 };
 
 enum PartyBotTalents
@@ -1621,13 +1622,13 @@ void PartyBotAI::UpdateInCombatAI_Paladin()
             }
             else // DPS logic
             {
-                // If HP is over 25%, put a HOT on them
-                if (pTarget->GetHealthPercent() > 25.0f)
+                // If HP is over 35%, put a HOT on them
+                if (pTarget->GetHealthPercent() > 35.0f)
                 {
                     if (HealInjuredTargetPeriodic(pTarget))
                         return;
                 }
-                else // Below 25%, use a direct heal
+                else // Below 35%, use a direct heal
                 {
                     if (HealInjuredTargetDirect(pTarget))
                         return;
@@ -1701,7 +1702,7 @@ void PartyBotAI::UpdateInCombatAI_Paladin()
             }
 
             if (m_spells.paladin.pConsecration &&
-                (me->GetEnemyCountInRadiusAround(me, 10.0f) > 1) &&
+                (me->GetEnemyCountInRadiusAround(me, 10.0f) > 2) &&
                 CanTryToCastSpell(me, m_spells.paladin.pConsecration))
             {
                 if (DoCastSpell(me, m_spells.paladin.pConsecration) == SPELL_CAST_OK)
@@ -1719,23 +1720,25 @@ void PartyBotAI::UpdateInCombatAI_Paladin()
                     return;
             }
 
-            if (m_spells.paladin.pHolyStrike)
-            {
-                if (CanTryToCastSpell(me, m_spells.paladin.pHolyStrike))
+                if (m_spells.paladin.pHolyStrike
+                    && (me->GetPowerPercent(POWER_MANA) > 50.0f))
                 {
-                    if (DoCastSpell(me, m_spells.paladin.pHolyStrike) == SPELL_CAST_OK)
-                        return;
+                    if (CanTryToCastSpell(me, m_spells.paladin.pHolyStrike))
+                    {
+                        if (DoCastSpell(me, m_spells.paladin.pHolyStrike) == SPELL_CAST_OK)
+                            return;
+                    }
                 }
-            }
 
-            if (m_spells.paladin.pCrusaderStrike)
-            {
-                if (CanTryToCastSpell(me, m_spells.paladin.pCrusaderStrike))
+                if (m_spells.paladin.pCrusaderStrike
+                     && (me->GetPowerPercent(POWER_MANA) < 85.0f))
                 {
-                    if (DoCastSpell(me, m_spells.paladin.pCrusaderStrike) == SPELL_CAST_OK)
-                        return;
+                    if (CanTryToCastSpell(me, m_spells.paladin.pCrusaderStrike))
+                    {
+                        if (DoCastSpell(me, m_spells.paladin.pCrusaderStrike) == SPELL_CAST_OK)
+                            return;
+                    }
                 }
-            }
 
             if (me->GetMotionMaster()->GetCurrentMovementGeneratorType() == IDLE_MOTION_TYPE
                 && !me->CanReachWithMeleeAutoAttack(pVictim))
@@ -2052,13 +2055,13 @@ void PartyBotAI::UpdateInCombatAI_Shaman()
             }
             else // DPS logic
             {
-                // If HP is over 25%, put a HOT on them
-                if (pTarget->GetHealthPercent() > 25.0f)
+                // If HP is over 35%, put a HOT on them
+                if (pTarget->GetHealthPercent() > 35.0f)
                 {
                     if (HealInjuredTargetPeriodic(pTarget))
                         return;
                 }
-                else // Below 25%, use a direct heal
+                else // Below 35%, use a direct heal
                 {
                     if (HealInjuredTargetDirect(pTarget))
                         return;
@@ -2337,6 +2340,15 @@ void PartyBotAI::UpdateInCombatAI_Mage()
 {
     if (Unit* pVictim = me->GetVictim())
     {
+        if (Pet* pPet = me->GetPet())
+        {
+            if (!pPet->GetVictim())
+            {
+                pPet->GetCharmInfo()->SetIsCommandAttack(true);
+                pPet->AI()->AttackStart(pVictim);
+            }
+        }
+
         if (m_spells.mage.pCombustion &&
             CanTryToCastSpell(me, m_spells.mage.pCombustion))
         {
@@ -2508,11 +2520,14 @@ void PartyBotAI::UpdateInCombatAI_Mage()
                 return;
         }
 
-        Aura* wintersChill = pVictim->GetAura(PB_SPELL_WINTERS_CHILL, EFFECT_INDEX_0);
+        if (m_spells.mage.pFlurry &&
+            CanTryToCastSpell(pVictim, m_spells.mage.pFlurry))
+        {
+            if (DoCastSpell(pVictim, m_spells.mage.pFlurry) == SPELL_CAST_OK)
+                return;
+        }
 
         if (m_spells.mage.pFrostBomb &&
-            wintersChill &&
-            wintersChill->GetStackAmount() >= 5 &&
             CanTryToCastSpell(pVictim, m_spells.mage.pFrostBomb))
         {
             if (DoCastSpell(pVictim, m_spells.mage.pFrostBomb) == SPELL_CAST_OK)
@@ -2524,13 +2539,6 @@ void PartyBotAI::UpdateInCombatAI_Mage()
             CanTryToCastSpell(pVictim, m_spells.mage.pLivingBomb))
         {
             if (DoCastSpell(pVictim, m_spells.mage.pLivingBomb) == SPELL_CAST_OK)
-                return;
-        }
-
-        if (m_spells.mage.pFlurry &&
-            CanTryToCastSpell(pVictim, m_spells.mage.pFlurry))
-        {
-            if (DoCastSpell(pVictim, m_spells.mage.pFlurry) == SPELL_CAST_OK)
                 return;
         }
 
@@ -2786,13 +2794,13 @@ void PartyBotAI::UpdateInCombatAI_Priest()
             }
             else // DPS logic
             {
-                // If HP is over 25%, put a HOT on them
-                if (pTarget->GetHealthPercent() > 25.0f)
+                // If HP is over 35%, put a HOT on them
+                if (pTarget->GetHealthPercent() > 35.0f)
                 {
                     if (HealInjuredTargetPeriodic(pTarget))
                         return;
                 }
-                else // Below 25%, use a direct heal
+                else // Below 35%, use a direct heal
                 {
                     if (HealInjuredTargetDirect(pTarget))
                         return;
@@ -3234,26 +3242,34 @@ void PartyBotAI::UpdateInCombatAI_Warrior()
             }
         }
 
+        if (m_spells.warrior.pLastStand &&
+            (me->GetHealthPercent() < 20.0f) &&
+            CanTryToCastSpell(me, m_spells.warrior.pLastStand))
+        {
+            if (DoCastSpell(me, m_spells.warrior.pLastStand) == SPELL_CAST_OK)
+                return;
+        }
+
+        if (me->GetShapeshiftForm() == FORM_DEFENSIVESTANCE && IsWearingShield(me))
+        {
+            if (!me->GetAttackers().empty())
+            {
+                if (m_spells.warrior.pShieldWall &&
+                    (me->GetHealthPercent() < 20.0f) &&
+                    CanTryToCastSpell(me, m_spells.warrior.pShieldWall))
+                {
+                    if (DoCastSpell(me, m_spells.warrior.pShieldWall) == SPELL_CAST_OK)
+                        return;
+                }
+            }
+        }
+
         if (m_spells.warrior.pBloodrage &&
             (me->GetPower(POWER_RAGE) < 100) &&
             (me->GetHealthPercent() > 50.0f) &&
             CanTryToCastSpell(me, m_spells.warrior.pBloodrage))
         {
             DoCastSpell(me, m_spells.warrior.pBloodrage);
-        }
-
-        // AOE tanking logic
-        if (m_role == ROLE_TANK)
-        {
-            if (me->GetEnemyCountInRadiusAround(pVictim, 10.0f) > 1)
-            {
-                if (m_spells.warrior.pDemoralizingShout &&
-                    CanTryToCastSpell(pVictim, m_spells.warrior.pDemoralizingShout))
-                {
-                    if (DoCastSpell(pVictim, m_spells.warrior.pDemoralizingShout) == SPELL_CAST_OK)
-                        return;
-                }
-            }
         }
 
         if (m_spells.warrior.pSweepingStrikes &&
@@ -3265,11 +3281,54 @@ void PartyBotAI::UpdateInCombatAI_Warrior()
                 return;
         }
 
-        if (m_spells.warrior.pLastStand &&
-            (me->GetHealthPercent() < 20.0f) &&
-            CanTryToCastSpell(me, m_spells.warrior.pLastStand))
+        // AOE tanking logic
+        if (m_role == ROLE_TANK)
         {
-            if (DoCastSpell(me, m_spells.warrior.pLastStand) == SPELL_CAST_OK)
+            if (me->GetEnemyCountInRadiusAround(pVictim, 10.0f) > 1)
+            {
+                if (m_spells.warrior.pThunderClap &&
+                    CanTryToCastSpell(pVictim, m_spells.warrior.pThunderClap))
+                {
+                    if (DoCastSpell(pVictim, m_spells.warrior.pThunderClap) == SPELL_CAST_OK)
+                        return;
+                }
+
+                if (m_spells.warrior.pDemoralizingShout &&
+                    CanTryToCastSpell(pVictim, m_spells.warrior.pDemoralizingShout))
+                {
+                    if (DoCastSpell(pVictim, m_spells.warrior.pDemoralizingShout) == SPELL_CAST_OK)
+                        return;
+                }
+            }
+        }
+
+        // Stance Logic
+        if ((me->GetHealthPercent() < 20.0f) ||
+            (m_role == ROLE_TANK) ||
+            IsWearingShield(me))
+        {
+            if (m_spells.warrior.pDefensiveStance &&
+                (me->GetDistance(pVictim) <= 8.0f) &&
+                pVictim && pVictim->GetVictim() == me &&
+                CanTryToCastSpell(me, m_spells.warrior.pDefensiveStance))
+            {
+                DoCastSpell(me, m_spells.warrior.pDefensiveStance);
+            }
+        }
+        else
+        {
+            if (m_spells.warrior.pBerserkerStance &&
+                CanTryToCastSpell(me, m_spells.warrior.pBerserkerStance))
+            {
+                DoCastSpell(me, m_spells.warrior.pBerserkerStance);
+            }
+        }
+
+        if (m_spells.warrior.pBerserkerRage &&
+            (pVictim && pVictim->GetVictim() == me) &&
+            CanTryToCastSpell(me, m_spells.warrior.pBerserkerRage))
+        {
+            if (DoCastSpell(me, m_spells.warrior.pBerserkerRage) == SPELL_CAST_OK)
                 return;
         }
 
@@ -3281,7 +3340,7 @@ void PartyBotAI::UpdateInCombatAI_Warrior()
                 return;
         }
 
-        if (me->GetLevel() < 40 || m_role == ROLE_MELEE_DPS)
+        if (m_role == ROLE_MELEE_DPS)
         {
             if (m_spells.warrior.pExecute && (pVictim->GetHealthPercent() < 20.0f) &&
                 CanTryToCastSpell(pVictim, m_spells.warrior.pExecute))
@@ -3304,18 +3363,36 @@ void PartyBotAI::UpdateInCombatAI_Warrior()
 
         if (m_role == ROLE_TANK)
         {
-            if (m_spells.warrior.pRevenge &&
-                CanTryToCastSpell(pVictim, m_spells.warrior.pRevenge))
+            if (me->GetEnemyCountInRadiusAround(pVictim, 8.0f) > 1)
             {
-                if (DoCastSpell(pVictim, m_spells.warrior.pRevenge) == SPELL_CAST_OK)
-                    return;
+                if (m_spells.warrior.pCleave)
+                {
+                    if (CanTryToCastSpell(pVictim, m_spells.warrior.pCleave))
+                    {
+                        if (DoCastSpell(pVictim, m_spells.warrior.pCleave) == SPELL_CAST_OK)
+                            return;
+                    }
+                }
             }
-
-            if (m_spells.warrior.pSunderArmor &&
-                CanTryToCastSpell(pVictim, m_spells.warrior.pSunderArmor))
+            else
             {
-                if (DoCastSpell(pVictim, m_spells.warrior.pSunderArmor) == SPELL_CAST_OK)
-                    return;
+                // Don't Revenge / Sunder if Sweeping Strikes is up
+                if (!me->HasAura(PB_SPELL_SWEEPING_STRIKES))
+                {
+                    if (m_spells.warrior.pRevenge &&
+                        CanTryToCastSpell(pVictim, m_spells.warrior.pRevenge))
+                    {
+                        if (DoCastSpell(pVictim, m_spells.warrior.pRevenge) == SPELL_CAST_OK)
+                            return;
+                    }
+
+                    if (m_spells.warrior.pSunderArmor &&
+                        CanTryToCastSpell(pVictim, m_spells.warrior.pSunderArmor))
+                    {
+                        if (DoCastSpell(pVictim, m_spells.warrior.pSunderArmor) == SPELL_CAST_OK)
+                            return;
+                    }
+                }
             }
         }
 
@@ -3324,13 +3401,6 @@ void PartyBotAI::UpdateInCombatAI_Warrior()
 
             if (!me->GetAttackers().empty())
             {
-                if (m_spells.warrior.pShieldBlock &&
-                    CanTryToCastSpell(me, m_spells.warrior.pShieldBlock))
-                {
-                    if (DoCastSpell(me, m_spells.warrior.pShieldBlock) == SPELL_CAST_OK)
-                        return;
-                }
-
                 if (m_spells.warrior.pShieldWall &&
                     (me->GetHealthPercent() < 20.0f) &&
                     CanTryToCastSpell(me, m_spells.warrior.pShieldWall))
@@ -3372,37 +3442,6 @@ void PartyBotAI::UpdateInCombatAI_Warrior()
                 if (DoCastSpell(me, m_spells.warrior.pDeathWish) == SPELL_CAST_OK)
                     return;
             }
-        }
-
-        if ((me->GetHealthPercent() < 20.0f) ||
-            (m_role == ROLE_TANK) ||
-            IsWearingShield(me))
-        {
-            if (m_spells.warrior.pDefensiveStance &&
-                (me->GetDistance(pVictim) <= 8.0f) &&
-                pVictim && pVictim->GetVictim() == me &&
-                CanTryToCastSpell(me, m_spells.warrior.pDefensiveStance))
-            {
-                DoCastSpell(me, m_spells.warrior.pDefensiveStance);
-            }
-        }
-        else
-        {
-            if (m_spells.warrior.pBerserkerStance &&
-                !IsWearingShield(me) &&
-                me->GetLevel() >= 36 && // Whirlwind level
-                CanTryToCastSpell(me, m_spells.warrior.pBerserkerStance))
-            {
-                DoCastSpell(me, m_spells.warrior.pBerserkerStance);
-            }
-        }
-
-        if (m_spells.warrior.pBerserkerRage &&
-            (pVictim && pVictim->GetVictim() == me) &&
-            CanTryToCastSpell(me, m_spells.warrior.pBerserkerRage))
-        {
-            if (DoCastSpell(me, m_spells.warrior.pBerserkerRage) == SPELL_CAST_OK)
-                return;
         }
 
         // Whirlwind before MS / Bloodthirst if more than 1 target in range
@@ -3488,7 +3527,8 @@ void PartyBotAI::UpdateInCombatAI_Warrior()
 
         if (me->GetPower(POWER_RAGE) >= 55)
         {
-            if (m_spells.warrior.pCleave && me->GetEnemyCountInRadiusAround(pVictim, 8.0f) > 1)
+            if (m_spells.warrior.pCleave &&
+                me->GetEnemyCountInRadiusAround(pVictim, 8.0f) > 1)
             {
                 if (CanTryToCastSpell(pVictim, m_spells.warrior.pCleave))
                 {
@@ -3498,7 +3538,8 @@ void PartyBotAI::UpdateInCombatAI_Warrior()
             }
             else
             {
-                if (m_spells.warrior.pHeroicStrike && CanTryToCastSpell(pVictim, m_spells.warrior.pHeroicStrike))
+                if (m_spells.warrior.pHeroicStrike &&
+                    CanTryToCastSpell(pVictim, m_spells.warrior.pHeroicStrike))
                 {
                     if (DoCastSpell(pVictim, m_spells.warrior.pHeroicStrike) == SPELL_CAST_OK)
                         return;
@@ -3982,13 +4023,13 @@ void PartyBotAI::UpdateInCombatAI_Druid()
             }
             else // DPS logic
             {
-                // If HP is over 25%, put a HOT on them
-                if (pTarget->GetHealthPercent() > 25.0f)
+                // If HP is over 35%, put a HOT on them
+                if (pTarget->GetHealthPercent() > 35.0f)
                 {
                     if (HealInjuredTargetPeriodic(pTarget))
                         return;
                 }
-                else // Below 25%, use a direct heal
+                else // Below 35%, use a direct heal
                 {
                     if (HealInjuredTargetDirect(pTarget))
                         return;

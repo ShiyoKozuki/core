@@ -3580,6 +3580,20 @@ bool CombatBotBaseAI::CastBlessings()
                             firstSelectedBlessing = m_spells.paladin.pBlessingOfSalvation;
                             secondSelectedBlessing = m_spells.paladin.pBlessingOfMight;
                         }
+
+                        // Shaman
+                        if (pMember->GetClass() == CLASS_SHAMAN)
+                        {
+                            firstSelectedBlessing = m_spells.paladin.pBlessingOfMight;
+                            secondSelectedBlessing = m_spells.paladin.pBlessingOfSalvation;
+
+                            // Elemental / Resto
+                            if (IsWearingShield(pMember))
+                            {
+                                firstSelectedBlessing = m_spells.paladin.pBlessingOfWisdom;
+                                secondSelectedBlessing = m_spells.paladin.pBlessingOfSalvation;
+                            }
+                        }
                     }
 
                     // Hunter
