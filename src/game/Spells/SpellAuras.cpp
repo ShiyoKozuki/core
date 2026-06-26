@@ -4373,8 +4373,10 @@ float Aura::CalculateDotDamage() const
         }
         case SPELLFAMILY_HUNTER:
         {
-                // Serpent Sting / Immolation Trap / Explosive Trap
-                if (spellProto->IsFitToFamilyMask<CF_HUNTER_SERPENT_STING>() || spellProto->IsFitToFamilyMask<CF_HUNTER_FIRE_TRAP_EFFECTS>())
+                // Serpent Sting / Immolation Trap / Explosive Trap / Volley
+                if (spellProto->IsFitToFamilyMask<CF_HUNTER_SERPENT_STING>() ||
+                    spellProto->IsFitToFamilyMask<CF_HUNTER_FIRE_TRAP_EFFECTS>() ||
+                    spellProto->IsFitToFamilyMask<CF_HUNTER_VOLLEY>())
                 {
                     // Damage scales Ranged AP * 0.05
                     if (caster->GetTypeId() == TYPEID_PLAYER)
@@ -4410,6 +4412,19 @@ float Aura::CalculateDotDamage() const
 
                     float oldDamage = damage;
                     damage += damage * bonusPct / 100.0f;
+                }
+            }
+            break;
+        }
+        case SPELLFAMILY_WARRIOR:
+        {
+            // Rend
+            if (spellProto->IsFitToFamilyMask<CF_WARRIOR_REND>())
+            {
+                // Damage scales Melee AP * 0.05
+                if (caster->GetTypeId() == TYPEID_PLAYER)
+                {
+                    damage += caster->GetTotalAttackPowerValue(BASE_ATTACK) * 0.05f;
                 }
             }
             break;

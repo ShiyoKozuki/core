@@ -1305,82 +1305,83 @@ SET
             -- +15
             REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `dmgMultiplier1`) VALUES (33659, 4222, 80, 1, 101, 21, 1, -1, 6, 1, 1, 14, 1, -1, -1, 1, 98, 46, 274, 'Gun Skill', 983070, 983070, 'Guns skill increased by $s1.', 983054, 983052, 1);
 
--- Rend
-UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=9 WHERE  `entry`=772;
-UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=17 WHERE  `entry`=6546;
-UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=25 WHERE  `entry`=6547;
-UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=33 WHERE  `entry`=6548;
-UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=45 WHERE  `entry`=11572;
-UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=51 WHERE  `entry`=11573;
-UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=63 WHERE  `entry`=11574;
+-- Rend (Damage increased, now also scales with melee AP)
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=9 WHERE  `entry`=772;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=17 WHERE  `entry`=6546;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=25 WHERE  `entry`=6547;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=33 WHERE  `entry`=6548;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=45 WHERE  `entry`=11572;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=51 WHERE  `entry`=11573;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=63 WHERE  `entry`=11574;
+    UPDATE `mangos`.`spell_template` SET `description`='Wounds the target causing them to bleed for $o1 damage, increased by your Attack Power, over $d.' WHERE entry IN (772, 6546, 6547, 6548, 11572, 11573, 11574);
 
 -- Demon Skin / Demon Armor (HP Regen Tripled)
-UPDATE `mangos`.`spell_template` SET `effectBasePoints2`=5 WHERE  `entry`=687;
-UPDATE `mangos`.`spell_template` SET `effectBasePoints2`=14 WHERE  `entry`=696;
-UPDATE `mangos`.`spell_template` SET `effectBasePoints2`=2 WHERE  `entry`=706;
-UPDATE `mangos`.`spell_template` SET `effectBasePoints2`=5 WHERE  `entry`=1086;
-UPDATE `mangos`.`spell_template` SET `effectBasePoints2`=8 WHERE  `entry`=11733;
-UPDATE `mangos`.`spell_template` SET `effectBasePoints2`=11 WHERE  `entry`=11734;
-UPDATE `mangos`.`spell_template` SET `effectBasePoints2`=14 WHERE  `entry`=11735;
-UPDATE `mangos`.`spell_template` SET `effectBasePoints3`=20 WHERE  `entry`=706;
-UPDATE `mangos`.`spell_template` SET `effectBasePoints3`=26 WHERE  `entry`=1086;
-UPDATE `mangos`.`spell_template` SET `effectBasePoints3`=32 WHERE  `entry`=11733;
-UPDATE `mangos`.`spell_template` SET `effectBasePoints3`=38 WHERE  `entry`=11734;
-UPDATE `mangos`.`spell_template` SET `effectBasePoints3`=44 WHERE  `entry`=11735;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints2`=5 WHERE  `entry`=687;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints2`=14 WHERE  `entry`=696;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints2`=2 WHERE  `entry`=706;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints2`=5 WHERE  `entry`=1086;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints2`=8 WHERE  `entry`=11733;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints2`=11 WHERE  `entry`=11734;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints2`=14 WHERE  `entry`=11735;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints3`=20 WHERE  `entry`=706;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints3`=26 WHERE  `entry`=1086;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints3`=32 WHERE  `entry`=11733;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints3`=38 WHERE  `entry`=11734;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints3`=44 WHERE  `entry`=11735;
 
 -- Curse of Weakness
-UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=-4 WHERE  `entry`=702 AND `build`=5302;
-UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=-7 WHERE  `entry`=1108 AND `build`=5302;
-UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=-11 WHERE  `entry`=6205 AND `build`=5302;
-UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=-16 WHERE  `entry`=7646 AND `build`=5302;
-UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=-23 WHERE  `entry`=11707 AND `build`=5302;
-UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=-32 WHERE  `entry`=11708 AND `build`=5302;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=-4 WHERE  `entry`=702 AND `build`=5302;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=-7 WHERE  `entry`=1108 AND `build`=5302;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=-11 WHERE  `entry`=6205 AND `build`=5302;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=-16 WHERE  `entry`=7646 AND `build`=5302;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=-23 WHERE  `entry`=11707 AND `build`=5302;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=-32 WHERE  `entry`=11708 AND `build`=5302;
 
 -- Life Tap
-UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=59 WHERE  `entry`=1454 AND `build`=5875;
-UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=194 WHERE  `entry`=1455 AND `build`=5875;
-UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=389 WHERE  `entry`=1456 AND `build`=5875;
-UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=629 WHERE  `entry`=11687 AND `build`=5875;
-UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=899 WHERE  `entry`=11688 AND `build`=5875;
-UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=1259 WHERE  `entry`=11689 AND `build`=5875;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=59 WHERE  `entry`=1454 AND `build`=5875;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=194 WHERE  `entry`=1455 AND `build`=5875;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=389 WHERE  `entry`=1456 AND `build`=5875;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=629 WHERE  `entry`=11687 AND `build`=5875;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=899 WHERE  `entry`=11688 AND `build`=5875;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=1259 WHERE  `entry`=11689 AND `build`=5875;
 
--- Searing Pain
-UPDATE `mangos`.`spell_threat` SET `multiplier`=0 WHERE  `entry`=5676 AND `build_min`=0 AND `build_max`=5875;
-UPDATE `mangos`.`spell_threat` SET `multiplier`=0 WHERE  `entry`=17919 AND `build_min`=0 AND `build_max`=5875;
-UPDATE `mangos`.`spell_threat` SET `multiplier`=0 WHERE  `entry`=17920 AND `build_min`=0 AND `build_max`=5875;
-UPDATE `mangos`.`spell_threat` SET `multiplier`=0 WHERE  `entry`=17921 AND `build_min`=0 AND `build_max`=5875;
-UPDATE `mangos`.`spell_threat` SET `multiplier`=0 WHERE  `entry`=17922 AND `build_min`=0 AND `build_max`=5875;
-UPDATE `mangos`.`spell_threat` SET `multiplier`=0 WHERE  `entry`=17923 AND `build_min`=0 AND `build_max`=5875;
+-- Searing Pain (Removed bonus Threat)
+    UPDATE `mangos`.`spell_threat` SET `multiplier`=0 WHERE  `entry`=5676 AND `build_min`=0 AND `build_max`=5875;
+    UPDATE `mangos`.`spell_threat` SET `multiplier`=0 WHERE  `entry`=17919 AND `build_min`=0 AND `build_max`=5875;
+    UPDATE `mangos`.`spell_threat` SET `multiplier`=0 WHERE  `entry`=17920 AND `build_min`=0 AND `build_max`=5875;
+    UPDATE `mangos`.`spell_threat` SET `multiplier`=0 WHERE  `entry`=17921 AND `build_min`=0 AND `build_max`=5875;
+    UPDATE `mangos`.`spell_threat` SET `multiplier`=0 WHERE  `entry`=17922 AND `build_min`=0 AND `build_max`=5875;
+    UPDATE `mangos`.`spell_threat` SET `multiplier`=0 WHERE  `entry`=17923 AND `build_min`=0 AND `build_max`=5875;
 
-UPDATE `mangos`.`spell_template` SET `description`='Inflict searing pain on the enemy target, causing $s1 Fire damage.' WHERE  `entry`=17922 AND `build`=5086;
-UPDATE `mangos`.`spell_template` SET `description`='Inflict searing pain on the enemy target, causing $s1 Fire damage.' WHERE  `entry`=17921 AND `build`=5086;
-UPDATE `mangos`.`spell_template` SET `description`='Inflict searing pain on the enemy target, causing $s1 Fire damage.' WHERE  `entry`=17920 AND `build`=5086;
-UPDATE `mangos`.`spell_template` SET `description`='Inflict searing pain on the enemy target, causing $s1 Fire damage.' WHERE  `entry`=17919 AND `build`=5086;
-UPDATE `mangos`.`spell_template` SET `description`='Inflict searing pain on the enemy target, causing $s1 Fire damage.' WHERE  `entry`=5676 AND `build`=5086;
+    UPDATE `mangos`.`spell_template` SET `description`='Inflict searing pain on the enemy target, causing $s1 Fire damage.' WHERE  `entry`=17922 AND `build`=5086;
+    UPDATE `mangos`.`spell_template` SET `description`='Inflict searing pain on the enemy target, causing $s1 Fire damage.' WHERE  `entry`=17921 AND `build`=5086;
+    UPDATE `mangos`.`spell_template` SET `description`='Inflict searing pain on the enemy target, causing $s1 Fire damage.' WHERE  `entry`=17920 AND `build`=5086;
+    UPDATE `mangos`.`spell_template` SET `description`='Inflict searing pain on the enemy target, causing $s1 Fire damage.' WHERE  `entry`=17919 AND `build`=5086;
+    UPDATE `mangos`.`spell_template` SET `description`='Inflict searing pain on the enemy target, causing $s1 Fire damage.' WHERE  `entry`=5676 AND `build`=5086;
 
 -- Rain of fire
-UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=83 WHERE  `entry`=5740;
-UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=191 WHERE  `entry`=6219;
-UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=309 WHERE  `entry`=11677;
-UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=451 WHERE  `entry`=11678;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=83 WHERE  `entry`=5740;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=191 WHERE  `entry`=6219;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=309 WHERE  `entry`=11677;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=451 WHERE  `entry`=11678;
 
--- Hellfire
-UPDATE `mangos`.`spell_template` SET `manaCost`=0 WHERE  `entry`=1949;
-UPDATE `mangos`.`spell_template` SET `manaCost`=0 WHERE  `entry`=11683;
-UPDATE `mangos`.`spell_template` SET `manaCost`=0 WHERE  `entry`=11684;
+-- Hellfire (Removed MP cost)
+    UPDATE `mangos`.`spell_template` SET `manaCost`=0 WHERE  `entry`=1949;
+    UPDATE `mangos`.`spell_template` SET `manaCost`=0 WHERE  `entry`=11683;
+    UPDATE `mangos`.`spell_template` SET `manaCost`=0 WHERE  `entry`=11684;
 
 -- Drain Soul (Only usable on targets <= 20% HP, damage increased by 4x)
-UPDATE `mangos`.`spell_template` SET `attributesEx4`=512, `targetAuraState`=2, `description`='Drains the soul of the target, causing $o2 Shadow damage over $d.  If the target dies while being drained, and yields experience or honor, the caster gains a Soul Shard.  Soul Shards are required for other spells.  Only usable on enemies that have 20% or less health.' WHERE  `entry`=1120;
-UPDATE `mangos`.`spell_template` SET `attributesEx4`=512, `targetAuraState`=2, `description`='Drains the soul of the target, causing $o2 Shadow damage over $d.  If the target dies while being drained, and yields experience or honor, the caster gains a Soul Shard.  Soul Shards are required for other spells.  Only usable on enemies that have 20% or less health.' WHERE  `entry`=8288;
-UPDATE `mangos`.`spell_template` SET `attributesEx4`=512, `targetAuraState`=2, `description`='Drains the soul of the target, causing $o2 Shadow damage over $d.  If the target dies while being drained, and yields experience or honor, the caster gains a Soul Shard.  Soul Shards are required for other spells.  Only usable on enemies that have 20% or less health.' WHERE  `entry`=8289;
-UPDATE `mangos`.`spell_template` SET `attributesEx4`=512, `targetAuraState`=2, `description`='Drains the soul of the target, causing $o2 Shadow damage over $d.  If the target dies while being drained, and yields experience or honor, the caster gains a Soul Shard.  Soul Shards are required for other spells.  Only usable on enemies that have 20% or less health.' WHERE  `entry`=11675;
-UPDATE `mangos`.`spell_template` SET `effectBasePoints2`=87 WHERE  `entry`=1120;
-UPDATE `mangos`.`spell_template` SET `effectBasePoints2`=247 WHERE  `entry`=8288;
-UPDATE `mangos`.`spell_template` SET `effectBasePoints2`=471 WHERE  `entry`=8289;
-UPDATE `mangos`.`spell_template` SET `effectBasePoints2`=727 WHERE  `entry`=11675;
+    UPDATE `mangos`.`spell_template` SET `attributesEx4`=512, `targetAuraState`=2, `description`='Drains the soul of the target, causing $o2 Shadow damage over $d.  If the target dies while being drained, and yields experience or honor, the caster gains a Soul Shard.  Soul Shards are required for other spells.  Only usable on enemies that have 20% or less health.' WHERE  `entry`=1120;
+    UPDATE `mangos`.`spell_template` SET `attributesEx4`=512, `targetAuraState`=2, `description`='Drains the soul of the target, causing $o2 Shadow damage over $d.  If the target dies while being drained, and yields experience or honor, the caster gains a Soul Shard.  Soul Shards are required for other spells.  Only usable on enemies that have 20% or less health.' WHERE  `entry`=8288;
+    UPDATE `mangos`.`spell_template` SET `attributesEx4`=512, `targetAuraState`=2, `description`='Drains the soul of the target, causing $o2 Shadow damage over $d.  If the target dies while being drained, and yields experience or honor, the caster gains a Soul Shard.  Soul Shards are required for other spells.  Only usable on enemies that have 20% or less health.' WHERE  `entry`=8289;
+    UPDATE `mangos`.`spell_template` SET `attributesEx4`=512, `targetAuraState`=2, `description`='Drains the soul of the target, causing $o2 Shadow damage over $d.  If the target dies while being drained, and yields experience or honor, the caster gains a Soul Shard.  Soul Shards are required for other spells.  Only usable on enemies that have 20% or less health.' WHERE  `entry`=11675;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints2`=87 WHERE  `entry`=1120;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints2`=247 WHERE  `entry`=8288;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints2`=471 WHERE  `entry`=8289;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints2`=727 WHERE  `entry`=11675;
 
--- Create Healthstone
-UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=3 WHERE NAME LIKE 'Create Healthstone%';
+-- Create Healthstone (Creates 3 per cast, stacks to 3 now too)
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=3 WHERE NAME LIKE 'Create Healthstone%';
 
 -- Firebolt (Imp)
 UPDATE `mangos`.`spell_template` SET `manaCost`=2 WHERE  `entry`=3110;
@@ -2478,6 +2479,18 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
         DELETE FROM `mangos`.`npc_trainer_template` WHERE spell = 34044 AND entry in (10, 11);
 
     -- Hunter
+        -- Serpent Sting (Scales with AP)
+            UPDATE `mangos`.`spell_template` SET `description`='Stings the target, causing $o1 Nature damage, increased by your ranged Attack Power, over $d.  Only one Sting per Hunter can be active on any one target.' WHERE  entry IN (1978, 13549, 13550, 13551, 13552, 13553, 13554, 13555, 25295);
+
+        -- Volley (Scales with AP)
+            UPDATE `mangos`.`spell_template` SET `description`='Continuously fires a volley of ammo at the target area, causing $s1 Arcane damage to enemy targets, increased by your ranged Attack Power, within $a1 yards every second for $d.' WHERE entry IN (1510, 14294, 14295);
+
+        -- Explosive Trap (Scales with AP)
+            UPDATE `mangos`.`spell_template` SET `description`='Place a fire trap that explodes when an enemy approaches, causing $13812s1 Fire damage and $13812o2 additional Fire damage, increased by your ranged Attack Power, over $13812d, to all within $13812a1 yards.  Trap will exist for $d.  Traps can only be placed when out of combat.  Only one trap can be active at a time.' WHERE entry IN (13813, 14316, 14317);
+
+        -- Immolation Trap (Scales with AP)
+            UPDATE `mangos`.`spell_template` SET `description`='Place a fire trap that will burn the first enemy to approach for $13797o1 Fire damage, increased by your ranged Attack Power, over $13797d.  Trap will exist for $d.  Traps can only be placed when out of combat.  Only one trap can be active at a time.' WHERE entry IN (13795, 14302, 14303, 14304, 14305);
+
         -- Aspect of the Viper
         REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `castingTimeIndex`, `procFlags`, `baseLevel`, `spellLevel`, `durationIndex`, `manaCost`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effect2`, `effectDieSides1`, `effectDieSides2`, `effectBaseDice1`, `effectBaseDice2`, `effectBasePoints1`, `effectBasePoints2`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectApplyAuraName1`, `effectApplyAuraName2`, `effectAmplitude1`, `effectMiscValue2`, `spellVisual1`, `spellIconId`, `activeIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34028, 5302, 3, 327680, 1, 87376, 10, 10, 21, 20, 1, -1, -1, 6, 6, 1, 1, 1, 1, 3, -51, 0, 0, -1, 1, 1, 21, 79, 3000, 127, 3399, 2227, 122, 'Aspect of the Viper', 2031678, '', 2031678, 'The hunter takes on the aspect of the viper, you gain $s1% of maximum mana every 3 sec, but your total damage done is reduced by $s2%.   Only one Aspect can be active at a time.', 2031678, 'Regenerating $s1% of maximum mana every 3 sec, but your total damage done is reduced by $s2%.', 2031678, 133, 1500, 9, 1048576, 1, 1, -1, 1, 1, 1);
 
@@ -2926,7 +2939,7 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
                         REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `dispel`, `attributesEx`, `castingTimeIndex`, `procChance`, `maxLevel`, `baseLevel`, `spellLevel`, `durationIndex`, `rangeIndex`, `stackAmount`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectRealPointsPerLevel1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectRadiusIndex2`, `effectApplyAuraName1`, `effectMiscValue1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `customFlags`) VALUES (34203, 5302, 4, 1, 136, 1, 101, 61, 40, 40, 9, 4, 5, -1, -1, 6, 1, 1, 1, 14, 0, 0, -1, 6, 12, 14, 16, 2131, 50, 'Frost Exposure', 2031678, 2031676, 'Causes the target to take $s1 increased Frost damage for $d.', 2031678, 'Frost damage taken is increased by $s1.', 2031678, 1, 1, -1, 1, 1, 1, 1);
 
             -- Waterbolt (Visual: 7774 or 8642 Icon: 176)
-                REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `castingTimeIndex`, `interruptFlags`, `procChance`, `maxLevel`, `baseLevel`, `spellLevel`, `manaCost`, `rangeIndex`, `speed`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectRealPointsPerLevel1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectMultipleValue1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `customFlags`) VALUES (34204, 4222, 4, 65536, 14, 15, 101, 61, 40, 40, 265, 4, 20, -1, -1, 2, 35, 1, 9, 280, 0.857, -1, -1, 6, 1, 8642, 176, 'Water Bolt', 983070, 983070, 'Blasts the target with a gush of water dealing $s1 Frost damage.', 983070, 983052, 133, 1500, 1, 1, -1, 1, 1, 1, 128);
+                REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `castingTimeIndex`, `interruptFlags`, `procChance`, `maxLevel`, `baseLevel`, `spellLevel`, `manaCost`, `rangeIndex`, `speed`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectRealPointsPerLevel1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectMultipleValue1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `customFlags`) VALUES (34204, 4222, 4, 65536, @CASTING_TIME_1500_MS, 15, 101, 61, 40, 40, 265, 4, 20, -1, -1, 2, 35, 1, 9, 280, 0.857, -1, -1, 6, 1, 8642, 176, 'Water Bolt', 983070, 983070, 'Blasts the target with a gush of water dealing $s1 Frost damage.', 983070, 983052, 133, 1500, 1, 1, -1, 1, 1, 1, 128);
 
         -- Ice Lance
             -- Rank 1
