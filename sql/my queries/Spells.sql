@@ -1,4 +1,4 @@
--- 34202 NEXT SPELL
+-- 34207 NEXT SPELL
 -- 15171 NEXT SKILL_LINE_ABILITY
 -- NEXT category 10006
 
@@ -2145,6 +2145,10 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
     -- Shaman
         -- Add spell family flags to Purge
             UPDATE `mangos`.`spell_template` SET `spellFamilyFlags`=4398046511104 WHERE  `entry` IN (370, 8012);
+
+        -- Dual Wield
+            REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34207, 4222, 80, 1, 101, 1, -1, -1, 40, 0, -1, -1, 1, 533, 'Dual Wield (Talent)', 983070, 'Passive', 983070, 'Allows one-hand and off-hand weapons to be equipped in the off-hand.', 983070, 983052, 1, 1, -1, 1, 1, 1);
+
 
         -- Shamanistic Focus
             REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `procCharges`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectItemType1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `spellFamilyName`, `stanceBarOrder`, `dmgMultiplier1`) VALUES (34045, 4695, 464, 1, 101, 0, 21, 1, -1, 6, 1, 1, -46, 0, -1, -1, 1, 108, 2416967680, 14, 2092, 'Shamanistic Focus', 983070, 983070, 'Reduces the mana cost of your Shock spells by $s1%.', 983070, '', 983052, 11, -1, 1);

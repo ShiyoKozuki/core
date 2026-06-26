@@ -205,7 +205,7 @@ REPLACE INTO `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `b
 REPLACE INTO `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (10, 3,196, 0, 5875, 'One-Handed Axes');
 REPLACE INTO `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (10, 3,203, 0, 5875, 'Unarmed');
 REPLACE INTO `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (10, 3,204, 0, 5875, 'Defense');
-REPLACE INTO `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (10, 3,266, 0, 5875, 'Guns');
+REPLACE INTO `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (10, 3,264, 0, 5875, 'Bows');
 REPLACE INTO `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (10, 3,522, 0, 5875, 'SPELLDEFENSE (DND)');
 REPLACE INTO `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (10, 3,668, 0, 5875, 'Language Common');
 REPLACE INTO `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (10, 3,2382, 0, 5875, 'Generic');
