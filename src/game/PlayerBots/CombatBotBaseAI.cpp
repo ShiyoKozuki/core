@@ -816,6 +816,11 @@ void CombatBotBaseAI::PopulateSpellData()
                     if (IsHigherRankSpell(pFrostArmor))
                         pFrostArmor = pSpellEntry;
                 }
+                if (pSpellEntry->SpellName[0].find("Mage Armor") != std::string::npos)
+                {
+                    if (IsHigherRankSpell(m_spells.mage.pMageArmor))
+                        m_spells.mage.pMageArmor = pSpellEntry;
+                }
                 else if (pSpellEntry->SpellName[0].find("Ice Barrier") != std::string::npos)
                 {
                     if (IsHigherRankSpell(m_spells.mage.pIceBarrier))

@@ -1980,17 +1980,25 @@ void PartyBotAI::UpdateInCombatAI_Shaman()
                     return;
             }
 
-            if (m_spells.shaman.pFrostShock &&
-                CanTryToCastSpell(pVictim, m_spells.shaman.pFrostShock))
-            {
-                if (DoCastSpell(pVictim, m_spells.shaman.pFrostShock) == SPELL_CAST_OK)
-                    return;
-            }
-
             if (m_spells.shaman.pStormstrike &&
                 CanTryToCastSpell(pVictim, m_spells.shaman.pStormstrike))
             {
                 if (DoCastSpell(pVictim, m_spells.shaman.pStormstrike) == SPELL_CAST_OK)
+                    return;
+            }
+
+            if (m_spells.shaman.pEarthShock &&
+                pVictim->HasAura(m_spells.shaman.pStormstrike->Id) &&
+                CanTryToCastSpell(pVictim, m_spells.shaman.pEarthShock))
+            {
+                if (DoCastSpell(pVictim, m_spells.shaman.pEarthShock) == SPELL_CAST_OK)
+                    return;
+            }
+
+            if (m_spells.shaman.pFrostShock &&
+                CanTryToCastSpell(pVictim, m_spells.shaman.pFrostShock))
+            {
+                if (DoCastSpell(pVictim, m_spells.shaman.pFrostShock) == SPELL_CAST_OK)
                     return;
             }
 
@@ -2292,10 +2300,10 @@ void PartyBotAI::UpdateOutOfCombatAI_Mage()
         }
     }
 
-    if (m_spells.mage.pIceArmor &&
-        CanTryToCastSpell(me, m_spells.mage.pIceArmor))
+    if (m_spells.mage.pMageArmor &&
+        CanTryToCastSpell(me, m_spells.mage.pMageArmor))
     {
-        if (DoCastSpell(me, m_spells.mage.pIceArmor) == SPELL_CAST_OK)
+        if (DoCastSpell(me, m_spells.mage.pMageArmor) == SPELL_CAST_OK)
         {
             m_isBuffing = true;
             me->ClearTarget();
