@@ -210,10 +210,11 @@ bool PartyBotAI::DrinkAndEat()
 
     float drinkThreshold = 100.0f;
 
-
     if (GetRole() == ROLE_MELEE_DPS || me->GetClass() == CLASS_WARLOCK || me->GetClass() == CLASS_HUNTER)
         drinkThreshold = 25.0f;
 
+    if (me->GetClass() == CLASS_MAGE)
+        drinkThreshold = 50.0f;
 
     bool const needToEat = me->GetHealthPercent() < 70.0f;
     bool const needToDrink = (me->GetPowerType() == POWER_MANA) && (me->GetPowerPercent(POWER_MANA) < drinkThreshold);
@@ -338,37 +339,37 @@ bool PartyBotAI::CanTryToCastSpell(Unit const* pTarget, SpellEntry const* pSpell
             return false;
 
         // do not cast aoe if it will pull aggro
-        if (m_role != ROLE_TANK)
-        {
-            float radius;
-            if (pSpellEntry->EffectRadiusIndex[0])
-                radius = Spells::GetSpellRadius(sSpellRadiusStore.LookupEntry(pSpellEntry->EffectRadiusIndex[0]));
-            else if (pSpellEntry->EffectRadiusIndex[1])
-                radius = Spells::GetSpellRadius(sSpellRadiusStore.LookupEntry(pSpellEntry->EffectRadiusIndex[1]));
-            else if (pSpellEntry->EffectRadiusIndex[2])
-                radius = Spells::GetSpellRadius(sSpellRadiusStore.LookupEntry(pSpellEntry->EffectRadiusIndex[2]));
-            else
-                radius = 10.0f;
+        //if (m_role != ROLE_TANK)
+        //{
+        //    float radius;
+        //    if (pSpellEntry->EffectRadiusIndex[0])
+        //        radius = Spells::GetSpellRadius(sSpellRadiusStore.LookupEntry(pSpellEntry->EffectRadiusIndex[0]));
+        //    else if (pSpellEntry->EffectRadiusIndex[1])
+        //        radius = Spells::GetSpellRadius(sSpellRadiusStore.LookupEntry(pSpellEntry->EffectRadiusIndex[1]));
+        //    else if (pSpellEntry->EffectRadiusIndex[2])
+        //        radius = Spells::GetSpellRadius(sSpellRadiusStore.LookupEntry(pSpellEntry->EffectRadiusIndex[2]));
+        //    else
+        //        radius = 10.0f;
 
-            std::list<Unit*> targets;
-            me->GetEnemyListInRadiusAround(pTarget, radius, targets);
+        //    std::list<Unit*> targets;
+        //    me->GetEnemyListInRadiusAround(pTarget, radius, targets);
 
-            for (auto const& pEnemy : targets)
-            {
-                if (((pEnemy->GetLevel() + 5) > me->GetLevel()) &&
-                    ((pEnemy->GetHealth() * 4) > me->GetHealth()) &&
-                    pEnemy->GetVictim() && pEnemy->GetVictim() != me &&
-                    pEnemy->IsValidAttackTarget(me) &&
-                    pEnemy->CanHaveThreatList())
-                {
-                    float const myThreat = pEnemy->GetThreatManager().getThreat(me);
-                    float const victimThreat = pEnemy->GetThreatManager().getThreat(pEnemy->GetVictim());
+        //    for (auto const& pEnemy : targets)
+        //    {
+        //        if (((pEnemy->GetLevel() + 5) > me->GetLevel()) &&
+        //            ((pEnemy->GetHealth() * 4) > me->GetHealth()) &&
+        //            pEnemy->GetVictim() && pEnemy->GetVictim() != me &&
+        //            pEnemy->IsValidAttackTarget(me) &&
+        //            pEnemy->CanHaveThreatList())
+        //        {
+        //            float const myThreat = pEnemy->GetThreatManager().getThreat(me);
+        //            float const victimThreat = pEnemy->GetThreatManager().getThreat(pEnemy->GetVictim());
 
-                    if (victimThreat < (myThreat + me->GetMaxHealth()))
-                        return false;
-                }
-            }
-        }
+        //            if (victimThreat < (myThreat + me->GetMaxHealth()))
+        //                return false;
+        //        }
+        //    }
+        //}
     }
 
     return true;
@@ -1901,33 +1902,6 @@ void PartyBotAI::UpdateInCombatAI_Shaman()
     {
         if (Unit* pVictim = me->GetVictim())
         {
-            // Maelstrom Weapon Logic
-            if (Aura* maelstromWeaponAura = me->GetAura(PB_TALENT_MAELSTROM_WEAPON_R5, EFFECT_INDEX_0))
-            {
-                if (SpellAuraHolder* holder = maelstromWeaponAura->GetHolder())
-                {
-                    uint16 stacks = holder->GetStackAmount();
-
-                    // Only try to cast Chain Lightning / Lightning Bolt at 5 Maelstrom Weapon stacks
-                    if (stacks >= 5)
-                    {
-                        if (m_spells.shaman.pChainLightning &&
-                            CanTryToCastSpell(pVictim, m_spells.shaman.pChainLightning))
-                        {
-                            if (DoCastSpell(pVictim, m_spells.shaman.pChainLightning) == SPELL_CAST_OK)
-                                return;
-                        }
-
-                        if (m_spells.shaman.pLightningBolt &&
-                            CanTryToCastSpell(pVictim, m_spells.shaman.pLightningBolt))
-                        {
-                            if (DoCastSpell(pVictim, m_spells.shaman.pLightningBolt) == SPELL_CAST_OK)
-                                return;
-                        }
-                    }
-                }
-            }
-
             if (m_spells.shaman.pElementalMastery &&
                 me->GetAttackers().empty() &&
                 CanTryToCastSpell(me, m_spells.shaman.pElementalMastery))
@@ -1988,6 +1962,33 @@ void PartyBotAI::UpdateInCombatAI_Shaman()
             {
                 if (DoCastSpell(pVictim, m_spells.shaman.pStormstrike) == SPELL_CAST_OK)
                     return;
+            }
+
+            // Maelstrom Weapon Logic
+            if (Aura* maelstromWeaponAura = me->GetAura(PB_TALENT_MAELSTROM_WEAPON_R5, EFFECT_INDEX_0))
+            {
+                if (SpellAuraHolder* holder = maelstromWeaponAura->GetHolder())
+                {
+                    uint16 stacks = holder->GetStackAmount();
+
+                    // Only try to cast Chain Lightning / Lightning Bolt at 5 Maelstrom Weapon stacks
+                    if (stacks >= 5)
+                    {
+                        if (m_spells.shaman.pChainLightning &&
+                            CanTryToCastSpell(pVictim, m_spells.shaman.pChainLightning))
+                        {
+                            if (DoCastSpell(pVictim, m_spells.shaman.pChainLightning) == SPELL_CAST_OK)
+                                return;
+                        }
+
+                        if (m_spells.shaman.pLightningBolt &&
+                            CanTryToCastSpell(pVictim, m_spells.shaman.pLightningBolt))
+                        {
+                            if (DoCastSpell(pVictim, m_spells.shaman.pLightningBolt) == SPELL_CAST_OK)
+                                return;
+                        }
+                    }
+                }
             }
 
             if (m_spells.shaman.pEarthShock &&
@@ -2451,22 +2452,27 @@ void PartyBotAI::UpdateInCombatAI_Mage()
             }
         }
 
-        if (m_spells.mage.pFlamestrike &&
-           (me->GetEnemyCountInRadiusAround(pVictim, 10.0f) > 2) &&
-            (me->GetAttackers().size() < 3) && // too much pushback
-            CanTryToCastSpell(pVictim, m_spells.mage.pFlamestrike))
+        if (me->HasAura(PB_TALENT_IGNITE_R5))
         {
-            if (DoCastSpell(pVictim, m_spells.mage.pFlamestrike) == SPELL_CAST_OK)
-                return;
+            if (m_spells.mage.pFlamestrike &&
+               (me->GetEnemyCountInRadiusAround(pVictim, 10.0f) > 2) &&
+                (me->GetAttackers().size() < 3) && // too much pushback
+                CanTryToCastSpell(pVictim, m_spells.mage.pFlamestrike))
+            {
+                if (DoCastSpell(pVictim, m_spells.mage.pFlamestrike) == SPELL_CAST_OK)
+                    return;
+            }
         }
-
-        if (m_spells.mage.pBlizzard &&
-           (me->GetEnemyCountInRadiusAround(pVictim, 10.0f) > 2) &&
-            (me->GetAttackers().size() < 1) && // too much pushback
-            CanTryToCastSpell(pVictim, m_spells.mage.pBlizzard))
+        else
         {
-            if (DoCastSpell(pVictim, m_spells.mage.pBlizzard) == SPELL_CAST_OK)
-                return;
+            if (m_spells.mage.pBlizzard &&
+               (me->GetEnemyCountInRadiusAround(pVictim, 10.0f) > 2) &&
+                (me->GetAttackers().size() < 1) && // too much pushback
+                CanTryToCastSpell(pVictim, m_spells.mage.pBlizzard))
+            {
+                if (DoCastSpell(pVictim, m_spells.mage.pBlizzard) == SPELL_CAST_OK)
+                    return;
+            }
         }
 
         if (m_spells.mage.pPolymorph)
@@ -3361,6 +3367,15 @@ void PartyBotAI::UpdateInCombatAI_Warrior()
             }
         }
 
+        if (m_spells.warrior.pDisarm &&
+            !me->HasAura(PB_SPELL_SWEEPING_STRIKES) &&
+            IsMeleeWeaponClass(pVictim->GetClass()) &&
+            CanTryToCastSpell(pVictim, m_spells.warrior.pDisarm))
+        {
+            if (DoCastSpell(pVictim, m_spells.warrior.pDisarm) == SPELL_CAST_OK)
+                return;
+        }
+
         if (m_role == ROLE_TANK)
         {
             if (me->GetEnemyCountInRadiusAround(pVictim, 8.0f) > 1)
@@ -3486,14 +3501,6 @@ void PartyBotAI::UpdateInCombatAI_Warrior()
             CanTryToCastSpell(me, m_spells.warrior.pWhirlwind))
         {
             if (DoCastSpell(me, m_spells.warrior.pWhirlwind) == SPELL_CAST_OK)
-                return;
-        }
-
-        if (m_spells.warrior.pDisarm &&
-            IsMeleeWeaponClass(pVictim->GetClass()) &&
-            CanTryToCastSpell(pVictim, m_spells.warrior.pDisarm))
-        {
-            if (DoCastSpell(pVictim, m_spells.warrior.pDisarm) == SPELL_CAST_OK)
                 return;
         }
 
