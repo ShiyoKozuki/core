@@ -224,6 +224,11 @@ void CombatBotBaseAI::PopulateSpellData()
                     if (IsHigherRankSpell(m_spells.paladin.pSealOfRighteousness))
                         m_spells.paladin.pSealOfRighteousness = pSpellEntry;
                 }
+                if (pSpellEntry->SpellName[0].find("Seal of Wisdom") != std::string::npos)
+                {
+                    if (IsHigherRankSpell(m_spells.paladin.pSealOfWisdom))
+                        m_spells.paladin.pSealOfWisdom = pSpellEntry;
+                }
                 else if (pSpellEntry->SpellName[0].find("Seal of Command") != std::string::npos)
                 {
                     if (IsHigherRankSpell(m_spells.paladin.pSealOfCommand))
@@ -243,6 +248,16 @@ void CombatBotBaseAI::PopulateSpellData()
                 {
                     if (IsHigherRankSpell(m_spells.paladin.pWakeOfAshes))
                         m_spells.paladin.pWakeOfAshes = pSpellEntry;
+                }
+                else if (pSpellEntry->SpellName[0].find("Hammer of the Righteous") != std::string::npos)
+                {
+                    if (IsHigherRankSpell(m_spells.paladin.pHammerOfTheRighteous))
+                        m_spells.paladin.pHammerOfTheRighteous = pSpellEntry;
+                }
+                else if (pSpellEntry->SpellName[0].find("Shield of Righteousness") != std::string::npos)
+                {
+                    if (IsHigherRankSpell(m_spells.paladin.pShieldOfRighteousness))
+                        m_spells.paladin.pShieldOfRighteousness = pSpellEntry;
                 }
                 else if (pSpellEntry->SpellName[0].find("Judgement") != std::string::npos)
                 {
@@ -3567,18 +3582,22 @@ bool CombatBotBaseAI::CastBlessings()
                         firstSelectedBlessing = m_spells.paladin.pBlessingOfWisdom;
                         secondSelectedBlessing = m_spells.paladin.pBlessingOfKings;
 
-                        // Bear Form
-                        if (pMember->GetShapeshiftForm() == FORM_BEAR || pMember->GetShapeshiftForm() == FORM_DIREBEAR)
+                        // Druid
+                        if (pMember->GetClass() == CLASS_DRUID)
                         {
-                            firstSelectedBlessing = m_spells.paladin.pBlessingOfMight;
-                            secondSelectedBlessing = m_spells.paladin.pBlessingOfKings;
-                        }
+                            // Bear Form
+                            if (pMember->GetShapeshiftForm() == FORM_BEAR || pMember->GetShapeshiftForm() == FORM_DIREBEAR)
+                            {
+                                firstSelectedBlessing = m_spells.paladin.pBlessingOfMight;
+                                secondSelectedBlessing = m_spells.paladin.pBlessingOfKings;
+                            }
 
-                        // Cat Form
-                        if (pMember->GetShapeshiftForm() == FORM_CAT)
-                        {
-                            firstSelectedBlessing = m_spells.paladin.pBlessingOfSalvation;
-                            secondSelectedBlessing = m_spells.paladin.pBlessingOfMight;
+                            // Cat Form
+                            if (pMember->GetShapeshiftForm() == FORM_CAT)
+                            {
+                                firstSelectedBlessing = m_spells.paladin.pBlessingOfSalvation;
+                                secondSelectedBlessing = m_spells.paladin.pBlessingOfMight;
+                            }
                         }
 
                         // Shaman
@@ -3592,6 +3611,18 @@ bool CombatBotBaseAI::CastBlessings()
                             {
                                 firstSelectedBlessing = m_spells.paladin.pBlessingOfWisdom;
                                 secondSelectedBlessing = m_spells.paladin.pBlessingOfSalvation;
+                            }
+                        }
+
+                        // Paladin
+                        if (pMember->GetClass() == CLASS_PALADIN)
+                        {
+                            // Tank (Self)
+                            if (pMember == me &&
+                                IsWearingShield(pMember))
+                            {
+                                firstSelectedBlessing = m_spells.paladin.pBlessingOfSanctuary;
+                                secondSelectedBlessing = m_spells.paladin.pBlessingOfKings;
                             }
                         }
                     }

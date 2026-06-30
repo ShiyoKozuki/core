@@ -379,11 +379,14 @@ public:
             SpellEntry const* pBlessingOfSacrifice;
             // Paladin Seals
             SpellEntry const* pSealOfRighteousness;
-            SpellEntry const* pHolyStrike;
-            SpellEntry const* pCrusaderStrike;
-            SpellEntry const* pWakeOfAshes;
             SpellEntry const* pSealOfCommand;
             SpellEntry const* pSealOfFury;
+            SpellEntry const* pSealOfWisdom;
+            SpellEntry const* pHolyStrike;
+            SpellEntry const* pCrusaderStrike;
+            SpellEntry const* pHammerOfTheRighteous;
+            SpellEntry const* pShieldOfRighteousness;
+            SpellEntry const* pWakeOfAshes;
             SpellEntry const* pHammerOfJustice;
             SpellEntry const* pRepentance;
             SpellEntry const* pJudgement;

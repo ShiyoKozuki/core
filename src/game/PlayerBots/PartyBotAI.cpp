@@ -210,7 +210,7 @@ bool PartyBotAI::DrinkAndEat()
 
     float drinkThreshold = 100.0f;
 
-    if (GetRole() == ROLE_MELEE_DPS || me->GetClass() == CLASS_WARLOCK || me->GetClass() == CLASS_HUNTER)
+    if (GetRole() == ROLE_MELEE_DPS || GetRole() == ROLE_TANK || me->GetClass() == CLASS_WARLOCK || me->GetClass() == CLASS_HUNTER)
         drinkThreshold = 25.0f;
 
     if (me->GetClass() == CLASS_MAGE)
@@ -1521,7 +1521,7 @@ void PartyBotAI::UpdateInCombatAI_Paladin()
             return;
     }
 
-    if (Unit* pFriend = me->FindLowestHpFriendlyUnit(30.0f, 30, true, me))
+    if (Unit* pFriend = me->FindLowestHpFriendlyUnit(30.0f, 70, true, me))
     {
         if (m_spells.paladin.pBlessingOfProtection &&
            !IsPhysicalDamageClass(pFriend->GetClass()) &&
@@ -1531,6 +1531,7 @@ void PartyBotAI::UpdateInCombatAI_Paladin()
             if (DoCastSpell(pFriend, m_spells.paladin.pBlessingOfProtection) == SPELL_CAST_OK)
                 return;
         }
+
         if (m_spells.paladin.pBlessingOfSacrifice &&
            !pFriend->GetAttackers().empty() &&
            (me->GetHealthPercent() > 40.0f) &&
@@ -1539,6 +1540,7 @@ void PartyBotAI::UpdateInCombatAI_Paladin()
             if (DoCastSpell(pFriend, m_spells.paladin.pBlessingOfSacrifice) == SPELL_CAST_OK)
                 return;
         }
+
         if (m_spells.paladin.pLayOnHands &&
            (pFriend->GetHealthPercent() < 15.0f) &&
             CanTryToCastSpell(pFriend, m_spells.paladin.pLayOnHands))
@@ -1549,40 +1551,37 @@ void PartyBotAI::UpdateInCombatAI_Paladin()
     }
 
     // Cleanse / Purify
-    if (m_spells.paladin.pCleanse)
+    if (GetRole() != ROLE_TANK)
     {
-        if (Unit* pFriend = SelectDispelTarget(m_spells.paladin.pCleanse))
+        if (m_spells.paladin.pCleanse)
         {
-            if (CanTryToCastSpell(pFriend, m_spells.paladin.pCleanse))
+            if (Unit* pFriend = SelectDispelTarget(m_spells.paladin.pCleanse))
             {
-                if (DoCastSpell(pFriend, m_spells.paladin.pCleanse) == SPELL_CAST_OK)
-                    return;
+                if (CanTryToCastSpell(pFriend, m_spells.paladin.pCleanse))
+                {
+                    if (DoCastSpell(pFriend, m_spells.paladin.pCleanse) == SPELL_CAST_OK)
+                        return;
+                }
             }
         }
-    }
 
-    if (m_spells.paladin.pPurify)
-    {
-        if (Unit* pFriend = SelectDispelTarget(m_spells.paladin.pPurify))
+        if (m_spells.paladin.pPurify)
         {
-            if (CanTryToCastSpell(pFriend, m_spells.paladin.pPurify))
+            if (Unit* pFriend = SelectDispelTarget(m_spells.paladin.pPurify))
             {
-                if (DoCastSpell(pFriend, m_spells.paladin.pPurify) == SPELL_CAST_OK)
-                    return;
+                if (CanTryToCastSpell(pFriend, m_spells.paladin.pPurify))
+                {
+                    if (DoCastSpell(pFriend, m_spells.paladin.pPurify) == SPELL_CAST_OK)
+                        return;
+                }
             }
         }
     }
 
     if (!me->GetAttackers().empty())
     {
-        if (m_spells.paladin.pHolyShield &&
-            CanTryToCastSpell(me, m_spells.paladin.pHolyShield))
-        {
-            if (DoCastSpell(me, m_spells.paladin.pHolyShield) == SPELL_CAST_OK)
-                return;
-        }
-
         if (m_spells.paladin.pTurnEvil &&
+            !me->GetAttackers().empty() &&
             m_role != ROLE_TANK)
         {
             Unit* pAttacker = SelectAttackerDifferentFrom(me->GetVictim());
@@ -1639,16 +1638,22 @@ void PartyBotAI::UpdateInCombatAI_Paladin()
     }
     else
     {
+        float lohThreshold = 15.0f;
+
+        if (GetRole() == ROLE_TANK)
+            lohThreshold = 25.0f;
+
         if (m_spells.paladin.pLayOnHands &&
-           (me->GetHealthPercent() < 15.0f) &&
+           (me->GetHealthPercent() < lohThreshold) &&
             CanTryToCastSpell(me, m_spells.paladin.pLayOnHands))
         {
             if (DoCastSpell(me, m_spells.paladin.pLayOnHands) == SPELL_CAST_OK)
                 return;
         }
 
-        if (FindAndHealInjuredAlly(0.0f, 30.0f))
-            return;
+        if (!(GetRole() == ROLE_TANK))
+            if (FindAndHealInjuredAlly(0.0f, 30.0f))
+                return;
 
         bool hasSeal = false;
 
@@ -1657,10 +1662,10 @@ void PartyBotAI::UpdateInCombatAI_Paladin()
         {
             hasSeal = m_spells.paladin.pSealOfCommand && me->HasAura(m_spells.paladin.pSealOfCommand->Id);
         }
+        else if (GetRole() == ROLE_TANK)
+            hasSeal = m_spells.paladin.pSealOfWisdom && me->HasAura(m_spells.paladin.pSealOfWisdom->Id);
         else
-        {
             hasSeal = m_spells.paladin.pSealOfRighteousness && me->HasAura(m_spells.paladin.pSealOfRighteousness->Id);
-        }
 
         if (m_spells.paladin.pSealOfCommand)
         {
@@ -1673,6 +1678,13 @@ void PartyBotAI::UpdateInCombatAI_Paladin()
         }
         else
         {
+            if (!hasSeal &&
+                m_spells.paladin.pSealOfWisdom &&
+                CanTryToCastSpell(me, m_spells.paladin.pSealOfWisdom))
+            {
+                me->CastSpell(me, m_spells.paladin.pSealOfWisdom, false);
+            }
+
             if (!hasSeal &&
                 m_spells.paladin.pSealOfRighteousness &&
                 CanTryToCastSpell(me, m_spells.paladin.pSealOfRighteousness))
@@ -1693,6 +1705,15 @@ void PartyBotAI::UpdateInCombatAI_Paladin()
 
         if (Unit* pVictim = me->GetVictim())
         {
+            if (m_spells.paladin.pCrusaderStrike &&
+                (me->GetPowerPercent(POWER_MANA) < 85.0f))
+            {
+                if (CanTryToCastSpell(me, m_spells.paladin.pCrusaderStrike))
+                {
+                    if (DoCastSpell(me, m_spells.paladin.pCrusaderStrike) == SPELL_CAST_OK)
+                        return;
+                }
+            }
 
             if (m_spells.paladin.pWakeOfAshes &&
                 (me->GetEnemyCountInRadiusAround(me, 10.0f) > 1) &&
@@ -1721,25 +1742,54 @@ void PartyBotAI::UpdateInCombatAI_Paladin()
                     return;
             }
 
-                if (m_spells.paladin.pHolyStrike
-                    && (me->GetPowerPercent(POWER_MANA) > 50.0f))
-                {
-                    if (CanTryToCastSpell(me, m_spells.paladin.pHolyStrike))
-                    {
-                        if (DoCastSpell(me, m_spells.paladin.pHolyStrike) == SPELL_CAST_OK)
-                            return;
-                    }
-                }
+            if (m_spells.paladin.pShieldOfRighteousness &&
+                IsWearingShield(me) &&
+                CanTryToCastSpell(pVictim, m_spells.paladin.pShieldOfRighteousness))
+            {
+                if (DoCastSpell(pVictim, m_spells.paladin.pShieldOfRighteousness) == SPELL_CAST_OK)
+                    return;
+            }
 
-                if (m_spells.paladin.pCrusaderStrike
-                     && (me->GetPowerPercent(POWER_MANA) < 85.0f))
+            if (m_spells.paladin.pHammerOfTheRighteous &&
+                IsWearingShield(me) &&
+                CanTryToCastSpell(pVictim, m_spells.paladin.pHammerOfTheRighteous))
+            {
+                if (DoCastSpell(pVictim, m_spells.paladin.pHammerOfTheRighteous) == SPELL_CAST_OK)
+                    return;
+            }
+
+            if (m_spells.paladin.pHolyShield &&
+                !me->GetAttackers().empty() &&
+                (me->GetPowerPercent(POWER_MANA) > 55.0f) &&
+                (me->GetEnemyCountInRadiusAround(me, 10.0f) > 3) &&
+                CanTryToCastSpell(me, m_spells.paladin.pHolyShield))
+            {
+                if (DoCastSpell(me, m_spells.paladin.pHolyShield) == SPELL_CAST_OK)
+                    return;
+            }
+
+            bool shouldHolyStrike = false;
+
+            if (me->GetPowerPercent(POWER_MANA) > 50.0f)
+            {
+                if (GetRole() == ROLE_TANK)
                 {
-                    if (CanTryToCastSpell(me, m_spells.paladin.pCrusaderStrike))
-                    {
-                        if (DoCastSpell(me, m_spells.paladin.pCrusaderStrike) == SPELL_CAST_OK)
-                            return;
-                    }
+                    if (me->GetEnemyCountInRadiusAround(me, 10.0f) < 2)
+                        shouldHolyStrike = true;
                 }
+                else
+                    shouldHolyStrike = true;
+            }
+
+            if (m_spells.paladin.pHolyStrike
+                && shouldHolyStrike)
+            {
+                if (CanTryToCastSpell(me, m_spells.paladin.pHolyStrike))
+                {
+                    if (DoCastSpell(me, m_spells.paladin.pHolyStrike) == SPELL_CAST_OK)
+                        return;
+                }
+            }
 
             if (me->GetMotionMaster()->GetCurrentMovementGeneratorType() == IDLE_MOTION_TYPE
                 && !me->CanReachWithMeleeAutoAttack(pVictim))
@@ -1754,21 +1804,37 @@ void PartyBotAI::UpdateInCombatAI_Paladin()
                 if (DoCastSpell(pVictim, m_spells.paladin.pHammerOfWrath) == SPELL_CAST_OK)
                     return;
             }
-            if (hasSeal && m_spells.paladin.pJudgement &&
+
+            if (m_spells.paladin.pExorcism &&
+                pVictim->IsCreature() &&
+                (pVictim->GetCreatureType() == CREATURE_TYPE_UNDEAD) &&
+                (me->GetPowerPercent(POWER_MANA) > 30.0f) &&
+                CanTryToCastSpell(pVictim, m_spells.paladin.pExorcism))
+            {
+                if (DoCastSpell(pVictim, m_spells.paladin.pExorcism) == SPELL_CAST_OK)
+                    return;
+            }
+
+            if (hasSeal &&
+                GetRole() != ROLE_TANK &&
+                m_spells.paladin.pJudgement &&
                (me->GetPowerPercent(POWER_MANA) > 30.0f) &&
                 CanTryToCastSpell(pVictim, m_spells.paladin.pJudgement))
             {
                 if (DoCastSpell(pVictim, m_spells.paladin.pJudgement) == SPELL_CAST_OK)
                     return;
             }
+
             if (m_spells.paladin.pHammerOfJustice &&
                (pVictim->IsNonMeleeSpellCasted() ||
-               (me->GetHealthPercent() < 20.0f && !me->GetAttackers().empty())) &&
+               (me->GetHealthPercent() < 20.0f &&
+                !me->GetAttackers().empty())) &&
                 CanTryToCastSpell(pVictim, m_spells.paladin.pHammerOfJustice))
             {
                 if (DoCastSpell(pVictim, m_spells.paladin.pHammerOfJustice) == SPELL_CAST_OK)
                     return;
             }
+
             if (m_spells.paladin.pHolyShock &&
                 CanTryToCastSpell(pVictim, m_spells.paladin.pHolyShock))
             {
@@ -1781,13 +1847,28 @@ void PartyBotAI::UpdateInCombatAI_Paladin()
                 if (DoCastSpell(pVictim, m_spells.paladin.pHolyShock) == SPELL_CAST_OK)
                     return;
             }
-            if (m_spells.paladin.pExorcism &&
-                pVictim->IsCreature() &&
-                (pVictim->GetCreatureType() == CREATURE_TYPE_UNDEAD) &&
-                (me->GetPowerPercent(POWER_MANA) > 30.0f) &&
-                CanTryToCastSpell(pVictim, m_spells.paladin.pExorcism))
+        }
+    }
+
+    if (m_spells.paladin.pCleanse)
+    {
+        if (Unit* pFriend = SelectDispelTarget(m_spells.paladin.pCleanse))
+        {
+            if (CanTryToCastSpell(pFriend, m_spells.paladin.pCleanse))
             {
-                if (DoCastSpell(pVictim, m_spells.paladin.pExorcism) == SPELL_CAST_OK)
+                if (DoCastSpell(pFriend, m_spells.paladin.pCleanse) == SPELL_CAST_OK)
+                    return;
+            }
+        }
+    }
+
+    if (m_spells.paladin.pPurify)
+    {
+        if (Unit* pFriend = SelectDispelTarget(m_spells.paladin.pPurify))
+        {
+            if (CanTryToCastSpell(pFriend, m_spells.paladin.pPurify))
+            {
+                if (DoCastSpell(pFriend, m_spells.paladin.pPurify) == SPELL_CAST_OK)
                     return;
             }
         }
@@ -1958,6 +2039,7 @@ void PartyBotAI::UpdateInCombatAI_Shaman()
             }
 
             if (m_spells.shaman.pStormstrike &&
+               (me->GetPowerPercent(POWER_MANA) > 35.0f) &&
                 CanTryToCastSpell(pVictim, m_spells.shaman.pStormstrike))
             {
                 if (DoCastSpell(pVictim, m_spells.shaman.pStormstrike) == SPELL_CAST_OK)
@@ -2348,6 +2430,14 @@ void PartyBotAI::UpdateInCombatAI_Mage()
                 pPet->GetCharmInfo()->SetIsCommandAttack(true);
                 pPet->AI()->AttackStart(pVictim);
             }
+        }
+
+        if (m_spells.mage.pEvocation &&
+            (me->GetPowerPercent(POWER_MANA) < 10.0f) &&
+            CanTryToCastSpell(me, m_spells.mage.pEvocation))
+        {
+            if (DoCastSpell(me, m_spells.mage.pEvocation) == SPELL_CAST_OK)
+                return;
         }
 
         if (m_spells.mage.pCombustion &&
@@ -3369,6 +3459,7 @@ void PartyBotAI::UpdateInCombatAI_Warrior()
 
         if (m_spells.warrior.pDisarm &&
             !me->HasAura(PB_SPELL_SWEEPING_STRIKES) &&
+            (me->GetEnemyCountInRadiusAround(pVictim, 8.0f) < 2) &&
             IsMeleeWeaponClass(pVictim->GetClass()) &&
             CanTryToCastSpell(pVictim, m_spells.warrior.pDisarm))
         {
