@@ -351,7 +351,9 @@ enum SpellEffects
     SPELL_EFFECT_APPLY_AREA_AURA_RAID      = 132,
     SPELL_EFFECT_APPLY_AREA_AURA_OWNER     = 133,
     SPELL_EFFECT_ENERGIZE_PCT              = 134,
-    TOTAL_SPELL_EFFECTS                    = 135
+    SPELL_EFFECT_COOLDOWN_RESET            = 135,
+    SPELL_EFFECT_HEAL_PCT                  = 136,
+    TOTAL_SPELL_EFFECTS                    = 137
 };
 
 enum SpellCastResult

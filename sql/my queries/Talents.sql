@@ -1,4 +1,4 @@
--- NEXT talent ID is 1737
+-- NEXT talent ID is 1741
 -- Talents that grant a new spell (i.e. feral charge) need flags set to "1"
 -- Talents
 
@@ -225,18 +225,18 @@ UPDATE `mangos`.`spell_template` SET `effect2`=0, `effectDieSides2`=0, `effectBa
         UPDATE `mangos`.`spell_template` SET `effectItemType1`=137472516096, `effectItemType2`=68727898112 WHERE  `entry`=15310;
 
     -- Remove Shadowform Visual Effect (spellVisual1 was 3619)
-        UPDATE `mangos`.`spell_template` SET `spellVisual1`=0 WHERE  `entry`=15473 AND `build`=5302;
+        UPDATE `mangos`.`spell_template` SET `spellVisual1`=3619 WHERE  `entry`=15473 AND `build`=5302;
 
     -- Healing Focus (Added Penance)
-    UPDATE `mangos`.`spell_template` SET `effectItemType1`=8590204416 WHERE  `entry`=14913;
-    UPDATE `mangos`.`spell_template` SET `effectItemType1`=8590204416 WHERE  `entry`=15012;
+        UPDATE `mangos`.`spell_template` SET `effectItemType1`=8590204416 WHERE  `entry`=14913;
+        UPDATE `mangos`.`spell_template` SET `effectItemType1`=8590204416 WHERE  `entry`=15012;
 
     -- Holy Specialization (Add Penance)
-    UPDATE `mangos`.`spell_template` SET `effectItemType1`=25926311552 WHERE  `entry`=14889;
-    UPDATE `mangos`.`spell_template` SET `effectItemType1`=25926311552 WHERE  `entry`=15008;
-    UPDATE `mangos`.`spell_template` SET `effectItemType1`=25926311552 WHERE  `entry`=15009;
-    UPDATE `mangos`.`spell_template` SET `effectItemType1`=25926311552 WHERE  `entry`=15010;
-    UPDATE `mangos`.`spell_template` SET `effectItemType1`=25926311552 WHERE  `entry`=15011;
+        UPDATE `mangos`.`spell_template` SET `effectItemType1`=25926311552 WHERE  `entry`=14889;
+        UPDATE `mangos`.`spell_template` SET `effectItemType1`=25926311552 WHERE  `entry`=15008;
+        UPDATE `mangos`.`spell_template` SET `effectItemType1`=25926311552 WHERE  `entry`=15009;
+        UPDATE `mangos`.`spell_template` SET `effectItemType1`=25926311552 WHERE  `entry`=15010;
+        UPDATE `mangos`.`spell_template` SET `effectItemType1`=25926311552 WHERE  `entry`=15011;
 
     -- Inspiration (Add Penance)
     UPDATE `mangos`.`spell_template` SET `description`='Increases your target\'s armor by $14893s1% for $14893d after getting a critical effect from your Flash Heal, Heal, Greater Heal, Penance, or Prayer of Healing spell.' WHERE  `entry`=14892;

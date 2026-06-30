@@ -1,4 +1,4 @@
--- 34207 NEXT SPELL
+-- 34242 NEXT SPELL
 -- 15171 NEXT SKILL_LINE_ABILITY
 -- NEXT category 10006
 
@@ -19,7 +19,7 @@
 -- effectItemType -> (spellFamilyFlags? It's the enum I don't know why this was referenced to me) is enum ClassFlag in SpellClassMask.h
 -- spellfamiylflag is enum ClassFlag
 
--- To Trigger procs on a spell CAST, use effect 64 (SPELL_EFFECT_TRIGGER_SPELL = 64), effectTriggerSpell1 (for the spell triggered) and effectImplicitTargetA1 6(for target unit)
+-- To Trigger procs on a spell CAST, use effect 64 (SPELL_EFFECT_TRIGGER_SPELL = 64), effectTriggerSpell1 (spelId of the spell triggered) and effectImplicitTargetA1 6(for target unit)
 
 -- To Trigger procs from an AURA, use effect 6(SPELL_EFFECT_APPLY_AURA), effectImplicitTargetA1 1, effectApplyAuraName 42(SPELL_AURA_PROC_TRIGGER_SPELL)
 
@@ -451,6 +451,65 @@ SET
   @RANGE_LONG_RANGE_HUNTER_SHOOT_2   = 151,
   @RANGE_HUNTER_RANGE_TEST           = 155,
   @RANGE_NINETY                      = 157;
+
+  SET
+    @RADIUS_2_YARDS = 7,
+    @RADIUS_5_YARDS = 8,
+    @RADIUS_20_YARDS = 9,
+    @RADIUS_30_YARDS = 10,
+    @RADIUS_45_YARDS = 11,
+    @RADIUS_100_YARDS = 12,
+    @RADIUS_10_YARDS = 13,
+    @RADIUS_8_YARDS = 14,
+    @RADIUS_3_YARDS = 15,
+    @RADIUS_1_YARD = 16,
+    @RADIUS_13_YARDS = 17,
+    @RADIUS_15_YARDS = 18,
+    @RADIUS_18_YARDS = 19,
+    @RADIUS_25_YARDS = 20,
+    @RADIUS_35_YARDS = 21,
+    @RADIUS_200_YARDS = 22,
+    @RADIUS_40_YARDS = 23,
+    @RADIUS_65_YARDS = 24,
+    @RADIUS_70_YARDS = 25,
+    @RADIUS_4_YARDS = 26,
+    @RADIUS_50_YARDS = 27,
+    @RADIUS_50000_YARDS = 28,
+    @RADIUS_6_YARDS = 29,
+    @RADIUS_500_YARDS = 30,
+    @RADIUS_80_YARDS = 31,
+    @RADIUS_12_YARDS = 32,
+    @RADIUS_99_YARDS = 33,
+    @RADIUS_55_YARDS = 35,
+    @RADIUS_0_YARDS = 36,
+    @RADIUS_7_YARDS = 37,
+    @RADIUS_21_YARDS = 38,
+    @RADIUS_34_YARDS = 39,
+    @RADIUS_9_YARDS = 40,
+    @RADIUS_150_YARDS = 41,
+    @RADIUS_11_YARDS = 42,
+    @RADIUS_16_YARDS = 43,
+    @RADIUS_0_5_YARDS = 44, -- 0.5 yards
+    @RADIUS_10_YARDS_2 = 45,
+    @RADIUS_5_YARDS_2 = 46,
+    @RADIUS_15_YARDS_2 = 47,
+    @RADIUS_60_YARDS = 48,
+    @RADIUS_90_YARDS = 49,
+    @RADIUS_15_YARDS_3 = 50,
+    @RADIUS_60_YARDS_2 = 51,
+    @RADIUS_5_YARDS_3 = 52,
+    @RADIUS_60_YARDS_3 = 53,
+    @RADIUS_50000_YARDS_2 = 54,
+    @RADIUS_130_YARDS = 55,
+    @RADIUS_38_YARDS = 56,
+    @RADIUS_45_YARDS_2 = 57,
+    @RADIUS_32_YARDS = 59,
+    @RADIUS_44_YARDS = 60,
+    @RADIUS_14_YARDS = 61,
+    @RADIUS_47_YARDS = 62,
+    @RADIUS_23_YARDS = 63,
+    @RADIUS_3_5_YARDS = 64, -- 3.5 yards
+    @RADIUS_80_YARDS_2 = 65;
 
 SET
     @CASTING_TIME_INSTANT        = 1,
@@ -1794,7 +1853,7 @@ UPDATE `mangos`.`spell_template` SET `manaCost`=280 WHERE  `entry`=10934 AND `bu
     `description`='Consumes the enemy in holy flames that cause $s1 Holy damage and an additional $o2 Holy damage over $d and restores $34142s1% mana.' WHERE  `entry`=15261;
 
     -- MP Restore Proc (1%)
-    REPLACE `mangos`.`spell_template` (`entry`, `build`, `category`, `castingTimeIndex`, `procChance`, `baseLevel`, `spellLevel`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `dmgClass`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34142, 4222, 30, 1, 101, 28, 28, 1, -1, -1, 134, 1, 1, 0, -1, -1, 1, 0, 283, 'Replenish Mana', 983070, 'Rank 1', 983070, 'Restores $s1% mana.', 7274526, 983052, 1, -1, 1, 1, 1);
+        REPLACE `mangos`.`spell_template` (`entry`, `build`, `category`, `castingTimeIndex`, `procChance`, `baseLevel`, `spellLevel`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `dmgClass`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34142, 4222, 30, 1, 101, 28, 28, 1, -1, -1, 134, 1, 1, 0, -1, -1, 1, 0, 283, 'Replenish Mana', 983070, 'Rank 1', 983070, 'Restores $s1% mana.', 7274526, 983052, 1, -1, 1, 1, 1);
 
 
 -- Stoneclaw Totem
@@ -1812,8 +1871,8 @@ UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=24 WHERE  `entry`=10460
 UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=29 WHERE  `entry`=10461;
 
 -- Stormstrike (Restore MP on successful hit, remove MP cost)
-UPDATE `spell_template` SET `effect3`=30, `effectDieSides3`=1, `effectBaseDice3`=1, `effectBasePoints3`=249, `effectBonusCoefficient3`=-1, `effectImplicitTargetA3`=1, `effectMiscValue3`=0, `manaCostPercentage`=0, `spellIconId`=2085,
-`description`='Gives you an extra attack.  In addition, restores 300 mana and the next 2 sources of Nature damage dealt to the target are increased by $s2%.  Lasts $d.' WHERE `entry`=17364;
+UPDATE `spell_template` SET `effect3`=0, `effectDieSides3`=0, `effectBaseDice3`=0, `effectBasePoints3`=0, `effectBonusCoefficient3`=-1, `effectImplicitTargetA3`=0, `effectMiscValue3`=0, `manaCostPercentage`=21, `spellIconId`=2085,
+`description`='Gives you an extra attack.  In addition, the next 2 sources of Nature damage dealt to the target are increased by $s2%.  Lasts $d.' WHERE `entry`=17364;
 
 -- Repentance duration (made 1m + added usable against Demons, Dragonkin, Giants and Undead)
 UPDATE `mangos`.`spell_template` SET `durationIndex`=3, `targetCreatureType`=118, `attributes`=1074855936, `description`='Puts the enemy target in a state of meditation, incapacitating them for up to $d.  Any damage caused will awaken the target. Usable against Demons, Dragonkin, Giants, Humanoids and Undead.'
@@ -3788,10 +3847,72 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
     UPDATE `mangos`.`skill_line_ability` SET `class_mask`=1031 WHERE  `id`=2928 AND `build`=5875;
 
     -- Paladin
-        -- Blade of Justice
+        -- TODO: Divine Storm AOE 5% max HP heal instead (3 targets)
+        -- TODO: Divine storm use SPELL_EFFECT_HEAL_PCT                  = 136, (just need to code below function, rest in sql entry should be good to go)
+        -- TODO: Code Spell::EffectHealPct(SpellEffectIndex effIdx) and it should work
+        -- TODO: The files are already build and code should work I think
+
+        -- Hammer of Wrath (greatly reduced MP cost, instant, generates 1 holy point)
+            UPDATE `mangos`.`spell_template` SET `castingTimeIndex`=0, `manaCost`=0, `effect2`=64, `effectImplicitTargetA2`=1, `effectTriggerSpell2`=34235, `manaCostPercentage`=12, `description`='Hurls a hammer that strikes an enemy for $s1 Holy damage.  Only usable on enemies that have 20% or less health.  Generates 1 Holy Power.' WHERE  `entry`=24275;
+
+            UPDATE `mangos`.`spell_template` SET `castingTimeIndex`=0, `manaCost`=0, `effect2`=64, `effectImplicitTargetA2`=1, `effectTriggerSpell2`=34235, `manaCostPercentage`=12, `description`='Hurls a hammer that strikes an enemy for $s1 Holy damage.  Only usable on enemies that have 20% or less health.  Generates 1 Holy Power.' WHERE  `entry`=24274;
+
+            UPDATE `mangos`.`spell_template` SET `castingTimeIndex`=0, `manaCost`=0, `effect2`=64, `effectImplicitTargetA2`=1, `effectTriggerSpell2`=34235, `manaCostPercentage`=12, `description`='Hurls a hammer that strikes an enemy for $s1 Holy damage.  Only usable on enemies that have 20% or less health.  Generates 1 Holy Power.' WHERE  `entry`=24239;
+
+        -- Blades of Justice
+            -- Spell
+                REPLACE `mangos`.`spell_template` (`entry`, `build`, `category`, `attributes`, `attributesEx`, `attributesEx3`, `castingTimeIndex`, `categoryRecoveryTime`, `baseLevel`, `spellLevel`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectApplyAuraName1`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `manaCostPercentage`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `customFlags`, `script_name`) VALUES (34232, 5086, 971, 327696, 134218240, 1024, 1, 12000, 30, 30, 2, 2, 173555, 121, 1, 1, 26, 0, 1, -1, 6, 6, 118, 8692, 564, 50, 'Blades of Justice', 2031678, 2031678, 'Pierce an enemy with a blade of light that deals weapon damage plus $s1.  Generates 1 Holy Power.', 2031678, 2031678, 15, 133, 1500, 10, 34359738368, 2, 2, -1, 1, 1, 1, 128, 'spell_paladin_blades_of_justice');
+
+                UPDATE `mangos`.`spell_template` SET `procFlags`=0, `procChance`=0, `effect2`=0, `effectImplicitTargetA2`=0, `effectApplyAuraName2`=0, `effectTriggerSpell2`= 0 WHERE  `entry`=34232;
+
+            -- Skill line ability:
+                REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`) VALUES (15185, 5875, 184, 34232, 2, 1);
+
         -- Divine Storm
+            -- Attack
+                REPLACE `mangos`.`spell_template` (`entry`, `build`, `category`, `attributes`, `castingTimeIndex`, `categoryRecoveryTime`, `baseLevel`, `spellLevel`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effect2`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectImplicitTargetB1`, `effectRadiusIndex1`, `effectTriggerSpell2`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `manaCostPercentage`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `spellFamilyFlags`, `maxAffectedTargets`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `script_name`) VALUES (34233, 4878, 0, 327696, 1, 0, 40, 40, 1, 2, 173555, 121, 64, 1, 1, -1, 1, -1, -1, 22, 1, 15, 14, 0, 12006, 83, 'Divine Storm', 2031678, 2031676, 'An instant weapon attack that deals weapon damage up to $i enemies within $a1 yards, causing weapon damage to each enemy. The Divine Storm heals up to 3 party or raid members for 5% of their max health.', 2031678, 2031676, 12, 133, 1500, 10, 68719476736, 4, 2, 2, -1, 1, 1, 1, 'spell_paladin_divine_storm_damage');
+
+                UPDATE `mangos`.`spell_template` SET `procFlags`=16, `procChance`=100, `effect2`=64, `effectApplyAuraName2`=0, `effectImplicitTargetA2`=1, `effectTriggerSpell2`=34238 WHERE  `entry`=34233;
+
+            -- Skill line ability:
+                REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`) VALUES (15186, 5875, 184, 34233, 2, 1);
+
+            -- Heal (5%)
+                REPLACE `mangos`.`spell_template` (`entry`, `build`, `category`, `castingTimeIndex`, `procChance`, `baseLevel`, `spellLevel`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `dmgClass`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34238, 4222, 30, 1, 101, 28, 28, 1, -1, -1, 136, 1, 1, 0, -1, -1, 1, 0, 283, 'Divine Storm', 983070, '', 983070, 'Restores $s1% health.', 7274526, 983052, 1, -1, 1, 1, 1);
+
+                UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=4, `effectImplicitTargetA1`=20, `effectRadiusIndex1`=@RADIUS_10_YARDS, `maxAffectedTargets`=3, `effectMiscValue1`=5, `spellFamilyName`=10 WHERE  `entry`=34238;
+
         -- Holy Power
-        
+            REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `dispel`, `castingTimeIndex`, `procChance`, `durationIndex`, `rangeIndex`, `stackAmount`, `equippedItemClass`, `effect1`, `effect2`, `effectDieSides1`, `effectDieSides2`, `effectBaseDice1`, `effectBaseDice2`, `effectBasePoints1`, `effectBasePoints2`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectApplyAuraName1`, `effectApplyAuraName2`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`) VALUES (34235, 4375, 5, 0, 1, 101, 21, 1, 5, -1, 0, 0, 1, 1, 1, 1, 0, 0, 0, 1, -1, 1, 1, 0, 0, 4, 2094, 'Holy Power', 2031646, '', 2031646, 2031644, 'Generated by Blades of Justice, Hammer of Wrath and Wake of Ashes. Used to cast Divine Storm.', 2031646, -1, 1, 1);
+
+            UPDATE `mangos`.`spell_template` SET `effect1`=6, `effectApplyAuraName1`=4, `spellFamilyName`=10 WHERE  `entry`=34235;
+
+        -- The Art of War (Auto-attacks have chance to reduce cooldown on Blades of Justice)
+            -- Rank 1
+                REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procFlags`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectTriggerSpell1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `script_name`) VALUES (34236, 5302, 192, 1, 4, 100, 21, 1, -1, 77, 1, 1, 0, -1, -1, 1, 4, 0, 2098, 'The Art of War', 2031678, '', 2031628, 'Gives you a $h% chance on melee attack to reset the cooldown of your Blades of Justice ability.', 2031678, 2031628, 10, -1, 1, 1, 1, '');
+
+                UPDATE `mangos`.`spell_template` SET `procChance`=7, `effect1`=6, `effectApplyAuraName1`=42, `effectTriggerSpell1`=34241, `effectMiscValue1`=0 WHERE `entry`=34236;
+
+            -- Rank 2
+                REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procFlags`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectTriggerSpell1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `script_name`) VALUES (34240, 5302, 192, 1, 4, 100, 21, 1, -1, 77, 1, 1, 0, -1, -1, 1, 4, 0, 2098, 'The Art of War', 2031678, '', 2031628, 'Gives you a $h% chance on melee attack to reset the cooldown of your Blades of Justice ability.', 2031678, 2031628, 10, -1, 1, 1, 1, '');
+
+                UPDATE `mangos`.`spell_template` SET `procChance`=15, `effect1`=6, `effectApplyAuraName1`=42, `effectTriggerSpell1`=34241, `effectMiscValue1`=0 WHERE `entry`=34240;
+
+            -- CD Reset
+                REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procFlags`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectTriggerSpell1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `script_name`) VALUES (34241, 5302, 192, 1, 4, 100, 21, 1, -1, 77, 1, 1, 0, -1, -1, 1, 4, 0, 2098, 'The Art of War', 2031678, '', 2031628, 'Resets the cooldown of the Blade of Justice ability.', 2031678, 2031628, 10, -1, 1, 1, 1, '');
+
+                UPDATE `mangos`.`spell_template` SET `procChance`=0, `effect1`=135, `effectApplyAuraName1`=0, `effectMiscValue1`=34232, `spellVisual1`=11955 WHERE  `entry`=34241;
+    
+
+        -- Divine Purpose (Divine Storm has 15% chance to grand Divine Purpose effect which allows casting Divine Storm for free)
+            -- Aura
+                REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `attributesEx3`, `castingTimeIndex`, `procFlags`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `stanceBarOrder`, `dmgMultiplier1`) VALUES (34237, 5464, 4, 464, 67108864, 1, 87376, 100, 21, 1, -1, 6, 1, 1, -1, 0, -1, -1, 1, 4, 332, 'Divine Purpose', 4128830, '0', 4128830, 'Abilities that cost Holy Power have a 15% chance to cause the Divine Purpose effect.', 4128830, 4128828, 10, -1, 1);
+
+            -- Proc
+                REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `dispel`, `castingTimeIndex`, `procChance`, `durationIndex`, `rangeIndex`, `stackAmount`, `equippedItemClass`, `effect1`, `effect2`, `effectDieSides1`, `effectDieSides2`, `effectBaseDice1`, `effectBaseDice2`, `effectBasePoints1`, `effectBasePoints2`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectApplyAuraName1`, `effectApplyAuraName2`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`) VALUES (34239, 4375, 5, 0, 1, 101, @DURATION_MAX_8_SEC, 1, 5, -1, 0, 0, 1, 1, 1, 1, 0, 0, 0, 1, -1, 1, 1, 0, 0, 4, 2094, 'Divine Purpose', 2031646, 'Abilities that cost Holy Power have a 15% chance to cause the Divine Purpose effect.', 2031646, 2031644, 'Your next Holy Power ability will consume no Holy Power and will cast as if 3 Holy Power were consumed. Lasts $d.', 2031646, -1, 1, 1);
+
+                UPDATE `mangos`.`spell_template` SET `dispel`=1, `effect1`=6, `effectApplyAuraName1`=4, `spellVisual1`=11906, `nameSubtext`='', `description`='Abilities that cost Holy Power have a 25% chance to cause the Divine Purpose effect. Divine Purpose causes next Holy Power ability will consume no Holy Power and will cast as if 3 Holy Power were consumed. Lasts $d.' WHERE  `entry`=34239;
+
         -- Hand of Reckoning (PLD Taunt)
         -- Spell:
         REPLACE `mangos`.`spell_template` (`entry`, `build`, `category`, `attributes`, `attributesEx2`, `castingTimeIndex`, `categoryRecoveryTime`, `procChance`, `baseLevel`, `spellLevel`, `durationIndex`, `manaCost`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effect2`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectApplyAuraName2`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) 
@@ -4055,9 +4176,9 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
 
     -- Wake of Ashes
         -- Spell:
-        REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `category`, `dispel`, `attributes`, `attributesEx`, `castingTimeIndex`, `recoveryTime`, `interruptFlags`, `procChance`, `maxLevel`, `baseLevel`, `spellLevel`, `durationIndex`, `manaCost`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effect2`, `effectDieSides1`, `effectDieSides2`, `effectBaseDice1`, `effectBaseDice2`, `effectRealPointsPerLevel2`, `effectBasePoints1`, `effectBasePoints2`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectRadiusIndex1`, `effectRadiusIndex2`, `effectApplyAuraName1`, `effectAmplitude1`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) 
+        REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `category`, `dispel`, `attributes`, `attributesEx`, `castingTimeIndex`, `recoveryTime`, `interruptFlags`, `procChance`, `maxLevel`, `baseLevel`, `spellLevel`, `durationIndex`, `manaCost`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effect2`, `effectDieSides1`, `effectDieSides2`, `effectBaseDice1`, `effectBaseDice2`, `effectRealPointsPerLevel2`, `effectBasePoints1`, `effectBasePoints2`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectRadiusIndex1`, `effectRadiusIndex2`, `effectApplyAuraName1`, `effectAmplitude1`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `script_name`) 
         VALUES (33425, 5464, 1, 50, 1, 65536, 136, 1, 45000, 8, 101, 60, 40, 40, 105, 350, 1, -1, -1, 6, 2, 1, 11, 1, 1, 0.8, 
-        99, 299, 0.129, 0.129, -1, 24, 24, 13, 13, 3, 3000, 324, 2041, 50, 'Wake of Ashes', 4128830, 'Rank 1', 4128830, 'Targets in a cone in front of the caster take $s2 Holy damage and then burn for an additional $o1 Fire damage for $d.', 4128830, '$s1 Fire damage every $t1 seconds.', 4128830, 133, 1500, 3, 1573376, 1, 1, -1, 1, 1, 1);
+        99, 299, 0.129, 0.129, -1, 24, 24, 13, 13, 3, 3000, 324, 2041, 50, 'Wake of Ashes', 4128830, 'Rank 1', 4128830, 'Targets in a cone in front of the caster take $s2 Holy damage and then burn for an additional $o1 Fire damage for $d.', 4128830, '$s1 Fire damage every $t1 seconds.  Generates 3 Holy Power.', 4128830, 133, 1500, 3, 1573376, 1, 1, -1, 1, 1, 1, 'spell_paladin_wake_of_ashes');
         UPDATE `mangos`.`spell_template` SET `effectRealPointsPerLevel1`=3, `effectRealPointsPerLevel2`=3 WHERE  `entry`=33425;
 
         -- Skill line ability:
@@ -4084,13 +4205,13 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
                 `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, 
                 `descriptionFlags`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, 
                 `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `dmgMultiplier1`, 
-                `dmgMultiplier2`, `dmgMultiplier3`, `customFlags`
+                `dmgMultiplier2`, `dmgMultiplier3`, `customFlags`, `script_name`
             ) 
             VALUES (
                 33427, 5464, 1, 971, 327696, 134218240, 1, 10000, 101, 30, 30, 1, 125, 2, 4, 64,
                 6, 2, 1, 1, 1, 1, 19, 0, -1, -1, 1, 6, 101, 0, 1, 1, 11792, 2036, 'Shield of Righteousness', 
                 4128830, 'Rank 1', 4128830, 'Slam the target with your shield, causing $s2 Holy damage, modified by your shield block value and increasing your armor by 20% for 10 seconds.', 
-                2031678, 4128812, 133, 1500, 4, 4328521728, 2, 2, 1, 1, 1, 128
+                2031678, 4128812, 133, 1500, 4, 4328521728, 2, 2, 1, 1, 1, 128, 'spell_warrior_shield_slam'
             );
             UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=19, `effectBasePoints2`=149, `effectMiscValue2`=0, `auraDescription`='Armor increaed by $s1%.' WHERE  `entry`=33427 AND `build`=5464;
 
@@ -4105,13 +4226,13 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
                 `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, 
                 `descriptionFlags`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, 
                 `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `dmgMultiplier1`, 
-                `dmgMultiplier2`, `dmgMultiplier3`, `customFlags`
+                `dmgMultiplier2`, `dmgMultiplier3`, `customFlags`, `script_name`
             ) 
             VALUES (
                 33429, 5464, 1, 971, 327696, 134218240, 1, 10000, 101, 38, 38, 1, 150, 2, 4, 64,
                 6, 2, 1, 1, 1, 1, 19, 0, -1, -1, 1, 6, 101, 0, 1, 1, 11792, 2036, 'Shield of Righteousness', 
                 4128830, 'Rank 2', 4128830, 'Slam the target with your shield, causing $s2 Holy damage, modified by your shield block value and increasing your armor by 20% for 10 seconds.', 
-                2031678, 4128812, 133, 1500, 4, 4328521728, 2, 2, 1, 1, 1, 128
+                2031678, 4128812, 133, 1500, 4, 4328521728, 2, 2, 1, 1, 1, 128, 'spell_warrior_shield_slam'
             );
             UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=19, `effectBasePoints2`=199, `effectMiscValue2`=0, `auraDescription`='Armor increaed by $s1%.' WHERE  `entry`=33429 AND `build`=5464;
 
@@ -4126,13 +4247,13 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
                 `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, 
                 `descriptionFlags`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, 
                 `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `dmgMultiplier1`, 
-                `dmgMultiplier2`, `dmgMultiplier3`, `customFlags`
+                `dmgMultiplier2`, `dmgMultiplier3`, `customFlags`, `script_name`
             ) 
             VALUES (
                 33430, 5464, 1, 971, 327696, 134218240, 1, 10000, 101, 46, 46, 1, 175, 2, 4, 64,
                 6, 2, 1, 1, 1, 1, 19, 0, -1, -1, 1, 6, 101, 0, 1, 1, 11792, 2036, 'Shield of Righteousness', 
                 4128830, 'Rank 3', 4128830, 'Slam the target with your shield, causing $s2 Holy damage, modified by your shield block value and increasing your armor by 20% for 10 seconds.', 
-                2031678, 4128812, 133, 1500, 4, 4328521728, 2, 2, 1, 1, 1, 128
+                2031678, 4128812, 133, 1500, 4, 4328521728, 2, 2, 1, 1, 1, 128, 'spell_warrior_shield_slam'
             );
             UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=19, `effectBasePoints2`=249, `effectMiscValue2`=0, `auraDescription`='Armor increaed by $s1%.' WHERE  `entry`=33430 AND `build`=5464;
 
@@ -4147,13 +4268,13 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
                 `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, 
                 `descriptionFlags`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, 
                 `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `dmgMultiplier1`, 
-                `dmgMultiplier2`, `dmgMultiplier3`, `customFlags`
+                `dmgMultiplier2`, `dmgMultiplier3`, `customFlags`, `script_name`
             ) 
             VALUES (
                 33431, 5464, 1, 971, 327696, 134218240, 1, 10000, 101, 52, 52, 1, 200, 2, 4, 64,
                 6, 2, 1, 1, 1, 1, 19, 0, -1, -1, 1, 6, 101, 0, 1, 1, 11792, 2036, 'Shield of Righteousness', 
                 4128830, 'Rank 4', 4128830, 'Slam the target with your shield, causing $s2 Holy damage, modified by your shield block value and increasing your armor by 20% for 10 seconds.', 
-                2031678, 4128812, 133, 1500, 4, 4328521728, 2, 2, 1, 1, 1, 128
+                2031678, 4128812, 133, 1500, 4, 4328521728, 2, 2, 1, 1, 1, 128, 'spell_warrior_shield_slam'
             );
             UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=19, `effectBasePoints2`=299, `effectMiscValue2`=0, `auraDescription`='Armor increaed by $s1%.' WHERE  `entry`=33431 AND `build`=5464;
 
@@ -4168,13 +4289,13 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
                 `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, 
                 `descriptionFlags`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, 
                 `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `dmgMultiplier1`, 
-                `dmgMultiplier2`, `dmgMultiplier3`, `customFlags`
+                `dmgMultiplier2`, `dmgMultiplier3`, `customFlags`, `script_name`
             ) 
             VALUES (
                 33432, 5464, 1, 971, 327696, 134218240, 1, 10000, 101, 58, 58, 1, 225, 2, 4, 64,
                 6, 2, 1, 1, 1, 1, 19, 0, -1, -1, 1, 6, 101, 0, 1, 1, 11792, 2036, 'Shield of Righteousness', 
                 4128830, 'Rank 5', 4128830, 'Slam the target with your shield, causing $s2 Holy damage, modified by your shield block value and increasing your armor by 20% for 10 seconds.', 
-                2031678, 4128812, 133, 1500, 4, 4328521728, 2, 2, 1, 1, 1, 128
+                2031678, 4128812, 133, 1500, 4, 4328521728, 2, 2, 1, 1, 1, 128, 'spell_warrior_shield_slam'
             );
             UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=19, `effectBasePoints2`=349, `effectMiscValue2`=0, `auraDescription`='Armor increaed by $s1%.' WHERE  `entry`=33432 AND `build`=5464;
 
@@ -5382,3 +5503,18 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
 
     -- Summon Water Elemental
     UPDATE `mangos`.`spell_template` SET `spellIconId`=2134 WHERE  `entry` IN (33846);
+
+    -- Blades of Justice
+    UPDATE `mangos`.`spell_template` SET `spellIconId`=2462 WHERE  `entry` IN (34232);
+
+    -- Divine Storm
+    UPDATE `mangos`.`spell_template` SET `spellIconId`=3027 WHERE  `entry` IN (34233);
+
+    -- Holy Power
+    UPDATE `mangos`.`spell_template` SET `spellIconId`=2177 WHERE  `entry` IN (34235);
+
+    -- Divine Purpose
+    UPDATE `mangos`.`spell_template` SET `spellIconId`=2170 WHERE  `entry` IN (34237, 34239);
+    
+    -- The Art of War
+    UPDATE `mangos`.`spell_template` SET `spellIconId`=3034 WHERE  `entry` IN (34236, 34240);

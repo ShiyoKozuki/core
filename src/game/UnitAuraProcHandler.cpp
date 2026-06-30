@@ -952,7 +952,7 @@ SpellAuraProcResult Unit::HandleDummyAuraProc(Unit* pVictim, uint32 amount, uint
 
                     pVictim->CastCustomSpell(pVictim, 34150, basepoints[0], {}, {}, true, castItem, triggeredByAura);
                     return SPELL_AURA_PROC_OK;                                // no hidden cooldown
-                }
+                }   
             }
             break;
         }

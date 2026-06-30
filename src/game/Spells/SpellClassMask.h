@@ -334,6 +334,8 @@ enum ClassFlag
     CF_PALADIN_UNK32                        = 32,   // CM1 00000001
     CF_PALADIN_PURIFY_CLEANSE               = 33,   // CM1 00000002 Purify & Cleanse
     CF_PALADIN_JUDGEMENT_OF_COMMAND         = 34,   // CM1 00000004
+    CF_PALADIN_BLADES_OF_JUSTICE            = 35,
+    CF_PALADIN_DIVINE_STORM                 = 36,
 
     // -- Shaman (11)
     CF_SHAMAN_LIGHTNING_BOLT                = 0,    // CM0 00000001

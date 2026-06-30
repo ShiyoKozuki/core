@@ -119,6 +119,7 @@ class Spell
         void EffectPowerBurn(SpellEffectIndex effIdx);
         void EffectPowerDrain(SpellEffectIndex effIdx);
         void EffectHeal(SpellEffectIndex effIdx);
+        void EffectHealPct(SpellEffectIndex effIdx);
         void EffectBind(SpellEffectIndex effIdx);
         void EffectHealthLeech(SpellEffectIndex effIdx);
         void EffectQuestComplete(SpellEffectIndex effIdx);
@@ -126,6 +127,7 @@ class Spell
         void EffectPersistentAA(SpellEffectIndex effIdx);
         void EffectEnergize(SpellEffectIndex effIdx);
         void EffectEnergizePct(SpellEffectIndex effIdx);
+        void EffectCooldownReset(SpellEffectIndex effIdx);
         void EffectOpenLock(SpellEffectIndex effIdx);
         void EffectSummonChangeItem(SpellEffectIndex effIdx);
         void EffectProficiency(SpellEffectIndex effIdx);

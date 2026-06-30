@@ -191,6 +191,8 @@ pEffect SpellEffects[TOTAL_SPELL_EFFECTS] =
     &Spell::EffectUnused,                                   //132 
     &Spell::EffectUnused,                                   //133 
     &Spell::EffectEnergizePct,                              //134 SPELL_EFFECT_ENERGIZE_PCT
+    &Spell::EffectCooldownReset,                            //135 SPELL_EFFECT_COOLDOWN_RESET
+    &Spell::EffectHealPct,                                  //136 SPELL_EFFECT_HEAL_PCT
 };
 
 void Spell::EffectEmpty(SpellEffectIndex /*effIdx*/)
@@ -1786,6 +1788,34 @@ void Spell::EffectHeal(SpellEffectIndex effIdx)
     }
 }
 
+void Spell::EffectHealPct(SpellEffectIndex effIdx)
+{
+    if (unitTarget && unitTarget->IsAlive() && damage >= 0)
+    {
+        // Try to get original caster
+        SpellCaster* caster = GetAffectiveCasterObject();
+        if (!caster)
+            return;
+
+        float addhealth = damage;
+        uint32 maxHealth = unitTarget->GetMaxHealth();
+
+        if (maxHealth == 0)
+            return;
+
+        addhealth = addhealth * maxHealth / 100.0f;
+
+#if SUPPORTED_CLIENT_BUILD <= CLIENT_BUILD_1_9_4
+        ExecuteLogInfo info(unitTarget->GetObjectGuid());
+        info.heal.amount = addhealth;
+        info.heal.critical = 0;
+        AddExecuteLogInfo(effIdx, info);
+#endif
+
+        m_healing += addhealth;
+    }
+}
+
 void Spell::EffectHealMechanical(SpellEffectIndex effIdx)
 {
     // Mechanic creature type should be correctly checked by targetCreatureType field
@@ -2069,6 +2099,25 @@ void Spell::EffectEnergizePct(SpellEffectIndex effIdx)
     damage = damage * maxPower / 100.0f;
 
     m_caster->EnergizeBySpell(unitTarget, m_spellInfo->Id, damage, power);
+}
+
+void Spell::EffectCooldownReset(SpellEffectIndex effIdx)
+{
+    if (!m_casterUnit)
+        return;
+
+    if (!m_casterUnit->IsAlive())
+        return;
+
+    if (m_spellInfo->EffectMiscValue[effIdx] == 0)
+        return;
+
+    SpellEntry const* pSpellEntry = sSpellMgr.GetSpellEntry(m_spellInfo->EffectMiscValue[effIdx]);
+
+    if (!pSpellEntry)
+        return;
+
+    m_casterUnit->RemoveSpellCooldown(pSpellEntry, true);
 }
 
 void Spell::SendLoot(ObjectGuid guid, LootType loottype, LockType lockType)
