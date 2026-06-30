@@ -1605,7 +1605,7 @@ WHERE entry = 7057;
 
 -- Robe of Power
 UPDATE mangos . item_template
-SET spellid_1 = 15714, -- +22 Spell Damage
+SET spellid_1 = 9345, -- +16 Spell damage
     spelltrigger_1 = 1
 WHERE entry = 7054;
 
@@ -5581,7 +5581,7 @@ SET quality = 3,
     stat_value1 = 4,
     stat_type2 = @ITEM_MOD_SPI,
     stat_value2 = 13,
-    spellid_1 = 9415, -- +9 Spell Damage
+    spellid_1 = 9417, -- +12 spell damage
     spelltrigger_1 = 1
 WHERE entry = 7711;
 
@@ -5867,7 +5867,9 @@ SET quality = 3,
     stat_type1 = @ITEM_MOD_INT,
     stat_value1 = 15,
     stat_type2 = @ITEM_MOD_SPI,
-    stat_value2 = 15
+    stat_value2 = 15,
+    stat_type3 = 0,
+    stat_value3 = 0
 WHERE entry = 9411;
 
 -- Galgann's Firehammer
@@ -9549,10 +9551,10 @@ WHERE entry = 9627;
 
 -- Dwarven Charge (The Hidden Chamber)
 UPDATE mangos . item_template
-SET quality = 3,
-    delay = 3700,
-    dmg_min1 = 123,
-    dmg_max1 = 173
+SET quality = 2,
+    delay = 2900,
+    dmg_min1 = 72,
+    dmg_max1 = 109
 WHERE entry = 9626;
 
 -- Lucky Trousers (In Defense of the King's Lands)
@@ -9926,13 +9928,6 @@ SET stat_type1 = 5,
     spelltrigger_1 = 1
 WHERE entry = 6791;
 
--- Wingborne Boots (The Karnitol Shipwreck)
-UPDATE mangos . item_template
-SET quality = 3,
-    spellid_1 = 9415, -- +9 Spell Damage
-    spelltrigger_1 = 1
-WHERE entry = 15104;
-
 -- Burning Sliver (Crushridge Warmongers)
 UPDATE mangos . item_template
 SET quality = 3,
@@ -9974,7 +9969,7 @@ WHERE entry = 4975;
 -- Wingborne Boots (Malin's Request)
 UPDATE mangos . item_template
 SET quality = 3,
-    spellid_1 = 9415, -- +9 Spell Damage
+    spellid_1 = 9395, -- +5 Spell Damage
     spelltrigger_1 = 1
 WHERE entry = 15104;
 
@@ -15696,6 +15691,7 @@ WHERE entry IN(12717, 18418, 22388, 14512, 14513, 14514, 12834, 12825, 18260, 20
         -- Pridelord Pants(display: 27651)
         -- Archer's Jerkin (Shows tummy, nice for "Ranger" look)
         -- Cutthroat's Vest (very lewd)
+        -- Warden's Wraps
 
     -- Mail
         -- Fortified chain (display: 1019) 

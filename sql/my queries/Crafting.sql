@@ -874,5 +874,5 @@ SET
         -- TODO: All recipes before Glue take enchanted leather, enchanted thorium bars, bolts of cloth, eng stuff, thorium scales, rugged rubber, etc
 
 
--- NEXT spellid 34232
--- NEXT skill_line_ability 15185
+-- NEXT spellid 34239
+-- NEXT skill_line_ability 15187
