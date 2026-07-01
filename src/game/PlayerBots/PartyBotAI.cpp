@@ -47,6 +47,7 @@ enum PartyBotSpells
     PB_SPELL_BRAIN_FREEZE2 = 34088,
     PB_SPELL_WINTERS_CHILL = 12579,
     PB_SPELL_SWEEPING_STRIKES = 12292,
+    PB_SPELL_DIVINE_PURPOSE_PROC = 34239,
 };
 
 enum PartyBotTalents
@@ -1512,6 +1513,15 @@ void PartyBotAI::UpdateOutOfCombatAI_Paladin()
 
 void PartyBotAI::UpdateInCombatAI_Paladin()
 {
+    Aura* holyPowerAura = me->GetAura(34235, EFFECT_INDEX_0);
+    uint16 holyPower = 0;
+
+    if (holyPowerAura)
+        holyPower = holyPowerAura->GetStackAmount();
+
+    if (me->HasAura(PB_SPELL_DIVINE_PURPOSE_PROC))
+        holyPower = 3;
+
     if (m_spells.paladin.pDivineShield &&
        (me->GetHealthPercent() < 20.0f) &&
        (m_role != ROLE_TANK) &&
@@ -1723,6 +1733,14 @@ void PartyBotAI::UpdateInCombatAI_Paladin()
                     return;
             }
 
+            if (m_spells.paladin.pDivineStorm &&
+                (holyPower >= 3) &&
+                CanTryToCastSpell(pVictim, m_spells.paladin.pDivineStorm))
+            {
+                if (DoCastSpell(pVictim, m_spells.paladin.pDivineStorm) == SPELL_CAST_OK)
+                    return;
+            }
+
             if (m_spells.paladin.pConsecration &&
                 (me->GetEnemyCountInRadiusAround(me, 10.0f) > 2) &&
                 CanTryToCastSpell(me, m_spells.paladin.pConsecration))
@@ -1744,6 +1762,7 @@ void PartyBotAI::UpdateInCombatAI_Paladin()
 
             if (m_spells.paladin.pShieldOfRighteousness &&
                 IsWearingShield(me) &&
+                (holyPower >= 3) &&
                 CanTryToCastSpell(pVictim, m_spells.paladin.pShieldOfRighteousness))
             {
                 if (DoCastSpell(pVictim, m_spells.paladin.pShieldOfRighteousness) == SPELL_CAST_OK)
@@ -1755,6 +1774,13 @@ void PartyBotAI::UpdateInCombatAI_Paladin()
                 CanTryToCastSpell(pVictim, m_spells.paladin.pHammerOfTheRighteous))
             {
                 if (DoCastSpell(pVictim, m_spells.paladin.pHammerOfTheRighteous) == SPELL_CAST_OK)
+                    return;
+            }
+
+            if (m_spells.paladin.pBladesOfJustice &&
+                CanTryToCastSpell(pVictim, m_spells.paladin.pBladesOfJustice))
+            {
+                if (DoCastSpell(pVictim, m_spells.paladin.pBladesOfJustice) == SPELL_CAST_OK)
                     return;
             }
 

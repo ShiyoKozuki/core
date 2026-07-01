@@ -386,6 +386,8 @@ public:
             SpellEntry const* pCrusaderStrike;
             SpellEntry const* pHammerOfTheRighteous;
             SpellEntry const* pShieldOfRighteousness;
+            SpellEntry const* pDivineStorm;
+            SpellEntry const* pBladesOfJustice;
             SpellEntry const* pWakeOfAshes;
             SpellEntry const* pHammerOfJustice;
             SpellEntry const* pRepentance;

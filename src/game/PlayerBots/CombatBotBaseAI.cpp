@@ -259,6 +259,16 @@ void CombatBotBaseAI::PopulateSpellData()
                     if (IsHigherRankSpell(m_spells.paladin.pShieldOfRighteousness))
                         m_spells.paladin.pShieldOfRighteousness = pSpellEntry;
                 }
+                else if (pSpellEntry->SpellName[0].find("Divine Storm") != std::string::npos)
+                {
+                    if (IsHigherRankSpell(m_spells.paladin.pDivineStorm))
+                        m_spells.paladin.pDivineStorm = pSpellEntry;
+                }
+                else if (pSpellEntry->SpellName[0].find("Blades of Justice") != std::string::npos)
+                {
+                    if (IsHigherRankSpell(m_spells.paladin.pBladesOfJustice))
+                        m_spells.paladin.pBladesOfJustice = pSpellEntry;
+                }
                 else if (pSpellEntry->SpellName[0].find("Judgement") != std::string::npos)
                 {
                     if (IsHigherRankSpell(m_spells.paladin.pJudgement))
