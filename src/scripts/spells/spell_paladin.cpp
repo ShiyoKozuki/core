@@ -312,7 +312,7 @@ struct PaladinShieldOfRighteousnessScript : public SpellScript
 
             // Roll for Divine purpose proc
             if (spell->m_casterUnit->HasAura(SPELL_DIVINE_PURPOSE_TALENT))
-                if (roll_chance_i(15)) // 15% chance
+                if (roll_chance_i(25)) // 25% chance
                     spell->m_caster->CastSpell(spell->m_casterUnit, SPELL_DIVINE_PURPOSE_PROC, true);
         }
         else if (effIdx == EFFECT_INDEX_1 && spell->m_casterUnit)
@@ -403,7 +403,7 @@ struct PaladinWordOfGloryScript : public SpellScript
 
             // Roll for Divine purpose proc
             if (spell->m_casterUnit->HasAura(SPELL_DIVINE_PURPOSE_TALENT))
-                if (roll_chance_i(15)) // 15% chance
+                if (roll_chance_i(25)) // 25% chance
                     spell->m_caster->CastSpell(spell->m_casterUnit, SPELL_DIVINE_PURPOSE_PROC, true);
         }
 
@@ -492,7 +492,7 @@ struct PaladinDivineStormDamageScript : public SpellScript
 
             // Roll for Divine purpose proc
             if (spell->m_casterUnit->HasAura(SPELL_DIVINE_PURPOSE_TALENT))
-                if (roll_chance_i(15)) // 15% chance
+                if (roll_chance_i(25)) // 25% chance
                     spell->m_caster->CastSpell(spell->m_casterUnit, SPELL_DIVINE_PURPOSE_PROC, true);
         }
 

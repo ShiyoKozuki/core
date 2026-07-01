@@ -3843,15 +3843,6 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
 
     -- Paladin
         -- TODO: Test Art of War + Divine Purpose proc animations + sounds. Can use Clearcasting for one of them maybe (Or focused casting proc via martyrdom)
-        -- TODO: Fix spell levels / max level on word of glory
-        -- TODO: Fix Penance animation, i only changed RANK1 but i think final rank (rank3?) works properly? idk need sounds on
-        -- TODO: Penance animation, i think rank1 has the correct visual for the spell but NOT the dmg/heal proc ticks
-        -- TODO: 10982 for heal? 10981 damage? Whats 10980 for?
-        -- TODO: I think only the MAIN spell and then the Heal PROC and damage PROC need animations?
-        -- TODO: Is rank1 correct now?
-        -- TODO: I think main spell is 0 spell visual then the spell it casts (dmg/heal NOT proc is 10980?)
-        -- TODO: 10982 mgiht be dmg and 10981 heal for the proc (99% sure)
-        -- TODO: Spirit tap back to 5 points, and improved spirit tap needs to respect that by changing the 2 to a 4 (I think)
         -- TODO: Give paladin bot new AI for everything I added
 
 
@@ -4003,7 +3994,7 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
 
         -- Divine Purpose (Divine Storm has 15% chance to grand Divine Purpose effect which allows casting Divine Storm for free)
             -- Aura
-                REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `attributesEx3`, `castingTimeIndex`, `procFlags`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `stanceBarOrder`, `dmgMultiplier1`) VALUES (34237, 5464, 4, 464, 67108864, 1, 87376, 100, 21, 1, -1, 6, 1, 1, -1, 0, -1, -1, 1, 4, 332, 'Divine Purpose', 4128830, '0', 4128830, 'Abilities that cost Holy Power have a 15% chance to cause the Divine Purpose effect.', 4128830, 4128828, 10, -1, 1);
+                REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `attributesEx3`, `castingTimeIndex`, `procFlags`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `stanceBarOrder`, `dmgMultiplier1`) VALUES (34237, 5464, 4, 464, 67108864, 1, 87376, 100, 21, 1, -1, 6, 1, 1, -1, 0, -1, -1, 1, 4, 332, 'Divine Purpose', 4128830, '0', 4128830, 'Abilities that cost Holy Power have a 25% chance to cause the Divine Purpose effect.  Divine Purpose causes next Holy Power ability will consume no Holy Power and will cast as if 3 Holy Power were consumed.', 4128830, 4128828, 10, -1, 1);
 
             -- Proc
                 REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `dispel`, `castingTimeIndex`, `procChance`, `durationIndex`, `rangeIndex`, `stackAmount`, `equippedItemClass`, `effect1`, `effect2`, `effectDieSides1`, `effectDieSides2`, `effectBaseDice1`, `effectBaseDice2`, `effectBasePoints1`, `effectBasePoints2`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectApplyAuraName1`, `effectApplyAuraName2`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`) VALUES (34239, 4375, 5, 0, 1, 101, @DURATION_MAX_8_SEC, 1, 5, -1, 0, 0, 1, 1, 1, 1, 0, 0, 0, 1, -1, 1, 1, 0, 0, 4, 2094, 'Divine Purpose', 2031646, 'Abilities that cost Holy Power have a 15% chance to cause the Divine Purpose effect.', 2031646, 2031644, 'Your next Holy Power ability will consume no Holy Power and will cast as if 3 Holy Power were consumed. Lasts $d.', 2031646, -1, 1, 1);
