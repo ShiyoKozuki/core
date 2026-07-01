@@ -193,6 +193,7 @@ pEffect SpellEffects[TOTAL_SPELL_EFFECTS] =
     &Spell::EffectEnergizePct,                              //134 SPELL_EFFECT_ENERGIZE_PCT
     &Spell::EffectCooldownReset,                            //135 SPELL_EFFECT_COOLDOWN_RESET
     &Spell::EffectHealPct,                                  //136 SPELL_EFFECT_HEAL_PCT
+    &Spell::EffectAddHolyPower,                             //137 SPELL_EFFECT_ADD_HOLY_POWER
 };
 
 void Spell::EffectEmpty(SpellEffectIndex /*effIdx*/)
@@ -4619,6 +4620,7 @@ void Spell::EffectScriptEffect(SpellEffectIndex effIdx)
                 }
 
                 m_caster->CastSpell(unitTarget, spellId2, true);
+                m_caster->CastSpell(m_casterUnit, 34235, true); // Also Add Holy Power
                 return;
             }
             // Seal of Fury proc
@@ -4719,6 +4721,30 @@ void Spell::EffectAddComboPoints(SpellEffectIndex /*effIdx*/)
 
     ((Player*)m_caster)->AddComboPoints(unitTarget, damage);
     ((Player*)m_caster)->SetUInt64Value(PLAYER_FIELD_COMBO_TARGET, unitTarget->GetGUID());
+}
+
+void Spell::EffectAddHolyPower(SpellEffectIndex effIdx)
+{
+    enum
+    {
+        SPELL_HOLY_POWER = 34235,
+    };
+
+    if (!unitTarget)
+        return;
+
+    if (m_caster->GetTypeId() != TYPEID_PLAYER)
+        return;
+
+    if (damage <= 0)
+        return;
+
+    int32 amount = std::min<int32>(m_currentBasePoints[effIdx], 5);
+
+    for (int32 i = 0; i < amount; ++i)
+    {
+        m_caster->CastSpell(m_casterUnit, SPELL_HOLY_POWER, true);
+    }
 }
 
 void Spell::EffectCreateHouse(SpellEffectIndex effIdx)

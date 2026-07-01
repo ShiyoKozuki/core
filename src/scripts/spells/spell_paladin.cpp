@@ -238,59 +238,186 @@ enum
     SPELL_DIVINE_STORM_DAMAGE = 34233
 };
 
-struct PaladinWakeOfAshesScript : public SpellScript
+struct PaladinShieldOfRighteousnessScript : public SpellScript
 {
+    SpellCastResult OnCheckCast(Spell* spell, bool /*strict*/) const final
+    {
+#if SUPPORTED_CLIENT_BUILD > CLIENT_BUILD_1_10_2
+        if (spell->m_casterUnit)
+        {
+            // Shield of Righteousness is free to cast with Divine Purpose and consumes it before Holy Power
+            if (spell->m_casterUnit->HasAura(SPELL_DIVINE_PURPOSE_PROC))
+                return SPELL_CAST_OK;
+
+            if (spell->m_casterUnit->HasAura(SPELL_HOLY_POWER))
+            {
+                Aura* holyPowerAura = spell->m_casterUnit->GetAura(SPELL_HOLY_POWER, EFFECT_INDEX_0);
+                SpellAuraHolder* holder = holyPowerAura->GetHolder();
+
+                if (holder)
+                {
+                    uint16 stacks = holder->GetStackAmount();
+
+                    // Shield of Righteousness requires 3 stacks
+                    if (stacks >= 3)
+                        return SPELL_CAST_OK;
+                }
+            }
+        }
+#endif
+        return SPELL_FAILED_TARGET_AURASTATE;
+    }
+
     bool OnEffectExecute(Spell* spell, SpellEffectIndex effIdx) const final
     {
-        if (effIdx == EFFECT_INDEX_0 && spell->m_caster && spell->m_casterUnit)
+        if (effIdx == EFFECT_INDEX_0 && spell->m_casterUnit)
         {
-            if (spell->m_casterUnit->HasSpell(SPELL_DIVINE_STORM_DAMAGE))
+            bool freeCast = false;
+
+            if (spell->m_casterUnit->HasAura(SPELL_DIVINE_PURPOSE_PROC))
             {
-                spell->m_caster->CastSpell(spell->m_casterUnit, SPELL_HOLY_POWER, true);
-                spell->m_caster->CastSpell(spell->m_casterUnit, SPELL_HOLY_POWER, true);
-                spell->m_caster->CastSpell(spell->m_casterUnit, SPELL_HOLY_POWER, true);
+                spell->m_casterUnit->RemoveAurasDueToSpell(SPELL_DIVINE_PURPOSE_PROC);
+                freeCast = true;
             }
 
-            return false;
+            if (!freeCast)
+            {
+                Aura* holyPowerAura = spell->m_casterUnit->GetAura(SPELL_HOLY_POWER, EFFECT_INDEX_0);
+
+                if (!holyPowerAura)
+                    return false;
+
+                SpellAuraHolder* holder = holyPowerAura->GetHolder();
+
+                if (!holder)
+                    return false;
+
+                uint16 stacks = holder->GetStackAmount();
+
+                // Shield of Righteousness requires 3 stacks
+                if (stacks < 3)
+                    return false;
+
+                // Remove Holy Power aura from self if stacks are exactl else
+                if (stacks == 3)
+                {
+                    // Remove Holy Power aura from self
+                    spell->m_casterUnit->RemoveAurasByCasterSpell(holyPowerAura->GetId(), spell->m_caster->GetObjectGuid());
+                }
+                else // Remove 3 stacks of Holy Power
+                {
+                    holder->SetStackAmount(stacks - 3);
+                }
+            }
+
+            // Roll for Divine purpose proc
+            if (spell->m_casterUnit->HasAura(SPELL_DIVINE_PURPOSE_TALENT))
+                if (roll_chance_i(15)) // 15% chance
+                    spell->m_caster->CastSpell(spell->m_casterUnit, SPELL_DIVINE_PURPOSE_PROC, true);
         }
+        else if (effIdx == EFFECT_INDEX_1 && spell->m_casterUnit)
+        {
+            spell->damage += spell->m_casterUnit->GetShieldBlockValue();
+        }
+
         return true;
     }
 };
 
-SpellScript* GetScript_PaladinWakeOfAshes(SpellEntry const*)
+SpellScript* GetScript_PaladinShieldOfRighteousness(SpellEntry const*)
 {
-    return new PaladinWakeOfAshesScript();
+    return new PaladinShieldOfRighteousnessScript();
 }
 
-struct PaladinBladesOfJusticeScript : public SpellScript
+struct PaladinWordOfGloryScript : public SpellScript
 {
+    SpellCastResult OnCheckCast(Spell* spell, bool /*strict*/) const final
+    {
+#if SUPPORTED_CLIENT_BUILD > CLIENT_BUILD_1_10_2
+        if (spell->m_casterUnit)
+        {
+            // Word of Glory is free to cast with Divine Purpose and consumes it before Holy Power
+            if (spell->m_casterUnit->HasAura(SPELL_DIVINE_PURPOSE_PROC))
+                return SPELL_CAST_OK;
+
+            if (spell->m_casterUnit->HasAura(SPELL_HOLY_POWER))
+            {
+                Aura* holyPowerAura = spell->m_casterUnit->GetAura(SPELL_HOLY_POWER, EFFECT_INDEX_0);
+                SpellAuraHolder* holder = holyPowerAura->GetHolder();
+
+                if (holder)
+                {
+                    uint16 stacks = holder->GetStackAmount();
+
+                    // Word of Glory requires 3 stacks
+                    if (stacks >= 3)
+                        return SPELL_CAST_OK;
+                }
+            }
+        }
+#endif
+        return SPELL_FAILED_TARGET_AURASTATE;
+    }
+
     bool OnEffectExecute(Spell* spell, SpellEffectIndex effIdx) const final
     {
-        if (effIdx == EFFECT_INDEX_0 && spell->m_caster && spell->m_casterUnit)
+        if (effIdx == EFFECT_INDEX_0 && spell->m_casterUnit)
         {
-            if (spell->m_casterUnit->HasSpell(SPELL_DIVINE_STORM_DAMAGE))
+            bool freeCast = false;
+
+            if (spell->m_casterUnit->HasAura(SPELL_DIVINE_PURPOSE_PROC))
             {
-                spell->m_caster->CastSpell(spell->m_casterUnit, SPELL_HOLY_POWER, true);
+                spell->m_casterUnit->RemoveAurasDueToSpell(SPELL_DIVINE_PURPOSE_PROC);
+                freeCast = true;
             }
 
-            return false;
+            if (!freeCast)
+            {
+                Aura* holyPowerAura = spell->m_casterUnit->GetAura(SPELL_HOLY_POWER, EFFECT_INDEX_0);
+
+                if (!holyPowerAura)
+                    return false;
+
+                SpellAuraHolder* holder = holyPowerAura->GetHolder();
+
+                if (!holder)
+                    return false;
+
+                uint16 stacks = holder->GetStackAmount();
+
+                // Word of Glory requires 3 stacks
+                if (stacks < 3)
+                    return false;
+
+                // Remove Holy Power aura from self if stacks are exactl else
+                if (stacks == 3)
+                {
+                    // Remove Holy Power aura from self
+                    spell->m_casterUnit->RemoveAurasByCasterSpell(holyPowerAura->GetId(), spell->m_caster->GetObjectGuid());
+                }
+                else // Remove 3 stacks of Holy Power
+                {
+                    holder->SetStackAmount(stacks - 3);
+                }
+            }
+
+            // Roll for Divine purpose proc
+            if (spell->m_casterUnit->HasAura(SPELL_DIVINE_PURPOSE_TALENT))
+                if (roll_chance_i(15)) // 15% chance
+                    spell->m_caster->CastSpell(spell->m_casterUnit, SPELL_DIVINE_PURPOSE_PROC, true);
         }
+
         return true;
     }
 };
 
-SpellScript* GetScript_PaladinBladesOfJustice(SpellEntry const*)
+SpellScript* GetScript_PaladinWordOfGlory(SpellEntry const*)
 {
-    return new PaladinBladesOfJusticeScript();
+    return new PaladinWordOfGloryScript();
 }
 
 struct PaladinDivineStormDamageScript : public SpellScript
 {
-    enum
-    {
-        SPELL_DIVINE_STORM_HEAL = 34238
-    };
-
     SpellCastResult OnCheckCast(Spell* spell, bool /*strict*/) const final
     {
 #if SUPPORTED_CLIENT_BUILD > CLIENT_BUILD_1_10_2
@@ -432,13 +559,13 @@ void AddSC_paladin_spell_scripts()
     newscript->RegisterSelf();
 
     newscript = new Script;
-    newscript->Name = "spell_paladin_wake_of_ashes";
-    newscript->GetSpellScript = &GetScript_PaladinWakeOfAshes;
+    newscript->Name = "spell_paladin_shield_of_righteousness";
+    newscript->GetSpellScript = &GetScript_PaladinShieldOfRighteousness;
     newscript->RegisterSelf();
 
     newscript = new Script;
-    newscript->Name = "spell_paladin_blades_of_justice";
-    newscript->GetSpellScript = &GetScript_PaladinBladesOfJustice;
+    newscript->Name = "spell_paladin_word_of_glory";
+    newscript->GetSpellScript = &GetScript_PaladinWordOfGlory;
     newscript->RegisterSelf();
 
     newscript = new Script;

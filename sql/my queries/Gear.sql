@@ -15683,6 +15683,7 @@ WHERE entry IN(12717, 18418, 22388, 14512, 14513, 14514, 12834, 12825, 18260, 20
         -- Sorcerer Robe (Cleavage) unique model
         -- INV_Chest_Christmas01 and INV_Chest_Christmas02?
         -- (Side Boob) Raincaller Robes
+        -- (Side Boob + Cleavage) Nightsky Robe
 
     -- Leather
         -- Dervish Tunic
@@ -15692,6 +15693,7 @@ WHERE entry IN(12717, 18418, 22388, 14512, 14513, 14514, 12834, 12825, 18260, 20
         -- Archer's Jerkin (Shows tummy, nice for "Ranger" look)
         -- Cutthroat's Vest (very lewd)
         -- Warden's Wraps
+        -- Nocturnal Tunic (Massive Cleavage + Black)
 
     -- Mail
         -- Fortified chain (display: 1019) 

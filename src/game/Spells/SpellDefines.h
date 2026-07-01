@@ -353,7 +353,8 @@ enum SpellEffects
     SPELL_EFFECT_ENERGIZE_PCT              = 134,
     SPELL_EFFECT_COOLDOWN_RESET            = 135,
     SPELL_EFFECT_HEAL_PCT                  = 136,
-    TOTAL_SPELL_EFFECTS                    = 137
+    SPELL_EFFECT_ADD_HOLY_POWER            = 137,
+    TOTAL_SPELL_EFFECTS                    = 138
 };
 
 enum SpellCastResult
