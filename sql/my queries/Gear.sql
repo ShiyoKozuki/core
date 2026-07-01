@@ -10386,10 +10386,10 @@ WHERE entry = 17001;
 
 -- Medicine Blanket (Stranglethorn Fever)
 UPDATE mangos . item_template
-SET stat_type1 = 7,
+SET stat_type1 = @ITEM_MOD_STAM,
     stat_value1 = 4,
-    stat_type2 = 0,
-    stat_value2 = 0,
+    stat_type2 = @ITEM_MOD_SPI,
+    stat_value2 = 7,
     spellid_1 = 7680, -- +13 Healing
     spelltrigger_1 = 1
 WHERE entry = 4113;

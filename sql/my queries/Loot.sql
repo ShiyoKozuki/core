@@ -250,7 +250,7 @@ WHERE item = 2799;
 -- 100%
 UPDATE mangos . creature_loot_template
 SET ChanceOrQuestChance = 100
-WHERE item IN(11885);
+WHERE item IN(11885, 6196);
  
 -- Skinning
 
