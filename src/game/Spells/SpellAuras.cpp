@@ -5590,6 +5590,8 @@ void Aura::HandleShapeshiftBoosts(bool apply)
         case FORM_AMBIENT:
         case FORM_GHOUL:
         case FORM_SHADOW:
+            spellId2 = 34257;
+            break;
         case FORM_STEALTH:
         case FORM_CREATURECAT:
         case FORM_CREATUREBEAR:

@@ -224,8 +224,8 @@ UPDATE `mangos`.`spell_template` SET `effect2`=0, `effectDieSides2`=0, `effectBa
         UPDATE `mangos`.`spell_template` SET `effectItemType1`=137472516096, `effectItemType2`=68727898112 WHERE  `entry`=15309;
         UPDATE `mangos`.`spell_template` SET `effectItemType1`=137472516096, `effectItemType2`=68727898112 WHERE  `entry`=15310;
 
-    -- Remove Shadowform Visual Effect (spellVisual1 was 3619)
-        UPDATE `mangos`.`spell_template` SET `spellVisual1`=3619 WHERE  `entry`=15473 AND `build`=5302;
+    -- Remove Shadowform (Now regens 2% of max mana every 3 sec)
+        UPDATE `mangos`.`spell_template` SET `description`='Assume a Shadowform, increasing your Shadow damage by $s2% and reducing Physical damage done to you by $s3%.  Additionally, allows $34257s1% of your mana regeneration to continue while casting.  However, you may not cast Holy spells while in this form.' WHERE  `entry`=15473 AND `build`=5302;
 
     -- Healing Focus (Added Penance)
         UPDATE `mangos`.`spell_template` SET `effectItemType1`=8590204416 WHERE  `entry`=14913;

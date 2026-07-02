@@ -847,6 +847,7 @@ REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90035, 3000
     -- TODO: Recipes random drops from the lesser elite rare roaming NMs
     -- TODO: Karazhan caretaker gear turned into PANTS
     -- TODO: T1 bosses drop a pop item (seal of x) that pops T2 OR T3 boss
+    -- TODO: Timed quest to kill x amount of mobs or a boss?
 
     -- "Crypt Cave" mobs
         -- Ghosts:

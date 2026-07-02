@@ -393,6 +393,39 @@ SpellScript* GetScript_PriestShadowWordDeath(SpellEntry const*)
     return new PriestShadowWordDeathScript();
 }
 
+struct PriestVampiricTouchManaRestoreScript : public SpellScript
+{
+    bool OnEffectExecute(Spell* spell, SpellEffectIndex effIdx) const final
+    {
+        if (effIdx == EFFECT_INDEX_0 && spell->GetUnitTarget() && spell->m_casterUnit && spell->GetCaster())
+        {
+            // Vampiric Touch mana restore is doubled against the priest themselves
+            if (spell->GetUnitTarget() == spell->m_casterUnit)
+            {
+                spell->damage *= 2;
+                spell->m_currentBasePoints[EFFECT_INDEX_0] *= 2;
+            }
+        }
+        return true;
+    }
+};
+
+SpellScript* GetScript_PriestVampiricTouchManaRestore(SpellEntry const*)
+{
+    return new PriestVampiricTouchManaRestoreScript();
+}
+
+struct PriestShadowformScript : public AuraScript
+{
+    // TODO:
+    // Also grants 2% mana per 5s
+};
+
+AuraScript* GetScript_PriestShadowform(SpellEntry const*)
+{
+    return new PriestShadowformScript();
+}
+
 void AddSC_priest_spell_scripts()
 {
     Script* newscript;
@@ -435,5 +468,15 @@ void AddSC_priest_spell_scripts()
     newscript = new Script;
     newscript->Name = "spell_priest_shadow_word_death";
     newscript->GetSpellScript = &GetScript_PriestShadowWordDeath;
+    newscript->RegisterSelf();
+
+    newscript = new Script;
+    newscript->Name = "spell_priest_vampiric_touch_mana_restore";
+    newscript->GetSpellScript = &GetScript_PriestVampiricTouchManaRestore;
+    newscript->RegisterSelf();
+
+    newscript = new Script;
+    newscript->Name = "spell_priest_shadowform";
+    newscript->GetAuraScript = &GetScript_PriestShadowform;
     newscript->RegisterSelf();
 }

@@ -525,7 +525,7 @@ REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quali
 
 REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`) VALUES (30214, 5, 'Darksteel Ore', 38647, 3, 400, 100, -1, -1, 45, 20, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0);
 
-REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`) VALUES (30215, 5, 'Tiger Hide', 34174, 3, 400, 100, -1, -1, 45, 20, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0);
+REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`) VALUES (30215, 5, 'Tiger Hide', 7112, 3, 400, 100, -1, -1, 45, 20, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0);
 
 REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`) VALUES (30216, 5, 'Divine Log', 929, 3, 400, 100, -1, -1, 45, 20, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0);
 
@@ -798,9 +798,24 @@ REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quali
 
 REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`) VALUES (30344, 5, 'Latex', 34536, 1, 20, 5, -1, -1, 45, 20, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0);
 
+REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`) VALUES (30345, 5, 'Black Ink', 34536, 1, 20, 5, -1, -1, 45, 20, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0);
+
+-- TODO: display_id
+REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`) VALUES (30346, 5, 'Poison Dust', 34536, 1, 20, 5, -1, -1, 45, 20, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0);
+
+-- TODO: display_id
+REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`) VALUES (30347, 5, 'Venom Dust', 34536, 1, 20, 5, -1, -1, 45, 20, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0);
+
+-- TODO: display_id
+REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`) VALUES (30348, 5, 'Paralysis Dust', 34536, 1, 20, 5, -1, -1, 45, 20, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0);
+
+REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `flags`, `buy_price`, `sell_price`, `allowable_class`, `allowable_race`, `item_level`, `required_skill`, `required_skill_rank`, `delay`, `spellid_1`, `spellcharges_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30349, @ITEM_CLASS_RECIPE, @ITEM_SUBCLASS_TAILORING_PATTERN, 'Pattern: Rainbow Cloth', 1102, 4, 64, 1000000, 250000, -1, -1, 20, @SKILL_TAILORING, 300, 0, 34206, -1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 2);
+
+REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `flags`, `buy_price`, `sell_price`, `allowable_class`, `allowable_race`, `item_level`, `required_skill`, `required_skill_rank`, `delay`, `spellid_1`, `spellcharges_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30350, @ITEM_CLASS_RECIPE, @ITEM_SUBCLASS_LEATHERWORKING_PATTERN, 'Pattern: Tiger Leather', 1102, 4, 64, 1000000, 250000, -1, -1, 20, @SKILL_LEATHERWORKING, 300, 0, 34259, -1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 2);
+
 -- TODO: All legs of the blue pvp / TBC dungeon sets as random drops
 -- https://www.wowhead.com/tbc/transmog-set=910/beast-lord-armor
--- NEXT 30345
+-- NEXT 30346
 
 -- Item classes
     -- Trade goods
@@ -8859,11 +8874,11 @@ WHERE entry = 10708;
 
 -- Zorbin's Mega-Slicer
 UPDATE mangos . item_template
-SET quality = 3,
-    delay = 2700,
-    dmg_type2 = 4, -- Frost
-    dmg_min1 = 61,
-    dmg_max1 = 111,
+SET quality = 2,
+    delay = 2300,
+    dmg_type2 = 0,
+    dmg_min1 = 46,
+    dmg_max1 = 86,
     spellid_1 = 20869, -- Blasts a target for 65 Frost damage.
     spelltrigger_1 = 2,
     spellppmrate_1 = 20 
@@ -15684,6 +15699,7 @@ WHERE entry IN(12717, 18418, 22388, 14512, 14513, 14514, 12834, 12825, 18260, 20
         -- INV_Chest_Christmas01 and INV_Chest_Christmas02?
         -- (Side Boob) Raincaller Robes
         -- (Side Boob + Cleavage) Nightsky Robe
+        -- Mistcape Armor
 
     -- Leather
         -- Dervish Tunic
@@ -15704,6 +15720,7 @@ WHERE entry IN(12717, 18418, 22388, 14512, 14513, 14514, 12834, 12825, 18260, 20
         -- Glimmering Mail Breastplate
         -- (Bare back) Sparkleshell Breastplate 
         -- (Lots of tummy shown!) Enduring Breastplate
+        -- Overlinked Chain armor 
 
     -- Plate
         -- Vanguard Breastplate (display: 26846)
