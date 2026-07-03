@@ -1871,7 +1871,7 @@ UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=24 WHERE  `entry`=10460
 UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=29 WHERE  `entry`=10461;
 
 -- Stormstrike (Restore MP on successful hit, remove MP cost)
-UPDATE `spell_template` SET `effect3`=0, `effectDieSides3`=0, `effectBaseDice3`=0, `effectBasePoints3`=0, `effectBonusCoefficient3`=-1, `effectImplicitTargetA3`=0, `effectMiscValue3`=0, `manaCostPercentage`=21, `spellIconId`=2085,
+UPDATE `spell_template` SET `effect3`=0, `effectDieSides3`=0, `effectBaseDice3`=0, `effectBasePoints3`=0, `effectBonusCoefficient3`=-1, `effectImplicitTargetA3`=0, `effectMiscValue3`=0, `manaCostPercentage`=8, `spellIconId`=2085,
 `description`='Gives you an extra attack.  In addition, the next 2 sources of Nature damage dealt to the target are increased by $s2%.  Lasts $d.' WHERE `entry`=17364;
 
 -- Repentance duration (made 1m + added usable against Demons, Dragonkin, Giants and Undead)
