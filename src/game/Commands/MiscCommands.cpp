@@ -699,9 +699,7 @@ bool ChatHandler::HandleInstanceListBindsCommand(char* /*args*/)
     {
         DungeonPersistentState* state = bind.second.state;
         std::string timeleft;
-        // permanent binds are raids, which reset globally per map since 1.9,
-        // before that each raid instance has its own reset time
-        if (!bind.second.perm || !DungeonResetScheduler::IsRaidResetSchedulingGlobal())
+        if (!bind.second.perm)
             timeleft = secsToTimeString(state->GetResetTime() - time(nullptr), true);
         else
             timeleft = secsToTimeString(sMapPersistentStateMgr.GetScheduler().GetResetTimeFor(bind.first) - time(nullptr));
@@ -727,7 +725,7 @@ bool ChatHandler::HandleInstanceListBindsCommand(char* /*args*/)
         {
             DungeonPersistentState* state = bind.second.state;
             std::string timeleft;
-            if (!bind.second.perm || !DungeonResetScheduler::IsRaidResetSchedulingGlobal())
+            if (!bind.second.perm)
                 timeleft = secsToTimeString(state->GetResetTime() - time(nullptr), true);
             else
                 timeleft = secsToTimeString(sMapPersistentStateMgr.GetScheduler().GetResetTimeFor(bind.first) - time(nullptr));

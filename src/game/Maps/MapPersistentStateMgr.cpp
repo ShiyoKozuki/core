@@ -284,9 +284,8 @@ void DungeonPersistentState::DeleteFromDB()
 time_t DungeonPersistentState::GetResetTimeForDB() const
 {
     // only state the reset time for normal instances
-    // before 1.9 raid instances have an individual reset time too
     MapEntry const* entry = GetMapEntry();
-    if (!entry || (entry->mapType == MAP_RAID && DungeonResetScheduler::IsRaidResetSchedulingGlobal()))
+    if (!entry || entry->mapType == MAP_RAID)
         return 0;
     else
         return GetResetTime();
@@ -302,11 +301,6 @@ bool BattleGroundPersistentState::CanBeUnload() const
 }
 
 //== DungeonResetScheduler functions ======================
-
-bool DungeonResetScheduler::IsRaidResetSchedulingGlobal()
-{
-    return sWorld.GetWowPatch() >= WOW_PATCH_109;
-}
 
 uint32 DungeonResetScheduler::GetMaxResetTimeFor(MapEntry const* temp)
 {
@@ -361,20 +355,7 @@ void DungeonResetScheduler::LoadResetTimes()
 
             // Don't set or update reset time for raid instances
             if (mapEntry->IsRaid())
-            {
-                if (!DungeonResetScheduler::IsRaidResetSchedulingGlobal())
-                {
-                    // before 1.9 each raid instance has an individual reset time,
-                    // initialize it for instances created while running a later patch
-                    if (!resetTime)
-                        CharacterDatabase.DirectPExecute("UPDATE `instance` SET `reset_time` = '" UI64FMTD "' WHERE `id` = '%u'", uint64(now + GetMaxResetTimeFor(mapEntry)), id);
-                }
-                // clear per-instance reset times left over from running a pre-1.9 patch,
-                // raids are reset globally per map now
-                else if (resetTime)
-                    CharacterDatabase.DirectPExecute("UPDATE `instance` SET `reset_time` = '0' WHERE `id` = '%u'", id);
                 continue;
-            }
 
             InstResetTime[id] = std::pair<uint32, uint64>(mapId,
                 resetTime ? resetTime : now + 2 * HOUR);
@@ -417,14 +398,6 @@ void DungeonResetScheduler::LoadResetTimes()
             if (!mapEntry || !mapEntry->IsDungeon())
             {
                 sLog.Out(LOG_BASIC, LOG_LVL_ERROR, "MapPersistentStateManager::LoadResetTimes: invalid map Id %u in instance_reset!", mapId);
-                CharacterDatabase.DirectPExecute("DELETE FROM `instance_reset` WHERE `map` = '%u'", mapId);
-                continue;
-            }
-
-            // before 1.9 raids don't have a global reset time,
-            // each instance expires on its own fixed timer instead
-            if (mapEntry->IsRaid() && !DungeonResetScheduler::IsRaidResetSchedulingGlobal())
-            {
                 CharacterDatabase.DirectPExecute("DELETE FROM `instance_reset` WHERE `map` = '%u'", mapId);
                 continue;
             }
@@ -491,11 +464,6 @@ void DungeonResetScheduler::ScheduleAllDungeonResets()
         if (!itr->IsDungeon() || !itr->resetDelay)
             continue;
 
-        // before 1.9 raid instances reset on individual timers scheduled above,
-        // like normal dungeons, so there is no global reset time for the map
-        if (itr->IsRaid() && !DungeonResetScheduler::IsRaidResetSchedulingGlobal())
-            continue;
-
         uint32 period = GetMaxResetTimeFor(*itr);
         time_t t = GetResetTimeFor(itr->id);
         if (!t)
@@ -528,10 +496,11 @@ void DungeonResetScheduler::ScheduleAllDungeonResets()
 
 void DungeonResetScheduler::ScheduleReset(bool add, time_t time, DungeonResetEvent event)
 {
-    // Note: the scheduled instance cannot be validated against m_instanceSaveByInstanceId here,
-    // because events are always scheduled before the state is registered: at startup
-    // ScheduleAllDungeonResets() runs before LoadCreatureRespawnTimes() creates the states, and
-    // AddPersistentState() schedules the reset before inserting the new state into the map.
+    MapPersistentStateManager::PersistentStateMap::iterator itr = m_InstanceSaves.m_instanceSaveByInstanceId.find(event.instanceId);
+    if (itr == m_InstanceSaves.m_instanceSaveByInstanceId.end())
+        sLog.Out(LOG_BASIC, LOG_LVL_ERROR, "[DungeonReset] Instance %u [map %u]: ScheduleReset %u for unknown instance.", event.instanceId, event.mapId, event.type);
+    else if (itr->second->GetMapId() != event.mapId)
+        sLog.Out(LOG_BASIC, LOG_LVL_ERROR, "[DungeonReset] Instance %u [map %u]: ScheduleReset %u for wrong instance [map %u]", event.instanceId, event.mapId, event.type, itr->second->GetMapId());
 
     if (add)
         m_resetTimeQueue.insert(std::pair<time_t, DungeonResetEvent>(time, event));
@@ -633,12 +602,7 @@ void DungeonResetScheduler::ResetAllRaid()
         // we only reset raid dungeon
         if (event.type == RESET_EVENT_NORMAL_DUNGEON)
         {
-            // before 1.9 raid instances reset individually with normal dungeon events
-            MapEntry const* entry = sMapStorage.LookupEntry<MapEntry>(event.mapId);
-            if (entry && entry->IsRaid())
-                rTQ.insert(std::pair<time_t, DungeonResetEvent>(now, event));
-            else
-                rTQ.insert(std::pair<time_t, DungeonResetEvent>(itr.first, event));
+            rTQ.insert(std::pair<time_t, DungeonResetEvent>(itr.first, event));
             continue;
         }
         event.type = RESET_EVENT_FORCED_INFORM_1;
@@ -697,16 +661,6 @@ MapPersistentState* MapPersistentStateManager::AddPersistentState(MapEntry const
                     resetTime = time(nullptr) + 2 * HOUR;
                 dungeonState->SetResetTime(resetTime);
                 // Schedule a reset for new instances, removed when a player enters in DungeonMap::Add
-                m_Scheduler.ScheduleReset(true, resetTime, DungeonResetEvent(RESET_EVENT_NORMAL_DUNGEON, mapEntry->id, instanceId));
-            }
-            // before 1.9 each raid instance expires a fixed number of days after it is created,
-            // there is no global reset time for the map, so the instance behaves like a normal
-            // dungeon, except that the reset is not cancelled when a player enters
-            else if (!DungeonResetScheduler::IsRaidResetSchedulingGlobal())
-            {
-                if (!resetTime)
-                    resetTime = time(nullptr) + DungeonResetScheduler::GetMaxResetTimeFor(mapEntry);
-                dungeonState->SetResetTime(resetTime);
                 m_Scheduler.ScheduleReset(true, resetTime, DungeonResetEvent(RESET_EVENT_NORMAL_DUNGEON, mapEntry->id, instanceId));
             }
             dungeonState->SaveToDB();
@@ -945,22 +899,11 @@ void MapPersistentStateManager::_ResetInstance(uint32 mapId, uint32 instanceId)
                 return;
             }
 
-            if (iMap->IsRaid())
-            {
-                // per instance raid reset (pre 1.9): the timer expires even while players
-                // are inside, so remove the binds and send everyone to their homebind
-                ((DungeonPersistentState*)itr->second)->UnbindThisState();
-                iMap->TeleportAllPlayersTo(TELEPORT_LOCATION_HOMEBIND);
-                ((DungeonMap*)iMap)->Reset(INSTANCE_RESET_GLOBAL);
-            }
-            else
-            {
-                ((DungeonMap*)iMap)->Reset(INSTANCE_RESET_RESPAWN_DELAY);
-                return;
-            }
+            ((DungeonMap*)iMap)->Reset(INSTANCE_RESET_RESPAWN_DELAY);
+            return;
         }
-        else
-            _ResetSave(m_instanceSaveByInstanceId, itr);
+
+        _ResetSave(m_instanceSaveByInstanceId, itr);
     }
 
     DeleteInstanceFromDB(mapId, instanceId);                       // even if state not loaded
