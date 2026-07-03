@@ -64,13 +64,13 @@ REPLACE INTO `playercreateinfo_action` (`race`, `class`, `button`, `action`, `ty
 REPLACE INTO `playercreateinfo_action` (`race`, `class`, `button`, `action`, `type`) VALUES (10, 2, 0, 6603, 0);
 REPLACE INTO `playercreateinfo_action` (`race`, `class`, `button`, `action`, `type`) VALUES (10, 2, 11, 2070, 128);
 
-REPLACE INTO `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 2, 43, 1);
-REPLACE INTO `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 2, 44, 1);
-REPLACE INTO `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 2, 45, 1);
-REPLACE INTO `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 2, 159, 2);
-REPLACE INTO `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 2, 2070, 4);
-REPLACE INTO `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 2, 2361, 1);
-REPLACE INTO `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 2, 6948, 1);
+INSERT IGNORE `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 2, 30353, 1);
+INSERT IGNORE `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 2, 30354, 1);
+INSERT IGNORE `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 2, 30355, 1);
+INSERT IGNORE `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 2, 159, 2);
+INSERT IGNORE `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 2, 2070, 4);
+INSERT IGNORE `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 2, 2361, 1);
+INSERT IGNORE `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 2, 6948, 1);
 
 REPLACE INTO `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (10, 2, 81, 0, 5875, 'Dodge');
 REPLACE INTO `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (10, 2, 107, 0, 5875, 'Block');
@@ -189,16 +189,19 @@ REPLACE INTO `playercreateinfo_action` (`race`, `class`, `button`, `action`, `ty
 REPLACE INTO `playercreateinfo_action` (`race`, `class`, `button`, `action`, `type`) VALUES (10, 3, 1, 2973, 0);
 REPLACE INTO `playercreateinfo_action` (`race`, `class`, `button`, `action`, `type`) VALUES (10, 3, 0, 6603, 0);
 
-REPLACE INTO `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 3, 37, 1);
-REPLACE INTO `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 3, 117, 4);
-REPLACE INTO `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 3, 127, 1);
-REPLACE INTO `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 3, 159, 2);
-REPLACE INTO `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 3, 2101, 1);
-REPLACE INTO `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 3, 2504, 1);
-REPLACE INTO `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 3, 2512, 200);
-REPLACE INTO `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 3, 6126, 1);
-REPLACE INTO `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 3, 6127, 1);
-REPLACE INTO `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 3, 6948, 1);
+INSERT IGNORE `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 3, 37, 1);
+INSERT IGNORE `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 3, 117, 4);
+INSERT IGNORE `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 3, 127, 1);
+INSERT IGNORE `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 3, 159, 2);
+INSERT IGNORE `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 3, 2101, 1);
+INSERT IGNORE `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 3, 2504, 1);
+INSERT IGNORE `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 3, 2512, 200);
+INSERT IGNORE `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 3, 30350, 1);
+INSERT IGNORE `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 3, 30351, 1);
+INSERT IGNORE `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 3, 30352, 1);
+
+
+INSERT IGNORE `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 3, 6948, 1);
 
 REPLACE INTO `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (10, 3,75, 0, 5875, 'Auto Shot');
 REPLACE INTO `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (10, 3,81, 0, 5875, 'Dodge');
@@ -315,13 +318,13 @@ REPLACE INTO `playercreateinfo_action` (`race`, `class`, `button`, `action`, `ty
 REPLACE INTO `playercreateinfo_action` (`race`, `class`, `button`, `action`, `type`) VALUES (10, 4, 11, 2070, 128);
 REPLACE INTO `playercreateinfo_action` (`race`, `class`, `button`, `action`, `type`) VALUES (10, 4, 3, 2764, 0);
 
-REPLACE INTO `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 4, 47, 1);
-REPLACE INTO `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 4, 48, 1);
-REPLACE INTO `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 4, 49, 1);
-REPLACE INTO `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 4, 2070, 4);
-REPLACE INTO `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 4, 2092, 1);
-REPLACE INTO `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 4, 2947, 100);
-REPLACE INTO `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 4, 6948, 1);
+INSERT IGNORE `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 4, 30356, 1);
+INSERT IGNORE `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 4, 30357, 1);
+INSERT IGNORE `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 4, 30358, 1);
+INSERT IGNORE `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 4, 2070, 4);
+INSERT IGNORE `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 4, 2092, 1);
+INSERT IGNORE `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 4, 2947, 100);
+INSERT IGNORE `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 4, 6948, 1);
 
 REPLACE INTO `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (10, 4, 81, 0, 5875, 'Dodge');
 REPLACE INTO `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (10, 4, 203, 0, 5875, 'Unarmed');
@@ -438,14 +441,14 @@ REPLACE INTO `playercreateinfo_action` (`race`, `class`, `button`, `action`, `ty
 REPLACE INTO `playercreateinfo_action` (`race`, `class`, `button`, `action`, `type`) VALUES (10, 5, 0, 6603, 0);
 REPLACE INTO `playercreateinfo_action` (`race`, `class`, `button`, `action`, `type`) VALUES (10, 5, 2, 2050, 0);
 
-REPLACE INTO `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 5, 36, 1);
-REPLACE INTO `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 5, 51, 1);
-REPLACE INTO `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 5, 52, 1);
-REPLACE INTO `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 5, 53, 1);
-REPLACE INTO `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 5, 159, 2);
-REPLACE INTO `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 5, 2070, 4);
-REPLACE INTO `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 5, 6098, 1);
-REPLACE INTO `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 5, 6948, 1);
+INSERT IGNORE `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 5, 36, 1);
+INSERT IGNORE `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 5, 30359, 1);
+INSERT IGNORE `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 5, 30361, 1);
+INSERT IGNORE `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 5, 30362, 1);
+INSERT IGNORE `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 5, 53, 1);
+INSERT IGNORE `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 5, 159, 2);
+INSERT IGNORE `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 5, 2070, 4);
+INSERT IGNORE `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 5, 6948, 1);
 
 REPLACE INTO `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (10, 5, 81, 0, 5875, 'Dodge');
 REPLACE INTO `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (10, 5, 198, 0, 5875, 'One-Handed Maces');
@@ -690,14 +693,14 @@ REPLACE `mangos`.`playercreateinfo_action` (`race`, `class`, `button`, `action`)
 REPLACE `mangos`.`playercreateinfo_action` (`race`, `class`, `button`, `action`) VALUES (10, 8, 1, 403);
 REPLACE `mangos`.`playercreateinfo_action` (`race`, `class`, `action`) VALUES (10, 8, 6603);
 
-REPLACE INTO `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 8, 35, 1);
-REPLACE INTO `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 8, 55, 1);
-REPLACE INTO `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 8, 56, 1);
-REPLACE INTO `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 8, 159, 2);
-REPLACE INTO `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 8, 1395, 1);
-REPLACE INTO `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 8, 2070, 4);
-REPLACE INTO `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 8, 6096, 1);
-REPLACE INTO `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 8, 6948, 1);
+INSERT IGNORE `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 8, 35, 1);
+INSERT IGNORE `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 8, 30360, 1);
+INSERT IGNORE `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 8, 30361, 1);
+INSERT IGNORE `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 8, 30362, 1);
+INSERT IGNORE `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 8, 53, 1);
+INSERT IGNORE `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 8, 159, 2);
+INSERT IGNORE `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 8, 2070, 4);
+INSERT IGNORE `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 8, 6948, 1);
 
 -- Must match SkillRaceClassInfo.dbc
 REPLACE INTO `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (10, 8, 81, 0, 5875, 'Dodge');
@@ -813,14 +816,14 @@ REPLACE INTO `playercreateinfo_action` (`race`, `class`, `button`, `action`, `ty
 REPLACE INTO `playercreateinfo_action` (`race`, `class`, `button`, `action`, `type`) VALUES (10, 9, 1, 686, 0);
 REPLACE INTO `playercreateinfo_action` (`race`, `class`, `button`, `action`, `type`) VALUES (10, 9, 0, 6603, 0);
 
-REPLACE INTO `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 9, 57, 1);
-REPLACE INTO `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 9, 59, 1);
-REPLACE INTO `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 9, 159, 2);
-REPLACE INTO `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 9, 1396, 1);
-REPLACE INTO `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 9, 2092, 1);
-REPLACE INTO `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 9, 4604, 4);
-REPLACE INTO `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 9, 6097, 1);
-REPLACE INTO `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 9, 6948, 1);
+INSERT IGNORE `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 9, 30349, 1);
+INSERT IGNORE `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 9, 30361, 1);
+INSERT IGNORE `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 9, 30362, 1);
+INSERT IGNORE `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 9, 53, 1);
+INSERT IGNORE `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 9, 159, 2);
+INSERT IGNORE `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 9, 2092, 1);
+INSERT IGNORE `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 9, 4604, 4);
+INSERT IGNORE `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (10, 9, 6948, 1);
 
 REPLACE INTO `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (10, 9, 81, 0, 5875, 'Dodge');
 REPLACE INTO `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (10, 9, 203, 0, 5875, 'Unarmed');
@@ -942,23 +945,23 @@ REPLACE INTO `playercreateinfo_action` (`race`, `class`, `button`, `action`, `ty
 REPLACE INTO `playercreateinfo_action` (`race`, `class`, `button`, `action`, `type`) VALUES (1, 3, 1, 2973, 0);
 REPLACE INTO `playercreateinfo_action` (`race`, `class`, `button`, `action`, `type`) VALUES (1, 3, 0, 6603, 0);
 
-REPLACE INTO `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (1, 3, 37, 1);
-REPLACE INTO `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (1, 3, 117, 4);
-REPLACE INTO `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (1, 3, 127, 1);
-REPLACE INTO `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (1, 3, 159, 2);
-REPLACE INTO `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (1, 3, 2101, 1);
-REPLACE INTO `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (1, 3, 2504, 1);
-REPLACE INTO `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (1, 3, 2512, 200);
-REPLACE INTO `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (1, 3, 6126, 1);
-REPLACE INTO `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (1, 3, 6127, 1);
-REPLACE INTO `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (1, 3, 6948, 1);
+INSERT IGNORE `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (1, 3, 37, 1);
+INSERT IGNORE `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (1, 3, 117, 4);
+INSERT IGNORE `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (1, 3, 127, 1);
+INSERT IGNORE `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (1, 3, 159, 2);
+INSERT IGNORE `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (1, 3, 2101, 1);
+INSERT IGNORE `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (1, 3, 2504, 1);
+INSERT IGNORE `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (1, 3, 2512, 200);
+INSERT IGNORE `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (1, 3, 6126, 1);
+INSERT IGNORE `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (1, 3, 6127, 1);
+INSERT IGNORE `playercreateinfo_item` (`race`, `class`, `itemid`, `amount`) VALUES (1, 3, 6948, 1);
 
 REPLACE INTO `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (1, 3,75, 0, 5875, 'Auto Shot');
 REPLACE INTO `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (1, 3,81, 0, 5875, 'Dodge');
 REPLACE INTO `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (1, 3,196, 0, 5875, 'One-Handed Axes');
 REPLACE INTO `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (1, 3,203, 0, 5875, 'Unarmed');
 REPLACE INTO `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (1, 3,204, 0, 5875, 'Defense');
-REPLACE INTO `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (1, 3,266, 0, 5875, 'Guns');
+REPLACE INTO `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (1, 3,264, 0, 5875, 'Bows');
 REPLACE INTO `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (1, 3,522, 0, 5875, 'SPELLDEFENSE (DND)');
 REPLACE INTO `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (1, 3,668, 0, 5875, 'Language Common');
 REPLACE INTO `playercreateinfo_spell` (`race`, `class`, `spell`, `build_min`, `build_max`, `note`) VALUES (1, 3,2382, 0, 5875, 'Generic');

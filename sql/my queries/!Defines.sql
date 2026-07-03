@@ -125,7 +125,6 @@ SET
     @SKILL_PET_EVENT_RC             = 758,
     @SKILL_RIDING                   = 762;
 
-
 SET
     @ITEM_CLASS_CONSUMABLE                       = 0,
     @ITEM_CLASS_CONTAINER                        = 1,
@@ -145,6 +144,49 @@ SET
     @ITEM_CLASS_JUNK                             = 15;
 
 SET
+    @INVTYPE_NON_EQUIP                           = 0,
+    @INVTYPE_HEAD                                = 1,
+    @INVTYPE_NECK                                = 2,
+    @INVTYPE_SHOULDERS                           = 3,
+    @INVTYPE_SHIRT                               = 4,
+    @INVTYPE_BODY                                = 5,
+    @INVTYPE_WAIST                               = 6,
+    @INVTYPE_LEGS                                = 7,
+    @INVTYPE_FEET                                = 8,
+    @INVTYPE_WRISTS                              = 9,
+    @INVTYPE_HANDS                               = 10,
+    @INVTYPE_FINGER                              = 11,
+    @INVTYPE_TRINKET                             = 12,
+    @INVTYPE_WEAPON                              = 13,
+    @INVTYPE_SHIELD                              = 14,
+    @INVTYPE_RANGED                              = 15,
+    @INVTYPE_CLOAK                               = 16,
+    @INVTYPE_2HWEAPON                            = 17,
+    @INVTYPE_BAG                                 = 18,
+    @INVTYPE_TABARD                              = 19,
+    @INVTYPE_ROBE                                = 20,
+    @INVTYPE_WEAPONMAINHAND                      = 21,
+    @INVTYPE_WEAPONOFFHAND                       = 22,
+    @INVTYPE_HOLDABLE                            = 23,
+    @INVTYPE_AMMO                                = 24,
+    @INVTYPE_THROWN                              = 25,
+    @INVTYPE_RANGEDRIGHT                         = 26,
+    @INVTYPE_QUIVER                              = 27,
+    @INVTYPE_RELIC                               = 28;
+
+SET
+    @ITEM_SUBCLASS_ARMOR_MISC                    = 0,
+    @ITEM_SUBCLASS_ARMOR_CLOTH                   = 1,
+    @ITEM_SUBCLASS_ARMOR_LEATHER                 = 2,
+    @ITEM_SUBCLASS_ARMOR_MAIL                    = 3,
+    @ITEM_SUBCLASS_ARMOR_PLATE                   = 4,
+    @ITEM_SUBCLASS_ARMOR_BUCKLER                 = 5,
+    @ITEM_SUBCLASS_ARMOR_SHIELD                  = 6,
+    @ITEM_SUBCLASS_ARMOR_LIBRAM                  = 7,
+    @ITEM_SUBCLASS_ARMOR_IDOL                    = 8,
+    @ITEM_SUBCLASS_ARMOR_TOTEM                   = 9;
+
+SET
     @ITEM_SUBCLASS_BOOK                          = 0,
     @ITEM_SUBCLASS_LEATHERWORKING_PATTERN        = 1,
     @ITEM_SUBCLASS_TAILORING_PATTERN             = 2,
@@ -155,3 +197,55 @@ SET
     @ITEM_SUBCLASS_FIRST_AID_MANUAL              = 7,
     @ITEM_SUBCLASS_ENCHANTING_FORMULA            = 8,
     @ITEM_SUBCLASS_FISHING_MANUAL                = 9;
+
+SET
+    @ITEM_MOD_MANA      = 0,
+    @ITEM_MOD_HEALTH    = 1,
+    @ITEM_MOD_AGI       = 3,
+    @ITEM_MOD_STR       = 4,
+    @ITEM_MOD_INT       = 5,
+    @ITEM_MOD_SPI       = 6,
+    @ITEM_MOD_STAM      = 7;
+
+SET
+    @CLASS_WARRIOR      = 1,
+    @CLASS_PALADIN      = 2,
+    @CLASS_HUNTER       = 4,
+    @CLASS_ROGUE        = 8,
+    @CLASS_PRIEST       = 16,
+    @CLASS_DEATH_KNIGHT = 32,
+    @CLASS_SHAMAN       = 64,
+    @CLASS_MAGE         = 128,
+    @CLASS_WARLOCK      = 256,
+    @CLASS_UNK2         = 512,
+    @CLASS_DRUID        = 1024;
+
+SET
+    @RACE_HUMAN              = 1,
+    @RACE_ORC                = 2,
+    @RACE_DWARF              = 4,
+    @RACE_NIGHTELF           = 8,
+    @RACE_UNDEAD             = 16,
+    @RACE_TAUREN             = 32,
+    @RACE_GNOME              = 64,
+    @RACE_TROLL              = 128,
+    @RACE_GOBLIN             = 256,
+    @RACE_BLOODELF           = 512;
+
+SET
+    @UNIT_NPC_FLAG_NONE                  = 0x00000000,
+    @UNIT_NPC_FLAG_GOSSIP                = 0x00000001,       -- 100%
+    @UNIT_NPC_FLAG_QUESTGIVER            = 0x00000002,       -- 100%
+    @UNIT_NPC_FLAG_VENDOR                = 0x00000004,       -- 100%
+    @UNIT_NPC_FLAG_FLIGHTMASTER          = 0x00000008,       -- 100%
+    @UNIT_NPC_FLAG_TRAINER               = 0x00000010,       -- 100%
+    @UNIT_NPC_FLAG_SPIRITHEALER          = 0x00000020,       -- guessed
+    @UNIT_NPC_FLAG_SPIRITGUIDE           = 0x00000040,       -- guessed
+    @UNIT_NPC_FLAG_INNKEEPER             = 0x00000080,       -- 100%
+    @UNIT_NPC_FLAG_BANKER                = 0x00000100,       -- 100%
+    @UNIT_NPC_FLAG_PETITIONER            = 0x00000200,       -- 100% 0xC0000 = guild petitions
+    @UNIT_NPC_FLAG_TABARDDESIGNER        = 0x00000400,       -- 100%
+    @UNIT_NPC_FLAG_BATTLEMASTER          = 0x00000800,       -- 100%
+    @UNIT_NPC_FLAG_AUCTIONEER            = 0x00001000,       -- 100%
+    @UNIT_NPC_FLAG_STABLEMASTER          = 0x00002000,       -- 100%
+    @UNIT_NPC_FLAG_REPAIR                = 0x00004000;       -- 100%

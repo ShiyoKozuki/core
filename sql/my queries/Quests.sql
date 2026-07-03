@@ -49,7 +49,7 @@
 -- NEXT generic_script 9000001
 -- NEXT creature_movement_scripts 9000001
 
--- NEXT creature_template 90103
+-- NEXT creature_template 90109
 -- NEXT gameobject_template 987671
 -- NEXT gameobject_loot_template 42911
 
