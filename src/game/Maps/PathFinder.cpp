@@ -320,15 +320,14 @@ void PathInfo::BuildPolyPath(Vector3 const& startPos, Vector3 const& endPos, dtQ
                 if (dtStatusFailed(m_navMeshQuery->closestPointOnPoly(suffixStartPoly, endPoint, suffixEndPoint, &PosOverBody)))
                 {
                     // suffixStartPoly is still invalid, error state
-                    BuildShortcut(filter);
+                    BuildShortcut();
                     m_type = PATHFIND_NOPATH;
                     return;
                 }
             }
             else
             {
-                // suffixStartPoly is still invalid, error state
-                BuildShortcut(filter);
+                BuildShortcut();
                 m_type = PATHFIND_NOPATH;
                 return;
             }
