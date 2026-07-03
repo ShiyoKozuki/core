@@ -2257,7 +2257,7 @@ void GameObject::SetLootState(LootState state)
     }
 
     m_lootState = state;
-    UpdateCollisionState();
+    UpdateCollisionState(false);
 
     // Call for GameObjectAI script
     if (m_AI)
