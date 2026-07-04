@@ -783,3 +783,4 @@ INSERT IGNORE `mangos`.`player_premade_spell` (`entry`, `spell`) VALUES (55, 189
 
 -- creature_display_info_addon
     REPLACE `mangos`.`creature_display_info_addon` (`display_id`, `build`, `bounding_radius`, `combat_reach`, `gender`) VALUES (16350, 5875, 0.5, 1, 1);
+    REPLACE `mangos`.`creature_display_info_addon` (`display_id`, `build`, `bounding_radius`, `combat_reach`, `gender`) VALUES (17205, 5875, 0.5, 1, 1);
