@@ -313,7 +313,27 @@ void Spell::EffectSchoolDMG(SpellEffectIndex effect_idx)
     if (unitTarget && unitTarget->IsAlive())
     {
         if (damage >= 0)
+        {
+            // Spell family specific modifiers
+            SpellEntry const* spellProto = m_spellInfo;
+            switch (spellProto->SpellFamilyName)
+            {
+            case SPELLFAMILY_PRIEST:
+                {
+                    // Atonement Smite damage reduction
+                    if (m_casterUnit->HasAura(34001)) // Atonement
+                    {
+                        if (spellProto->IsFitToFamilyMask<CF_PRIEST_SMITE>())
+                        {
+                            damage *= 0.5f;
+                        }
+                    }
+                    break;
+                }
+            }
+
             m_damage += damage;
+        }
     }
 }
 

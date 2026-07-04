@@ -15654,6 +15654,7 @@ WHERE entry IN(12717, 18418, 22388, 14512, 14513, 14514, 12834, 12825, 18260, 20
         -- (Side Boob) Raincaller Robes
         -- (Side Boob + Cleavage) Nightsky Robe
         -- Mistcape Armor
+        -- Gossamer Pants (Short Pants)
 
     -- Leather
         -- Dervish Tunic

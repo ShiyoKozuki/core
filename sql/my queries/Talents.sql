@@ -1035,16 +1035,16 @@ UPDATE `mangos`.`spell_template` SET `description`='Reduces the casting time of 
     UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=9 WHERE  `entry`=18814 AND `build`=5875;
     UPDATE `mangos`.`spell_template` SET `description`='When active, $18814s1% of all damage taken by the caster is taken by your Imp, Voidwalker, Succubus, Felhunter, or Felguard demon instead.  In addition, both the demon and master will inflict $25228s1% more damage.  Lasts as long as the demon is active.' WHERE  `entry`=19028 AND `build`=5464;
 
--- Searing Light
+-- Searing Light (Holy Fire / Smite damage)
 UPDATE mangos . spell_template 
-SET effectBasePoints1 = 9,
-    effectBasePoints2 = 9
-WHERE entry = 14909;
+    SET effectBasePoints1 = 4,
+        effectBasePoints2 = 4
+    WHERE entry = 14909;
 
-UPDATE mangos . spell_template 
-SET effectBasePoints1 = 19,
-    effectBasePoints2 = 19
-WHERE entry = 15017;
+    UPDATE mangos . spell_template 
+    SET effectBasePoints1 = 9,
+        effectBasePoints2 = 9
+    WHERE entry = 15017;
 
 -- Mace Spec (Warrior)
 UPDATE `spell_template` SET `effect2`=30, `effectDieSides2`=1, `effectBaseDice2`=1, `effectBasePoints2`=199, `effectBonusCoefficient2`=-1, `effectImplicitTargetA2`=1, `effectMiscValue2`=1 WHERE `entry`=5530;
