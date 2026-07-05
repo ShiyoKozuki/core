@@ -1305,9 +1305,10 @@ bool GossipHello_BarberNPC(Player* player, Creature* creature)
     player->ADD_GOSSIP_ITEM(5, "Skin Color (NYI)", GOSSIP_SENDER_MAIN, 1);
     player->ADD_GOSSIP_ITEM(5, "Face", GOSSIP_SENDER_MAIN, 2);
     player->ADD_GOSSIP_ITEM(5, "Hair Style", GOSSIP_SENDER_MAIN, 3);
-    player->ADD_GOSSIP_ITEM(5, "Hair Color", GOSSIP_SENDER_MAIN, 4);
-    player->ADD_GOSSIP_ITEM(5, "Accessories", GOSSIP_SENDER_MAIN, 5);
-    player->ADD_GOSSIP_ITEM(5, "Toggle Shoulder Display", GOSSIP_SENDER_MAIN, 6);
+    player->ADD_GOSSIP_ITEM(5, "Hair Style 2", GOSSIP_SENDER_MAIN, 4);
+    player->ADD_GOSSIP_ITEM(5, "Hair Color", GOSSIP_SENDER_MAIN, 5);
+    player->ADD_GOSSIP_ITEM(5, "Accessories", GOSSIP_SENDER_MAIN, 6);
+    player->ADD_GOSSIP_ITEM(5, "Toggle Shoulder Display", GOSSIP_SENDER_MAIN, 7);
 
     player->SEND_GOSSIP_MENU(player->GetGossipTextId(creature), creature->GetGUID());
     return true;
@@ -1316,7 +1317,7 @@ bool GossipHello_BarberNPC(Player* player, Creature* creature)
 bool GossipSelect_BarberNPC(Player* player, Creature* creature, uint32 sender, uint32 action)
 {
     // Toggle Shoulders
-    if (sender == GOSSIP_SENDER_MAIN && action == 6)
+    if (sender == GOSSIP_SENDER_MAIN && action == 7)
     {
         bool hidden = !player->IsHideShoulders();
         player->SetCharVar("hide_shoulders", hidden ? "1" : "0");
@@ -1332,7 +1333,7 @@ bool GossipSelect_BarberNPC(Player* player, Creature* creature, uint32 sender, u
     }
 
     // Selected category
-    if (sender == GOSSIP_SENDER_MAIN && action >= 1 && action <= 5)
+    if (sender == GOSSIP_SENDER_MAIN && action >= 1 && action <= 6)
     {
         uint32 category = action;
 
@@ -1346,7 +1347,7 @@ bool GossipSelect_BarberNPC(Player* player, Creature* creature, uint32 sender, u
 
     // Now player can chose a number 1–15
     // 'sender' now contains the category ID
-    if (sender >= 1 && sender <= 5)
+    if (sender >= 1 && sender <= 6)
     {
         uint8 value = action;
 
@@ -1364,11 +1365,15 @@ bool GossipSelect_BarberNPC(Player* player, Creature* creature, uint32 sender, u
             player->SetByteValue(PLAYER_BYTES, PLAYER_BYTES_OFFSET_HAIR_STYLE_ID, value -1);
             break;
 
-        case 4: // Hair Color
+        case 4: // Hair Style 2
+            player->SetByteValue(PLAYER_BYTES, PLAYER_BYTES_OFFSET_HAIR_STYLE_ID, (value + 15) - 1);
+            break;
+
+        case 5: // Hair Color
             player->SetByteValue(PLAYER_BYTES, PLAYER_BYTES_OFFSET_HAIR_COLOR_ID, value -1);
             break;
 
-        case 5: // Accessories
+        case 6: // Accessories
             player->SetByteValue(PLAYER_BYTES_2, PLAYER_BYTES_2_OFFSET_FACIAL_STYLE, value -1);
             break;
         }
