@@ -772,9 +772,6 @@ REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display
 
 REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `flags`, `buy_price`, `sell_price`, `allowable_class`, `allowable_race`, `item_level`, `required_skill`, `required_skill_rank`, `required_reputation_faction`, `required_reputation_rank`, `delay`, `spellid_1`, `spellcharges_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30366, @ITEM_CLASS_RECIPE, @ITEM_SUBCLASS_BOOK, 'Plans: Darksteel Ingot', 1102, 4, 64, 1000000, 250000, -1, -1, 20, @SKILL_MINING, 300, @FACTION_CARETAKERS_OF_KARAZHAN, @REPUTATION_HONORED, 0, 34211, -1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 2);
 
--- TODO: Recipes require rep, revered or honored after @skill, 300
--- TODO: Use @FACTION_CARETAKERS_OF_KARAZHAN and @REPUTATION_HONORED / @REPUTATION_REVERED
-
 -- TODO: All legs of the blue pvp / TBC dungeon sets as random drops
 -- https://www.wowhead.com/tbc/transmog-set=910/beast-lord-armor
 -- NEXT 30367
