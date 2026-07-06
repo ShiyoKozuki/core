@@ -39,7 +39,7 @@
 --     STAT_INTELLECT                     = 3,
 --     STAT_SPIRIT                        = 4
 -- };
-
+-- dummy commit
 -- enum Classes
 -- {
 --     CLASS_WARRIOR       = 1,
