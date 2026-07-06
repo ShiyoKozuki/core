@@ -633,15 +633,15 @@ REPLACE `mangos`.`item_template` (`entry`, `name`, `description`, `display_id`, 
 REPLACE `mangos`.`item_template` (`entry`, `name`, `description`, `display_id`, `quality`, `allowable_class`, `allowable_race`, `delay`, `spellid_1`, `spellcharges_1`, `spellcooldown_1`, `spellcategory_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `material`) VALUES (30302, 'Cursed Greaves', 'This pair of crimson greaves was constructed from rock-hard hydra scales. However, due to a curse that has been placed upon it, the greaves cannot be equipped.', 52052, 3, -1, -1, 0, 0, -1, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3);
 
 -- Koenig (Cursed)
-REPLACE `mangos`.`item_template` (`entry`, `name`, `description`, `display_id`, `quality`, `allowable_class`, `allowable_race`, `delay`, `spellid_1`, `spellcharges_1`, `spellcooldown_1`, `spellcategory_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `material`) VALUES (30303, 'Cursed Schaller', 'This composite schaller has been ornately decorated with platinum. However, due to a curse that has been placed upon it, the schaller cannot be equipped.', 27606, 3, -1, -1, 0, 0, -1, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3);
+REPLACE `mangos`.`item_template` (`entry`, `name`, `description`, `display_id`, `quality`, `allowable_class`, `allowable_race`, `delay`, `spellid_1`, `spellcharges_1`, `spellcooldown_1`, `spellcategory_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `material`) VALUES (30303, 'Cursed Schaller', 'This composite schaller has been ornately decorated with darksteel. However, due to a curse that has been placed upon it, the schaller cannot be equipped.', 27606, 3, -1, -1, 0, 0, -1, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3);
 
-REPLACE `mangos`.`item_template` (`entry`, `name`, `description`, `display_id`, `quality`, `allowable_class`, `allowable_race`, `delay`, `spellid_1`, `spellcharges_1`, `spellcooldown_1`, `spellcategory_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `material`) VALUES (30304, 'Cursed Epaulettes', 'These composite epaulettes have been ornately decorated with platinum. However, due to a curse that has been placed upon it, the epaulettes cannot be equipped.', 27422, 3, -1, -1, 0, 0, -1, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3);
+REPLACE `mangos`.`item_template` (`entry`, `name`, `description`, `display_id`, `quality`, `allowable_class`, `allowable_race`, `delay`, `spellid_1`, `spellcharges_1`, `spellcooldown_1`, `spellcategory_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `material`) VALUES (30304, 'Cursed Epaulettes', 'These composite epaulettes have been ornately decorated with darksteel. However, due to a curse that has been placed upon it, the epaulettes cannot be equipped.', 27422, 3, -1, -1, 0, 0, -1, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3);
 
-REPLACE `mangos`.`item_template` (`entry`, `name`, `description`, `display_id`, `quality`, `allowable_class`, `allowable_race`, `delay`, `spellid_1`, `spellcharges_1`, `spellcooldown_1`, `spellcategory_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `material`) VALUES (30305, 'Cursed Cuirass', 'This composite cuirass has been ornately decorated with platinum. However, due to a curse that has been placed upon it, the cuirass cannot be equipped.', 38321, 3, -1, -1, 0, 0, -1, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3);
+REPLACE `mangos`.`item_template` (`entry`, `name`, `description`, `display_id`, `quality`, `allowable_class`, `allowable_race`, `delay`, `spellid_1`, `spellcharges_1`, `spellcooldown_1`, `spellcategory_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `material`) VALUES (30305, 'Cursed Cuirass', 'This composite cuirass has been ornately decorated with darksteel. However, due to a curse that has been placed upon it, the cuirass cannot be equipped.', 38321, 3, -1, -1, 0, 0, -1, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3);
 
-REPLACE `mangos`.`item_template` (`entry`, `name`, `description`, `display_id`, `quality`, `allowable_class`, `allowable_race`, `delay`, `spellid_1`, `spellcharges_1`, `spellcooldown_1`, `spellcategory_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `material`) VALUES (30306, 'Cursed Handschuhs', 'This pair of composite handschuhs has been ornately decorated with platinum. However, due to a curse that has been placed upon it, the handschuhs cannot be equipped.', 38328, 3, -1, -1, 0, 0, -1, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3);
+REPLACE `mangos`.`item_template` (`entry`, `name`, `description`, `display_id`, `quality`, `allowable_class`, `allowable_race`, `delay`, `spellid_1`, `spellcharges_1`, `spellcooldown_1`, `spellcategory_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `material`) VALUES (30306, 'Cursed Handschuhs', 'This pair of composite handschuhs has been ornately decorated with darksteel. However, due to a curse that has been placed upon it, the handschuhs cannot be equipped.', 38328, 3, -1, -1, 0, 0, -1, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3);
 
-REPLACE `mangos`.`item_template` (`entry`, `name`, `description`, `display_id`, `quality`, `allowable_class`, `allowable_race`, `delay`, `spellid_1`, `spellcharges_1`, `spellcooldown_1`, `spellcategory_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `material`) VALUES (30307, 'Cursed Schuhs', 'This luxurious pair of composite schuhs has been ornately decorated with platinum. However, due to a curse that has been placed upon it, the schuhs cannot be equipped.', 39451, 3, -1, -1, 0, 0, -1, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3);
+REPLACE `mangos`.`item_template` (`entry`, `name`, `description`, `display_id`, `quality`, `allowable_class`, `allowable_race`, `delay`, `spellid_1`, `spellcharges_1`, `spellcooldown_1`, `spellcategory_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `material`) VALUES (30307, 'Cursed Schuhs', 'This luxurious pair of composite schuhs has been ornately decorated with darksteel. However, due to a curse that has been placed upon it, the schuhs cannot be equipped.', 39451, 3, -1, -1, 0, 0, -1, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3);
 
 -- Abjuration (Hecatomb)
 REPLACE `mangos`.`item_template` (`entry`, `name`, `description`, `display_id`, `quality`, `allowable_class`, `allowable_race`, `delay`, `spellid_1`, `spellcharges_1`, `spellcooldown_1`, `spellcategory_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `material`) VALUES (30308, 'Neptunal abjuration: head', 'The inscription reads: "In accordance with the ancient neptunal pact, may the bane be lifted from thy forbidden artifact." This prayer is necessary in purifying a cursed cap.', 57356, 3, -1, -1, 0, 0, -1, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3);
@@ -764,17 +764,20 @@ REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quali
 
         REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `delay`, `armor`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `material`, `max_durability`) VALUES (30362, @ITEM_CLASS_ARMOR, @ITEM_SUBCLASS_ARMOR_CLOTH, 'Apprentice\'s Boots', 33260, 0, 0, @INVTYPE_FEET, -1, @RACE_BLOODELF, 1, 1, 0, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 7, 35);
 
-REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `flags`, `buy_price`, `sell_price`, `allowable_class`, `allowable_race`, `item_level`, `required_skill`, `required_skill_rank`, `delay`, `spellid_1`, `spellcharges_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30363, @ITEM_CLASS_RECIPE, @ITEM_SUBCLASS_TAILORING_PATTERN, 'Pattern: Rainbow Cloth', 1102, 4, 64, 1000000, 250000, -1, -1, 20, @SKILL_TAILORING, 300, 0, 34206, -1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 2);
+REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `flags`, `buy_price`, `sell_price`, `allowable_class`, `allowable_race`, `item_level`, `required_skill`, `required_skill_rank`, `required_reputation_faction`, `required_reputation_rank`, `delay`, `spellid_1`, `spellcharges_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30363, @ITEM_CLASS_RECIPE, @ITEM_SUBCLASS_TAILORING_PATTERN, 'Pattern: Rainbow Cloth', 1102, 4, 64, 1000000, 250000, -1, -1, 20, @SKILL_TAILORING, 300, @FACTION_CARETAKERS_OF_KARAZHAN, @REPUTATION_HONORED, 0, 34206, -1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 2);
 
-REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `flags`, `buy_price`, `sell_price`, `allowable_class`, `allowable_race`, `item_level`, `required_skill`, `required_skill_rank`, `delay`, `spellid_1`, `spellcharges_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30364, @ITEM_CLASS_RECIPE, @ITEM_SUBCLASS_LEATHERWORKING_PATTERN, 'Pattern: Tiger Leather', 1102, 4, 64, 1000000, 250000, -1, -1, 20, @SKILL_LEATHERWORKING, 300, 0, 34259, -1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 2);
+REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `flags`, `buy_price`, `sell_price`, `allowable_class`, `allowable_race`, `item_level`, `required_skill`, `required_skill_rank`, `required_reputation_faction`, `required_reputation_rank`, `delay`, `spellid_1`, `spellcharges_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30364, @ITEM_CLASS_RECIPE, @ITEM_SUBCLASS_LEATHERWORKING_PATTERN, 'Pattern: Tiger Leather', 1102, 4, 64, 1000000, 250000, -1, -1, 20, @SKILL_LEATHERWORKING, 300, @FACTION_CARETAKERS_OF_KARAZHAN, @REPUTATION_HONORED, 0, 34259, -1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 2);
 
-REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `flags`, `buy_price`, `sell_price`, `allowable_class`, `allowable_race`, `item_level`, `required_skill`, `required_skill_rank`, `delay`, `spellid_1`, `spellcharges_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30365, @ITEM_CLASS_RECIPE, @ITEM_SUBCLASS_ALCHEMY_RECIPE, 'Recipe: Dragon\'s Blood', 1102, 4, 64, 1000000, 250000, -1, -1, 20, @SKILL_ALCHEMY, 300, 0, 34209, -1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 2);
+REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `flags`, `buy_price`, `sell_price`, `allowable_class`, `allowable_race`, `item_level`, `required_skill`, `required_skill_rank`, `required_reputation_faction`, `required_reputation_rank`, `delay`, `spellid_1`, `spellcharges_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`,`spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30365, @ITEM_CLASS_RECIPE, @ITEM_SUBCLASS_ALCHEMY_RECIPE, 'Recipe: Dragon\'s Blood', 1102, 4, 64, 1000000, 250000, -1, -1, 20, @SKILL_ALCHEMY, 300, @FACTION_CARETAKERS_OF_KARAZHAN, @REPUTATION_HONORED, 0, 34209, -1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 2);
 
-REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `flags`, `buy_price`, `sell_price`, `allowable_class`, `allowable_race`, `item_level`, `required_skill`, `required_skill_rank`, `delay`, `spellid_1`, `spellcharges_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30366, @ITEM_CLASS_RECIPE, @ITEM_SUBCLASS_BOOK, 'Plans: Darksteel Ingot', 1102, 4, 64, 1000000, 250000, -1, -1, 20, @SKILL_MINING, 300, 0, 34211, -1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 2);
+REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `flags`, `buy_price`, `sell_price`, `allowable_class`, `allowable_race`, `item_level`, `required_skill`, `required_skill_rank`, `required_reputation_faction`, `required_reputation_rank`, `delay`, `spellid_1`, `spellcharges_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30366, @ITEM_CLASS_RECIPE, @ITEM_SUBCLASS_BOOK, 'Plans: Darksteel Ingot', 1102, 4, 64, 1000000, 250000, -1, -1, 20, @SKILL_MINING, 300, @FACTION_CARETAKERS_OF_KARAZHAN, @REPUTATION_HONORED, 0, 34211, -1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 2);
+
+-- TODO: Recipes require rep, revered or honored after @skill, 300
+-- TODO: Use @FACTION_CARETAKERS_OF_KARAZHAN and @REPUTATION_HONORED / @REPUTATION_REVERED
 
 -- TODO: All legs of the blue pvp / TBC dungeon sets as random drops
 -- https://www.wowhead.com/tbc/transmog-set=910/beast-lord-armor
--- NEXT 30346
+-- NEXT 30367
 
 -- Item classes
     -- Trade goods
@@ -9385,7 +9388,7 @@ WHERE entry = 6970;
 -- Fire Hardened Coif
 UPDATE mangos . item_template
 SET quality = 3,
-    armor = 300,
+    armor = 163,
     spellid_1 = 9331, -- +20 Attack Power
     spelltrigger_1 = 1
 WHERE entry = 6971;
@@ -9393,7 +9396,7 @@ WHERE entry = 6971;
 -- Fire Hardened Hauberk
 UPDATE mangos . item_template
 SET quality = 4,
-    armor = 450,
+    armor = 300,
     stat_type1 = 4,
     stat_value1 = 5,
     stat_type2 = 7,
@@ -9408,7 +9411,7 @@ WHERE entry = 6972;
 -- Fire Hardened Leggings
 UPDATE mangos . item_template
 SET quality = 3,
-    armor = 375,
+    armor = 171,
     spellid_1 = 9140, -- +10 Attack Power
     spelltrigger_1 = 1
 WHERE entry = 6973;
@@ -9416,7 +9419,7 @@ WHERE entry = 6973;
 -- Fire Hardened Gauntlets
 UPDATE mangos . item_template
 SET quality = 3,
-    armor = 250,
+    armor = 126,
     spellid_1 = 9140, -- +10 Attack Power
     spelltrigger_1 = 1
 WHERE entry = 6974;
@@ -15487,7 +15490,7 @@ WHERE entry IN(30007, 30016, 30017, 30018);
 -- TODO: Formula: Enchant Chest - Greater Stats (16253)
 
 UPDATE mangos. item_template 
-SET required_reputation_faction = 476, -- Timbermaw Rep
+SET required_reputation_faction = 576, -- Timbermaw Rep
     required_reputation_rank = 7 -- Exalted
 WHERE entry IN (18260, 13522);
 
@@ -15655,6 +15658,7 @@ WHERE entry IN(12717, 18418, 22388, 14512, 14513, 14514, 12834, 12825, 18260, 20
         -- (Side Boob + Cleavage) Nightsky Robe
         -- Mistcape Armor
         -- Gossamer Pants (Short Pants)
+        -- Stonecloth Robe (Shoes Tummy)
 
     -- Leather
         -- Dervish Tunic

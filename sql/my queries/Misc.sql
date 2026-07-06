@@ -21,12 +21,11 @@ UPDATE `mangos`.`game_event` SET `hardcoded`=0 WHERE  `entry`=90;
 UPDATE `mangos`.`game_event` SET `hardcoded`=0 WHERE  `entry`=17;
 
 -- Object Respawn Time
-
-    -- Instant
-    UPDATE `mangos`.`gameobject` SET `spawntimesecsmin`=0, `spawntimesecsmax`=0 WHERE id IN (119, 321, 2084, 28024, 142088);     
+    -- Instant !!!Make sure to also edit the below to despawn when looted
+    UPDATE `mangos`.`gameobject` SET `spawntimesecsmin`=0, `spawntimesecsmax`=0 WHERE id IN (119, 321, 1760, 2084, 28024, 142088);     
 
 -- Object Despawn when looted (data3 = 1 means despawn when looted)
-    UPDATE `mangos`.`gameobject_template` SET `data3`=1 WHERE entry IN (119, 321, 2084, 28024, 142088);
+    UPDATE `mangos`.`gameobject_template` SET `data3`=1 WHERE entry IN (119, 321, 1760, 2084, 28024, 142088);
     
 -- All chests changed to 30m respawn (Were 5m..)
 UPDATE gameobject g

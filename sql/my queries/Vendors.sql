@@ -236,11 +236,17 @@ INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (10
         -- Recipe Vendor
             -- NPC
                 -- Creature Template
-                    REPLACE `mangos`.`creature_template` (`entry`, `name`, `subname`, `level_min`, `level_max`, `faction`, `npc_flags`, `gossip_menu_id`, `display_id1`, `display_probability1`, `display_total_probability`, `type`, `unit_class`, `health_multiplier`, `base_attack_time`, `equipment_id`, `static_flags1`, `flags_extra`) VALUES (90107, 'Kyri Boushe', 'Recipe Vendor', 30, 30, 12, 5, 686, 1444, 1, 1, 7, 1, 1.05, 1500, 1275, 138936390, 2);
+                    REPLACE `mangos`.`creature_template` (`entry`, `name`, `subname`, `level_min`, `level_max`, `faction`, `npc_flags`, `gossip_menu_id`, `display_id1`, `display_probability1`, `display_total_probability`, `type`, `unit_class`, `health_multiplier`, `base_attack_time`, `equipment_id`, `static_flags1`, `flags_extra`) VALUES (90107, 'Vicki Boucher', 'Recipe Vendor', 30, 30, 12, 5, 686, 1444, 1, 1, 7, 1, 1.05, 1500, 1275, 138936390, 2);
 
                 -- Creature (Spawn)
+                    REPLACE `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000156, 90107, 0, 0, 0, 0, 0, -10454.9, -1722.77, 84.9647, 2.31838, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
 
                 -- Vendor List
+                REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90107, 1, 30363, 0, 0, 0, 0);
+                REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90107, 2, 30364, 0, 0, 0, 0);
+                REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90107, 3, 30365, 0, 0, 0, 0);
+                REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90107, 4, 30366, 0, 0, 0, 0);
+                REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90107, 5, 30367, 0, 0, 0, 0);
 
         -- Race Changer (Blood Elf Starter Gear Vendor)
             -- NPC
@@ -248,6 +254,7 @@ INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (10
                     REPLACE `mangos`.`creature_template` (`entry`, `name`, `subname`, `level_min`, `level_max`, `faction`, `npc_flags`, `display_id1`, `display_scale1`, `detection_range`, `rank`, `unit_class`, `base_attack_time`, `ranged_attack_time`, `inhabit_type`, `flags_extra`) VALUES (90109, 'Ron Swanson', 'Racial Gear Merchant', 50, 50, 35, 4, 7209, 1, 20, 1, 1, 1000, 1000, 1, 2);
 
                 -- Creature (Spawn)
+                    REPLACE `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000155, 90109, 0, 0, 0, 0, 0, -8898.42, -135.442, 80.681, 0.845435, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
 
                 -- Vendor List
                     REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90109, 1, 30349, 0, 0, 0, 0);

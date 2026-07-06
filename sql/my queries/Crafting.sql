@@ -1086,6 +1086,441 @@ SET
 
                 -- Skill Line Ability:
                 REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `req_skill_value`, `max_value`, `min_value`) VALUES (15198, 5875, @SKILL_TAILORING, 34268, 1, 300, 315);
+
+            -- Cursed Cap
+                -- Recipe
+                    REPLACE `mangos`.`spell_template` (`entry`, `build`, `castUI`, `attributes`, `castingTimeIndex`, `interruptFlags`, `procChance`, `rangeIndex`, `reagent1`, `reagent2`, `reagent3`, `reagentCount1`, `reagentCount2`, `reagentCount3`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectItemType1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34272, 4222, 0, 65568, 39, 15, 101, 1, 666, 666, 666, 666, 666, 666, -1, 24, 1, 1, 0, -1, -1, 1, 666, 3182, 1, 'itemName', 7274526, 7274508, 7274508, 983052, -1, 1, 1, 1);
+
+                    UPDATE `mangos`.`spell_template` SET 
+                        `reagent1`=@ITEM_TIGER_LEATHER, 
+                        `reagent2`=@ITEM_RAINBOW_CLOTH, 
+                        `reagent3`=@ITEM_KIRIN_TOR_RUNE_DUST, 
+                        `reagent4`=@ITEM_FEL_GRASS, 
+                        `reagent5`=@ITEM_GLUE, 
+                        `reagent6`=@ITEM_RUGGED_RUBBER, 
+                        `reagentCount1`=4, 
+                        `reagentCount2`=2, 
+                        `reagentCount3`=4, 
+                        `reagentCount4`=2, 
+                        `reagentCount5`=3, 
+                        `reagentCount6`=3, 
+                        `effectItemType1`=30293,
+                        `spellVisual1`=395, 
+                        `spellIconId`=413, 
+                        `name`='Cursed Cap' 
+                    WHERE `entry`=34272;
+
+                -- Learn spell:
+                    REPLACE  `mangos`.`spell_template` (`entry`, `build`, `attributes`, `targets`, `castingTimeIndex`, `interruptFlags`, `procChance`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34273, 4222, 262400, 0, 1, 15, 101, 6, -1, -1, 36, 0, -1, -1, 34272, 222, 413, 'Cursed Cap', 983070, 7274508, 'Teaches you how to craft a Cursed Cap.', 7274508, 983052, -1, 1, 1, 1);
+
+                -- Skill Line Ability:
+                REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `req_skill_value`, `max_value`, `min_value`) VALUES (15199, 5875, @SKILL_LEATHERWORKING, 34272, 1, 300, 315);
+
+            -- Cursed Shoulders
+                -- Recipe
+                    REPLACE `mangos`.`spell_template` (`entry`, `build`, `castUI`, `attributes`, `castingTimeIndex`, `interruptFlags`, `procChance`, `rangeIndex`, `reagent1`, `reagent2`, `reagent3`, `reagentCount1`, `reagentCount2`, `reagentCount3`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectItemType1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34274, 4222, 0, 65568, 39, 15, 101, 1, 666, 666, 666, 666, 666, 666, -1, 24, 1, 1, 0, -1, -1, 1, 666, 3182, 1, 'itemName', 7274526, 7274508, 7274508, 983052, -1, 1, 1, 1);
+
+                    UPDATE `mangos`.`spell_template` SET 
+                        `reagent1`=@ITEM_TIGER_LEATHER, 
+                        `reagent2`=@ITEM_RAINBOW_CLOTH, 
+                        `reagent3`=@ITEM_MANA_INFUSED_CLOTH_SCRAPS, 
+                        `reagent4`=@ITEM_GLUE, 
+                        `reagent5`=@ITEM_ENCHANTED_LUMBER, 
+                        `reagent6`=@ITEM_RUGGED_RUBBER, 
+                        `reagentCount1`=4, 
+                        `reagentCount2`=2, 
+                        `reagentCount3`=4, 
+                        `reagentCount4`=2, 
+                        `reagentCount5`=3, 
+                        `reagentCount6`=3, 
+                        `effectItemType1`=30294,
+                        `spellVisual1`=395, 
+                        `spellIconId`=413, 
+                        `name`='Cursed Shoulders' 
+                    WHERE `entry`=34274;
+
+                -- Learn spell:
+                    REPLACE  `mangos`.`spell_template` (`entry`, `build`, `attributes`, `targets`, `castingTimeIndex`, `interruptFlags`, `procChance`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34275, 4222, 262400, 0, 1, 15, 101, 6, -1, -1, 36, 0, -1, -1, 34274, 222, 413, 'Cursed Shoulders', 983070, 7274508, 'Teaches you how to craft a Cursed Shoulders.', 7274508, 983052, -1, 1, 1, 1);
+
+                -- Skill Line Ability:
+                REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `req_skill_value`, `max_value`, `min_value`) VALUES (15200, 5875, @SKILL_LEATHERWORKING, 34274, 1, 300, 315);
+
+            -- Cursed Harness
+                -- Recipe
+                    REPLACE `mangos`.`spell_template` (`entry`, `build`, `castUI`, `attributes`, `castingTimeIndex`, `interruptFlags`, `procChance`, `rangeIndex`, `reagent1`, `reagent2`, `reagent3`, `reagentCount1`, `reagentCount2`, `reagentCount3`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectItemType1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34276, 4222, 0, 65568, 39, 15, 101, 1, 666, 666, 666, 666, 666, 666, -1, 24, 1, 1, 0, -1, -1, 1, 666, 3182, 1, 'itemName', 7274526, 7274508, 7274508, 983052, -1, 1, 1, 1);
+
+                    UPDATE `mangos`.`spell_template` SET 
+                        `reagent1`=@ITEM_TIGER_LEATHER, 
+                        `reagent2`=@ITEM_RAINBOW_CLOTH, 
+                        `reagent3`=@ITEM_MANA_INFUSED_CLOTH_SCRAPS, 
+                        `reagent4`=@ITEM_GLUE, 
+                        `reagent5`=@ITEM_DARKSTEEL_INGOT, 
+                        `reagent6`=@ITEM_RUGGED_RUBBER, 
+                        `reagentCount1`=4, 
+                        `reagentCount2`=2, 
+                        `reagentCount3`=4, 
+                        `reagentCount4`=2, 
+                        `reagentCount5`=3, 
+                        `reagentCount6`=3, 
+                        `effectItemType1`=30295,
+                        `spellVisual1`=395, 
+                        `spellIconId`=413, 
+                        `name`='Cursed Harness' 
+                    WHERE `entry`=34276;
+
+                -- Learn spell:
+                    REPLACE  `mangos`.`spell_template` (`entry`, `build`, `attributes`, `targets`, `castingTimeIndex`, `interruptFlags`, `procChance`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34277, 4222, 262400, 0, 1, 15, 101, 6, -1, -1, 36, 0, -1, -1, 34276, 222, 413, 'Cursed Harness', 983070, 7274508, 'Teaches you how to craft a Cursed Harness.', 7274508, 983052, -1, 1, 1, 1);
+
+                -- Skill Line Ability:
+                REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `req_skill_value`, `max_value`, `min_value`) VALUES (15201, 5875, @SKILL_LEATHERWORKING, 34276, 1, 300, 315);
+
+            -- Cursed Gloves
+                -- Recipe
+                    REPLACE `mangos`.`spell_template` (`entry`, `build`, `castUI`, `attributes`, `castingTimeIndex`, `interruptFlags`, `procChance`, `rangeIndex`, `reagent1`, `reagent2`, `reagent3`, `reagentCount1`, `reagentCount2`, `reagentCount3`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectItemType1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34278, 4222, 0, 65568, 39, 15, 101, 1, 666, 666, 666, 666, 666, 666, -1, 24, 1, 1, 0, -1, -1, 1, 666, 3182, 1, 'itemName', 7274526, 7274508, 7274508, 983052, -1, 1, 1, 1);
+
+                    UPDATE `mangos`.`spell_template` SET 
+                        `reagent1`=@ITEM_TIGER_LEATHER, 
+                        `reagent2`=@ITEM_RAINBOW_CLOTH, 
+                        `reagent3`=@ITEM_MANA_INFUSED_CLOTH_SCRAPS, 
+                        `reagent4`=@ITEM_GLUE, 
+                        `reagent5`=@ITEM_DARKSTEEL_INGOT, 
+                        `reagent6`=@ITEM_RUGGED_RUBBER, 
+                        `reagentCount1`=4, 
+                        `reagentCount2`=2, 
+                        `reagentCount3`=4, 
+                        `reagentCount4`=2, 
+                        `reagentCount5`=2, 
+                        `reagentCount6`=3, 
+                        `effectItemType1`=30296,
+                        `spellVisual1`=395, 
+                        `spellIconId`=413, 
+                        `name`='Cursed Gloves' 
+                    WHERE `entry`=34278;
+
+                -- Learn spell:
+                    REPLACE  `mangos`.`spell_template` (`entry`, `build`, `attributes`, `targets`, `castingTimeIndex`, `interruptFlags`, `procChance`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34279, 4222, 262400, 0, 1, 15, 101, 6, -1, -1, 36, 0, -1, -1, 34278, 222, 413, 'Cursed Gloves', 983070, 7274508, 'Teaches you how to craft a Cursed Gloves.', 7274508, 983052, -1, 1, 1, 1);
+
+                -- Skill Line Ability:
+                REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `req_skill_value`, `max_value`, `min_value`) VALUES (15202, 5875, @SKILL_LEATHERWORKING, 34278, 1, 300, 315);
+
+            -- Cursed Leggings
+                -- Recipe
+                    REPLACE `mangos`.`spell_template` (`entry`, `build`, `castUI`, `attributes`, `castingTimeIndex`, `interruptFlags`, `procChance`, `rangeIndex`, `reagent1`, `reagent2`, `reagent3`, `reagentCount1`, `reagentCount2`, `reagentCount3`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectItemType1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34280, 4222, 0, 65568, 39, 15, 101, 1, 666, 666, 666, 666, 666, 666, -1, 24, 1, 1, 0, -1, -1, 1, 666, 3182, 1, 'itemName', 7274526, 7274508, 7274508, 983052, -1, 1, 1, 1);
+
+                    UPDATE `mangos`.`spell_template` SET 
+                        `reagent1`=@ITEM_TIGER_LEATHER, 
+                        `reagent2`=@ITEM_RAINBOW_CLOTH, 
+                        `reagent3`=@ITEM_MANA_INFUSED_CLOTH_SCRAPS, 
+                        `reagent4`=@ITEM_GLUE, 
+                        `reagent5`=@ITEM_DARKSTEEL_INGOT, 
+                        `reagent6`=@ITEM_RUGGED_RUBBER, 
+                        `reagentCount1`=4, 
+                        `reagentCount2`=2, 
+                        `reagentCount3`=4, 
+                        `reagentCount4`=2, 
+                        `reagentCount5`=1, 
+                        `reagentCount6`=3, 
+                        `effectItemType1`=30297,
+                        `spellVisual1`=395, 
+                        `spellIconId`=413, 
+                        `name`='Cursed Leggings' 
+                    WHERE `entry`=34280;
+
+                -- Learn spell:
+                    REPLACE  `mangos`.`spell_template` (`entry`, `build`, `attributes`, `targets`, `castingTimeIndex`, `interruptFlags`, `procChance`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34281, 4222, 262400, 0, 1, 15, 101, 6, -1, -1, 36, 0, -1, -1, 34280, 222, 413, 'Cursed Leggings', 983070, 7274508, 'Teaches you how to craft a Cursed Leggings.', 7274508, 983052, -1, 1, 1, 1);
+
+                -- Skill Line Ability:
+                REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `req_skill_value`, `max_value`, `min_value`) VALUES (15203, 5875, @SKILL_LEATHERWORKING, 34280, 1, 300, 315);
+
+            -- Cursed Mask
+                -- Recipe
+                    REPLACE `mangos`.`spell_template` (`entry`, `build`, `castUI`, `attributes`, `castingTimeIndex`, `interruptFlags`, `procChance`, `rangeIndex`, `reagent1`, `reagent2`, `reagent3`, `reagentCount1`, `reagentCount2`, `reagentCount3`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectItemType1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34282, 4222, 0, 65568, 39, 15, 101, 1, 666, 666, 666, 666, 666, 666, -1, 24, 1, 1, 0, -1, -1, 1, 666, 3182, 1, 'itemName', 7274526, 7274508, 7274508, 983052, -1, 1, 1, 1);
+
+                    UPDATE `mangos`.`spell_template` SET 
+                        `reagent1`=@ITEM_HARDENED_HYDRA_SCALES, 
+                        `reagent2`=@ITEM_TIGER_LEATHER, 
+                        `reagent3`=@ITEM_DRAGON_BLOOD, 
+                        `reagent4`=@ITEM_DARKSTEEL_SCALES, 
+                        `reagent5`=@ITEM_GLUE, 
+                        `reagent6`=@ITEM_RUGGED_RUBBER, 
+                        `reagentCount1`=4, 
+                        `reagentCount2`=2, 
+                        `reagentCount3`=4, 
+                        `reagentCount4`=2, 
+                        `reagentCount5`=3, 
+                        `reagentCount6`=3, 
+                        `effectItemType1`=30298,
+                        `spellVisual1`=395, 
+                        `spellIconId`=413, 
+                        `name`='Cursed Mask' 
+                    WHERE `entry`=34282;
+
+                -- Learn spell:
+                    REPLACE  `mangos`.`spell_template` (`entry`, `build`, `attributes`, `targets`, `castingTimeIndex`, `interruptFlags`, `procChance`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34283, 4222, 262400, 0, 1, 15, 101, 6, -1, -1, 36, 0, -1, -1, 34282, 222, 413, 'Cursed Mask', 983070, 7274508, 'Teaches you how to craft a Cursed Mask.', 7274508, 983052, -1, 1, 1, 1);
+
+                -- Skill Line Ability:
+                REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `req_skill_value`, `max_value`, `min_value`) VALUES (15204, 5875, @SKILL_ALCHEMY, 34282, 1, 300, 315);
+
+            -- Cursed Spaulders
+                -- Recipe
+                    REPLACE `mangos`.`spell_template` (`entry`, `build`, `castUI`, `attributes`, `castingTimeIndex`, `interruptFlags`, `procChance`, `rangeIndex`, `reagent1`, `reagent2`, `reagent3`, `reagentCount1`, `reagentCount2`, `reagentCount3`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectItemType1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34284, 4222, 0, 65568, 39, 15, 101, 1, 666, 666, 666, 666, 666, 666, -1, 24, 1, 1, 0, -1, -1, 1, 666, 3182, 1, 'itemName', 7274526, 7274508, 7274508, 983052, -1, 1, 1, 1);
+
+                    UPDATE `mangos`.`spell_template` SET 
+                        `reagent1`=@ITEM_HARDENED_HYDRA_SCALES, 
+                        `reagent2`=@ITEM_TIGER_LEATHER, 
+                        `reagent3`=@ITEM_DRAGON_BLOOD, 
+                        `reagent4`=@ITEM_DARKSTEEL_SCALES, 
+                        `reagent5`=@ITEM_GLUE, 
+                        `reagent6`=@ITEM_RUGGED_RUBBER, 
+                        `reagentCount1`=4, 
+                        `reagentCount2`=2, 
+                        `reagentCount3`=4, 
+                        `reagentCount4`=2, 
+                        `reagentCount5`=3, 
+                        `reagentCount6`=3, 
+                        `effectItemType1`=30299,
+                        `spellVisual1`=395, 
+                        `spellIconId`=413, 
+                        `name`='Cursed Spaulders' 
+                    WHERE `entry`=34284;
+
+                -- Learn spell:
+                    REPLACE  `mangos`.`spell_template` (`entry`, `build`, `attributes`, `targets`, `castingTimeIndex`, `interruptFlags`, `procChance`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34285, 4222, 262400, 0, 1, 15, 101, 6, -1, -1, 36, 0, -1, -1, 34284, 222, 413, 'Cursed Spaulders', 983070, 7274508, 'Teaches you how to craft a Cursed Spaulders.', 7274508, 983052, -1, 1, 1, 1);
+
+                -- Skill Line Ability:
+                REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `req_skill_value`, `max_value`, `min_value`) VALUES (15205, 5875, @SKILL_ALCHEMY, 34284, 1, 300, 315);
+
+            -- Cursed Mail
+                -- Recipe
+                    REPLACE `mangos`.`spell_template` (`entry`, `build`, `castUI`, `attributes`, `castingTimeIndex`, `interruptFlags`, `procChance`, `rangeIndex`, `reagent1`, `reagent2`, `reagent3`, `reagentCount1`, `reagentCount2`, `reagentCount3`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectItemType1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34286, 4222, 0, 65568, 39, 15, 101, 1, 666, 666, 666, 666, 666, 666, -1, 24, 1, 1, 0, -1, -1, 1, 666, 3182, 1, 'itemName', 7274526, 7274508, 7274508, 983052, -1, 1, 1, 1);
+
+                    UPDATE `mangos`.`spell_template` SET 
+                        `reagent1`=@ITEM_HARDENED_HYDRA_SCALES, 
+                        `reagent2`=@ITEM_TIGER_LEATHER, 
+                        `reagent3`=@ITEM_DRAGON_BLOOD, 
+                        `reagent4`=@ITEM_DARKSTEEL_SCALES, 
+                        `reagent5`=@ITEM_GLUE, 
+                        `reagent6`=@ITEM_RUGGED_RUBBER, 
+                        `reagentCount1`=4, 
+                        `reagentCount2`=2, 
+                        `reagentCount3`=4, 
+                        `reagentCount4`=2, 
+                        `reagentCount5`=3, 
+                        `reagentCount6`=3, 
+                        `effectItemType1`=30300,
+                        `spellVisual1`=395, 
+                        `spellIconId`=413, 
+                        `name`='Cursed Mail' 
+                    WHERE `entry`=34286;
+
+                -- Learn spell:
+                    REPLACE  `mangos`.`spell_template` (`entry`, `build`, `attributes`, `targets`, `castingTimeIndex`, `interruptFlags`, `procChance`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34287, 4222, 262400, 0, 1, 15, 101, 6, -1, -1, 36, 0, -1, -1, 34286, 222, 413, 'Cursed Mail', 983070, 7274508, 'Teaches you how to craft a Cursed Mail.', 7274508, 983052, -1, 1, 1, 1);
+
+                -- Skill Line Ability:
+                REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `req_skill_value`, `max_value`, `min_value`) VALUES (15206, 5875, @SKILL_ALCHEMY, 34286, 1, 300, 315);
+
+            -- Cursed Finger Gauntlets
+                -- Recipe
+                    REPLACE `mangos`.`spell_template` (`entry`, `build`, `castUI`, `attributes`, `castingTimeIndex`, `interruptFlags`, `procChance`, `rangeIndex`, `reagent1`, `reagent2`, `reagent3`, `reagentCount1`, `reagentCount2`, `reagentCount3`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectItemType1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34288, 4222, 0, 65568, 39, 15, 101, 1, 666, 666, 666, 666, 666, 666, -1, 24, 1, 1, 0, -1, -1, 1, 666, 3182, 1, 'itemName', 7274526, 7274508, 7274508, 983052, -1, 1, 1, 1);
+
+                    UPDATE `mangos`.`spell_template` SET 
+                        `reagent1`=@ITEM_HARDENED_HYDRA_SCALES, 
+                        `reagent2`=@ITEM_TIGER_LEATHER, 
+                        `reagent3`=@ITEM_DRAGON_BLOOD, 
+                        `reagent4`=@ITEM_DARKSTEEL_SCALES, 
+                        `reagent5`=@ITEM_GLUE, 
+                        `reagent6`=@ITEM_RUGGED_RUBBER, 
+                        `reagentCount1`=4, 
+                        `reagentCount2`=2, 
+                        `reagentCount3`=4, 
+                        `reagentCount4`=2, 
+                        `reagentCount5`=3, 
+                        `reagentCount6`=3, 
+                        `effectItemType1`=30301,
+                        `spellVisual1`=395, 
+                        `spellIconId`=413, 
+                        `name`='Cursed Finger Gauntlets' 
+                    WHERE `entry`=34288;
+
+                -- Learn spell:
+                    REPLACE  `mangos`.`spell_template` (`entry`, `build`, `attributes`, `targets`, `castingTimeIndex`, `interruptFlags`, `procChance`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34289, 4222, 262400, 0, 1, 15, 101, 6, -1, -1, 36, 0, -1, -1, 34288, 222, 413, 'Cursed Finger Gauntlets', 983070, 7274508, 'Teaches you how to craft a Cursed Finger Gauntlets.', 7274508, 983052, -1, 1, 1, 1);
+
+                -- Skill Line Ability:
+                REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `req_skill_value`, `max_value`, `min_value`) VALUES (15207, 5875, @SKILL_ALCHEMY, 34288, 1, 300, 315);
+
+            -- Cursed Greaves
+                -- Recipe
+                    REPLACE `mangos`.`spell_template` (`entry`, `build`, `castUI`, `attributes`, `castingTimeIndex`, `interruptFlags`, `procChance`, `rangeIndex`, `reagent1`, `reagent2`, `reagent3`, `reagentCount1`, `reagentCount2`, `reagentCount3`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectItemType1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34290, 4222, 0, 65568, 39, 15, 101, 1, 666, 666, 666, 666, 666, 666, -1, 24, 1, 1, 0, -1, -1, 1, 666, 3182, 1, 'itemName', 7274526, 7274508, 7274508, 983052, -1, 1, 1, 1);
+
+                    UPDATE `mangos`.`spell_template` SET 
+                        `reagent1`=@ITEM_HARDENED_HYDRA_SCALES, 
+                        `reagent2`=@ITEM_TIGER_LEATHER, 
+                        `reagent3`=@ITEM_DRAGON_BLOOD, 
+                        `reagent4`=@ITEM_DARKSTEEL_SCALES, 
+                        `reagent5`=@ITEM_GLUE, 
+                        `reagent6`=@ITEM_RUGGED_RUBBER, 
+                        `reagentCount1`=4, 
+                        `reagentCount2`=2, 
+                        `reagentCount3`=4, 
+                        `reagentCount4`=2, 
+                        `reagentCount5`=3, 
+                        `reagentCount6`=3, 
+                        `effectItemType1`=30302,
+                        `spellVisual1`=395, 
+                        `spellIconId`=413, 
+                        `name`='Cursed Greaves' 
+                    WHERE `entry`=34290;
+
+                -- Learn spell:
+                    REPLACE  `mangos`.`spell_template` (`entry`, `build`, `attributes`, `targets`, `castingTimeIndex`, `interruptFlags`, `procChance`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34291, 4222, 262400, 0, 1, 15, 101, 6, -1, -1, 36, 0, -1, -1, 34290, 222, 413, 'Cursed Greaves', 983070, 7274508, 'Teaches you how to craft a Cursed Greaves.', 7274508, 983052, -1, 1, 1, 1);
+
+                -- Skill Line Ability:
+                REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `req_skill_value`, `max_value`, `min_value`) VALUES (15208, 5875, @SKILL_ALCHEMY, 34290, 1, 300, 315);
+
+            -- Cursed Schaller
+                -- Recipe
+                    REPLACE `mangos`.`spell_template` (`entry`, `build`, `castUI`, `attributes`, `castingTimeIndex`, `interruptFlags`, `procChance`, `rangeIndex`, `reagent1`, `reagent2`, `reagent3`, `reagentCount1`, `reagentCount2`, `reagentCount3`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectItemType1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34292, 4222, 0, 65568, 39, 15, 101, 1, 666, 666, 666, 666, 666, 666, -1, 24, 1, 1, 0, -1, -1, 1, 666, 3182, 1, 'itemName', 7274526, 7274508, 7274508, 983052, -1, 1, 1, 1);
+
+                    UPDATE `mangos`.`spell_template` SET 
+                        `reagent1`=@ITEM_DARKSTEEL_INGOT, 
+                        `reagent2`=@ITEM_TIGER_LEATHER, 
+                        `reagent3`=@ITEM_CERMET_CHUNK, 
+                        `reagent4`=@ITEM_RAINBOW_CLOTH, 
+                        `reagent5`=@ITEM_GLUE, 
+                        `reagent6`=@ITEM_TITAN_POWER_CORE, 
+                        `reagentCount1`=4, 
+                        `reagentCount2`=2, 
+                        `reagentCount3`=4, 
+                        `reagentCount4`=2, 
+                        `reagentCount5`=3, 
+                        `reagentCount6`=2, 
+                        `effectItemType1`=30303,
+                        `spellVisual1`=395, 
+                        `spellIconId`=413, 
+                        `name`='Cursed Schaller' 
+                    WHERE `entry`=34292;
+
+                -- Learn spell:
+                    REPLACE  `mangos`.`spell_template` (`entry`, `build`, `attributes`, `targets`, `castingTimeIndex`, `interruptFlags`, `procChance`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34293, 4222, 262400, 0, 1, 15, 101, 6, -1, -1, 36, 0, -1, -1, 34292, 222, 413, 'Cursed Schaller', 983070, 7274508, 'Teaches you how to craft a Cursed Schaller.', 7274508, 983052, -1, 1, 1, 1);
+
+                -- Skill Line Ability:
+                REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `req_skill_value`, `max_value`, `min_value`) VALUES (15209, 5875, @SKILL_BLACKSMITHING, 34292, 1, 300, 315);
+
+            -- Cursed Epaulettes
+                -- Recipe
+                    REPLACE `mangos`.`spell_template` (`entry`, `build`, `castUI`, `attributes`, `castingTimeIndex`, `interruptFlags`, `procChance`, `rangeIndex`, `reagent1`, `reagent2`, `reagent3`, `reagentCount1`, `reagentCount2`, `reagentCount3`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectItemType1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34294, 4222, 0, 65568, 39, 15, 101, 1, 666, 666, 666, 666, 666, 666, -1, 24, 1, 1, 0, -1, -1, 1, 666, 3182, 1, 'itemName', 7274526, 7274508, 7274508, 983052, -1, 1, 1, 1);
+
+                    UPDATE `mangos`.`spell_template` SET 
+                        `reagent1`=@ITEM_DARKSTEEL_INGOT, 
+                        `reagent2`=@ITEM_TIGER_LEATHER, 
+                        `reagent3`=@ITEM_CERMET_CHUNK, 
+                        `reagent4`=@ITEM_RAINBOW_CLOTH, 
+                        `reagent5`=@ITEM_GLUE, 
+                        `reagent6`=@ITEM_TITAN_POWER_CORE, 
+                        `reagentCount1`=4, 
+                        `reagentCount2`=2, 
+                        `reagentCount3`=4, 
+                        `reagentCount4`=2, 
+                        `reagentCount5`=3, 
+                        `reagentCount6`=1, 
+                        `effectItemType1`=30303,
+                        `spellVisual1`=395, 
+                        `spellIconId`=413, 
+                        `name`='Cursed Epaulettes' 
+                    WHERE `entry`=34294;
+
+                -- Learn spell:
+                    REPLACE  `mangos`.`spell_template` (`entry`, `build`, `attributes`, `targets`, `castingTimeIndex`, `interruptFlags`, `procChance`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34295, 4222, 262400, 0, 1, 15, 101, 6, -1, -1, 36, 0, -1, -1, 34294, 222, 413, 'Cursed Epaulettes', 983070, 7274508, 'Teaches you how to craft a Cursed Epaulettes.', 7274508, 983052, -1, 1, 1, 1);
+
+                -- Skill Line Ability:
+                REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `req_skill_value`, `max_value`, `min_value`) VALUES (15210, 5875, @SKILL_BLACKSMITHING, 34294, 1, 300, 315);
+
+            -- Cursed Cuirass
+                -- Recipe
+                    REPLACE `mangos`.`spell_template` (`entry`, `build`, `castUI`, `attributes`, `castingTimeIndex`, `interruptFlags`, `procChance`, `rangeIndex`, `reagent1`, `reagent2`, `reagent3`, `reagentCount1`, `reagentCount2`, `reagentCount3`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectItemType1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34296, 4222, 0, 65568, 39, 15, 101, 1, 666, 666, 666, 666, 666, 666, -1, 24, 1, 1, 0, -1, -1, 1, 666, 3182, 1, 'itemName', 7274526, 7274508, 7274508, 983052, -1, 1, 1, 1);
+
+                    UPDATE `mangos`.`spell_template` SET 
+                        `reagent1`=@ITEM_DARKSTEEL_INGOT, 
+                        `reagent2`=@ITEM_TIGER_LEATHER, 
+                        `reagent3`=@ITEM_CERMET_CHUNK, 
+                        `reagent4`=@ITEM_RAINBOW_CLOTH, 
+                        `reagent5`=@ITEM_GLUE, 
+                        `reagent6`=@ITEM_TITAN_POWER_CORE, 
+                        `reagentCount1`=4, 
+                        `reagentCount2`=2, 
+                        `reagentCount3`=4, 
+                        `reagentCount4`=2, 
+                        `reagentCount5`=3, 
+                        `reagentCount6`=3, 
+                        `effectItemType1`=30303,
+                        `spellVisual1`=395, 
+                        `spellIconId`=413, 
+                        `name`='Cursed Cuirass' 
+                    WHERE `entry`=34296;
+
+                -- Learn spell:
+                    REPLACE  `mangos`.`spell_template` (`entry`, `build`, `attributes`, `targets`, `castingTimeIndex`, `interruptFlags`, `procChance`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34297, 4222, 262400, 0, 1, 15, 101, 6, -1, -1, 36, 0, -1, -1, 34296, 222, 413, 'Cursed Cuirass', 983070, 7274508, 'Teaches you how to craft a Cursed Cuirass.', 7274508, 983052, -1, 1, 1, 1);
+
+                -- Skill Line Ability:
+                REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `req_skill_value`, `max_value`, `min_value`) VALUES (15211, 5875, @SKILL_BLACKSMITHING, 34296, 1, 300, 315);
+
+            -- Cursed Handschuhs
+                -- Recipe
+                    REPLACE `mangos`.`spell_template` (`entry`, `build`, `castUI`, `attributes`, `castingTimeIndex`, `interruptFlags`, `procChance`, `rangeIndex`, `reagent1`, `reagent2`, `reagent3`, `reagentCount1`, `reagentCount2`, `reagentCount3`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectItemType1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34298, 4222, 0, 65568, 39, 15, 101, 1, 666, 666, 666, 666, 666, 666, -1, 24, 1, 1, 0, -1, -1, 1, 666, 3182, 1, 'itemName', 7274526, 7274508, 7274508, 983052, -1, 1, 1, 1);
+
+                    UPDATE `mangos`.`spell_template` SET 
+                        `reagent1`=@ITEM_DARKSTEEL_INGOT, 
+                        `reagent2`=@ITEM_TIGER_LEATHER, 
+                        `reagent3`=@ITEM_CERMET_CHUNK, 
+                        `reagent4`=@ITEM_RAINBOW_CLOTH, 
+                        `reagent5`=@ITEM_GLUE, 
+                        `reagent6`=@ITEM_TITAN_POWER_CORE, 
+                        `reagentCount1`=4, 
+                        `reagentCount2`=2, 
+                        `reagentCount3`=4, 
+                        `reagentCount4`=2, 
+                        `reagentCount5`=3, 
+                        `reagentCount6`=1, 
+                        `effectItemType1`=30303,
+                        `spellVisual1`=395, 
+                        `spellIconId`=413, 
+                        `name`='Cursed Handschuhs' 
+                    WHERE `entry`=34298;
+
+                -- Learn spell:
+                    REPLACE  `mangos`.`spell_template` (`entry`, `build`, `attributes`, `targets`, `castingTimeIndex`, `interruptFlags`, `procChance`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34299, 4222, 262400, 0, 1, 15, 101, 6, -1, -1, 36, 0, -1, -1, 34298, 222, 413, 'Cursed Handschuhs', 983070, 7274508, 'Teaches you how to craft a Cursed Handschuhs.', 7274508, 983052, -1, 1, 1, 1);
+
+                -- Skill Line Ability:
+                REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `req_skill_value`, `max_value`, `min_value`) VALUES (15212, 5875, @SKILL_BLACKSMITHING, 34298, 1, 300, 315);
+
+            -- Cursed Schuhs
+                -- Recipe
+                    REPLACE `mangos`.`spell_template` (`entry`, `build`, `castUI`, `attributes`, `castingTimeIndex`, `interruptFlags`, `procChance`, `rangeIndex`, `reagent1`, `reagent2`, `reagent3`, `reagentCount1`, `reagentCount2`, `reagentCount3`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectItemType1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34300, 4222, 0, 65568, 39, 15, 101, 1, 666, 666, 666, 666, 666, 666, -1, 24, 1, 1, 0, -1, -1, 1, 666, 3182, 1, 'itemName', 7274526, 7274508, 7274508, 983052, -1, 1, 1, 1);
+
+                    UPDATE `mangos`.`spell_template` SET 
+                        `reagent1`=@ITEM_DARKSTEEL_INGOT, 
+                        `reagent2`=@ITEM_TIGER_LEATHER, 
+                        `reagent3`=@ITEM_CERMET_CHUNK, 
+                        `reagent4`=@ITEM_RAINBOW_CLOTH, 
+                        `reagent5`=@ITEM_GLUE, 
+                        `reagent6`=@ITEM_TITAN_POWER_CORE, 
+                        `reagentCount1`=4, 
+                        `reagentCount2`=2, 
+                        `reagentCount3`=4, 
+                        `reagentCount4`=2, 
+                        `reagentCount5`=3, 
+                        `reagentCount6`=1, 
+                        `effectItemType1`=30303,
+                        `spellVisual1`=395, 
+                        `spellIconId`=413, 
+                        `name`='Cursed Schuhs' 
+                    WHERE `entry`=34300;
+
+                -- Learn spell:
+                    REPLACE  `mangos`.`spell_template` (`entry`, `build`, `attributes`, `targets`, `castingTimeIndex`, `interruptFlags`, `procChance`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34301, 4222, 262400, 0, 1, 15, 101, 6, -1, -1, 36, 0, -1, -1, 34300, 222, 413, 'Cursed Schuhs', 983070, 7274508, 'Teaches you how to craft a Cursed Schuhs.', 7274508, 983052, -1, 1, 1, 1);
+
+                -- Skill Line Ability:
+                REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `req_skill_value`, `max_value`, `min_value`) VALUES (15213, 5875, @SKILL_BLACKSMITHING, 34300, 1, 300, 315);
         
 
         -- TODO: Add `description` after `nameSubtextFlags`, to every learn spell and write a description i.e. Teaches you how to craft a Tiger Leather.
