@@ -418,41 +418,41 @@ SET
     @DURATION_MAX_18_HRS      = 580;
 
 SET
-  @RANGE_SELF_ONLY                   = 1,
-  @RANGE_COMBAT_RANGE                = 2,
-  @RANGE_TWENTY_YARDS                = 3,
-  @RANGE_MEDIUM_RANGE_1              = 4,
-  @RANGE_LONG_RANGE_1                = 5, -- 40y
-  @RANGE_VISION_RANGE                = 6, -- 100y
-  @RANGE_TEN_YARDS                   = 7,
-  @RANGE_MIN_RANGE_10_20             = 8,
-  @RANGE_MEDIUM_RANGE_2              = 9,
-  @RANGE_LONG_RANGE_2                = 10,
-  @RANGE_FIFTEEN_YARDS               = 11,
-  @RANGE_INTERACT_RANGE              = 12, -- 0-5y
-  @RANGE_ANYWHERE                    = 13,
-  @RANGE_EXTRA_LONG_RANGE            = 14, -- 0-60y
-  @RANGE_TWENTY_FIVE_YARDS           = 34,
-  @RANGE_MEDIUM_LONG_RANGE           = 35,
-  @RANGE_LONGER_RANGE                = 36,
-  @RANGE_EXTENDED_RANGE              = 37, -- 0-50y
-  @RANGE_MIN_RANGE_10_25             = 38,
-  @RANGE_MONSTER_SHOOT               = 54,
-  @RANGE_RANGED_WEAPON               = 74,
-  @RANGE_STING                       = 94,
-  @RANGE_CHARGE                      = 95,
-  @RANGE_TRAP                        = 96,
-  @RANGE_HUNTER_RANGE                = 114,
-  @RANGE_TOWER_80                    = 134,
-  @RANGE_TOWER_100                   = 135,
-  @RANGE_ARTILLERY_RANGE             = 136,
-  @RANGE_EIGHT_YARDS                 = 137,
-  @RANGE_LONG_RANGE_HUNTER_SHOOT_1   = 138,
-  @RANGE_SIX_YARDS                   = 140,
-  @RANGE_SEVEN_YARDS                 = 141,
-  @RANGE_LONG_RANGE_HUNTER_SHOOT_2   = 151,
-  @RANGE_HUNTER_RANGE_TEST           = 155,
-  @RANGE_NINETY                      = 157;
+    @RANGE_SELF_ONLY                   = 1,
+    @RANGE_COMBAT_RANGE                = 2,
+    @RANGE_TWENTY_YARDS                = 3,
+    @RANGE_MEDIUM_RANGE_1              = 4,
+    @RANGE_LONG_RANGE_1                = 5, -- 40y
+    @RANGE_VISION_RANGE                = 6, -- 100y
+    @RANGE_TEN_YARDS                   = 7,
+    @RANGE_MIN_RANGE_10_20             = 8,
+    @RANGE_MEDIUM_RANGE_2              = 9,
+    @RANGE_LONG_RANGE_2                = 10,
+    @RANGE_FIFTEEN_YARDS               = 11,
+    @RANGE_INTERACT_RANGE              = 12, -- 0-5y
+    @RANGE_ANYWHERE                    = 13,
+    @RANGE_EXTRA_LONG_RANGE            = 14, -- 0-60y
+    @RANGE_TWENTY_FIVE_YARDS           = 34,
+    @RANGE_MEDIUM_LONG_RANGE           = 35,
+    @RANGE_LONGER_RANGE                = 36,
+    @RANGE_EXTENDED_RANGE              = 37, -- 0-50y
+    @RANGE_MIN_RANGE_10_25             = 38,
+    @RANGE_MONSTER_SHOOT               = 54,
+    @RANGE_RANGED_WEAPON               = 74,
+    @RANGE_STING                       = 94,
+    @RANGE_CHARGE                      = 95,
+    @RANGE_TRAP                        = 96,
+    @RANGE_HUNTER_RANGE                = 114,
+    @RANGE_TOWER_80                    = 134,
+    @RANGE_TOWER_100                   = 135,
+    @RANGE_ARTILLERY_RANGE             = 136,
+    @RANGE_EIGHT_YARDS                 = 137,
+    @RANGE_LONG_RANGE_HUNTER_SHOOT_1   = 138,
+    @RANGE_SIX_YARDS                   = 140,
+    @RANGE_SEVEN_YARDS                 = 141,
+    @RANGE_LONG_RANGE_HUNTER_SHOOT_2   = 151,
+    @RANGE_HUNTER_RANGE_TEST           = 155,
+    @RANGE_NINETY                      = 157;
 
   SET
     @RADIUS_2_YARDS = 7,
@@ -2978,7 +2978,7 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
         -- Water Elemental
             -- TODO: No autoattacks like imp
             -- Spell
-                REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `castingTimeIndex`, `recoveryTime`, `interruptFlags`, `procChance`, `baseLevel`, `spellLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectRadiusIndex1`, `effectMultipleValue1`, `effectMiscValue1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `manaCostPercentage`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `spellFamilyFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `script_name`) VALUES (33846, 4222, 4, 16, @CASTING_TIME_INSTANT, 180000, 9, 101, 40, 40, 21, 1, -1, 56, 1, 1, 0, -1, -1, -1, 32, 8, 0, 90069, 7866, 2134, 'Summon Water Elemental', 983070, 983052, 'Summons a Water Elemental to aid the caster in battle.', 983054, 983052, 100, 133, 1500, 3, 8589934592, -1, 1, 1, 1, 'spell_mage_water_elemental');
+                REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `castingTimeIndex`, `recoveryTime`, `interruptFlags`, `procChance`, `baseLevel`, `spellLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectRadiusIndex1`, `effectMultipleValue1`, `effectMiscValue1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `manaCostPercentage`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `spellFamilyFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `script_name`) VALUES (33846, 4222, 4, 16, @CASTING_TIME_INSTANT, 180000, 9, 101, 40, 40, 21, 1, -1, 56, 1, 1, 0, -1, -1, -1, 32, 8, 0, 90069, 7866, 2134, 'Summon Water Elemental', 983070, 983052, 'Summons a Water Elemental to aid the caster in battle.', 983054, 983052, 16, 133, 1500, 3, 8589934592, -1, 1, 1, 1, 'spell_mage_water_elemental');
                 UPDATE `mangos`.`spell_template` SET `effect2`=77, `effectImplicitTargetA2`=1, `effectApplyAuraName2`=4  WHERE  `entry`=33846;
 
             -- Skill Line Ability
@@ -2990,13 +2990,10 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
             -- Pet Spell: Water Ripple (Renew clone, 90s CD)
                 REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `dispel`, `attributes`, `attributesEx2`, `stances`, `stancesNot`, `castingTimeIndex`, `recoveryTime`, `interruptFlags`, `procChance`, `maxLevel`, `baseLevel`, `spellLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectAmplitude1`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33861, 5302, 1, 1, 65536, 524288, 2147483648, 134217728, 1, 90000, 8, 101, 65, 60, 60, 8, 5, -1, -1, 6, 1, 1, 193, 0.2, -1, -1, 21, 8, 3000, 280, 36, 50, 'Water Ripple', 2031678, 'Rank 1', 2031678, 'Heals the target of $o1 damage over $d.', 2031678, 'Healing $s1 damage every $t1 seconds.', 2031678, 133, 1500, 6, 64, 1, 1, -1, 1, 1, 1);
 
-            -- Water Jet 17313
-                -- SPELL_AURA_MOD_DAMAGE_TAKEN = 14,. effectMiscValue1 = 16 ?
-                -- TODO: Spellvisual 8670 or 8681
-                -- TODO: Spell icon 2131
+            -- Water Jet
                 -- TODO: Remove spell family flags and spellfamilyname
                     -- Spell
-                        REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `attributesEx`, `attributesEx2`, `stances`, `castingTimeIndex`, `interruptFlags`, `channelInterruptFlags`, `procChance`, `maxLevel`, `baseLevel`, `spellLevel`, `durationIndex`, `manaCost`, `rangeIndex`, `equippedItemClass`, `effect1`, `effect2`, `effectDieSides1`, `effectDieSides2`, `effectBaseDice1`, `effectBaseDice2`, `effectRealPointsPerLevel1`, `effectBasePoints1`, `effectBasePoints2`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectMechanic2`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectApplyAuraName1`, `effectApplyAuraName2`, `effectAmplitude1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `customFlags`, `script_name`) VALUES (34202, 5464, 4, 65536, 16388, 524288, 134217728, 1, 15, 31756, 101, 61, 40, 40, @DURATION_MAX_5_SEC, 135, 3, -1, 6, 6, 1, 1, 1, 1, 10, 86, -51, 0.15, 0, -1, 11, 6, 6, 3, 33, 1000, 13689, 2131, 'Water Jet', 4128830, 4128830, 'Assault the target with a stream of water, causing $o1 Frost damage over $d and slowing their movement speed by $s2%.', 4128830, 'Movement speed slowed by $s2%.', 4128830, 133, 1500, 0, 0, 1, 1, -1, 1, 1, 128, 'spell_mage_water_jet');
+                        REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `attributesEx`, `attributesEx2`, `stances`, `castingTimeIndex`, `interruptFlags`, `channelInterruptFlags`, `procChance`, `maxLevel`, `baseLevel`, `spellLevel`, `durationIndex`, `manaCost`, `rangeIndex`, `equippedItemClass`, `effect1`, `effect2`, `effectDieSides1`, `effectDieSides2`, `effectBaseDice1`, `effectBaseDice2`, `effectRealPointsPerLevel1`, `effectBasePoints1`, `effectBasePoints2`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectMechanic2`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectApplyAuraName1`, `effectApplyAuraName2`, `effectAmplitude1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `customFlags`, `script_name`) VALUES (34202, 5464, 4, 65536, 16388, 524288, 134217728, 1, 15, 31756, 101, 61, 40, 40, @DURATION_MAX_5_SEC, 135, @RANGE_MEDIUM_RANGE_1, -1, 6, 6, 1, 1, 1, 1, 10, 86, -51, 0.15, 0, -1, 11, 6, 6, 3, 33, 1000, 13689, 2131, 'Water Jet', 4128830, 4128830, 'Assault the target with a stream of water, causing $o1 Frost damage over $d and slowing their movement speed by $s2%.', 4128830, 'Movement speed slowed by $s2%.', 4128830, 133, 1500, 0, 0, 1, 1, -1, 1, 1, 128, 'spell_mage_water_jet');
                         
                         UPDATE `mangos`.`spell_template` SET `recoveryTime`=45000 WHERE  `entry`=34202;
 
