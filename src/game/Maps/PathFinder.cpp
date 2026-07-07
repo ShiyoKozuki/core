@@ -320,14 +320,15 @@ void PathInfo::BuildPolyPath(Vector3 const& startPos, Vector3 const& endPos, dtQ
                 if (dtStatusFailed(m_navMeshQuery->closestPointOnPoly(suffixStartPoly, endPoint, suffixEndPoint, &PosOverBody)))
                 {
                     // suffixStartPoly is still invalid, error state
-                    BuildShortcut();
+                    BuildShortcut(filter);
                     m_type = PATHFIND_NOPATH;
                     return;
                 }
             }
             else
             {
-                BuildShortcut();
+                // suffixStartPoly is still invalid, error state
+                BuildShortcut(filter);
                 m_type = PATHFIND_NOPATH;
                 return;
             }
@@ -1153,29 +1154,6 @@ bool PathInfo::UpdateForMelee(Unit* pTarget, float meleeReach)
         }
     }
     return false;
-}
-
-
-void PathInfo::CutPathWithDynamicLoS()
-{
-    uint32 maxIndex = m_pathPoints.size() - 1;
-    Vector3 out;
-    // We have always keep at least 2 points (else, there is no mvt !)
-    for (uint32 i = 1; i <= maxIndex; ++i)
-    {
-        Vector3 start = m_pathPoints[i - 1];
-        Vector3 end = m_pathPoints[i];
-        start.z += 1.0f;
-        end.z += 1.0f;
-
-        if (m_sourceUnit->GetMap()->GetDynamicObjectHitPos(start, end, out, -0.1f))
-        {
-            out.z -= 1.0f;
-            m_pathPoints[i] = out;
-            m_pathPoints.resize(i + 1);
-            break;
-        }
-    }
 }
 
 float PathInfo::Length() const
