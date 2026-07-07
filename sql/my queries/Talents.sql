@@ -555,10 +555,10 @@ UPDATE `mangos`.`spell_template` SET `effect2`=0, `effectDieSides2`=0, `effectBa
 
     UPDATE `mangos`.`spell_template` SET `effect3`=6, `effectImplicitTargetA3`=21, `effectApplyAuraName3`=42, `effectTriggerSpell3`=34256, `description`='Places a Blessing on the friendly target, reducing damage dealt from all sources by up to $s1 for $d.  In addition, when the target blocks a melee attack the attacker will take $s2 Holy damage and the target will gain $34256s1% of their max mana.  Players may only have one Blessing on them per Paladin at any one time.', `auraDescription`='Damage taken reduced by up to $s1 and blocked melee attacks cause $s2 Holy damage to the attacker and the defender will restore $34256s1% of their max mana.' WHERE  `entry`=20914;
 
--- Holy Shield
-    UPDATE mangos . spell_template SET procCharges = 100 WHERE entry = 20925;
-    UPDATE mangos . spell_template SET procCharges = 100 WHERE entry = 20927;
-    UPDATE mangos . spell_template SET procCharges = 100 WHERE entry = 20928;
+-- Holy Shield (Charges increased to 8, mana cost changed to 15% of base mana)
+    UPDATE mangos . spell_template SET procCharges = 8, `manaCost`=0, `manaCostPercentage`=15 WHERE entry = 20925;
+    UPDATE mangos . spell_template SET procCharges = 8, `manaCost`=0, `manaCostPercentage`=15 WHERE entry = 20927;
+    UPDATE mangos . spell_template SET procCharges = 8, `manaCost`=0, `manaCostPercentage`=15 WHERE entry = 20928;
 
 -- Reckoning
     UPDATE mangos . spell_template SET procChance = 2 WHERE entry = 20177;
