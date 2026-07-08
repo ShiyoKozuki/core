@@ -79,8 +79,8 @@ Pet::Pet(PetType type) :
         SetReactState(REACT_PASSIVE);
         SetFollowAngle(MINI_PET_FOLLOW_ANGLE);
     }
-    else if (type == GUARDIAN_PET)                          // always aggressive
-        SetReactState(REACT_AGGRESSIVE);
+    else if (type == GUARDIAN_PET)                          // always assist
+        SetReactState(REACT_ASSIST);
 }
 
 Pet::~Pet()

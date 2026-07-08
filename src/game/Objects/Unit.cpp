@@ -6322,8 +6322,17 @@ void Unit::SetInCombatWithVictim(Unit* pVictim, bool touchOnly/* = false*/, uint
             if (direct && IsPlayer())
             {
                 if (Pet* pet = GetPet())
-                    if (!pet->HasFlag(UNIT_FIELD_FLAGS, UNIT_FLAG_PET_IN_COMBAT) && pet->IsAlive())
-                        pet->AI()->OwnerAttacked(pVictim);
+                {
+                    if (pet->IsAlive())
+                    {
+                        CharmInfo* charmInfo = pet->GetCharmInfo();
+
+                        if (charmInfo && charmInfo->HasReactState(REACT_ASSIST))
+                            pet->AI()->OwnerAttacked(pVictim);
+                        else if (!pet->HasFlag(UNIT_FIELD_FLAGS, UNIT_FLAG_PET_IN_COMBAT))
+                            pet->AI()->OwnerAttacked(pVictim);
+                    }
+                }
 
                 for (auto const& guid : m_guardianPets)
                     if (Pet* pGuardian = GetMap()->GetPet(guid))

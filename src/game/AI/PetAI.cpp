@@ -482,7 +482,7 @@ void PetAI::OwnerAttacked(Unit* target)
     // will not make the pet attack that target too. Tested on classic.
     // Defensive pet should not engage until it or its owner is damaged by
     // the enemy, and Aggressive pet aggroes based on proximity.
-    if (!m_creature->IsInCombat() && m_creature->GetCharmerOrOwnerGuid().IsPlayer())
+    if (!m_creature->HasReactState(REACT_ASSIST) && !m_creature->IsInCombat() && m_creature->GetCharmerOrOwnerGuid().IsPlayer())
         return;
 
     if (!m_creature->IsValidAttackTarget(target))
@@ -500,8 +500,9 @@ void PetAI::OwnerAttacked(Unit* target)
     if (m_creature->HasUnitState(UNIT_STATE_CAN_NOT_REACT))
         return;
 
-    // Prevent pet from disengaging from current target
-    if (m_creature->GetVictim() && m_creature->GetVictim()->IsAlive())
+    // Prevent pet from disengaging from current target,
+    // except for Assist pets.
+    if (!m_creature->HasReactState(REACT_ASSIST) && m_creature->GetVictim() && m_creature->GetVictim()->IsAlive())
         return;
 
     // Continue to evaluate and attack if necessary
@@ -742,6 +743,11 @@ bool PetAI::CanAttack(Unit* target)
     //  Pets attacking something (or chasing) should only switch targets if owner tells them to
     if (m_creature->GetVictim() && m_creature->GetVictim() != target)
     {
+
+        // Assist pets always swap to their owners target
+        if (m_creature->HasReactState(REACT_ASSIST))
+            return true;
+
         // Check if our owner selected this target and clicked "attack"
         Unit* owner = m_creature->GetCharmerOrOwner();
         Unit* ownerTarget = nullptr;
@@ -755,6 +761,8 @@ bool PetAI::CanAttack(Unit* target)
 
         if (ownerTarget && m_creature->GetCharmInfo()->IsCommandAttack())
             return (target->GetGUID() == ownerTarget->GetGUID());
+
+        return false;
     }
 
     // Follow

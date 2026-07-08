@@ -91,9 +91,13 @@ void WorldSession::HandlePetAction(WorldPackets::Pet::PetAction const& packet)
                     pCharmedUnit->InterruptNonMeleeSpells(false);
                     pCharmedUnit->AttackStop();
                 // no break
-                case REACT_DEFENSIVE:                       //recovery
-                case REACT_AGGRESSIVE:                      //activete
-                    charmInfo->SetReactState(ReactStates(spellid));
+                case REACT_DEFENSIVE:
+                    charmInfo->SetReactState(REACT_DEFENSIVE);
+                    break;
+
+                case REACT_AGGRESSIVE:
+                    // Treat "Aggressive" as Cataclysm+ "Assist" instead
+                    charmInfo->SetReactState(REACT_ASSIST);
                     break;
             }
             break;
