@@ -629,6 +629,8 @@ struct FelGemSpellScript : public SpellScript
 SpellScript* GetScript_FelGem(SpellEntry const*)
 {
     return new FelGemSpellScript();
+}
+
 // 29421 - Holiday Breath of Fire, Conditional (NPC)
 struct HolidayBreathOfFireConditionalScript : public SpellScript
 {
