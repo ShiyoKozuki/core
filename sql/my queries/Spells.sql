@@ -1016,13 +1016,21 @@
             UPDATE `mangos`.`spell_template` SET `effectBasePoints3`=25 WHERE  `entry`=11734;
             UPDATE `mangos`.`spell_template` SET `effectBasePoints3`=29 WHERE  `entry`=11735;
 
--- Curse of Weakness
-    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=-4 WHERE  `entry`=702 AND `build`=5302;
-    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=-7 WHERE  `entry`=1108 AND `build`=5302;
-    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=-11 WHERE  `entry`=6205 AND `build`=5302;
-    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=-16 WHERE  `entry`=7646 AND `build`=5302;
-    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=-23 WHERE  `entry`=11707 AND `build`=5302;
-    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=-32 WHERE  `entry`=11708 AND `build`=5302;
+    -- Curses (Now chains to 4 nearby targets)
+        -- Curse of Weakness
+            UPDATE `mangos`.`spell_template` SET `effectChainTarget1`=5, `description`='Damage caused by the target is reduced by $s1 for $d, jumping to 4 additional nearby targets.  Affects 5 total targets.  Only one Curse per Warlock can be active on any one target.' WHERE entry IN (702, 1108, 6205, 7646, 11707, 11708);
+
+        -- Curse of Agony
+            UPDATE `mangos`.`spell_template` SET `effectChainTarget1`=5, `description`='Curses the target with agony, causing $o1 Shadow damage over $d, jumping to 4 additional nearby targets.  Affects 5 total targets.   This damage is dealt slowly at first, and builds up as the Curse reaches its full duration.  Only one Curse per Warlock can be active on any one target.' WHERE entry IN (980, 1014, 6217, 11711, 11712, 11713);
+
+        -- Curse of Recklessness
+            UPDATE `mangos`.`spell_template` SET `effectChainTarget1`=5, `description`='Curses the target with recklessness, increasing melee attack power by $s1 but reducing armor by $s2 for $d, jumping to 4 additional nearby targets.  Affects 5 total targets.  Cursed enemies will not flee and will ignore Fear and Horror effects.  Only one Curse per Warlock can be active on any one target.' WHERE entry IN (704, 7658, 7659, 11717);
+
+        -- Curse of Shadow
+            UPDATE `mangos`.`spell_template` SET `effectChainTarget1`=5, `description`='Curses the target for $d, reducing Shadow and Arcane resistances by $s1 and increasing Shadow and Arcane damage taken by $s2%.  Jumps to 4 additional nearby targets.  Affects 5 total targets.  Only one Curse per Warlock can be active on any one target.' WHERE entry IN (17862, 17937);
+
+        -- Curse of the Elements
+            UPDATE `mangos`.`spell_template` SET `effectChainTarget1`=5, `description`='Curses the target for $d, reducing Fire and Frost resistances by $s1 and increasing Fire and Frost damage taken by $s2%.  Jumps to 4 additional nearby targets.  Affects 5 total targets.  Only one Curse per Warlock can be active on any one target.' WHERE entry IN (1490, 11721, 11722);
 
 -- Life Tap
     UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=59 WHERE  `entry`=1454 AND `build`=5875;
