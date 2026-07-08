@@ -342,6 +342,7 @@ enum ClassFlag
     CF_PALADIN_CRUSADER_STRIKE              = 40,
     CF_PALADIN_SHIELD_OF_RIGHTEOUSNESS      = 41,
     CF_PALADIN_HAMMER_OF_THE_RIGHTEOUS      = 42,
+    CF_PALADIN_SEAL_OF_VENGEANCE            = 43,
 
     // -- Shaman (11)
     CF_SHAMAN_LIGHTNING_BOLT                = 0,    // CM0 00000001

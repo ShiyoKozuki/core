@@ -1,5 +1,5 @@
--- 34302 NEXT SPELL
--- 15214 NEXT SKILL_LINE_ABILITY
+-- 34309 NEXT SPELL
+-- 15217 NEXT SKILL_LINE_ABILITY
 -- NEXT category 10006
 
 -- skill_line_ability class_mask uses enum CLASSES
@@ -995,19 +995,26 @@
     UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=63 WHERE  `entry`=11574;
     UPDATE `mangos`.`spell_template` SET `description`='Wounds the target causing them to bleed for $o1 damage, increased by your Attack Power, over $d.' WHERE entry IN (772, 6546, 6547, 6548, 11572, 11573, 11574);
 
--- Demon Skin / Demon Armor (HP Regen Tripled)
-    UPDATE `mangos`.`spell_template` SET `effectBasePoints2`=5 WHERE  `entry`=687;
-    UPDATE `mangos`.`spell_template` SET `effectBasePoints2`=14 WHERE  `entry`=696;
-    UPDATE `mangos`.`spell_template` SET `effectBasePoints2`=2 WHERE  `entry`=706;
-    UPDATE `mangos`.`spell_template` SET `effectBasePoints2`=5 WHERE  `entry`=1086;
-    UPDATE `mangos`.`spell_template` SET `effectBasePoints2`=8 WHERE  `entry`=11733;
-    UPDATE `mangos`.`spell_template` SET `effectBasePoints2`=11 WHERE  `entry`=11734;
-    UPDATE `mangos`.`spell_template` SET `effectBasePoints2`=14 WHERE  `entry`=11735;
-    UPDATE `mangos`.`spell_template` SET `effectBasePoints3`=20 WHERE  `entry`=706;
-    UPDATE `mangos`.`spell_template` SET `effectBasePoints3`=26 WHERE  `entry`=1086;
-    UPDATE `mangos`.`spell_template` SET `effectBasePoints3`=32 WHERE  `entry`=11733;
-    UPDATE `mangos`.`spell_template` SET `effectBasePoints3`=38 WHERE  `entry`=11734;
-    UPDATE `mangos`.`spell_template` SET `effectBasePoints3`=44 WHERE  `entry`=11735;
+-- Demon Skin / Demon Armor (HP Regen Doubled, Shadow Resistance increased)
+
+    -- Demon Skin (HP Regen)
+        UPDATE `mangos`.`spell_template` SET `effectBasePoints2`=2 WHERE  `entry`=687;
+        UPDATE `mangos`.`spell_template` SET `effectBasePoints2`=9 WHERE  `entry`=696;
+
+    -- Demon Armor
+        -- Shadow Resistance
+            UPDATE `mangos`.`spell_template` SET `effectBasePoints2`=2 WHERE  `entry`=706;
+            UPDATE `mangos`.`spell_template` SET `effectBasePoints2`=5 WHERE  `entry`=1086;
+            UPDATE `mangos`.`spell_template` SET `effectBasePoints2`=8 WHERE  `entry`=11733;
+            UPDATE `mangos`.`spell_template` SET `effectBasePoints2`=11 WHERE  `entry`=11734;
+            UPDATE `mangos`.`spell_template` SET `effectBasePoints2`=14 WHERE  `entry`=11735;
+
+        -- Health Regen
+            UPDATE `mangos`.`spell_template` SET `effectBasePoints3`=13 WHERE  `entry`=706;
+            UPDATE `mangos`.`spell_template` SET `effectBasePoints3`=17 WHERE  `entry`=1086;
+            UPDATE `mangos`.`spell_template` SET `effectBasePoints3`=21 WHERE  `entry`=11733;
+            UPDATE `mangos`.`spell_template` SET `effectBasePoints3`=25 WHERE  `entry`=11734;
+            UPDATE `mangos`.`spell_template` SET `effectBasePoints3`=29 WHERE  `entry`=11735;
 
 -- Curse of Weakness
     UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=-4 WHERE  `entry`=702 AND `build`=5302;
@@ -2575,7 +2582,7 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
         UPDATE `mangos`.`spell_template` SET `recoveryTime`=300000 WHERE  `entry`=12051 AND `build`=5875;
 
         -- Brilliance Aura
-        REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `castingTimeIndex`, `interruptFlags`, `procChance`, `baseLevel`, `spellLevel`, `durationIndex`, `manaCost`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectRadiusIndex1`, `effectApplyAuraName1`, `effectAmplitude1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `preventionType`, `dmgMultiplier1`, `dmgMultiplier2`) VALUES (33843, 5464, 6, 65536, 1, 8, 101, 60, 60, 30, 350, 1, -1, 35, 1, 1, 0, 0, -1, 1, 11, 21, 5000, 0, 54, 'Brilliance Aura', 4128830, 'Rank 1', 4128830, 'Increases the mana regen of party members within $a1 yards by $s1% every 5 sec.  Lasts $d.', 4128830, 'Regenerate $s1% Mana per 5 sec.', 4128830, 133, 1500, 1, 1, 1);
+        REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `castingTimeIndex`, `interruptFlags`, `procChance`, `baseLevel`, `spellLevel`, `durationIndex`, `manaCost`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectRadiusIndex1`, `effectApplyAuraName1`, `effectAmplitude1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `preventionType`, `dmgMultiplier1`, `dmgMultiplier2`) VALUES (33843, 5464, 6, 65536, 1, 8, 101, 60, 60, 30, 350, 1, -1, 35, 1, 1, 0, 0, -1, 1, 11, 21, 5000, 7829, 54, 'Brilliance Aura', 4128830, 'Rank 1', 4128830, 'Increases the mana regen of party members within $a1 yards by $s1% every 5 sec.  Lasts $d.', 4128830, 'Regenerate $s1% Mana per 5 sec.', 4128830, 133, 1500, 1, 1, 1);
 
         -- Skill Line Ability
         REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`, `superseded_by_spell`) VALUES (15096, 5875, 237, 33843, 128, 1, 0);
@@ -3471,6 +3478,25 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
         UPDATE `mangos`.`skill_line_ability` SET `class_mask`=1031 WHERE  `id`=2928 AND `build`=5875;
 
     -- Paladin
+        -- Seal of Vengeance
+            -- TODO: DO dmg tuning, other ranks
+            -- Rank 1
+                -- Aura
+                    REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `dispel`, `attributes`, `castingTimeIndex`, `procFlags`, `procChance`, `maxLevel`, `baseLevel`, `spellLevel`, `durationIndex`, `manaCost`, `rangeIndex`, `equippedItemClass`, `effect1`, `effect3`, `effectDieSides1`, `effectDieSides3`, `effectBaseDice1`, `effectBaseDice3`, `effectRealPointsPerLevel1`, `effectBasePoints1`, `effectBasePoints3`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA3`, `effectApplyAuraName1`, `effectApplyAuraName3`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `dmgMultiplier1`, `dmgMultiplier3`) VALUES (34308, 5302, 1, 1, 327680, 1, 4, 100, 39, 30, 30, 9, 120, 1, -1, 6, 6, 1, 1, 1, 1, 31, 540, 20281, 0.1, -1, 0, 1, 1, 4, 4, 8062, 2292, 'Seal of Vengeance', 2031678, 'Rank 1', 2031678, 'Fills the Paladin with holy spirit for $d, granting each melee attack a chance to cause $34309s1 Holy damage over $34309d.  Only one Seal can be active on the Paladin at any one time.\r\n\r\nUnleashing this Seal\'s energy will cause $34310s1 Holy damage to an enemy.', 2031678, 'Melee attacks have a chance to cause $34309s1 damage over $d.', 2031678, 133, 1500, 10, 8796227239936, 1, 1, 1, 1);
+
+                    -- Judgement is in effectBasePoints3 (spell ID of the judgement -1 aka 34310 judgement would be 34309 effectBasePoints3)
+                    UPDATE `mangos`.`spell_template` SET `effect1`=6, `effectDieSides1`=1, `effectBaseDice1`=1, `effectTriggerSpell1`=34309, `effectImplicitTargetA1`=1, `effectApplyAuraName1`=42, `effectRealPointsPerLevel1`=0, `effectBasePoints1`=0, `effectBonusCoefficient1`=-1, `effect3`=6, `effectBasePoints3`=34309, `effectApplyAuraName3`=4 WHERE  `entry`=34308; 
+
+                -- Proc
+                    REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `dispel`, `attributes`, `attributesEx3`, `castingTimeIndex`, `maxLevel`, `baseLevel`, `spellLevel`, `durationIndex`, `rangeIndex`, `stackAmount`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectAmplitude1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `dmgMultiplier1`, `dmgMultiplier2`, `customFlags`) VALUES (34309, 5086, 1, 1, 327680, 262144, 1, 39, 30, 30, @DURATION_MAX_15_SEC, 6, 5, -1, 6, 1, 1, 24, 0.167, -1, -1, 6, 3, 3000, 2, 2292, 'Seal of Vengeance', 2031678, 'Rank 1', 2031678, 2031676, '$s1 Holy damage every $t1 sec.', 2031678, 10, 8796227239936, 1, 1, 1, 1, 256);
+
+                -- Judgement
+                    REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `attributesEx3`, `castingTimeIndex`, `maxLevel`, `baseLevel`, `spellLevel`, `rangeIndex`, `equippedItemClass`, `effect1`, `effect3`, `effectDieSides1`, `effectDieSides3`, `effectBaseDice1`, `effectBaseDice3`, `effectRealPointsPerLevel1`, `effectRealPointsPerLevel3`, `effectBasePoints1`, `effectBasePoints3`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `dmgMultiplier1`, `dmgMultiplier3`, `customFlags`) VALUES (34310, 5086, 1, 327680, 512, 1, 32, 26, 26, 6, -1, 2, 3, 7, 1, 1, 1, 2.8, 31, 56, 540, 0.5, -1, 0.2, 6, 25, 'Judgement of Vengeance', 2031678, 'Rank 1', 2031678, 2031676, 2031676, 10, 1024, 1, 1, 1, 1, 8448);
+
+
+                -- Skill line ability:
+                    REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`) VALUES (15217, 5875, 267, 34308, 2, 1);
+
         -- Blessing of Sanctuary (2% Mana Restore Proc on block)
             REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `dispel`, `castingTimeIndex`, `procChance`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectMiscValue1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `dmgClass`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34256, 5302, 1, 1, 1, 101, 1, -1, -1, 134, 1, 1, 1, 1, -1, -1, 1, 0, 0, 1677, 'Blessing of Sanctuary', 2031678, '', 2031628, 'Restores $s1% mana.', 2031678, '', 2031678, 1, -1, 1, 1, 1);
 
@@ -5234,3 +5260,6 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
 
     -- Word of Glory
     UPDATE `mangos`.`spell_template` SET `spellIconId`=4127 WHERE  `entry` IN (34242, 34243, 34244, 34245, 34246, 34247, 34248, 34249, 34250, 34251, 34252, 34253, 34254, 34255);
+
+    -- Seal of Vengeance
+    UPDATE `mangos`.`spell_template` SET `spellIconId`=2292 WHERE  `entry` IN (34308, 34309);
