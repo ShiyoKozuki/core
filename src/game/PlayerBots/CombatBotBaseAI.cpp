@@ -3795,49 +3795,6 @@ void CombatBotBaseAI::BreakCrowdControlEffects()
 
     switch (me->GetClass())
     {
-        case CLASS_PALADIN:
-        {
-            if (m_spells.paladin.pDivineShield &&
-                CanTryToCastSpell(me, m_spells.paladin.pDivineShield))
-            {
-                if (DoCastSpell(me, m_spells.paladin.pDivineShield) == SPELL_CAST_OK)
-                {
-                    if (m_role != ROLE_HEALER)
-                    {
-                        me->m_Events.AddLambdaEventAtOffset([player = me, spellId = m_spells.paladin.pDivineShield->Id]()
-                        {
-                            if (player->GetHealthPercent() > 75.0f && player->GetAttackers().size() < 3)
-                                player->RemoveAurasDueToSpellByCancel(spellId);
-                        }, 1 * IN_MILLISECONDS);
-                    }
-                    return;
-                }
-            }
-            break;
-        }
-        case CLASS_MAGE:
-        {
-            if (me->HasUnitState(UNIT_STATE_STUNNED) && m_spells.mage.pBlink &&
-                CanTryToCastSpell(me, m_spells.mage.pBlink))
-            {
-                if (DoCastSpell(me, m_spells.mage.pBlink) == SPELL_CAST_OK)
-                    return;
-            }
-            if (m_spells.mage.pIceBlock &&
-                CanTryToCastSpell(me, m_spells.mage.pIceBlock))
-            {
-                if (DoCastSpell(me, m_spells.mage.pIceBlock) == SPELL_CAST_OK)
-                {
-                    me->m_Events.AddLambdaEventAtOffset([player = me, spellId = m_spells.mage.pIceBlock->Id]()
-                    {
-                        if (player->GetHealthPercent() > 75.0f && player->GetAttackers().size() < 3)
-                            player->RemoveAurasDueToSpellByCancel(spellId);
-                    }, 1 * IN_MILLISECONDS);
-                    return;
-                }
-            }
-            break;
-        }
         case CLASS_DRUID:
         {
             bool polymorphed = false;

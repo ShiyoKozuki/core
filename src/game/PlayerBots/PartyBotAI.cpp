@@ -1158,8 +1158,12 @@ void PartyBotAI::UpdateInCombatAI()
             }
         }
     }
-    if (CheckForDispelTargets())
-        return;
+
+    if (GetRole() != ROLE_TANK)
+    {
+        if (CheckForDispelTargets())
+            return;
+    }
 
     switch (me->GetClass())
     {
@@ -1560,34 +1564,6 @@ void PartyBotAI::UpdateInCombatAI_Paladin()
         }
     }
 
-    // Cleanse / Purify
-    if (GetRole() != ROLE_TANK)
-    {
-        if (m_spells.paladin.pCleanse)
-        {
-            if (Unit* pFriend = SelectDispelTarget(m_spells.paladin.pCleanse))
-            {
-                if (CanTryToCastSpell(pFriend, m_spells.paladin.pCleanse))
-                {
-                    if (DoCastSpell(pFriend, m_spells.paladin.pCleanse) == SPELL_CAST_OK)
-                        return;
-                }
-            }
-        }
-
-        if (m_spells.paladin.pPurify)
-        {
-            if (Unit* pFriend = SelectDispelTarget(m_spells.paladin.pPurify))
-            {
-                if (CanTryToCastSpell(pFriend, m_spells.paladin.pPurify))
-                {
-                    if (DoCastSpell(pFriend, m_spells.paladin.pPurify) == SPELL_CAST_OK)
-                        return;
-                }
-            }
-        }
-    }
-
     if (!me->GetAttackers().empty())
     {
         if (m_spells.paladin.pTurnEvil &&
@@ -1715,14 +1691,17 @@ void PartyBotAI::UpdateInCombatAI_Paladin()
 
         if (Unit* pVictim = me->GetVictim())
         {
-            if (m_spells.paladin.pCrusaderStrike &&
-                (me->GetPowerPercent(POWER_MANA) < 85.0f))
+            auto consEnemyCountCheck = 2;
+
+            if (GetRole() == ROLE_TANK)
+                consEnemyCountCheck = 1;
+
+            if (m_spells.paladin.pConsecration &&
+                (me->GetEnemyCountInRadiusAround(me, 10.0f) > consEnemyCountCheck) &&
+                CanTryToCastSpell(me, m_spells.paladin.pConsecration))
             {
-                if (CanTryToCastSpell(me, m_spells.paladin.pCrusaderStrike))
-                {
-                    if (DoCastSpell(me, m_spells.paladin.pCrusaderStrike) == SPELL_CAST_OK)
-                        return;
-                }
+                if (DoCastSpell(me, m_spells.paladin.pConsecration) == SPELL_CAST_OK)
+                    return;
             }
 
             if (m_spells.paladin.pWakeOfAshes &&
@@ -1738,14 +1717,6 @@ void PartyBotAI::UpdateInCombatAI_Paladin()
                 CanTryToCastSpell(pVictim, m_spells.paladin.pDivineStorm))
             {
                 if (DoCastSpell(pVictim, m_spells.paladin.pDivineStorm) == SPELL_CAST_OK)
-                    return;
-            }
-
-            if (m_spells.paladin.pConsecration &&
-                (me->GetEnemyCountInRadiusAround(me, 10.0f) > 2) &&
-                CanTryToCastSpell(me, m_spells.paladin.pConsecration))
-            {
-                if (DoCastSpell(me, m_spells.paladin.pConsecration) == SPELL_CAST_OK)
                     return;
             }
 
@@ -1766,6 +1737,24 @@ void PartyBotAI::UpdateInCombatAI_Paladin()
                 CanTryToCastSpell(pVictim, m_spells.paladin.pShieldOfRighteousness))
             {
                 if (DoCastSpell(pVictim, m_spells.paladin.pShieldOfRighteousness) == SPELL_CAST_OK)
+                    return;
+            }
+
+            if (m_spells.paladin.pCrusaderStrike &&
+                (me->GetPowerPercent(POWER_MANA) < 85.0f))
+            {
+                if (CanTryToCastSpell(me, m_spells.paladin.pCrusaderStrike))
+                {
+                    if (DoCastSpell(me, m_spells.paladin.pCrusaderStrike) == SPELL_CAST_OK)
+                        return;
+                }
+            }
+
+            if (m_spells.paladin.pHammerOfWrath &&
+                pVictim->GetHealthPercent() < 20.0f &&
+                CanTryToCastSpell(pVictim, m_spells.paladin.pHammerOfWrath))
+            {
+                if (DoCastSpell(pVictim, m_spells.paladin.pHammerOfWrath) == SPELL_CAST_OK)
                     return;
             }
 
@@ -1821,14 +1810,6 @@ void PartyBotAI::UpdateInCombatAI_Paladin()
                 && !me->CanReachWithMeleeAutoAttack(pVictim))
             {
                 me->GetMotionMaster()->MoveChase(pVictim);
-            }
-            if (m_spells.paladin.pHammerOfWrath &&
-                pVictim->GetHealthPercent() < 20.0f &&
-                (me->GetPowerPercent(POWER_MANA) > 50.0f) &&
-                CanTryToCastSpell(pVictim, m_spells.paladin.pHammerOfWrath))
-            {
-                if (DoCastSpell(pVictim, m_spells.paladin.pHammerOfWrath) == SPELL_CAST_OK)
-                    return;
             }
 
             if (m_spells.paladin.pExorcism &&
@@ -3333,7 +3314,6 @@ void PartyBotAI::UpdateOutOfCombatAI_Warrior()
     if (Unit* pVictim = me->GetVictim())
     {
         if (m_spells.warrior.pCharge &&
-            (m_role == ROLE_TANK) &&
             CanTryToCastSpell(pVictim, m_spells.warrior.pCharge))
         {
             if (DoCastSpell(pVictim, m_spells.warrior.pCharge) == SPELL_CAST_OK)
@@ -3395,7 +3375,6 @@ void PartyBotAI::UpdateInCombatAI_Warrior()
         }
 
         if (m_spells.warrior.pSweepingStrikes &&
-            !IsWearingShield(me) &&
             CanTryToCastSpell(me, m_spells.warrior.pSweepingStrikes) &&
             (me->GetEnemyCountInRadiusAround(pVictim, 10.0f) > 1))
         {
@@ -3422,6 +3401,14 @@ void PartyBotAI::UpdateInCombatAI_Warrior()
                         return;
                 }
             }
+        }
+
+        if (m_spells.warrior.pBattleShout &&
+            GetPartyLeader()->GetClass() != CLASS_WARRIOR &&
+            CanTryToCastSpell(me, m_spells.warrior.pBattleShout))
+        {
+            if (DoCastSpell(me, m_spells.warrior.pBattleShout) == SPELL_CAST_OK)
+                return;
         }
 
         // Stance Logic
@@ -3612,25 +3599,21 @@ void PartyBotAI::UpdateInCombatAI_Warrior()
         {
             if (DoCastSpell(pVictim, m_spells.warrior.pIntercept) == SPELL_CAST_OK)
                 return;
+                return;
         }
 
-        if (m_spells.warrior.pWhirlwind &&
-            CanTryToCastSpell(me, m_spells.warrior.pWhirlwind))
+        // Don't Whirlwind single target over MS unless at lots of excess rage
+        if (me->GetPower(POWER_RAGE) >= 550)
         {
-            if (DoCastSpell(me, m_spells.warrior.pWhirlwind) == SPELL_CAST_OK)
-                return;
+            if (m_spells.warrior.pWhirlwind && CanTryToCastSpell(me, m_spells.warrior.pWhirlwind))
+            {
+                if (DoCastSpell(me, m_spells.warrior.pWhirlwind) == SPELL_CAST_OK)
+                    return;
+            }
         }
 
         if (m_role == ROLE_MELEE_DPS)
         {
-            if (m_spells.warrior.pThunderClap && (me->GetDistance(pVictim) <= 8.0f) &&
-                (!pVictim->HasAura(m_spells.warrior.pThunderClap->Id)) &&
-                CanTryToCastSpell(pVictim, m_spells.warrior.pThunderClap))
-            {
-                if (DoCastSpell(pVictim, m_spells.warrior.pThunderClap) == SPELL_CAST_OK)
-                    return;
-            }
-
             if (m_spells.warrior.pDemoralizingShout &&
                 GetPartyLeader()->GetClass() != CLASS_WARRIOR &&
                 CanTryToCastSpell(pVictim, m_spells.warrior.pDemoralizingShout))
@@ -3649,7 +3632,7 @@ void PartyBotAI::UpdateInCombatAI_Warrior()
             }
         }
 
-        if (me->GetPower(POWER_RAGE) >= 55)
+        if (me->GetPower(POWER_RAGE) >= 550)
         {
             if (m_spells.warrior.pCleave &&
                 me->GetEnemyCountInRadiusAround(pVictim, 8.0f) > 1)
