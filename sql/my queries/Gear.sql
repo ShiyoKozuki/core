@@ -2933,6 +2933,44 @@ SET required_level = 55,
     spelltrigger_1 = 1
 WHERE entry = 20296;
 
+-- Tough Scorpid Set
+    -- Shoulders
+        UPDATE mangos . item_template
+        SET quality = 3,
+            spellid_1 = @AURA_AP_10,
+            spelltrigger_1 = 1
+        WHERE entry = 8207;
+    -- Body
+        UPDATE mangos . item_template
+        SET quality = 3,
+            spellid_1 = @AURA_AP_14,
+            spelltrigger_1 = 1
+        WHERE entry = 8203;
+    -- Gloves
+        UPDATE mangos . item_template
+        SET quality = 3,
+            spellid_1 = @AURA_AP_10,
+            spelltrigger_1 = 1
+        WHERE entry = 8204;
+    -- Pants
+        UPDATE mangos . item_template
+        SET quality = 3,
+            spellid_1 = @AURA_AP_14,
+            spelltrigger_1 = 1
+        WHERE entry = 8206;
+    -- Boots
+        UPDATE mangos . item_template
+        SET quality = 3,
+            spellid_1 = @AURA_AP_10,
+            spelltrigger_1 = 1
+        WHERE entry = 8209;
+    -- Bracers
+        UPDATE mangos . item_template
+        SET quality = 3,
+            spellid_1 = 21361, -- 3 MP/5
+            spelltrigger_1 = 1
+        WHERE entry = 8205;
+
 -- Heavy Scorpid Armor Set
 UPDATE mangos . item_template
 SET quality = 3,
@@ -6083,8 +6121,8 @@ SET stat_type1 = @ITEM_MOD_INT,
     stat_value1 = 10,
     stat_type2 = @ITEM_MOD_SPI,
     stat_value2 = 10,
-    spellid_1 = 0,
-    spelltrigger_1 = 0
+    spellid_1 = 7680, -- +13 Healing
+    spelltrigger_1 = 1
 WHERE entry = 17737;
 
 -- Fist of Stone
@@ -11901,7 +11939,7 @@ WHERE entry = 7476;
 
 -- Regal Cuffs
 UPDATE mangos . item_template
-SET spellid_1 = 9397, -- +7 Spell damage
+SET spellid_1 = 9395, -- +5 Spell Damage
     spelltrigger_1 = 1
 WHERE entry = 7475;
 
@@ -11969,25 +12007,25 @@ WHERE entry = 15982;
 
 -- Opulent Crown
 UPDATE mangos . item_template
-SET spellid_1 = 9417, -- +12 spell damage
+SET spellid_1 = 9415, -- +9 Spell Damage
     spelltrigger_1 = 1
 WHERE entry = 14281;
 
 -- Opulent Mantle
 UPDATE mangos . item_template
-SET spellid_1 = 9417, -- +12 spell damage
+SET spellid_1 = 9415, -- +9 Spell Damage
     spelltrigger_1 = 1
 WHERE entry = 14278;
 
 -- Opulent Robes
 UPDATE mangos . item_template
-SET spellid_1 = 9343, -- +14 Spell Damage
+SET spellid_1 = 9417, -- +12 spell damage
     spelltrigger_1 = 1
 WHERE entry = 14284;
 
 -- Opulent Gloves
 UPDATE mangos . item_template
-SET spellid_1 = 9417, -- +12 spell damage
+SET spellid_1 = 9415, -- +9 Spell Damage
     spelltrigger_1 = 1
 WHERE entry = 14282;
 
@@ -11999,25 +12037,25 @@ WHERE entry = 14283;
 
 -- Opulent Boots
 UPDATE mangos . item_template
-SET spellid_1 = 9417, -- +12 spell damage
+SET spellid_1 = 9415, -- +9 Spell Damage
     spelltrigger_1 = 1
 WHERE entry = 14285;
 
 -- Opulent Belt
 UPDATE mangos . item_template
-SET spellid_1 = 9415, -- +9 Spell Damage
+SET spellid_1 = 9395, -- +5 Spell Damage
     spelltrigger_1 = 1
 WHERE entry = 14286;
 
 -- Opulent Bracers
 UPDATE mangos . item_template
-SET spellid_1 = 9415, -- +9 Spell Damage
+SET spellid_1 = 9395, -- +5 Spell Damage
     spelltrigger_1 = 1
 WHERE entry = 14279;
 
 -- Opulent Cape
 UPDATE mangos . item_template
-SET spellid_1 = 9415, -- +9 Spell Damage
+SET spellid_1 = 9395, -- +5 Spell Damage
     spelltrigger_1 = 1
 WHERE entry = 14280;
 
@@ -14891,6 +14929,14 @@ WHERE entry = 13030;
 
 -- 50-60
 
+-- Robes of Insight
+UPDATE mangos . item_template
+SET stat_type1 = @ITEM_MOD_SPI,
+    stat_value1 = 25,
+    stat_type2 = @ITEM_MOD_INT,
+    stat_value2 = 15
+WHERE entry = 940;
+
 -- Helm of Narv
 UPDATE mangos . item_template
 SET spellid_1 = 7598, -- +2% Physical Crit
@@ -15604,7 +15650,7 @@ UPDATE mangos. item_template
 SET required_reputation_faction = 477, -- Caretakers of Karazhan
     required_reputation_rank = 7, -- Exalted
     bonding = 1
-WHERE entry IN(30020, 30022, 30027, 30024, 20727, 18292, 13520, 30250);
+WHERE entry IN(30020, 30022, 30027, 30024, 20727, 18292, 13520, 30250, 24101, 24102, 23320);
 
 UPDATE mangos. item_template 
 SET required_reputation_faction = 589, -- Wintersaber Trainers
@@ -15731,6 +15777,7 @@ WHERE entry IN(12717, 18418, 22388, 14512, 14513, 14514, 12834, 12825, 18260, 20
         -- Mistcape Armor
         -- Gossamer Pants (Short Pants)
         -- Stonecloth Robe (Shoes Tummy)
+        -- Beaded Robe (VERY lewd! Shows TONS of tummy + back! Basically a bra + robe)
 
     -- Leather
         -- Dervish Tunic
@@ -15752,10 +15799,12 @@ WHERE entry IN(12717, 18418, 22388, 14512, 14513, 14514, 12834, 12825, 18260, 20
         -- (Bare back) Sparkleshell Breastplate 
         -- (Lots of tummy shown!) Enduring Breastplate
         -- Overlinked Chain armor 
+        -- (Lots of Tummy + Lots of bare back) Brigade Breastplate
 
     -- Plate
         -- Vanguard Breastplate (display: 26846)
         -- Lord's Breastplate
+        -- Tyrant's Chestpiece (Lots of boob, lots of bare back, lots of tummy)
 
 
 -- Cool weapons: 

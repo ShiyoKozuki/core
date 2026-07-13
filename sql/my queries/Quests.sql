@@ -630,6 +630,8 @@ REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90035, 3000
 
         REPLACE `mangos`.`quest_template` (`entry`, `Method`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `SpecialFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `DetailsEmote1`, `IncompleteEmote`, `CompleteEmote`) VALUES (30266, 0, 41, 58, 62, 264, 1, 'Shade Essences', '', '', 'Grab a Ghost Vacuum from Wade Wells and then use it to gather Shade Essences from the Restless Shades in Deadwind Pass when their HP is critical.', 'Grab a Ghost Vacuum from Wade Wells and then use it to gather Shade Essences from the Restless Shades in Deadwind Pass when their HP is critical.', '', '', '', '', '', 30061, 5, 477, 150, 390, 25, 1, 1);
 
+        UPDATE `mangos`.`quest_template` SET `RewItemId1`=30211, `RewItemCount1`=1 WHERE  `entry`=30266 AND `patch`=0;
+
         -- Quest Relation
             REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90099, 30257);
             REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90099, 30258);

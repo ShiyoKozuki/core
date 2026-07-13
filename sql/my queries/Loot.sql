@@ -369,37 +369,37 @@ WHERE item IN (11382, 12361, 13926);
 -- DANGER: If drop rate is changed, it will add a new entry and have multiples!
 
 -- Scarlet Priest 
-INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (10608, 14512, 1); -- Pattern: Truefaith Vestments
-INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (10608, 16049, 1); -- Schematic: Dark Iron Bomb
+-- INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (10608, 14512, 1); -- Pattern: Truefaith Vestments
+-- INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (10608, 16049, 1); -- Schematic: Dark Iron Bomb
 
--- Scarlet Sentinel
-INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (1827, 12717, 1); -- Plans: Lionheart Helm
-INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (1827, 12727, 1); -- Plans: Enchanted Thorium Breastplate
+-- -- Scarlet Sentinel
+-- INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (1827, 12717, 1); -- Plans: Lionheart Helm
+-- INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (1827, 12727, 1); -- Plans: Enchanted Thorium Breastplate
 
--- Scarlet Warder
-INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (9447, 22388, 1); -- Plans: Titanic Leggings
-INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (9447, 12725, 1); -- Plans: Enchanted Thorium Helm
-INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (9447, 13501, 1); -- Recipe: Major Mana Potion
+-- -- Scarlet Warder
+-- INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (9447, 22388, 1); -- Plans: Titanic Leggings
+-- INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (9447, 12725, 1); -- Plans: Enchanted Thorium Helm
+-- INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (9447, 13501, 1); -- Recipe: Major Mana Potion
 
--- Cobalt Wyrmkin
-INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (7435, 12834, 1); -- Plans: Arcanite Champion
-INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (7435, 12720, 1); -- Plans: Stronghold Gauntlets
-INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (7435, 18257, 1); -- Recipe: Major Rejuvenation Potion
+-- -- Cobalt Wyrmkin
+-- INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (7435, 12834, 1); -- Plans: Arcanite Champion
+-- INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (7435, 12720, 1); -- Plans: Stronghold Gauntlets
+-- INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (7435, 18257, 1); -- Recipe: Major Rejuvenation Potion
 
--- Cobalt Scalebane
-INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (7436, 18418, 1); -- Pattern: Cloak of Warding
-INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (7436, 18658, 1); -- Schematic: Ultra-Flash Shadow Reflector
+-- -- Cobalt Scalebane
+-- INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (7436, 18418, 1); -- Pattern: Cloak of Warding
+-- INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (7436, 18658, 1); -- Schematic: Ultra-Flash Shadow Reflector
 
--- Red Dragonspawn
-INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (1045, 12726, 1); -- Plans: Enchanted Thorium Leggings
-INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (1045, 13518, 1); -- Recipe: Flask of Petrification
+-- -- Red Dragonspawn
+-- INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (1045, 12726, 1); -- Plans: Enchanted Thorium Leggings
+-- INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (1045, 13518, 1); -- Recipe: Flask of Petrification
 
--- Red Wyrmkin
-INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (1046, 15733, 1); -- Pattern: Green Dragonscale Leggings
-INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (1046, 18657, 1); -- Schematic: Hyper-Radiant Flame Reflector
+-- -- Red Wyrmkin
+-- INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (1046, 15733, 1); -- Pattern: Green Dragonscale Leggings
+-- INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (1046, 18657, 1); -- Schematic: Hyper-Radiant Flame Reflector
 
 -- Scourge Champion
-INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (8529, 21298, 0.1); -- Manual of Battle Shout VII
+-- INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (8529, 21298, 0.1); -- Manual of Battle Shout VII
 
 -- Diseased Flayer
 -- INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (8532, 21293, 0.1); -- Tablet of Grace of Air Totem III
@@ -426,7 +426,7 @@ INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuest
 -- INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (8560, 21293, 0.1); -- Tablet of Grace of Air Totem III
 
 -- Mossflayer Shadowhunter
-INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (8561, 21293, 0.1); -- Tablet of Grace of Air Totem III
+-- INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (8561, 21293, 0.1); -- Tablet of Grace of Air Totem III
 
 -- Mossflayer Cannibal
 -- INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (8562, 21293, 0.1); -- Tablet of Grace of Air Totem III
@@ -459,12 +459,12 @@ INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuest
         INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (7379, 30238, 1);
 
         -- Wailing spectre
-            -- Shimmering Dust
-                INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (12377, 30211, 1);
+            -- Ectoplasm
+                INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (12377, 30210, 1);
 
         -- Damned soul
-            -- Shimmering Dust
-                INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (12378, 30211, 1);
+            -- Ectoplasm
+                INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (12378, 30210, 1);
 
         -- Restless Shade
             -- Ectoplasm
@@ -479,35 +479,282 @@ INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuest
             INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (12380, 30210, 1);
 
     -- Overlord Xelnu
-    INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (17081, 30220, 5);
+        -- Grouped (1) - Skill Books
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17081, 21294, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17081, 21296, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17081, 21295, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17081, 21307, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17081, 21304, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17081, 21306, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17081, 21280, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17081, 21279, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17081, 21214, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17081, 21289, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17081, 21288, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17081, 21290, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17081, 21284, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17081, 21285, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17081, 21287, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17081, 21300, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17081, 21302, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17081, 21303, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17081, 21293, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17081, 21291, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17081, 21292, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17081, 21283, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17081, 21282, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17081, 21281, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17081, 21298, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17081, 21299, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17081, 21297, 1);
+
+    INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (17081, 30379, 5);
+    INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (17081, 30380, 5);
     INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (17081, 30220, 25);
     INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (17081, 30229, 100);
 
     -- Tinnin
+        -- Grouped (1) - Skill Books
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17082, 21294, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17082, 21296, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17082, 21295, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17082, 21307, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17082, 21304, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17082, 21306, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17082, 21280, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17082, 21279, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17082, 21214, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17082, 21289, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17082, 21288, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17082, 21290, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17082, 21284, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17082, 21285, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17082, 21287, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17082, 21300, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17082, 21302, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17082, 21303, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17082, 21293, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17082, 21291, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17082, 21292, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17082, 21283, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17082, 21282, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17082, 21281, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17082, 21298, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17082, 21299, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17082, 21297, 1);
+
+    INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (17082, 30382, 5);
+    INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (17082, 30383, 5);
     INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (17082, 30217, 25);
     INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (17082, 30230, 100);
 
     -- Dame Blanche
+        -- Grouped (1) - Skill Books
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17083, 21294, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17083, 21296, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17083, 21295, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17083, 21307, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17083, 21304, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17083, 21306, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17083, 21280, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17083, 21279, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17083, 21214, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17083, 21289, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17083, 21288, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17083, 21290, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17083, 21284, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17083, 21285, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17083, 21287, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17083, 21300, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17083, 21302, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17083, 21303, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17083, 21293, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17083, 21291, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17083, 21292, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17083, 21283, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17083, 21282, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17083, 21281, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17083, 21298, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17083, 21299, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17083, 21297, 1);
+            
+    INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (17083, 30384, 5);
+    INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (17083, 30385, 5);
     INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (17083, 30216, 25);
     INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (17083, 30231, 100);
     
     -- Highlord Ogrok
+        -- Grouped (1) - Skill Books
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17084, 21294, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17084, 21296, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17084, 21295, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17084, 21307, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17084, 21304, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17084, 21306, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17084, 21280, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17084, 21279, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17084, 21214, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17084, 21289, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17084, 21288, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17084, 21290, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17084, 21284, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17084, 21285, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17084, 21287, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17084, 21300, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17084, 21302, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17084, 21303, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17084, 21293, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17084, 21291, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17084, 21292, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17084, 21283, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17084, 21282, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17084, 21281, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17084, 21298, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17084, 21299, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17084, 21297, 1);
+
+    INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (17084, 30387, 5);
+    INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (17084, 30388, 5);
     INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (17084, 30214, 25);
     INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (17084, 30232, 100);
 
     -- Enkidu
+        -- Grouped (1) - Skill Books
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17085, 21294, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17085, 21296, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17085, 21295, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17085, 21307, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17085, 21304, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17085, 21306, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17085, 21280, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17085, 21279, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17085, 21214, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17085, 21289, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17085, 21288, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17085, 21290, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17085, 21284, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17085, 21285, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17085, 21287, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17085, 21300, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17085, 21302, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17085, 21303, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17085, 21293, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17085, 21291, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17085, 21292, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17085, 21283, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17085, 21282, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17085, 21281, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17085, 21298, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17085, 21299, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17085, 21297, 1);
+
+    INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (17085, 30389, 5);
+    INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (17085, 30390, 5);
     INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (17085, 30219, 25);
     INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (17085, 30233, 100);
 
     -- Byrgen
+        -- Grouped (1) - Skill Books
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17086, 21294, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17086, 21296, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17086, 21295, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17086, 21307, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17086, 21304, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17086, 21306, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17086, 21280, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17086, 21279, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17086, 21214, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17086, 21289, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17086, 21288, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17086, 21290, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17086, 21284, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17086, 21285, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17086, 21287, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17086, 21300, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17086, 21302, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17086, 21303, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17086, 21293, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17086, 21291, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17086, 21292, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17086, 21283, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17086, 21282, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17086, 21281, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17086, 21298, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17086, 21299, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17086, 21297, 1);
+
+    INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (17086, 30392, 5);
+    INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (17086, 30393, 5);
     INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (17086, 30218, 25);
     INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (17086, 30234, 100);
 
     -- Apademak
+        -- Grouped (1) - Skill Books
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17087, 21294, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17087, 21296, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17087, 21295, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17087, 21307, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17087, 21304, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17087, 21306, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17087, 21280, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17087, 21279, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17087, 21214, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17087, 21289, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17087, 21288, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17087, 21290, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17087, 21284, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17087, 21285, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17087, 21287, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17087, 21300, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17087, 21302, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17087, 21303, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17087, 21293, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17087, 21291, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17087, 21292, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17087, 21283, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17087, 21282, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17087, 21281, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17087, 21298, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17087, 21299, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17087, 21297, 1);
+
+    INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (17087, 30394, 5);
+    INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (17087, 30395, 5);
     INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (17087, 30215, 25);
     INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (17087, 30235, 100);
 
     -- Ogopogo
+        -- Grouped (1) - Skill Books
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17088, 21294, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17088, 21296, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17088, 21295, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17088, 21307, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17088, 21304, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17088, 21306, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17088, 21280, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17088, 21279, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17088, 21214, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17088, 21289, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17088, 21288, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17088, 21290, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17088, 21284, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17088, 21285, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17088, 21287, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17088, 21300, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17088, 21302, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17088, 21303, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17088, 21293, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17088, 21291, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17088, 21292, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17088, 21283, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17088, 21282, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17088, 21281, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17088, 21298, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17088, 21299, 1);
+            INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17088, 21297, 1);
+
+    INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (17088, 30396, 5);
+    INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (17088, 30397, 5);
     INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (17088, 30213, 25);
     INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (17088, 30236, 100);
 
@@ -515,14 +762,38 @@ INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuest
     INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (17089, 30213, 100);
 
     -- Skeletal Warlord (T2)
+        -- Grouped (1)
+        INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17090, 30263, 1);
+        INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17090, 30311, 1);
+        INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17090, 30314, 1);
+        INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17090, 30322, 1);
+
     INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (17090, 30399, 100);
 
     -- Ghoul (T2)
+        -- Grouped (1)
+        INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17091, 30264, 1);
+        INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17091, 30308, 1);
+        INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17091, 30316, 1);
+        INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17091, 30319, 1);
+
     INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (17091, 30400, 100);
 
     -- Skeletal Mage (T2)
+        -- Grouped (1)
+        INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17092, 30266, 1);
+        INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17092, 30309, 1);
+        INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17092, 30317, 1);
+        INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17092, 30318, 1);
+
     INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (17092, 30401, 100);
 
     -- Gargoyle (T2)
+        -- Grouped (1)
+        INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17093, 30267, 1);
+        INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17093, 30312, 1);
+        INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17093, 30313, 1);
+        INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `groupid`) VALUES (17093, 30321, 1);
+
     INSERT IGNORE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (17093, 30402, 100);
 

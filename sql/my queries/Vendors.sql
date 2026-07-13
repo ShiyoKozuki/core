@@ -158,6 +158,9 @@ INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (90
 INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (90036, 13520, 0);
 INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (90036, 30250, 0);
 INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (90036, 30258, 0);
+INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (90036, 24101, 0);
+INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (90036, 24102, 0);
+INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (90036, 23320, 0);
 
 -- Wintersaber Trainers Quartermaster 
 INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (10618, 30028, 0);
@@ -236,7 +239,7 @@ INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (10
         -- Recipe Vendor
             -- NPC
                 -- Creature Template
-                    REPLACE `mangos`.`creature_template` (`entry`, `name`, `subname`, `level_min`, `level_max`, `faction`, `npc_flags`, `gossip_menu_id`, `display_id1`, `display_probability1`, `display_total_probability`, `type`, `unit_class`, `health_multiplier`, `base_attack_time`, `equipment_id`, `static_flags1`, `flags_extra`) VALUES (90107, 'Vicki Boucher', 'Recipe Vendor', 30, 30, 12, 5, 686, 1444, 1, 1, 7, 1, 1.05, 1500, 1275, 138936390, 2);
+                    REPLACE `mangos`.`creature_template` (`entry`, `name`, `subname`, `level_min`, `level_max`, `faction`, `npc_flags`, `gossip_menu_id`, `display_id1`, `display_probability1`, `display_total_probability`, `type`, `unit_class`, `health_multiplier`, `base_attack_time`, `equipment_id`, `static_flags1`, `flags_extra`) VALUES (90107, 'Vicki Boucher', 'Recipe Vendor', 30, 30, 1681, 5, 686, 1444, 1, 1, 7, 1, 1.05, 1500, 1275, 138936390, 2);
 
                 -- Creature (Spawn)
                     REPLACE `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000156, 90107, 0, 0, 0, 0, 0, -10454.9, -1722.77, 84.9647, 2.31838, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
