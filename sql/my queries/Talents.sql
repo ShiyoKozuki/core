@@ -224,8 +224,8 @@ UPDATE `mangos`.`spell_template` SET `effect2`=0, `effectDieSides2`=0, `effectBa
         UPDATE `mangos`.`spell_template` SET `effectItemType1`=137472516096, `effectItemType2`=68727898112 WHERE  `entry`=15309;
         UPDATE `mangos`.`spell_template` SET `effectItemType1`=137472516096, `effectItemType2`=68727898112 WHERE  `entry`=15310;
 
-    -- Remove Shadowform (Now regens 2% of max mana every 3 sec)
-        UPDATE `mangos`.`spell_template` SET `description`='Assume a Shadowform, increasing your Shadow damage by $s2% and reducing Physical damage done to you by $s3%.  Additionally, allows $34257s1% of your mana regeneration to continue while casting.  However, you may not cast Holy spells while in this form.' WHERE  `entry`=15473 AND `build`=5302;
+    -- Shadowform (Now additionally allows 50% of your mana regeneration to continue while casting)
+        UPDATE `mangos`.`spell_template` SET `description`='Assume a Shadowform, increasing your Shadow damage by $s2% and reducing Physical damage done to you by $s3%.  Additionally, allows $34257s1% of your mana regeneration to continue while casting.  However, you may not cast Holy spells while in this form.', `auraDescription`='Shadow damage you deal increased by $s2%.  Physical damage you take reduced by $s3%.  Allows $34257s1% of your mana regeneration to continue while casting.   You may not cast Holy spells.'  WHERE  `entry`=15473 AND `build`=5302;
 
     -- Healing Focus (Added Penance)
         UPDATE `mangos`.`spell_template` SET `effectItemType1`=8590204416 WHERE  `entry`=14913;
@@ -338,15 +338,15 @@ UPDATE `mangos`.`spell_template` SET `effect2`=0, `effectDieSides2`=0, `effectBa
     UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=24, `name`='Reflection' WHERE  `entry`=17110 AND `build`=5086;
 
     -- Improved Entangling Roots (Renamed Dreamstate)
-    UPDATE `mangos`.`spell_template` SET `effectRealPointsPerLevel1`=0, `effectBasePoints1`=0, `effectApplyAuraName1`=21, `effectAmplitude1`=5000, `effectMiscValue1`=0, `spellIconId`=2049, `name`='Dreamstate',
+    UPDATE `mangos`.`spell_template` SET `effectRealPointsPerLevel1`=0, `effectBasePoints1`=0, `effectApplyAuraName1`=21, `effectAmplitude1`=5000, `effectMiscValue1`=0, `spellIconId`=6049, `name`='Dreamstate',
         `description`='Regenerate $s1% mana per 5 sec.' 
     WHERE  `entry`=16918 AND `build`=4222;
 
-    UPDATE `mangos`.`spell_template` SET `effectRealPointsPerLevel1`=0, `effectBasePoints1`=1, `effectApplyAuraName1`=21, `effectAmplitude1`=5000, `effectMiscValue1`=0, `spellIconId`=2049, `name`='Dreamstate',
+    UPDATE `mangos`.`spell_template` SET `effectRealPointsPerLevel1`=0, `effectBasePoints1`=1, `effectApplyAuraName1`=21, `effectAmplitude1`=5000, `effectMiscValue1`=0, `spellIconId`=6049, `name`='Dreamstate',
         `description`='Regenerate $s1% mana per 5 sec.' 
     WHERE  `entry`=16919 AND `build`=4222;
 
-    UPDATE `mangos`.`spell_template` SET `effectRealPointsPerLevel1`=0, `effectBasePoints1`=2, `effectApplyAuraName1`=21, `effectAmplitude1`=5000, `effectMiscValue1`=0, `spellIconId`=2049, `name`='Dreamstate',
+    UPDATE `mangos`.`spell_template` SET `effectRealPointsPerLevel1`=0, `effectBasePoints1`=2, `effectApplyAuraName1`=21, `effectAmplitude1`=5000, `effectMiscValue1`=0, `spellIconId`=6049, `name`='Dreamstate',
         `description`='Regenerate $s1% mana per 5 sec.' 
     WHERE  `entry`=16920 AND `build`=4222;
 
