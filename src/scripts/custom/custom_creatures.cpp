@@ -1236,8 +1236,7 @@ bool GossipSelect_RaceChangeNPC(Player* player, Creature* creature, uint32 sende
         {
         case 1:
             if (player->GetRace() != RACE_BLOODELF &&
-                player->GetClass() != CLASS_WARRIOR &&
-                player->GetClass() != CLASS_DRUID)
+                player->GetClass() != CLASS_WARRIOR)
             {
                 // Learn racials
                 for (size_t i = 33821; i <= 33824; i++)
