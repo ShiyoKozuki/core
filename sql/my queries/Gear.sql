@@ -846,10 +846,20 @@ REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quali
 
 REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`) VALUES (30402, 5, 'Gem of Gargoyle', 24051, 1, 0, 0, -1, -1, 45, 20, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0);
 
+REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `container_slots`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30403, 1, 'Small Bank Bag', 34796, 2, 1000000, 250000, 18, -1, -1, 35, 22, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 2, 8);
+
+REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `container_slots`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30404, 1, 'Medium Bank Bag', 34796, 2, 1500000, 375000, 18, -1, -1, 35, 24, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 2, 8);
+
+REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `container_slots`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30405, 1, 'Large Bank Bag', 50459, 3, 2500000, 620000, 18, -1, -1, 35, 26, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 2, 8);
+
+REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `container_slots`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30406, 1, 'Very Large Bank Bag', 50459, 3, 3500000, 875000, 18, -1, -1, 35, 28, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 2, 8);
+
+REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `container_slots`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30407, 1, 'Gigantic Bank Bag', 39459, 4, 5000000, 1250000, 18, -1, -1, 35, 30, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 2, 8);
+
 
 -- TODO: All legs of the blue pvp / TBC dungeon sets as random drops
 -- https://www.wowhead.com/tbc/transmog-set=910/beast-lord-armor
--- NEXT 30399
+-- NEXT 30408
 
 -- Item classes
     -- Trade goods
@@ -15800,11 +15810,13 @@ WHERE entry IN(12717, 18418, 22388, 14512, 14513, 14514, 12834, 12825, 18260, 20
         -- (Lots of tummy shown!) Enduring Breastplate
         -- Overlinked Chain armor 
         -- (Lots of Tummy + Lots of bare back) Brigade Breastplate
+        -- Captain's Breastplate (Bare Back + shoulderless)
 
     -- Plate
         -- Vanguard Breastplate (display: 26846)
         -- Lord's Breastplate
         -- Tyrant's Chestpiece (Lots of boob, lots of bare back, lots of tummy)
+        -- Chromite Chestplate (Shows tummy)
 
 
 -- Cool weapons: 

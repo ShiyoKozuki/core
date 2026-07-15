@@ -275,4 +275,11 @@ INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (10
                     REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90109, 13, 30357, 0, 0, 0, 0);
                     REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90109, 14, 30358, 0, 0, 0, 0);
 
+        -- Bad Vendor (Add custom Bank Bags)
+            REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (1321, 5, 30403, 0, 0, 0, 0);
+            REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (1321, 6, 30404, 0, 0, 0, 0);
+            REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (1321, 7, 30405, 0, 0, 0, 0);
+            REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (1321, 8, 30406, 0, 0, 0, 0);
+            REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (1321, 9, 30407, 0, 0, 0, 0);
+
 
