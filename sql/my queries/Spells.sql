@@ -910,19 +910,6 @@
     DELETE FROM `mangos`.`playercreateinfo_spell` WHERE  `race`=5 AND `class`=8 AND `spell`=7744;
     DELETE FROM `mangos`.`playercreateinfo_spell` WHERE  `race`=5 AND `class`=9 AND `spell`=7744;
 
-    -- Priest racial spells (Fear Ward, Desperate Prayer, Devouring Plague)
-    -- Given to Dwarf, Human, and Blood Elf
-    UPDATE `mangos`.`skill_line_ability` SET 
-    `race_mask`=517 
-    WHERE spell_id IN(6346, 13908, 19236, 19238, 19240, 19241, 19242, 19243, 2944, 19276, 19277, 19278, 19279, 19280);
-
-    -- Devouring Plague added to alliance trainers
-        REPLACE `mangos`.`npc_trainer_template` (`entry`, `spell`, `spellcost`, `reqlevel`) VALUES (8, 19276, 400, 28);
-        REPLACE `mangos`.`npc_trainer_template` (`entry`, `spell`, `spellcost`, `reqlevel`) VALUES (8, 19277, 700, 36);
-        REPLACE `mangos`.`npc_trainer_template` (`entry`, `spell`, `spellcost`, `reqlevel`) VALUES (8, 19278, 1200, 44);
-        REPLACE `mangos`.`npc_trainer_template` (`entry`, `spell`, `spellcost`, `reqlevel`) VALUES (8, 19279, 1900, 52);
-        REPLACE `mangos`.`npc_trainer_template` (`entry`, `spell`, `spellcost`, `reqlevel`) VALUES (8, 19280, 2300, 60);
-
     -- Blood Elf
     -- +15 Enchanting
     REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `dmgMultiplier1`) VALUES (33821, 5086, 80, 1, 101, 21, 1, -1, 6, 1, 1, 14, 1, -1, -1, 1, 98, 333, 578, 'Enchanting Mastery', 2031678, 'Racial Passive', 2031678, 'Enchanting skill increased by $s1.', 2031678, 2031660, 1);
@@ -2219,6 +2206,22 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
         UPDATE `mangos`.`spell_template` SET `effect1`=121, `effectBasePoints1`=34, `description`='Counterattack the enemy for weapon damage plus $s1 damage.  Can only be performed after you dodge.' WHERE  `entry`=14271;
 
     -- Priest
+
+        -- Racial spells given to Dwarf, Human, and Blood Elf
+            UPDATE `mangos`.`skill_line_ability` SET 
+            `race_mask`=517 
+            WHERE spell_id IN(6346, 13908, 19236, 19238, 19240, 19241, 19242, 19243, 2944, 19276, 19277, 19278, 19279, 19280);
+
+        -- Devouring Plague added to alliance trainers
+            REPLACE `mangos`.`npc_trainer_template` (`entry`, `spell`, `spellcost`, `reqlevel`) VALUES (8, 19276, 400, 28);
+            REPLACE `mangos`.`npc_trainer_template` (`entry`, `spell`, `spellcost`, `reqlevel`) VALUES (8, 19277, 700, 36);
+            REPLACE `mangos`.`npc_trainer_template` (`entry`, `spell`, `spellcost`, `reqlevel`) VALUES (8, 19278, 1200, 44);
+            REPLACE `mangos`.`npc_trainer_template` (`entry`, `spell`, `spellcost`, `reqlevel`) VALUES (8, 19279, 1900, 52);
+            REPLACE `mangos`.`npc_trainer_template` (`entry`, `spell`, `spellcost`, `reqlevel`) VALUES (8, 19280, 2300, 60);
+
+        -- Mind Flay (Range increased to 30 yards)
+            UPDATE `mangos`.`spell_template` SET `rangeIndex` = @RANGE_THIRTY_YARDS WHERE entry IN (15407, 17311, 17312, 17313, 17314, 18807);
+
         -- Shadowform (Also grants +50% mana regen to continue while casting) 
             REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `dispel`, `castingTimeIndex`, `procChance`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectAmplitude1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `dmgClass`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34257, 5302, 1, 1, 1, 101, 1, -1, -1, 6, 1, 1, 1, 1, -1, -1, 1, 21, 5000, 1677, 'Shadowform', 2031678, 2031628, 'Restores $s1% mana every 5 sec.', 2031678, 2031678, 1, -1, 1, 1, 1);
             UPDATE `mangos`.`spell_template` SET `durationIndex`=21, `attributes`=464, `attributesEx3`=67108864, `effectBasePoints1`=49, `effectApplyAuraName1`=134, `effectAmplitude1`=0 WHERE  `entry`=34257 AND `build`=5302;
@@ -2633,7 +2636,7 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
             -- Water Jet
                 -- TODO: Remove spell family flags and spellfamilyname
                     -- Spell
-                        REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `attributesEx`, `attributesEx2`, `stances`, `castingTimeIndex`, `interruptFlags`, `channelInterruptFlags`, `procChance`, `maxLevel`, `baseLevel`, `spellLevel`, `durationIndex`, `manaCost`, `rangeIndex`, `equippedItemClass`, `effect1`, `effect2`, `effectDieSides1`, `effectDieSides2`, `effectBaseDice1`, `effectBaseDice2`, `effectRealPointsPerLevel1`, `effectBasePoints1`, `effectBasePoints2`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectMechanic2`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectApplyAuraName1`, `effectApplyAuraName2`, `effectAmplitude1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `customFlags`, `script_name`) VALUES (34202, 5464, 4, 65536, 16388, 524288, 134217728, 1, 15, 31756, 101, 61, 40, 40, @DURATION_MAX_5_SEC, 135, @RANGE_MEDIUM_RANGE_1, -1, 6, 6, 1, 1, 1, 1, 10, 86, -51, 0.15, 0, -1, 11, 6, 6, 3, 33, 1000, 13689, 2131, 'Water Jet', 4128830, 4128830, 'Assault the target with a stream of water, causing $o1 Frost damage over $d and slowing their movement speed by $s2%.', 4128830, 'Movement speed slowed by $s2%.', 4128830, 133, 1500, 0, 0, 1, 1, -1, 1, 1, 128, 'spell_mage_water_jet');
+                        REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `attributesEx`, `attributesEx2`, `stances`, `castingTimeIndex`, `interruptFlags`, `channelInterruptFlags`, `procChance`, `maxLevel`, `baseLevel`, `spellLevel`, `durationIndex`, `manaCost`, `rangeIndex`, `equippedItemClass`, `effect1`, `effect2`, `effectDieSides1`, `effectDieSides2`, `effectBaseDice1`, `effectBaseDice2`, `effectRealPointsPerLevel1`, `effectBasePoints1`, `effectBasePoints2`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectMechanic2`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectApplyAuraName1`, `effectApplyAuraName2`, `effectAmplitude1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `customFlags`, `script_name`) VALUES (34202, 5464, 4, 65536, 16388, 524288, 134217728, 1, 15, 31756, 101, 61, 40, 40, @DURATION_MAX_5_SEC, 135, @RANGE_THIRTY_YARDS, -1, 6, 6, 1, 1, 1, 1, 10, 86, -51, 0.15, 0, -1, 11, 6, 6, 3, 33, 1000, 13689, 2131, 'Water Jet', 4128830, 4128830, 'Assault the target with a stream of water, causing $o1 Frost damage over $d and slowing their movement speed by $s2%.', 4128830, 'Movement speed slowed by $s2%.', 4128830, 133, 1500, 0, 0, 1, 1, -1, 1, 1, 128, 'spell_mage_water_jet');
                         
                         UPDATE `mangos`.`spell_template` SET `recoveryTime`=45000 WHERE  `entry`=34202;
 
@@ -3964,7 +3967,7 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
         VALUES (33425, 5464, 1, 0, 1, 65536, 136, 1, 45000, 8, 101, 60, 40, 40, 105, 350, 1, -1, -1, 6, 2, 1, 11, 1, 1, 0.8, 
         99, 299, 0.129, 0.129, -1, 24, 24, 13, 13, 3, 3000, 324, 2041, 50, 'Wake of Ashes', 4128830, 'Rank 1', 4128830, 'Targets in a cone in front of the caster take $s2 Holy damage and then burn for an additional $o1 Fire damage for $d.  Generates 3 Holy Power.', 4128830, '$s1 Fire damage every $t1 seconds.', 4128830, 133, 1500, 3, 1573376, 1, 1, -1, 1, 1, 1, '');
 
-        UPDATE `mangos`.`spell_template` SET `effect3`=137, `effectDieSides3`=1, `effectBaseDice3`=1, `effectBasePoints3`=2, `effectImplicitTargetA3`=1, `effectRealPointsPerLevel1`=3, `effectRealPointsPerLevel2`=3 WHERE  `entry`=33425;
+        UPDATE `mangos`.`spell_template` SET `effect3`=137, `effectDieSides3`=1, `effectBaseDice3`=1, `effectBasePoints1`=75, `effectBasePoints2`=249 , `effectBasePoints3`=2, `effectRealPointsPerLevel1`=2, `effectRealPointsPerLevel2`=2, `effectImplicitTargetA3`=1 WHERE  `entry`=33425;
 
         -- Skill line ability:
         REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`) VALUES (15047, 5875, 184, 33425, 2, 1);

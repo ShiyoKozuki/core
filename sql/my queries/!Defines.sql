@@ -126,8 +126,8 @@
         @RANGE_SELF_ONLY                   = 1,
         @RANGE_COMBAT_RANGE                = 2,
         @RANGE_TWENTY_YARDS                = 3,
-        @RANGE_MEDIUM_RANGE_1              = 4,
-        @RANGE_LONG_RANGE_1                = 5, -- 40y
+        @RANGE_THIRTY_YARDS                = 4,
+        @RANGE_FORTY_YARDS                 = 5, -- 40y
         @RANGE_VISION_RANGE                = 6, -- 100y
         @RANGE_TEN_YARDS                   = 7,
         @RANGE_MIN_RANGE_10_20             = 8,
@@ -649,6 +649,11 @@
         @FACTION_CARETAKERS_OF_KARAZHAN = 477,
         @FACTION_TIMBERMAW_HOLD = 576,
         @FACTION_WINTERSABER_TRAINERS = 589;
+
+    SET
+        @BONDING_NONE = 0,
+        @BONDING_BOP = 1,
+        @BONDING_BOE = 2;
 
     SET
         @AURA_AP_10 = 9140,
