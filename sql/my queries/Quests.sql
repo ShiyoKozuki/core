@@ -813,27 +813,12 @@ REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90035, 3000
         REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90106, 30286);
         REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90106, 30287);
 
-    -- TODO: It was working, then I changed NPC to despawn, added xyzo pos for guy to spawn, removed target and now its all broken
-    -- TODO: Maybe he spawned in wrong spot and is still up somewhere?, cause i spawned him without mins sign on x/y...but it does error still
-    -- TODO: is it the creature_movement_scripts ?
-    -- TODO: Or it needs a target and me removing it breaks it?
-    -- TODO: Or despawn in same script as fail and then spawn - > despawn in that order so that target exists? (slight delay before despawning so alive when boss is summoned)
     -- ERROR: FindScriptTargets: Failed to find target for script with id 9000000 (target_param1: 30263), (target_param2: 0), (target_type: 21).
-    -- TODO: Put spirit back to spawn pos after completion? How does the Defias Traitor do that?
     -- TODO: Kinelory also assists players that aggrod mobs
     -- https://github.com/vmangos/core/commit/10093b654f5a6ae89e4d34ad1514672eb11bc00b#diff-9bc809fbb897a1cf4299b64d530ce52d80a572ec5252ee228c6716e98bb8321b
     -- TODO: Aggro enemies aggrod to player or be aggressive or something
     -- TODO: Xelnu not despawn OOC 
-    -- TODO: Make sure all creature and object spawns are accounted for in these files with correct respawn timers (Creatures.sql and Quests.sql) 
-    -- TODO: Use Unholy Shield (8909) and Ironfur (33526) to make a DR shield for Enkidu with infinite duration, put in his auras (replace 8909).  
-    -- TODO: Add an item to remove the shield that drops from undead mother, code it in item script
-    -- TODO: Grouped (2-3 mob) patrolls in cave/cellar
     -- TODO: Quest to collect an item from Fel mobs spawned by portals that are in Desolace
-    -- TODO: 1 patrolling peron on each of final 2 floors to roof before Xelnu (there's already a 3rd spawn can use for top, but one below needs a 3rd)
-    -- TODO: Fix the boss summoned by the Eerie Altar, using one of my bosses unsure which one I want
-    -- TODO: Quest inside "Crypt" cave to escort someone out
-    -- TODO: Quest inside "Crypt" cave to spawn a wave of mobs (Costs Soulshard Fragments)
-    -- TODO: Objects using the floating  red crystal in Ashenvale by Satyrs you can trade Soulshard Fragments for 1 hr buffs
     -- TODO: AOE spots
     -- TODO: Some cliff you need to jump down to from the main road that has an object thats used to spawn Ogopogo or in a crypt / cave (are there more?)
     -- TODO: Need to escort female NPC up the tower and then it turns into Xelnu (Zelda OOT reference)
@@ -841,23 +826,15 @@ REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90035, 3000
     -- TODO: Copy radiation bolt animation from gnomergan
     -- TODO: Use radiation poisoning visual for the disease from Ogopogo
     -- TODO: Dalinda Malem AI attacks stuff on her own, copy her for Scared Spirit
-    -- TODO: More stuff underwater
     -- TODO: Locked chests only rogue can open that give craft mats (pickpocket too!)
-    -- TODO: Abjurations
     -- TODO: Finish crafted gear (Bait recipe should take level 300+ fish)
     -- TODO: Special weapon drops or from rep vendor that give stuff like the gnomergan Underwater Breathing staff (Detect invis? Detect traps? etc)
     -- TODO: +Demon damage ring from Karazhan? or elementals or something
-    -- TODO: More innerconnected crafting, like iron buckles needed to make belts. can even turn the drops into an item that's used for by other crafters l ike rubber soles or w/e
-    -- TODO: Multi level crafts (craft body, then craft that with other mats to make a better body, etc). Can even come from multiple crafts
     -- TODO: How did Book of the Ancients quest make the boss aggro spawner on spawn?
     -- TODO: "Waves" of mobs spawning event for something
     -- TODO: Item that spawns mobs like Ghost-o-plasm Round Up quest you can buy for rep and they drop items needed for a quest to turn in for Ghost Vacuum (remove from vendor)
     -- TODO: Event like "The Grimtotem Weapon" from TBC where you have to drop an item then kill mobs near it
-    -- TODO: Special item from the ghost vacuum quest that is needed for blanche dame (Banshee)
-    -- TODO: Skill books from rep (exalted)
-    -- TODO: Recipes random drops from the lesser elite rare roaming NMs
     -- TODO: Karazhan caretaker gear turned into PANTS
-    -- TODO: T1 bosses drop a pop item (seal of x) that pops T2 OR T3 boss
     -- TODO: Timed quest to kill x amount of mobs or a boss?
 
     -- "Crypt Cave" mobs

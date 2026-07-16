@@ -869,7 +869,13 @@ REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quali
         OR (entry >= 30263 AND entry <= 30267) -- Abjurations
         OR (entry >= 30288 AND entry <= 30307)
         OR (entry >= 30308 AND entry <= 30322) -- Abjurations
+        OR (entry >= 30323 AND entry <= 30348) -- New custom Craft materials
         OR entry IN (30307);
+
+    -- Parts (Engineering)
+        UPDATE mangos.item_template
+        SET class = @ITEM_CLASS_TRADE_GOODS, subclass = 1
+        WHERE entry IN (30335, 30325);
 
 -- Quality
     -- Rare
@@ -15798,6 +15804,7 @@ WHERE entry IN(12717, 18418, 22388, 14512, 14513, 14514, 12834, 12825, 18260, 20
         -- Cutthroat's Vest (very lewd)
         -- Warden's Wraps
         -- Nocturnal Tunic (Massive Cleavage + Black)
+        -- Surveyor's Tunic (Tons of tummy! Basically a bra)
 
     -- Mail
         -- Fortified chain (display: 1019) 

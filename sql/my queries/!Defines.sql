@@ -659,3 +659,9 @@
         @AURA_AP_10 = 9140,
         @AURA_AP_14 = 9142,
         @AURS_AP_18 = 9330;
+
+    SET
+        @SPELL_LOC_FORGE = 3;
+
+    SET
+        @SPELL_VISUAL_CRAFT = 390;

@@ -8,7 +8,7 @@ JOIN (SELECT DISTINCT entry FROM item_template) item_template
 WHERE creature_template.entry IN (3323, 1307, 1351, 16015, 3335, 4878, 2805, 1257, 3351, 3490, 4083, 8361, 5151, 3562, 12784, 12795, 13476, 1275, 5110, 4575, 983, 958, 4562, 12096, 1308, 3500, 3700, 10364, 12097, 1463, 1673, 3970, 5139, 3542, 4220, 14739, 15175) AND item_template.entry IN (5512, 5511, 5509, 5510, 9421, 16896, 10310, 10309, 10307, 10308, 10305);
 
 -- Cooking Supplier Vendor (SW / IF Darnassus only)
-    -- Ground Wasabi, Rice Vinegar
+    -- Ground Wasabi, Rice Vinegar, Simple Flour, Olive Oil, Latex
     -- TODO: Slot not needed?
     -- TODO: Add to baker and trade supplies
         REPLACE `mangos`.`npc_vendor` (`entry`, `slot`, `item`) VALUES (4223, 7, 30198);
@@ -17,6 +17,9 @@ WHERE creature_template.entry IN (3323, 1307, 1351, 16015, 3335, 4878, 2805, 125
         REPLACE `mangos`.`npc_vendor` (`entry`, `slot`, `item`) VALUES (5160, 8, 30199);
         REPLACE `mangos`.`npc_vendor` (`entry`, `slot`, `item`) VALUES (5483, 7, 30198);
         REPLACE `mangos`.`npc_vendor` (`entry`, `slot`, `item`) VALUES (5483, 8, 30199);
+        REPLACE `mangos`.`npc_vendor` (`entry`, `slot`, `item`) VALUES (5483, 9, 30338);
+        REPLACE `mangos`.`npc_vendor` (`entry`, `slot`, `item`) VALUES (5483, 10, 30339);
+        REPLACE `mangos`.`npc_vendor` (`entry`, `slot`, `item`) VALUES (5483, 11, 30344);
 
 -- Silverwing Rep Vendor (WSG)
 INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (14753, 30000, 159);
