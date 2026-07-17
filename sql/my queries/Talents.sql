@@ -238,13 +238,6 @@ UPDATE `mangos`.`spell_template` SET `effect2`=0, `effectDieSides2`=0, `effectBa
         UPDATE `mangos`.`spell_template` SET `effectItemType1`=25926311552 WHERE  `entry`=15010;
         UPDATE `mangos`.`spell_template` SET `effectItemType1`=25926311552 WHERE  `entry`=15011;
 
-    -- Inspiration (Add Penance)
-    UPDATE `mangos`.`spell_template` SET `description`='Increases your target\'s armor by $14893s1% for $14893d after getting a critical effect from your Flash Heal, Heal, Greater Heal, Penance, or Prayer of Healing spell.' WHERE  `entry`=14892;
-
-    UPDATE `mangos`.`spell_template` SET `description`='Increases your target\'s armor by $15357s1% for $15357d after getting a critical effect from your Flash Heal, Heal, Greater Heal, Penance, or Prayer of Healing spell.' WHERE  `entry`=15362;
-
-    UPDATE `mangos`.`spell_template` SET `description`='Increases your target\'s armor by $15359s1% for $15359d after getting a critical effect from your Flash Heal, Heal, Greater Heal, Penance, or Prayer of Healing spell.' WHERE  `entry`=15363;
-
     -- Holy Reach (Add Penance)
     UPDATE `mangos`.`spell_template` SET `effectItemType1`=25770852480, `description`='Increases the range of your Smite, Holy Fire and Penance spells and the radius of your Prayer of Healing and Holy Nova spells by $s1%.' WHERE  `entry`=27789;
 

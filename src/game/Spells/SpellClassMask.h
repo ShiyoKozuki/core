@@ -177,7 +177,8 @@ enum ClassFlag
     CF_PRIEST_PENANCE_DAMAGE                = 34,   // CM1 00000003
     CF_PRIEST_PENANCE_DAMAGE_CHANNEL        = 35,   // CM1 00000004
     CF_PRIEST_VAMPIRIC_TOUCH                = 36,   // CM1 00000008
-    CF_PRIEST_SHADOW_WORD_DEATH             = 37,   // CM1 00000010  
+    CF_PRIEST_SHADOW_WORD_DEATH             = 37,   // CM1 00000010
+    CF_PRIEST_PENANCE_HEAL_CHANNEL          = 38,
 
 
     // -- Druid (7)
