@@ -63,6 +63,9 @@ SET
 @ITEM_POWERFUL_MOJO = 12804,
 @ITEM_IRONFEATHER = 15420,
 
+-- Tools
+@ITEM_RUNED_ARCANITE_ROD = 16207,
+
 -- New (Custom)
 @ITEM_ELEMENTAL_FLUX = 18567,
 @ITEM_ECTOPLASM = 30210,
@@ -730,9 +733,11 @@ SET
 
         -- Enchanted Lumber
             -- Recipe
-                REPLACE `mangos`.`spell_template` (`entry`, `build`, `castUI`, `attributes`, `castingTimeIndex`, `interruptFlags`, `procChance`, `rangeIndex`, `reagent1`, `reagent2`, `reagent3`, `reagentCount1`, `reagentCount2`, `reagentCount3`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectItemType1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34214, 4222, 0, 65568, 39, 15, 101, 1, 666, 666, 666, 666, 666, 666, -1, 24, 1, 1, 0, -1, -1, 1, 666, 3182, 1, 'itemName', 7274526, 7274508, 7274508, 983052, -1, 1, 1, 1);
+                REPLACE `mangos`.`spell_template` (`entry`, `build`, `castUI`, `attributes`, `castingTimeIndex`, `interruptFlags`, `procChance`, `rangeIndex`, `reagent1`, `reagent2`, `reagent3`, `reagentCount1`, `reagentCount2`, `reagentCount3`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectItemType1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34214, 4222, 3, 65536, 7, 15, 101, 1, 666, 666, 666, 666, 666, 666, -1, 24, 1, 1, 0, -1, -1, 1, 666, 395, 1, 'itemName', 7274526, 7274508, 7274508, 983052, -1, 1, 1, 1);
 
                 UPDATE `mangos`.`spell_template` SET 
+                    `castui`=@CAST_UI_ITEM, -- Needed for enchanting
+                    `totem1`=@ITEM_RUNED_ARCANITE_ROD, -- Tool
                     `reagent1`=@ITEM_DIVINE_LOG, 
                     `reagent2`=16204, 
                     `reagent3`=16203, 
@@ -740,13 +745,13 @@ SET
                     `reagentCount2`=8, 
                     `reagentCount3`=3, 
                     `effectItemType1`=@ITEM_ENCHANTED_LUMBER,
-                    `spellVisual1`=395, 
-                    `spellIconId`=413, 
+                    `spellVisual1`=@SPELL_VISUAL_ENCHANT, 
+                    `spellIconId`=2258, 
                     `name`='Enchanted Lumber' 
                 WHERE `entry`=34214;
-
-            -- Learn spell:
-                REPLACE  `mangos`.`spell_template` (`entry`, `build`, `attributes`, `targets`, `castingTimeIndex`, `interruptFlags`, `procChance`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34215, 4222, 262400, 0, 1, 15, 101, 6, -1, -1, 36, 0, -1, -1, 34214, 222, 413, 'Enchanted Lumber', 983070, 7274508, 'Teaches you how to craft an Enchanted Lumber.', 7274508, 983052, -1, 1, 1, 1);
+                
+            -- Learn spell(for trainer):
+                REPLACE  `mangos`.`spell_template` (`entry`, `build`, `attributes`, `targets`, `castingTimeIndex`, `interruptFlags`, `procChance`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34215, 4222, 262400, 256, 1, 15, 101, 6, -1, -1, 36, 0, -1, -1, 34214, 107, 241, 'Enchanted Lumber', 983070, 7274508, 'Teaches you how to craft an Enchanted Lumber.', 7274508, 983052, -1, 1, 1, 1);
 
             -- Skill Line Ability:
             REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `req_skill_value`, `max_value`, `min_value`) VALUES (15176, 5875, @SKILL_ENCHANTING, 34214, 1, 300, 315);
@@ -915,27 +920,29 @@ SET
 
         -- Imbued Runecloth
             -- Recipe
-                REPLACE `mangos`.`spell_template` (`entry`, `build`, `castUI`, `attributes`, `castingTimeIndex`, `interruptFlags`, `procChance`, `rangeIndex`, `reagent1`, `reagent2`, `reagent3`, `reagentCount1`, `reagentCount2`, `reagentCount3`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectItemType1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34230, 4222, 0, 65568, 39, 15, 101, 1, 666, 666, 666, 666, 666, 666, -1, 24, 1, 1, 0, -1, -1, 1, 666, 3182, 1, 'itemName', 7274526, 7274508, 7274508, 983052, -1, 1, 1, 1);
+                REPLACE `mangos`.`spell_template` (`entry`, `build`, `castUI`, `attributes`, `castingTimeIndex`, `interruptFlags`, `procChance`, `rangeIndex`, `reagent1`, `reagent2`, `reagent3`, `reagentCount1`, `reagentCount2`, `reagentCount3`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectItemType1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34230, 4222, 3, 65536, 7, 15, 101, 1, 666, 666, 666, 666, 666, 666, -1, 24, 1, 1, 0, -1, -1, 1, 666, 395, 1, 'itemName', 7274526, 7274508, 7274508, 983052, -1, 1, 1, 1);
 
                 UPDATE `mangos`.`spell_template` SET 
-                    `reagent1`=14047, 
+                    `castui`=@CAST_UI_ITEM, -- Needed for enchanting
+                    `totem1`=@ITEM_RUNED_ARCANITE_ROD, -- Tool
+                    `reagent1`=@ITEM_BOLT_OF_RUNECLOTH, 
                     `reagent2`=16204, 
                     `reagent3`=16203, 
-                    `reagentCount1`=20, 
+                    `reagentCount1`=5, 
                     `reagentCount2`=8, 
                     `reagentCount3`=3, 
                     `effectItemType1`=@ITEM_IMBUED_RUNECLOTH,
-                    `spellVisual1`=395, 
-                    `spellIconId`=413, 
+                    `spellVisual1`=@SPELL_VISUAL_ENCHANT, 
+                    `spellIconId`=3634, 
                     `name`='Imbued Runecloth' 
                 WHERE `entry`=34230;
-
-            -- Learn spell:
-                REPLACE  `mangos`.`spell_template` (`entry`, `build`, `attributes`, `targets`, `castingTimeIndex`, `interruptFlags`, `procChance`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34231, 4222, 262400, 0, 1, 15, 101, 6, -1, -1, 36, 0, -1, -1, 34230, 222, 413, 'Imbued Runecloth', 983070, 7274508, 'Teaches you how to craft an Imbued Runecloth.', 7274508, 983052, -1, 1, 1, 1);
+                
+            -- Learn spell(for trainer):
+                REPLACE  `mangos`.`spell_template` (`entry`, `build`, `attributes`, `targets`, `castingTimeIndex`, `interruptFlags`, `procChance`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34231, 4222, 262400, 256, 1, 15, 101, 6, -1, -1, 36, 0, -1, -1, 34230, 107, 241, 'Imbued Runecloth', 983070, 7274508, 'Teaches you how to craft an Imbued Runecloth.', 7274508, 983052, -1, 1, 1, 1);
 
             -- Skill Line Ability:
             REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `req_skill_value`, `max_value`, `min_value`) VALUES (15184, 5875, @SKILL_ENCHANTING, 34230, 1, 300, 315);
-
+            
         -- Black Ink
             -- Recipe
                 REPLACE `mangos`.`spell_template` (`entry`, `build`, `castUI`, `attributes`, `castingTimeIndex`, `interruptFlags`, `procChance`, `rangeIndex`, `reagent1`, `reagent2`, `reagent3`, `reagentCount1`, `reagentCount2`, `reagentCount3`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectItemType1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34306, 4222, 0, 65568, 39, 15, 101, 1, 666, 666, 666, 666, 666, 666, -1, 24, 1, 1, 0, -1, -1, 1, 666, 3182, 1, 'itemName', 7274526, 7274508, 7274508, 983052, -1, 1, 1, 1);

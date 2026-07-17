@@ -664,4 +664,8 @@
         @SPELL_LOC_FORGE = 3;
 
     SET
-        @SPELL_VISUAL_CRAFT = 390;
+        @SPELL_VISUAL_CRAFT = 390,
+        @SPELL_VISUAL_ENCHANT = 3182;
+
+    SET
+        @CAST_UI_ITEM = 3;
