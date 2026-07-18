@@ -628,6 +628,7 @@ SET
                     `effectItemType1`=30328,
                     `spellVisual1`=395, 
                     `spellIconId`=413, 
+                    `castingTimeIndex`=@CASTING_TIME_30000_MS,
                     `name`='Rainbow Cloth' 
                 WHERE `entry`=34205;
 
@@ -651,6 +652,7 @@ SET
                     `effectItemType1`=@ITEM_TIGER_LEATHER,
                     `spellVisual1`=395, 
                     `spellIconId`=413, 
+                    `castingTimeIndex`=@CASTING_TIME_30000_MS,
                     `name`='Tiger Leather' 
                 WHERE `entry`=34258;
 
@@ -675,6 +677,7 @@ SET
                     `effectBasePoints1`=3, -- Amount created
                     `spellVisual1`=395, 
                     `spellIconId`=413, 
+                    `castingTimeIndex`=@CASTING_TIME_30000_MS,
                     `name`='Dragon Blood' 
                 WHERE `entry`=34208;
 
@@ -699,6 +702,7 @@ SET
                     `effectItemType1`=@ITEM_DARKSTEEL_INGOT,
                     `spellVisual1`=@SPELL_VISUAL_CRAFT, 
                     `spellIconId`=413, 
+                    `castingTimeIndex`=@CASTING_TIME_30000_MS,
                     `name`='Darksteel Ingot' 
                 WHERE `entry`=34210;
 
@@ -722,6 +726,7 @@ SET
                     `effectItemType1`=@ITEM_TITAN_POWER_CORE,
                     `spellVisual1`=395, 
                     `spellIconId`=413, 
+                    `castingTimeIndex`=@CASTING_TIME_30000_MS,
                     `name`='Titan Power Core' 
                 WHERE `entry`=34212;
 
@@ -747,6 +752,7 @@ SET
                     `effectItemType1`=@ITEM_ENCHANTED_LUMBER,
                     `spellVisual1`=@SPELL_VISUAL_ENCHANT, 
                     `spellIconId`=2258, 
+                    `castingTimeIndex`=@CASTING_TIME_30000_MS,
                     `name`='Enchanted Lumber' 
                 WHERE `entry`=34214;
                 
@@ -770,6 +776,7 @@ SET
                     `effectItemType1`=@ITEM_CERMET_CHUNK,
                     `spellVisual1`=395, 
                     `spellIconId`=413, 
+                    `castingTimeIndex`=@CASTING_TIME_30000_MS,
                     `name`='Cermet Chunk' 
                 WHERE `entry`=34216;
 
@@ -793,6 +800,7 @@ SET
                     `effectItemType1`=30331,
                     `spellVisual1`=395, 
                     `spellIconId`=413, 
+                    `castingTimeIndex`=@CASTING_TIME_30000_MS,
                     `name`='Darksteel Scales' 
                 WHERE `entry`=34218;
 
@@ -816,6 +824,7 @@ SET
                     `effectItemType1`=@ITEM_HARDENED_HYDRA_SCALES,
                     `spellVisual1`=395, 
                     `spellIconId`=413, 
+                    `castingTimeIndex`=@CASTING_TIME_30000_MS,
                     `name`='Hardened Hydra Scales' 
                 WHERE `entry`=34220;
 
@@ -839,6 +848,7 @@ SET
                     `effectItemType1`=@ITEM_GLUE,
                     `spellVisual1`=395, 
                     `spellIconId`=413, 
+                    `castingTimeIndex`=@CASTING_TIME_30000_MS,
                     `name`='Glue' 
                 WHERE `entry`=34222;
 
@@ -862,6 +872,7 @@ SET
                     `effectItemType1`=@ITEM_THORIUM_SHEET,
                     `spellVisual1`=395, 
                     `spellIconId`=413, 
+                    `castingTimeIndex`=@CASTING_TIME_30000_MS,
                     `name`='Thorium Sheet' 
                 WHERE `entry`=34224;
 
@@ -886,6 +897,7 @@ SET
                     `effectBasePoints1`=2, -- Amount created
                     `spellVisual1`=395, 
                     `spellIconId`=413, 
+                    `castingTimeIndex`=@CASTING_TIME_30000_MS,
                     `name`='Thorium Bolts' 
                 WHERE `entry`=34226;
 
@@ -909,6 +921,7 @@ SET
                     `effectItemType1`=@ITEM_RUGGED_RUBBER,
                     `spellVisual1`=395, 
                     `spellIconId`=413, 
+                    `castingTimeIndex`=@CASTING_TIME_30000_MS,
                     `name`='Rugged Rubber' 
                 WHERE `entry`=34228;
 
@@ -934,6 +947,7 @@ SET
                     `effectItemType1`=@ITEM_IMBUED_RUNECLOTH,
                     `spellVisual1`=@SPELL_VISUAL_ENCHANT, 
                     `spellIconId`=3634, 
+                    `castingTimeIndex`=@CASTING_TIME_30000_MS,
                     `name`='Imbued Runecloth' 
                 WHERE `entry`=34230;
                 
@@ -957,6 +971,7 @@ SET
                     `effectItemType1`=@ITEM_BLACK_INK,
                     `spellVisual1`=395, 
                     `spellIconId`=413, 
+                    `castingTimeIndex`=@CASTING_TIME_30000_MS,
                     `name`='Black Ink' 
                 WHERE `entry`=34306;
 
@@ -980,6 +995,7 @@ SET
                     `effectItemType1`=@ITEM_POISON_DUST,
                     `spellVisual1`=395, 
                     `spellIconId`=413, 
+                    `castingTimeIndex`=@CASTING_TIME_30000_MS,
                     `name`='Poison Dust' 
                 WHERE `entry`=34302;
 
@@ -1003,6 +1019,7 @@ SET
                     `effectItemType1`=@ITEM_VENOM_DUST,
                     `spellVisual1`=395, 
                     `spellIconId`=413, 
+                    `castingTimeIndex`=@CASTING_TIME_30000_MS,
                     `name`='Venom Dust' 
                 WHERE `entry`=34304;
 
@@ -1034,6 +1051,7 @@ SET
                         `effectItemType1`=30288,
                         `spellVisual1`=395, 
                         `spellIconId`=413, 
+                        `castingTimeIndex`=@CASTING_TIME_30000_MS,
                         `name`='Cursed Crown' 
                     WHERE `entry`=34260;
 
@@ -1065,6 +1083,7 @@ SET
                         `effectItemType1`=30289,
                         `spellVisual1`=395, 
                         `spellIconId`=413, 
+                        `castingTimeIndex`=@CASTING_TIME_30000_MS,
                         `name`='Cursed Shoulderpads' 
                     WHERE `entry`=34262;
 
@@ -1096,6 +1115,7 @@ SET
                         `effectItemType1`=30290,
                         `spellVisual1`=395, 
                         `spellIconId`=413, 
+                        `castingTimeIndex`=@CASTING_TIME_30000_MS,
                         `name`='Cursed Dalmatica' 
                     WHERE `entry`=34264;
 
@@ -1127,6 +1147,7 @@ SET
                         `effectItemType1`=30291,
                         `spellVisual1`=395, 
                         `spellIconId`=413, 
+                        `castingTimeIndex`=@CASTING_TIME_30000_MS,
                         `name`='Cursed Mitts' 
                     WHERE `entry`=34266;
 
@@ -1158,6 +1179,7 @@ SET
                         `effectItemType1`=30292,
                         `spellVisual1`=395, 
                         `spellIconId`=413, 
+                        `castingTimeIndex`=@CASTING_TIME_30000_MS,
                         `name`='Cursed Pumps' 
                     WHERE `entry`=34268;
 
@@ -1189,6 +1211,7 @@ SET
                         `effectItemType1`=30293,
                         `spellVisual1`=395, 
                         `spellIconId`=413, 
+                        `castingTimeIndex`=@CASTING_TIME_30000_MS,
                         `name`='Cursed Cap' 
                     WHERE `entry`=34272;
 
@@ -1220,6 +1243,7 @@ SET
                         `effectItemType1`=30294,
                         `spellVisual1`=395, 
                         `spellIconId`=413, 
+                        `castingTimeIndex`=@CASTING_TIME_30000_MS,
                         `name`='Cursed Shoulders' 
                     WHERE `entry`=34274;
 
@@ -1251,6 +1275,7 @@ SET
                         `effectItemType1`=30295,
                         `spellVisual1`=395, 
                         `spellIconId`=413, 
+                        `castingTimeIndex`=@CASTING_TIME_30000_MS,
                         `name`='Cursed Harness' 
                     WHERE `entry`=34276;
 
@@ -1282,6 +1307,7 @@ SET
                         `effectItemType1`=30296,
                         `spellVisual1`=395, 
                         `spellIconId`=413, 
+                        `castingTimeIndex`=@CASTING_TIME_30000_MS,
                         `name`='Cursed Gloves' 
                     WHERE `entry`=34278;
 
@@ -1313,6 +1339,7 @@ SET
                         `effectItemType1`=30297,
                         `spellVisual1`=395, 
                         `spellIconId`=413, 
+                        `castingTimeIndex`=@CASTING_TIME_30000_MS,
                         `name`='Cursed Leggings' 
                     WHERE `entry`=34280;
 
@@ -1344,6 +1371,7 @@ SET
                         `effectItemType1`=30298,
                         `spellVisual1`=395, 
                         `spellIconId`=413, 
+                        `castingTimeIndex`=@CASTING_TIME_30000_MS,
                         `name`='Cursed Mask' 
                     WHERE `entry`=34282;
 
@@ -1375,6 +1403,7 @@ SET
                         `effectItemType1`=30299,
                         `spellVisual1`=395, 
                         `spellIconId`=413, 
+                        `castingTimeIndex`=@CASTING_TIME_30000_MS,
                         `name`='Cursed Spaulders' 
                     WHERE `entry`=34284;
 
@@ -1406,6 +1435,7 @@ SET
                         `effectItemType1`=30300,
                         `spellVisual1`=395, 
                         `spellIconId`=413, 
+                        `castingTimeIndex`=@CASTING_TIME_30000_MS,
                         `name`='Cursed Mail' 
                     WHERE `entry`=34286;
 
@@ -1437,6 +1467,7 @@ SET
                         `effectItemType1`=30301,
                         `spellVisual1`=395, 
                         `spellIconId`=413, 
+                        `castingTimeIndex`=@CASTING_TIME_30000_MS,
                         `name`='Cursed Finger Gauntlets' 
                     WHERE `entry`=34288;
 
@@ -1468,6 +1499,7 @@ SET
                         `effectItemType1`=30302,
                         `spellVisual1`=395, 
                         `spellIconId`=413, 
+                        `castingTimeIndex`=@CASTING_TIME_30000_MS,
                         `name`='Cursed Greaves' 
                     WHERE `entry`=34290;
 
@@ -1499,6 +1531,7 @@ SET
                         `effectItemType1`=30303,
                         `spellVisual1`=395, 
                         `spellIconId`=413, 
+                        `castingTimeIndex`=@CASTING_TIME_30000_MS,
                         `name`='Cursed Schaller' 
                     WHERE `entry`=34292;
 
@@ -1530,6 +1563,7 @@ SET
                         `effectItemType1`=30303,
                         `spellVisual1`=395, 
                         `spellIconId`=413, 
+                        `castingTimeIndex`=@CASTING_TIME_30000_MS,
                         `name`='Cursed Epaulettes' 
                     WHERE `entry`=34294;
 
@@ -1561,6 +1595,7 @@ SET
                         `effectItemType1`=30303,
                         `spellVisual1`=395, 
                         `spellIconId`=413, 
+                        `castingTimeIndex`=@CASTING_TIME_30000_MS,
                         `name`='Cursed Cuirass' 
                     WHERE `entry`=34296;
 
@@ -1592,6 +1627,7 @@ SET
                         `effectItemType1`=30303,
                         `spellVisual1`=395, 
                         `spellIconId`=413, 
+                        `castingTimeIndex`=@CASTING_TIME_30000_MS,
                         `name`='Cursed Handschuhs' 
                     WHERE `entry`=34298;
 
@@ -1623,6 +1659,7 @@ SET
                         `effectItemType1`=30303,
                         `spellVisual1`=395, 
                         `spellIconId`=413, 
+                        `castingTimeIndex`=@CASTING_TIME_30000_MS,
                         `name`='Cursed Schuhs' 
                     WHERE `entry`=34300;
 

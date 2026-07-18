@@ -838,13 +838,13 @@ REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display
 
 REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `flags`, `buy_price`, `sell_price`, `allowable_class`, `allowable_race`, `item_level`, `required_skill`, `required_skill_rank`, `required_reputation_faction`, `required_reputation_rank`, `delay`, `spellid_1`, `spellcharges_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30398, @ITEM_CLASS_RECIPE, @ITEM_SUBCLASS_BLACKSMITHING, 'Plans: Cursed Schuhs', 1102, 4, 64, 1000000, 250000, -1, -1, 20, @SKILL_BLACKSMITHING, 300, @FACTION_NONE, @REPUTATION_NONE, 0, 34301, -1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 1, 2);
 
-REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`) VALUES (30399, 5, 'Seal of Skeletal Warlord', 24051, 1, 0, 0, -1, -1, 45, 20, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0);
+REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`) VALUES (30399, 5, 'Seal of Taxim', 24051, 1, 0, 0, -1, -1, 45, 20, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0);
 
-REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`) VALUES (30400, 5, 'Seal of Ghoul', 24051, 1, 0, 0, -1, -1, 45, 20, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0);
+REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`) VALUES (30400, 5, 'Seal of Zareehkl', 24051, 1, 0, 0, -1, -1, 45, 20, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0);
 
-REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`) VALUES (30401, 5, 'Seal of Skeletal Mage', 24051, 1, 0, 0, -1, -1, 45, 20, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0);
+REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`) VALUES (30401, 5, 'Seal of Velionis', 24051, 1, 0, 0, -1, -1, 45, 20, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0);
 
-REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`) VALUES (30402, 5, 'Gem of Gargoyle', 24051, 1, 0, 0, -1, -1, 45, 20, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0);
+REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`) VALUES (30402, 5, 'Seal of Quasimodo', 24051, 1, 0, 0, -1, -1, 45, 20, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0);
 
 REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `container_slots`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30403, 1, 'Small Bank Bag', 34796, 2, 1000000, 250000, 18, -1, -1, 35, 22, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 2, 8);
 
@@ -2334,22 +2334,22 @@ WHERE entry = 7387;
 -- Nightscape Leather Set
 -- boots
 UPDATE mangos . item_template
-SET quality = 3,
-    spellid_1 = 9142, -- +14 Attack Power
-    spelltrigger_1 = 1
+SET quality = 2,
+    spellid_1 = 0,
+    spelltrigger_1 = 0
 WHERE entry = 8197;
 
 -- body
 UPDATE mangos . item_template
 SET quality = 3,
-    spellid_1 = 9330, -- +18 Attack Power
+    spellid_1 = @AURA_AP_10,
     spelltrigger_1 = 1
 WHERE entry = 8175;
 
 -- pants
 UPDATE mangos . item_template
 SET quality = 3,
-    spellid_1 = 9330, -- +18 Attack Power
+    spellid_1 = @AURA_AP_10,
     spelltrigger_1 = 1
 WHERE entry = 8193;
 
@@ -2362,16 +2362,16 @@ WHERE entry = 8176;
 
 -- shoulders
 UPDATE mangos . item_template
-SET quality = 3,
-    spellid_1 = 9142, -- +14 Attack Power
-    spelltrigger_1 = 1
+SET quality = 2,
+    spellid_1 = 0,
+    spelltrigger_1 = 0
 WHERE entry = 8192;
 
 -- cape
 UPDATE mangos . item_template
-SET quality = 3,
-    spellid_1 = 9140, -- +10 Attack Power
-    spelltrigger_1 = 1
+SET quality = 2,
+    spellid_1 = 0,
+    spelltrigger_1 = 0
 WHERE entry = 8195;
 
 -- Tunic Scale Set
