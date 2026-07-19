@@ -1,5 +1,5 @@
--- 34309 NEXT SPELL
--- 15217 NEXT SKILL_LINE_ABILITY
+-- 34321 NEXT SPELL
+-- 15220 NEXT SKILL_LINE_ABILITY
 -- NEXT category 10006
 
 -- skill_line_ability class_mask uses enum CLASSES
@@ -3208,6 +3208,14 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
     UPDATE `mangos`.`skill_line_ability` SET `class_mask`=79 WHERE  `id`=248 AND `build`=5875;
 
     -- Druid
+        -- Barkskin (Now castable on others)
+        -- Reflection (20/25% ranks)
+            -- 20%
+                REPLACE`mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `dmgMultiplier1`) VALUES (34319, 4878, 464, 1, 101, 21, 1, -1, 6, 1, 1, 19, 1, -1, -1, 1, 134, 101, 'Reflection', 2031678, 'Rank 3', 2031678, 'Allows $s1% of your Mana regeneration to continue while casting.', 2031678, 2031676, 1);
+
+            -- 25%
+                REPLACE`mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `dmgMultiplier1`) VALUES (34320, 4878, 464, 1, 101, 21, 1, -1, 6, 1, 1, 24, 1, -1, -1, 1, 134, 101, 'Reflection', 2031678, 'Rank 3', 2031678, 'Allows $s1% of your Mana regeneration to continue while casting.', 2031678, 2031676, 1);
+
         -- Brambles
                 -- TODO: Book drop for rank2
                 -- Spell
@@ -3326,7 +3334,7 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
         -- Cyclone
         REPLACE `mangos`.`spell_template` (`entry`, `school`, `dispel`, `mechanic`, `attributes`, `attributesEx`, `attributesEx2`, `targetCreatureType`, `castingTimeIndex`, `interruptFlags`, `auraInterruptFlags`, `procChance`, `baseLevel`, `spellLevel`, `durationIndex`, `manaCost`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectDieSides3`, `effectBaseDice1`, `effectBaseDice3`, `effectBasePoints1`, `effectBasePoints3`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectImplicitTargetA3`, `effectApplyAuraName1`, `effectMiscValue2`, `effectMiscValue3`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `customFlags`) 
         VALUES (33505, 6, 1, 17, 1074855936, 262144, 64, 96, 16, 15, 524290, 101, 20, 20, 9, 90, 4, -1, -1, 6, 1, 1, 1, 1, -1, 9, 0, 0, 0, 6, 6, 6, 5, 16372, 21, 131, 82, 50, 'Cyclone', 4128894, 'Rank 1', 4128894, 'Tosses the enemy target into the air, disorienting them for up to $d. Any damage caused will remove the effect. Only one target can be affected by your Cyclone at a time. Only works on Undead and Humanoids.', 4128894, 'Cannot attack or cast spells.', 4128894, 133, 1500, 7, 0, 1, 1, -1, 1, 1, 1, 256);
-        UPDATE `mangos`.`spell_template` SET `spellVisual1`=805, `spellIconId`=174 WHERE  `entry`=33505 AND `build`=5875;
+        UPDATE `mangos`.`spell_template` SET `spellVisual1`=8206, `spellIconId`=174 WHERE  `entry`=33505 AND `build`=5875;
         REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`) VALUES (15064, 5875, 574, 33505, 1024, 1);
 
         -- Starsurge
@@ -4911,6 +4919,22 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
         -2001, 0, -1, -1, 1, 107,  4, 10, 2736, 87, 'Idol of Elune', 4128830, 4128828, 4128828, 'Your next Starfire spell has 2.0 reduced cast time.', 4128830, 7, 1, 1, -1, 1, 1, 1);
         UPDATE `mangos`.`spell_template` SET `stackAmount`=0 WHERE  `entry`=33517 AND `build`=5464;
 
+-- Teleports
+    -- Object
+        REPLACE gameobject_template
+        (entry, patch, type, displayId, name, faction, size, data0, data1)
+        VALUES (987671, 0, 22, 4395, 'Portal to Ragefire Chasm', 115, 1, 34318, 0);
+
+    -- Spawn
+        REPLACE `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (4100144, 987671, 1, 9669.3, 2488.08, 1335.24, 2.29094, 0, 0, 0.910904, 0.412619, 25, 25, 100, 1, 0, 0, 0, 10);
+
+    -- Portal effect
+        REPLACE `mangos`.`spell_template` (`entry`, `build`, `castingTimeIndex`, `procChance`, `rangeIndex`, `equippedItemClass`, `effect1`, `effect2`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectImplicitTargetB1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `dmgMultiplier1`, `dmgMultiplier2`) VALUES (34318, 5086, 1, 101, 12, -1, 5, 77, 1, 1, -1, 0, 1, -1, 25, 25, 17, 2074, 'Portal Effect: Ragefire Chasm', 2031678, 2031676, 2031676, 2031676, 1, 1);
+
+    -- Teleport Location
+        REPLACE INTO `mangos`.`spell_target_position`
+        (`id`, `target_map`, `target_position_x`, `target_position_y`, `target_position_z`, `target_orientation`)
+        VALUES (34318, 389, 0.797643, -8.234290, -15.528800, 4.712390);
 
 -- Template:
 -- Name

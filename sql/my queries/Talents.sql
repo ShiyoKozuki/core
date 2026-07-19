@@ -1,4 +1,4 @@
--- NEXT talent ID is 1741
+-- NEXT talent ID is 1742
 -- Talents that grant a new spell (i.e. feral charge) need flags set to "1"
 -- Talents
 
@@ -418,8 +418,12 @@ UPDATE `mangos`.`spell_template` SET `effect2`=0, `effectDieSides2`=0, `effectBa
         `name`='Celestial Alignment', `description`='Reduces all spell damage taken by $s1%.' WHERE  
     `entry`=16926 AND `build`=5302;
 
-    -- Moonkin Form (Remove transform)
-    UPDATE `mangos`.`spell_template` SET `effectApplyAuraName1`=36 WHERE  `entry`=24858 AND `build`=5464;
+    -- Moonkin Form (Change to Star Form)
+        -- Moonkin Form
+        UPDATE `mangos`.`spell_template` SET `spellVisual1`=72, `name`='Star Form', `description`='Transforms the Druid into Star Form.  While in this form the armor contribution from items is increased by $24905s1% and all party members within $24907a1 yards have their spell critical chance increased by $24907s1%.  The Star Form can only cast Balance spells while shapeshifted.\r\n\r\nThe act of shapeshifting frees the caster of Polymorph and Movement Impairing effects.' WHERE  `entry`=24858 AND `build`=5464;
+
+        -- Moonkin Aura (Changed to Star Aura)
+        UPDATE `mangos`.`spell_template` SET `name`='Star Aura' WHERE  `entry`=24907 AND `build`=4878;
 
     -- Insect Swarm
     UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=20, `effectBonusCoefficient1`=0.167 WHERE  `entry`=5570 AND `build`=5302;

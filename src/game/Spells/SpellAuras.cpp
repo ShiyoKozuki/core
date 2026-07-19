@@ -2266,7 +2266,12 @@ std::pair<unsigned int, float> GetShapeshiftDisplayInfo(ShapeshiftForm form, Uni
         if (target->IsPlayer())
         {
             if (Player::TeamForRace(target->GetRace()) == ALLIANCE)
-                display_id = 892;
+            {
+                if (target->GetRace() == RACE_BLOODELF)
+                    display_id = 15506;
+                else
+                    display_id = 892;
+            }
             else
                 display_id = 8571;
         }
@@ -2287,7 +2292,12 @@ std::pair<unsigned int, float> GetShapeshiftDisplayInfo(ShapeshiftForm form, Uni
         if (target->IsPlayer())
         {
             if (Player::TeamForRace(target->GetRace()) == ALLIANCE)
-                display_id = 2281;
+            {
+                if (target->GetRace() == RACE_BLOODELF)
+                    display_id = 27819;
+                else
+                    display_id = 2281;
+            }
             else
                 display_id = 2289;
         }
@@ -2331,15 +2341,15 @@ std::pair<unsigned int, float> GetShapeshiftDisplayInfo(ShapeshiftForm form, Uni
         mod = 0.80f;
         break;
     case FORM_MOONKIN:
-        if (target->IsPlayer())
-        {
-            if (Player::TeamForRace(target->GetRace()) == ALLIANCE)
-                display_id = 15374;
-            else
-                display_id = 15375;
-        }
-        else
-            display_id = 15374;
+        //if (target->IsPlayer())
+        //{
+        //    if (Player::TeamForRace(target->GetRace()) == ALLIANCE)
+        //        display_id = 15374;
+        //    else
+        //        display_id = 15375;
+        //}
+        //else
+        //    display_id = 15374;
         break;
     case FORM_TREE:
         display_id = 864;
