@@ -1,4 +1,4 @@
--- NEXT talent ID is 1742
+-- NEXT talent ID is 1743
 -- Talents that grant a new spell (i.e. feral charge) need flags set to "1"
 -- Talents
 
@@ -457,7 +457,7 @@ UPDATE `mangos`.`spell_template` SET `effect2`=0, `effectDieSides2`=0, `effectBa
 
 
     -- Swiftmend (1.5s cast)
-    UPDATE `mangos`.`spell_template` SET `castingTimeIndex`=16 WHERE  `entry`=18562 AND `build`=5464;
+    UPDATE `mangos`.`spell_template` SET `castingTimeIndex`=@CASTING_TIME_INSTANT WHERE  `entry`=18562 AND `build`=5464;
 
 -- Precision (Paladin)
     UPDATE mangos . spell_template SET effect2 = 6 WHERE entry = 20189;
