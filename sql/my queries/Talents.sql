@@ -1,4 +1,4 @@
--- NEXT talent ID is 1743
+-- NEXT talent ID is 1744
 -- Talents that grant a new spell (i.e. feral charge) need flags set to "1"
 -- Talents
 
@@ -439,10 +439,10 @@ UPDATE `mangos`.`spell_template` SET `effect2`=0, `effectDieSides2`=0, `effectBa
 
     -- Improved Tranquaility (-2m/-4m CD)
     UPDATE `mangos`.`spell_template` SET `effect2`=6, `effectDieSides2`=1, `effectBaseDice2`=1, `effectBasePoints2`=-120001, `effectImplicitTargetA2`=1, `effectApplyAuraName2`=107, `effectItemType2`=128, `effectMiscValue2`=11 WHERE  `entry`=17123 AND `build`=5875;
-    UPDATE `mangos`.`spell_template` SET `description`='Reduces threat caused by Tranquility by $s1% and cooldown by $/1000;s2 sec.' WHERE  `entry`=17123 AND `build`=5875;
+    UPDATE `mangos`.`spell_template` SET `description`='Reduces threat caused by Tranquility by $s1% and cooldown by $/60000;s1 min.' WHERE  `entry`=17123 AND `build`=5875;
 
     UPDATE `mangos`.`spell_template` SET `effect2`=6, `effectDieSides2`=1, `effectBaseDice2`=1, `effectBasePoints2`=-240001, `effectImplicitTargetA2`=1, `effectApplyAuraName2`=107, `effectItemType2`=128, `effectMiscValue2`=11 WHERE  `entry`=17124 AND `build`=5875;
-    UPDATE `mangos`.`spell_template` SET `description`='Reduces threat caused by Tranquility by $s1% and cooldown by $/1000;s2 sec.' WHERE  `entry`=17124 AND `build`=5875;
+    UPDATE `mangos`.`spell_template` SET `description`='Reduces threat caused by Tranquility by $s1% and cooldown by $/60000;s1 min.' WHERE  `entry`=17124 AND `build`=5875;
 
     -- Improved Regrowth ALSO (-5%/-10%/-15%/-20%/-25% MP cost of Regrowth)
     UPDATE `mangos`.`spell_template` SET `effect2`=6, `effectDieSides2`=1, `effectBaseDice2`=1, `effectBasePoints2`=-6, `effectBonusCoefficient2`=1, `effectImplicitTargetA2`=1, `effectApplyAuraName2`=108, `effectItemType2`=64, `effectMiscValue2`=14, `description`='Increases the critical effect chance of your Regrowth spell by $s1% and reduces the Mana cost by $s2%.' WHERE  `entry`=17074 AND `build`=4222;
@@ -886,7 +886,18 @@ WHERE entry = 16720;
     SET skill_id = 38
     WHERE spell_id = 14167;
 
+-- Warrior
+    -- Improved Sunder Armor (Renamed to Sundering, also works on Devastate)
+        UPDATE `mangos`.`spell_template` SET `effectItemType1`=8589950976, `name`='Sundering', `description`='Reduces the cost of your Sunder Armor and Devastate abilities by $/10;s1 rage point.' WHERE entry IN (12308, 12810, 12811);
+
 -- Warlock
+
+    -- Improved Voidwalker (Now 15/30/45%)
+        UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=14 WHERE  `entry`=18705;
+        UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=29 WHERE  `entry`=18706;
+        UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=44 WHERE  `entry`=18707;
+
+
 -- Improved Drain Life (2 points now, +15%/30% damage per CASTERS Affliction DoT on target)
 UPDATE `mangos`.`spell_template` SET `description`='Increases the Health drained by your Drain Life spell by $s1%.  Additionally, this effect is also increased by 15% per Affliction damage over time effect active on the target.', `effectBasePoints1`=9 WHERE  `entry`=17804;
 UPDATE `mangos`.`spell_template` SET `description`='Increases the Health drained by your Drain Life spell by $s1%.  Additionally, this effect is also increased by 30% per Affliction damage over time effect active on the target.', `effectBasePoints1`=19 WHERE  `entry`=17805;
@@ -897,17 +908,17 @@ UPDATE `mangos`.`spell_template` SET `description`='Increases the Health drained
 -- TODO: Starts at -1, needs to be negative effect (-1). Figure out the math for 3%/6%/10%
 UPDATE `mangos`.`spell_template` SET `effect2`=6, `effectDieSides2`=1, `effectBaseDice2`=1, `effectBasePoints2`=-1, `effectBonusCoefficient2`=0, `effectImplicitTargetA2`=6, `effectApplyAuraName2`=138 WHERE  `entry` IN (980, 1014, 6217, 11711, 11712, 11713);
 
-UPDATE `mangos`.`spell_template` SET `effectDieSides2`=1, `effectBaseDice2`=1, `effectBasePoints2`=-2, `description`='Increases the damage done by your Curse of Agony by $s1% and also reduces reduces the targets attack speed by $s2%.' WHERE  `entry` IN (18827);
+UPDATE `mangos`.`spell_template` SET `effectDieSides2`=1, `effectBaseDice2`=1, `effectBasePoints2`=-2, `description`='Increases the damage done by your Curse of Agony by $s1%.  Additionally, your Curse of Agony also reduces reduces the targets attack speed by $s2%.' WHERE  `entry` IN (18827);
 
 -- TODO: Should effectImplicitTargetA2 be 1 or 6?
 UPDATE `mangos`.`spell_template` SET `effect2`=6, `effectDieSides2`=1, `effectBaseDice2`=1, `effectBasePoints2`=2, `effectImplicitTargetA2`=1, `effectApplyAuraName2`=107, `effectItemType2`=1024, `effectMiscValue2`=8 WHERE  `entry`=18827;
 
-UPDATE `mangos`.`spell_template` SET `effectDieSides2`=1, `effectBaseDice2`=1, `effectBasePoints2`=-5, `description`='Increases the damage done by your Curse of Agony by $s1% and also reduces reduces the targets attack speed by $s2%.' WHERE  `entry` IN (18829);
+UPDATE `mangos`.`spell_template` SET `effectDieSides2`=1, `effectBaseDice2`=1, `effectBasePoints2`=-5, `description`='Increases the damage done by your Curse of Agony by $s1%.  Additionally, your Curse of Agony also reduces reduces the targets attack speed by $s2%.' WHERE  `entry` IN (18829);
 
 -- TODO: Should effectImplicitTargetA2 be 1 or 6?
 UPDATE `mangos`.`spell_template` SET `effect2`=6, `effectDieSides2`=1, `effectBaseDice2`=1, `effectBasePoints2`=5, `effectImplicitTargetA2`=1, `effectApplyAuraName2`=107, `effectItemType2`=1024, `effectMiscValue2`=8 WHERE  `entry`=18829;
 
-UPDATE `mangos`.`spell_template` SET `effectDieSides2`=1, `effectBaseDice2`=1, `effectBasePoints2`=-9, `description`='Increases the damage done by your Curse of Agony by $s1% and also reduces reduces the targets attack speed by $s2%.' WHERE  `entry` IN (18830);
+UPDATE `mangos`.`spell_template` SET `effectDieSides2`=1, `effectBaseDice2`=1, `effectBasePoints2`=-9, `description`='Increases the damage done by your Curse of Agony by $s1%.  Additionally, your Curse of Agony also reduces reduces the targets attack speed by $s2%.' WHERE  `entry` IN (18830);
 
 -- TODO: Should effectImplicitTargetA2 be 1 or 6?
 UPDATE `mangos`.`spell_template` SET `effect2`=6, `effectDieSides2`=1, `effectBaseDice2`=1, `effectBasePoints2`=9, `effectImplicitTargetA2`=1, `effectApplyAuraName2`=107, `effectItemType2`=1024, `effectMiscValue2`=8 WHERE  `entry`=18830;

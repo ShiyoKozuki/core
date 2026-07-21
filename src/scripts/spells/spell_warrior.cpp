@@ -196,6 +196,108 @@ AuraScript* GetScript_WarriorBloodFury(SpellEntry const*)
     return new WarriorBloodFuryAuraScript();
 }
 
+struct WarriorThunderclapScript : SpellScript
+{
+    bool OnEffectExecute(Spell* spell, SpellEffectIndex effIdx) const final
+    {
+        if (effIdx == EFFECT_INDEX_0 && spell->m_casterUnit)
+        {
+            float attackPower = spell->m_casterUnit->GetTotalAttackPowerValue(BASE_ATTACK);
+
+            if (spell->GetUnitTarget())
+                attackPower += spell->m_casterUnit->GetTotalAuraModifierByMiscMask(SPELL_AURA_MOD_MELEE_ATTACK_POWER_VERSUS, spell->GetUnitTarget()->GetCreatureTypeMask());
+
+            float bonusDamage = attackPower * 0.05f;
+
+            spell->damage += bonusDamage;
+            spell->m_currentBasePoints[EFFECT_INDEX_0] += bonusDamage;
+        }
+        return true;
+    }
+};
+
+SpellScript* GetScript_WarriorThunderclap(SpellEntry const*)
+{
+    return new WarriorThunderclapScript();
+}
+
+struct WarriorRevengeScript : SpellScript
+{
+    bool OnEffectExecute(Spell* spell, SpellEffectIndex effIdx) const final
+    {
+        if (effIdx == EFFECT_INDEX_0 && spell->m_casterUnit)
+        {
+            float attackPower = spell->m_casterUnit->GetTotalAttackPowerValue(BASE_ATTACK);
+
+            if (spell->GetUnitTarget())
+                attackPower += spell->m_casterUnit->GetTotalAuraModifierByMiscMask(SPELL_AURA_MOD_MELEE_ATTACK_POWER_VERSUS, spell->GetUnitTarget()->GetCreatureTypeMask());
+
+            float bonusDamage = attackPower * 0.10f;
+
+            spell->damage += bonusDamage;
+            spell->m_currentBasePoints[EFFECT_INDEX_0] += bonusDamage;
+        }
+        return true;
+    }
+};
+
+SpellScript* GetScript_WarriorRevenge(SpellEntry const*)
+{
+    return new WarriorRevengeScript();
+}
+
+struct WarriorDevastateScript : SpellScript
+{
+    enum
+    {
+        SPELL_SUNDER_R3 = 8380,
+        SPELL_SUNDER_R4 = 11596,
+        SPELL_SUNDER_R5 = 11597,
+    };
+
+    bool OnEffectExecute(Spell* spell, SpellEffectIndex effIdx) const final
+    {
+        if (effIdx == EFFECT_INDEX_0 && spell->GetUnitTarget())
+        {
+            Unit* pTarget = spell->GetUnitTarget();
+            Aura* sunderArmorAura = nullptr;
+
+            if (!(sunderArmorAura = pTarget->GetAura(SPELL_SUNDER_R5, EFFECT_INDEX_0)))
+                if (!(sunderArmorAura = pTarget->GetAura(SPELL_SUNDER_R4, EFFECT_INDEX_0)))
+                    sunderArmorAura = pTarget->GetAura(SPELL_SUNDER_R3, EFFECT_INDEX_0);
+
+            // See if target has Sunder already
+            if (sunderArmorAura)
+            {
+                uint16 sunderStacks = sunderArmorAura->GetStackAmount();
+
+                if (sunderStacks > 0)
+                {
+                    // Remove sunder, apply devastate sunder
+                    pTarget->RemoveAurasDueToSpell(sunderArmorAura->GetId());
+
+                    // Devastate's sunder armor effect is always Devastate's Id + 1
+                    SpellAuraHolder* devastateSunderHolder = pTarget->AddAura(spell->m_spellInfo->Id + 1);
+
+                    // Equal the amount of stacks of devastate sunder to how many sunder stacks they had
+                    // Devastate will add 1 more stack on next effect index automatically
+
+                    if (devastateSunderHolder)
+                    {
+                        devastateSunderHolder->SetStackAmount(sunderStacks);
+                    }
+                }
+            }
+        }
+        return true;
+    }
+};
+
+SpellScript* GetScript_WarriorDevastate(SpellEntry const*)
+{
+    return new WarriorDevastateScript();
+}
+
 void AddSC_warrior_spell_scripts()
 {
     Script* newscript;
@@ -243,5 +345,20 @@ void AddSC_warrior_spell_scripts()
     newscript = new Script;
     newscript->Name = "spell_warrior_blood_fury";
     newscript->GetAuraScript = &GetScript_WarriorBloodFury;
+    newscript->RegisterSelf();
+
+    newscript = new Script;
+    newscript->Name = "spell_warrior_thunderclap";
+    newscript->GetSpellScript = &GetScript_WarriorThunderclap;
+    newscript->RegisterSelf();
+
+    newscript = new Script;
+    newscript->Name = "spell_warrior_revenge";
+    newscript->GetSpellScript = &GetScript_WarriorRevenge;
+    newscript->RegisterSelf();
+
+    newscript = new Script;
+    newscript->Name = "spell_warrior_devastate";
+    newscript->GetSpellScript = &GetScript_WarriorDevastate;
     newscript->RegisterSelf();
 }

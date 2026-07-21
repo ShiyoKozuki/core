@@ -1,11 +1,12 @@
--- 34323 NEXT SPELL
--- 15220 NEXT SKILL_LINE_ABILITY
+-- 34332 NEXT SPELL
+-- 15223 NEXT SKILL_LINE_ABILITY
 -- NEXT category 10006
 
 -- skill_line_ability class_mask uses enum CLASSES
 
 -- spell_chain for spells you want to learn in order but still keep previou ranks in spell book
 -- superseded_by_spell in skill_line_ability for spells you want overwritten by higher rank in spell book
+-- to not show all ranks in spell book of a spell, use superseded_by_spell (id will be next rank after that overwrites this one) in skill_line_ability
 
 -- FOR SPELL SCRIPTS USE: SPELL_EFFECT_SCRIPT_EFFECT = 77, effectImplicitTargetA1 (1 or 6, anything probably works) and a dummy aura (4)
 -- Spell icon:  alpha depth -  (None) opaque 0
@@ -1020,12 +1021,12 @@
             UPDATE `mangos`.`spell_template` SET `effectChainTarget1`=5, `description`='Curses the target for $d, reducing Fire and Frost resistances by $s1 and increasing Fire and Frost damage taken by $s2%.  Jumps to 4 additional nearby targets.  Affects 5 total targets.  Only one Curse per Warlock can be active on any one target.' WHERE entry IN (1490, 11721, 11722);
 
 -- Life Tap
-    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=59 WHERE  `entry`=1454 AND `build`=5875;
-    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=194 WHERE  `entry`=1455 AND `build`=5875;
-    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=389 WHERE  `entry`=1456 AND `build`=5875;
-    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=629 WHERE  `entry`=11687 AND `build`=5875;
-    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=899 WHERE  `entry`=11688 AND `build`=5875;
-    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=1259 WHERE  `entry`=11689 AND `build`=5875;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=39 WHERE  `entry`=1454 AND `build`=5875;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=104 WHERE  `entry`=1455 AND `build`=5875;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=229 WHERE  `entry`=1456 AND `build`=5875;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=389 WHERE  `entry`=11687 AND `build`=5875;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=524 WHERE  `entry`=11688 AND `build`=5875;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=749 WHERE  `entry`=11689 AND `build`=5875;
 
 -- Searing Pain (Removed bonus Threat)
     UPDATE `mangos`.`spell_threat` SET `multiplier`=0 WHERE  `entry`=5676 AND `build_min`=0 AND `build_max`=5875;
@@ -1605,6 +1606,65 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
 UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `entry`=20923;
 UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `entry`=20924;
 
+-- Warrior
+    -- Devastate
+        -- Rank 1
+            -- Spell
+                REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `attributesEx`, `attributesEx3`, `castingTimeIndex`, `baseLevel`, `spellLevel`, `powerType`, `manaCost`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effect2`, `effectDieSides1`, `effectDieSides2`, `effectBaseDice1`, `effectBaseDice2`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectTriggerSpell2`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `customFlags`, `script_name`) VALUES (34323, 5086, 327696, 134218240, 1024, 1, 30, 30, 1, 150, 2, 2, 173555, 31, 64, 1, 1, 1, 1, 74, 0, 1, -1, 6, 6, 34324, 12295, 1508, 50, 'Devastate', 2031678, 'Rank 1', 2031678, 'Sunder the target\'s armor causing the Sunder Armor effect.  In addition, causes $s1% of weapon damage.  The Sunder Armor effect can stack up to 5 times.', 2031678, 2031678, 133, 1500, 4, 8589934592, 2, 2, -1, 1, 1, 1, 128, 'spell_warrior_devastate');
+
+                -- Spell threat
+                    REPLACE INTO `spell_threat` (`entry`, `threat`, `multiplier`, `inverse_effect_mask`, `build_min`, `build_max`) VALUES (34323, 153, 1, 0, 0, 5875);
+
+                -- Skill line ability:
+                    REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`, `superseded_by_spell`) VALUES (15220, 5875, 257, 34323, 1, 1, 34325);
+
+            -- Proc (Sunder Armor)
+                REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `attributesEx`, `attributesEx3`, `castingTimeIndex`, `procChance`, `baseLevel`, `spellLevel`, `durationIndex`, `rangeIndex`, `stackAmount`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectMiscValue1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `startRecoveryCategory`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `customFlags`) VALUES (34324, 5302, 327696, 134218240, 1024, 1, 101, 34, 34, 9, 2, 5, 2, 173555, 6, 1, 1, -271, 0, -1, -1, 6, 22, 1, 406, 565, 'Sunder Armor', 2031678, 'Rank 3', 2031678, 'Sunders the target\'s armor, reducing it by $s1 per Sunder Armor and causes a high amount of threat.  Can be applied up to 5 times.  Lasts $d.', 2031678, 'Armor decreased by $s1.', 2031678, 133, 4, 16384, 2, 2, -1, 1, 1, 1, 129);
+
+        -- Rank 2
+            -- Spell
+                REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `attributesEx`, `attributesEx3`, `castingTimeIndex`, `baseLevel`, `spellLevel`, `powerType`, `manaCost`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effect2`, `effectDieSides1`, `effectDieSides2`, `effectBaseDice1`, `effectBaseDice2`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectTriggerSpell2`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `customFlags`, `script_name`) VALUES (34325, 5086, 327696, 134218240, 1024, 1, 30, 30, 1, 150, 2, 2, 173555, 31, 64, 1, 1, 1, 1, 74, 0, 1, -1, 6, 6, 34326, 12295, 1508, 50, 'Devastate', 2031678, 'Rank 2', 2031678, 'Sunder the target\'s armor causing the Sunder Armor effect.  In addition, causes $s1% of weapon damage.  The Sunder Armor effect can stack up to 5 times.', 2031678, 2031678, 133, 1500, 4, 8589934592, 2, 2, -1, 1, 1, 1, 128, 'spell_warrior_devastate');
+
+                -- Spell threat
+                    REPLACE INTO `spell_threat` (`entry`, `threat`, `multiplier`, `inverse_effect_mask`, `build_min`, `build_max`) VALUES (34325, 207, 1, 0, 0, 5875);
+
+                -- Skill line ability:
+                    REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`, `superseded_by_spell`) VALUES (15221, 5875, 257, 34325, 1, 1, 34327);
+
+            -- Proc (Sunder Armor)
+                REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `attributesEx`, `attributesEx3`, `castingTimeIndex`, `procChance`, `baseLevel`, `spellLevel`, `durationIndex`, `rangeIndex`, `stackAmount`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectMiscValue1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `startRecoveryCategory`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `customFlags`) VALUES (34326, 5302, 327696, 134218240, 1024, 1, 101, 34, 34, 9, 2, 5, 2, 173555, 6, 1, 1, -271, 0, -1, -1, 6, 22, 1, 406, 565, 'Sunder Armor', 2031678, 'Rank 4', 2031678, 'Sunders the target\'s armor, reducing it by $s1 per Sunder Armor and causes a high amount of threat.  Can be applied up to 5 times.  Lasts $d.', 2031678, 'Armor decreased by $s1.', 2031678, 133, 4, 16384, 2, 2, -1, 1, 1, 1, 129);
+
+            -- Learn spell(for trainer):
+                REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `targets`, `castingTimeIndex`, `procChance`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `activeIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) 
+                VALUES (34330, 4222, 1, 262400, 256, 1, 101, 6, -1, -1, 36, 1, 1, -1, 0, -1, -1, 34325, 107, 1508, 0, 'Devastate', 7274526, 'Rank 2', 7274526, 7274508, 983052, -1, 1, 1, 1);
+                
+        -- Rank 3
+            -- Spell
+                REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `attributesEx`, `attributesEx3`, `castingTimeIndex`, `baseLevel`, `spellLevel`, `powerType`, `manaCost`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effect2`, `effectDieSides1`, `effectDieSides2`, `effectBaseDice1`, `effectBaseDice2`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectTriggerSpell2`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `customFlags`, `script_name`) VALUES (34327, 5086, 327696, 134218240, 1024, 1, 30, 30, 1, 150, 2, 2, 173555, 31, 64, 1, 1, 1, 1, 74, 0, 1, -1, 6, 6, 34328, 12295, 1508, 50, 'Devastate', 2031678, 'Rank 3', 2031678, 'Sunder the target\'s armor causing the Sunder Armor effect.  In addition, causes $s1% of weapon damage.  The Sunder Armor effect can stack up to 5 times.', 2031678, 2031678, 133, 1500, 4, 8589934592, 2, 2, -1, 1, 1, 1, 128, 'spell_warrior_devastate');
+
+                -- Spell threat
+                    REPLACE INTO `spell_threat` (`entry`, `threat`, `multiplier`, `inverse_effect_mask`, `build_min`, `build_max`) VALUES (34327, 261, 1, 0, 0, 5875);
+
+                -- Skill line ability:
+                    REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`) VALUES (15222, 5875, 257, 34327, 1, 1);
+
+            -- Proc (Sunder Armor)
+                REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `attributesEx`, `attributesEx3`, `castingTimeIndex`, `procChance`, `baseLevel`, `spellLevel`, `durationIndex`, `rangeIndex`, `stackAmount`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectMiscValue1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `startRecoveryCategory`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `customFlags`) VALUES (34328, 5302, 327696, 134218240, 1024, 1, 101, 34, 34, 9, 2, 5, 2, 173555, 6, 1, 1, -271, 0, -1, -1, 6, 22, 1, 406, 565, 'Sunder Armor', 2031678, 'Rank 5', 2031678, 'Sunders the target\'s armor, reducing it by $s1 per Sunder Armor and causes a high amount of threat.  Can be applied up to 5 times.  Lasts $d.', 2031678, 'Armor decreased by $s1.', 2031678, 133, 4, 16384, 2, 2, -1, 1, 1, 1, 129);
+
+            -- Learn spell(for trainer):
+                REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `targets`, `castingTimeIndex`, `procChance`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `activeIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) 
+                VALUES (34331, 4222, 1, 262400, 256, 1, 101, 6, -1, -1, 36, 1, 1, -1, 0, -1, -1, 34327, 107, 1508, 0, 'Devastate', 7274526, 'Rank 3', 7274526, 7274508, 983052, -1, 1, 1, 1);
+
+        -- Trainer
+            REPLACE `mangos`.`npc_trainer_template` (`entry`, `spell`, `spellcost`, `reqlevel`) VALUES (23, 34330, 26000, 46);
+            REPLACE `mangos`.`npc_trainer_template` (`entry`, `spell`, `spellcost`, `reqlevel`) VALUES (23, 34331, 44000, 58);
+
+    -- Thunder Clap (Now usable in Defensive stance as well as battle and scales with 5% of Attack Power)
+        UPDATE `mangos`.`spell_template` SET `stances`=196608, `script_name`='spell_warrior_thunderclap', `description`='Blasts nearby enemies increasing the time between their attacks by $s2% for $d and doing $s1 damage to them, increased by your Attack Power.  Will affect up to $i targets.' WHERE entry IN (6343, 8198, 8204, 8205, 11580, 11581);
+
+    -- Revenge (Now scales with 5% of Attack Power)
+        UPDATE `mangos`.`spell_template` SET  `script_name`='spell_warrior_revenge', `description`='Instantly counterattack an enemy for $s1 damage, increased by your attack power, and a high amount of threat.   Revenge must follow a block, dodge or parry.' WHERE entry IN (6572, 6574, 7379, 11600, 11601, 25288);
+
 -- Warlock
     -- Curse of the Elements / Shadows spell maks
     UPDATE `mangos`.`spell_template` SET `spellFamilyFlags`=19327352832 WHERE  `entry` IN (1490, 11721, 11722, 17862, 17937) AND `build`=5086;
@@ -1824,11 +1884,11 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
 
     -- Shadow's Embrace
         -- Aura
-            REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `attributesEx3`, `castingTimeIndex`, `procFlags`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectItemType1`, `effectTriggerSpell1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `stanceBarOrder`, `dmgMultiplier1`) VALUES (33979, 5464, 2, 464, 67108864, 1, 87376, 100, 21, 1, -1, 6, 1, 1, -1, 0, -1, -1, 1, 42, 1, 33982, 2079, 'Shadow\'s Embrace', 4128830, '0', 4128830, 'Your Shadow Bolt spell applies the Shadow Embrace effect, increasing all shadow periodic damage dealt to the target by $33982s1%. Does not work on already applies effects. Lasts for $33982d. Stacks up to 3 times.', 4128830, 4128828, 5, -1, 1);
+            REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `attributesEx3`, `castingTimeIndex`, `procFlags`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectItemType1`, `effectTriggerSpell1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `stanceBarOrder`, `dmgMultiplier1`) VALUES (33979, 5464, 2, 464, 67108864, 1, 87376, 100, 21, 1, -1, 6, 1, 1, -1, 0, -1, -1, 1, 42, 1, 33982, 2079, 'Shadow\'s Embrace', 4128830, '0', 4128830, 'Your Shadow Bolt spell applies the Shadow Embrace effect, increasing all shadow periodic damage dealt to the target by $33982s1%. Does not work on already applied effects. Lasts for $33982d. Stacks up to 3 times.', 4128830, 4128828, 5, -1, 1);
 
-            REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `attributesEx3`, `castingTimeIndex`, `procFlags`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectItemType1`, `effectTriggerSpell1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `stanceBarOrder`, `dmgMultiplier1`) VALUES (33980, 5464, 2, 464, 67108864, 1, 87376, 100, 21, 1, -1, 6, 1, 1, -1, 0, -1, -1, 1, 42, 1, 33983, 2079, 'Shadow\'s Embrace', 4128830, '0', 4128830, 'Your Shadow Bolt spell applies the Shadow Embrace effect, increasing all shadow periodic damage dealt to the target by $33983s1%. Does not work on already applies effects. Lasts for $33983d. Stacks up to 3 times.', 4128830, 4128828, 5, -1, 1);
+            REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `attributesEx3`, `castingTimeIndex`, `procFlags`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectItemType1`, `effectTriggerSpell1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `stanceBarOrder`, `dmgMultiplier1`) VALUES (33980, 5464, 2, 464, 67108864, 1, 87376, 100, 21, 1, -1, 6, 1, 1, -1, 0, -1, -1, 1, 42, 1, 33983, 2079, 'Shadow\'s Embrace', 4128830, '0', 4128830, 'Your Shadow Bolt spell applies the Shadow Embrace effect, increasing all shadow periodic damage dealt to the target by $33983s1%. Does not work on already applied effects. Lasts for $33983d. Stacks up to 3 times.', 4128830, 4128828, 5, -1, 1);
             
-            REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `attributesEx3`, `castingTimeIndex`, `procFlags`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectItemType1`, `effectTriggerSpell1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `stanceBarOrder`, `dmgMultiplier1`) VALUES (33981, 5464, 2, 464, 67108864, 1, 87376, 100, 21, 1, -1, 6, 1, 1, -1, 0, -1, -1, 1, 42, 1, 33984, 2079, 'Shadow\'s Embrace', 4128830, '0', 4128830, 'Your Shadow Bolt spell applies the Shadow Embrace effect, increasing all shadow periodic damage dealt to the target by $33984s1%. Does not work on already applies effects. Lasts for $33984d. Stacks up to 3 times.', 4128830, 4128828, 5, -1, 1);
+            REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `attributesEx3`, `castingTimeIndex`, `procFlags`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectItemType1`, `effectTriggerSpell1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `stanceBarOrder`, `dmgMultiplier1`) VALUES (33981, 5464, 2, 464, 67108864, 1, 87376, 100, 21, 1, -1, 6, 1, 1, -1, 0, -1, -1, 1, 42, 1, 33984, 2079, 'Shadow\'s Embrace', 4128830, '0', 4128830, 'Your Shadow Bolt spell applies the Shadow Embrace effect, increasing all shadow periodic damage dealt to the target by $33984s1%. Does not work on already applied effects. Lasts for $33984d. Stacks up to 3 times.', 4128830, 4128828, 5, -1, 1);
 
         -- Proc
             REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `dispel`, `castingTimeIndex`, `procChance`, `durationIndex`, `rangeIndex`, `stackAmount`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `spellFamilyName`, `dmgClass`, `stanceBarOrder`, `dmgMultiplier1`) VALUES (33982, 5086, 5, 1, 1, 101, 29, 6, 3, -1, 6, 1, 1, 0, 0, -1, -1, 6, 4, 0, 2079, 'Shadow\'s Embrace', 2031678, 'Rank 1', 2031678, 2031676, 'Increases Shadow damage over time taken by $s1%.', 2031678, 5, 1, -1, 1);
@@ -3211,10 +3271,10 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
         -- Barkskin (Now castable on others)
         -- Improved Rebirth (-5/-10m CD on Rebirth)
             -- Rank 1
-            REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectApplyAuraName1`, `effectItemType1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `dmgMultiplier1`, `dmgMultiplier2`) VALUES (34321, 5086, 464, 1, 101, 21, 1, -1, 6, 1, 1, -300001, 1, 1, -1, 1, 1, 107, 268435456, 11, 24, 'Improved Rebirth', 2031678, 'Rank 1', 2031678, 'Reduces the cooldown of your Rebrith by $/1000;s1 sec.', 2031678, 2031676, 7, 1, 1);
+            REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectApplyAuraName1`, `effectItemType1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `dmgMultiplier1`, `dmgMultiplier2`) VALUES (34321, 5086, 464, 1, 101, 21, 1, -1, 6, 1, 1, -300001, 1, 1, -1, 1, 1, 107, 268435456, 11, 24, 'Improved Rebirth', 2031678, 'Rank 1', 2031678, 'Reduces the cooldown of your Rebrith by $/60000;s1 min.', 2031678, 2031676, 7, 1, 1);
 
             -- Rank 2
-                REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectApplyAuraName1`, `effectItemType1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `dmgMultiplier1`, `dmgMultiplier2`) VALUES (34322, 5086, 464, 1, 101, 21, 1, -1, 6, 1, 1, -600001, 1, 1, -1, 1, 1, 107, 268435456, 11, 24, 'Improved Rebirth', 2031678, 'Rank 2', 2031678, 'Reduces the cooldown of your Rebrith by $/1000;s1 sec.', 2031678, 2031676, 7, 1, 1);
+                REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectApplyAuraName1`, `effectItemType1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `dmgMultiplier1`, `dmgMultiplier2`) VALUES (34322, 5086, 464, 1, 101, 21, 1, -1, 6, 1, 1, -600001, 1, 1, -1, 1, 1, 107, 268435456, 11, 24, 'Improved Rebirth', 2031678, 'Rank 2', 2031678, 'Reduces the cooldown of your Rebrith by $/60000;s1 min.', 2031678, 2031676, 7, 1, 1);
 
         -- Reflection (20/25% ranks)
             -- 20%
@@ -3359,7 +3419,7 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
         VALUES (33543, 4222, 1, 262400, 256, 1, 101, 6, -1, -1, 36, 1, 1, -1, 0, -1, -1, 33541, 107, 189, 0, 'Starsurge', 7274526, 'Rank 2', 7274526, 7274508, 983052, -1, 1, 1, 1);
         
         -- Skill line ability
-        REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`, `superseded_by_spell`) VALUES (15075, 5875, 574, 33540, 1024, 1, 33541);
+        REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`, `superseded_by_spell`) VALUES (15075, 5875, 574, 33540, 1024, 1, 0);
         REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`, `superseded_by_spell`) VALUES (15076, 5875, 574, 33541, 1024, 1, 0);
         
         -- Spell Chain
@@ -3883,11 +3943,11 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
         UPDATE `mangos`.`spell_template` SET `manaCost`=0, `manaCostPercentage`=18, `effect2`=137, `effectDieSides2`=1, `effectBaseDice2`=1, `effectBasePoints2`=0, `effectImplicitTargetA2`=1 WHERE  `entry`=33414;
 
         -- Skill line ability:
-        REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`) VALUES (15039, 5875, 184, 33409, 2, 1);
-        REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`) VALUES (15040, 5875, 184, 33410, 2, 1);
-        REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`) VALUES (15041, 5875, 184, 33411, 2, 1);
-        REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`) VALUES (15042, 5875, 184, 33412, 2, 1);
-        REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`) VALUES (15043, 5875, 184, 33413, 2, 1);
+        REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`, `superseded_by_spell`) VALUES (15039, 5875, 184, 33409, 2, 1, 33410);
+        REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`, `superseded_by_spell`) VALUES (15040, 5875, 184, 33410, 2, 1, 33411);
+        REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`, `superseded_by_spell`) VALUES (15041, 5875, 184, 33411, 2, 1, 33412);
+        REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`, `superseded_by_spell`) VALUES (15042, 5875, 184, 33412, 2, 1, 33413);
+        REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`, `superseded_by_spell`) VALUES (15043, 5875, 184, 33413, 2, 1, 33414);
         REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`) VALUES (15044, 5875, 184, 33414, 2, 1);
 
         -- Spell Threat (Bonus threat)

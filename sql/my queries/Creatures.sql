@@ -915,3 +915,4 @@ INSERT IGNORE `mangos`.`player_premade_spell` (`entry`, `spell`) VALUES (55, 189
     REPLACE `mangos`.`creature_display_info_addon` (`display_id`, `build`, `bounding_radius`, `combat_reach`, `gender`) VALUES (17205, 5875, 0.5, 1, 1);
     REPLACE `mangos`.`creature_display_info_addon` (`display_id`, `bounding_radius`, `combat_reach`, `speed_run`, `gender`) VALUES (27819, 0.35, 1, 0.992063, 0); -- Black War Bear (Creature Id: 32205)
     REPLACE `mangos`.`creature_display_info_addon` (`display_id`, `bounding_radius`, `combat_reach`, `speed_run`, `gender`) VALUES (15506, 0.9, 1, 0.857143, 0); -- Springpaw Lynx (Creature Id: 15372)
+    REPLACE `mangos`.`creature_display_info_addon` (`display_id`, `bounding_radius`, `combat_reach`, `speed_run`, `gender`) VALUES (19479, 0.9, 1, 0.857143, 0); -- Purple Hawkstrider (Creature Id: 20217)

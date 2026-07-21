@@ -3222,6 +3222,12 @@ bool CombatBotBaseAI::CanTryToCastSpell(Unit const* pTarget, SpellEntry const* p
             return true;
         }
 
+        if (m_spells.warrior.pThunderClap &&
+            pSpellEntry == m_spells.warrior.pThunderClap)
+        {
+            return true;
+        }
+
         if (m_spells.mage.pFireball &&
             pSpellEntry == m_spells.mage.pFireball)
         {

@@ -98,6 +98,7 @@ enum ClassFlag
     CF_WARRIOR_RETALIATION                  = 31,   // CM0 80000000
 
     CF_WARRIOR_SHIELD_SLAM                  = 32,   // CM1 00000001
+    CF_WARRIOR_DEVASTATE                    = 33,
 
     // -- Warlock (5)
     CF_WARLOCK_SHADOW_BOLT                  = 0,    // CM0 00000001

@@ -583,7 +583,7 @@
         @ITEM_SUBCLASS_FISHING_MANUAL                = 9;
 
     SET
-        @ITEM_MOD_MANA      = 0,
+        @ITEM_MOD_NONE      = 0,
         @ITEM_MOD_HEALTH    = 1,
         @ITEM_MOD_AGI       = 3,
         @ITEM_MOD_STR       = 4,

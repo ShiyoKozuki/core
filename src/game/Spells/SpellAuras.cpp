@@ -2280,7 +2280,20 @@ std::pair<unsigned int, float> GetShapeshiftDisplayInfo(ShapeshiftForm form, Uni
         mod = 0.80f;
         break;
     case FORM_TRAVEL:
-        display_id = 632;
+        if (target->IsPlayer())
+        {
+            if (Player::TeamForRace(target->GetRace()) == ALLIANCE)
+            {
+                if (target->GetRace() == RACE_BLOODELF)
+                    display_id = 19479;
+                else
+                    display_id = 632;
+            }
+            else
+                display_id = 632;
+        }
+        else
+            display_id = 632;
         mod = 0.80f;
         break;
     case FORM_AQUA:
