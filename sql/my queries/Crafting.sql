@@ -42,7 +42,20 @@ SET
 @ITEM_GOBLIN_ROCKET_FUEL = 9061,
 @ITEM_FIRE_OIL = 7837,
 
--- Fish
+-- Cooking
+    -- Fish
+        @ITEM_RAW_WHITESCALE_SALMON = 13889,
+        @ITEM_LARGE_RAW_MIGHTFISH = 13893,
+        @ITEM_DARKCLAW_LOBSTER = 13888,
+    -- Meat
+        @ITEM_MYSTERY_MEAT = 12037,
+        @ITEM_TENDER_CRAB_MEAT = 12206,
+        @ITEM_GIANT_EGG = 12207,
+        @ITEM_SANDWORM_MEAT = 20424,
+
+
+
+
 -- Drops
 @ITEM_ESSENCE_OF_WATER = 7080,
 @ITEM_ESSENCE_OF_FIRE = 7078,
@@ -1668,7 +1681,40 @@ SET
 
                 -- Skill Line Ability:
                 REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `req_skill_value`, `max_value`, `min_value`) VALUES (15213, 5875, @SKILL_BLACKSMITHING, 34300, 1, 300, 315);
+
+            -- Large Monster Bait
+                -- Recipe
+                    REPLACE `mangos`.`spell_template` (`entry`, `build`, `castUI`, `attributes`, `castingTimeIndex`, `interruptFlags`, `procChance`, `rangeIndex`, `reagent1`, `reagent2`, `reagent3`, `reagentCount1`, `reagentCount2`, `reagentCount3`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectItemType1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34316, 4222, 0, 65568, 39, 15, 101, 1, 666, 666, 666, 666, 666, 666, -1, 24, 1, 1, 0, -1, -1, 1, 666, 3182, 1, 'itemName', 7274526, 7274508, 7274508, 983052, -1, 1, 1, 1);
+
+                    UPDATE `mangos`.`spell_template` SET 
+                        `reagent1`=@ITEM_RAW_WHITESCALE_SALMON, 
+                        `reagent2`=@ITEM_LARGE_RAW_MIGHTFISH, 
+                        `reagent3`=@ITEM_DARKCLAW_LOBSTER, 
+                        `reagent4`=@ITEM_MYSTERY_MEAT, 
+                        `reagent5`=@ITEM_SANDWORM_MEAT, 
+                        `reagent6`=@ITEM_BREAD, 
+                        `reagent7`=@ITEM_KIRIN_TOR_RUNE_DUST, 
+                        `reagentCount1`=12, 
+                        `reagentCount2`=9, 
+                        `reagentCount3`=6, 
+                        `reagentCount4`=11, 
+                        `reagentCount5`=7, 
+                        `reagentCount6`=24, 
+                        `reagentCount7`=4, 
+                        `effectItemType1`=30249,
+                        `spellVisual1`=395, 
+                        `spellIconId`=413, 
+                        `castingTimeIndex`=@CASTING_TIME_30000_MS,
+                        `name`='Large Monster Bait' 
+                    WHERE `entry`=34316;
+
+                -- Learn spell:
+                    REPLACE  `mangos`.`spell_template` (`entry`, `build`, `attributes`, `targets`, `castingTimeIndex`, `interruptFlags`, `procChance`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34317, 4222, 262400, 0, 1, 15, 101, 6, -1, -1, 36, 0, -1, -1, 34316, 222, 413, 'Large Monster Bait', 983070, 7274508, 'Teaches you how to make a Large Monster Bait.', 7274508, 983052, -1, 1, 1, 1);
+
+                -- Skill Line Ability:
+                REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `req_skill_value`, `max_value`, `min_value`) VALUES (15219, 5875, @SKILL_COOKING, 34316, 1, 300, 315);
         
+        -- TODO: Bait Recipes
         -- TODO: Honey, Butter, Bread recipes
         -- TODO: Add `description` after `nameSubtextFlags`, to every learn spell and write a description i.e. Teaches you how to craft a Tiger Leather.
         -- TODO: Change learn spell to Pattern: <Name> (i.e. Pattern: Tiger Leather)
