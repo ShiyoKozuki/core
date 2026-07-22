@@ -616,6 +616,7 @@ public:
             SpellEntry const* pShieldBash;
             SpellEntry const* pShieldSlam;
             SpellEntry const* pSunderArmor;
+            SpellEntry const* pDevastate;
             SpellEntry const* pConcussionBlow;
             SpellEntry const* pPiercingHowl;
         } warrior;

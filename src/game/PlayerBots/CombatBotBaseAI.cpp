@@ -1553,6 +1553,11 @@ void CombatBotBaseAI::PopulateSpellData()
                     if (IsHigherRankSpell(m_spells.warrior.pSunderArmor))
                         m_spells.warrior.pSunderArmor = pSpellEntry;
                 }
+                else if (pSpellEntry->SpellName[0].find("Devastate") != std::string::npos)
+                {
+                    if (IsHigherRankSpell(m_spells.warrior.pDevastate))
+                        m_spells.warrior.pDevastate = pSpellEntry;
+                }
                 else if (pSpellEntry->SpellName[0].find("Concussion Blow") != std::string::npos)
                 {
                     if (IsHigherRankSpell(m_spells.warrior.pConcussionBlow))
@@ -3218,6 +3223,12 @@ bool CombatBotBaseAI::CanTryToCastSpell(Unit const* pTarget, SpellEntry const* p
         // Exceptions (Fireball, Frostbolt, Sunder Armor, etc)
         if (m_spells.warrior.pSunderArmor &&
             pSpellEntry == m_spells.warrior.pSunderArmor)
+        {
+            return true;
+        }
+
+        if (m_spells.warrior.pDevastate &&
+            pSpellEntry == m_spells.warrior.pDevastate)
         {
             return true;
         }

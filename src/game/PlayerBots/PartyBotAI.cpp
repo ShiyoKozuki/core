@@ -3482,7 +3482,8 @@ void PartyBotAI::UpdateInCombatAI_Warrior()
 
         if (m_role == ROLE_TANK)
         {
-            if (me->GetEnemyCountInRadiusAround(pVictim, 8.0f) > 1)
+            if (me->GetEnemyCountInRadiusAround(pVictim, 8.0f) > 1 &&
+                me->GetPower(POWER_RAGE) >= 550)
             {
                 if (m_spells.warrior.pCleave)
                 {
@@ -3495,7 +3496,7 @@ void PartyBotAI::UpdateInCombatAI_Warrior()
             }
             else
             {
-                // Don't Revenge / Sunder if Sweeping Strikes is up
+                // Don't Revenge / Devastate / Sunder if Sweeping Strikes is up
                 if (!me->HasAura(PB_SPELL_SWEEPING_STRIKES))
                 {
                     if (m_spells.warrior.pRevenge &&
@@ -3505,11 +3506,23 @@ void PartyBotAI::UpdateInCombatAI_Warrior()
                             return;
                     }
 
-                    if (m_spells.warrior.pSunderArmor &&
-                        CanTryToCastSpell(pVictim, m_spells.warrior.pSunderArmor))
+                    // Use Devastate over Sunder Armor if learned
+                    if (m_spells.warrior.pDevastate)
                     {
-                        if (DoCastSpell(pVictim, m_spells.warrior.pSunderArmor) == SPELL_CAST_OK)
-                            return;
+                        if (CanTryToCastSpell(pVictim, m_spells.warrior.pDevastate))
+                        {
+                            if (DoCastSpell(pVictim, m_spells.warrior.pDevastate) == SPELL_CAST_OK)
+                                return;
+                        }
+                    }
+                    else
+                    {
+                        if (m_spells.warrior.pSunderArmor &&
+                            CanTryToCastSpell(pVictim, m_spells.warrior.pSunderArmor))
+                        {
+                            if (DoCastSpell(pVictim, m_spells.warrior.pSunderArmor) == SPELL_CAST_OK)
+                                return;
+                        }
                     }
                 }
             }
