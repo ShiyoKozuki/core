@@ -229,12 +229,12 @@ INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (10
 
     -- Caretaker of Karazhan
         -- Rep Vendor
-            REPLACE INTO `creature_template` 
+            REPLACE `creature_template` 
             (`entry`, `name`, `subname`, `level_min`, `level_max`, `faction`, `npc_flags`, `display_id1`, `display_probability1`, `display_total_probability`, `health_multiplier`, `damage_multiplier`, `base_attack_time`, `fire_res`, `arcane_res`, `unit_class`, `type`, `ai_name`, `equipment_id`, `flags_extra`) VALUES (90035, 'Maximillian Arturo', 'Caretaker of Karazhan', 58, 58, 1681, 2, 1724, 1, 1, 3, 0.8, 1000, 100, 100, 1, 7, '', 264, 524296);
 
             REPLACE `mangos`.`creature` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `wander_distance`) VALUES (2000037, 90035, 0, -10451.66, -1720.62, 85.05, 1.8897, 0);
             -- REPLACE `mangos`.`creature_template` (`entry`, `name`, `subname`, `level_min`, `level_max`, `faction`, `npc_flags`, `display_id1`, `display_probability1`, `display_total_probability`, `health_multiplier`, `damage_multiplier`, `base_attack_time`, `fire_res`, `arcane_res`, `unit_class`, `unit_flags`, `type`, `ai_name`, `equipment_id`, `flags_extra`) VALUES (90036, 'Wade Wells', 'Caretaker of Karazhan', 58, 58, 1681, 4, 10591, 1, 1, 3, 0.8, 1000, 100, 100, 1, 4096, 7, '', 264, 524296);
-            REPLACE INTO `creature_template` 
+            REPLACE `creature_template` 
             (`entry`, `name`, `subname`, `level_min`, `level_max`, `faction`, `npc_flags`, `display_id1`, `unit_class`, `flags_extra`) VALUES (90036, 'Wade Wells', 'Caretaker of Karazhan', 58, 58, 1681, 4, 10591, 1, 524296);
 
             REPLACE `mangos`.`creature` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `wander_distance`) VALUES (2000038, 90036, 0, -10453.53, -1721.077, 84.94, 1.8964, 0);
@@ -254,31 +254,117 @@ INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (10
                 REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90107, 4, 30366, 0, 0, 0, 0);
                 REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90107, 5, 30367, 0, 0, 0, 0);
 
-        -- Race Changer (Blood Elf Starter Gear Vendor)
-            -- NPC
-                -- Creature Template
-                    REPLACE `mangos`.`creature_template` (`entry`, `name`, `subname`, `level_min`, `level_max`, `faction`, `npc_flags`, `display_id1`, `display_scale1`, `detection_range`, `rank`, `unit_class`, `base_attack_time`, `ranged_attack_time`, `inhabit_type`, `flags_extra`) VALUES (90109, 'Ron Swanson', 'Racial Gear Merchant', 50, 50, 35, 4, 7209, 1, 20, 1, 1, 1000, 1000, 1, 2);
+        -- Racial Gear (Blood Elf Starter Gear Vendor)
+            -- Creature Template
+                REPLACE `mangos`.`creature_template` (`entry`, `name`, `subname`, `level_min`, `level_max`, `faction`, `npc_flags`, `display_id1`, `display_scale1`, `detection_range`, `rank`, `unit_class`, `base_attack_time`, `ranged_attack_time`, `inhabit_type`, `flags_extra`) VALUES (90109, 'Ron Swanson', 'Racial Gear Merchant', 50, 50, 35, 4, 7209, 1, 20, 1, 1, 1000, 1000, 1, 2);
 
-                -- Creature (Spawn)
-                    REPLACE `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000155, 90109, 0, 0, 0, 0, 0, -8898.42, -135.442, 80.681, 0.845435, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
+            -- Creature (Spawns)
+                REPLACE `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000155, 90109, 0, 0, 0, 0, 0, -8898.42, -135.442, 80.681, 0.845435, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
+                REPLACE `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000161, 90109, 0, 0, 0, 0, 1, 10406.8, 740.788, 1319.78, 4.88982, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
 
-                -- Vendor List
-                    REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90109, 1, 30349, 0, 0, 0, 0);
-                    REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90109, 2, 30359, 0, 0, 0, 0);
-                    REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90109, 3, 30360, 0, 0, 0, 0);
-                    REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90109, 4, 30361, 0, 0, 0, 0);
-                    REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90109, 5, 30362, 0, 0, 0, 0);
-                    REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90109, 6, 30350, 0, 0, 0, 0);
-                    REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90109, 7, 30351, 0, 0, 0, 0);
-                    REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90109, 8, 30352, 0, 0, 0, 0);
-                    REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90109, 9, 30353, 0, 0, 0, 0);
-                    REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90109, 10, 30354, 0, 0, 0, 0);
-                    REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90109, 11, 30355, 0, 0, 0, 0);
-                    REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90109, 12, 30356, 0, 0, 0, 0);
-                    REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90109, 13, 30357, 0, 0, 0, 0);
-                    REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90109, 14, 30358, 0, 0, 0, 0);
+            -- Vendor List
+                REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90109, 1, 30349, 0, 0, 0, 0);
+                REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90109, 2, 30359, 0, 0, 0, 0);
+                REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90109, 3, 30360, 0, 0, 0, 0);
+                REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90109, 4, 30361, 0, 0, 0, 0);
+                REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90109, 5, 30362, 0, 0, 0, 0);
+                REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90109, 6, 30350, 0, 0, 0, 0);
+                REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90109, 7, 30351, 0, 0, 0, 0);
+                REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90109, 8, 30352, 0, 0, 0, 0);
+                REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90109, 9, 30353, 0, 0, 0, 0);
+                REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90109, 10, 30354, 0, 0, 0, 0);
+                REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90109, 11, 30355, 0, 0, 0, 0);
+                REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90109, 12, 30356, 0, 0, 0, 0);
+                REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90109, 13, 30357, 0, 0, 0, 0);
+                REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90109, 14, 30358, 0, 0, 0, 0);
 
-        -- Bad Vendor (Add custom Bank Bags)
+        -- Stonetalon (Stonetalon Peak)
+            -- Creature Template
+                REPLACE `mangos`.`creature_template` (`entry`, `name`, `subname`, `level_min`, `level_max`, `faction`, `npc_flags`, `display_id1`, `display_probability1`, `display_total_probability`, `type`, `unit_class`, `health_multiplier`, `static_flags1`, `flags_extra`) VALUES (90113, 'Pythun', 'Leather Armor Merchant', 30, 30, 80, 16388, 2246, 1, 1, 7, 1, 1.05, 138936390, 2);
+                REPLACE `mangos`.`creature_template` (`entry`, `name`, `subname`, `level_min`, `level_max`, `faction`, `npc_flags`, `display_id1`, `type`, `unit_class`, `health_multiplier`, `damage_multiplier`, `static_flags1`, `flags_extra`) VALUES (90114, 'Shyron Summersong', 'Trade Goods', 24, 24, 80, 6, 2068, 7, 1, 1.02, 0.9, 138936390, 2);
+
+            -- Creature (Spawns)
+                REPLACE `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000165, 90113, 0, 0, 0, 0, 1, 2710.81, 1493.75, 236.82, 1.93869, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
+                REPLACE `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000166, 90114, 0, 0, 0, 0, 1, 2677.37, 1506.71, 234.808, 5.04965, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
+
+            -- Vendor List
+                REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90114, 4, 2320, 0, 0, 0, 0);
+                REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90114, 5, 2321, 0, 0, 0, 0);
+                REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90114, 17, 2325, 0, 0, 0, 0);
+                REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90114, 16, 2604, 0, 0, 0, 0);
+                REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90114, 8, 2678, 0, 0, 0, 0);
+                REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90114, 9, 2692, 0, 0, 0, 0);
+                REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90114, 12, 2880, 0, 0, 0, 0);
+                REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90114, 11, 2901, 0, 0, 0, 0);
+                REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90114, 15, 2928, 0, 0, 0, 0);
+                REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90114, 21, 3371, 0, 0, 0, 0);
+                REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90114, 22, 3372, 0, 0, 0, 0);
+                REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90114, 13, 3466, 0, 0, 0, 0);
+                REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90114, 10, 3713, 0, 0, 0, 0);
+                REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90114, 0, 3777, 0, 0, 0, 0);
+                REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90114, 14, 3857, 0, 0, 0, 0);
+                REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90114, 24, 4289, 0, 0, 0, 0);
+                REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90114, 6, 4291, 0, 0, 0, 0);
+                REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90114, 20, 4340, 0, 0, 0, 0);
+                REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90114, 18, 4341, 0, 0, 0, 0);
+                REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90114, 19, 4342, 0, 0, 0, 0);
+                REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90114, 25, 4399, 0, 0, 0, 0);
+                REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90114, 26, 4400, 0, 0, 0, 0);
+                REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90114, 3, 6217, 0, 0, 0, 0);
+                REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90114, 2, 6256, 0, 0, 0, 0);
+                REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90114, 27, 6530, 0, 0, 0, 0);
+                REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90114, 28, 6532, 0, 0, 0, 0);
+                REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90114, 1, 7005, 0, 0, 0, 0);
+                REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90114, 7, 8343, 0, 0, 0, 0);
+                REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90114, 23, 8925, 0, 0, 0, 0);
+                REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90113, 19, 236, 0, 0, 0, 0);
+                REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90113, 21, 237, 0, 0, 0, 0);
+                REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90113, 22, 238, 0, 0, 0, 0);
+                REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90113, 24, 239, 0, 0, 0, 0);
+                REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90113, 10, 796, 0, 0, 0, 0);
+                REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90113, 12, 797, 0, 0, 0, 0);
+                REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90113, 9, 798, 0, 0, 0, 0);
+                REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90113, 7, 799, 0, 0, 0, 0);
+                REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90113, 16, 843, 0, 0, 0, 0);
+                REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90113, 18, 844, 0, 0, 0, 0);
+                REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90113, 15, 845, 0, 0, 0, 0);
+                REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90113, 13, 846, 0, 0, 0, 0);
+                REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90113, 8, 1839, 0, 0, 0, 0);
+                REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90113, 11, 1840, 0, 0, 0, 0);
+                REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90113, 14, 1843, 0, 0, 0, 0);
+                REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90113, 17, 1844, 0, 0, 0, 0);
+                REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90113, 20, 1849, 0, 0, 0, 0);
+                REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90113, 23, 1850, 0, 0, 0, 0);
+                REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90113, 2, 2122, 0, 0, 0, 0);
+                REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90113, 4, 2123, 0, 0, 0, 0);
+                REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90113, 5, 2124, 0, 0, 0, 0);
+                REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90113, 6, 2125, 0, 0, 0, 0);
+                REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90113, 3, 2126, 0, 0, 0, 0);
+                REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90113, 1, 2127, 0, 0, 0, 0);
+                REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90113, 25, 2141, 0, 0, 0, 0);
+                REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90113, 26, 2142, 0, 0, 0, 0);
+                REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90113, 28, 2143, 0, 0, 0, 0);
+                REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90113, 29, 2144, 0, 0, 0, 0);
+                REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90113, 30, 2145, 0, 0, 0, 0);
+                REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90113, 27, 2146, 0, 0, 0, 0);
+                REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90113, 31, 2463, 0, 0, 0, 0);
+                REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90113, 32, 2464, 0, 0, 0, 0);
+                REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90113, 33, 2465, 0, 0, 0, 0);
+                REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90113, 34, 2467, 0, 0, 0, 0);
+                REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90113, 35, 2468, 0, 0, 0, 0);
+                REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90113, 36, 2469, 0, 0, 0, 0);
+                REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90113, 38, 2470, 0, 0, 0, 0);
+                REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90113, 39, 2471, 0, 0, 0, 0);
+                REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90113, 40, 2472, 0, 0, 0, 0);
+                REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90113, 41, 2473, 0, 0, 0, 0);
+                REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90113, 42, 2474, 0, 0, 0, 0);
+                REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90113, 43, 2475, 0, 0, 0, 0);
+                REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90113, 37, 3890, 0, 0, 0, 0);
+                REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (90113, 44, 3893, 0, 0, 0, 0);
+
+
+
+        -- Bag Vendor (Add custom Bank Bags)
             REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (1321, 5, 30403, 0, 0, 0, 0);
             REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (1321, 6, 30404, 0, 0, 0, 0);
             REPLACE `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `itemflags`, `condition_id`) VALUES (1321, 7, 30405, 0, 0, 0, 0);

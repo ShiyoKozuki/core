@@ -44,13 +44,13 @@
 -- how do distress beacon quests not replace item on starting? same with ship schedule
 
 -- Quest + Vendor + Repair npc flag = 
--- NEXT quest_template 30289
+-- NEXT quest_template 30297
 -- NEXT quest_end_script 10010
 -- NEXT generic_script 9000001
 -- NEXT creature_movement_scripts 9000001
 
--- NEXT creature_template 90109
--- NEXT gameobject_template 987671
+-- NEXT creature_template 90115
+-- NEXT gameobject_template 987672
 -- NEXT gameobject_loot_template 42911
 
 -- NEXT gameobject 300406
@@ -386,6 +386,9 @@ REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90035, 3000
             -- Gem of the West + Autumnstone - > Spawns Quasimodo
                 REPLACE `mangos`.`quest_template` (`entry`, `Method`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `SpecialFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `ReqItemId2`, `ReqItemCount2`, `ReqItemId3`, `ReqItemCount3`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `DetailsEmote1`, `IncompleteEmote`, `CompleteEmote`, `CompleteScript`) VALUES (30262, 0, 41, 58, 62, 264, 1, 'Ritual - West', '', '', '', 'There is an eerie looking altar before you.', '', '', '', '', '', 30208, 25, 30231, 1, 30235, 1, 0, 0, 0, 0, 0, 0, 10007);
 
+            -- TODO: Altars spread over zone instead of all in same place maybe?
+            -- TODO: Pop requiring 4 seals from the above NMs. Put altar in the unused cave that requires clicking a gate to open, all the way in the back
+
         -- Quest Relation
             REPLACE `mangos`.`gameobject_questrelation` (`id`, `quest`) VALUES (987661, 30252);
             REPLACE `mangos`.`gameobject_questrelation` (`id`, `quest`) VALUES (987661, 30260);
@@ -401,22 +404,22 @@ REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90035, 3000
         -- quest_end_script 
             -- (Temp Summon Taxim)
                 DELETE FROM `quest_end_scripts` WHERE `id`=10000;
-                INSERT INTO `quest_end_scripts` (`id`, `delay`, `priority`, `command`, `datalong`, `datalong2`, `datalong3`, `datalong4`, `target_param1`, `target_param2`, `target_type`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `condition_id`, `comments`) VALUES
+                REPLACE `quest_end_scripts` (`id`, `delay`, `priority`, `command`, `datalong`, `datalong2`, `datalong3`, `datalong4`, `target_param1`, `target_param2`, `target_type`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `condition_id`, `comments`) VALUES
                 (10000, 5, 0, 10, 90060, 60000, 0, 0, 0, 0, 0, 0, 0, 0, -1, 1, -10946.9, -1872.8, -17.7514, 0.41247, 0, 'Eerie Altar: Summon Skeletal Warlord');
 
             -- (Temp Summon Zareehkl)
                 DELETE FROM `quest_end_scripts` WHERE `id`=10005;
-                INSERT INTO `quest_end_scripts` (`id`, `delay`, `priority`, `command`, `datalong`, `datalong2`, `datalong3`, `datalong4`, `target_param1`, `target_param2`, `target_type`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `condition_id`, `comments`) VALUES
+                REPLACE `quest_end_scripts` (`id`, `delay`, `priority`, `command`, `datalong`, `datalong2`, `datalong3`, `datalong4`, `target_param1`, `target_param2`, `target_type`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `condition_id`, `comments`) VALUES
                 (10005, 5, 0, 10, 90061, 60000, 0, 0, 0, 0, 0, 0, 0, 0, -1, 1, -10946.9, -1872.8, -17.7514, 0.41247, 0, 'Eerie Altar: Summon Ghoul');
 
             -- (Temp Summon Velionis)
                 DELETE FROM `quest_end_scripts` WHERE `id`=10006;
-                INSERT INTO `quest_end_scripts` (`id`, `delay`, `priority`, `command`, `datalong`, `datalong2`, `datalong3`, `datalong4`, `target_param1`, `target_param2`, `target_type`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `condition_id`, `comments`) VALUES
+                REPLACE `quest_end_scripts` (`id`, `delay`, `priority`, `command`, `datalong`, `datalong2`, `datalong3`, `datalong4`, `target_param1`, `target_param2`, `target_type`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `condition_id`, `comments`) VALUES
                 (10006, 5, 0, 10, 90067, 60000, 0, 0, 0, 0, 0, 0, 0, 0, -1, 1, -10946.9, -1872.8, -17.7514, 0.41247, 0, 'Eerie Altar: Summon Skeletal Mage');
 
             -- (Temp Summon Quasimodo)
                 DELETE FROM `quest_end_scripts` WHERE `id`=10007;
-                INSERT INTO `quest_end_scripts` (`id`, `delay`, `priority`, `command`, `datalong`, `datalong2`, `datalong3`, `datalong4`, `target_param1`, `target_param2`, `target_type`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `condition_id`, `comments`) VALUES
+                REPLACE `quest_end_scripts` (`id`, `delay`, `priority`, `command`, `datalong`, `datalong2`, `datalong3`, `datalong4`, `target_param1`, `target_param2`, `target_type`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `condition_id`, `comments`) VALUES
                 (10007, 5, 0, 10, 90065, 60000, 0, 0, 0, 0, 0, 0, 0, 0, -1, 1, -10946.9, -1872.8, -17.7514, 0.41247, 0, 'Eerie Altar: Summon Gargoyle');
 
 -- Corrupted Runestone
@@ -450,17 +453,17 @@ REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90035, 3000
 
         -- quest_end_script (Give item)
             DELETE FROM `quest_end_scripts` WHERE `id`=10001;
-            INSERT INTO `quest_end_scripts` (`id`, `delay`, `priority`, `command`, `datalong`, `datalong2`, `datalong3`, `datalong4`, `target_param1`, `target_param2`, `target_type`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `condition_id`, `comments`) VALUES
+            REPLACE `quest_end_scripts` (`id`, `delay`, `priority`, `command`, `datalong`, `datalong2`, `datalong3`, `datalong4`, `target_param1`, `target_param2`, `target_type`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `condition_id`, `comments`) VALUES
             (10001, 0, 0, 81, 4100087, 3600, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Corrupted Runestone: Despawn Object'),
             (10001, 1, 0, 17, 30212, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Corrupted Runestone: Give Player Item');
 
             DELETE FROM `quest_end_scripts` WHERE `id`=10002;
-            INSERT INTO `quest_end_scripts` (`id`, `delay`, `priority`, `command`, `datalong`, `datalong2`, `datalong3`, `datalong4`, `target_param1`, `target_param2`, `target_type`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `condition_id`, `comments`) VALUES
+            REPLACE `quest_end_scripts` (`id`, `delay`, `priority`, `command`, `datalong`, `datalong2`, `datalong3`, `datalong4`, `target_param1`, `target_param2`, `target_type`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `condition_id`, `comments`) VALUES
             (10002, 0, 0, 81, 4100088, 3600, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Corrupted Runestone: Despawn Object'),
             (10002, 1, 0, 17, 30212, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Corrupted Runestone: Give Player Item');
 
             DELETE FROM `quest_end_scripts` WHERE `id`=10003;
-            INSERT INTO `quest_end_scripts` (`id`, `delay`, `priority`, `command`, `datalong`, `datalong2`, `datalong3`, `datalong4`, `target_param1`, `target_param2`, `target_type`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `condition_id`, `comments`) VALUES
+            REPLACE `quest_end_scripts` (`id`, `delay`, `priority`, `command`, `datalong`, `datalong2`, `datalong3`, `datalong4`, `target_param1`, `target_param2`, `target_type`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `condition_id`, `comments`) VALUES
             (10003, 0, 0, 81, 4100089, 3600, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Corrupted Runestone: Despawn Object'),
             (10003, 1, 0, 17, 30212, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Corrupted Runestone: Give Player Item');
 
@@ -496,7 +499,7 @@ REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90035, 3000
 
         -- Loot Template
         DELETE FROM `gameobject_loot_template` WHERE `entry`=42908; -- To ensure duplicate entries are not added
-        INSERT INTO `mangos`.`gameobject_loot_template` (`entry`, `item`, `ChanceOrQuestChance`, `groupid`, `patch_min`) VALUES (42908, 30228, 100, 0, 1);
+        REPLACE `mangos`.`gameobject_loot_template` (`entry`, `item`, `ChanceOrQuestChance`, `groupid`, `patch_min`) VALUES (42908, 30228, 100, 0, 1);
 
     -- Curtana
         -- Object
@@ -509,7 +512,7 @@ REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90035, 3000
 
         -- Loot Template
         DELETE FROM `gameobject_loot_template` WHERE `entry`=42909; -- To ensure duplicate entries are not added
-        INSERT INTO `mangos`.`gameobject_loot_template` (`entry`, `item`, `ChanceOrQuestChance`, `groupid`, `patch_min`) VALUES (42909, 30255, 100, 0, 1);
+        REPLACE `mangos`.`gameobject_loot_template` (`entry`, `item`, `ChanceOrQuestChance`, `groupid`, `patch_min`) VALUES (42909, 30255, 100, 0, 1);
 
 -- Ogre Mound (Used to summon Highlord Ogrok)
     -- Object 
@@ -531,7 +534,7 @@ REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90035, 3000
 
         -- quest_end_script (Temp Summon Highlord Ogrok)
             DELETE FROM `quest_end_scripts` WHERE `id`=10004;
-            INSERT INTO `quest_end_scripts` (`id`, `delay`, `priority`, `command`, `datalong`, `datalong2`, `datalong3`, `datalong4`, `target_param1`, `target_param2`, `target_type`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `condition_id`, `comments`) VALUES
+            REPLACE `quest_end_scripts` (`id`, `delay`, `priority`, `command`, `datalong`, `datalong2`, `datalong3`, `datalong4`, `target_param1`, `target_param2`, `target_type`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `condition_id`, `comments`) VALUES
             (10004, 5, 0, 10, 90094, 60000, 0, 0, 0, 0, 0, 0, 0, 0, -1, 1,-10813.6, -2094.34, 117.132, 2.07719, 0, 'Ogre Mound: Summon Highlord Ogrok');
 
 -- Enchanted Dirt (Used to summon Ogopogo)
@@ -554,7 +557,7 @@ REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90035, 3000
 
         -- quest_end_script (Temp Summon Ogopogo)
             DELETE FROM `quest_end_scripts` WHERE `id`=10008;
-            INSERT INTO `quest_end_scripts` (`id`, `delay`, `priority`, `command`, `datalong`, `datalong2`, `datalong3`, `datalong4`, `target_param1`, `target_param2`, `target_type`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `condition_id`, `comments`) VALUES
+            REPLACE `quest_end_scripts` (`id`, `delay`, `priority`, `command`, `datalong`, `datalong2`, `datalong3`, `datalong4`, `target_param1`, `target_param2`, `target_type`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `condition_id`, `comments`) VALUES
             (10008, 5, 0, 10, 90098, 60000, 0, 0, 0, 0, 0, 0, 0, 0, -1, 1, 0, 0, 0 ,0 , 0, 'Enchanted Dirt: Summon Ogopogo');
 
     -- Curtana
@@ -578,7 +581,7 @@ REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90035, 3000
 
         -- Loot Template
         DELETE FROM `gameobject_loot_template` WHERE `entry`=42910; -- To ensure duplicate entries are not added
-        INSERT INTO `mangos`.`gameobject_loot_template` (`entry`, `item`, `ChanceOrQuestChance`, `groupid`, `patch_min`) VALUES (42910, 30256, 100, 0, 1);
+        REPLACE `mangos`.`gameobject_loot_template` (`entry`, `item`, `ChanceOrQuestChance`, `groupid`, `patch_min`) VALUES (42910, 30256, 100, 0, 1);
 
     -- Fel Gem (Trade Soulshards for random buff OR debuff)
         -- Object
@@ -616,7 +619,7 @@ REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90035, 3000
 
         -- quest_end_script (Cast spell on Player, then Despawn for 16m)
             DELETE FROM `quest_end_scripts` WHERE `id`=10009;
-            INSERT INTO `quest_end_scripts` (`id`, `delay`, `priority`, `command`, `datalong`, `datalong2`, `datalong3`, `datalong4`, `target_param1`, `target_param2`, `target_type`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `condition_id`, `comments`) VALUES
+            REPLACE `quest_end_scripts` (`id`, `delay`, `priority`, `command`, `datalong`, `datalong2`, `datalong3`, `datalong4`, `target_param1`, `target_param2`, `target_type`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `condition_id`, `comments`) VALUES
             (10009, 0, 0, 81, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Fel Gem: Despawn Object'),
             (10009, 1, 0, 15, 34185, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Fel Gem: Cast Spell on Player');
 
@@ -674,7 +677,7 @@ REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90035, 3000
 
     -- Start script for quest Scared Spirit Escort.
         DELETE FROM `quest_start_scripts` WHERE `id`=30263;
-        INSERT INTO `quest_start_scripts` (`id`, `delay`, `priority`, `command`, `datalong`, `datalong2`, `datalong3`, `datalong4`, `target_param1`, `target_param2`, `target_type`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `condition_id`, `comments`) VALUES
+        REPLACE `quest_start_scripts` (`id`, `delay`, `priority`, `command`, `datalong`, `datalong2`, `datalong3`, `datalong4`, `target_param1`, `target_param2`, `target_type`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `condition_id`, `comments`) VALUES
         (30263, 0, 0, 61, 30263, 600, 0, 0, 0, 0, 0, 8, 0, 9000000, 1019, 9000000, 0, 0, 0, 0, 0, 'Scared Spirit Escort: Start Scripted Map Event'),
         (30263, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 'Scared Spirit Escort: Scared Spirit - Say Text'),
         (30263, 0, 2, 4, 147, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Scared Spirit Escort: Scared Spirit - Remove Questgiver Flag'),
@@ -683,13 +686,13 @@ REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90035, 3000
 
     -- Fail script for quest Scared Spirit Escort.
         DELETE FROM `generic_scripts` WHERE `id`=9000000;
-        INSERT INTO `generic_scripts` (`id`, `delay`, `priority`, `command`, `datalong`, `datalong2`, `datalong3`, `datalong4`, `target_param1`, `target_param2`, `target_type`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `condition_id`, `comments`) VALUES
+        REPLACE `generic_scripts` (`id`, `delay`, `priority`, `command`, `datalong`, `datalong2`, `datalong3`, `datalong4`, `target_param1`, `target_param2`, `target_type`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `condition_id`, `comments`) VALUES
         (9000000, 0, 0, 70, 30263, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Scared Spirit Escort Failed: Player - Fail Quest'),
         (9000000, 7200, 0, 71, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Scared Spirit Escort Failed: Scared Spirit - Respawn');
 
     -- Waypoint scripts for Scared Spirit.
         DELETE FROM `creature_movement_scripts` WHERE `id`=9000000;
-        INSERT INTO `creature_movement_scripts` (`id`, `delay`, `priority`, `command`, `datalong`, `datalong2`, `datalong3`, `datalong4`, `target_param1`, `target_param2`, `target_type`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `condition_id`, `comments`) VALUES
+        REPLACE `creature_movement_scripts` (`id`, `delay`, `priority`, `command`, `datalong`, `datalong2`, `datalong3`, `datalong4`, `target_param1`, `target_param2`, `target_type`, `data_flags`, `dataint`, `dataint2`, `dataint3`, `dataint4`, `x`, `y`, `z`, `o`, `condition_id`, `comments`) VALUES
         (9000000, 0, 0, 20, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Scared Spirit - Move Idle'),
         (9000000, 1, 0, 10, 90091, 360000, 0, 0, 0, 0, 0, 0, 0, 0, -1, 1, 0, 0, 0, 0, 0, 'Scared Spirit Summon Creature - Overlord Xelnu'),
         (9000000, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 5947, 101, 0, 0, 0, 0, 0, 0, 0, 'Scared Spirit - Say Text'),
@@ -1006,3 +1009,178 @@ REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (5479, 30174
 
 -- 30175 (Legendary quest PH)
 -- 30176 (Legendary quest PH)
+
+-- Zones
+    -- Ashenvale
+        -- https://www.wowhead.com/tbc/npc=12940/vorsha-the-lasher (Summoned via https://www.wowhead.com/tbc/quest=6641/vorsha-the-lasher) Reward: https://www.wowhead.com/tbc/item=17692/horn-ring
+        -- https://www.wowhead.com/tbc/quest=1918/the-befouled-element
+        --     -> https://www.wowhead.com/tbc/quest=824/jeneu-of-the-earthen-ring
+        -- https://www.wowhead.com/tbc/quest=216/between-a-rock-and-a-thistlefur
+        --     -> https://www.wowhead.com/tbc/quest=6621/king-of-the-foulweald
+        -- https://www.wowhead.com/tbc/quest=6462/troll-charm
+        -- https://www.wowhead.com/tbc/quest=6482/freedom-to-ruul
+        -- https://www.wowhead.com/tbc/quest=9516/destroy-the-legion
+        -- https://www.wowhead.com/tbc/quest=9520/diabolical-plans
+        --     -> https://www.wowhead.com/tbc/quest=9522/never-again
+        -- Add all the fel area quests and more satryr quests (Mainly need 27-32 quests)
+    -- Stonetalon
+        -- NPCs 
+            -- Creature Template
+                REPLACE `mangos`.`creature_template` (`entry`, `name`, `level_min`, `level_max`, `faction`, `npc_flags`, `display_id1`, `display_probability1`, `display_total_probability`, `speed_walk`, `type`, `unit_class`, `health_multiplier`, `inhabit_type`, `civilian`, `static_flags1`, `flags_extra`) VALUES (90110, 'Ziophor', 30, 30, 80, 2, 10616, 1, 1, 1.11111, 7, 1, 1.05, 1, 1, 138412102, 2);
+
+                REPLACE `mangos`.`creature_template` (`entry`, `name`, `level_min`, `level_max`, `faction`, `npc_flags`, `display_id1`, `display_probability1`, `display_total_probability`, `speed_walk`, `type`, `unit_class`, `health_multiplier`, `inhabit_type`, `civilian`, `static_flags1`, `flags_extra`) VALUES (90111, 'Rendall Moonculler', 30, 30, 80, 2, 2253, 1, 1, 1.11111, 7, 1, 1.05, 1, 1, 138412102, 2);
+
+                REPLACE `mangos`.`creature_template` (`entry`, `name`, `level_min`, `level_max`, `faction`, `npc_flags`, `display_id1`, `display_probability1`, `display_total_probability`, `speed_walk`, `type`, `unit_class`, `health_multiplier`, `inhabit_type`, `civilian`, `static_flags1`, `flags_extra`) VALUES (90112, 'Anyine', 30, 30, 80, 2, 2211, 1, 1, 1.11111, 7, 1, 1.05, 1, 1, 138412102, 2);
+
+                REPLACE `mangos`.`creature_template` (`entry`, `name`, `level_min`, `level_max`, `faction`, `npc_flags`, `display_id1`, `display_probability1`, `display_total_probability`, `speed_walk`, `type`, `unit_class`, `health_multiplier`, `inhabit_type`, `civilian`, `static_flags1`, `flags_extra`) VALUES (90115, 'Trinti Machinemouth', 30, 30, 80, 2, 10214, 1, 1, 1.11111, 7, 1, 1.05, 1, 1, 138412102, 2);
+
+                -- NEXT CREATURE TEMPLATE: 90116
+
+            -- Spawns 
+                REPLACE INTO `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000163, 90110, 0, 0, 0, 0, 1, 2686.65, 1477.66, 234.351, 3.94618, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
+                REPLACE INTO `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000164, 90111, 0, 0, 0, 0, 1, 2701.93, 1425.13, 243.04, 2.88196, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
+                REPLACE INTO `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000162, 90112, 0, 0, 0, 0, 1, 2693.05, 1509.08, 236.819, 4.8651, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
+                REPLACE INTO `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000167, 90115, 0, 0, 0, 0, 1, 724.681, 343.607, 64.3999, 0.180167, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
+
+
+        -- Quests
+            -- https://www.wowhead.com/tbc/quest=6284/arachnophobia
+                REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `Type`, `RequiredRaces`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewChoiceItemId1`, `RewChoiceItemId2`, `RewChoiceItemCount1`, `RewChoiceItemCount2`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewMoneyMaxLevel`, `IncompleteEmote`, `CompleteEmote`, `OfferRewardEmote1`, `OfferRewardEmote2`) VALUES (30296, 406, 15, 21, 1, 0, 8, 'Arachnophobia', 'Warning: Proceed into Sishir Canyon west of here at your own risk.$B$BBesseleth and her eight-legged children of the forest have claimed this canyon as their webbed lair.$B$BAnyine in Stonetalon Peak has placed a bounty on Besseleth. Slay her and bring proof of your killing to Anyine; there you will receive your reward for disposing this eight-legged menace.', 'Kill Besseleth and bring Besseleth\'s Fang to Anyine at Stonetalon Peak.', 'Good hunting, $N! Besseleth is an old predator in these parts... I will miss her not. Take this reward as a token for being the forest champion.$B$B<Maggran rubs the wound caused by Besseleth.>$B$BPerhaps now many more will travel to Stonetalon Peak without fearing what lurks in the dark.', 'Besseleth is a ruthless predator... I fear for those that travel Webwinder Path at night. It\'s then that she and her children prey upon innocent travelers. I myself fell prey to her two-foot fang of death, but luckily I was able to fend her off and get to safety. I would give anything to see that monster destroyed.', '', '', '', '', '', 16192, 1, 16891, 16894, 1, 1, 69, 100, 1650, 1020, 1, 1, 1, 1);
+
+                -- Start
+                    REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90112, 30296); -- Anyine (Stonetalon Peak)
+
+                -- End
+                    REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90112, 30296); -- Anyine (Stonetalon Peak)
+
+            -- https://www.wowhead.com/tbc/quest=6461/blood-feeders
+                REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOId2`, `ReqCreatureOrGOCount1`, `ReqCreatureOrGOCount2`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewOrReqMoney`, `RewMoneyMaxLevel`, `DetailsEmote1`, `DetailsEmote2`, `IncompleteEmote`, `CompleteEmote`, `OfferRewardEmote1`) VALUES (30297, 406, 13, 19, 8, 'Blood Feeders', 'We Trolls here at Malaka\'Jin have prospered from the land; Stonetalon Mountain offers great hunting for us to live on.$B$BLately, we have attracted the wrong dinner guests... the spiders in these mountains have been raiding our camps at night looking to steal our hunt.$B$BIf you were to help us kill off these ghastly beasts we at Stonetalon Peak would be in your debt. Spiders are everywhere in Stonetalon - just head north from here and you will see what I am talking about.', 'Ziophor at Stonetalon Peak needs you to kill 10 Deepmoss Creepers and 7 Deepmoss Venomspitters.', 'Sweet, mon! Good news, perhaps we will have fewer unwanted dinner guests tonight.$B$BMany thanks, $N.  We are forever in your debt.', 'Hey mon, have you slain the hairy blood feeders? I fear none here in Stonetalon but I don\'t go walking around here at night... if you know what I mean mon!$B$BAs long as I stay off their dinner plate then all is well.$B$BGood luck to you, $c!', '', '', '', '', '', 4005, 4007, 10, 7, 69, 100, 1450, 1100, 900, 1, 1, 1, 1, 1);
+
+                -- Start
+                    REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90110, 30297); -- Ziophor (Stonetalon Peak)
+
+                -- End
+                    REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90110, 30297); -- Ziophor (Stonetalon Peak)
+
+            -- https://www.wowhead.com/tbc/quest=6548/avenge-my-village 
+                REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `NextQuestInChain`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOId2`, `ReqCreatureOrGOCount1`, `ReqCreatureOrGOCount2`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewOrReqMoney`, `RewMoneyMaxLevel`, `DetailsEmote1`, `OfferRewardEmote1`) VALUES (30298, 406, 12, 18, 8, 30299, 'Avenge The Village', 'The Grimtotem Clan raided the tauren village and killed most everyone. I killed all I could, but barely escaped with the tauren life.$b$b$N, all I wish now is that more of them are dead. You will find them just to the west of here.\n\n', 'Kill 8 Grimtotem Ruffians and 6 Grimtotem Mercenaries, and then return to Trinti Machinemouth at Webwinder Path.\n', '$N, I thank you... but I will never forget what the Grimtotem have done to the tauren village.', 'Have you killed them yet?', '', '', '', '', '', 11910, 11911, 8, 6, 54, 100, 1350, 1000, 840, 1, 1);
+
+                -- Start
+                    REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90115, 30298); -- Trinti Machinemouth (Webwinder Path)
+
+                -- End
+                    REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90115, 30298); -- Trinti Machinemouth (Webwinder Path)
+
+            --     -> https://www.wowhead.com/tbc/quest=6629/kill-grundig-darkcloud
+                REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `PrevQuestId`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOId2`, `ReqCreatureOrGOCount1`, `ReqCreatureOrGOCount2`, `RewXP`, `RewOrReqMoney`, `RewMoneyMaxLevel`, `DetailsEmote1`, `OfferRewardEmote1`) VALUES (30299, 406, 12, 18, 8, 30298, 'Kill Grundig Darkcloud', '$N, you\'ve done a fine job killing Grimtotem. If you dare, Grundig Darkcloud and his personal band of brutes is by far the worst of the lot. He was the one who led the brutal attack the tauren village.$b$bYou will find him in Grimtotem Post a bit further up the path to the west. Kill him, and I will be forever grateful.\n', 'Kill Grundig Darkcloud and 6 Grimtotem Brutes, and return to Trinti Machinemouth at Webwinder Path.\n', 'Grundig Darkcloud is dead! $N, I will always be grateful for what you\'ve done here today.', 'Have you killed Grundig Darkcloud and his personal band of Brutes?\n', '', '', '', '', '', 11858, 11912, 1, 6, 1350, 1000, 840, 1, 1);
+
+                -- Start
+                    REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90115, 30299); -- Trinti Machinemouth (Webwinder Path)
+
+                -- End
+                    REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90115, 30299); -- Trinti Machinemouth (Webwinder Path)
+            -- https://www.wowhead.com/tbc/quest=6301/cycle-of-rebirth
+                REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewOrReqMoney`, `RewMoneyMaxLevel`, `DetailsEmote1`, `DetailsEmote2`, `IncompleteEmote`, `CompleteEmote`, `OfferRewardEmote1`, `CompleteScript`) VALUES (30300, 406, 17, 23, 8, 'Cycle of Rebirth', 'Industrial greed and continuous war have wrecked the lands of Stonetalon. Only the blessings of the Earthmother can cure such injury.$B$B$N, I will require you to seek a special seed, the Gaea seed. They are only found here in Stonetalon Mountain, south of Stonetalon Peak at Mirkfallon Lake, near the water\'s edge.$B$BOnce you bring me the seeds I will imbue them with shamanistic power to speed their growth.', 'Rendall Moonculler at Stonetalon Peak wants you to gather 10 Gaea Seeds.', 'Ah, $N, you have the Gaea seeds. Watch and see how the blessing of the Earthmother can cause even these small kernels of life to bloom and flourish.$B$B<TRendall Moonculler ammra begins to chant.>', 'The continuous destruction caused by war and those that seek a profit from lumber pains me deeply. To aid the cycle of rebirth and replenish the lands, I need Gaea seeds. Do you have them, $c?', '', '', '', '', '', 16205, 10, 69, 75, 1400, 1200, 840, 1, 1, 1, 1, 1, 0);
+
+                -- Start
+                    REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90111, 30300); -- Rendall Moonculler (Stonetalon Peak)
+
+                -- End
+                    REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90111, 30300); -- Rendall Moonculler (Stonetalon Peak)
+
+            --     -> https://www.wowhead.com/tbc/quest=6381/new-life
+                REPLACE INTO `quest_template` (`entry`, `patch`, `Method`, `ZoneOrSort`, `MinLevel`, `MaxLevel`, `QuestLevel`, `Type`, `RequiredClasses`, `RequiredRaces`, `RequiredSkill`, `RequiredSkillValue`, `RequiredCondition`, `RepObjectiveFaction`, `RepObjectiveValue`, `RequiredMinRepFaction`, `RequiredMinRepValue`, `RequiredMaxRepFaction`, `RequiredMaxRepValue`, `SuggestedPlayers`, `LimitTime`, `QuestFlags`, `SpecialFlags`, `PrevQuestId`, `NextQuestId`, `ExclusiveGroup`, `BreadcrumbForQuestId`, `NextQuestInChain`, `SrcItemId`, `SrcItemCount`, `SrcSpell`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemId2`, `ReqItemId3`, `ReqItemId4`, `ReqItemCount1`, `ReqItemCount2`, `ReqItemCount3`, `ReqItemCount4`, `ReqSourceId1`, `ReqSourceId2`, `ReqSourceId3`, `ReqSourceId4`, `ReqSourceCount1`, `ReqSourceCount2`, `ReqSourceCount3`, `ReqSourceCount4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOId2`, `ReqCreatureOrGOId3`, `ReqCreatureOrGOId4`, `ReqCreatureOrGOCount1`, `ReqCreatureOrGOCount2`, `ReqCreatureOrGOCount3`, `ReqCreatureOrGOCount4`, `ReqSpellCast1`, `ReqSpellCast2`, `ReqSpellCast3`, `ReqSpellCast4`, `RewChoiceItemId1`, `RewChoiceItemId2`, `RewChoiceItemId3`, `RewChoiceItemId4`, `RewChoiceItemId5`, `RewChoiceItemId6`, `RewChoiceItemCount1`, `RewChoiceItemCount2`, `RewChoiceItemCount3`, `RewChoiceItemCount4`, `RewChoiceItemCount5`, `RewChoiceItemCount6`, `RewItemId1`, `RewItemId2`, `RewItemId3`, `RewItemId4`, `RewItemCount1`, `RewItemCount2`, `RewItemCount3`, `RewItemCount4`, `RewRepFaction1`, `RewRepFaction2`, `RewRepFaction3`, `RewRepFaction4`, `RewRepFaction5`, `RewRepValue1`, `RewRepValue2`, `RewRepValue3`, `RewRepValue4`, `RewRepValue5`, `RewRepSpilloverMask`, `RewXP`, `RewOrReqMoney`, `RewMoneyMaxLevel`, `RewSpell`, `RewSpellCast`, `RewMailTemplateId`, `RewMailDelaySecs`, `RewMailMoney`, `PointMapId`, `PointX`, `PointY`, `PointOpt`, `DetailsEmote1`, `DetailsEmote2`, `DetailsEmote3`, `DetailsEmote4`, `DetailsEmoteDelay1`, `DetailsEmoteDelay2`, `DetailsEmoteDelay3`, `DetailsEmoteDelay4`, `IncompleteEmote`, `CompleteEmote`, `OfferRewardEmote1`, `OfferRewardEmote2`, `OfferRewardEmote3`, `OfferRewardEmote4`, `OfferRewardEmoteDelay1`, `OfferRewardEmoteDelay2`, `OfferRewardEmoteDelay3`, `OfferRewardEmoteDelay4`, `StartScript`, `CompleteScript`) VALUES (30301, 0, 2, 406, 17, 0, 25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 30300, 0, 0, 0, 0, 16208, 1, 0, 'New Life', 'As you have seen, $c, though the land is in pain, the cycle of life is a powerful thing. Now we must do our part help it along. You must plant these seeds at the center of the destruction, to the west, in the Charred Vale. Beware, for harpies and angry fire elementals still plague the scarred land.$B$B$N, take these enchanted Gaea seeds and plant them in fertile mounds of soil. The cycle of life must go on!', 'Plant 10 Gaea Seeds in Gaea Dirt Mounds, and then return the remaining Enchanted Gaea Seeds to Rendall Moonculler at Stonetalon Peak.', 'This is great victory for the land. In time, other things will come to pass: the Venture Co. will pack up their buzz saws and axes, the angry fire spirits will calm, and the harpies will be pushed out by the land.$B$BOnly then $N, will Stonetalon be truly at peace.$B$BYou have done well $c; take one of these items as thanks for the new life you have created here today.', 'These seeds you plant are strong, resisting corruption, and making a foothold for other life. They will grow and grow, first preventing corruption and healing the scarred land, and then one day, restoring Stonetalon to a lush forest, once again.$B$BHave you planted all of the Gaea seeds?', '', 'Gaea seed planted', '', '', '', 16208, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -177929, 0, 0, 0, 10, 0, 0, 0, 20269, 0, 0, 0, 16985, 16986, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 69, 0, 0, 0, 0, 100, 0, 0, 0, 0, 0, 2000, 0, 1200, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0);
+
+                -- Start
+                    REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90111, 30301); -- Rendall Moonculler (Stonetalon Peak)
+
+                -- End
+                    REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90111, 30301); -- Rendall Moonculler (Stonetalon Peak)
+
+            -- https://www.wowhead.com/tbc/quest=1058/jinzils-forest-magic
+                REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemId2`, `ReqItemId3`, `ReqItemId4`, `ReqItemCount1`, `ReqItemCount2`, `ReqItemCount3`, `ReqItemCount4`, `RewChoiceItemId1`, `RewChoiceItemId2`, `RewChoiceItemCount1`, `RewChoiceItemCount2`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewMoneyMaxLevel`, `DetailsEmote1`, `DetailsEmote2`, `DetailsEmote3`, `DetailsEmote4`, `IncompleteEmote`, `CompleteEmote`, `CompleteScript`) VALUES (30302, 406, 20, 26, 8, 'Trinti\'s Forest Magic', 'So excited I am!$b$bThree little cages for three little elves! But what shall we do with our lovely tree-hugging friends? Why, let\'s give them a taste of... what do they call it... forest magic!$b$bI\'ll need a good mess of Stonetalon sap. From those horrid felines, bring me some twilight whiskers. This calls for plenty of courser eyes, of course - can never have enough eyes. Oh, and lest we forget, a precious scale from a fey dragon.$b$bHurry to Stonetalon Peak, $n, so I can brew some forest magic!', 'Mage Trinti Machinemouth at Webwinder Path wants 5 portions of Stonetalon Sap, 5 Twilight Whiskers, 30 Courser Eyes and a Fey Dragon Scale.', 'Oh how happy these little woodland nymphs shall be! We\'ll make them feel right at home with this special concoction!', 'Look at our poor little elf friends. All caged up with no forest to frolic in!$b$bNow were you able to find me some sap? How about the whiskers from the twilight runners? Don\'t suppose you have that fey dragon scale on you?$b$bAnd eyes! I\'ll need so many eyes! You just can\'t mix up a fierce forest magic brew without a good helping of eyes!', '', '', '', '', '', 5582, 5584, 5585, 5583, 5, 5, 30, 1, 6664, 6665, 1, 1, 54, 100, 2100, 1260, 4, 6, 1, 5, 11, 11, 0);
+
+                -- Start
+                    REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90115, 30302); -- Trinti Machinemouth (Webwinder Path)
+
+                -- End
+                    REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90115, 30302); -- Trinti Machinemouth (Webwinder Path)
+
+            -- https://www.wowhead.com/tbc/quest=6283/bloodfury-bloodline
+                REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `Type`, `QuestFlags`, `PrevQuestId`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewChoiceItemId1`, `RewChoiceItemId2`, `RewChoiceItemCount1`, `RewChoiceItemCount2`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewMoneyMaxLevel`, `DetailsEmote1`, `DetailsEmote2`, `IncompleteEmote`, `CompleteEmote`, `OfferRewardEmote1`) VALUES (30303, 406, 18, 26, 1, 8, 6282, 'Bloodfury Bloodline', 'Limiting the number of Bloodfury Harpies will not be enough. The only true cure for their disease would be to slay their leader, Bloodfury Ripper!$B$BShe is all but a queen to those filthy creatures. Slay her and their numbers will surely diminish.$B$BGo back into the Charred Vale and you will find her along the western hills. She will not be easy to vanquish, but the reward will be great.', 'Maggran at Sun Rock Retreat wishes you to slay Bloodfury Ripper and bring her remains as proof of your deed.', 'Already I feel the anger leave me. What will I do with my time? Knowing evil moves near my land kept my thoughts moving, though now they are silent. Perhaps this is a good thing... maybe now I can focus on the good, as all Tauren should.$B$BPlease accept this as a reward for your troubles.', 'Bloodfury Ripper is a nasty creature! You will have success finding her along the western hill line in the Charred Vale.$B$BThe bloodfuries will be helpless with out... surely we can vanquish them forever!', '', '', '', '', '', 16190, 1, 16990, 16987, 1, 1, 69, 100, 2100, 1260, 1, 1, 1, 1, 1);
+
+                -- Start
+                    REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90111, 30303); -- Rendall Moonculler (Stonetalon Peak)
+
+                -- End
+                    REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90111, 30303); -- Rendall Moonculler (Stonetalon Peak)
+
+-- Dungeons
+    -- Ragefire Chasm
+        -- Hidden Enemies
+            -- Quest
+                REPLACE `quest_template` (`entry`, `patch`, `Method`, `ZoneOrSort`, `MinLevel`, `MaxLevel`, `QuestLevel`, `Type`, `RequiredClasses`, `RequiredRaces`, `RequiredSkill`, `RequiredSkillValue`, `RequiredCondition`, `RepObjectiveFaction`, `RepObjectiveValue`, `RequiredMinRepFaction`, `RequiredMinRepValue`, `RequiredMaxRepFaction`, `RequiredMaxRepValue`, `SuggestedPlayers`, `LimitTime`, `QuestFlags`, `SpecialFlags`, `PrevQuestId`, `NextQuestId`, `ExclusiveGroup`, `BreadcrumbForQuestId`, `NextQuestInChain`, `SrcItemId`, `SrcItemCount`, `SrcSpell`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemId2`, `ReqItemId3`, `ReqItemId4`, `ReqItemCount1`, `ReqItemCount2`, `ReqItemCount3`, `ReqItemCount4`, `ReqSourceId1`, `ReqSourceId2`, `ReqSourceId3`, `ReqSourceId4`, `ReqSourceCount1`, `ReqSourceCount2`, `ReqSourceCount3`, `ReqSourceCount4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOId2`, `ReqCreatureOrGOId3`, `ReqCreatureOrGOId4`, `ReqCreatureOrGOCount1`, `ReqCreatureOrGOCount2`, `ReqCreatureOrGOCount3`, `ReqCreatureOrGOCount4`, `ReqSpellCast1`, `ReqSpellCast2`, `ReqSpellCast3`, `ReqSpellCast4`, `RewChoiceItemId1`, `RewChoiceItemId2`, `RewChoiceItemId3`, `RewChoiceItemId4`, `RewChoiceItemId5`, `RewChoiceItemId6`, `RewChoiceItemCount1`, `RewChoiceItemCount2`, `RewChoiceItemCount3`, `RewChoiceItemCount4`, `RewChoiceItemCount5`, `RewChoiceItemCount6`, `RewItemId1`, `RewItemId2`, `RewItemId3`, `RewItemId4`, `RewItemCount1`, `RewItemCount2`, `RewItemCount3`, `RewItemCount4`, `RewRepFaction1`, `RewRepFaction2`, `RewRepFaction3`, `RewRepFaction4`, `RewRepFaction5`, `RewRepValue1`, `RewRepValue2`, `RewRepValue3`, `RewRepValue4`, `RewRepValue5`, `RewRepSpilloverMask`, `RewXP`, `RewOrReqMoney`, `RewMoneyMaxLevel`, `RewSpell`, `RewSpellCast`, `RewMailTemplateId`, `RewMailDelaySecs`, `RewMailMoney`, `PointMapId`, `PointX`, `PointY`, `PointOpt`, `DetailsEmote1`, `DetailsEmote2`, `DetailsEmote3`, `DetailsEmote4`, `DetailsEmoteDelay1`, `DetailsEmoteDelay2`, `DetailsEmoteDelay3`, `DetailsEmoteDelay4`, `IncompleteEmote`, `CompleteEmote`, `OfferRewardEmote1`, `OfferRewardEmote2`, `OfferRewardEmote3`, `OfferRewardEmote4`, `OfferRewardEmoteDelay1`, `OfferRewardEmoteDelay2`, `OfferRewardEmoteDelay3`, `OfferRewardEmoteDelay4`, `StartScript`, `CompleteScript`) VALUES (30289, 0, 2, 2437, 9, 0, 16, 81, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Hidden Enemies', 'Hmm, leaders of the Searing Blade... this concerns me most. If they are the ones of value to Neeru, then those are who we must target first. This satyr... Bazzalan, and the other Neeru mentioned--what was he, a warlock?--must be slain.$B$BReturn to the Cleft of Shadow and enter Ragefire Chasm, $N. Find these two leaders of the Searing Blade, and kill them. But be careful not to let Neeru know it was you who did this. You must retain your identity as one of his $gbrothers:sisters; in arms.', 'Kill Bazzalan and Jergosh the Invoker before returning to Tyrande in Darnassus.', 'I am glad you\'ve returned, $N. Some of those loyal to me brought word immediately that the caverns below Orgrimmar were in disarray now that their leaders have been slain. I even heard reports that Neeru was more than agitated. It seems we\'ve put a dent in his armor. I can\'t say I\'m displeased... even with such a minor victory.', 'Have you found them yet, $N? The leaders of the Searing Blade.$B$BI knew the Shadow Council sought to take Orgrimmar and all of the Horde from me, but I hadn\'t realized how quickly they were able to infiltrate the city. So many arms this beast has... we can cut them off until exhaustion sets in, but we will be no further than when we started. I will have to have my spies double their efforts.', '', '', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11519, 11518, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 30408, 30409, 30410, 30411, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 69, 0, 0, 0, 0, 550, 0, 0, 0, 0, 0, 3170, 800, 720, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 6, 4, 1, 0, 0, 0, 0, 0, 0, 0, 0);
+
+        -- Start
+            REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (7999, 30289); -- Tyrande (Darnassus)
+
+        -- End
+            REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (7999, 30289); -- Tyrande (Darnassus)
+
+    -- Slaying The Beast
+        -- Quest
+            REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `Type`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewXP`, `RewOrReqMoney`, `RewMoneyMaxLevel`, `DetailsEmote1`, `DetailsEmote2`, `IncompleteEmote`, `CompleteEmote`, `OfferRewardEmote1`, `OfferRewardEmote2`) VALUES (30290, 2437, 9, 16, 81, 8, 'Slaying the Beast', 'The primary task set upon me by our great Warchief is to root out the creatures responsible for infesting our lord\'s great city with demonic influence. The Burning Blade is one threat, but there are others; the Searing Blade for instance, who make their home in Ragefire Chasm, secretly attempting to subvert innocent members of the Horde.$B$BIf they are to be stopped, then their leader must be slain--a Felguard named Taragaman the Hungerer.$B$BKill him, and his heart will appease Arch Druid Fandral Staghelm, of this I\'m sure.', 'Enter Ragefire Chasm and slay Taragaman the Hungerer, then bring his heart back to Neeru Fireblade in Orgrimmar.', 'Ha! You\'ve done it! Arch Druid Fandral Staghelm will be so pleased.$B$BI will ensure this heart is taken care of properly.$B$BFor now though, you must celebrate your victory. I will inform Arch Druid Fandral Staghelm of your success.$B$BThank you for your aid, $c.', 'Have you killed the beast? He surely must be the leader of the Searing Blade in Ragefire Chasm.', '', '', '', '', '', 14540, 1, 1150, 800, 720, 1, 1, 6, 6, 4, 1);
+
+        -- Start
+            REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (3516, 30290); -- Arch Druid Fandral Staghelm (Darnassus)
+
+        -- End
+            REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (3516, 30290); -- Arch Druid Fandral Staghelm (Darnassus)
+
+    -- Testing an Enemy's Strength
+        -- Quest
+            REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `Type`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOId2`, `ReqCreatureOrGOCount1`, `ReqCreatureOrGOCount2`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewOrReqMoney`, `RewMoneyMaxLevel`, `DetailsEmote1`, `DetailsEmote2`, `IncompleteEmote`, `CompleteEmote`, `OfferRewardEmote1`, `OfferRewardEmote2`) VALUES (30291, 2437, 9, 15, 81, 8, 'Testing an Enemy\'s Strength', 'Beneath the city of Orgrimmar, stout creatures known as troggs started coming to the surface from deep below the lava filled tunnels. In her ever-benevolence, Magatha sought to make peace with the creatures, but they turned on her diplomats, killing them. She will not allow such treatment of the tauren people and now consider the creatures a threat to all of the Horde.$B$BShe asks that you put an end to this trogg threat before it overwhelms the Horde from below. Find Ragefire Chasm and destroy them all.', 'Search Orgrimmar for Ragefire Chasm, then kill 8 Ragefire Troggs and 8 Ragefire Shaman before returning to Terenthis in Auberdine.', 'I am glad to see you took Magatha\'s task seriously. Thank you, $N. I\'m sure the troggs will have a harder time coming to the surface with their numbers so greatly reduced.$B$BPerhaps in the future we can take time to figure out where such creatures came from, and what they really want.', 'How goes your search for the Chasm? And the troggs?$B$BThe threat cannot be allowed to persist it will only injure our orc brethren if it continues.', '', '', '', '', '', 11318, 11319, 8, 8, 69, 100, 1050, 700, 660, 1, 1, 6, 6, 2, 1);
+
+        -- Start
+            REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (3693, 30291); -- Terenthis (Auberdine)
+
+        -- End
+            REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (3693, 30291); -- Terenthis (Auberdine)
+
+    -- The Power to Destroy..
+        -- Quest
+            REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `Type`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemId2`, `ReqItemCount1`, `ReqItemCount2`, `RewChoiceItemId1`, `RewChoiceItemId2`, `RewChoiceItemId3`, `RewChoiceItemCount1`, `RewChoiceItemCount2`, `RewChoiceItemCount3`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewMoneyMaxLevel`, `DetailsEmote1`, `DetailsEmote2`, `IncompleteEmote`, `CompleteEmote`, `OfferRewardEmote1`, `OfferRewardEmote2`) VALUES (30292, 2437, 9, 16, 81, 8, 'The Power to Destroy...', 'Many denizens of the Legion bestow gifts on their followers as you may well know. Some of these gifts the Dark Lady feels would be better off in her hands than in the hands of those with... lesser vision.$B$BA sect of the Shadow Council hidden in caverns below Orgrimmar known as the Searing Blade are a prime example. The Lady tells me that members of the Searing Blade have come into the possession of two powerful spell books she would like to "borrow" these books from them. You will get them for her.', 'Bring the books Spells of Shadow and Incantations from the Nether to Varimathras in Undercity.', 'Good, $c. You have done well in serving the Dark Lady. Your continued perseverance and ambition will be of great use to the Lady\'s subjects. Return to me again in the future. Perhaps I will have other tasks for you that will aid the Dark Lady in her attempts at overtaking the Lich King and completely freeing the Scourge.', 'There are a hundred other tasks awaiting my attention, $c. Do you have the books?', '', '', '', '', '', 14395, 14396, 1, 1, 15449, 15450, 15451, 1, 1, 1, 69, 150, 1450, 900, 1, 1, 6, 6, 1, 1);
+
+        -- Start
+            REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (3516, 30292); -- Arch Druid Fandral Staghelm (Darnassus)
+
+        -- End
+            REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (3516, 30292); -- Arch Druid Fandral Staghelm (Darnassus)
+
+    -- Oggleflint's Demise
+        -- Quest
+            REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `Type`, `QuestFlags`, `PrevQuestId`, `NextQuestInChain`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOCount1`, `RewChoiceItemId1`, `RewChoiceItemId2`, `RewChoiceItemCount1`, `RewChoiceItemCount2`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewMoneyMaxLevel`, `IncompleteEmote`, `CompleteEmote`, `OfferRewardEmote1`, `OfferRewardEmote2`) VALUES (30293, 2437, 9, 16, 81, 8, 0, 0, 'Oggleflint\'s Demise', 'Go to Ragefire Chasm and rid the cavern of Oggleflint.', 'Go to Ragefire Chasm and rid the cavern of Oggleflint then return to Thundris Windweaver in Auberdine', 'Thank you!', 'Have you killed Oggleflint yet?', '', '', '', '', '', 11517, 1, 15452, 15453, 1, 1, 69, 150, 2330, 720, 6, 6, 4, 1);
+
+        -- Start
+            REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (3649, 30293); -- Thundris Windweaver (Auberdine)
+
+        -- End
+            REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (3649, 30293); -- Thundris Windweaver (Auberdine)
+
+    -- Leaders of the Fang
+        REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `Type`, `QuestFlags`, `PrevQuestId`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemId2`, `ReqItemId3`, `ReqItemId4`, `ReqItemCount1`, `ReqItemCount2`, `ReqItemCount3`, `ReqItemCount4`, `RewChoiceItemId1`, `RewChoiceItemId2`, `RewChoiceItemCount1`, `RewChoiceItemCount2`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewMoneyMaxLevel`, `DetailsEmote1`, `IncompleteEmote`, `CompleteEmote`, `OfferRewardEmote1`, `OfferRewardEmote2`, `OfferRewardEmoteDelay2`) VALUES (30294, 718, 10, 22, 81, 8, 1490, 'Leaders of the Fang', 'The druids in the Wailing Caverns, the Druids of the Fang, are an aberration.  They were part of an order of noble druids whose plan was to heal the Barrens, but now seek to remake that land to match their own, twisted dreams.$B$BThe Druids of the Fang have four leaders, and each possesses a dream gem.  Even now their faces haunt me!  Defeat the leaders and bring me their gems, and the Barrens may again know peace.$B$BGo, $N.  You will find them lurking deep within the Wailing Caverns.', 'Bring the Gems of Cobrahn, Anacondra, Pythas and Serpentis to Tyrande in Darnassus.', 'You have done it, $N.  You killed the leaders of the Druids of the Fang.  My dreams are now free of their wicked faces, and you have helped save the Barrens from a cursed future.$B$BI thank you, $N.  I thank you for myself, for the druids of Darnassus, and for the land.', 'Memories of my nightmares haunt me, $N.  Have you defeated the leaders of the fang and acquired their gems?', '', '', '', '', '', 9738, 9739, 9740, 9741, 1, 1, 1, 1, 6505, 6504, 1, 1, 69, 150, 2200, 1320, 1, 1, 1, 1, 2, 1000);
+
+        -- Start
+            REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (7999, 30294); -- Tyrande (Darnassus)
+
+        -- End
+            REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (7999, 30294); -- Tyrande (Darnassus)
+
+    -- Serpentbloom
+        REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `Type`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewItemId1`, `RewItemCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewOrReqMoney`, `RewMoneyMaxLevel`, `DetailsEmote1`, `DetailsEmote2`, `DetailsEmote3`, `CompleteEmote`) VALUES (30295, 718, 14, 18, 81, 8, 'Serpentbloom', 'The Royal Apothecary Society, based in the great Undercity of Lordaeron, has sent me here for a very specific service, $n. Perhaps you wish to aid me, and in turn The Dark Lady in our efforts to advance the Forsaken.$b$bRecently I studied a rare specimen of flora named Serpentbloom. I believe in greater quantities this herb has great potential.$b$bUnfortunately Serpentbloom can only be found in the darkest recesses of the Wailing Caverns, a dangerous cave system located in the Barrens.', 'Faldreas Goeth\'Shael in Ashenvale wants you to collect 10 Serpentbloom.', 'Ah, splendid specimens. You have done well, $N.', 'I am eager to see if you can gather enough Serpentbloom from the Wailing Caverns. I\'ve sent many to do my bidding but none have returned.', '', '', '', '', '', 5339, 10, 10919, 1, 69, 150, 1700, 2000, 1020, 1, 1, 1, 1);
+
+        -- Start
+            REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (3996, 30295); -- Faldreas Goeth'Shael (Ashenvale)
+
+        -- End
+            REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (3996, 30295); -- Faldreas Goeth'Shael (Ashenvale)
