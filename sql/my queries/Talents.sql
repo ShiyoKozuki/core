@@ -1,4 +1,4 @@
--- NEXT talent ID is 1744
+-- NEXT talent ID is 1745
 -- Talents that grant a new spell (i.e. feral charge) need flags set to "1"
 -- Talents
 
@@ -892,11 +892,29 @@ WHERE entry = 16720;
 
 -- Warlock
 
+    -- Master Demonologist (Added Felguard)
+        UPDATE `mangos`.`spell_template` SET `description`='Grants both the Warlock and the summoned demon an effect as long as that demon is active.\r\n\r\nImp - Reduces threat caused by $23759s1%.\r\n\r\nVoidwalker - Reduces physical damage taken by $23760s1%.\r\n\r\nSuccubus / Felguard - Increases all damage caused by $23761s1%.\r\n\r\nFelhunter - Increases all resistances by .2 per level.' WHERE  `entry`=23785 AND `build`=4878;
+
+        UPDATE `mangos`.`spell_template` SET `description`='Grants both the Warlock and the summoned demon an effect as long as that demon is active.\r\n\r\nImp - Reduces threat caused by $23826s1%.\r\n\r\nVoidwalker - Reduces physical damage taken by $23841s1%.\r\n\r\nSuccubus / Felguard - Increases all damage caused by $23833s1%.\r\n\r\nFelhunter - Increases all resistances by .4 per level.' WHERE  `entry`=23822 AND `build`=4878;
+
+        UPDATE `mangos`.`spell_template` SET `description`='Grants both the Warlock and the summoned demon an effect as long as that demon is active.\r\n\r\nImp - Reduces threat caused by $23827s1%.\r\n\r\nVoidwalker - Reduces physical damage taken by $23842s1%.\r\n\r\nSuccubus / Felguard - Increases all damage caused by $23834s1%.\r\n\r\nFelhunter - Increases all resistances by .6 per level.' WHERE  `entry`=23823 AND `build`=4878;
+
+        UPDATE `mangos`.`spell_template` SET `description`='Grants both the Warlock and the summoned demon an effect as long as that demon is active.\r\n\r\nImp - Reduces threat caused by $23828s1%.\r\n\r\nVoidwalker - Reduces physical damage taken by $23843s1%.\r\n\r\nSuccubus / Felguard - Increases all damage caused by $23835s1%.\r\n\r\nFelhunter - Increases all resistances by .8 per level.' WHERE  `entry`=23824 AND `build`=4878;
+
+        UPDATE `mangos`.`spell_template` SET `description`='Grants both the Warlock and the summoned demon an effect as long as that demon is active.\r\n\r\nImp - Reduces threat caused by $23829s1%.\r\n\r\nVoidwalker - Reduces physical damage taken by $23844s1%.\r\n\r\nSuccubus / Felguard - Increases all damage caused by $23836s1%.\r\n\r\nFelhunter - Increases all resistances by 1 per level.' WHERE  `entry`=23825 AND `build`=4878;
+
+        -- Pet Specific Aura (Felguard)
+        REPLACE `mangos`.`spell_pet_auras` (`spell`, `pet`, `aura`) VALUES (23785, 90089, 23761);
+        REPLACE `mangos`.`spell_pet_auras` (`spell`, `pet`, `aura`) VALUES (23822, 90089, 23833);
+        REPLACE `mangos`.`spell_pet_auras` (`spell`, `pet`, `aura`) VALUES (23823, 90089, 23834);
+        REPLACE `mangos`.`spell_pet_auras` (`spell`, `pet`, `aura`) VALUES (23824, 90089, 23835);
+        REPLACE `mangos`.`spell_pet_auras` (`spell`, `pet`, `aura`) VALUES (23825, 90089, 23836);
+
+
     -- Improved Voidwalker (Now 15/30/45%)
         UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=14 WHERE  `entry`=18705;
         UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=29 WHERE  `entry`=18706;
         UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=44 WHERE  `entry`=18707;
-
 
 -- Improved Drain Life (2 points now, +15%/30% damage per CASTERS Affliction DoT on target)
 UPDATE `mangos`.`spell_template` SET `description`='Increases the Health drained by your Drain Life spell by $s1%.  Additionally, this effect is also increased by 15% per Affliction damage over time effect active on the target.', `effectBasePoints1`=9 WHERE  `entry`=17804;
@@ -924,7 +942,7 @@ UPDATE `mangos`.`spell_template` SET `effectDieSides2`=1, `effectBaseDice2`=1, `
 UPDATE `mangos`.`spell_template` SET `effect2`=6, `effectDieSides2`=1, `effectBaseDice2`=1, `effectBasePoints2`=9, `effectImplicitTargetA2`=1, `effectApplyAuraName2`=107, `effectItemType2`=1024, `effectMiscValue2`=8 WHERE  `entry`=18830;
 
 -- Improved Curse of Weakness (Now works on Curse of the Elements and Shadows too)
--- TODO: Is     CF_WARLOCK_CURSE_SHADOWS_ELEMENTS       = 34,   // CM1 00000004 unneeded? Was working without it..
+-- TODO: Is CF_WARLOCK_CURSE_SHADOWS_ELEMENTS = 34 unneeded? Was working without it..
 UPDATE `mangos`.`spell_template` SET `effectItemType1`=17179901952, `name`='Improved Curses', `description`='Increases the effect of your Curse of Weakness, Curse of the Elements, and Curse of Shadows by $s1%.' WHERE  `entry` IN (18179, 18180, 18181) AND `build`=4222;
 
 -- Demonic Sacrifice
