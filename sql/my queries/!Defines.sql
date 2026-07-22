@@ -669,3 +669,30 @@
 
     SET
         @CAST_UI_ITEM = 3;
+
+    SET
+        @ITEM_SUBCLASS_WEAPON_AXE                    = 1,
+        @ITEM_SUBCLASS_WEAPON_AXE2                   = 2,
+        @ITEM_SUBCLASS_WEAPON_BOW                    = 3,
+        @ITEM_SUBCLASS_WEAPON_GUN                    = 4,
+        @ITEM_SUBCLASS_WEAPON_MACE                   = 5,
+        @ITEM_SUBCLASS_WEAPON_MACE2                  = 6,
+        @ITEM_SUBCLASS_WEAPON_POLEARM                = 7,
+        @ITEM_SUBCLASS_WEAPON_SWORD                  = 8,
+        @ITEM_SUBCLASS_WEAPON_SWORD2                 = 9,
+        @ITEM_SUBCLASS_WEAPON_obsolete               = 10,
+        @ITEM_SUBCLASS_WEAPON_STAFF                  = 11,
+        @ITEM_SUBCLASS_WEAPON_EXOTIC                 = 12,
+        @ITEM_SUBCLASS_WEAPON_EXOTIC2                = 13,
+        @ITEM_SUBCLASS_WEAPON_FIST                   = 14,
+        @ITEM_SUBCLASS_WEAPON_MISC                   = 15,
+        @ITEM_SUBCLASS_WEAPON_DAGGER                 = 16,
+        @ITEM_SUBCLASS_WEAPON_THROWN                 = 17,
+        @ITEM_SUBCLASS_WEAPON_SPEAR                  = 18,
+        @ITEM_SUBCLASS_WEAPON_CROSSBOW               = 19,
+        @ITEM_SUBCLASS_WEAPON_WAND                   = 20,
+        @ITEM_SUBCLASS_WEAPON_FISHING_POLE           = 21;
+
+    -- TODO: Doesn't work
+    -- SET @ALL_1H_WEAPONS = @ITEM_SUBCLASS_WEAPON_AXE | @ITEM_SUBCLASS_WEAPON_MACE | @ITEM_SUBCLASS_WEAPON_SWORD | @ITEM_SUBCLASS_WEAPON_FIST | @ITEM_SUBCLASS_WEAPON_DAGGER;
+    -- SET @ALL_2H_WEAPONS = @ITEM_SUBCLASS_WEAPON_AXE2 | @ITEM_SUBCLASS_WEAPON_MACE2 | @ITEM_SUBCLASS_WEAPON_POLEARM | @ITEM_SUBCLASS_WEAPON_SWORD2 | @ITEM_SUBCLASS_WEAPON_STAFF;
