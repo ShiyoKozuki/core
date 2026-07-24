@@ -2081,6 +2081,7 @@ void PartyBotAI::UpdateInCombatAI_Shaman()
             }
 
             if (m_spells.shaman.pEarthShock &&
+                m_spells.shaman.pStormstrike &&
                 pVictim->HasAura(m_spells.shaman.pStormstrike->Id) &&
                 CanTryToCastSpell(pVictim, m_spells.shaman.pEarthShock))
             {
@@ -3231,47 +3232,42 @@ void PartyBotAI::UpdateInCombatAI_Warlock()
                 return;
         }
 
+        // Curses Logic
+        if (m_spells.warlock.pCurseofRecklessness &&
+            CanTryToCastSpell(pVictim, m_spells.warlock.pCurseofRecklessness))
+        {
+            if (DoCastSpell(pVictim, m_spells.warlock.pCurseofRecklessness) == SPELL_CAST_OK)
+                return;
+        }
+
         // Keep Curse of Tongues up on spell casters
-        if (pVictim->GetPowerType() == POWER_MANA && pVictim->GetPowerPercent(POWER_MANA) > 05.0f)
-        {
-            if (m_spells.warlock.pCurseofTongues &&
-                CanTryToCastSpell(pVictim, m_spells.warlock.pCurseofTongues))
-            {
-                if (DoCastSpell(pVictim, m_spells.warlock.pCurseofTongues) == SPELL_CAST_OK)
-                    return;
-            }
-        }
-        else
-        {
-            // TODO: Logic for different curses
-            if (m_spells.warlock.pCurseoftheElements &&
-                CanTryToCastSpell(pVictim, m_spells.warlock.pCurseoftheElements))
-            {
-                if (DoCastSpell(pVictim, m_spells.warlock.pCurseoftheElements) == SPELL_CAST_OK)
-                    return;
-            }
+        //if (m_spells.warlock.pCurseofTongues &&
+        //    CanTryToCastSpell(pVictim, m_spells.warlock.pCurseofTongues))
+        //{
+        //    if (DoCastSpell(pVictim, m_spells.warlock.pCurseofTongues) == SPELL_CAST_OK)
+        //        return;
+        //}
+        // TODO: Logic for different curses
+        // if (m_spells.warlock.pCurseoftheElements &&
+        //    CanTryToCastSpell(pVictim, m_spells.warlock.pCurseoftheElements))
+        //{
+        //    if (DoCastSpell(pVictim, m_spells.warlock.pCurseoftheElements) == SPELL_CAST_OK)
+        //        return;
+        //}
 
-            if (m_spells.warlock.pCurseofRecklessness &&
-                CanTryToCastSpell(pVictim, m_spells.warlock.pCurseofRecklessness))
-            {
-                if (DoCastSpell(pVictim, m_spells.warlock.pCurseofRecklessness) == SPELL_CAST_OK)
-                    return;
-            }
+        //if (m_spells.warlock.pCurseofShadow &&
+        //    CanTryToCastSpell(pVictim, m_spells.warlock.pCurseofShadow))
+        //{
+        //    if (DoCastSpell(pVictim, m_spells.warlock.pCurseofShadow) == SPELL_CAST_OK)
+        //        return;
+        //}
 
-            if (m_spells.warlock.pCurseofShadow &&
-                CanTryToCastSpell(pVictim, m_spells.warlock.pCurseofShadow))
-            {
-                if (DoCastSpell(pVictim, m_spells.warlock.pCurseofShadow) == SPELL_CAST_OK)
-                    return;
-            }
-
-            if (m_spells.warlock.pCurseofAgony &&
-                CanTryToCastSpell(pVictim, m_spells.warlock.pCurseofAgony))
-            {
-                if (DoCastSpell(pVictim, m_spells.warlock.pCurseofAgony) == SPELL_CAST_OK)
-                    return;
-            }
-        }
+        //if (m_spells.warlock.pCurseofAgony &&
+        //    CanTryToCastSpell(pVictim, m_spells.warlock.pCurseofAgony))
+        //{
+        //    if (DoCastSpell(pVictim, m_spells.warlock.pCurseofAgony) == SPELL_CAST_OK)
+        //        return;
+        //}
 
         if (me->GetMotionMaster()->GetCurrentMovementGeneratorType() == IDLE_MOTION_TYPE
             && me->GetDistance(pVictim) > 30.0f)
