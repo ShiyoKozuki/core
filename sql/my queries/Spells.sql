@@ -1,4 +1,4 @@
--- 34332 NEXT SPELL
+-- 34333 NEXT SPELL
 -- 15223 NEXT SKILL_LINE_ABILITY
 -- NEXT category 10006
 
@@ -974,13 +974,13 @@
             REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `dmgMultiplier1`) VALUES (33659, 4222, 80, 1, 101, 21, 1, -1, 6, 1, 1, 14, 1, -1, -1, 1, 98, 46, 274, 'Gun Skill', 983070, 983070, 'Guns skill increased by $s1.', 983054, 983052, 1);
 
 -- Rend (Damage increased, now also scales with melee AP)
-    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=9 WHERE  `entry`=772;
-    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=17 WHERE  `entry`=6546;
-    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=25 WHERE  `entry`=6547;
-    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=33 WHERE  `entry`=6548;
-    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=45 WHERE  `entry`=11572;
-    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=51 WHERE  `entry`=11573;
-    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=63 WHERE  `entry`=11574;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=4 WHERE  `entry`=772;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=6 WHERE  `entry`=6546;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=8 WHERE  `entry`=6547;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=10 WHERE  `entry`=6548;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=13 WHERE  `entry`=11572;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=17 WHERE  `entry`=11573;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=20 WHERE  `entry`=11574;
     UPDATE `mangos`.`spell_template` SET `description`='Wounds the target causing them to bleed for $o1 damage, increased by your Attack Power, over $d.' WHERE entry IN (772, 6546, 6547, 6548, 11572, 11573, 11574);
 
 -- Demon Skin / Demon Armor (HP Regen Doubled, Shadow Resistance increased)
@@ -4984,21 +4984,33 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
         UPDATE `mangos`.`spell_template` SET `stackAmount`=0 WHERE  `entry`=33517 AND `build`=5464;
 
 -- Teleports
-    -- Object
-        REPLACE gameobject_template
-        (entry, patch, type, displayId, name, faction, size, data0, data1)
-        VALUES (987671, 0, 22, 4395, 'Portal to Ragefire Chasm', 115, 1, 34318, 0);
+    -- Ragefire Chasm
+        -- Object
+            REPLACE gameobject_template
+            (entry, patch, type, displayId, name, faction, size, data0, data1)
+            VALUES (987671, 0, 22, 4395, 'Portal to Ragefire Chasm', 115, 1, 34318, 0);
 
-    -- Spawn
-        REPLACE `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (4100144, 987671, 1, 9669.3, 2488.08, 1335.24, 2.29094, 0, 0, 0.910904, 0.412619, 25, 25, 100, 1, 0, 0, 0, 10);
+        -- Portal effect
+            REPLACE `mangos`.`spell_template` (`entry`, `build`, `castingTimeIndex`, `procChance`, `rangeIndex`, `equippedItemClass`, `effect1`, `effect2`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectImplicitTargetB1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `dmgMultiplier1`, `dmgMultiplier2`) VALUES (34318, 5086, 1, 101, 12, -1, 5, 77, 1, 1, -1, 0, 1, -1, 25, 25, 17, 2074, 'Portal Effect: Ragefire Chasm', 2031678, 2031676, 2031676, 2031676, 1, 1);
 
-    -- Portal effect
-        REPLACE `mangos`.`spell_template` (`entry`, `build`, `castingTimeIndex`, `procChance`, `rangeIndex`, `equippedItemClass`, `effect1`, `effect2`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectImplicitTargetB1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `dmgMultiplier1`, `dmgMultiplier2`) VALUES (34318, 5086, 1, 101, 12, -1, 5, 77, 1, 1, -1, 0, 1, -1, 25, 25, 17, 2074, 'Portal Effect: Ragefire Chasm', 2031678, 2031676, 2031676, 2031676, 1, 1);
+        -- Teleport Location
+            REPLACE INTO `mangos`.`spell_target_position`
+            (`id`, `target_map`, `target_position_x`, `target_position_y`, `target_position_z`, `target_orientation`)
+            VALUES (34318, 389, 0.797643, -8.234290, -15.528800, 4.712390);
 
-    -- Teleport Location
-        REPLACE INTO `mangos`.`spell_target_position`
-        (`id`, `target_map`, `target_position_x`, `target_position_y`, `target_position_z`, `target_orientation`)
-        VALUES (34318, 389, 0.797643, -8.234290, -15.528800, 4.712390);
+    -- Darnassus (Won't be locked to group)
+        -- Object
+            REPLACE gameobject_template
+            (entry, patch, type, displayId, name, faction, size, data0, data1)
+            VALUES (987676, 0, 22, 4393, 'Portal to Darnassus', 115, 1, 34332, 0);
+
+        -- Portal effect
+            REPLACE `mangos`.`spell_template` (`entry`, `build`, `castingTimeIndex`, `procChance`, `rangeIndex`, `equippedItemClass`, `effect1`, `effect2`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectImplicitTargetB1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `dmgMultiplier1`, `dmgMultiplier2`) VALUES (34332, 5086, 1, 101, 12, -1, 5, 77, 1, 1, -1, 0, 1, -1, 25, 25, 17, 2074, 'Portal Effect: Darnassus', 2031678, 2031676, 2031676, 2031676, 1, 1);
+
+        -- Teleport Location
+            REPLACE `mangos`.`spell_target_position`
+            (`id`, `target_map`, `target_position_x`, `target_position_y`, `target_position_z`, `target_orientation`)
+            VALUES (34332, 1, 9660.809570, 2513.639893 ,1331.657349, 3.060000);
 
 -- Template:
 -- Name
