@@ -2130,10 +2130,18 @@ void Spell::EffectCooldownReset(SpellEffectIndex effIdx)
     if (!m_casterUnit->IsAlive())
         return;
 
-    if (m_spellInfo->EffectMiscValue[effIdx] == 0)
+    int32 miscValue = m_spellInfo->EffectMiscValue[effIdx];
+
+    if (miscValue == 0)
         return;
 
-    SpellEntry const* pSpellEntry = sSpellMgr.GetSpellEntry(m_spellInfo->EffectMiscValue[effIdx]);
+    if (miscValue < 0) // Category cooldown
+    {
+        m_casterUnit->RemoveSpellCategoryCooldown(-miscValue, true);
+        return;
+    }
+
+    SpellEntry const* pSpellEntry = sSpellMgr.GetSpellEntry(miscValue);
 
     if (!pSpellEntry)
         return;

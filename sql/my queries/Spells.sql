@@ -2572,10 +2572,10 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
             UPDATE `mangos`.`spell_template` SET `spellVisual1`=12540 WHERE  `entry`=34173;
 
 
-        -- Improved Fireball Proc that makes next Fire Blast free to cast
+        -- Improved Fireball Proc that makes next Fire Blast free to cast and resets it's cooldown
             Replace `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procFlags`, `procChance`, `procCharges`, `durationIndex`, `rangeIndex`, `stackAmount`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectItemType1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `spellFamilyName`, `stanceBarOrder`, `dmgMultiplier1`) VALUES (34060, 4695, 327680, 1, 65536, 101, 1, 9, 1, 0, -1, 6, 1, 1, -101, 0, 0, -1, 1, 108, 2, 14, 2091, 'Fire Blast!', 983070, 983070, 'Reduces the mana cost of Fire Blast by $s1%.', 983070, '', 983052, 3, -1, 1);
 
-            UPDATE `mangos`.`spell_template` SET `spellVisual1`=10691 WHERE  `entry`=34060;
+            UPDATE `mangos`.`spell_template` SET `spellVisual1`=10691, `effect2`=135, `effectImplicitTargetA2`=1, `effectMiscValue2`=-19 WHERE  `entry`=34060;
 
         -- Firepower Proc that restores 2% Mana
             REPLACE `mangos`.`spell_template` (`entry`, `build`, `category`, `castingTimeIndex`, `categoryRecoveryTime`, `procChance`, `baseLevel`, `spellLevel`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `dmgClass`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34061, 4222, 30, 1, 60000, 101, 28, 28, 1, -1, -1, 134, 1, 1, 1, 0, -1, -1, 1, 0, 283, 'Ignite Mana', 983070, 'Rank 1', 983070, 'Restores $s1% mana.', 7274526, 983052, 1, -1, 1, 1, 1);
@@ -3268,7 +3268,9 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
     UPDATE `mangos`.`skill_line_ability` SET `class_mask`=79 WHERE  `id`=248 AND `build`=5875;
 
     -- Druid
-        -- Barkskin (Now castable on others)
+        -- Barkskin (Now castable on others at 40 yards)
+            UPDATE `mangos`.`spell_template` SET `rangeIndex`=@RANGE_FORTY_YARDS, `effectImplicitTargetA1`=@TARGET_UNIT_RAID, `effectImplicitTargetA3`=@TARGET_UNIT_RAID WHERE  `entry`=22812 AND `build`=5464;
+
         -- Improved Rebirth (-5/-10m CD on Rebirth)
             -- Rank 1
             REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectApplyAuraName1`, `effectItemType1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `dmgMultiplier1`, `dmgMultiplier2`) VALUES (34321, 5086, 464, 1, 101, 21, 1, -1, 6, 1, 1, -300001, 1, 1, -1, 1, 1, 107, 268435456, 11, 24, 'Improved Rebirth', 2031678, 'Rank 1', 2031678, 'Reduces the cooldown of your Rebrith by $/60000;s1 min.', 2031678, 2031676, 7, 1, 1);
@@ -3276,7 +3278,7 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
             -- Rank 2
                 REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectApplyAuraName1`, `effectItemType1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `dmgMultiplier1`, `dmgMultiplier2`) VALUES (34322, 5086, 464, 1, 101, 21, 1, -1, 6, 1, 1, -600001, 1, 1, -1, 1, 1, 107, 268435456, 11, 24, 'Improved Rebirth', 2031678, 'Rank 2', 2031678, 'Reduces the cooldown of your Rebrith by $/60000;s1 min.', 2031678, 2031676, 7, 1, 1);
 
-        -- Reflection (20/25% ranks)
+        -- Reflection (Ranks 4 and 5 20/25%)
             -- 20%
                 REPLACE`mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `dmgMultiplier1`) VALUES (34319, 4878, 464, 1, 101, 21, 1, -1, 6, 1, 1, 19, 1, -1, -1, 1, 134, 101, 'Reflection', 2031678, 'Rank 3', 2031678, 'Allows $s1% of your Mana regeneration to continue while casting.', 2031678, 2031676, 1);
 
