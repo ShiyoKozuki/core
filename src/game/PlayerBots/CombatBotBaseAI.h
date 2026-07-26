@@ -148,6 +148,7 @@ public:
     bool IsInDuel() const;
     CombatBotRoles GetRole() const;
 
+    bool DoHealing();
     void EquipOrUseNewItem();
     void AddItemToInventory(uint32 itemId, uint32 count = 1);
     void AddHunterAmmo();

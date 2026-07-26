@@ -2744,6 +2744,50 @@ bool ChatHandler::HandleHideShouldersCommand(char* /*args*/)
         player->SetVisibleItemSlot(EQUIPMENT_SLOT_SHOULDERS, shoulders);
         player->SendForcedObjectUpdate();
     }
+    else
+    {
+        PSendSysMessage("Must target a player");
+    }
+
+    return true;
+}
+
+bool ChatHandler::HandleSetRoleCommand(char* args)
+{
+    Unit* target = GetSelectedUnit();
+
+    if (!target)
+    {
+        SendSysMessage(LANG_SELECT_CHAR_OR_CREATURE);
+        SetSentErrorMessage(true);
+        return false;
+    }
+
+    if (Player* player = target->ToPlayer())
+    {
+        CustomPlayerRole role;
+        char* type_str = ExtractLiteralArg(&args);
+        if (!type_str)
+            return false;
+
+        if (strncmp(type_str, "tank", strlen(type_str)) == 0)
+            role = PLAYER_CUSTOM_ROLE_TANK;
+        else if (strncmp(type_str, "healer", strlen(type_str)) == 0)
+            role = PLAYER_CUSTOM_ROLE_HEALER;
+        else if (strncmp(type_str, "meleedps", strlen(type_str)) == 0)
+            role = PLAYER_CUSTOM_ROLE_MELEE_DPS;
+        else if (strncmp(type_str, "rangeddps", strlen(type_str)) == 0)
+            role = PLAYER_CUSTOM_ROLE_RANGED_DPS;
+        else
+            return false;
+
+        player->SetCustomPlayerRole(role);
+        PSendSysMessage("Role for %s updated to %s.", player->GetName(), type_str);
+    }
+    else
+    {
+        PSendSysMessage("Must target a player");
+    }
 
     return true;
 }

@@ -139,6 +139,15 @@ enum ActionButtonType
     ACTION_BUTTON_ITEM      = 0x80
 };
 
+enum CustomPlayerRole
+{
+    PLAYER_CUSTOM_ROLE_NONE = 0,
+    PLAYER_CUSTOM_ROLE_TANK = 1,
+    PLAYER_CUSTOM_ROLE_HEALER = 2,
+    PLAYER_CUSTOM_ROLE_MELEE_DPS = 3,
+    PLAYER_CUSTOM_ROLE_RANGED_DPS = 4
+};
+
 #define ACTION_BUTTON_ACTION(X) (uint32(X) & 0x00FFFFFF)
 #define ACTION_BUTTON_TYPE(X)   ((uint32(X) & 0xFF000000) >> 24)
 #define MAX_ACTION_BUTTON_ACTION_VALUE (0x00FFFFFF+1)
@@ -788,9 +797,16 @@ class Player final: public Unit
         std::string GetCharVar(const std::string& var, const std::string& def = "") const;
         void SetCharVar(const std::string& var, const std::string& value);
 
+        // Custom
+        // Gear hiding
         bool m_hideShoulders = false;
         void SetHideShoulders(bool hide);
         bool IsHideShoulders() const;
+
+        // Player Role
+        CustomPlayerRole m_customPlayerRole = PLAYER_CUSTOM_ROLE_NONE;
+        void SetCustomPlayerRole(CustomPlayerRole role);
+        CustomPlayerRole GetCustomPlayerRole() const { return m_customPlayerRole; }
 
         /*********************************************************/
         /***                 GAMEMASTER SYSTEM                 ***/

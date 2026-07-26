@@ -3438,6 +3438,54 @@ void CombatBotBaseAI::AddHunterAmmo()
     }
 }
 
+bool CombatBotBaseAI::DoHealing()
+{
+    // TODO:
+    // Respect 5s rule?
+    // Only dispel DOTS / CC
+
+    float selfHealPercent = 60.0f;
+    float targetHealPercent = 60.0f;
+    float tankDirectHealPercent = 60.0f;
+    float dpsDirectHealPercent = 40.0f;
+    float tankHOTPercent = 50.0f;
+    float selfHOTPercent = 50.0f;
+    float dpsHOTPercent = 35.0f;
+
+    if (me->GetPowerPercent(POWER_MANA) < 25.0f)
+    {
+        dpsHOTPercent = 20.0f;
+    }
+
+    if (Unit* pTarget = SelectHealTarget(selfHealPercent, targetHealPercent))
+    {
+        Player* pPlayer = pTarget->ToPlayer();
+
+        // Tank Logic - Direct Heal
+        if (pPlayer && pPlayer->GetCustomPlayerRole() == PLAYER_CUSTOM_ROLE_TANK)
+        {
+            if (HealInjuredTargetDirect(pPlayer))
+                return true;
+        }
+        else // DPS logic
+        {
+            // If HP is over 35%, put a HOT on them
+            if (pTarget->GetHealthPercent() > dpsHOTPercent)
+            {
+                if (HealInjuredTargetPeriodic(pTarget))
+                    return true;
+            }
+            else // Below 35%, use a direct heal
+            {
+                if (HealInjuredTargetDirect(pTarget))
+                    return true;
+            }
+        }
+    }
+
+    return false;
+}
+
 void CombatBotBaseAI::EquipOrUseNewItem()
 {
     for (int i = INVENTORY_SLOT_ITEM_START; i < INVENTORY_SLOT_ITEM_END; ++i)

@@ -22924,3 +22924,8 @@ bool Player::IsHideShoulders() const
 {
     return m_hideShoulders;
 }
+
+void Player::SetCustomPlayerRole(CustomPlayerRole role)
+{
+    m_customPlayerRole = role;
+}

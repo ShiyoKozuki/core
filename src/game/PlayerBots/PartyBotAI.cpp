@@ -1582,45 +1582,8 @@ void PartyBotAI::UpdateInCombatAI_Paladin()
 
     if (GetRole() == ROLE_HEALER)
     {
-        // TODO:
-        // Respect 5s rule?
-        // Only dispel DOTS / CC
-
-        float selfHealPercent = 60.0f;
-        float targetHealPercent = 60.0f;
-        float selfHOTPercent = 50.0f;
-        float dpsHOTPercent = 75.0f;
-
-        if (me->GetPowerPercent(POWER_MANA) < 25.0f)
-        {
-            dpsHOTPercent = 40.0f;
-        }
-
-        if (Unit* pTarget = SelectHealTarget(selfHealPercent, targetHealPercent))
-        {
-            Unit* pVictim = pTarget->GetVictim();
-
-            // Tank Logic - Direct Heal
-            if (pVictim && pVictim->GetVictim() == pTarget)
-            {
-                if (HealInjuredTargetDirect(pTarget))
-                    return;
-            }
-            else // DPS logic
-            {
-                // If HP is over 35%, put a HOT on them
-                if (pTarget->GetHealthPercent() > 35.0f)
-                {
-                    if (HealInjuredTargetPeriodic(pTarget))
-                        return;
-                }
-                else // Below 35%, use a direct heal
-                {
-                    if (HealInjuredTargetDirect(pTarget))
-                        return;
-                }
-            }
-        }
+        if (DoHealing())
+            return;
     }
     else
     {
@@ -1638,7 +1601,7 @@ void PartyBotAI::UpdateInCombatAI_Paladin()
         }
 
         if (!(GetRole() == ROLE_TANK))
-            if (FindAndHealInjuredAlly(0.0f, 30.0f))
+            if (FindAndHealInjuredAlly(50.0f, 40.0f))
                 return;
 
         bool hasSeal = false;
@@ -2120,72 +2083,36 @@ void PartyBotAI::UpdateInCombatAI_Shaman()
 
     if (GetRole() == ROLE_HEALER)
     {
-        // TODO:
-        // Respect 5s rule?
-        // Only dispel DOTS / CC
+        if (DoHealing())
+            return;
 
-        float selfHealPercent = 60.0f;
-        float targetHealPercent = 60.0f;
-        float selfHOTPercent = 50.0f;
-        float dpsHOTPercent = 75.0f;
-
-        if (me->GetPowerPercent(POWER_MANA) < 25.0f)
+        if (m_spells.shaman.pCureDisease)
         {
-            dpsHOTPercent = 40.0f;
+            if (Unit* pFriend = SelectDispelTarget(m_spells.shaman.pCureDisease))
+            {
+                if (CanTryToCastSpell(pFriend, m_spells.shaman.pCureDisease))
+                {
+                    if (DoCastSpell(pFriend, m_spells.shaman.pCureDisease) == SPELL_CAST_OK)
+                        return;
+                }
+            }
         }
 
-        if (Unit* pTarget = SelectHealTarget(selfHealPercent, targetHealPercent))
+        if (m_spells.shaman.pCurePoison)
         {
-            Unit* pVictim = pTarget->GetVictim();
-
-            // Tank Logic - Direct Heal
-            if (pVictim && pVictim->GetVictim() == pTarget)
+            if (Unit* pFriend = SelectDispelTarget(m_spells.shaman.pCurePoison))
             {
-                if (HealInjuredTargetDirect(pTarget))
-                    return;
-            }
-            else // DPS logic
-            {
-                // If HP is over 35%, put a HOT on them
-                if (pTarget->GetHealthPercent() > 35.0f)
+                if (CanTryToCastSpell(pFriend, m_spells.shaman.pCurePoison))
                 {
-                    if (HealInjuredTargetPeriodic(pTarget))
+                    if (DoCastSpell(pFriend, m_spells.shaman.pCurePoison) == SPELL_CAST_OK)
                         return;
-                }
-                else // Below 35%, use a direct heal
-                {
-                    if (HealInjuredTargetDirect(pTarget))
-                        return;
-                }
-            }
-
-            if (m_spells.shaman.pCureDisease)
-            {
-                if (Unit* pFriend = SelectDispelTarget(m_spells.shaman.pCureDisease))
-                {
-                    if (CanTryToCastSpell(pFriend, m_spells.shaman.pCureDisease))
-                    {
-                        if (DoCastSpell(pFriend, m_spells.shaman.pCureDisease) == SPELL_CAST_OK)
-                            return;
-                    }
-                }
-            }
-
-            if (m_spells.shaman.pCurePoison)
-            {
-                if (Unit* pFriend = SelectDispelTarget(m_spells.shaman.pCurePoison))
-                {
-                    if (CanTryToCastSpell(pFriend, m_spells.shaman.pCurePoison))
-                    {
-                        if (DoCastSpell(pFriend, m_spells.shaman.pCurePoison) == SPELL_CAST_OK)
-                            return;
-                    }
                 }
             }
         }
     }
-    else if (me->GetHealthPercent() < 20.0f)
-        HealInjuredTarget(me);
+
+    if (FindAndHealInjuredAlly(50.0f, 40.0f))
+        return;
 }
 
 void PartyBotAI::UpdateOutOfCombatAI_Hunter()
@@ -2872,45 +2799,8 @@ void PartyBotAI::UpdateInCombatAI_Priest()
 
     if (GetRole() == ROLE_HEALER || (!me->GetVictim() && me->GetShapeshiftForm() == FORM_NONE))
     {
-        // TODO:
-        // Respect 5s rule?
-        // Only dispel DOTS / CC
-
-        float selfHealPercent = 60.0f;
-        float targetHealPercent = 60.0f;
-        float selfHOTPercent = 50.0f;
-        float dpsHOTPercent = 75.0f;
-
-        if (me->GetPowerPercent(POWER_MANA) < 25.0f)
-        {
-            dpsHOTPercent = 40.0f;
-        }
-
-        if (Unit* pTarget = SelectHealTarget(selfHealPercent, targetHealPercent))
-        {
-            Unit* pVictim = pTarget->GetVictim();
-
-            // Tank Logic - Direct Heal
-            if (pVictim && pVictim->GetVictim() == pTarget)
-            {
-                if (HealInjuredTargetDirect(pTarget))
-                    return;
-            }
-            else // DPS logic
-            {
-                // If HP is over 35%, put a HOT on them
-                if (pTarget->GetHealthPercent() > 35.0f)
-                {
-                    if (HealInjuredTargetPeriodic(pTarget))
-                        return;
-                }
-                else // Below 35%, use a direct heal
-                {
-                    if (HealInjuredTargetDirect(pTarget))
-                        return;
-                }
-            }
-        }
+        if (DoHealing())
+            return;
 
         // Dispels
         if (m_spells.priest.pDispelMagic)
@@ -4113,49 +4003,11 @@ void PartyBotAI::UpdateInCombatAI_Druid()
             }
         }
 
-        // TODO:
-        // Respect 5s rule?
-        // Only dispel DOTS / CC
-
-        float selfHealPercent = 60.0f;
-        float targetHealPercent = 60.0f;
-        float selfHOTPercent = 50.0f;
-        float dpsHOTPercent = 75.0f;
-
-        if (me->GetPowerPercent(POWER_MANA) < 25.0f)
-        {
-            dpsHOTPercent = 40.0f;
-        }
-
-        if (Unit* pTarget = SelectHealTarget(selfHealPercent, targetHealPercent))
-        {
-            Unit* pVictim = pTarget->GetVictim();
-
-            // Tank Logic - Direct Heal
-            if (pVictim && pVictim->GetVictim() == pTarget)
-            {
-                if (HealInjuredTargetDirect(pTarget))
-                    return;
-            }
-            else // DPS logic
-            {
-                // If HP is over 35%, put a HOT on them
-                if (pTarget->GetHealthPercent() > 35.0f)
-                {
-                    if (HealInjuredTargetPeriodic(pTarget))
-                        return;
-                }
-                else // Below 35%, use a direct heal
-                {
-                    if (HealInjuredTargetDirect(pTarget))
-                        return;
-                }
-            }
-        }
+        if (DoHealing())
+            return;
 
         if (m_spells.druid.pInnervate &&
-           (me->GetHealthPercent() > 40.0f) &&
-           (me->GetPowerPercent(POWER_MANA) < 10.0f) &&
+           (me->GetPowerPercent(POWER_MANA) <= 10.0f) &&
             CanTryToCastSpell(me, m_spells.druid.pInnervate))
         {
             if (DoCastSpell(me, m_spells.druid.pInnervate) == SPELL_CAST_OK)

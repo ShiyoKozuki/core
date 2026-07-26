@@ -1310,6 +1310,7 @@ ChatCommand * ChatHandler::getCommandTable()
         { "gold",           SEC_BASIC_ADMIN,    true, nullptr,                                         "", goldCommandTable },
         { "wareffort",      SEC_DEVELOPER,      true, nullptr,                                         "", warEffortCommandTable },
         { "hideshoulders",  SEC_PLAYER,         false, &ChatHandler::HandleHideShouldersCommand,       "", nullptr },
+        { "setplayerrole",  SEC_PLAYER,         false, &ChatHandler::HandleSetRoleCommand,             "", nullptr },
         { nullptr,          0,                  false, nullptr,                                        "", nullptr }
     };
 
