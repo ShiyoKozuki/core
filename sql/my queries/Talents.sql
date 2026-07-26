@@ -256,7 +256,13 @@ UPDATE `mangos`.`spell_template` SET `effect2`=0, `effectDieSides2`=0, `effectBa
 
     -- Brutal Impact (2-4% Phys and magic hit rate)
     UPDATE `mangos`.`spell_template` SET `effectBaseDice2`=1, `effectBasePoints1`=1, `effectBasePoints2`=1, `effectApplyAuraName1`=54, `effectApplyAuraName2`=55, `description`='Increases your chance to hit with phyical attacks and spells by $s1%.' WHERE  `entry`=16940 AND `build`=4878;
+
+    UPDATE `mangos`.`spell_template` SET `effect2`=6, `effect3`=6, `effectDieSides2`=1, `effectDieSides3`=1, `effectBaseDice3`=1, `effectBasePoints3`=499, `effectApplyAuraName3`=107, `effectItemType1`=0, `effectItemType3`=139264, `effectMiscValue1`=0, `effectMiscValue3`=1, `description`='Increases your chance to hit with phyical attacks and spells by $s1%.  Additionally, Increases the stun duration of your Bash and Pounce abilities by $/1000;S3 sec.' WHERE  `entry`=16940 AND `build`=4878;
+
     UPDATE `mangos`.`spell_template` SET `effectBaseDice2`=1, `effectBasePoints1`=3, `effectBasePoints2`=3, `effectApplyAuraName1`=54, `effectApplyAuraName2`=55, `description`='Increases your chance to hit with phyical attacks and spells by $s1%.' WHERE  `entry`=16941 AND `build`=4878;
+
+    UPDATE `mangos`.`spell_template` SET `effect2`=6, `effect3`=6, `effectDieSides2`=1, `effectDieSides3`=1, `effectBaseDice3`=1, `effectBasePoints3`=999, `effectApplyAuraName3`=107, `effectItemType1`=0, `effectItemType3`=139264, `effectMiscValue1`=0, `effectMiscValue3`=1, `description`='Increases your chance to hit with phyical attacks and spells by $s1%.  Additionally, Increases the stun duration of your Bash and Pounce abilities by $/1000;S3 sec.' WHERE  `entry`=16941 AND `build`=4878;
+    
 
     -- Improved Shred (-9/-18 Shred cost)
     UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=-10 WHERE  `entry`=16966 AND `build`=5875;
@@ -439,10 +445,10 @@ UPDATE `mangos`.`spell_template` SET `effect2`=0, `effectDieSides2`=0, `effectBa
 
     -- Improved Tranquaility (-2m/-4m CD)
     UPDATE `mangos`.`spell_template` SET `effect2`=6, `effectDieSides2`=1, `effectBaseDice2`=1, `effectBasePoints2`=-120001, `effectImplicitTargetA2`=1, `effectApplyAuraName2`=107, `effectItemType2`=128, `effectMiscValue2`=11 WHERE  `entry`=17123 AND `build`=5875;
-    UPDATE `mangos`.`spell_template` SET `description`='Reduces threat caused by Tranquility by $s1% and cooldown by $/60000;s1 min.' WHERE  `entry`=17123 AND `build`=5875;
+    UPDATE `mangos`.`spell_template` SET `description`='Reduces threat caused by Tranquility by $s1% and cooldown by $/60000;s2 min.' WHERE  `entry`=17123 AND `build`=5875;
 
     UPDATE `mangos`.`spell_template` SET `effect2`=6, `effectDieSides2`=1, `effectBaseDice2`=1, `effectBasePoints2`=-240001, `effectImplicitTargetA2`=1, `effectApplyAuraName2`=107, `effectItemType2`=128, `effectMiscValue2`=11 WHERE  `entry`=17124 AND `build`=5875;
-    UPDATE `mangos`.`spell_template` SET `description`='Reduces threat caused by Tranquility by $s1% and cooldown by $/60000;s1 min.' WHERE  `entry`=17124 AND `build`=5875;
+    UPDATE `mangos`.`spell_template` SET `description`='Reduces threat caused by Tranquility by $s1% and cooldown by $/60000;s2 min.' WHERE  `entry`=17124 AND `build`=5875;
 
     -- Improved Regrowth ALSO (-5%/-10%/-15%/-20%/-25% MP cost of Regrowth)
     UPDATE `mangos`.`spell_template` SET `effect2`=6, `effectDieSides2`=1, `effectBaseDice2`=1, `effectBasePoints2`=-6, `effectBonusCoefficient2`=1, `effectImplicitTargetA2`=1, `effectApplyAuraName2`=108, `effectItemType2`=64, `effectMiscValue2`=14, `description`='Increases the critical effect chance of your Regrowth spell by $s1% and reduces the Mana cost by $s2%.' WHERE  `entry`=17074 AND `build`=4222;
@@ -941,9 +947,8 @@ UPDATE `mangos`.`spell_template` SET `effectDieSides2`=1, `effectBaseDice2`=1, `
 -- TODO: Should effectImplicitTargetA2 be 1 or 6?
 UPDATE `mangos`.`spell_template` SET `effect2`=6, `effectDieSides2`=1, `effectBaseDice2`=1, `effectBasePoints2`=9, `effectImplicitTargetA2`=1, `effectApplyAuraName2`=107, `effectItemType2`=1024, `effectMiscValue2`=8 WHERE  `entry`=18830;
 
--- Improved Curse of Weakness (Now works on Curse of the Elements and Shadows too)
--- TODO: Is CF_WARLOCK_CURSE_SHADOWS_ELEMENTS = 34 unneeded? Was working without it..
-UPDATE `mangos`.`spell_template` SET `effectItemType1`=17179901952, `name`='Improved Curses', `description`='Increases the effect of your Curse of Weakness, Curse of the Elements, and Curse of Shadows by $s1%.' WHERE  `entry` IN (18179, 18180, 18181) AND `build`=4222;
+-- Improved Curse of Weakness (Now works on Curse of the Elements, Recklessness and Shadows too)
+UPDATE `mangos`.`spell_template` SET `effectItemType1`=154618855424, `name`='Improved Curses', `description`='Increases the effect of your Curse of Weakness, Curse of the Elements, Curse of Recklessness and Curse of Shadows by $s1%.' WHERE  `entry` IN (18179, 18180, 18181) AND `build`=4222;
 
 -- Demonic Sacrifice
 UPDATE mangos . skill_line_ability

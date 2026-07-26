@@ -888,9 +888,23 @@ REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id
 
 REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id`, `quality`, `flags`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30423, 2, 12, 'Demon Shards', 36540, 1, 2048, -1, -1, 1, 8, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 4, -1);
 
+REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `flags`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `max_count`, `delay`, `spellid_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcharges_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`) VALUES (30424, 12, 'Portal Device', 49274, 1, 1500, 375, 64, -1, -1, 30, 15, 1, 0, 34333, -1, -1, 0, -1, -1, -1, -1, -1, -1, 0, 0, 1);
+
+REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id`, `quality`, `flags`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30425, 2, 12, 'Grunt\'s Sword', 28346, 1, 2048, -1, -1, 1, 6, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 4, -1);
+
+REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id`, `quality`, `flags`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30426, 2, 12, 'Shaman\'s Staff', 20362, 1, 2048, -1, -1, 1, 6, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 4, -1);
+
+REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id`, `quality`, `flags`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30427, 2, 12, 'Scout\'s Dagger', 28348, 1, 2048, -1, -1, 1, 6, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 4, -1);
+
+REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `flags`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `max_count`, `delay`, `spellid_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcharges_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`) VALUES (30428, 12, 'Dwarven Dynamite', 49274, 1, 1500, 375, 64, -1, -1, 30, 15, 1, 0, 34334, -1, -1, 25, -1, -1, -1, -1, -1, -1, 0, 0, 1);
+
+REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `flags`, `allowable_class`, `allowable_race`, `item_level`, `required_level`, `max_count`, `delay`, `spellid_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcharges_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`) VALUES (30429, 12, 'Dwarven TNT', 49274, 1, 1500, 375, 64, -1, -1, 30, 15, 1, 0, 34335, -1, -1, 25, -1, -1, -1, -1, -1, -1, 0, 0, 1);
+
+REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id`, `quality`, `flags`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30427, 2, 12, 'Warsong Shredder Plans', 7073, 1, 2048, -1, -1, 1, 1, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 4, -1);
+
 -- TODO: All legs of the blue pvp / TBC dungeon sets as random drops
 -- https://www.wowhead.com/tbc/transmog-set=910/beast-lord-armor
--- NEXT 30424
+-- NEXT 30428
 
 -- Item classes
     -- Trade goods
@@ -5027,6 +5041,9 @@ WHERE entry IN(16893, 5232, 16896, 16895, 16892);
 UPDATE mangos . item_template
 SET spellcharges_1 = -3 
 where entry IN (5514, 5513, 8007, 8008);
+
+-- Soulshard Material (sound effect)
+UPDATE `mangos`.`item_template` SET `material`=1 WHERE  `entry`=6265 AND `patch`=0;
 
 -- Elemental Invasions
 
@@ -9855,8 +9872,8 @@ WHERE entry = 1480;
 
 -- Spark of the People's Militia (The People's Militia)
 UPDATE mangos . item_template
-SET dmg_min1 = 26,
-    dmg_max1 = 46,
+SET dmg_min1 = 21,
+    dmg_max1 = 35,
     spellid_1 = 9395, -- +5 Spell Damage
     spelltrigger_1 = 1
 WHERE entry = 12296;
@@ -15968,6 +15985,7 @@ WHERE entry IN(12717, 18418, 22388, 14512, 14513, 14514, 12834, 12825, 18260, 20
         -- Gossamer Pants (Short Pants)
         -- Stonecloth Robe (Shoes Tummy)
         -- Beaded Robe (VERY lewd! Shows TONS of tummy + back! Basically a bra + robe)
+        -- Barbaric Cloth Robe (Side Boob, tons of tummy, super hot!)
 
     -- Leather
         -- Dervish Tunic

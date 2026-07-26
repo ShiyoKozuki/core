@@ -139,6 +139,7 @@ enum ClassFlag
     CF_WARLOCK_CURSE_SHADOWS_ELEMENTS       = 34,   // CM1 00000004
     CF_WARLOCK_INFERNO                      = 35,   // CM1 00000008
     CF_WARLOCK_BLIGHT                       = 36,   // CM1 00000010
+    CF_WARLOCK_CURSE_OF_RECKLESSNESS        = 37,
 
     // -- Priest (6)
     CF_PRIEST_POWER_WORD_SHIELD             = 0,    // CM0 00000001

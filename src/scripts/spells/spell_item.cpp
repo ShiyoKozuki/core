@@ -817,31 +817,29 @@ struct GhostVacuumScript : public SpellScript
 
     bool OnEffectExecute(Spell* spell, SpellEffectIndex effIdx) const final
     {
-        if (effIdx != EFFECT_INDEX_0)
-            return true;
-
-        Player* pPlayer = spell->m_casterUnit->ToPlayer();
-        if (!pPlayer)
-            return true;
-
-        Unit* pTarget = spell->m_targets.getUnitTarget();
-        if (!pTarget)
-            return true;
-
-        uint32 count = 1;
-
-        ItemPosCountVec dest;
-        InventoryResult msg = pPlayer->CanStoreNewItem(NULL_BAG, NULL_SLOT, dest, ITEM_CAPTURED_SHADE_ESSENCE, count);
-
-        if (msg == EQUIP_ERR_OK)
+        if (effIdx == EFFECT_INDEX_0)
         {
-            pPlayer->StoreNewItem(dest, ITEM_CAPTURED_SHADE_ESSENCE, true);
+            Player* pPlayer = spell->m_casterUnit->ToPlayer();
+            if (!pPlayer)
+                return false;
 
-            // Kill the Target (Restless Shade)
-            if (pTarget->IsAlive())
-                pPlayer->DealDamage(pTarget, pTarget->GetHealth(), nullptr, DIRECT_DAMAGE, SPELL_SCHOOL_MASK_NORMAL, nullptr, false);
+            Unit* pTarget = spell->m_targets.getUnitTarget();
+            if (!pTarget)
+                return false;
 
-            return false;
+            uint32 count = 1;
+
+            ItemPosCountVec dest;
+            InventoryResult msg = pPlayer->CanStoreNewItem(NULL_BAG, NULL_SLOT, dest, ITEM_CAPTURED_SHADE_ESSENCE, count);
+
+            if (msg == EQUIP_ERR_OK)
+            {
+                pPlayer->StoreNewItem(dest, ITEM_CAPTURED_SHADE_ESSENCE, true);
+
+                // Kill the Target (Restless Shade)
+                if (pTarget->IsAlive())
+                    pPlayer->DealDamage(pTarget, pTarget->GetHealth(), nullptr, DIRECT_DAMAGE, SPELL_SCHOOL_MASK_NORMAL, nullptr, false);
+            }
         }
 
         return true;
@@ -878,17 +876,16 @@ struct HolySpearScript : public SpellScript
 
     bool OnEffectExecute(Spell* spell, SpellEffectIndex effIdx) const final
     {
-        if (effIdx != EFFECT_INDEX_0)
-            return true;
-
-        Unit* pTarget = spell->m_targets.getUnitTarget();
-        if (!pTarget)
-            return true;
-
-        if (pTarget->IsAlive())
+        if (effIdx == EFFECT_INDEX_0)
         {
-            pTarget->RemoveAurasDueToSpell(SPELL_TITAN_SHIELD);
-            return false;
+            Unit* pTarget = spell->m_targets.getUnitTarget();
+            if (!pTarget)
+                return false;
+
+            if (pTarget->IsAlive())
+            {
+                pTarget->RemoveAurasDueToSpell(SPELL_TITAN_SHIELD);
+            }
         }
 
         return true;
@@ -900,6 +897,51 @@ SpellScript* GetScript_HolySpear(SpellEntry const*)
     return new HolySpearScript();
 }
 
+enum
+{
+    OBJECT_DEMON_PORTAL = 987677,
+};
+
+struct PortalDeviceScript : public SpellScript
+{
+    SpellCastResult OnCheckCast(Spell* spell, bool /*strict*/) const final
+    {
+        Unit* caster = spell->m_casterUnit;
+
+        if (!caster)
+            return SPELL_FAILED_BAD_TARGETS;
+
+        GameObject* portal = caster->FindNearestGameObject(OBJECT_DEMON_PORTAL, 5.0f);
+        if (!portal)
+            return SPELL_FAILED_BAD_TARGETS;
+
+        return SPELL_CAST_OK;
+    }
+
+    bool OnEffectExecute(Spell* spell, SpellEffectIndex effIdx) const final
+    {
+        if (effIdx == EFFECT_INDEX_0)
+        {
+            Player* pPlayer = spell->m_casterUnit->ToPlayer();
+            if (!pPlayer)
+                return false;
+
+            GameObject* portal = pPlayer->FindNearestGameObject(OBJECT_DEMON_PORTAL, 5.0f);
+            if (portal)
+            {
+                portal->Despawn();
+                portal->SetLootState(GO_JUST_DEACTIVATED);
+            }
+        }
+
+        return true;
+    }
+};
+
+SpellScript* GetScript_PortalDevice(SpellEntry const*)
+{
+    return new PortalDeviceScript();
+}
 
 void AddSC_item_spell_scripts()
 {
@@ -1073,5 +1115,10 @@ void AddSC_item_spell_scripts()
     newscript = new Script;
     newscript->Name = "spell_holy_spear";
     newscript->GetSpellScript = &GetScript_HolySpear;
+    newscript->RegisterSelf();
+
+    newscript = new Script;
+    newscript->Name = "spell_portal_device";
+    newscript->GetSpellScript = &GetScript_PortalDevice;
     newscript->RegisterSelf();
 }

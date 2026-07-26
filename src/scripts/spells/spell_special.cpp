@@ -765,6 +765,9 @@ void AddSC_special_spell_scripts()
     newscript = new Script;
     newscript->Name = "spell_fel_gem";
     newscript->GetSpellScript = &GetScript_FelGem;
+    newscript->RegisterSelf();
+
+    newscript = new Script;
     newscript->Name = "spell_holiday_breath_of_fire_conditional";
     newscript->GetSpellScript = &GetScript_HolidayBreathOfFireConditional;
     newscript->RegisterSelf();
