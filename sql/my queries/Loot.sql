@@ -1,6 +1,6 @@
 -- Creature drops
 
--- NEXT creature_loot_template id 17090
+-- NEXT creature_loot_template id 17095
 
 -- For grouped drops (I.e. bosses)
 -- SELECT * FROM reference_loot_template WHERE item = 30135;
@@ -171,15 +171,15 @@ SET ChanceOrQuestChance = 5
 WHERE item IN(8153) AND ChanceOrQuestChance > 5;
 
 -- Bags
-    -- 6-8 Slots 0.02%
+    -- 6 Slots 0.1%
     UPDATE mangos . creature_loot_template
-    SET ChanceOrQuestChance = 0.2
-    WHERE item IN(5572, 804, 5575, 856, 5573, 5574, 805, 828, 5571, 4496);
+    SET ChanceOrQuestChance = 0.1
+    WHERE item IN(5572, 805, 828, 5571, 4496);
 
-    -- 10-16 Slots 0.01%
+    -- 8-16 Slots 0.01%
     UPDATE mangos . creature_loot_template
     SET ChanceOrQuestChance = 0.01
-    WHERE item IN(4500, 3914, 1725, 5575, 804, 857);
+    WHERE item IN(4500, 3914, 1725, 5575, 804, 857, 5574, 5573, 856);
 
 
 -- High Value (10s+) Gray mob drops
