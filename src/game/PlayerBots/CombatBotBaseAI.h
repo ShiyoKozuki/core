@@ -150,6 +150,7 @@ public:
     bool IsInDuel() const;
     CombatBotRoles GetRole() const;
 
+    bool WouldAggroCreature(Player* pPlayer, float followDistance, float followAngle) const;
     bool DoHealing();
     void EquipOrUseNewItem();
     void AddItemToInventory(uint32 itemId, uint32 count = 1);

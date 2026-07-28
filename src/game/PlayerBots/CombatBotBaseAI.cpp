@@ -3527,6 +3527,41 @@ void CombatBotBaseAI::AddHunterAmmo()
     }
 }
 
+bool CombatBotBaseAI::WouldAggroCreature(Player* pPlayer, float followDistance, float followAngle) const
+{
+    float angle = pPlayer->GetOrientation() + followAngle;
+
+    float destX = pPlayer->GetPositionX() - std::cos(angle) * followDistance;
+    float destY = pPlayer->GetPositionY() - std::sin(angle) * followDistance;
+    float destZ = pPlayer->GetPositionZ();
+
+    std::list<Unit*> enemies;
+    pPlayer->GetEnemyListInRadiusAround(pPlayer, followDistance + 20.0f, enemies);
+
+    for (Unit* enemy : enemies)
+    {
+        Creature* creature = enemy->ToCreature();
+        if (!creature)
+            continue;
+
+        if (!creature->IsAlive())
+            continue;
+
+        if (creature->GetVictim())
+            continue;
+
+        if (!creature->CanAttack(me))
+            continue;
+
+        float dist = creature->GetDistance(destX, destY, destZ);
+
+        if (dist <= creature->GetAttackDistance(me))
+            return true;
+    }
+
+    return false;
+}
+
 bool CombatBotBaseAI::DoHealing()
 {
     // Don't just spam rank1 heals and never regen mana back
