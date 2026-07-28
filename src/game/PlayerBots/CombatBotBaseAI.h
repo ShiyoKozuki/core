@@ -131,12 +131,14 @@ public:
     bool FindAndPreHealTarget();
     bool FindAndHealInjuredAlly(float selfHealPercent = 100.0f, float groupHealPercent = 100.0f);
     bool HealInjuredTarget(Unit* pTarget);
-    bool HealInjuredTargetDirect(Unit* pTarget);
-    bool HealInjuredTargetPeriodic(Unit* pTarget);
+    bool HealInjuredTargetDirect(Unit* pTarget, bool selectMostEfficient = true);
+    bool HealInjuredTargetPeriodic(Unit* pTarget, bool selectMostEfficient = true);
+    bool HealInjuredTargetCritical(Unit* pTarget);
+    bool HealInjuredTargetAbsorb(Unit* pTarget);
     template <class T>
-    SpellEntry const* SelectMostEfficientHealingSpell(Unit const* pTarget, std::set<SpellEntry const*, T>& spellList) const;
+    SpellEntry const* SelectMostEfficientHealingSpell(Unit const* pTarget, std::set<SpellEntry const*, T>& spellList, bool selectMostEfficient = true) const;
     template <class T>
-    SpellEntry const* SelectMostEfficientHealingSpell(Unit const* pTarget, int32 missingHealth, std::set<SpellEntry const*, T>& spellList) const;
+    SpellEntry const* SelectMostEfficientHealingSpell(Unit const* pTarget, int32 missingHealth, std::set<SpellEntry const*, T>& spellList, bool selectMostEfficient = true) const;
     int32 GetIncomingdamage(Unit const* pTarget) const;
     bool AreOthersOnSameTarget(ObjectGuid guid, bool checkMelee = true, bool checkSpells = true) const;
 
@@ -351,6 +353,8 @@ public:
     std::vector<SpellEntry const*> m_spellListTaunt;
     std::set<SpellEntry const*, HealAuraCompare> m_spellListPeriodicHeal;
     std::set<SpellEntry const*, HealSpellCompare> m_spellListDirectHeal;
+    std::set<SpellEntry const*, HealSpellCompare> m_spellListCriticalHeal;
+    std::set<SpellEntry const*, HealSpellCompare> m_spellListAbsorbHeal;
     union
     {
         struct

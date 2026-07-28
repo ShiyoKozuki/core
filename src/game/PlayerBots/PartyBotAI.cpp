@@ -2932,7 +2932,6 @@ void PartyBotAI::UpdateOutOfCombatAI_Warlock()
                 {
                     if (me->IsValidHelpfulTarget(pMember) &&
                         !pMember->IsGameMaster() &&
-                        !pMember->IsBot() &&
                         IsValidBuffTarget(pMember, m_spells.warlock.pSoulstone) &&
                         me->IsWithinLOSInMap(pMember) &&
                         me->IsWithinDist(pMember, 30.0f))
@@ -3083,6 +3082,43 @@ void PartyBotAI::UpdateInCombatAI_Warlock()
             }
         }
 
+        // Curses Logic
+        if (m_spells.warlock.pCurseofRecklessness &&
+            CanTryToCastSpell(pVictim, m_spells.warlock.pCurseofRecklessness))
+        {
+            if (DoCastSpell(pVictim, m_spells.warlock.pCurseofRecklessness) == SPELL_CAST_OK)
+                return;
+        }
+
+        // Keep Curse of Tongues up on spell casters
+        // if (m_spells.warlock.pCurseofTongues &&
+        //    CanTryToCastSpell(pVictim, m_spells.warlock.pCurseofTongues))
+        //{
+        //    if (DoCastSpell(pVictim, m_spells.warlock.pCurseofTongues) == SPELL_CAST_OK)
+        //        return;
+        //}
+        // TODO: Logic for different curses
+        // if (m_spells.warlock.pCurseoftheElements &&
+        //    CanTryToCastSpell(pVictim, m_spells.warlock.pCurseoftheElements))
+        //{
+        //    if (DoCastSpell(pVictim, m_spells.warlock.pCurseoftheElements) == SPELL_CAST_OK)
+        //        return;
+        //}
+
+        // if (m_spells.warlock.pCurseofShadow &&
+        //     CanTryToCastSpell(pVictim, m_spells.warlock.pCurseofShadow))
+        //{
+        //     if (DoCastSpell(pVictim, m_spells.warlock.pCurseofShadow) == SPELL_CAST_OK)
+        //         return;
+        // }
+
+        // if (m_spells.warlock.pCurseofAgony &&
+        //     CanTryToCastSpell(pVictim, m_spells.warlock.pCurseofAgony))
+        //{
+        //     if (DoCastSpell(pVictim, m_spells.warlock.pCurseofAgony) == SPELL_CAST_OK)
+        //         return;
+        // }
+
         if (m_spells.warlock.pImmolate &&
             CanTryToCastSpell(pVictim, m_spells.warlock.pImmolate))
         {
@@ -3121,43 +3157,6 @@ void PartyBotAI::UpdateInCombatAI_Warlock()
             if (DoCastSpell(pVictim, m_spells.warlock.pDrainLife) == SPELL_CAST_OK)
                 return;
         }
-
-        // Curses Logic
-        if (m_spells.warlock.pCurseofRecklessness &&
-            CanTryToCastSpell(pVictim, m_spells.warlock.pCurseofRecklessness))
-        {
-            if (DoCastSpell(pVictim, m_spells.warlock.pCurseofRecklessness) == SPELL_CAST_OK)
-                return;
-        }
-
-        // Keep Curse of Tongues up on spell casters
-        //if (m_spells.warlock.pCurseofTongues &&
-        //    CanTryToCastSpell(pVictim, m_spells.warlock.pCurseofTongues))
-        //{
-        //    if (DoCastSpell(pVictim, m_spells.warlock.pCurseofTongues) == SPELL_CAST_OK)
-        //        return;
-        //}
-        // TODO: Logic for different curses
-        // if (m_spells.warlock.pCurseoftheElements &&
-        //    CanTryToCastSpell(pVictim, m_spells.warlock.pCurseoftheElements))
-        //{
-        //    if (DoCastSpell(pVictim, m_spells.warlock.pCurseoftheElements) == SPELL_CAST_OK)
-        //        return;
-        //}
-
-        //if (m_spells.warlock.pCurseofShadow &&
-        //    CanTryToCastSpell(pVictim, m_spells.warlock.pCurseofShadow))
-        //{
-        //    if (DoCastSpell(pVictim, m_spells.warlock.pCurseofShadow) == SPELL_CAST_OK)
-        //        return;
-        //}
-
-        //if (m_spells.warlock.pCurseofAgony &&
-        //    CanTryToCastSpell(pVictim, m_spells.warlock.pCurseofAgony))
-        //{
-        //    if (DoCastSpell(pVictim, m_spells.warlock.pCurseofAgony) == SPELL_CAST_OK)
-        //        return;
-        //}
 
         if (me->GetMotionMaster()->GetCurrentMovementGeneratorType() == IDLE_MOTION_TYPE
             && me->GetDistance(pVictim) > 30.0f)

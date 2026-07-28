@@ -32,6 +32,7 @@ enum CombatBotSpells
     SPELL_SUMMON_VOIDWALKER = 697,
     SPELL_SUMMON_FELHUNTER = 691,
     SPELL_SUMMON_SUCCUBUS = 712,
+    SPELL_SUMMON_FEL_GUARD = 33957,
     SPELL_TAME_BEAST = 13481,
     SPELL_REVIVE_PET = 982,
     SPELL_CALL_PET = 883,
@@ -128,6 +129,8 @@ void CombatBotBaseAI::ResetSpellData()
         ptr = nullptr;
 
     m_resurrectionSpell = nullptr;
+    m_spellListAbsorbHeal.clear();
+    m_spellListCriticalHeal.clear();
     m_spellListDirectHeal.clear();
     m_spellListPeriodicHeal.clear();
     m_spellListTaunt.clear();
@@ -1961,6 +1964,30 @@ void CombatBotBaseAI::PopulateSpellData()
             {
                 case SPELL_EFFECT_HEAL:
                     m_spellListDirectHeal.insert(pSpellEntry);
+
+                    switch (pSpellEntry->SpellFamilyName)
+                    {
+                    case SPELLFAMILY_PRIEST:
+                        if (pSpellEntry->IsFitToFamilyMask<CF_PRIEST_FLASH_HEAL>())
+                            m_spellListCriticalHeal.insert(pSpellEntry);
+                        break;
+
+                    case SPELLFAMILY_DRUID:
+                        if (pSpellEntry->IsFitToFamilyMask<CF_DRUID_SWIFTMEND>())
+                            m_spellListCriticalHeal.insert(pSpellEntry);
+                        break;
+
+                    case SPELLFAMILY_PALADIN:
+                        if (pSpellEntry->IsFitToFamilyMask<CF_PALADIN_HOLY_SHOCK>())
+                            m_spellListCriticalHeal.insert(pSpellEntry);
+                        break;
+
+                    case SPELLFAMILY_SHAMAN:
+                        if (pSpellEntry->IsFitToFamilyMask<CF_SHAMAN_LESSER_HEALING_WAVE>())
+                            m_spellListCriticalHeal.insert(pSpellEntry);
+                        break;
+                    }
+
                     break;
                 case SPELL_EFFECT_ATTACK_ME:
                     m_spellListTaunt.push_back(pSpellEntry);
@@ -1975,6 +2002,15 @@ void CombatBotBaseAI::PopulateSpellData()
                     {
                         case SPELL_AURA_PERIODIC_HEAL:
                             m_spellListPeriodicHeal.insert(pSpellEntry);
+                            break;
+                        case SPELL_AURA_SCHOOL_ABSORB:
+                            switch (pSpellEntry->SpellFamilyName)
+                            {
+                            case SPELLFAMILY_PRIEST:
+                                if (pSpellEntry->IsFitToFamilyMask<CF_PRIEST_POWER_WORD_SHIELD>())
+                                    m_spellListAbsorbHeal.insert(pSpellEntry);
+                                break;
+                            }
                             break;
                         case SPELL_AURA_MOD_TAUNT:
                             m_spellListTaunt.push_back(pSpellEntry);
@@ -2196,50 +2232,65 @@ bool CombatBotBaseAI::FindAndHealInjuredAlly(float selfHealPercent, float groupH
 }
 
 template <class T>
-SpellEntry const* CombatBotBaseAI::SelectMostEfficientHealingSpell(Unit const* pTarget, std::set<SpellEntry const*, T>& spellList) const
+SpellEntry const* CombatBotBaseAI::SelectMostEfficientHealingSpell(Unit const* pTarget, std::set<SpellEntry const*, T>& spellList, bool selectMostEfficient) const
 {
-    return SelectMostEfficientHealingSpell(pTarget, pTarget->GetMaxHealth() - pTarget->GetHealth(), spellList);
+    return SelectMostEfficientHealingSpell(pTarget, pTarget->GetMaxHealth() - pTarget->GetHealth(), spellList, selectMostEfficient);
 }
 
 template <class T>
-SpellEntry const* CombatBotBaseAI::SelectMostEfficientHealingSpell(Unit const* pTarget, int32 missingHealth, std::set<SpellEntry const*, T>& spellList) const
+SpellEntry const* CombatBotBaseAI::SelectMostEfficientHealingSpell(Unit const* pTarget, int32 missingHealth, std::set<SpellEntry const*, T>& spellList, bool selectMostEfficient) const
 {
+    // Do not select most efficient healing spell, just use highest rank
+    if (!selectMostEfficient)
+    {
+        for (auto const* pSpellEntry : spellList)
+        {
+            if (CanTryToCastSpell(pTarget, pSpellEntry))
+                return pSpellEntry;
+        }
+
+        return nullptr;
+    }
+
     SpellEntry const* pHealSpell = nullptr;
     int32 healthDiff = INT32_MAX;
 
-    // Find most efficient healing spell.
-    for (const auto pSpellEntry : spellList)
+    // Select the most efficient healing spell
+    for (auto const* pSpellEntry : spellList)
     {
-        if (CanTryToCastSpell(pTarget, pSpellEntry))
+        if (!CanTryToCastSpell(pTarget, pSpellEntry))
+            continue;
+
+        int32 basePoints = 0;
+
+        for (uint32 i = 0; i < MAX_SPELL_EFFECTS; ++i)
         {
-            int32 basePoints = 0;
-            for (uint32 i = 0; i < MAX_SPELL_EFFECTS; i++)
+            switch (pSpellEntry->Effect[i])
             {
-                switch (pSpellEntry->Effect[i])
-                {
-                    case SPELL_EFFECT_HEAL:
-                        basePoints += pSpellEntry->EffectBasePoints[i];
-                        break;
-                    case SPELL_EFFECT_APPLY_AURA:
-                    case SPELL_EFFECT_PERSISTENT_AREA_AURA:
-                    case SPELL_EFFECT_APPLY_AREA_AURA_PARTY:
-                        if (pSpellEntry->EffectApplyAuraName[i] == SPELL_AURA_PERIODIC_HEAL)
-                            basePoints += ((pSpellEntry->GetDuration() / pSpellEntry->EffectAmplitude[i]) * pSpellEntry->EffectBasePoints[i]);
-                        break;
-                }
-            }
-
-            int32 const diff = basePoints - missingHealth;
-            if (std::abs(diff) < healthDiff)
-            {
-                healthDiff = diff;
-                pHealSpell = pSpellEntry;
-            }
-
-            // Healing spells are sorted from strongest to weakest.
-            if (diff < 0)
+            case SPELL_EFFECT_HEAL:
+                basePoints += pSpellEntry->EffectBasePoints[i];
                 break;
+
+            case SPELL_EFFECT_APPLY_AURA:
+            case SPELL_EFFECT_PERSISTENT_AREA_AURA:
+            case SPELL_EFFECT_APPLY_AREA_AURA_PARTY:
+                if (pSpellEntry->EffectApplyAuraName[i] == SPELL_AURA_PERIODIC_HEAL)
+                    basePoints += (pSpellEntry->GetDuration() / pSpellEntry->EffectAmplitude[i]) * pSpellEntry->EffectBasePoints[i];
+                break;
+            }
         }
+
+        int32 diff = basePoints - missingHealth;
+
+        if (std::abs(diff) < healthDiff)
+        {
+            healthDiff = std::abs(diff);
+            pHealSpell = pSpellEntry;
+        }
+
+        // Spell list is strongest -> weakest.
+        if (diff < 0)
+            break;
     }
 
     return pHealSpell;
@@ -2270,9 +2321,9 @@ bool CombatBotBaseAI::HealInjuredTarget(Unit* pTarget)
     return false;
 }
 
-bool CombatBotBaseAI::HealInjuredTargetPeriodic(Unit* pTarget)
+bool CombatBotBaseAI::HealInjuredTargetPeriodic(Unit* pTarget, bool selectMostEfficient)
 {
-    if (SpellEntry const* pHealSpell = SelectMostEfficientHealingSpell(pTarget, m_spellListPeriodicHeal))
+    if (SpellEntry const* pHealSpell = SelectMostEfficientHealingSpell(pTarget, m_spellListPeriodicHeal, selectMostEfficient))
     {
         if (CanTryToCastSpell(pTarget, pHealSpell))
         {
@@ -2284,11 +2335,39 @@ bool CombatBotBaseAI::HealInjuredTargetPeriodic(Unit* pTarget)
     return false;
 }
 
-bool CombatBotBaseAI::HealInjuredTargetDirect(Unit* pTarget)
+bool CombatBotBaseAI::HealInjuredTargetDirect(Unit* pTarget, bool selectMostEfficient)
 {
-    if (SpellEntry const* pHealSpell = SelectMostEfficientHealingSpell(pTarget, m_spellListDirectHeal))
+    if (SpellEntry const* pHealSpell = SelectMostEfficientHealingSpell(pTarget, m_spellListDirectHeal, selectMostEfficient))
         if (DoCastSpell(pTarget, pHealSpell) == SPELL_CAST_OK)
             return true;
+
+    return false;
+}
+
+bool CombatBotBaseAI::HealInjuredTargetCritical(Unit* pTarget)
+{
+    if (SpellEntry const* pHealSpell = SelectMostEfficientHealingSpell(pTarget, m_spellListCriticalHeal, false))
+    {
+        if (CanTryToCastSpell(pTarget, pHealSpell))
+        {
+            if (DoCastSpell(pTarget, pHealSpell) == SPELL_CAST_OK)
+                return true;
+        }
+    }
+
+    return false;
+}
+
+bool CombatBotBaseAI::HealInjuredTargetAbsorb(Unit* pTarget)
+{
+    if (SpellEntry const* pHealSpell = SelectMostEfficientHealingSpell(pTarget, m_spellListAbsorbHeal, false))
+    {
+        if (CanTryToCastSpell(pTarget, pHealSpell))
+        {
+            if (DoCastSpell(pTarget, pHealSpell) == SPELL_CAST_OK)
+                return true;
+        }
+    }
 
     return false;
 }
@@ -2736,16 +2815,26 @@ void CombatBotBaseAI::SummonPetIfNeeded()
             return;
 
         std::vector<uint32> vSummons;
-        if (me->HasSpell(SPELL_SUMMON_IMP))
-            vSummons.push_back(SPELL_SUMMON_IMP);
-        if (me->HasSpell(SPELL_SUMMON_VOIDWALKER))
-            vSummons.push_back(SPELL_SUMMON_VOIDWALKER);
-        if (me->HasSpell(SPELL_SUMMON_FELHUNTER))
-            vSummons.push_back(SPELL_SUMMON_FELHUNTER);
-        if (me->HasSpell(SPELL_SUMMON_SUCCUBUS))
-            vSummons.push_back(SPELL_SUMMON_SUCCUBUS);
-        if (!vSummons.empty())
-            me->CastSpell(me, SelectRandomContainerElement(vSummons), true);
+        if (me->InBattleGround())
+        {
+            if (me->HasSpell(SPELL_SUMMON_IMP))
+                vSummons.push_back(SPELL_SUMMON_IMP);
+            if (me->HasSpell(SPELL_SUMMON_VOIDWALKER))
+                vSummons.push_back(SPELL_SUMMON_VOIDWALKER);
+            if (me->HasSpell(SPELL_SUMMON_FELHUNTER))
+                vSummons.push_back(SPELL_SUMMON_FELHUNTER);
+            if (me->HasSpell(SPELL_SUMMON_SUCCUBUS))
+                vSummons.push_back(SPELL_SUMMON_SUCCUBUS);
+            if (!vSummons.empty())
+                me->CastSpell(me, SelectRandomContainerElement(vSummons), true);
+        }
+        else
+        {
+            if (me->HasSpell(SPELL_SUMMON_FEL_GUARD))
+                me->CastSpell(me, SPELL_SUMMON_FEL_GUARD, true);
+            else if (me->HasSpell(SPELL_SUMMON_IMP))
+                me->CastSpell(me, SPELL_SUMMON_IMP, true);
+        }
     }
 }
 
@@ -3440,47 +3529,93 @@ void CombatBotBaseAI::AddHunterAmmo()
 
 bool CombatBotBaseAI::DoHealing()
 {
-    // TODO:
-    // Respect 5s rule?
-    // Only dispel DOTS / CC
+    // Don't just spam rank1 heals and never regen mana back
+    if (me->GetPowerPercent(POWER_MANA) <= 5.0f)
+        return false;
 
-    float selfHealPercent = 60.0f;
-    float targetHealPercent = 60.0f;
+
+    float selfCriticalHealPercent = 25.0f;
+    float tankCriticalHealPercent = 35.0f;
+    float dpsCriticalHealPercent = 25.0f;
+
+    float selfDirectHealPercent = 60.0f;
     float tankDirectHealPercent = 60.0f;
     float dpsDirectHealPercent = 40.0f;
-    float tankHOTPercent = 50.0f;
-    float selfHOTPercent = 50.0f;
-    float dpsHOTPercent = 35.0f;
+
+    float tankHOTPercent = 95.0f;
+    float selfHOTPercent = 85.0f;
+    float dpsHOTPercent = 85.0f;
 
     if (me->GetPowerPercent(POWER_MANA) < 25.0f)
-    {
-        dpsHOTPercent = 20.0f;
-    }
+        dpsHOTPercent = 50.0f;
 
-    if (Unit* pTarget = SelectHealTarget(selfHealPercent, targetHealPercent))
+    // Tank Logic (Absorb Heal)
+    if (Unit* pTarget = SelectHealTarget(selfCriticalHealPercent, tankCriticalHealPercent))
     {
         Player* pPlayer = pTarget->ToPlayer();
 
-        // Tank Logic - Direct Heal
+        if (pPlayer && pPlayer->GetCustomPlayerRole() == PLAYER_CUSTOM_ROLE_TANK)
+        {
+            if (HealInjuredTargetAbsorb(pPlayer))
+                return true;
+        }
+    }
+
+    // Tank Logic (Critical Heal)
+    if (Unit* pTarget = SelectHealTarget(selfCriticalHealPercent, tankCriticalHealPercent))
+    {
+        Player* pPlayer = pTarget->ToPlayer();
+
+        if (pPlayer && pPlayer->GetCustomPlayerRole() == PLAYER_CUSTOM_ROLE_TANK)
+        {
+            if (HealInjuredTargetCritical(pPlayer))
+                return true;
+        }
+    }
+
+    // Tank Logic (Direct Heal)
+    if (Unit* pTarget = SelectHealTarget(selfDirectHealPercent, tankDirectHealPercent))
+    {
+        Player* pPlayer = pTarget->ToPlayer();
+
         if (pPlayer && pPlayer->GetCustomPlayerRole() == PLAYER_CUSTOM_ROLE_TANK)
         {
             if (HealInjuredTargetDirect(pPlayer))
                 return true;
         }
-        else // DPS logic
+    }
+
+    // Tank Logic (HOTs)
+    if (Unit* pTarget = SelectHealTarget(selfHOTPercent, tankHOTPercent))
+    {
+        Player* pPlayer = pTarget->ToPlayer();
+
+        if (pPlayer && pPlayer->GetCustomPlayerRole() == PLAYER_CUSTOM_ROLE_TANK)
         {
-            // If HP is over 35%, put a HOT on them
-            if (pTarget->GetHealthPercent() > dpsHOTPercent)
-            {
-                if (HealInjuredTargetPeriodic(pTarget))
-                    return true;
-            }
-            else // Below 35%, use a direct heal
-            {
-                if (HealInjuredTargetDirect(pTarget))
-                    return true;
-            }
+            if (HealInjuredTargetPeriodic(pPlayer, false))
+                return true;
         }
+    }
+
+    // DPS Logic (Critical Heal)
+    if (Unit* pTarget = SelectHealTarget(selfCriticalHealPercent, dpsCriticalHealPercent))
+    {
+        if (HealInjuredTargetCritical(pTarget))
+            return true;
+    }
+
+    // DPS Logic (Direct Heal)
+    if (Unit* pTarget = SelectHealTarget(selfDirectHealPercent, dpsDirectHealPercent))
+    {
+        if (HealInjuredTargetDirect(pTarget))
+            return true;
+    }
+
+    // DPS Logic (HOTs)
+    if (Unit* pTarget = SelectHealTarget(selfHOTPercent, dpsHOTPercent))
+    {
+        if (HealInjuredTargetPeriodic(pTarget))
+            return true;
     }
 
     return false;
