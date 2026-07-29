@@ -124,6 +124,8 @@ public:
     Player* SelectBuffTarget(SpellEntry const* pSingleSpellEntry, SpellEntry const* pGroupSpellEntry, SpellEntry const*& pSelectedSpellEntry) const;
     Player* SelectDispelTarget(SpellEntry const* pSpellEntry) const;
     Player* SelectFreedomTarget() const;
+    uint16 GetAreaHealCount(float groupHealPercent = 100.0f) const;
+    bool ShouldAreaHeal(uint16 count, float groupHealPercent) const;
     bool IsValidBuffTarget(Unit const* pTarget, SpellEntry const* pSpellEntry) const;
     bool IsValidHealTarget(Unit const* pTarget, float healthPercent = 100.0f) const;
     bool IsValidHostileTarget(Unit const* pTarget, bool ignoreCC = false) const;
@@ -135,6 +137,7 @@ public:
     bool HealInjuredTargetPeriodic(Unit* pTarget, bool selectMostEfficient = true);
     bool HealInjuredTargetCritical(Unit* pTarget);
     bool HealInjuredTargetAbsorb(Unit* pTarget);
+    bool HealInjuredTargetArea(Unit* pTarget);
     template <class T>
     SpellEntry const* SelectMostEfficientHealingSpell(Unit const* pTarget, std::set<SpellEntry const*, T>& spellList, bool selectMostEfficient = true) const;
     template <class T>
@@ -356,6 +359,7 @@ public:
     std::set<SpellEntry const*, HealSpellCompare> m_spellListDirectHeal;
     std::set<SpellEntry const*, HealSpellCompare> m_spellListCriticalHeal;
     std::set<SpellEntry const*, HealSpellCompare> m_spellListAbsorbHeal;
+    std::set<SpellEntry const*, HealSpellCompare> m_spellListAreaHeal;
     union
     {
         struct

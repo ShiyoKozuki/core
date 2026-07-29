@@ -260,7 +260,7 @@ bool PartyBotAI::DrinkAndEat()
     bool const isEating = me->HasAura(currentFood);
     bool const isDrinking = me->HasAura(currentWater);
 
-    if (!isEating && needToEat)
+    if (!isEating)
     {
         if (me->GetMotionMaster()->GetCurrentMovementGeneratorType())
         {
@@ -276,7 +276,7 @@ bool PartyBotAI::DrinkAndEat()
         return true;
     }
 
-    if (!isDrinking && needToDrink)
+    if (!isDrinking)
     {
         if (me->GetMotionMaster()->GetCurrentMovementGeneratorType())
         {

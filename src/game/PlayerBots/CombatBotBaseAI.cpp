@@ -129,6 +129,7 @@ void CombatBotBaseAI::ResetSpellData()
         ptr = nullptr;
 
     m_resurrectionSpell = nullptr;
+    m_spellListAreaHeal.clear();
     m_spellListAbsorbHeal.clear();
     m_spellListCriticalHeal.clear();
     m_spellListDirectHeal.clear();
@@ -1970,6 +1971,8 @@ void CombatBotBaseAI::PopulateSpellData()
                     case SPELLFAMILY_PRIEST:
                         if (pSpellEntry->IsFitToFamilyMask<CF_PRIEST_FLASH_HEAL>())
                             m_spellListCriticalHeal.insert(pSpellEntry);
+                        if (pSpellEntry->IsFitToFamilyMask<CF_PRIEST_PRAYER_OF_HEALING>())
+                            m_spellListAreaHeal.insert(pSpellEntry);
                         break;
 
                     case SPELLFAMILY_DRUID:
@@ -1980,11 +1983,15 @@ void CombatBotBaseAI::PopulateSpellData()
                     case SPELLFAMILY_PALADIN:
                         if (pSpellEntry->IsFitToFamilyMask<CF_PALADIN_HOLY_SHOCK>())
                             m_spellListCriticalHeal.insert(pSpellEntry);
+                        if (pSpellEntry->IsFitToFamilyMask<CF_PALADIN_HOLY_RADIANCE>())
+                            m_spellListAreaHeal.insert(pSpellEntry);
                         break;
 
                     case SPELLFAMILY_SHAMAN:
                         if (pSpellEntry->IsFitToFamilyMask<CF_SHAMAN_LESSER_HEALING_WAVE>())
                             m_spellListCriticalHeal.insert(pSpellEntry);
+                        if (pSpellEntry->IsFitToFamilyMask<CF_SHAMAN_CHAIN_HEAL>())
+                            m_spellListAreaHeal.insert(pSpellEntry);
                         break;
                     }
 
@@ -1998,18 +2005,27 @@ void CombatBotBaseAI::PopulateSpellData()
                     break;
                 case SPELL_EFFECT_APPLY_AURA:
                 {
-                    switch (pSpellEntry->EffectApplyAuraName[i])
-                    {
+                        switch (pSpellEntry->EffectApplyAuraName[i])
+                        {
                         case SPELL_AURA_PERIODIC_HEAL:
                             m_spellListPeriodicHeal.insert(pSpellEntry);
+
+                            switch (pSpellEntry->SpellFamilyName)
+                            {
+                            case SPELLFAMILY_DRUID:
+                                if (pSpellEntry->IsFitToFamilyMask<CF_DRUID_TRANQUILITY>())
+                                    m_spellListAreaHeal.insert(pSpellEntry);
+                                break;
+                            }
+
                             break;
                         case SPELL_AURA_SCHOOL_ABSORB:
                             switch (pSpellEntry->SpellFamilyName)
                             {
-                            case SPELLFAMILY_PRIEST:
-                                if (pSpellEntry->IsFitToFamilyMask<CF_PRIEST_POWER_WORD_SHIELD>())
-                                    m_spellListAbsorbHeal.insert(pSpellEntry);
-                                break;
+                                case SPELLFAMILY_PRIEST:
+                                    if (pSpellEntry->IsFitToFamilyMask<CF_PRIEST_POWER_WORD_SHIELD>())
+                                        m_spellListAbsorbHeal.insert(pSpellEntry);
+                                    break;
                             }
                             break;
                         case SPELL_AURA_MOD_TAUNT:
@@ -2361,6 +2377,20 @@ bool CombatBotBaseAI::HealInjuredTargetCritical(Unit* pTarget)
 bool CombatBotBaseAI::HealInjuredTargetAbsorb(Unit* pTarget)
 {
     if (SpellEntry const* pHealSpell = SelectMostEfficientHealingSpell(pTarget, m_spellListAbsorbHeal, false))
+    {
+        if (CanTryToCastSpell(pTarget, pHealSpell))
+        {
+            if (DoCastSpell(pTarget, pHealSpell) == SPELL_CAST_OK)
+                return true;
+        }
+    }
+
+    return false;
+}
+
+bool CombatBotBaseAI::HealInjuredTargetArea(Unit* pTarget)
+{
+    if (SpellEntry const* pHealSpell = SelectMostEfficientHealingSpell(pTarget, m_spellListAreaHeal, false))
     {
         if (CanTryToCastSpell(pTarget, pHealSpell))
         {
@@ -2773,6 +2803,36 @@ Player* CombatBotBaseAI::SelectFreedomTarget() const
     }
 
     return nullptr;
+}
+
+uint16 CombatBotBaseAI::GetAreaHealCount(float groupHealPercent) const
+{
+    if (IsInDuel())
+        return 0;
+
+    uint16 needsHealingCount = 0;
+
+    if (Group* pGroup = me->GetGroup())
+    {
+        for (GroupReference* itr = pGroup->GetFirstMember(); itr != nullptr; itr = itr->next())
+        {
+            if (Unit* pMember = itr->getSource())
+            {
+                // Check if we should heal party member.
+                if ((IsValidHealTarget(pMember, groupHealPercent)))
+                {
+                    ++needsHealingCount;
+                }
+            }
+        }
+    }
+
+    return needsHealingCount;
+}
+
+bool CombatBotBaseAI::ShouldAreaHeal(uint16 count, float groupHealPercent) const
+{
+    return GetAreaHealCount(groupHealPercent) >= count;
 }
 
 void CombatBotBaseAI::SummonPetIfNeeded()
@@ -3568,7 +3628,6 @@ bool CombatBotBaseAI::DoHealing()
     if (me->GetPowerPercent(POWER_MANA) <= 5.0f)
         return false;
 
-
     float selfCriticalHealPercent = 25.0f;
     float tankCriticalHealPercent = 35.0f;
     float dpsCriticalHealPercent = 25.0f;
@@ -3580,6 +3639,10 @@ bool CombatBotBaseAI::DoHealing()
     float tankHOTPercent = 95.0f;
     float selfHOTPercent = 85.0f;
     float dpsHOTPercent = 85.0f;
+
+    float aoeHealpercent = 50.0f;
+
+    uint16 needsHealingCount = 3;
 
     if (me->GetPowerPercent(POWER_MANA) < 25.0f)
         dpsHOTPercent = 50.0f;
@@ -3605,6 +3668,24 @@ bool CombatBotBaseAI::DoHealing()
         {
             if (HealInjuredTargetCritical(pPlayer))
                 return true;
+        }
+    }
+
+    // AOE healing logic
+    if (ShouldAreaHeal(needsHealingCount, aoeHealpercent))
+    {
+        if (Unit* pTarget = SelectHealTarget(100.0f, aoeHealpercent))
+        {
+            if (me->GetClass() == CLASS_SHAMAN)
+            {
+                if (HealInjuredTargetArea(pTarget))
+                    return true;
+            }
+            else
+            {
+                if (HealInjuredTargetArea(me))
+                    return true;
+            }
         }
     }
 
