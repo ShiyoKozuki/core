@@ -943,6 +943,66 @@ SpellScript* GetScript_PortalDevice(SpellEntry const*)
     return new PortalDeviceScript();
 }
 
+enum
+{
+    NPC_COW = 2442,
+    ITEM_CAPTURED_COW = 30455
+};
+
+struct CowNetProjectorScript : public SpellScript
+{
+    SpellCastResult OnCheckCast(Spell* spell, bool /*strict*/) const final
+    {
+        if (Unit* pTarget = spell->m_targets.getUnitTarget())
+        {
+            if (pTarget->GetEntry() != NPC_COW || pTarget->IsDead())
+                return SPELL_FAILED_BAD_TARGETS;
+        }
+        else
+        {
+            return SPELL_FAILED_BAD_TARGETS;
+        }
+
+        return SPELL_CAST_OK;
+    }
+
+    bool OnEffectExecute(Spell* spell, SpellEffectIndex effIdx) const final
+    {
+        if (effIdx == EFFECT_INDEX_0)
+        {
+            Player* pPlayer = spell->m_casterUnit->ToPlayer();
+            if (!pPlayer)
+                return false;
+
+            Unit* pTarget = spell->m_targets.getUnitTarget();
+            if (!pTarget)
+                return false;
+
+            uint32 count = 1;
+
+            ItemPosCountVec dest;
+            InventoryResult msg = pPlayer->CanStoreNewItem(NULL_BAG, NULL_SLOT, dest, ITEM_CAPTURED_COW, count);
+
+            if (msg == EQUIP_ERR_OK)
+            {
+                pPlayer->StoreNewItem(dest, ITEM_CAPTURED_COW, true);
+
+                // Despawn the Cow
+                Creature* pCreature = pTarget->ToCreature();
+                if (pCreature && pCreature->IsAlive())
+                    pCreature->ForcedDespawn();
+            }
+        }
+
+        return true;
+    }
+};
+
+SpellScript* GetScript_CowNetProjector(SpellEntry const*)
+{
+    return new CowNetProjectorScript();
+}
+
 void AddSC_item_spell_scripts()
 {
     Script* newscript;
@@ -1120,5 +1180,10 @@ void AddSC_item_spell_scripts()
     newscript = new Script;
     newscript->Name = "spell_portal_device";
     newscript->GetSpellScript = &GetScript_PortalDevice;
+    newscript->RegisterSelf();
+
+    newscript = new Script;
+    newscript->Name = "cow_net_projector";
+    newscript->GetSpellScript = &GetScript_CowNetProjector;
     newscript->RegisterSelf();
 }

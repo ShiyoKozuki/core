@@ -1,4 +1,4 @@
--- 34334 NEXT SPELL
+-- 34335 NEXT SPELL
 -- 15223 NEXT SKILL_LINE_ABILITY
 -- NEXT category 10006
 
@@ -922,7 +922,7 @@
     REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `dmgMultiplier1`) VALUES (33823, 5086, 80, 1, 101, 21, 1, -1, 6, 1, 1, 9, 1, -1, -1, 1, 22, 126, 459, 'All Resistance', 2031678, 'Racial Passive', 2031678, 'All Resistances increased by $s1.', 2031678, 2031676, 1);
 
     -- + (Active) +20% Melee / Ranged / Casting speed for 20 seconds
-    REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `attributesEx`, `attributesEx2`, `stances`, `castingTimeIndex`, `recoveryTime`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effect2`, `effect3`, `effectDieSides1`, `effectDieSides2`, `effectDieSides3`, `effectBaseDice1`, `effectBaseDice2`, `effectBaseDice3`, `effectBasePoints1`, `effectBasePoints2`, `effectBasePoints3`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectImplicitTargetA3`, `effectApplyAuraName1`, `effectApplyAuraName2`, `effectApplyAuraName3`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `dmgMultiplier1`) VALUES (33824, 4878, 262160, 32, 524288, 134217728, 1, 180000, 101, 18, 1, -1, 6, 6, 6, 1, 1, 1, 1, 1, 1, 19, 19, 19, 1, -1, -1, 1, 1, 1, 138, 140, 65, 5727, 2152, 'Mana Rush', 2031678, 'Racial', 2031678, 'Increases your attack and casting speed by $s1% for $d.', 2031678, 'Attack and casting speed increased.', 2031678, 133, 1500, 1);
+    REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `attributesEx`, `attributesEx2`, `stances`, `castingTimeIndex`, `recoveryTime`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effect2`, `effect3`, `effectDieSides1`, `effectDieSides2`, `effectDieSides3`, `effectBaseDice1`, `effectBaseDice2`, `effectBaseDice3`, `effectBasePoints1`, `effectBasePoints2`, `effectBasePoints3`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectImplicitTargetA3`, `effectApplyAuraName1`, `effectApplyAuraName2`, `effectApplyAuraName3`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `dmgMultiplier1`) VALUES (33824, 4878, 262160, 32, 524288, 1207959699, 1, 180000, 101, 18, 1, -1, 6, 6, 6, 1, 1, 1, 1, 1, 1, 19, 19, 19, 1, -1, -1, 1, 1, 1, 138, 140, 65, 5727, 2152, 'Mana Rush', 2031678, 'Racial', 2031678, 'Increases your attack and casting speed by $s1% for $d.', 2031678, 'Attack and casting speed increased.', 2031678, 133, 1500, 1);
 
 -- Weapon Skills
     -- Bow
@@ -1009,13 +1009,13 @@
             UPDATE `mangos`.`spell_template` SET `effectChainTarget1`=5, `description`='Damage caused by the target is reduced by $s1 for $d, jumping to 4 additional nearby targets.  Affects 5 total targets.  Only one Curse per Warlock can be active on any one target.' WHERE entry IN (702, 1108, 6205, 7646, 11707, 11708);
 
         -- Curse of Recklessness
-            UPDATE `mangos`.`spell_template` SET `effectChainTarget1`=5, `description`='Curses the target with recklessness, increasing melee attack power by $s1 but reducing armor by $s2 for $d, jumping to 4 additional nearby targets.  Affects 5 total targets.  Cursed enemies will not flee and will ignore Fear and Horror effects.  Only one Curse per Warlock can be active on any one target.' WHERE entry IN (704, 7658, 7659, 11717);
+            UPDATE `mangos`.`spell_template` SET `effectChainTarget1`=5, `effectChainTarget2`=5, `effectChainTarget3`=5, `description`='Curses the target with recklessness, increasing melee attack power by $s1 but reducing armor by $s2 for $d, jumping to 4 additional nearby targets.  Affects 5 total targets.  Cursed enemies will not flee and will ignore Fear and Horror effects.  Only one Curse per Warlock can be active on any one target.' WHERE entry IN (704, 7658, 7659, 11717);
 
         -- Curse of Shadow
-            UPDATE `mangos`.`spell_template` SET `effectChainTarget1`=5, `description`='Curses the target for $d, reducing Shadow and Arcane resistances by $s1 and increasing Shadow and Arcane damage taken by $s2%.  Jumps to 4 additional nearby targets.  Affects 5 total targets.  Only one Curse per Warlock can be active on any one target.' WHERE entry IN (17862, 17937);
+            UPDATE `mangos`.`spell_template` SET `effectChainTarget1`=5, `effectChainTarget2`=5, `description`='Curses the target for $d, reducing Shadow and Arcane resistances by $s1 and increasing Shadow and Arcane damage taken by $s2%.  Jumps to 4 additional nearby targets.  Affects 5 total targets.  Only one Curse per Warlock can be active on any one target.' WHERE entry IN (17862, 17937);
 
         -- Curse of the Elements
-            UPDATE `mangos`.`spell_template` SET `effectChainTarget1`=5, `description`='Curses the target for $d, reducing Fire and Frost resistances by $s1 and increasing Fire and Frost damage taken by $s2%.  Jumps to 4 additional nearby targets.  Affects 5 total targets.  Only one Curse per Warlock can be active on any one target.' WHERE entry IN (1490, 11721, 11722);
+            UPDATE `mangos`.`spell_template` SET `effectChainTarget1`=5, `effectChainTarget2`=5, `description`='Curses the target for $d, reducing Fire and Frost resistances by $s1 and increasing Fire and Frost damage taken by $s2%.  Jumps to 4 additional nearby targets.  Affects 5 total targets.  Only one Curse per Warlock can be active on any one target.' WHERE entry IN (1490, 11721, 11722);
 
 -- Life Tap
     UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=39 WHERE  `entry`=1454 AND `build`=5875;
@@ -3268,6 +3268,9 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
     UPDATE `mangos`.`skill_line_ability` SET `class_mask`=79 WHERE  `id`=248 AND `build`=5875;
 
     -- Druid
+        -- Soothe Animal (Now Instant cast)
+            UPDATE `mangos`.`spell_template` SET `castingTimeIndex`=1 WHERE entry IN (2908, 8955, 9901);
+
         -- Barkskin (Now castable on others at 40 yards)
             UPDATE `mangos`.`spell_template` SET `rangeIndex`=@RANGE_FORTY_YARDS, `effectImplicitTargetA1`=@TARGET_UNIT_RAID, `effectImplicitTargetA3`=@TARGET_UNIT_RAID WHERE  `entry`=22812 AND `build`=5464;
 
@@ -4018,7 +4021,7 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
         -- Spell
         REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `dispel`, `attributes`, `attributesEx2`, `stances`, `stancesNot`, `castingTimeIndex`, `interruptFlags`, `procChance`, `baseLevel`, `spellLevel`, `durationIndex`, `manaCost`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectAmplitude1`, `spellVisual1`, `spellIconId`, `spellPriority`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `effectRadiusIndex1`, `targets`) 
         VALUES (33421, 5302, 1, 1, 65536, 524288, 2147483648, 134217728, 5, 8, 101, 60, 60, 27, 1070, 1, -1, -1, 35, 1, 1, 
-        366, 0.286, -1, -1, 1, 8, 1000, 280, 2039, 50, 'Holy Radiance', 2031678, 'Rank 1', 2031678, 'Heals party members within 40 yards of $o1 damage over $d.', 2031678, 'Healing $s1 damage every $t1 seconds.', 2031678, 133, 1500, 6, 64, 1, 1, -1, 1, 1, 1, 23, 0);
+        366, 0.286, -1, -1, 1, 8, 1000, 280, 2039, 50, 'Holy Radiance', 2031678, 'Rank 1', 2031678, 'Heals party members within 40 yards of $o1 damage over $d.', 2031678, 'Healing $s1 damage every $t1 seconds.', 2031678, 133, 1500, 10, 17592186044416, 1, 1, -1, 1, 1, 1, 23, 0);
         
         -- Skill line ability:
         REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`) VALUES (15045, 5875, 594, 33421, 2, 1);
@@ -4760,15 +4763,11 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
         -- SPELL_EFFECT_SUMMON_WILD               = 41,
         -- TODO: Felguard creature_template (copy from 3772), summon 3 of them via effect 41 and miscvalue1 for the creatures Id
         -- How did the quest "The Principal Source" source do it?
-        -- TODO:
             REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `attributesEx`, `castingTimeIndex`, `interruptFlags`, `procChance`, `spellLevel`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectMiscValue1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `script_name`) VALUES (34333, 4222, 256, 1024, 5, 1, 101, 1, 3, -1, 41, 1, 1, 2, 1, -1, -1, 1, 90124, 138, 580, 'Portal Device', 983054, 983052, 'Destroy Demon Portal.', 983054, 983052, 133, 1500, -1, 1, 1, 1, 'spell_portal_device');
 
-        -- -- Dwarven Dynamite
-        --     REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `attributesEx`, `castingTimeIndex`, `interruptFlags`, `procChance`, `spellLevel`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectMiscValue1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `script_name`) VALUES (34334, 4222, 256, 1024, 5, 1, 101, 1, 3, -1, 41, 1, 1, 2, 1, -1, -1, 1, 90124, 138, 580, 'Dwarven Dynamite', 983054, 983052, 'Plant Dynamite.', 983054, 983052, 133, 1500, -1, 1, 1, 1, 'dwarven_dynamite');
+        -- Cow net Projector
+            REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `attributesEx`, `castingTimeIndex`, `interruptFlags`, `procChance`, `spellLevel`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `script_name`) VALUES (34334, 4222, 256, 1024, 5, 1, 101, 1, 3, -1, 3, 1, -1, -1, 6, 970, 580, 'Cow Net Projector', 983054, 983052, 'Capture Cow', 983054, 983052, 133, 1500, -1, 1, 1, 1, 'cow_net_projector');
         
-        -- -- Dwarven TNT
-        --     REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `attributesEx`, `castingTimeIndex`, `interruptFlags`, `procChance`, `spellLevel`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectMiscValue1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `script_name`) VALUES (34335, 4222, 256, 1024, 5, 1, 101, 1, 3, -1, 41, 1, 1, 2, 1, -1, -1, 1, 90124, 138, 580, 'Dwarven TNT', 983054, 983052, 'Plant TNT.', 983054, 983052, 133, 1500, -1, 1, 1, 1, 'dwarven_tnt');
-
         -- +1 Fire weapon damage to attacks
             -- Aura
             REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procFlags`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectTriggerSpell1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (33621, 5302, 448, 1, 20, 100, 21, 1, -1, 6, 1, 1, -1, 0, -1, -1, 1, 42, 33622, 1, 'Add Fire Dam - Weap 01', 8323134, 8323132, 'Adds $33622s1 fire damage to your weapon attack.', 2031678, 2031676, -1, 1, 1, 1);
