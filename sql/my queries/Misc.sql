@@ -1331,3 +1331,24 @@ REPLACE `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `int
 REPLACE `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (1, 7, 58, 85, 50, 93, 84, 99);
 REPLACE `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (1, 7, 59, 86, 51, 95, 85, 101);
 REPLACE `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES (1, 7, 60, 88, 52, 97, 87, 103);
+
+-- Rogue Poison Charges (Remove charges)
+DELETE FROM `mangos`.`spell_enchant_charges` WHERE  `entry`=2823;
+DELETE FROM `mangos`.`spell_enchant_charges` WHERE  `entry`=2824;
+DELETE FROM `mangos`.`spell_enchant_charges` WHERE  `entry`=5761;
+DELETE FROM `mangos`.`spell_enchant_charges` WHERE  `entry`=8679;
+DELETE FROM `mangos`.`spell_enchant_charges` WHERE  `entry`=8686;
+DELETE FROM `mangos`.`spell_enchant_charges` WHERE  `entry`=8688;
+DELETE FROM `mangos`.`spell_enchant_charges` WHERE  `entry`=8693;
+DELETE FROM `mangos`.`spell_enchant_charges` WHERE  `entry`=11338;
+DELETE FROM `mangos`.`spell_enchant_charges` WHERE  `entry`=11339;
+DELETE FROM `mangos`.`spell_enchant_charges` WHERE  `entry`=11340;
+DELETE FROM `mangos`.`spell_enchant_charges` WHERE  `entry`=11355;
+DELETE FROM `mangos`.`spell_enchant_charges` WHERE  `entry`=11356;
+DELETE FROM `mangos`.`spell_enchant_charges` WHERE  `entry`=11399;
+DELETE FROM `mangos`.`spell_enchant_charges` WHERE  `entry`=13219;
+DELETE FROM `mangos`.`spell_enchant_charges` WHERE  `entry`=13225;
+DELETE FROM `mangos`.`spell_enchant_charges` WHERE  `entry`=13226;
+DELETE FROM `mangos`.`spell_enchant_charges` WHERE  `entry`=13227;
+DELETE FROM `mangos`.`spell_enchant_charges` WHERE  `entry`=14792;
+DELETE FROM `mangos`.`spell_enchant_charges` WHERE  `entry`=25351;
