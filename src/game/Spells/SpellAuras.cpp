@@ -2265,15 +2265,15 @@ std::pair<unsigned int, float> GetShapeshiftDisplayInfo(ShapeshiftForm form, Uni
 
         if (target->IsPlayer())
         {
-            if (Player::TeamForRace(target->GetRace()) == ALLIANCE)
-            {
-                if (target->GetRace() == RACE_BLOODELF)
-                    display_id = 15506;
-                else
-                    display_id = 892;
-            }
-            else
-                display_id = 8571;
+            //if (Player::TeamForRace(target->GetRace()) == ALLIANCE)
+            //{
+            //    if (target->GetRace() == RACE_BLOODELF)
+            //        display_id = 15506;
+            //    else
+            //        display_id = 892;
+            //}
+            //else
+            //    display_id = 8571;
         }
         else
             display_id = 892;
@@ -2317,15 +2317,15 @@ std::pair<unsigned int, float> GetShapeshiftDisplayInfo(ShapeshiftForm form, Uni
     case FORM_DIREBEAR:
         if (target->IsPlayer())
         {
-            if (Player::TeamForRace(target->GetRace()) == ALLIANCE)
-            {
-                if (target->GetRace() == RACE_BLOODELF)
-                    display_id = 27819;
-                else
-                    display_id = 2281;
-            }
-            else
-                display_id = 2289;
+            //if (Player::TeamForRace(target->GetRace()) == ALLIANCE)
+            //{
+            //    if (target->GetRace() == RACE_BLOODELF)
+            //        display_id = 27819;
+            //    else
+            //        display_id = 2281;
+            //}
+            //else
+            //    display_id = 2289;
         }
         else
             display_id = 2281;
