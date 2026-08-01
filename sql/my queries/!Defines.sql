@@ -1,5 +1,14 @@
 -- Spells
     SET
+        @SPELL_SCHOOL_NORMAL  = 0,
+        @SPELL_SCHOOL_HOLY    = 1,
+        @SPELL_SCHOOL_FIRE    = 2,
+        @SPELL_SCHOOL_NATURE  = 3,
+        @SPELL_SCHOOL_FROST   = 4,
+        @SPELL_SCHOOL_SHADOW  = 5,
+        @SPELL_SCHOOL_ARCANE  = 6;
+
+    SET
         @DISPEL_NONE         = 0,
         @DISPEL_MAGIC        = 1,
         @DISPEL_CURSE        = 2,
@@ -11,6 +20,39 @@
         @DISPEL_SPE_NPC_ONLY = 8,
         @DISPEL_ENRAGE       = 9,
         @DISPEL_ZG_TICKET    = 10;
+
+-- Used with auraName SPELL_AURA_ADD_PCT_MODIFIER = 108
+-- Value for effectMiscValue (Literal interger, i.e. 14 for mp cost reduction, NOT converted to hex or w/e)
+-- enum SpellModOp
+-- {
+--     SPELLMOD_DAMAGE                 = 0,
+--     SPELLMOD_DURATION               = 1,
+--     SPELLMOD_THREAT                 = 2,
+--     SPELLMOD_ATTACK_POWER           = 3,
+--     SPELLMOD_CHARGES                = 4,
+--     SPELLMOD_RANGE                  = 5,
+--     SPELLMOD_RADIUS                 = 6,
+--     SPELLMOD_CRITICAL_CHANCE        = 7,
+--     SPELLMOD_ALL_EFFECTS            = 8,
+--     SPELLMOD_NOT_LOSE_CASTING_TIME  = 9,
+--     SPELLMOD_CASTING_TIME           = 10,
+--     SPELLMOD_COOLDOWN               = 11,
+--     SPELLMOD_SPEED                  = 12,
+--     SPELLMOD_COST                   = 14,
+--     SPELLMOD_CRIT_DAMAGE_BONUS      = 15,
+--     SPELLMOD_RESIST_MISS_CHANCE     = 16,
+--     SPELLMOD_JUMP_TARGETS           = 17,
+--     SPELLMOD_CHANCE_OF_SUCCESS      = 18,                   // Only used with SPELL_AURA_ADD_FLAT_MODIFIER and affects proc spells
+--     SPELLMOD_ACTIVATION_TIME        = 19,
+--     SPELLMOD_EFFECT_PAST_FIRST      = 20,
+--     SPELLMOD_GLOBAL_COOLDOWN        = 21,
+--     SPELLMOD_DOT                    = 22,
+--     SPELLMOD_HASTE                  = 23,
+--     SPELLMOD_SPELL_BONUS_DAMAGE     = 24,
+--     SPELLMOD_MULTIPLE_VALUE         = 27,
+--     SPELLMOD_RESIST_DISPEL_CHANCE   = 28,
+--     MAX_SPELLMOD                    = 29,
+-- };
 
     SET
         @DURATION_MAX_10_SEC      = 1,

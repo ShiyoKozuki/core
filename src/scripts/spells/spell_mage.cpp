@@ -433,6 +433,33 @@ AuraScript* GetScript_MageWaterJet(SpellEntry const*)
     return new MageWaterJetScript();
 }
 
+struct MageArcaneBarrageScript : SpellScript
+{
+    enum
+    {
+        SPELL_IGNITE_DOT = 12654
+    };
+
+
+    SpellCastResult OnCheckCast(Spell* spell, bool /*strict*/) const final
+    {
+#if SUPPORTED_CLIENT_BUILD > CLIENT_BUILD_1_10_2
+        if (Unit* target = spell->m_targets.getUnitTarget())
+        {
+            if (target->HasAura(SPELL_IGNITE_DOT))
+                return SPELL_CAST_OK;
+        }
+#endif
+        return SPELL_FAILED_TARGET_AURASTATE;
+    }
+};
+
+SpellScript* GetScript_MageArcaneBarrage(SpellEntry const*)
+{
+    return new MageArcaneBarrageScript();
+}
+
+
 void AddSC_mage_spell_scripts()
 {
     Script* newscript;
@@ -486,5 +513,10 @@ void AddSC_mage_spell_scripts()
     newscript = new Script;
     newscript->Name = "spell_mage_water_jet";
     newscript->GetAuraScript = &GetScript_MageWaterJet;
+    newscript->RegisterSelf();
+
+    newscript = new Script;
+    newscript->Name = "spell_mage_arcane_barrage";
+    newscript->GetSpellScript = &GetScript_MageArcaneBarrage;
     newscript->RegisterSelf();
 }

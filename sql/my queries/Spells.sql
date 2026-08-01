@@ -1,5 +1,5 @@
--- 34335 NEXT SPELL
--- 15223 NEXT SKILL_LINE_ABILITY
+-- 34344 NEXT SPELL
+-- 15232 NEXT SKILL_LINE_ABILITY
 -- NEXT category 10006
 
 -- skill_line_ability class_mask uses enum CLASSES
@@ -2566,6 +2566,71 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
             REPLACE `mangos`.`spell_chain` (`spell_id`, `prev_spell`, `first_spell`, `rank`) VALUES (34162, 34161, 34158, 5);
 
     -- Mage
+        -- Arcane Blast
+            -- Rank 1
+                REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `castingTimeIndex`, `interruptFlags`, `procFlags`, `procChance`, `maxLevel`, `baseLevel`, `spellLevel`, `manaCost`, `rangeIndex`, `speed`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effect2`, `effectDieSides1`, `effectDieSides2`, `effectBaseDice1`, `effectBaseDice2`, `effectRealPointsPerLevel1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectMultipleValue1`, `effectTriggerSpell2`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `customFlags`, `script_name`) VALUES (34339, 4222, 6, 65536, 22, 15, 87376, 100, 25, 20, 20, 110, 4, 20, -1, -1, 2, 64, 13, 1, 1, 1, 1.2, 85, 0.857, -1, -1, 6, 1, 1, 34340, 7749, 2294, 'Arcane Blast', 7274526, 'Rank 1', 7274526, 'Blasts the target with energy, dealing $s1 Arcane damage.  \r\nEach time you cast Arcane Blast, the damage of Arcane Blast and Arcane Barrage is increased by $34340s1%, mana cost is increased by $34340s2% and cast time reduced by 0.5 sec.  \r\nEffect stacks up to 4 times and lasts $34340d.', 983070, 983052, 133, 1500, 3, 1099511627776, 1, 1, -1, 1, 1, 1, 128, '');
+
+                UPDATE `mangos`.`spell_template` SET 
+                `castingTimeIndex`=@CASTING_TIME_3500_MS ,
+                `maxLevel`=25, 
+                `baseLevel`=20, 
+                `spellLevel`=20, 
+                `manaCost`=60, 
+                `effectDieSides1`=20, 
+                `effectRealPointsPerLevel1`=1.2, 
+                `effectBasePoints1`=114, 
+                `effectBonusCoefficient1`=0.857, 
+                `name`='Arcane Blast', 
+                `nameSubtext`='Rank 1' 
+                WHERE  `entry`=34339;
+                
+
+            -- Rank 2
+            -- Rank 3
+            -- Rank 4
+            -- Rank 5
+            -- Rank 6
+            -- Rank 7 (Spell book)
+
+            -- Skill Line Ability
+                REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`, `superseded_by_spell`) VALUES (15223, 5875, 237, 34339, 128, 1, 0);
+                REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`, `superseded_by_spell`) VALUES (15224, 5875, 237, 34341, 128, 1, 0);
+                REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`, `superseded_by_spell`) VALUES (15225, 5875, 237, 34342, 128, 1, 0);
+                REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`, `superseded_by_spell`) VALUES (15226, 5875, 237, 34343, 128, 1, 0);
+                REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`, `superseded_by_spell`) VALUES (15227, 5875, 237, 34344, 128, 1, 0);
+                REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`, `superseded_by_spell`) VALUES (15228, 5875, 237, 34345, 128, 1, 0);
+                REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`, `superseded_by_spell`) VALUES (15229, 5875, 237, 34346, 128, 1, 0);
+                REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`, `superseded_by_spell`) VALUES (15230, 5875, 237, 34347, 128, 1, 0);
+
+
+            -- Aura
+                REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procChance`, `procCharges`, `durationIndex`, `rangeIndex`, `stackAmount`, `equippedItemClass`, `effect1`, `effect2`, `effect3`, `effectDieSides1`, `effectDieSides2`, `effectDieSides3`, `effectBaseDice1`, `effectBaseDice2`, `effectBaseDice3`, `effectBasePoints1`, `effectBasePoints2`, `effectBasePoints3`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectApplyAuraName2`, `effectApplyAuraName3`, `effectItemType1`, `effectItemType2`, `effectItemType3`, `effectMiscValue2`, `effectMiscValue3`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `stanceBarOrder`, `dmgMultiplier1`) VALUES (34340, 4695, 327680, 1, 101, 1, 32, 1, 4, -1, 6, 6, 6, 1, 1, 1, 1, 1, 1, 14, 174, -501, 0, 0, -1, 1, 108, 108, 107, 3298534883328, 3298534883328, 3298534883328, 14, 10, 225, 'Arcane Blast', 983070, 983070, 'Reduces the mana cost of Arcane Missles by $s1%.', 983070, 983052, 3, -1, 1);
+
+                UPDATE `mangos`.`spell_template` SET `description`='Arcane Blast and Arane Barrage damage increased by $s1%, mana cost increased by $s2% and cast time reduced by $/1000;S3 sec.  \\r\\nEffect stacks up to 4 times and lasts $d.', `auraDescription`='Arcane Blast and Arane Barrage damage increased by $s1%, mana cost increased by $s2% and cast time reduced by $/1000;S3 sec.  Stacks up to 4 times.' WHERE  `entry`=34340;
+
+
+        -- Arcane Barrage
+            -- Rank 1
+                REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `castingTimeIndex`, `interruptFlags`, `procFlags`, `procChance`, `maxLevel`, `baseLevel`, `spellLevel`, `manaCost`, `rangeIndex`, `speed`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effect2`, `effectDieSides1`, `effectDieSides2`, `effectBaseDice1`, `effectBaseDice2`, `effectRealPointsPerLevel1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectMultipleValue1`, `effectTriggerSpell2`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `customFlags`, `script_name`) VALUES (34348, 4222, 6, 65536, 22, 15, 87376, 100, 25, 20, 20, 110, 4, 20, -1, -1, 2, 64, 13, 1, 1, 1, 1.2, 85, 0.857, -1, -1, 6, 1, 1, 34340, 9947, 2294, 'Arcane Barrage', 7274526, 'Rank 1', 7274526, 'Blasts the target with energy, dealing $s1 Arcane damage.  Additionally, removes all Arcane Blast stacks.', 983070, 983052, 133, 1500, 3, 2199023255552, 1, 1, -1, 1, 1, 1, 128, 'spell_mage_arcane_barrage');
+
+                UPDATE `mangos`.`spell_template` SET 
+                `castingTimeIndex`=@CASTING_TIME_2000_MS,
+                `maxLevel`=51, 
+                `baseLevel`=40, 
+                `spellLevel`=40, 
+                `manaCost`=60, 
+                `effectDieSides1`=13, 
+                `effectRealPointsPerLevel1`=1.5, 
+                `effectBasePoints1`=399, 
+                `effectBonusCoefficient1`=0.857, 
+                `name`='Arcane Barrage', 
+                `nameSubtext`='Rank 1' 
+                WHERE  `entry`=34348;
+
+            -- Skill Line Ability
+                REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`, `superseded_by_spell`) VALUES (15231, 5875, 237, 34348, 128, 1, 0);
+
+
         -- Improved Arcane Missles proc that makes next Arcane Missles free to cast
             Replace `mangos`.`spell_template` (`entry`, `build`, `attributes`, `castingTimeIndex`, `procFlags`, `procChance`, `procCharges`, `durationIndex`, `rangeIndex`, `stackAmount`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectItemType1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `spellFamilyName`, `stanceBarOrder`, `dmgMultiplier1`) VALUES (34173, 4695, 327680, 1, 65536, 101, 1, 9, 1, 0, -1, 6, 1, 1, -101, 0, 0, -1, 1, 108, 2048, 14, 225, 'Arcane Missles!', 983070, 983070, 'Reduces the mana cost of Arcane Missles by $s1%.', 983070, '', 983052, 3, -1, 1);
 
@@ -4352,6 +4417,9 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
     -- Trainer
 
     -- Creature spells
+        -- Summon 2 (Summoner lvl -5) Voidwalker GUARDIANS
+            REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `category`, `castingTimeIndex`, `categoryRecoveryTime`, `interruptFlags`, `procChance`, `baseLevel`, `spellLevel`, `durationIndex`, `manaCost`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectMultipleValue1`, `effectMiscValue1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34336, 4222, 5, 31, 6, 60000, 15, 101, 20, 20, 3, 50, 1, -1, -1, 42, 1, 1, 1, -1, -1, -1, 32, -5, 1860, 74, 217, 'Monu\'s Guardians', 983070, 983052, 'Summons $s1 $lVoidwalker:Voidwalkers; to aid the caster in battle for $d.', 983070, 983052, -1, 1, 1, 1);
+
         -- Deadwind Pass
                 -- 75% Healing Curse (ST)
                     REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `dispel`, `castingTimeIndex`, `interruptFlags`, `procChance`, `baseLevel`, `spellLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectMiscValue1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`) VALUES (34143, 5464, 5, 2, 5, 31, 101, 1, 1, 4, 7, -1, 6, 1, 1, -51, 1, -1, -1, 6, 118, 127, 1265, 173, 'Curse of the Void', 4128830, 4128828, 'Reduces healing effects for an enemy by $s1% for $d.', 4128830, 'Healing effects reduced by $s1%.', 4128830, 1, 1, -1, 1);
@@ -4766,7 +4834,16 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
             REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `attributesEx`, `castingTimeIndex`, `interruptFlags`, `procChance`, `spellLevel`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectMiscValue1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `script_name`) VALUES (34333, 4222, 256, 1024, 5, 1, 101, 1, 3, -1, 41, 1, 1, 2, 1, -1, -1, 1, 90124, 138, 580, 'Portal Device', 983054, 983052, 'Destroy Demon Portal.', 983054, 983052, 133, 1500, -1, 1, 1, 1, 'spell_portal_device');
 
         -- Cow net Projector
-            REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `attributesEx`, `castingTimeIndex`, `interruptFlags`, `procChance`, `spellLevel`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `script_name`) VALUES (34334, 4222, 256, 1024, 5, 1, 101, 1, 3, -1, 3, 1, -1, -1, 6, 970, 580, 'Cow Net Projector', 983054, 983052, 'Capture Cow', 983054, 983052, 133, 1500, -1, 1, 1, 1, 'cow_net_projector');
+            REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `attributesEx`, `castingTimeIndex`, `interruptFlags`, `procChance`, `spellLevel`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `script_name`) VALUES (34334, 4222, 256, 1024, 5, 1, 101, 1, 3, -1, 3, 1, -1, -1, 6, 970, 580, 'Cow Net Projector', 983054, 983052, 'Capture Cow', 983054, 983052, 133, 1500, -1, 1, 1, 1, 'spell_cow_net_projector');
+
+        -- Hand of Iruxos
+            REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `attributesEx`, `castingTimeIndex`, `interruptFlags`, `procChance`, `spellLevel`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectMiscValue1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `script_name`) VALUES (34335, 4222, 256, 1024, 5, 1, 101, 1, 3, -1, 41, 1, 1, 0, 1, -1, -1, 1, 11937, 138, 580, 'Hand of Iruxos (Alliance)', 983054, 983052, 'Close Demon Portals.', 983054, 983052, 133, 1500, -1, 1, 1, 1, 'spell_hand_of_iruxos');
+
+        -- Burn Broodguard Eggs
+            REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `attributesEx`, `castingTimeIndex`, `interruptFlags`, `procChance`, `spellLevel`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectMiscValue1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `script_name`) VALUES (34337, 4222, 256, 1024, 5, 1, 101, 1, 3, -1, 41, 1, 1, 4, 1, -1, -1, 1, 90134, 138, 580, 'Burn Eggs', 983054, 983052, 'Burn Broodguard Eggs.', 983054, 983052, 133, 1500, -1, 1, 1, 1, 'spell_burn_broodguard_eggs');
+
+        -- Feed Gryphons
+            REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `dispel`, `attributes`, `castingTimeIndex`, `interruptFlags`, `procChance`, `maxLevel`, `baseLevel`, `spellLevel`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `customFlags`, `script_name`) VALUES (34338, 4222, 2, 1, 65536, 5, 15, 101, 5, 1, 1, 3, 2, -1, -1, 6, 1, 1, 0, 0, -1, 57, 4, 3403, 534, 'Feed Gryphons', 983070, 983070, 'Feed Gryphon.', 983070, 'Recently fed.', 983070, 133, 1500, 1, 1, -1, 1, 1, 1, 128, 'spell_feed_gryphons');
         
         -- +1 Fire weapon damage to attacks
             -- Aura
@@ -5437,3 +5514,9 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
 
     -- Seal of Vengeance
     UPDATE `mangos`.`spell_template` SET `spellIconId`=2292 WHERE  `entry` IN (34308, 34309, 34310, 34311, 34312, 34313, 34314, 34315);
+
+    -- Arcane Blast
+    UPDATE `mangos`.`spell_template` SET `spellIconId`=2294 WHERE  `entry` IN (34339, 34340);
+
+    -- Arcane Barrage
+    UPDATE `mangos`.`spell_template` SET `spellIconId`=3376 WHERE  `entry` IN (34348);
