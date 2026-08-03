@@ -1030,6 +1030,16 @@ void CombatBotBaseAI::PopulateSpellData()
                     if (IsHigherRankSpell(m_spells.mage.pWaterElemental))
                         m_spells.mage.pWaterElemental = pSpellEntry;
                 }
+                else if (pSpellEntry->SpellName[0].find("Arcane Blast") != std::string::npos)
+                {
+                    if (IsHigherRankSpell(m_spells.mage.pArcaneBlast))
+                        m_spells.mage.pArcaneBlast = pSpellEntry;
+                }
+                else if (pSpellEntry->SpellName[0].find("Arcane Barrage") != std::string::npos)
+                {
+                    if (IsHigherRankSpell(m_spells.mage.pArcaneBarrage))
+                        m_spells.mage.pArcaneBarrage = pSpellEntry;
+                }
                 break;
             }
             case CLASS_PRIEST:

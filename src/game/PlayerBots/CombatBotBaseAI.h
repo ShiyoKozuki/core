@@ -516,6 +516,8 @@ public:
             SpellEntry const* pCombustion;
             SpellEntry const* pBrillianceAura;
             SpellEntry const* pWaterElemental;
+            SpellEntry const* pArcaneBlast;
+            SpellEntry const* pArcaneBarrage;
         } mage;
         struct
         {
