@@ -318,12 +318,12 @@ UPDATE `mangos`.`spell_template` SET `effect2`=0, `effectDieSides2`=0, `effectBa
     UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=11 WHERE  `entry`=16900 AND `build`=4878;
     UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=14 WHERE  `entry`=16901 AND `build`=4878;
 
-    -- Natural Weapons (5-25% melee damage in all forms)
-    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=4 WHERE  `entry`=16902 AND `build`=5086;
-    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=9 WHERE  `entry`=16903 AND `build`=5086;
-    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=14 WHERE  `entry`=16904 AND `build`=5086;
-    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=19 WHERE  `entry`=16905 AND `build`=5086;
-    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=24 WHERE  `entry`=16906 AND `build`=5086;
+    -- Natural Weapons (2-10% melee damage in all forms)
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=1 WHERE  `entry`=16902 AND `build`=5086;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=3 WHERE  `entry`=16903 AND `build`=5086;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=5 WHERE  `entry`=16904 AND `build`=5086;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=7 WHERE  `entry`=16905 AND `build`=5086;
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=9 WHERE  `entry`=16906 AND `build`=5086;
 
     -- Thick Hide (3/6/10%)
     UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=2 WHERE  `entry`=16929 AND `build`=5086;
@@ -351,7 +351,7 @@ UPDATE `mangos`.`spell_template` SET `effect2`=0, `effectDieSides2`=0, `effectBa
         `description`='Regenerate $s1% mana per 5 sec.' 
     WHERE  `entry`=16920 AND `build`=4222;
 
-    -- Feral Aggression (Renamed to Druidic Insight)
+    -- Feral Aggression (Renamed to Druidic Insight - +1/2/3/4/5% all stats)
     UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=0, `effectApplyAuraName1`=137, `effectApplyAuraName2`=0, `effectMiscValue1`=-1, 
         `spellIconId`=1487, `name`='Druidic Insight', `description`='Increases your total stats by $s1%.' 
     WHERE  `entry`=16858;

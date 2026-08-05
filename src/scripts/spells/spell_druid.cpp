@@ -178,8 +178,8 @@ struct DruidSavageRoarScript : public AuraScript
             if (Player const* pPlayer = caster->ToPlayer())
                 comboPoints = pPlayer->GetComboPoints();
 
-            if (comboPoints && comboPoints >= 1)
-                duration += comboPoints * 5000; // +5 seconds per combo point
+            if (comboPoints && comboPoints > 1)
+                duration += (comboPoints - 1) * 5000; // +5 seconds per additional combo point beyond 1
         }
 
         return duration;
