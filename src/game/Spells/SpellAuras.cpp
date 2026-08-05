@@ -2282,15 +2282,15 @@ std::pair<unsigned int, float> GetShapeshiftDisplayInfo(ShapeshiftForm form, Uni
     case FORM_TRAVEL:
         if (target->IsPlayer())
         {
-            if (Player::TeamForRace(target->GetRace()) == ALLIANCE)
-            {
-                if (target->GetRace() == RACE_BLOODELF)
-                    display_id = 19479;
-                else
-                    display_id = 632;
-            }
-            else
-                display_id = 632;
+            //if (Player::TeamForRace(target->GetRace()) == ALLIANCE)
+            //{
+            //    if (target->GetRace() == RACE_BLOODELF)
+            //        display_id = 19479;
+            //    else
+            //        display_id = 632;
+            //}
+            //else
+            //    display_id = 632;
         }
         else
             display_id = 632;
