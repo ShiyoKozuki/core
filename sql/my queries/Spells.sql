@@ -1,5 +1,5 @@
 -- 34351 NEXT SPELL
--- 15232 NEXT SKILL_LINE_ABILITY
+-- 15233 NEXT SKILL_LINE_ABILITY
 -- NEXT category 10007
 
 -- skill_line_ability class_mask uses enum CLASSES
@@ -3335,7 +3335,18 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
 
     -- Druid
         -- Savage Roar
-        REPLACE `mangos`.`spell_template` (`entry`, `mechanic`, `attributes`, `attributesEx`, `stances`, `castingTimeIndex`, `procChance`, `baseLevel`, `spellLevel`, `durationIndex`, `powerType`, `manaCost`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectPointsPerComboPoint1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `customFlags`) VALUES (34352, 15, 262160, 1049088, 1, 1, 101, 20, 20, 305, 3, 25, 2, -1, -1, 6, 1, 1, 19, 0, -1, -1, 1, 79, 4, 2865, 'Savage Roar', 4128894, 'Rank 1', 4128894, 'Finishing move that increases physical damage done by $s1%.  Only useable while in Cat Form.  Lasts longer per combo point:\r\n   1 point  : 14 seconds\r\n   2 points: 19 seconds\r\n   3 points: 24 seconds\r\n   4 points: 29 seconds\r\n   5 points: 34 seconds', 4128894, 'Physical damage done increased by $s1%.', 4128894, 133, 1000, 2, 2, -1, 1, 1, 1, 128);
+            -- Rank 1
+                REPLACE `mangos`.`spell_template` (`entry`, `mechanic`, `attributes`, `attributesEx`, `stances`, `castingTimeIndex`, `procChance`, `baseLevel`, `spellLevel`, `durationIndex`, `powerType`, `manaCost`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectPointsPerComboPoint1`, `effectMiscValue1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescription`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `customFlags`, `script_name`) VALUES (34352, 15, 262160, 1049088, 1, 1, 101, 20, 20, 305, 3, 25, 2, -1, -1, 6, 1, 1, 19, 0, -1, -1, 1, 79, 4, 1, 2865, 'Savage Roar', 4128894, 'Rank 1', 4128894, 'Finishing move that increases physical damage done by $s1%.  Only useable while in Cat Form.  Lasts longer per combo point:\r\n   1 point  : 14 seconds\r\n   2 points: 19 seconds\r\n   3 points: 24 seconds\r\n   4 points: 29 seconds\r\n   5 points: 34 seconds', 4128894, 'Physical damage done increased by $s1%.', 4128894, 133, 1000, 2, 2, -1, 1, 1, 1, 128, 'spell_druid_savage_roar');
+
+                -- -- Learn spell(for trainer):
+                -- REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `targets`, `castingTimeIndex`, `procChance`, `rangeIndex`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectTriggerSpell1`, `spellVisual1`, `spellIconId`, `activeIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `descriptionFlags`, `auraDescriptionFlags`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) 
+                -- VALUES (34353, 4222, 1, 262400, 256, 1, 101, 6, -1, -1, 36, 1, 1, -1, 0, -1, -1, 34352, 107, 13, 0, 'Brambles', 7274526, 'Rank 1', 7274526, 7274508, 983052, -1, 1, 1, 1);
+
+                -- -- Trainer
+                -- REPLACE `mangos`.`npc_trainer_template` (`entry`, `spell`, `spellcost`, `reqlevel`) VALUES (17, 34353, 23000, 50);
+
+        -- Skill line ability
+            REPLACE `mangos`.`skill_line_ability` (`id`, `build`, `skill_id`, `spell_id`, `class_mask`, `req_skill_value`, `superseded_by_spell`) VALUES (15233, 5875, 134, 34352, 1024, 1, 0);
 
         -- Soothe Animal (Now Instant cast)
             UPDATE `mangos`.`spell_template` SET `castingTimeIndex`=1 WHERE entry IN (2908, 8955, 9901);

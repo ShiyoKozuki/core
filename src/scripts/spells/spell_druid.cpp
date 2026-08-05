@@ -167,6 +167,30 @@ SpellScript* GetScript_DruidSwiftmend(SpellEntry const*)
     return new DruidSwiftmendScript();
 }
 
+struct DruidSavageRoarScript : public AuraScript
+{
+    int32 OnDurationCalculate(WorldObject const* caster, Unit const* target, int32 duration)
+    {
+        if (caster)
+        {
+            uint8 comboPoints = 0;
+
+            if (Player const* pPlayer = caster->ToPlayer())
+                comboPoints = pPlayer->GetComboPoints();
+
+            if (comboPoints && comboPoints >= 1)
+                duration += comboPoints * 5000; // +5 seconds per combo point
+        }
+
+        return duration;
+    }
+};
+
+AuraScript* GetScript_DruidSavageRoar(SpellEntry const*)
+{
+    return new DruidSavageRoarScript();
+}
+
 void AddSC_druid_spell_scripts()
 {
     Script* newscript;
@@ -184,5 +208,10 @@ void AddSC_druid_spell_scripts()
     newscript = new Script;
     newscript->Name = "spell_druid_swiftmend";
     newscript->GetSpellScript = &GetScript_DruidSwiftmend;
+    newscript->RegisterSelf();
+
+    newscript = new Script;
+    newscript->Name = "spell_druid_savage_roar";
+    newscript->GetAuraScript = &GetScript_DruidSavageRoar;
     newscript->RegisterSelf();
 }
