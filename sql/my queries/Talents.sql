@@ -79,11 +79,14 @@
     -- Elemental Precision (Added Flurry, Living Bomb, Meteor, and Frost Bomb)
     UPDATE `mangos`.`spell_template` SET `effectItemType1`=811761402615 WHERE  `entry` IN (29438, 29439, 29440);
 
-    -- Clearcasting (Added Flurry, Living Bomb, Meteor, and Frost Bomb)
-    UPDATE `mangos`.`spell_template` SET `effectItemType1`=262005594871 WHERE  `entry`=12536 AND `build`=5464;
+    -- Arcane Focus (Added Arcane Blast and Arcane Barrage)
+    UPDATE `mangos`.`spell_template` SET `effectItemType1`=3298537242624 WHERE entry IN (11222, 12839, 12840, 12841, 12842);
 
-    -- Shatter (Added Flurry, Living Bomb, Meteor, and Frost Bomb)
-    UPDATE `mangos`.`spell_template` SET `effectItemType1`=811761408759 WHERE  entry IN (11170, 12982, 12983, 12984, 12985) AND `build`=5464;
+    -- Clearcasting (Added Flurry, Living Bomb, Meteor, Arcane Blast, Arcane Barrage and Frost Bomb)
+    UPDATE `mangos`.`spell_template` SET `effectItemType1`=3560540478199 WHERE  `entry`=12536 AND `build`=5464;
+
+    -- Shatter (Added Flurry, Living Bomb, Meteor, Arcane Blast, Arcane Barrage and Frost Bomb)
+    UPDATE `mangos`.`spell_template` SET `effectItemType1`=4110296292087 WHERE  entry IN (11170, 12982, 12983, 12984, 12985) AND `build`=5464;
 
     -- Frost Channeling (Added Flurry Summon Water Elemental and Frost Bomb)
     UPDATE `mangos`.`spell_template` SET `effectItemType1`=768799670272 WHERE  entry IN(11160, 12518, 12519) AND `build`=5464;
@@ -349,23 +352,23 @@ UPDATE `mangos`.`spell_template` SET `effect2`=0, `effectDieSides2`=0, `effectBa
     WHERE  `entry`=16920 AND `build`=4222;
 
     -- Feral Aggression (Renamed to Druidic Insight)
-    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=1, `effectApplyAuraName1`=137, `effectApplyAuraName2`=0, `effectMiscValue1`=-1, 
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=0, `effectApplyAuraName1`=137, `effectApplyAuraName2`=0, `effectMiscValue1`=-1, 
         `spellIconId`=1487, `name`='Druidic Insight', `description`='Increases your total stats by $s1%.' 
     WHERE  `entry`=16858;
 
-    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=3, `effectApplyAuraName1`=137, `effectApplyAuraName2`=0, `effectMiscValue1`=-1, 
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=1, `effectApplyAuraName1`=137, `effectApplyAuraName2`=0, `effectMiscValue1`=-1, 
         `spellIconId`=1487, `name`='Druidic Insight', `description`='Increases your total stats by $s1%.' 
     WHERE  `entry`=16859;
 
-    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=5, `effectApplyAuraName1`=137, `effectApplyAuraName2`=0, `effectMiscValue1`=-1, 
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=2, `effectApplyAuraName1`=137, `effectApplyAuraName2`=0, `effectMiscValue1`=-1, 
         `spellIconId`=1487, `name`='Druidic Insight', `description`='Increases your total stats by $s1%.' 
     WHERE  `entry`=16860;
 
-    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=7, `effectApplyAuraName1`=137, `effectApplyAuraName2`=0, `effectMiscValue1`=-1, 
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=3, `effectApplyAuraName1`=137, `effectApplyAuraName2`=0, `effectMiscValue1`=-1, 
         `spellIconId`=1487, `name`='Druidic Insight', `description`='Increases your total stats by $s1%.' 
     WHERE  `entry`=16861;
 
-    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=9, `effectApplyAuraName1`=137, `effectApplyAuraName2`=0, `effectMiscValue1`=-1, 
+    UPDATE `mangos`.`spell_template` SET `effectBasePoints1`=4, `effectApplyAuraName1`=137, `effectApplyAuraName2`=0, `effectMiscValue1`=-1, 
         `spellIconId`=1487, `name`='Druidic Insight', `description`='Increases your total stats by $s1%.' 
     WHERE  `entry`=16862;
 

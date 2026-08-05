@@ -100,8 +100,48 @@ SpellScript* GetScript_RogueCloakAndDagger(SpellEntry const*)
     return new RogueCloakAndDaggerScript();
 }
 
+
+struct RogueShadowArtsIchiScript : SpellScript
+{
+    SpellCastResult OnCheckCast(Spell* spell, bool /*strict*/) const final
+    {
+        if (Unit* pPlayer = spell->m_casterUnit)
+        {
+            if (!pPlayer->IsInCombat())
+                return SPELL_FAILED_FIZZLE;
+        }
+        else
+        {
+            return SPELL_FAILED_FIZZLE;
+        }
+
+        return SPELL_CAST_OK;
+    }
+
+};
+
+SpellScript* GetScript_RogueShadowArtsIchi(SpellEntry const*)
+{
+    return new RogueShadowArtsIchiScript();
+}
+
 struct RogueShadowArtsNiScript : SpellScript
 {
+    SpellCastResult OnCheckCast(Spell* spell, bool /*strict*/) const final
+    {
+        if (Unit* pPlayer = spell->m_casterUnit)
+        {
+            if (!pPlayer->IsInCombat())
+                return SPELL_FAILED_FIZZLE;
+        }
+        else
+        {
+            return SPELL_FAILED_FIZZLE;
+        }
+
+        return SPELL_CAST_OK;
+    }
+
     bool OnEffectExecute(Spell* spell, SpellEffectIndex effIdx) const final
     {
         if (effIdx == EFFECT_INDEX_0 && spell->m_casterUnit && spell->GetCaster())
@@ -124,6 +164,21 @@ SpellScript* GetScript_RogueShadowArtsNi(SpellEntry const*) {
 
 struct RogueShadowArtsSanScript : SpellScript
 {
+    SpellCastResult OnCheckCast(Spell* spell, bool /*strict*/) const final
+    {
+        if (Unit* pPlayer = spell->m_casterUnit)
+        {
+            if (!pPlayer->IsInCombat())
+                return SPELL_FAILED_FIZZLE;
+        }
+        else
+        {
+            return SPELL_FAILED_FIZZLE;
+        }
+
+        return SPELL_CAST_OK;
+    }
+
     bool OnEffectExecute(Spell* spell, SpellEffectIndex effIdx) const final
     {
         if (effIdx == EFFECT_INDEX_0 && spell->m_casterUnit && spell->GetCaster())
@@ -140,7 +195,8 @@ struct RogueShadowArtsSanScript : SpellScript
     }
 };
 
-SpellScript* GetScript_RogueShadowArtsSan(SpellEntry const*) {
+SpellScript* GetScript_RogueShadowArtsSan(SpellEntry const*)
+{
     return new RogueShadowArtsSanScript();
 }
 
@@ -372,6 +428,11 @@ void AddSC_rogue_spell_scripts()
     newscript = new Script;
     newscript->Name = "spell_rogue_cloak_and_dagger";
     newscript->GetSpellScript = &GetScript_RogueCloakAndDagger;
+    newscript->RegisterSelf();
+
+    newscript = new Script;
+    newscript->Name = "spell_rogue_shadow_arts_ichi";
+    newscript->GetSpellScript = &GetScript_RogueShadowArtsIchi;
     newscript->RegisterSelf();
 
     newscript = new Script;

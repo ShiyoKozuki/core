@@ -1,3 +1,51 @@
+-- Cratures
+    SET
+        @UNIT_FLAG_NONE                  = 0x00000000,
+        @UNIT_FLAG_SERVER_CONTROLLED     = 0x00000001,           -- Set only when unit movement is moved by server together with @UNIT_FLAG_STUNNED. Only set to units controlled by client. Client function CGUnit_C::IsClientControlled returns false when set for owner.
+        @UNIT_FLAG_SPAWNING              = 0x00000002,           -- Not attackable, set when creature starts to cast spells with SPELL_EFFECT_SPAWN and cast time, removed when spell hits caster.
+        @UNIT_FLAG_REMOVE_CLIENT_CONTROL = 0x00000004,           -- This is a legacy flag used to disable player movement while controlling other units, SMSG_CLIENT_CONTROL replaces this functionality clientside now. Always paired with @UNIT_FLAG_TAXI_FLIGHT.
+        @UNIT_FLAG_PLAYER_CONTROLLED     = 0x00000008,           -- Added to players, pets, totems, guardians, companions, charms, any units associated with players.
+        @UNIT_FLAG_PET_RENAME            = 0x00000010,           -- Pet can be renamed by owner. Moved to UNIT_FIELD_BYTES_2,2 in TBC+.
+        @UNIT_FLAG_PET_ABANDON           = 0x00000020,           -- Pet can be abandoned by owner. Moved to UNIT_FIELD_BYTES_2,2 in TBC+.
+        @UNIT_FLAG_PLUS_MOB              = 0x00000040,           -- Creature rank > 0, confirmed in 1.8 sniffs, client uses it in Script::UnitIsPlusMob.
+        @UNIT_FLAG_NOT_ATTACKABLE_1      = 0x00000080,           -- Most likely used by Beastmaster cheat.
+        @UNIT_FLAG_IMMUNE_TO_PLAYER      = 0x00000100,           -- Cannot be attacked by players. It also prevents the unit from attacking other players.
+        @UNIT_FLAG_IMMUNE_TO_NPC         = 0x00000200,           -- Cannot be attacked by creatures. It also prevents the unit from attacking other creatures.
+        @UNIT_FLAG_LOOTING               = 0x00000400,           -- Displays loot animation.
+        @UNIT_FLAG_PET_IN_COMBAT         = 0x00000800,           -- Something to do with combat but it's not clear what.
+        @UNIT_FLAG_PVP                   = 0x00001000,           -- Makes player attackable by enemy faction players. Creatures can be assisted by friendly players and will flag attackers for PvP as well.
+        @UNIT_FLAG_SILENCED              = 0x00002000,           -- Prevents casting spells that have SPELL_PREVENTION_TYPE_SILENCE. Added by SPELL_AURA_MOD_SILENCE.
+        @UNIT_FLAG_UNK_14                = 0x00004000,           -- Never seen in sniffs.
+        @UNIT_FLAG_USE_SWIM_ANIMATION    = 0x00008000,           -- Without it units walk on the sea floor instead of swimming.
+        @UNIT_FLAG_NON_ATTACKABLE_2      = 0x00010000,           -- Removes attackable icon, if on yourself, cannot assist self but can cast TARGET_UNIT_CASTER spells. Added by SPELL_AURA_MOD_UNATTACKABLE.
+        @UNIT_FLAG_PACIFIED              = 0x00020000,           -- Prevents melee attacks and casting spells that have SPELL_PREVENTION_TYPE_PACIFY. Added by SPELL_AURA_MOD_PACIFY.
+        @UNIT_FLAG_STUNNED               = 0x00040000,           -- Turn and strafe movement disabled. Added by SPELL_AURA_MOD_STUN.
+        @UNIT_FLAG_IN_COMBAT             = 0x00080000,           -- Unit is engaged in combat.
+        @UNIT_FLAG_TAXI_FLIGHT           = 0x00100000,           -- Unit is on taxi, paired with a duplicate loss of client control packet (likely a legacy serverside hack). Disables any spell casts not allowed in taxi flight client-side.
+        @UNIT_FLAG_DISARMED              = 0x00200000,           -- Prevents using abilities that require a weapon. Added by SPELL_AURA_MOD_DISARM.
+        @UNIT_FLAG_CONFUSED              = 0x00400000,           -- Unit is a subject to confused movement, movement checks disabled, paired with loss of client control packet.
+        @UNIT_FLAG_FLEEING               = 0x00800000,           -- Unit is a subject to fleeing movement, movement checks disabled, paired with loss of client control packet.
+        @UNIT_FLAG_POSSESSED             = 0x01000000,           -- Unit is under remote control by another unit, movement checks disabled, paired with loss of client control packet. New master is allowed to use melee attack and can't select this unit via mouse in the world (as if it was own character).
+        @UNIT_FLAG_NOT_SELECTABLE        = 0x02000000,           -- Unit cannot be selected, targeted with negative spells, attacked or interacted with. Can still be targeted with positive spells.
+        @UNIT_FLAG_SKINNABLE             = 0x04000000,           -- Unit can be skinned and then looted. Can be applied to players too inside battlegrounds.
+        @UNIT_FLAG_AURAS_VISIBLE         = 0x08000000,           -- Detect Magic. Added by SPELL_AURA_AURAS_VISIBLE.
+        @UNIT_FLAG_UNK_28                = 0x10000000,           -- Never seen in sniffs.
+        @UNIT_FLAG_PREVENT_ANIM          = 0x20000000,           -- Prevent automatically playing emotes from parsing chat text, for example "lol" in /say, ending message with ? or !, or using /yell.
+        @UNIT_FLAG_SHEATHE               = 0x40000000,           -- Never seen in sniffs.
+        @UNIT_FLAG_IMMUNE                = 0x80000000;           -- Immune to damage. It prevents interacting with some GameObjects like the WSG flag.
+
+-- Quests
+    SET
+        @QUEST_TYPE_ELITE               = 1,
+        @QUEST_TYPE_LIFE                = 21,
+        @QUEST_TYPE_PVP                 = 41,
+        @QUEST_TYPE_RAID                = 62,
+        @QUEST_TYPE_DUNGEON             = 81,
+        -- tbc?
+        @QUEST_TYPE_WORLD_EVENT         = 82,
+        @QUEST_TYPE_LEGENDARY           = 83,
+        @QUEST_TYPE_ESCORT              = 84;
+
 -- Spells
     SET
         @SPELL_SCHOOL_NORMAL  = 0,
@@ -23,36 +71,33 @@
 
 -- Used with auraName SPELL_AURA_ADD_PCT_MODIFIER = 108
 -- Value for effectMiscValue (Literal interger, i.e. 14 for mp cost reduction, NOT converted to hex or w/e)
--- enum SpellModOp
--- {
---     SPELLMOD_DAMAGE                 = 0,
---     SPELLMOD_DURATION               = 1,
---     SPELLMOD_THREAT                 = 2,
---     SPELLMOD_ATTACK_POWER           = 3,
---     SPELLMOD_CHARGES                = 4,
---     SPELLMOD_RANGE                  = 5,
---     SPELLMOD_RADIUS                 = 6,
---     SPELLMOD_CRITICAL_CHANCE        = 7,
---     SPELLMOD_ALL_EFFECTS            = 8,
---     SPELLMOD_NOT_LOSE_CASTING_TIME  = 9,
---     SPELLMOD_CASTING_TIME           = 10,
---     SPELLMOD_COOLDOWN               = 11,
---     SPELLMOD_SPEED                  = 12,
---     SPELLMOD_COST                   = 14,
---     SPELLMOD_CRIT_DAMAGE_BONUS      = 15,
---     SPELLMOD_RESIST_MISS_CHANCE     = 16,
---     SPELLMOD_JUMP_TARGETS           = 17,
---     SPELLMOD_CHANCE_OF_SUCCESS      = 18,                   // Only used with SPELL_AURA_ADD_FLAT_MODIFIER and affects proc spells
---     SPELLMOD_ACTIVATION_TIME        = 19,
---     SPELLMOD_EFFECT_PAST_FIRST      = 20,
---     SPELLMOD_GLOBAL_COOLDOWN        = 21,
---     SPELLMOD_DOT                    = 22,
---     SPELLMOD_HASTE                  = 23,
---     SPELLMOD_SPELL_BONUS_DAMAGE     = 24,
---     SPELLMOD_MULTIPLE_VALUE         = 27,
---     SPELLMOD_RESIST_DISPEL_CHANCE   = 28,
---     MAX_SPELLMOD                    = 29,
--- };
+SET
+    @SPELLMOD_DAMAGE                 = 0,
+    @SPELLMOD_DURATION               = 1,
+    @SPELLMOD_THREAT                 = 2,
+    @SPELLMOD_ATTACK_POWER           = 3,
+    @SPELLMOD_CHARGES                = 4,
+    @SPELLMOD_RANGE                  = 5,
+    @SPELLMOD_RADIUS                 = 6,
+    @SPELLMOD_CRITICAL_CHANCE        = 7,
+    @SPELLMOD_ALL_EFFECTS            = 8,
+    @SPELLMOD_NOT_LOSE_CASTING_TIME  = 9,
+    @SPELLMOD_CASTING_TIME           = 10,
+    @SPELLMOD_COOLDOWN               = 11,
+    @SPELLMOD_SPEED                  = 12,
+    @SPELLMOD_COST                   = 14,
+    @SPELLMOD_CRIT_DAMAGE_BONUS      = 15,
+    @SPELLMOD_RESIST_MISS_CHANCE     = 16,
+    @SPELLMOD_JUMP_TARGETS           = 17,
+    @SPELLMOD_CHANCE_OF_SUCCESS      = 18, -- Only used with SPELL_AURA_ADD_FLAT_MODIFIER and affects proc spells
+    @SPELLMOD_ACTIVATION_TIME        = 19,
+    @SPELLMOD_EFFECT_PAST_FIRST      = 20,
+    @SPELLMOD_GLOBAL_COOLDOWN        = 21,
+    @SPELLMOD_DOT                    = 22,
+    @SPELLMOD_HASTE                  = 23,
+    @SPELLMOD_SPELL_BONUS_DAMAGE     = 24,
+    @SPELLMOD_MULTIPLE_VALUE         = 27,
+    @SPELLMOD_RESIST_DISPEL_CHANCE   = 28;
 
     SET
         @DURATION_MAX_10_SEC      = 1,

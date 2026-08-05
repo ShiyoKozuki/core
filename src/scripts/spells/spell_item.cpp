@@ -911,7 +911,7 @@ struct PortalDeviceScript : public SpellScript
         if (!caster)
             return SPELL_FAILED_BAD_TARGETS;
 
-        GameObject* portal = caster->FindNearestGameObject(OBJECT_DEMON_PORTAL, 5.0f);
+        GameObject* portal = caster->FindNearestGameObject(OBJECT_DEMON_PORTAL, 10.0f);
         if (!portal)
             return SPELL_FAILED_BAD_TARGETS;
 
@@ -926,7 +926,7 @@ struct PortalDeviceScript : public SpellScript
             if (!pPlayer)
                 return false;
 
-            GameObject* portal = pPlayer->FindNearestGameObject(OBJECT_DEMON_PORTAL, 5.0f);
+            GameObject* portal = pPlayer->FindNearestGameObject(OBJECT_DEMON_PORTAL, 10.0f);
             if (portal)
             {
                 portal->Despawn();
@@ -1002,6 +1002,316 @@ SpellScript* GetScript_CowNetProjector(SpellEntry const*)
 {
     return new CowNetProjectorScript();
 }
+
+static constexpr uint32 DemonPortals[] = {177243, 177365, 177369, 177397, 177398, 177399, 177400, 177366, 177367, 177368};
+
+struct HandOfIruxosScript : public SpellScript
+{
+    SpellCastResult OnCheckCast(Spell* spell, bool /*strict*/) const final
+    {
+        Unit* caster = spell->m_casterUnit;
+
+        if (!caster)
+            return SPELL_FAILED_BAD_TARGETS;
+
+        GameObject* portal = nullptr;
+
+        for (uint32 entry : DemonPortals)
+        {
+            portal = caster->FindNearestGameObject(entry, 10.0f);
+            if (portal)
+                break;
+        }
+
+        if (!portal)
+            return SPELL_FAILED_BAD_TARGETS;
+
+        return SPELL_CAST_OK;
+    }
+
+    bool OnEffectExecute(Spell* spell, SpellEffectIndex effIdx) const final
+    {
+        if (effIdx == EFFECT_INDEX_0)
+        {
+            Player* pPlayer = spell->m_casterUnit->ToPlayer();
+            if (!pPlayer)
+                return false;
+
+            GameObject* portal = nullptr;
+
+            for (uint32 entry : DemonPortals)
+            {
+                portal = pPlayer->FindNearestGameObject(entry, 10.0f);
+                if (portal)
+                    break;
+            }
+
+            if (portal)
+            {
+                portal->Despawn();
+                portal->SetLootState(GO_JUST_DEACTIVATED);
+            }
+        }
+
+        return true;
+    }
+};
+
+SpellScript* GetScript_HandOfIruxos(SpellEntry const*)
+{
+    return new HandOfIruxosScript();
+}
+
+enum
+{
+    OBJECT_BROODGUARD_EGGS = 987690,
+};
+
+struct BurnBroodGuardEggsScript : public SpellScript
+{
+    SpellCastResult OnCheckCast(Spell* spell, bool /*strict*/) const final
+    {
+        Unit* caster = spell->m_casterUnit;
+
+        if (!caster)
+            return SPELL_FAILED_BAD_TARGETS;
+
+        GameObject* portal = caster->FindNearestGameObject(OBJECT_BROODGUARD_EGGS, 10.0f);
+        if (!portal)
+            return SPELL_FAILED_BAD_TARGETS;
+
+        return SPELL_CAST_OK;
+    }
+
+    bool OnEffectExecute(Spell* spell, SpellEffectIndex effIdx) const final
+    {
+        if (effIdx == EFFECT_INDEX_0)
+        {
+            Player* pPlayer = spell->m_casterUnit->ToPlayer();
+            if (!pPlayer)
+                return false;
+
+            GameObject* egg = pPlayer->FindNearestGameObject(OBJECT_BROODGUARD_EGGS, 10.0f);
+            if (egg)
+            {
+                egg->Despawn();
+                egg->SetLootState(GO_JUST_DEACTIVATED);
+            }
+        }
+
+        return true;
+    }
+};
+
+SpellScript* GetScript_BurnBroodGuardEggs(SpellEntry const*)
+{
+    return new BurnBroodGuardEggsScript();
+}
+
+enum
+{
+    NPC_GRYPHON = 2658,
+    SPELL_FEED_GRYPHON = 34338,
+};
+
+struct FeedGryphonsScript : public SpellScript
+{
+    SpellCastResult OnCheckCast(Spell* spell, bool /*strict*/) const final
+    {
+        if (Unit* pTarget = spell->m_targets.getUnitTarget())
+        {
+            if (pTarget->GetEntry() != NPC_GRYPHON || pTarget->IsDead() || pTarget->HasAura(SPELL_FEED_GRYPHON))
+                return SPELL_FAILED_BAD_TARGETS;
+        }
+        else
+        {
+            return SPELL_FAILED_BAD_TARGETS;
+        }
+
+        return SPELL_CAST_OK;
+    }
+
+    bool OnEffectExecute(Spell* spell, SpellEffectIndex effIdx) const final
+    {
+        if (effIdx == EFFECT_INDEX_0)
+        {
+            Player* pPlayer = spell->m_casterUnit->ToPlayer();
+            if (!pPlayer)
+                return false;
+
+            Unit* pTarget = spell->m_targets.getUnitTarget();
+            if (!pTarget)
+                return false;
+
+            pPlayer->KilledMonsterCredit(NPC_GRYPHON, pTarget->GetObjectGuid());
+        }
+
+        return true;
+    }
+};
+
+SpellScript* GetScript_FeedGryphons(SpellEntry const*)
+{
+    return new FeedGryphonsScript();
+}
+
+enum
+{
+    OBJECT_ALTAR_1 = 987694,
+    OBJECT_ALTAR_2 = 987695,
+    OBJECT_ALTAR_3 = 987696,
+    DUMMY_CREATURE_1 = 3197,
+    DUMMY_CREATURE_2 = 3198,
+    DUMMY_CREATURE_3 = 3199,
+};
+
+
+struct RitualOfShadraScript : public SpellScript
+{
+    SpellCastResult OnCheckCast(Spell* spell, bool /*strict*/) const final
+    {
+        Unit* caster = spell->m_casterUnit;
+
+        if (!caster)
+            return SPELL_FAILED_BAD_TARGETS;
+
+        GameObject* altar_1 = caster->FindNearestGameObject(OBJECT_ALTAR_1, 10.0f);
+        GameObject* altar_2 = caster->FindNearestGameObject(OBJECT_ALTAR_2, 10.0f);
+        GameObject* altar_3 = caster->FindNearestGameObject(OBJECT_ALTAR_3, 10.0f);
+
+        if (!altar_1 && !altar_2 && !altar_3)
+            return SPELL_FAILED_BAD_TARGETS;
+
+        return SPELL_CAST_OK;
+    }
+
+    bool OnEffectExecute(Spell* spell, SpellEffectIndex effIdx) const final
+    {
+        if (effIdx == EFFECT_INDEX_0)
+        {
+            Player* pPlayer = spell->m_casterUnit->ToPlayer();
+            if (!pPlayer)
+                return false;
+
+            GameObject* altar_1 = pPlayer->FindNearestGameObject(OBJECT_ALTAR_1, 10.0f);
+            GameObject* altar_2 = pPlayer->FindNearestGameObject(OBJECT_ALTAR_2, 10.0f);
+            GameObject* altar_3 = pPlayer->FindNearestGameObject(OBJECT_ALTAR_3, 10.0f);
+
+            if (altar_1)
+                pPlayer->KilledMonsterCredit(DUMMY_CREATURE_1, altar_1->GetObjectGuid());
+            else if (altar_2)
+                pPlayer->KilledMonsterCredit(DUMMY_CREATURE_2, altar_2->GetObjectGuid());
+            else if (altar_3)   
+            pPlayer->KilledMonsterCredit(DUMMY_CREATURE_3, altar_3->GetObjectGuid());
+        }
+
+        return true;
+    }
+};
+
+SpellScript* GetScript_RitualOfShadra(SpellEntry const*)
+{
+    return new RitualOfShadraScript();
+}
+
+enum
+{
+    NPC_PRIMITIVE_OWLBEAST = 2928
+};
+
+struct DimensionalSpiritRipperScript : public SpellScript
+{
+    SpellCastResult OnCheckCast(Spell* spell, bool /*strict*/) const final
+    {
+        if (Unit* pTarget = spell->m_targets.getUnitTarget())
+        {
+            if (pTarget->GetEntry() != NPC_PRIMITIVE_OWLBEAST || pTarget->IsAlive())
+                return SPELL_FAILED_BAD_TARGETS;
+        }
+        else
+        {
+            return SPELL_FAILED_BAD_TARGETS;
+        }
+
+        return SPELL_CAST_OK;
+    }
+
+    bool OnEffectExecute(Spell* spell, SpellEffectIndex effIdx) const final
+    {
+        if (effIdx == EFFECT_INDEX_0)
+        {
+            Player* pPlayer = spell->m_casterUnit->ToPlayer();
+            if (!pPlayer)
+                return false;
+
+            Unit* pTarget = spell->m_targets.getUnitTarget();
+            if (!pTarget)
+                return false;
+
+            // Depawn Primitive Owlbeasts corpse
+            Creature* pCreature = pTarget->ToCreature();
+            if (pCreature)
+                pCreature->ForcedDespawn();
+        }
+
+        return true;
+    }
+};
+
+SpellScript* GetScript_DimensionalSpiritRipper(SpellEntry const*)
+{
+    return new DimensionalSpiritRipperScript();
+}
+
+enum
+{
+    NPC_SAVAGE_OWLBEAST = 2929
+};
+
+struct DwarvenDynamiteScript : public SpellScript
+{
+    SpellCastResult OnCheckCast(Spell* spell, bool /*strict*/) const final
+    {
+        if (Unit* pTarget = spell->m_targets.getUnitTarget())
+        {
+            if (pTarget->GetEntry() != NPC_SAVAGE_OWLBEAST || pTarget->GetHealthPercent() > 25.0f || pTarget->IsDead())
+                return SPELL_FAILED_BAD_TARGETS;
+        }
+        else
+        {
+            return SPELL_FAILED_BAD_TARGETS;
+        }
+
+        return SPELL_CAST_OK;
+    }
+
+    bool OnEffectExecute(Spell* spell, SpellEffectIndex effIdx) const final
+    {
+        if (effIdx == EFFECT_INDEX_0)
+        {
+            Player* pPlayer = spell->m_casterUnit->ToPlayer();
+            if (!pPlayer)
+                return false;
+
+            Unit* pTarget = spell->m_targets.getUnitTarget();
+            if (!pTarget)
+                return false;
+
+            pPlayer->KilledMonsterCredit(NPC_SAVAGE_OWLBEAST, pTarget->GetObjectGuid());
+
+            if (pTarget->IsAlive())
+                pPlayer->DealDamage(pTarget, pTarget->GetHealth(), nullptr, DIRECT_DAMAGE, SPELL_SCHOOL_MASK_NORMAL, nullptr, false);
+        }
+
+        return true;
+    }
+};
+
+SpellScript* GetScript_DwarvenDynamite(SpellEntry const*)
+{
+    return new DwarvenDynamiteScript();
+}
+
 
 void AddSC_item_spell_scripts()
 {
@@ -1183,7 +1493,37 @@ void AddSC_item_spell_scripts()
     newscript->RegisterSelf();
 
     newscript = new Script;
-    newscript->Name = "cow_net_projector";
+    newscript->Name = "spell_cow_net_projector";
     newscript->GetSpellScript = &GetScript_CowNetProjector;
+    newscript->RegisterSelf();
+
+    newscript = new Script;
+    newscript->Name = "spell_hand_of_iruxos";
+    newscript->GetSpellScript = &GetScript_HandOfIruxos;
+    newscript->RegisterSelf();
+
+    newscript = new Script;
+    newscript->Name = "spell_burn_broodguard_eggs";
+    newscript->GetSpellScript = &GetScript_BurnBroodGuardEggs;
+    newscript->RegisterSelf();
+
+    newscript = new Script;
+    newscript->Name = "spell_feed_gryphons";
+    newscript->GetSpellScript = &GetScript_FeedGryphons;
+    newscript->RegisterSelf();
+
+    newscript = new Script;
+    newscript->Name = "spell_ritual_of_shadra";
+    newscript->GetSpellScript = &GetScript_RitualOfShadra;
+    newscript->RegisterSelf();
+
+    newscript = new Script;
+    newscript->Name = "spell_dimensional_spirit_ripper";
+    newscript->GetSpellScript = &GetScript_DimensionalSpiritRipper;
+    newscript->RegisterSelf();
+
+    newscript = new Script;
+    newscript->Name = "spell_dwarven_dynamite";
+    newscript->GetSpellScript = &GetScript_DwarvenDynamite;
     newscript->RegisterSelf();
 }

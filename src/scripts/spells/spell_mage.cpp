@@ -433,24 +433,19 @@ AuraScript* GetScript_MageWaterJet(SpellEntry const*)
     return new MageWaterJetScript();
 }
 
+enum
+{
+    AURA_ARCANE_BLAST = 34340
+};
+
 struct MageArcaneBarrageScript : SpellScript
 {
-    enum
+    bool OnEffectExecute(Spell* spell, SpellEffectIndex effIdx) const final
     {
-        SPELL_IGNITE_DOT = 12654
-    };
+        if (effIdx == EFFECT_INDEX_0 && spell->m_casterUnit && spell->GetCaster())
+            spell->m_casterUnit->RemoveAurasDueToSpell(AURA_ARCANE_BLAST);
 
-
-    SpellCastResult OnCheckCast(Spell* spell, bool /*strict*/) const final
-    {
-#if SUPPORTED_CLIENT_BUILD > CLIENT_BUILD_1_10_2
-        if (Unit* target = spell->m_targets.getUnitTarget())
-        {
-            if (target->HasAura(SPELL_IGNITE_DOT))
-                return SPELL_CAST_OK;
-        }
-#endif
-        return SPELL_FAILED_TARGET_AURASTATE;
+        return true;
     }
 };
 
