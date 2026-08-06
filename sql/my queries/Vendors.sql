@@ -205,7 +205,7 @@ INSERT IGNORE `mangos`.`npc_vendor` (`entry`, `item`, `condition_id`) VALUES (10
 
 -- Gnomergan Quartermaster
     -- NPC
-    REPLACE `mangos`.`creature_template` (`entry`, `name`, `subname`, `level_min`, `level_max`, `faction`, `npc_flags`, `gossip_menu_id`, `display_id1`, `display_scale1`, `mount_display_id`, `type`, `unit_class`, `health_multiplier`, `armor_multiplier`, `damage_multiplier`, `equipment_id`, `static_flags1`, `flags_extra`) VALUES (90058, 'Master Tinker Trini ', 'Gnomergan Quartermaster', 24, 24, 875, 4, 4137, 10571, 1.15, 2786, 7, 1, 1.02, 2, 0.9, 11028, 138936390, 2);
+    REPLACE `mangos`.`creature_template` (`entry`, `name`, `subname`, `level_min`, `level_max`, `faction`, `npc_flags`, `gossip_menu_id`, `display_id1`, `display_scale1`, `mount_display_id`, `type`, `unit_class`, `health_multiplier`, `armor_multiplier`, `damage_multiplier`, `equipment_id`, `static_flags1`, `flags_extra`) VALUES (90058, 'Master Tinker Trini ', 'Gnomergan Quartermaster', 24, 24, 875, 4, 4137, 10571, 1.15, 14376, 7, 1, 1.02, 2, 0.9, 11028, 138936390, 2);
 
     REPLACE `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000100, 90058, 0, 0, 0, 0, 0, -4828.81, -1157.43, 502.209, 4.30891, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
 

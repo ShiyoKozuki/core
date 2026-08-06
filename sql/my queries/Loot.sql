@@ -101,7 +101,7 @@ UPDATE mangos . creature_loot_template
 SET ChanceOrQuestChance = 0.01
 WHERE item IN(18335, 11737, 11733, 11734, 11732, 11736, 18333, 18332, 18334, 17683, 17414, 17682, 18600, 17413, 22393, 19230, 19236, 
 19232, 19234, 19233, 19235, 19231, 19278, 19280, 19279, 19281, 19284, 19282, 19283, 19259, 19260, 19261, 19262, 19263, 19264, 19265, 
-19269, 19270, 19275, 19273, 19271, 19272, 19274, 18255, 8167);
+19269, 19270, 19275, 19273, 19271, 19272, 19274, 18255, 8167, 8492);
 
 -- 1%
 UPDATE mangos . creature_loot_template
@@ -180,6 +180,7 @@ WHERE item IN(8153) AND ChanceOrQuestChance > 5;
     UPDATE mangos . creature_loot_template
     SET ChanceOrQuestChance = 0.01
     WHERE item IN(4500, 3914, 1725, 5575, 804, 857, 5574, 5573, 856);
+    
 
 
 -- High Value (10s+) Gray mob drops

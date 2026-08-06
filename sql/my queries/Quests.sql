@@ -1,72 +1,20 @@
--- Quests
--- South STV
--- Azshara - Wildlife: (8759, 8762, 8760, 8761) Ooze: 8766 Turtles: (6352, 6369) Hippo: 6377 Cracklaws: (6135, 6370, 6350, 6137) Murloc: 6138 Hydra: 6348 Chimaera: (8763, 8764) Shark: 12125 Giant Strider: 6144
--- Deadwind Pass
--- Winterspring
--- Silithus
--- Alterac Mountains Lord Aliden Perenolde quest should be alterac mountains for zone
--- WPL (Tomb in Sorrow Hill, Weeping Cave [Slimes / Living Elementals])
--- EPL (Nathanos horde quests)
--- Ashenvale (East - High level)
--- Use 9666 and 9665 for rewards somewhere
--- Add rewards to Blasted Lands quests, end of ogre chain. Maybe some other chains
--- Quests that start from random drops from mobs (5% drop chance)
--- Quests that start from a drop from random named mobs (like TBC)
--- Quests that start at random clickable objects
--- Add new custom item rewards to a lot of quests (especially end of chains missing rewards)
--- Hydraxian waterlolrds rep vendor and killing stuff here gives rep? or just eles in general and https://www.wowhead.com/classic/quest=3507/betrayed 
--- Desolace quest for https://www.wowhead.com/classic/npc=5760/lord-azrethoc (Flag quest as Elite)
--- Arathi Stormgarde quest add horde quest - > https://www.wowhead.com/classic/quest=680/the-real-threat#comments
--- Add loot rewards to Greatest Scott! (Horde badland quest rewards?)
--- Blasted Lands unused mine by Nethergarde Keep
--- Tanaris Breadcrumb to Zalashji (8617) and also have him start a quest chain
--- Tanaris add quest for scorpid hunter
--- Tanaris add quest for blisterpaw hyena to goblin in middle of zone(or does one exist?)
--- Tanaris add quest for glasshide gazer goblin in middle of zone(or does one exist?)
--- Tanaris ground pounder drop a quest item for free 3000 exp
--- Azshara operation azshara part1 moshoof stag not courser
--- Azshara Naga elite bosses in towers on the Beach
--- Azshara At War with the Spitelash say in quest specifically which Nagas to kill
--- Azshara quest for Naga Myrmidons on beach
--- Azshara FAR south east beach quests for level 54+ Spitelash (Enchantress / Battlemasters)
--- Ferarlas Camp Protection part3 should be 4 different types of harpies 10-8 klls each not just 2 (Northspring  Roguefeather + Northspring Harpy)
--- Felwood quest for overlord Ror? (Furbolg)
--- Felwood quest for Chieftain Bloodmaw
--- Felwood Ironbeak Screecher kill quest
--- Felwood quest for Prince Xavalis
--- WPL Skeletal Sorcrerer Sorrow Hill quest @ Crypt (Maybe other enemies in there too)
--- Falling to Corruption to see how to code objects you can turn quests into (was a cauldron)
--- Timed quests (Timer on item, or timer on quest)
--- More quests to click / interact / gather things sprinkled inside of kill x / loot x things from mob quest areas
--- More quests for boss kills deep in caves / towers / etc far behind a ton of mobs
--- Lots of quests to use item on a mob below 20% HP
--- More 100% drop rate quests that need like 20+ drops
--- how do distress beacon quests not replace item on starting? same with ship schedule
-
 -- Quest + Vendor + Repair npc flag = 
--- NEXT quest_template 30341
+-- NEXT quest_template 30354
 -- NEXT quest_end_script 10010
 -- NEXT generic_script 9000001
 -- NEXT creature_movement_scripts 9000001
 
--- NEXT creature_template 90132
--- NEXT gameobject_template 987685
--- NEXT gameobject_loot_template 42922
+-- NEXT creature_template 90144
+-- NEXT gameobject_template 987701
+-- NEXT gameobject_loot_template 42930
 
 -- NEXT gameobject 300406
 
 -- NEXT areatrigger_template 2953
 -- NEXT areatrigger_involvedrelation 2953
 
---     QUEST_TYPE_ELITE               = 1,
---     QUEST_TYPE_LIFE                = 21,
---     QUEST_TYPE_PVP                 = 41,
---     QUEST_TYPE_RAID                = 62,
---     QUEST_TYPE_DUNGEON             = 81,
---     //tbc?
---     QUEST_TYPE_WORLD_EVENT         = 82,
---     QUEST_TYPE_LEGENDARY           = 83,
---     QUEST_TYPE_ESCORT              = 84,
+    -- Allow NPC to be targettable by TARGET_UNIT_FRIEND (21) spells
+    -- UPDATE creature_template SET static_flags1 = static_flags1 | 0x00400000 WHERE entry = 2658;
 
 -- Faction = 35 to not make a friendly quest NPC not aggro creatures
 -- Faction = 10 friendly NPC that gets aggrod by mobs
@@ -1048,6 +996,9 @@ REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (5479, 30174
                 REPLACE `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000186, 90126, 0, 0, 0, 0, 1, 2918.69, -3343.7, 154.168, 1.70968, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
                 REPLACE `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000187, 90127, 0, 0, 0, 0, 1, 2924.4, -3288.14, 157.528, 4.81359, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
 
+                -- Change Illyana's position to Forest Song (Changed in TBC)
+                UPDATE `mangos`.`creature` SET `position_x`=3000.918945, `position_y`=-3321.497314, `position_z`=152.336487, `orientation`=2.186402 WHERE  `guid`=32381;
+
         -- Objects
             -- Spawns
                 -- Forge
@@ -1056,9 +1007,8 @@ REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (5479, 30174
                 -- Anvil
                     REPLACE `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (4100159, 1744, 1, 2914.03, -3340.02, 154.326, 6.23515, 0, 0, 0.024014, -0.999712, 25, 25, 100, 1, 0, 0, 0, 10);
 
-
-            -- Change Illyana's position to Forest Song (Changed in TBC)
-            UPDATE `mangos`.`creature` SET `position_x`=3000.918945, `position_y`=-3321.497314, `position_z`=152.336487, `orientation`=2.186402 WHERE  `guid`=32381;
+        -- Edit drop rate on Iron Pommel for Raene's Cleansing (1027) from Rusty Chest (19021)
+            UPDATE `mangos`.`gameobject_loot_template` SET `ChanceOrQuestChance`=-25 WHERE  `entry`=2971 AND `item`=5519;
 
         -- https://www.wowhead.com/tbc/quest=216/between-a-rock-and-a-thistlefur
             REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOId2`, `ReqCreatureOrGOCount1`, `ReqCreatureOrGOCount2`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewOrReqMoney`, `RewMoneyMaxLevel`, `DetailsEmote1`, `IncompleteEmote`, `CompleteEmote`, `OfferRewardEmote1`) VALUES (30304, 331, 21, 24, 8, 'Between a Rock and a Thistlefur', 'The Thistlefur furbolgs are threatening our expansion!  Thistlefur Village to our east blocks the way between us here and the Splintertree Post.  It\'s a path that would circumvent the village of Astranaar; without it, we give the Alliance an extra expansion path.$B$B$N, we must not allow... an expansion path gap!$B$BProceed to Thistlefur Village and thin out the furbolgs.  You will be given compensation for this task, but more importantly you will be doing your duty for the Horde!', 'Take down 12 Thistlefur Avengers and 12 Thistlefur Shaman; most are located east of Zoram Strand in Thistlefur Village.  Once completed, return to Faelenya at Zoram Strand Ashenvale.', 'Well done $c, well done!  I will continue to send forces to thin out the furbolg, but I can at least count on a different path that will be free of Alliance entanglements.  The Horde conquest of Ashenvale is now in full swing!$B$BYou\'ve earned your pay this day, hero.  I salute you!', 'Have you taken the fight to the Thistlefur?  With a clear path between our bases, our chances of claiming the whole of Ashenvale increase dramatically.', '', '', '', '', '', 3925, 3924, 12, 12, 69, 100, 1950, 1700, 1200, 5, 6, 6, 4);
@@ -1098,7 +1048,7 @@ REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (5479, 30174
                 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (4079, 30307); -- Sentinel Thenysil (Astranaar)
 
         -- https://www.wowhead.com/tbc/quest=9516/destroy-the-legion
-            REPLACE `quest_template` (`entry`, `patch`, `Method`, `ZoneOrSort`, `MinLevel`, `MaxLevel`, `QuestLevel`, `Type`, `RequiredClasses`, `RequiredRaces`, `RequiredSkill`, `RequiredSkillValue`, `RequiredCondition`, `RepObjectiveFaction`, `RepObjectiveValue`, `RequiredMinRepFaction`, `RequiredMinRepValue`, `RequiredMaxRepFaction`, `RequiredMaxRepValue`, `SuggestedPlayers`, `LimitTime`, `QuestFlags`, `SpecialFlags`, `PrevQuestId`, `NextQuestId`, `ExclusiveGroup`, `BreadcrumbForQuestId`, `NextQuestInChain`, `SrcItemId`, `SrcItemCount`, `SrcSpell`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemId2`, `ReqItemId3`, `ReqItemId4`, `ReqItemCount1`, `ReqItemCount2`, `ReqItemCount3`, `ReqItemCount4`, `ReqSourceId1`, `ReqSourceId2`, `ReqSourceId3`, `ReqSourceId4`, `ReqSourceCount1`, `ReqSourceCount2`, `ReqSourceCount3`, `ReqSourceCount4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOId2`, `ReqCreatureOrGOId3`, `ReqCreatureOrGOId4`, `ReqCreatureOrGOCount1`, `ReqCreatureOrGOCount2`, `ReqCreatureOrGOCount3`, `ReqCreatureOrGOCount4`, `ReqSpellCast1`, `ReqSpellCast2`, `ReqSpellCast3`, `ReqSpellCast4`, `RewChoiceItemId1`, `RewChoiceItemId2`, `RewChoiceItemId3`, `RewChoiceItemId4`, `RewChoiceItemId5`, `RewChoiceItemId6`, `RewChoiceItemCount1`, `RewChoiceItemCount2`, `RewChoiceItemCount3`, `RewChoiceItemCount4`, `RewChoiceItemCount5`, `RewChoiceItemCount6`, `RewItemId1`, `RewItemId2`, `RewItemId3`, `RewItemId4`, `RewItemCount1`, `RewItemCount2`, `RewItemCount3`, `RewItemCount4`, `RewRepFaction1`, `RewRepFaction2`, `RewRepFaction3`, `RewRepFaction4`, `RewRepFaction5`, `RewRepValue1`, `RewRepValue2`, `RewRepValue3`, `RewRepValue4`, `RewRepValue5`, `RewRepSpilloverMask`, `RewXP`, `RewOrReqMoney`, `RewMoneyMaxLevel`, `RewSpell`, `RewSpellCast`, `RewMailTemplateId`, `RewMailDelaySecs`, `RewMailMoney`, `PointMapId`, `PointX`, `PointY`, `PointOpt`, `DetailsEmote1`, `DetailsEmote2`, `DetailsEmote3`, `DetailsEmote4`, `DetailsEmoteDelay1`, `DetailsEmoteDelay2`, `DetailsEmoteDelay3`, `DetailsEmoteDelay4`, `IncompleteEmote`, `CompleteEmote`, `OfferRewardEmote1`, `OfferRewardEmote2`, `OfferRewardEmote3`, `OfferRewardEmote4`, `OfferRewardEmoteDelay1`, `OfferRewardEmoteDelay2`, `OfferRewardEmoteDelay3`, `OfferRewardEmoteDelay4`, `StartScript`, `CompleteScript`) VALUES (30308, 0, 2, 331, 27, 0, 30, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Destroy the Legion', 'The remains of the demonic Burning Legion have been making raids against our Warsong Lumber Camp! No more! The demons are attacking from the areas known as Felfire Hill, Demon Fall Canyon and Demon Fall Ridge to the east. Go and destroy as many as you can to bring glory to both yourself and the Alliance!', 'Slay 6 Mannoroc Lashers, 6 Felguards and 6 Searing Infernals, and then return to Elynaria at Forest Song in Ashenvale.', 'Thank you!', 'Are there not demons yet standing?  You call yourself an alliance?  This is no time to be taking a break from the fighting!', '', '', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11697, 6115, 6073, 0, 6, 6, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 69, 0, 0, 0, 0, 250, 0, 0, 0, 0, 0, 2450, 0, 720, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 6, 4, 1, 0, 0, 0, 0, 0, 0, 0, 0);
+            REPLACE `quest_template` (`entry`, `patch`, `Method`, `ZoneOrSort`, `MinLevel`, `MaxLevel`, `QuestLevel`, `Type`, `RequiredClasses`, `RequiredRaces`, `RequiredSkill`, `RequiredSkillValue`, `RequiredCondition`, `RepObjectiveFaction`, `RepObjectiveValue`, `RequiredMinRepFaction`, `RequiredMinRepValue`, `RequiredMaxRepFaction`, `RequiredMaxRepValue`, `SuggestedPlayers`, `LimitTime`, `QuestFlags`, `SpecialFlags`, `PrevQuestId`, `NextQuestId`, `ExclusiveGroup`, `BreadcrumbForQuestId`, `NextQuestInChain`, `SrcItemId`, `SrcItemCount`, `SrcSpell`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemId2`, `ReqItemId3`, `ReqItemId4`, `ReqItemCount1`, `ReqItemCount2`, `ReqItemCount3`, `ReqItemCount4`, `ReqSourceId1`, `ReqSourceId2`, `ReqSourceId3`, `ReqSourceId4`, `ReqSourceCount1`, `ReqSourceCount2`, `ReqSourceCount3`, `ReqSourceCount4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOId2`, `ReqCreatureOrGOId3`, `ReqCreatureOrGOId4`, `ReqCreatureOrGOCount1`, `ReqCreatureOrGOCount2`, `ReqCreatureOrGOCount3`, `ReqCreatureOrGOCount4`, `ReqSpellCast1`, `ReqSpellCast2`, `ReqSpellCast3`, `ReqSpellCast4`, `RewChoiceItemId1`, `RewChoiceItemId2`, `RewChoiceItemId3`, `RewChoiceItemId4`, `RewChoiceItemId5`, `RewChoiceItemId6`, `RewChoiceItemCount1`, `RewChoiceItemCount2`, `RewChoiceItemCount3`, `RewChoiceItemCount4`, `RewChoiceItemCount5`, `RewChoiceItemCount6`, `RewItemId1`, `RewItemId2`, `RewItemId3`, `RewItemId4`, `RewItemCount1`, `RewItemCount2`, `RewItemCount3`, `RewItemCount4`, `RewRepFaction1`, `RewRepFaction2`, `RewRepFaction3`, `RewRepFaction4`, `RewRepFaction5`, `RewRepValue1`, `RewRepValue2`, `RewRepValue3`, `RewRepValue4`, `RewRepValue5`, `RewRepSpilloverMask`, `RewXP`, `RewOrReqMoney`, `RewMoneyMaxLevel`, `RewSpell`, `RewSpellCast`, `RewMailTemplateId`, `RewMailDelaySecs`, `RewMailMoney`, `PointMapId`, `PointX`, `PointY`, `PointOpt`, `DetailsEmote1`, `DetailsEmote2`, `DetailsEmote3`, `DetailsEmote4`, `DetailsEmoteDelay1`, `DetailsEmoteDelay2`, `DetailsEmoteDelay3`, `DetailsEmoteDelay4`, `IncompleteEmote`, `CompleteEmote`, `OfferRewardEmote1`, `OfferRewardEmote2`, `OfferRewardEmote3`, `OfferRewardEmote4`, `OfferRewardEmoteDelay1`, `OfferRewardEmoteDelay2`, `OfferRewardEmoteDelay3`, `OfferRewardEmoteDelay4`, `StartScript`, `CompleteScript`) VALUES (30308, 0, 2, 331, 27, 0, 30, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Destroy the Legion', 'The remains of the demonic Burning Legion have been making raids against our Warsong Lumber Camp! No more! The demons are attacking from the areas known as Felfire Hill, Demon Fall Canyon and Demon Fall Ridge to the south east. Go and destroy as many as you can to bring glory to both yourself and the Alliance!', 'Slay 6 Mannoroc Lashers, 6 Felguards and 6 Searing Infernals, and then return to Elynaria at Forest Song in Ashenvale.', 'Thank you!', 'Are there not demons yet standing?  You call yourself an alliance?  This is no time to be taking a break from the fighting!', '', '', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11697, 6115, 6073, 0, 6, 6, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 69, 0, 0, 0, 0, 250, 0, 0, 0, 0, 0, 2450, 0, 720, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 6, 4, 1, 0, 0, 0, 0, 0, 0, 0, 0);
 
             -- Start
                 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90120, 30308); -- Elynaria (Forest Song)
@@ -1117,7 +1067,7 @@ REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (5479, 30174
                 REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (6073, 30412, 5);
 
             -- Start
-                REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90120, 30309); -- Elynaria (Forest Song)
+                -- Starts from Diabolical Plans (item Id: 30412)
 
             -- End
                 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90120, 30309); -- Elynaria (Forest Song)
@@ -1125,7 +1075,7 @@ REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (5479, 30174
         --      -> https://www.wowhead.com/tbc/quest=9522/never-again
             REPLACE `quest_template` (`entry`, `patch`, `Method`, `ZoneOrSort`, `MinLevel`, `MaxLevel`, `QuestLevel`, `Type`, `RequiredClasses`, `RequiredRaces`, `RequiredSkill`, `RequiredSkillValue`, `RequiredCondition`, `RepObjectiveFaction`, `RepObjectiveValue`, `RequiredMinRepFaction`, `RequiredMinRepValue`, `RequiredMaxRepFaction`, `RequiredMaxRepValue`, `SuggestedPlayers`, `LimitTime`, `QuestFlags`, `SpecialFlags`, `PrevQuestId`, `NextQuestId`, `ExclusiveGroup`, `BreadcrumbForQuestId`, `NextQuestInChain`, `SrcItemId`, `SrcItemCount`, `SrcSpell`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemId2`, `ReqItemId3`, `ReqItemId4`, `ReqItemCount1`, `ReqItemCount2`, `ReqItemCount3`, `ReqItemCount4`, `ReqSourceId1`, `ReqSourceId2`, `ReqSourceId3`, `ReqSourceId4`, `ReqSourceCount1`, `ReqSourceCount2`, `ReqSourceCount3`, `ReqSourceCount4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOId2`, `ReqCreatureOrGOId3`, `ReqCreatureOrGOId4`, `ReqCreatureOrGOCount1`, `ReqCreatureOrGOCount2`, `ReqCreatureOrGOCount3`, `ReqCreatureOrGOCount4`, `ReqSpellCast1`, `ReqSpellCast2`, `ReqSpellCast3`, `ReqSpellCast4`, `RewChoiceItemId1`, `RewChoiceItemId2`, `RewChoiceItemId3`, `RewChoiceItemId4`, `RewChoiceItemId5`, `RewChoiceItemId6`, `RewChoiceItemCount1`, `RewChoiceItemCount2`, `RewChoiceItemCount3`, `RewChoiceItemCount4`, `RewChoiceItemCount5`, `RewChoiceItemCount6`, `RewItemId1`, `RewItemId2`, `RewItemId3`, `RewItemId4`, `RewItemCount1`, `RewItemCount2`, `RewItemCount3`, `RewItemCount4`, `RewRepFaction1`, `RewRepFaction2`, `RewRepFaction3`, `RewRepFaction4`, `RewRepFaction5`, `RewRepValue1`, `RewRepValue2`, `RewRepValue3`, `RewRepValue4`, `RewRepValue5`, `RewRepSpilloverMask`, `RewXP`, `RewOrReqMoney`, `RewMoneyMaxLevel`, `RewSpell`, `RewSpellCast`, `RewMailTemplateId`, `RewMailDelaySecs`, `RewMailMoney`, `PointMapId`, `PointX`, `PointY`, `PointOpt`, `DetailsEmote1`, `DetailsEmote2`, `DetailsEmote3`, `DetailsEmote4`, `DetailsEmoteDelay1`, `DetailsEmoteDelay2`, `DetailsEmoteDelay3`, `DetailsEmoteDelay4`, `IncompleteEmote`, `CompleteEmote`, `OfferRewardEmote1`, `OfferRewardEmote2`, `OfferRewardEmote3`, `OfferRewardEmote4`, `OfferRewardEmoteDelay1`, `OfferRewardEmoteDelay2`, `OfferRewardEmoteDelay3`, `OfferRewardEmoteDelay4`, `StartScript`, `CompleteScript`) VALUES (30310, 0, 2, 331, 27, 0, 32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 30309, 0, 0, 0, 0, 0, 0, 0, 'Never again!', 'It falls to you to see that this attack by the Burning Legion never comes to pass. You must go and slay their leaders. Without them the rest of the demons are essentially mindless.', 'Kill Gorgannon and Diathorus the Seeker, and then return to Elynaria in Forest Song.', 'Never again will the Burning Legion threaten us here!  You have delivered us from a fight we very likely would have lost.', 'Please kill the legion!', '', '', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 90118, 6072, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 30413, 30414, 30415, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 69, 0, 0, 0, 0, 350, 0, 0, 0, 0, 0, 3350, 6500, 720, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 6, 4, 1, 0, 0, 0, 0, 0, 0, 0, 0);
 
-            UPDATE `mangos`.`quest_template` SET `Details`='It falls to you to see that this attack by the Burning Legion never comes to pass. You must go and slay their leaders. Without them the rest of the demons are essentially mindless. You will find Gorgannon in Demon Fall Canyon south beyond Felfire Hill, near Mannoroth\'s floating, broken spear.' WHERE  `entry`=30310 AND `patch`=0;
+            -- UPDATE `mangos`.`quest_template` SET `Details`='It falls to you to see that this attack by the Burning Legion never comes to pass. You must go and slay their leaders. Without them the rest of the demons are essentially mindless. You will find Gorgannon in Demon Fall Canyon south east beyond Felfire Hill, near Mannoroth\'s floating, broken spear. Diathorus the Seeker resides somewhere in the barrow den atop Demon Fall Ridge. To find the ridge, look for a ramp up from Demon Fall Canyon near the monument to Grom Hellscream.' WHERE  `entry`=30310 AND `patch`=0;
 
                 -- Creatures
                         -- Template
@@ -1177,7 +1127,7 @@ REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (5479, 30174
             -- End
                 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (3848, 30313); -- Kayneth (Forest Song)
 
-            REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `NextQuestId`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOId2`, `ReqCreatureOrGOId3`, `ReqCreatureOrGOCount1`, `ReqCreatureOrGOCount2`, `ReqCreatureOrGOCount3`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewMoneyMaxLevel`, `IncompleteEmote`, `CompleteEmote`, `OfferRewardEmote1`, `OfferRewardEmote2`) VALUES (30314, 331, 25, 28, 8, 30315, 'Satyr Slaying', 'To the west of here is Night Run. Kill Satyrs there for me.', 'Kill 8 Felmusk Satyr, 8 Felmusk Shadowstalker and 8 Felmusk Rogue, and then return to Delutania at Forest Song in Ashenvale.', 'Thank you!', 'Are there still Satyrs alive? Get back to work!', '', '', '', '', '', 3758, 3763, 3759, 8, 8, 8, 69, 250, 2450, 720, 6, 6, 4, 1);
+            REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `NextQuestId`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOId2`, `ReqCreatureOrGOId3`, `ReqCreatureOrGOCount1`, `ReqCreatureOrGOCount2`, `ReqCreatureOrGOCount3`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewMoneyMaxLevel`, `IncompleteEmote`, `CompleteEmote`, `OfferRewardEmote1`, `OfferRewardEmote2`) VALUES (30314, 331, 25, 28, 8, 30315, 'Satyr Killing', 'To the west of here is Night Run. Kill Satyrs there for me.', 'Kill 8 Felmusk Satyr, 8 Felmusk Shadowstalker and 8 Felmusk Rogue, and then return to Delutania at Forest Song in Ashenvale.', 'Thank you!', 'Are there still Satyrs alive? Get back to work!', '', '', '', '', '', 3758, 3763, 3759, 8, 8, 8, 69, 250, 2450, 720, 6, 6, 4, 1);
 
             -- Start
                 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90121, 30314); -- Delutania (Forest Song)
@@ -1203,7 +1153,7 @@ REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (5479, 30174
                     REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90121, 30316); -- Delutania (Forest Song)
 
             -- Demon Fall Canyon Felhide Leather quest
-                REPLACE `quest_template` (`entry`, `patch`, `Method`, `ZoneOrSort`, `MinLevel`, `MaxLevel`, `QuestLevel`, `Type`, `RequiredClasses`, `RequiredRaces`, `RequiredSkill`, `RequiredSkillValue`, `RequiredCondition`, `RepObjectiveFaction`, `RepObjectiveValue`, `RequiredMinRepFaction`, `RequiredMinRepValue`, `RequiredMaxRepFaction`, `RequiredMaxRepValue`, `SuggestedPlayers`, `LimitTime`, `QuestFlags`, `SpecialFlags`, `PrevQuestId`, `NextQuestId`, `ExclusiveGroup`, `BreadcrumbForQuestId`, `NextQuestInChain`, `SrcItemId`, `SrcItemCount`, `SrcSpell`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemId2`, `ReqItemId3`, `ReqItemId4`, `ReqItemCount1`, `ReqItemCount2`, `ReqItemCount3`, `ReqItemCount4`, `ReqSourceId1`, `ReqSourceId2`, `ReqSourceId3`, `ReqSourceId4`, `ReqSourceCount1`, `ReqSourceCount2`, `ReqSourceCount3`, `ReqSourceCount4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOId2`, `ReqCreatureOrGOId3`, `ReqCreatureOrGOId4`, `ReqCreatureOrGOCount1`, `ReqCreatureOrGOCount2`, `ReqCreatureOrGOCount3`, `ReqCreatureOrGOCount4`, `ReqSpellCast1`, `ReqSpellCast2`, `ReqSpellCast3`, `ReqSpellCast4`, `RewChoiceItemId1`, `RewChoiceItemId2`, `RewChoiceItemId3`, `RewChoiceItemId4`, `RewChoiceItemId5`, `RewChoiceItemId6`, `RewChoiceItemCount1`, `RewChoiceItemCount2`, `RewChoiceItemCount3`, `RewChoiceItemCount4`, `RewChoiceItemCount5`, `RewChoiceItemCount6`, `RewItemId1`, `RewItemId2`, `RewItemId3`, `RewItemId4`, `RewItemCount1`, `RewItemCount2`, `RewItemCount3`, `RewItemCount4`, `RewRepFaction1`, `RewRepFaction2`, `RewRepFaction3`, `RewRepFaction4`, `RewRepFaction5`, `RewRepValue1`, `RewRepValue2`, `RewRepValue3`, `RewRepValue4`, `RewRepValue5`, `RewRepSpilloverMask`, `RewXP`, `RewOrReqMoney`, `RewMoneyMaxLevel`, `RewSpell`, `RewSpellCast`, `RewMailTemplateId`, `RewMailDelaySecs`, `RewMailMoney`, `PointMapId`, `PointX`, `PointY`, `PointOpt`, `DetailsEmote1`, `DetailsEmote2`, `DetailsEmote3`, `DetailsEmote4`, `DetailsEmoteDelay1`, `DetailsEmoteDelay2`, `DetailsEmoteDelay3`, `DetailsEmoteDelay4`, `IncompleteEmote`, `CompleteEmote`, `OfferRewardEmote1`, `OfferRewardEmote2`, `OfferRewardEmote3`, `OfferRewardEmote4`, `OfferRewardEmoteDelay1`, `OfferRewardEmoteDelay2`, `OfferRewardEmoteDelay3`, `OfferRewardEmoteDelay4`, `StartScript`, `CompleteScript`) VALUES (30317, 0, 2, 331, 27, 0, 30, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Felhide Collection', 'I come from Ironforge and have traveled far because I require Felhide Leather from the Felhunters in Demon Fall Canyon far to the east. Bring them to me.', 'Gather 30 Felhide Leather then bring them back to Milli Fitzwhistle in Astranaar.', 'Yay!', 'I still need those Felhide Leathers!', '', '', '', '', '', 30416, 0, 0, 0, 30, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 54, 0, 0, 0, 0, 100, 0, 0, 0, 0, 0, 2500, 0, 1260, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 6, 1, 5, 0, 0, 0, 0, 11, 11, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+                REPLACE `quest_template` (`entry`, `patch`, `Method`, `ZoneOrSort`, `MinLevel`, `MaxLevel`, `QuestLevel`, `Type`, `RequiredClasses`, `RequiredRaces`, `RequiredSkill`, `RequiredSkillValue`, `RequiredCondition`, `RepObjectiveFaction`, `RepObjectiveValue`, `RequiredMinRepFaction`, `RequiredMinRepValue`, `RequiredMaxRepFaction`, `RequiredMaxRepValue`, `SuggestedPlayers`, `LimitTime`, `QuestFlags`, `SpecialFlags`, `PrevQuestId`, `NextQuestId`, `ExclusiveGroup`, `BreadcrumbForQuestId`, `NextQuestInChain`, `SrcItemId`, `SrcItemCount`, `SrcSpell`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemId2`, `ReqItemId3`, `ReqItemId4`, `ReqItemCount1`, `ReqItemCount2`, `ReqItemCount3`, `ReqItemCount4`, `ReqSourceId1`, `ReqSourceId2`, `ReqSourceId3`, `ReqSourceId4`, `ReqSourceCount1`, `ReqSourceCount2`, `ReqSourceCount3`, `ReqSourceCount4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOId2`, `ReqCreatureOrGOId3`, `ReqCreatureOrGOId4`, `ReqCreatureOrGOCount1`, `ReqCreatureOrGOCount2`, `ReqCreatureOrGOCount3`, `ReqCreatureOrGOCount4`, `ReqSpellCast1`, `ReqSpellCast2`, `ReqSpellCast3`, `ReqSpellCast4`, `RewChoiceItemId1`, `RewChoiceItemId2`, `RewChoiceItemId3`, `RewChoiceItemId4`, `RewChoiceItemId5`, `RewChoiceItemId6`, `RewChoiceItemCount1`, `RewChoiceItemCount2`, `RewChoiceItemCount3`, `RewChoiceItemCount4`, `RewChoiceItemCount5`, `RewChoiceItemCount6`, `RewItemId1`, `RewItemId2`, `RewItemId3`, `RewItemId4`, `RewItemCount1`, `RewItemCount2`, `RewItemCount3`, `RewItemCount4`, `RewRepFaction1`, `RewRepFaction2`, `RewRepFaction3`, `RewRepFaction4`, `RewRepFaction5`, `RewRepValue1`, `RewRepValue2`, `RewRepValue3`, `RewRepValue4`, `RewRepValue5`, `RewRepSpilloverMask`, `RewXP`, `RewOrReqMoney`, `RewMoneyMaxLevel`, `RewSpell`, `RewSpellCast`, `RewMailTemplateId`, `RewMailDelaySecs`, `RewMailMoney`, `PointMapId`, `PointX`, `PointY`, `PointOpt`, `DetailsEmote1`, `DetailsEmote2`, `DetailsEmote3`, `DetailsEmote4`, `DetailsEmoteDelay1`, `DetailsEmoteDelay2`, `DetailsEmoteDelay3`, `DetailsEmoteDelay4`, `IncompleteEmote`, `CompleteEmote`, `OfferRewardEmote1`, `OfferRewardEmote2`, `OfferRewardEmote3`, `OfferRewardEmote4`, `OfferRewardEmoteDelay1`, `OfferRewardEmoteDelay2`, `OfferRewardEmoteDelay3`, `OfferRewardEmoteDelay4`, `StartScript`, `CompleteScript`) VALUES (30317, 0, 2, 331, 27, 0, 30, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Felhide Collection', 'I come from Ironforge and have traveled far because I require Felhide Leather from the Felhunters in Demon Fall Canyon far to the south east. Bring them to me.', 'Gather 30 Felhide Leather then bring them back to Milli Fitzwhistle in Astranaar.', 'Yay!', 'I still need those Felhide Leathers!', '', '', '', '', '', 30416, 0, 0, 0, 30, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 54, 0, 0, 0, 0, 100, 0, 0, 0, 0, 0, 2500, 0, 1260, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 6, 1, 5, 0, 0, 0, 0, 11, 11, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
 
                 -- Drops from Legion Hound
@@ -1216,7 +1166,7 @@ REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (5479, 30174
                     REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90119, 30317); -- Milli Fitzwhistle (Astranar)
 
             -- Demon Fall Canyon Legion Core quest
-                REPLACE `quest_template` (`entry`, `patch`, `Method`, `ZoneOrSort`, `MinLevel`, `MaxLevel`, `QuestLevel`, `Type`, `RequiredClasses`, `RequiredRaces`, `RequiredSkill`, `RequiredSkillValue`, `RequiredCondition`, `RepObjectiveFaction`, `RepObjectiveValue`, `RequiredMinRepFaction`, `RequiredMinRepValue`, `RequiredMaxRepFaction`, `RequiredMaxRepValue`, `SuggestedPlayers`, `LimitTime`, `QuestFlags`, `SpecialFlags`, `PrevQuestId`, `NextQuestId`, `ExclusiveGroup`, `BreadcrumbForQuestId`, `NextQuestInChain`, `SrcItemId`, `SrcItemCount`, `SrcSpell`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemId2`, `ReqItemId3`, `ReqItemId4`, `ReqItemCount1`, `ReqItemCount2`, `ReqItemCount3`, `ReqItemCount4`, `ReqSourceId1`, `ReqSourceId2`, `ReqSourceId3`, `ReqSourceId4`, `ReqSourceCount1`, `ReqSourceCount2`, `ReqSourceCount3`, `ReqSourceCount4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOId2`, `ReqCreatureOrGOId3`, `ReqCreatureOrGOId4`, `ReqCreatureOrGOCount1`, `ReqCreatureOrGOCount2`, `ReqCreatureOrGOCount3`, `ReqCreatureOrGOCount4`, `ReqSpellCast1`, `ReqSpellCast2`, `ReqSpellCast3`, `ReqSpellCast4`, `RewChoiceItemId1`, `RewChoiceItemId2`, `RewChoiceItemId3`, `RewChoiceItemId4`, `RewChoiceItemId5`, `RewChoiceItemId6`, `RewChoiceItemCount1`, `RewChoiceItemCount2`, `RewChoiceItemCount3`, `RewChoiceItemCount4`, `RewChoiceItemCount5`, `RewChoiceItemCount6`, `RewItemId1`, `RewItemId2`, `RewItemId3`, `RewItemId4`, `RewItemCount1`, `RewItemCount2`, `RewItemCount3`, `RewItemCount4`, `RewRepFaction1`, `RewRepFaction2`, `RewRepFaction3`, `RewRepFaction4`, `RewRepFaction5`, `RewRepValue1`, `RewRepValue2`, `RewRepValue3`, `RewRepValue4`, `RewRepValue5`, `RewRepSpilloverMask`, `RewXP`, `RewOrReqMoney`, `RewMoneyMaxLevel`, `RewSpell`, `RewSpellCast`, `RewMailTemplateId`, `RewMailDelaySecs`, `RewMailMoney`, `PointMapId`, `PointX`, `PointY`, `PointOpt`, `DetailsEmote1`, `DetailsEmote2`, `DetailsEmote3`, `DetailsEmote4`, `DetailsEmoteDelay1`, `DetailsEmoteDelay2`, `DetailsEmoteDelay3`, `DetailsEmoteDelay4`, `IncompleteEmote`, `CompleteEmote`, `OfferRewardEmote1`, `OfferRewardEmote2`, `OfferRewardEmote3`, `OfferRewardEmote4`, `OfferRewardEmoteDelay1`, `OfferRewardEmoteDelay2`, `OfferRewardEmoteDelay3`, `OfferRewardEmoteDelay4`, `StartScript`, `CompleteScript`) VALUES (30318, 0, 2, 331, 27, 0, 30, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Legion Cores', 'There is another item I require, Legion Cores. They also come from the demons in Demon Fall Canyon far to the east of here. Get them for me.', 'Gather 12 Legion cores then bring them back to Milli Fitzwhistle in Astranaar.', 'Happy happy joy joy!', 'Get the Legion Cores, NOW!!!!', '', '', '', '', '', 30417, 0, 0, 0, 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 54, 0, 0, 0, 0, 150, 0, 0, 0, 0, 0, 2750, 4500, 1260, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 6, 1, 5, 0, 0, 0, 0, 11, 11, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+                REPLACE `quest_template` (`entry`, `patch`, `Method`, `ZoneOrSort`, `MinLevel`, `MaxLevel`, `QuestLevel`, `Type`, `RequiredClasses`, `RequiredRaces`, `RequiredSkill`, `RequiredSkillValue`, `RequiredCondition`, `RepObjectiveFaction`, `RepObjectiveValue`, `RequiredMinRepFaction`, `RequiredMinRepValue`, `RequiredMaxRepFaction`, `RequiredMaxRepValue`, `SuggestedPlayers`, `LimitTime`, `QuestFlags`, `SpecialFlags`, `PrevQuestId`, `NextQuestId`, `ExclusiveGroup`, `BreadcrumbForQuestId`, `NextQuestInChain`, `SrcItemId`, `SrcItemCount`, `SrcSpell`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemId2`, `ReqItemId3`, `ReqItemId4`, `ReqItemCount1`, `ReqItemCount2`, `ReqItemCount3`, `ReqItemCount4`, `ReqSourceId1`, `ReqSourceId2`, `ReqSourceId3`, `ReqSourceId4`, `ReqSourceCount1`, `ReqSourceCount2`, `ReqSourceCount3`, `ReqSourceCount4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOId2`, `ReqCreatureOrGOId3`, `ReqCreatureOrGOId4`, `ReqCreatureOrGOCount1`, `ReqCreatureOrGOCount2`, `ReqCreatureOrGOCount3`, `ReqCreatureOrGOCount4`, `ReqSpellCast1`, `ReqSpellCast2`, `ReqSpellCast3`, `ReqSpellCast4`, `RewChoiceItemId1`, `RewChoiceItemId2`, `RewChoiceItemId3`, `RewChoiceItemId4`, `RewChoiceItemId5`, `RewChoiceItemId6`, `RewChoiceItemCount1`, `RewChoiceItemCount2`, `RewChoiceItemCount3`, `RewChoiceItemCount4`, `RewChoiceItemCount5`, `RewChoiceItemCount6`, `RewItemId1`, `RewItemId2`, `RewItemId3`, `RewItemId4`, `RewItemCount1`, `RewItemCount2`, `RewItemCount3`, `RewItemCount4`, `RewRepFaction1`, `RewRepFaction2`, `RewRepFaction3`, `RewRepFaction4`, `RewRepFaction5`, `RewRepValue1`, `RewRepValue2`, `RewRepValue3`, `RewRepValue4`, `RewRepValue5`, `RewRepSpilloverMask`, `RewXP`, `RewOrReqMoney`, `RewMoneyMaxLevel`, `RewSpell`, `RewSpellCast`, `RewMailTemplateId`, `RewMailDelaySecs`, `RewMailMoney`, `PointMapId`, `PointX`, `PointY`, `PointOpt`, `DetailsEmote1`, `DetailsEmote2`, `DetailsEmote3`, `DetailsEmote4`, `DetailsEmoteDelay1`, `DetailsEmoteDelay2`, `DetailsEmoteDelay3`, `DetailsEmoteDelay4`, `IncompleteEmote`, `CompleteEmote`, `OfferRewardEmote1`, `OfferRewardEmote2`, `OfferRewardEmote3`, `OfferRewardEmote4`, `OfferRewardEmoteDelay1`, `OfferRewardEmoteDelay2`, `OfferRewardEmoteDelay3`, `OfferRewardEmoteDelay4`, `StartScript`, `CompleteScript`) VALUES (30318, 0, 2, 331, 27, 0, 30, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Legion Cores', 'There is another item I require, Legion Cores. They also come from the demons in Demon Fall Canyon far to the south east of here. Get them for me.', 'Gather 12 Legion cores then bring them back to Milli Fitzwhistle in Astranaar.', 'Happy happy joy joy!', 'Get the Legion Cores, NOW!!!!', '', '', '', '', '', 30417, 0, 0, 0, 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 54, 0, 0, 0, 0, 150, 0, 0, 0, 0, 0, 2750, 4500, 1260, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 6, 1, 5, 0, 0, 0, 0, 11, 11, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
                 -- Drops from Mannoroc Lashers, Felguards and Searing Infernals
                     REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (11697, 30417, -25);
@@ -1230,7 +1180,7 @@ REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (5479, 30174
                     REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90119, 30318); -- Milli Fitzwhistle (Astranar)
 
             -- Demon Fall Canyon Legion Orcish Documents from chests quest
-                REPLACE `quest_template` (`entry`, `patch`, `Method`, `ZoneOrSort`, `MinLevel`, `MaxLevel`, `QuestLevel`, `Type`, `RequiredClasses`, `RequiredRaces`, `RequiredSkill`, `RequiredSkillValue`, `RequiredCondition`, `RepObjectiveFaction`, `RepObjectiveValue`, `RequiredMinRepFaction`, `RequiredMinRepValue`, `RequiredMaxRepFaction`, `RequiredMaxRepValue`, `SuggestedPlayers`, `LimitTime`, `QuestFlags`, `SpecialFlags`, `PrevQuestId`, `NextQuestId`, `ExclusiveGroup`, `BreadcrumbForQuestId`, `NextQuestInChain`, `SrcItemId`, `SrcItemCount`, `SrcSpell`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemId2`, `ReqItemId3`, `ReqItemId4`, `ReqItemCount1`, `ReqItemCount2`, `ReqItemCount3`, `ReqItemCount4`, `ReqSourceId1`, `ReqSourceId2`, `ReqSourceId3`, `ReqSourceId4`, `ReqSourceCount1`, `ReqSourceCount2`, `ReqSourceCount3`, `ReqSourceCount4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOId2`, `ReqCreatureOrGOId3`, `ReqCreatureOrGOId4`, `ReqCreatureOrGOCount1`, `ReqCreatureOrGOCount2`, `ReqCreatureOrGOCount3`, `ReqCreatureOrGOCount4`, `ReqSpellCast1`, `ReqSpellCast2`, `ReqSpellCast3`, `ReqSpellCast4`, `RewChoiceItemId1`, `RewChoiceItemId2`, `RewChoiceItemId3`, `RewChoiceItemId4`, `RewChoiceItemId5`, `RewChoiceItemId6`, `RewChoiceItemCount1`, `RewChoiceItemCount2`, `RewChoiceItemCount3`, `RewChoiceItemCount4`, `RewChoiceItemCount5`, `RewChoiceItemCount6`, `RewItemId1`, `RewItemId2`, `RewItemId3`, `RewItemId4`, `RewItemCount1`, `RewItemCount2`, `RewItemCount3`, `RewItemCount4`, `RewRepFaction1`, `RewRepFaction2`, `RewRepFaction3`, `RewRepFaction4`, `RewRepFaction5`, `RewRepValue1`, `RewRepValue2`, `RewRepValue3`, `RewRepValue4`, `RewRepValue5`, `RewRepSpilloverMask`, `RewXP`, `RewOrReqMoney`, `RewMoneyMaxLevel`, `RewSpell`, `RewSpellCast`, `RewMailTemplateId`, `RewMailDelaySecs`, `RewMailMoney`, `PointMapId`, `PointX`, `PointY`, `PointOpt`, `DetailsEmote1`, `DetailsEmote2`, `DetailsEmote3`, `DetailsEmote4`, `DetailsEmoteDelay1`, `DetailsEmoteDelay2`, `DetailsEmoteDelay3`, `DetailsEmoteDelay4`, `IncompleteEmote`, `CompleteEmote`, `OfferRewardEmote1`, `OfferRewardEmote2`, `OfferRewardEmote3`, `OfferRewardEmote4`, `OfferRewardEmoteDelay1`, `OfferRewardEmoteDelay2`, `OfferRewardEmoteDelay3`, `OfferRewardEmoteDelay4`, `StartScript`, `CompleteScript`) VALUES (30319, 0, 2, 331, 27, 0, 30, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Interesting Documents', 'In Demon Fall Canyon south beyond Felfire Hill there are Orcish Documents stashed somewhere. Please find these hidden documents, they might contain something useful for dealing with the Burning Legion.', 'Find the two Orcish Documents and bring them back to Delutania in Forest Song.', 'These documents are just cooking recipes! Useless!', 'Have you brought me the documents?', '', '', '', '', '', 30418, 30419, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 69, 0, 0, 0, 0, 150, 0, 0, 0, 0, 0, 3100, 0, 1260, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 6, 1, 5, 0, 0, 0, 0, 11, 11, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+                REPLACE `quest_template` (`entry`, `patch`, `Method`, `ZoneOrSort`, `MinLevel`, `MaxLevel`, `QuestLevel`, `Type`, `RequiredClasses`, `RequiredRaces`, `RequiredSkill`, `RequiredSkillValue`, `RequiredCondition`, `RepObjectiveFaction`, `RepObjectiveValue`, `RequiredMinRepFaction`, `RequiredMinRepValue`, `RequiredMaxRepFaction`, `RequiredMaxRepValue`, `SuggestedPlayers`, `LimitTime`, `QuestFlags`, `SpecialFlags`, `PrevQuestId`, `NextQuestId`, `ExclusiveGroup`, `BreadcrumbForQuestId`, `NextQuestInChain`, `SrcItemId`, `SrcItemCount`, `SrcSpell`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemId2`, `ReqItemId3`, `ReqItemId4`, `ReqItemCount1`, `ReqItemCount2`, `ReqItemCount3`, `ReqItemCount4`, `ReqSourceId1`, `ReqSourceId2`, `ReqSourceId3`, `ReqSourceId4`, `ReqSourceCount1`, `ReqSourceCount2`, `ReqSourceCount3`, `ReqSourceCount4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOId2`, `ReqCreatureOrGOId3`, `ReqCreatureOrGOId4`, `ReqCreatureOrGOCount1`, `ReqCreatureOrGOCount2`, `ReqCreatureOrGOCount3`, `ReqCreatureOrGOCount4`, `ReqSpellCast1`, `ReqSpellCast2`, `ReqSpellCast3`, `ReqSpellCast4`, `RewChoiceItemId1`, `RewChoiceItemId2`, `RewChoiceItemId3`, `RewChoiceItemId4`, `RewChoiceItemId5`, `RewChoiceItemId6`, `RewChoiceItemCount1`, `RewChoiceItemCount2`, `RewChoiceItemCount3`, `RewChoiceItemCount4`, `RewChoiceItemCount5`, `RewChoiceItemCount6`, `RewItemId1`, `RewItemId2`, `RewItemId3`, `RewItemId4`, `RewItemCount1`, `RewItemCount2`, `RewItemCount3`, `RewItemCount4`, `RewRepFaction1`, `RewRepFaction2`, `RewRepFaction3`, `RewRepFaction4`, `RewRepFaction5`, `RewRepValue1`, `RewRepValue2`, `RewRepValue3`, `RewRepValue4`, `RewRepValue5`, `RewRepSpilloverMask`, `RewXP`, `RewOrReqMoney`, `RewMoneyMaxLevel`, `RewSpell`, `RewSpellCast`, `RewMailTemplateId`, `RewMailDelaySecs`, `RewMailMoney`, `PointMapId`, `PointX`, `PointY`, `PointOpt`, `DetailsEmote1`, `DetailsEmote2`, `DetailsEmote3`, `DetailsEmote4`, `DetailsEmoteDelay1`, `DetailsEmoteDelay2`, `DetailsEmoteDelay3`, `DetailsEmoteDelay4`, `IncompleteEmote`, `CompleteEmote`, `OfferRewardEmote1`, `OfferRewardEmote2`, `OfferRewardEmote3`, `OfferRewardEmote4`, `OfferRewardEmoteDelay1`, `OfferRewardEmoteDelay2`, `OfferRewardEmoteDelay3`, `OfferRewardEmoteDelay4`, `StartScript`, `CompleteScript`) VALUES (30319, 0, 2, 331, 27, 0, 30, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Interesting Documents', 'In Demon Fall Canyon south east beyond Felfire Hill there are Orcish Documents stashed somewhere. Please find these hidden documents, they might contain something useful for dealing with the Burning Legion.', 'Find the two Orcish Documents and bring them back to Delutania in Forest Song.', 'These documents are just cooking recipes! Useless!', 'Have you brought me the documents?', '', '', '', '', '', 30418, 30419, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 69, 0, 0, 0, 0, 150, 0, 0, 0, 0, 0, 3100, 0, 1260, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 6, 1, 5, 0, 0, 0, 0, 11, 11, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
                 -- Drops from clickable chests
                 -- Objects
@@ -1255,7 +1205,7 @@ REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (5479, 30174
             -- Follow up after https://www.wowhead.com/tbc/quest=1032/satyr-slaying
                     REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewOrReqMoney`, `RewMoneyMaxLevel`, `IncompleteEmote`, `CompleteEmote`, `OfferRewardEmote1`, `OfferRewardEmote2`) VALUES (30320, 331, 27, 32, 8, 'Babadook', 'Go south west to Mystral Lake and kill the elemental Tideress, then return to me.', 'Go south west to Mystral Lake and kill the elemental Tideress, then return to Sentinel Thenysil in Astranaar.', 'Thank you!', 'Have you killed Tideress yet?', '', '', '', '', '', 90122, 1, 69, 250, 3100, 15000, 720, 6, 6, 4, 1);
 
-                    UPDATE `mangos`.`quest_template` SET `Type`=1, `PrevQuestId`=1032, `Details`='There is an evil demon named Babadook in Satyrnaar. Go there and end his life for me.', `Objectives`='Go to Satyrnaar and kill Babadook then return to Illiyana in Forest Song.', `RequestItemsText`='Have you killed Babadook yet?' WHERE  `entry`=30320 AND `patch`=0;
+                    UPDATE `mangos`.`quest_template` SET `Type`=1, `PrevQuestId`=1032, `Details`='There is an evil demon named Babadook in Satyrnaar. Go there and end his life for me.', `Objectives`='Go to Xavian and kill Babadook then return to Illiyana in Forest Song.', `RequestItemsText`='Have you killed Babadook yet?' WHERE  `entry`=30320 AND `patch`=0;
 
                 -- Previous quest
                     UPDATE `mangos`.`quest_template` SET `NextQuestInChain`=30320 WHERE  `entry`=1032 AND `patch`=0;
@@ -1265,7 +1215,7 @@ REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (5479, 30174
                         REPLACE `mangos`.`creature_template` (`entry`, `name`, `level_min`, `level_max`, `faction`, `display_id1`, `type`, `rank`, `unit_class`, `health_multiplier`, `damage_multiplier`, `arcane_res`, `loot_id`, `pickpocket_loot_id`, `gold_min`, `gold_max`, `spell_list_id`, `movement_type`, `inhabit_type`) VALUES (90122, 'Babadook', 32, 32, 90, 2019, 3, 1, 1, 2.0, 1.5, 200, 3754, 3754, 98, 133, 71050, 1, 1);
 
                     -- Spawn
-                        REPLACE `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000182, 90123, 0, 0, 0, 0, 1, 2690.2, -371.765, 109.815, 5.94948, 660, 660, 0, 100, 100, 0, 0, 0, 0, 10);
+                        REPLACE INTO `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000183, 90122, 0, 0, 0, 0, 1, 2935.13, -2729.48, 213.612, 4.41072, 660, 660, 5, 100, 100, 1, 0, 0, 0, 10);
 
                 -- Start
                     REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (3901, 30320); -- Illiyana (Forest Song)
@@ -1366,7 +1316,7 @@ REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (5479, 30174
         -- Portal Closing
             REPLACE`mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `PrevQuestId`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOId2`, `ReqCreatureOrGOCount1`, `ReqCreatureOrGOCount2`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewMoneyMaxLevel`, `IncompleteEmote`, `CompleteEmote`, `OfferRewardEmote1`, `OfferRewardEmote2`) VALUES (30328, 331, 20, 24, 8, 0, 'Portal Closing', 'Close the Demon Portals to the south at Fire Scar Shrine.', 'Close 6 Demon Portals then return to Sentinel Melyria Frostshadow at The Shrine of Aessina.', 'Thank you!', 'Please go close all the Demon Portals!', '', '', '', '', '', 90124, 0, 18, 0, 69, 150, 2400, 720, 6, 6, 4, 1);
 
-            UPDATE `mangos`.`quest_template` SET `SrcItemId`=30424, `SrcItemCount`=1, `RewChoiceItemId1`=30435, `RewChoiceItemId2`=30436, `RewChoiceItemId3`=30437, `RewChoiceItemCount1`=1, `RewChoiceItemCount2`=1, `RewChoiceItemCount3`=1 WHERE  `entry`=30328 AND `patch`=0;
+            UPDATE `mangos`.`quest_template` SET `SrcItemId`=30424, `SrcItemCount`=1, `ReqItemId1`=30424, `ReqItemCount1`=1, `RewChoiceItemId1`=30435, `RewChoiceItemId2`=30436, `RewChoiceItemId3`=30437, `RewChoiceItemCount1`=1, `RewChoiceItemCount2`=1, `RewChoiceItemCount3`=1 WHERE  `entry`=30328 AND `patch`=0;
 
             -- Creatures
                 -- Template
@@ -1453,50 +1403,89 @@ REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (5479, 30174
                 -- End
                     REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90125, 30330); -- Colm Burning Heart (Forest Song)
 
-            -- Quest 2: Quest ID: 30331
-            -- Discover Stable, Forge, Lumber mill(?)
-                -- TODO: Need to discover 3 things
-                REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `SpecialFlags`, `NextQuestInChain`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `RewRepFaction1`, `RewRepValue1`, `RewRepSpilloverMask`, `RewXP`, `RewOrReqMoney`, `RewMoneyMaxLevel`, `OfferRewardEmote1`) VALUES (30331, 331, 25, 30, 12, 2, 30332, 'Warsong Camp', 'Satyr, Burning Legion, and now Orcs too?! Go to the Warsong Lumber Camp and scout it out for me.', 'Find the Stable, Forge and Bunker at the Warsong Lumber Camp then return to Donann Forgemaker at Forest Song.', 'This is bad news. Go back there and eradicate them!', 'What do you have to report, $N?  Have you been to the Warsong Lumber Camp?', 'Scout the Warsong Lumber Camp.', '', '', '', '', 47, 100, 1, 2500, 2500, 2700, 1);
+            -- Quest 2:
+                REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `SpecialFlags`, `NextQuestInChain`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `RewRepFaction1`, `RewRepValue1`, `RewRepSpilloverMask`, `RewXP`, `RewOrReqMoney`, `RewMoneyMaxLevel`, `OfferRewardEmote1`) VALUES (30331, 331, 25, 30, 12, 2, 30351, 'Warsong Camp', 'Satyr, Burning Legion, and now Orcs too?! Go to the Warsong Lumber Camp and scout it out for me.', 'Find the Stable at the Warsong Lumber Camp thenfind the Warsong Supplies at the Stables.', 'This is bad news. Go back there and eradicate them!', 'What do you have to report, $N?  Have you been to the Warsong Lumber Camp?', 'Scout the Warsong Lumber Camps Stable', '', '', '', '', 47, 100, 1, 1000, 0, 2700, 1);
 
-            -- Creatures
-                -- Spawns
-                    REPLACE `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000188, 11682, 0, 0, 0, 0, 1, 2385.62, -3421.84, 113.576, 2.80366, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
-                    REPLACE `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000189, 11682, 0, 0, 0, 0, 1, 2384.18, -3434.84, 113.576, 3.044, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
+                -- Area Trigger
+                    -- Stable
+                        REPLACE `mangos`.`areatrigger_involvedrelation` (`id`, `quest`) VALUES (2949, 30331);
+                        REPLACE `mangos`.`areatrigger_template` (`id`, `build`, `name`, `map_id`, `x`, `y`, `z`, `radius`) VALUES (2949, 4222, 'Ashenvale - Quest Warsong Camp', 1, 2499.096680, -3445.354004, 105.548523, 10);
+
+                -- Objects
+                    -- Templates
+                        REPLACE `mangos`.`gameobject_template` (`entry`, `type`, `displayId`, `name`, `faction`, `flags`, `data1`) VALUES (987687, 2, 36, 'Warsong Supply Crates', 84, 4, 174);
+
+                    -- Spawns
+                        REPLACE `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (4100188, 987687, 1, 2508, -3445.01, 105.293, 0.277711, 0, 0, 0.13841, 0.990375, 25, 25, 100, 1, 0, 0, 0, 10);
+
+                    -- Start
+                        REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90126, 30331); -- Donann Forgemaker (Forest Song)
+
+                    -- End
+                        REPLACE `mangos`.`gameobject_involvedrelation` (`id`, `quest`) VALUES (987687, 30331); -- Warsong Supply Crates (Warsong Lumber Camp - Stables)
+
+            -- Chain -> Turn in at Object at Forge (30351)
+                REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `SpecialFlags`, `PrevQuestId`, `NextQuestInChain`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `RewRepFaction1`, `RewRepValue1`, `RewRepSpilloverMask`, `RewXP`, `RewOrReqMoney`, `RewMoneyMaxLevel`, `OfferRewardEmote1`) VALUES (30351, 331, 25, 30, 12, 2, 30331, 30352, 'Warsong Camp', 'Scout out the Forge at the Warsong Lumber Camp next.', 'Find the Forge at the Warsong Lumber Camp then find the Warsong Supplies at the Forge.', 'Lots of supplies..what are the orcs up to?', 'What do you have to report, $N?  Have you been to the Warsong Lumber Camp?', 'Scout the Warsong Lumber Camps Forge', '', '', '', '', 47, 100, 1, 1000, 0, 2700, 1);
 
             -- Area Trigger
-                -- Stable
-                    REPLACE `mangos`.`areatrigger_involvedrelation` (`id`, `quest`) VALUES (2949, 30331);
-                    REPLACE `mangos`.`areatrigger_template` (`id`, `build`, `name`, `map_id`, `x`, `y`, `z`, `radius`) VALUES (2949, 4222, 'Ashenvale - Quest Warsong Lumber Camp', 1, 2499.096680, -3445.354004, 105.548523, 10);
-                
                 -- Forge
-                    REPLACE `mangos`.`areatrigger_involvedrelation` (`id`, `quest`) VALUES (2950, 30331);
-                    REPLACE `mangos`.`areatrigger_template` (`id`, `build`, `name`, `map_id`, `x`, `y`, `z`, `radius`) VALUES (2950, 4222, 'Ashenvale - Quest Warsong Lumber Camp', 1, 2538.152588, -3388.906494, 104.27693, 10);
+                    REPLACE `mangos`.`areatrigger_involvedrelation` (`id`, `quest`) VALUES (2950, 30351);
+                    REPLACE `mangos`.`areatrigger_template` (`id`, `build`, `name`, `map_id`, `x`, `y`, `z`, `radius`) VALUES (2950, 4222, 'Ashenvale - Quest Warsong Camp', 1, 2538.152588, -3388.906494, 104.27693, 10);
 
-                -- Bunker
-                    REPLACE `mangos`.`areatrigger_involvedrelation` (`id`, `quest`) VALUES (2951, 30331);
-                    REPLACE `mangos`.`areatrigger_template` (`id`, `build`, `name`, `map_id`, `x`, `y`, `z`, `radius`) VALUES (2951, 4222, 'Ashenvale - Quest Warsong Lumber Camp', 1, 2381.116455, -3428.599121, 107.707413, 5);
+                -- Objects
+                    -- Templates
+                        REPLACE `mangos`.`gameobject_template` (`entry`, `type`, `displayId`, `name`, `faction`, `flags`, `data1`) VALUES (987688, 2, 36, 'Warsong Supply Crates', 84, 4, 174);
 
-                -- Start
-                    REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90126, 30331); -- Donann Forgemaker (Forest Song)
+                    -- Spawns
+                        REPLACE `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (4100189, 987688, 1, 2543.04, -3384.16, 104.261, 4.34215, 0, 0, 0.825178, -0.564873, 25, 25, 100, 1, 0, 0, 0, 10);
 
-                -- End
-                    REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90126, 30331); -- Donann Forgemaker (Forest Song)
+                    -- Start
+                        REPLACE `mangos`.`gameobject_questrelation` (`id`, `quest`) VALUES (987687, 30351);  -- Warsong Supply Crates (Warsong Lumber Camp - Stables)
+
+                    -- End
+                        REPLACE `mangos`.`gameobject_involvedrelation` (`id`, `quest`) VALUES (987688, 30351); -- Warsong Supply Crates (Warsong Lumber Camp - Forge)
+
+            -- Chain -> Turn in at Object at Bunker (30352)
+                REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `SpecialFlags`, `PrevQuestId`, `NextQuestInChain`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `RewRepFaction1`, `RewRepValue1`, `RewRepSpilloverMask`, `RewXP`, `RewOrReqMoney`, `RewMoneyMaxLevel`, `OfferRewardEmote1`) VALUES (30352, 331, 25, 30, 12, 2, 30351, 30332, 'Warsong Camp', 'Scout out the Bunker at the Warsong Lumber Camp next.', 'Find the Bunker at the Warsong Lumber Camp and find the Warsong Supplies at the bunker.', 'Lots of supplies..what are the orcs up to?', 'What do you have to report, $N?  Have you been to the Warsong Lumber Camp?', 'Scout the Warsong Lumber Camps Bunker', '', '', '', '', 47, 100, 1, 1200, 2500, 2700, 1);
+
+                -- Creatures 
+                    -- Spawns
+                        REPLACE `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000188, 11682, 0, 0, 0, 0, 1, 2385.62, -3421.84, 113.576, 2.80366, 330, 330, 0, 100, 100, 0, 0, 0, 0, 10);
+                        REPLACE `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000189, 11682, 0, 0, 0, 0, 1, 2384.18, -3434.84, 113.576, 3.044, 330, 330, 0, 100, 100, 0, 0, 0, 0, 10);
+
+                -- Area Trigger
+                    -- Bunker
+                        REPLACE `mangos`.`areatrigger_involvedrelation` (`id`, `quest`) VALUES (2951, 30352);
+                        REPLACE `mangos`.`areatrigger_template` (`id`, `build`, `name`, `map_id`, `x`, `y`, `z`, `radius`) VALUES (2951, 4222, 'Ashenvale - Quest Warsong Camp', 1, 2381.116455, -3428.599121, 107.707413, 5);
+
+                -- Objects
+                    -- Templates
+                        REPLACE `mangos`.`gameobject_template` (`entry`, `type`, `displayId`, `name`, `faction`, `flags`, `data1`) VALUES (987689, 2, 36, 'Warsong Supply Crates', 84, 4, 174);
+
+                    -- Spawns
+                        REPLACE `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (4100190, 987689, 1, 2389.97, -3428.91, 113.575, 3.13262, 0, 0, 0.99999, 0.00448567, 25, 25, 100, 1, 0, 0, 0, 10);
+
+                    -- Start
+                        REPLACE `mangos`.`gameobject_questrelation` (`id`, `quest`) VALUES (987688, 30352);  -- Warsong Supply Crates (Warsong Lumber Camp - Forge)
+
+                    -- End
+                        REPLACE `mangos`.`gameobject_involvedrelation` (`id`, `quest`) VALUES (987689, 30352); -- Warsong Supply Crates (Warsong Lumber Camp - Bunker)
 
                 -- Chain -> Discover Kargathia Keep
-                REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `SpecialFlags`, `PrevQuestId`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `RewRepFaction1`, `RewRepValue1`, `RewRepSpilloverMask`, `RewXP`, `RewOrReqMoney`, `RewMoneyMaxLevel`, `OfferRewardEmote1`) VALUES (30332, 331, 25, 30, 12, 2, 30331, 'Korgathia Keep', 'Now that you have scouted the camp, I\'d like for you to also scout the keep deep inside the camp.', 'Find Kargathia Keep then return to Donann Forgemaker at Forest Song.', 'This is bad news. Go back there and eradicate them!', 'What do you have to report, $N?  Have you been to Kargathia Keep?', 'Scout the Kargathia Keep.', '', '', '', '', 47, 100, 1, 2500, 2500, 2700, 1);
+                REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `SpecialFlags`, `PrevQuestId`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `RewRepFaction1`, `RewRepValue1`, `RewRepSpilloverMask`, `RewXP`, `RewOrReqMoney`, `RewMoneyMaxLevel`, `OfferRewardEmote1`) VALUES (30332, 331, 25, 30, 12, 2, 30352, 'Korgathia Keep', 'Now that you have scouted the camp, I\'d like for you to also scout the keep deep inside the camp.', 'Find Kargathia Keep then return to Donann Forgemaker at Forest Song.', 'This is bad news. How did the Warsong orcs get so powerful so fast?', 'What do you have to report, $N?  Have you been to Kargathia Keep?', 'Scout the Kargathia Keep', '', '', '', '', 47, 100, 1, 2500, 2500, 2700, 1);
 
                 -- Area Trigger
                     REPLACE `mangos`.`areatrigger_involvedrelation` (`id`, `quest`) VALUES (2952, 30332);
                     REPLACE `mangos`.`areatrigger_template` (`id`, `build`, `name`, `map_id`, `x`, `y`, `z`, `radius`) VALUES (2952, 4222, 'Ashenvale - Quest Korgathia Keep', 1, 2437.461182, -3544.230469, 98.312187, 10);
 
                 -- Start
-                    REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90126, 30332); -- Donann Forgemaker (Forest Song)
+                REPLACE `mangos`.`gameobject_questrelation` (`id`, `quest`) VALUES (987689, 30332);  -- Warsong Supply Crates (Warsong Lumber Camp - Bunker)
 
                 -- End
                     REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90126, 30332); -- Donann Forgemaker (Forest Song)
 
             -- Quest 3: Horde Deforester kills (6?) (id: 11681) Quest ID: 30333
-                REPLACE`mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `PrevQuestId`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOId2`, `ReqCreatureOrGOCount1`, `ReqCreatureOrGOCount2`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewMoneyMaxLevel`, `IncompleteEmote`, `CompleteEmote`, `OfferRewardEmote1`, `OfferRewardEmote2`) VALUES (30333, 331, 25, 28, 8, 30325, 'Protect the Ashenvale Trees', 'The orcs are defiling our lies. Head far to the east to the Warsong Lumber Camp and stop them.', 'Kill 8 Horde Deforester and 8 Horde Peon and then return to Cymria in Astranaar.', 'Our forest is safer for another day.', 'Did you stop the Orcs?', '', '', '', '', '', 11681, 11656, 8, 8, 69, 150, 2400, 720, 6, 6, 4, 1);
+                REPLACE`mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `PrevQuestId`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOId2`, `ReqCreatureOrGOCount1`, `ReqCreatureOrGOCount2`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewMoneyMaxLevel`, `IncompleteEmote`, `CompleteEmote`, `OfferRewardEmote1`, `OfferRewardEmote2`) VALUES (30333, 331, 25, 28, 8, 0, 'Protect the Ashenvale Trees', 'The orcs are defiling our lies. Head far to the east to the Warsong Lumber Camp and stop them.', 'Kill 8 Horde Deforester and 8 Horde Peon and then return to Cymria in Astranaar.', 'Our forest is safer for another day.', 'Did you stop the Orcs?', '', '', '', '', '', 11681, 11656, 8, 8, 69, 150, 2400, 720, 6, 6, 4, 1);
 
                 -- Start
                     REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90123, 30333); -- Cymria (Astranaar)
@@ -1519,7 +1508,8 @@ REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (5479, 30174
                     REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90127, 30334); -- Sive Stoutflask (Forest Song)
 
                 -- Chain - > Plans from inside the 2 watchtowers (Chests)
-                    REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemId2`, `ReqItemId3`, `ReqItemCount1`, `ReqItemCount2`, `ReqItemCount3`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewOrReqMoney`, `RewMoneyMaxLevel`, `DetailsEmote1`, `DetailsEmote2`, `DetailsEmote3`, `DetailsEmote4`, `IncompleteEmote`, `CompleteEmote`) VALUES (30335, 331, 25, 30, 8, 'Find the Tower Documents!', 'The orcs at Warsong Lumber Camp carry weapons I can melt down and use for other things. Get them for me.', 'Find the Warsong Documents then bring them back to Sive Stoutflask in Forest Song.', 'Now to melt these down!', 'Ye got the weapons?', '', '', '', '', '', 30432, 30433, 0, 1, 1, 0, 47, 150, 2500, 0, 1260, 4, 6, 1, 5, 11, 11);
+                -- Chain - > Plans from inside the 2 watchtowers (Chests)
+                    REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemId2`, `ReqItemId3`, `ReqItemCount1`, `ReqItemCount2`, `ReqItemCount3`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewOrReqMoney`, `RewMoneyMaxLevel`, `DetailsEmote1`, `DetailsEmote2`, `DetailsEmote3`, `DetailsEmote4`, `IncompleteEmote`, `CompleteEmote`) VALUES (30335, 331, 25, 30, 8, 'Find the Tower Documents!', 'According to our intel, the Watch Towers in the Warsong Lumber Camp have secret documents that could be of use to us. Go to there and bring them back to me.', 'Find the Warsong Documents then bring them back to Sive Stoutflask in Forest Song.', 'Let\'s see here...!', 'Ye got the documents?', '', '', '', '', '', 30432, 30433, 0, 1, 1, 0, 47, 150, 2500, 0, 1260, 4, 6, 1, 5, 11, 11);
 
                     UPDATE `mangos`.`quest_template` SET `PrevQuestId`=30334, `NextQuestInChain`=30336 WHERE  `entry`=30335 AND `patch`=0;
 
@@ -1543,7 +1533,7 @@ REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (5479, 30174
                             REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90127, 30335); -- Sive Stoutflask (Forest Song)
 
                     -- Chain - > Plans from inside Kargathia Keep (Chests) Quest ID: 30336
-                        REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemId2`, `ReqItemId3`, `ReqItemCount1`, `ReqItemCount2`, `ReqItemCount3`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewOrReqMoney`, `RewMoneyMaxLevel`, `DetailsEmote1`, `DetailsEmote2`, `DetailsEmote3`, `DetailsEmote4`, `IncompleteEmote`, `CompleteEmote`) VALUES (30336, 331, 25, 35, 8, 'Finders Keepers', 'The orcs at Warsong Lumber Camp carry weapons I can melt down and use for other things. Get them for me.', 'Find the Warsong Documents then bring them back to Sive Stoutflask in Forest Song.', 'Now to melt these down!', 'Ye got the weapons?', '', '', '', '', '', 30434, 0, 0, 1, 0, 0, 47, 150, 3150, 4500, 1260, 4, 6, 1, 5, 11, 11);
+                        REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemId2`, `ReqItemId3`, `ReqItemCount1`, `ReqItemCount2`, `ReqItemCount3`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewOrReqMoney`, `RewMoneyMaxLevel`, `DetailsEmote1`, `DetailsEmote2`, `DetailsEmote3`, `DetailsEmote4`, `IncompleteEmote`, `CompleteEmote`) VALUES (30336, 331, 25, 35, 8, 'Finders Keepers', 'They keep their most important documents in their keep. Go to Kargathia Keep and get the Warsong Battle Plans for me!', 'Find the Warsong Documents then bring them back to Sive Stoutflask in Forest Song.', 'This will slow down the Warsong orcs attacks for a while, thank you!', 'Ye got the Battle Plans?', '', '', '', '', '', 30434, 0, 0, 1, 0, 0, 47, 150, 3150, 4500, 1260, 4, 6, 1, 5, 11, 11);
 
                         UPDATE `mangos`.`quest_template` SET `PrevQuestId`=30335 WHERE  `entry`=30336 AND `patch`=0;
 
@@ -1562,6 +1552,94 @@ REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (5479, 30174
 
                         -- End
                             REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90127, 30336); -- Sive Stoutflask (Forest Song)
+
+    -- Stonetalon
+        -- NPCs 
+            -- Creature Template
+                REPLACE `mangos`.`creature_template` (`entry`, `name`, `level_min`, `level_max`, `faction`, `npc_flags`, `display_id1`, `display_probability1`, `display_total_probability`, `speed_walk`, `type`, `unit_class`, `health_multiplier`, `inhabit_type`, `civilian`, `static_flags1`, `flags_extra`) VALUES (90110, 'Ziophor', 30, 30, 80, 2, 10616, 1, 1, 1.11111, 7, 1, 1.05, 1, 1, 138412102, 2);
+
+                REPLACE `mangos`.`creature_template` (`entry`, `name`, `level_min`, `level_max`, `faction`, `npc_flags`, `display_id1`, `display_probability1`, `display_total_probability`, `speed_walk`, `type`, `unit_class`, `health_multiplier`, `inhabit_type`, `civilian`, `static_flags1`, `flags_extra`) VALUES (90111, 'Rendall Moonculler', 30, 30, 80, 2, 2253, 1, 1, 1.11111, 7, 1, 1.05, 1, 1, 138412102, 2);
+
+                REPLACE `mangos`.`creature_template` (`entry`, `name`, `level_min`, `level_max`, `faction`, `npc_flags`, `display_id1`, `display_probability1`, `display_total_probability`, `speed_walk`, `type`, `unit_class`, `health_multiplier`, `inhabit_type`, `civilian`, `static_flags1`, `flags_extra`) VALUES (90112, 'Anyine', 30, 30, 80, 2, 2211, 1, 1, 1.11111, 7, 1, 1.05, 1, 1, 138412102, 2);
+
+                REPLACE `mangos`.`creature_template` (`entry`, `name`, `level_min`, `level_max`, `faction`, `npc_flags`, `display_id1`, `display_probability1`, `display_total_probability`, `speed_walk`, `type`, `unit_class`, `health_multiplier`, `inhabit_type`, `civilian`, `static_flags1`, `flags_extra`) VALUES (90115, 'Trinti Machinemouth', 30, 30, 80, 2, 10214, 1, 1, 1.11111, 7, 1, 1.05, 1, 1, 138412102, 2);
+
+            -- Spawns 
+                REPLACE `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000163, 90110, 0, 0, 0, 0, 1, 2686.65, 1477.66, 234.351, 3.94618, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
+                REPLACE `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000164, 90111, 0, 0, 0, 0, 1, 2701.93, 1425.13, 243.04, 2.88196, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
+                REPLACE `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000162, 90112, 0, 0, 0, 0, 1, 2693.05, 1509.08, 236.819, 4.8651, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
+                REPLACE `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000167, 90115, 0, 0, 0, 0, 1, 724.681, 343.607, 64.3999, 0.180167, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
+        -- Quests
+            -- https://www.wowhead.com/tbc/quest=6284/arachnophobia
+                REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `Type`, `RequiredRaces`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewChoiceItemId1`, `RewChoiceItemId2`, `RewChoiceItemCount1`, `RewChoiceItemCount2`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewMoneyMaxLevel`, `IncompleteEmote`, `CompleteEmote`, `OfferRewardEmote1`, `OfferRewardEmote2`) VALUES (30296, 406, 15, 21, 1, 0, 8, 'Arachnophobia', 'Warning: Proceed into Sishir Canyon west of here at your own risk.$B$BBesseleth and her eight-legged children of the forest have claimed this canyon as their webbed lair.$B$BAnyine in Stonetalon Peak has placed a bounty on Besseleth. Slay her and bring proof of your killing to Anyine; there you will receive your reward for disposing this eight-legged menace.', 'Kill Besseleth and bring Besseleth\'s Fang to Anyine at Stonetalon Peak.', 'Good hunting, $N! Besseleth is an old predator in these parts... I will miss her not. Take this reward as a token for being the forest champion.$B$B<Maggran rubs the wound caused by Besseleth.>$B$BPerhaps now many more will travel to Stonetalon Peak without fearing what lurks in the dark.', 'Besseleth is a ruthless predator... I fear for those that travel Webwinder Path at night. It\'s then that she and her children prey upon innocent travelers. I myself fell prey to her two-foot fang of death, but luckily I was able to fend her off and get to safety. I would give anything to see that monster destroyed.', '', '', '', '', '', 16192, 1, 16891, 16894, 1, 1, 69, 100, 1650, 1020, 1, 1, 1, 1);
+
+                -- Start
+                    REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90112, 30296); -- Anyine (Stonetalon Peak)
+
+                -- End
+                    REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90112, 30296); -- Anyine (Stonetalon Peak)
+
+            -- https://www.wowhead.com/tbc/quest=6461/blood-feeders
+                REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOId2`, `ReqCreatureOrGOCount1`, `ReqCreatureOrGOCount2`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewOrReqMoney`, `RewMoneyMaxLevel`, `DetailsEmote1`, `DetailsEmote2`, `IncompleteEmote`, `CompleteEmote`, `OfferRewardEmote1`) VALUES (30297, 406, 13, 19, 8, 'Blood Feeders', 'We Trolls here at Malaka\'Jin have prospered from the land; Stonetalon Mountain offers great hunting for us to live on.$B$BLately, we have attracted the wrong dinner guests... the spiders in these mountains have been raiding our camps at night looking to steal our hunt.$B$BIf you were to help us kill off these ghastly beasts we at Stonetalon Peak would be in your debt. Spiders are everywhere in Stonetalon - just head north from here and you will see what I am talking about.', 'Ziophor at Stonetalon Peak needs you to kill 10 Deepmoss Creepers and 7 Deepmoss Venomspitters.', 'Sweet, mon! Good news, perhaps we will have fewer unwanted dinner guests tonight.$B$BMany thanks, $N.  We are forever in your debt.', 'Hey mon, have you slain the hairy blood feeders? I fear none here in Stonetalon but I don\'t go walking around here at night... if you know what I mean mon!$B$BAs long as I stay off their dinner plate then all is well.$B$BGood luck to you, $c!', '', '', '', '', '', 4005, 4007, 10, 7, 69, 100, 1450, 1100, 900, 1, 1, 1, 1, 1);
+
+                -- Start
+                    REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90110, 30297); -- Ziophor (Stonetalon Peak)
+
+                -- End
+                    REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90110, 30297); -- Ziophor (Stonetalon Peak)
+
+            -- https://www.wowhead.com/tbc/quest=6548/avenge-my-village 
+                REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `NextQuestInChain`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOId2`, `ReqCreatureOrGOCount1`, `ReqCreatureOrGOCount2`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewOrReqMoney`, `RewMoneyMaxLevel`, `DetailsEmote1`, `OfferRewardEmote1`) VALUES (30298, 406, 12, 18, 8, 30299, 'Avenge The Village', 'The Grimtotem Clan raided the tauren village and killed most everyone. I killed all I could, but barely escaped with the tauren life.$b$b$N, all I wish now is that more of them are dead. You will find them just to the west of here.\n\n', 'Kill 8 Grimtotem Ruffians and 6 Grimtotem Mercenaries, and then return to Trinti Machinemouth at Webwinder Path.\n', '$N, I thank you... but I will never forget what the Grimtotem have done to the tauren village.', 'Have you killed them yet?', '', '', '', '', '', 11910, 11911, 8, 6, 54, 100, 1350, 1000, 840, 1, 1);
+
+                -- Start
+                    REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90115, 30298); -- Trinti Machinemouth (Webwinder Path)
+
+                -- End
+                    REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90115, 30298); -- Trinti Machinemouth (Webwinder Path)
+
+            --     -> https://www.wowhead.com/tbc/quest=6629/kill-grundig-darkcloud
+                REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `PrevQuestId`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOId2`, `ReqCreatureOrGOCount1`, `ReqCreatureOrGOCount2`, `RewXP`, `RewOrReqMoney`, `RewMoneyMaxLevel`, `DetailsEmote1`, `OfferRewardEmote1`) VALUES (30299, 406, 12, 18, 8, 30298, 'Kill Grundig Darkcloud', '$N, you\'ve done a fine job killing Grimtotem. If you dare, Grundig Darkcloud and his personal band of brutes is by far the worst of the lot. He was the one who led the brutal attack the tauren village.$b$bYou will find him in Grimtotem Post a bit further up the path to the west. Kill him, and I will be forever grateful.\n', 'Kill Grundig Darkcloud and 6 Grimtotem Brutes, and return to Trinti Machinemouth at Webwinder Path.\n', 'Grundig Darkcloud is dead! $N, I will always be grateful for what you\'ve done here today.', 'Have you killed Grundig Darkcloud and his personal band of Brutes?\n', '', '', '', '', '', 11858, 11912, 1, 6, 1350, 1000, 840, 1, 1);
+
+                -- Start
+                    REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90115, 30299); -- Trinti Machinemouth (Webwinder Path)
+
+                -- End
+                    REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90115, 30299); -- Trinti Machinemouth (Webwinder Path)
+            -- https://www.wowhead.com/tbc/quest=6301/cycle-of-rebirth
+                REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewOrReqMoney`, `RewMoneyMaxLevel`, `DetailsEmote1`, `DetailsEmote2`, `IncompleteEmote`, `CompleteEmote`, `OfferRewardEmote1`, `CompleteScript`) VALUES (30300, 406, 17, 23, 8, 'Cycle of Rebirth', 'Industrial greed and continuous war have wrecked the lands of Stonetalon. Only the blessings of the Earthmother can cure such injury.$B$B$N, I will require you to seek a special seed, the Gaea seed. They are only found here in Stonetalon Mountain, south of Stonetalon Peak at Mirkfallon Lake, near the water\'s edge.$B$BOnce you bring me the seeds I will imbue them with shamanistic power to speed their growth.', 'Rendall Moonculler at Stonetalon Peak wants you to gather 10 Gaea Seeds.', 'Ah, $N, you have the Gaea seeds. Watch and see how the blessing of the Earthmother can cause even these small kernels of life to bloom and flourish.$B$B<TRendall Moonculler ammra begins to chant.>', 'The continuous destruction caused by war and those that seek a profit from lumber pains me deeply. To aid the cycle of rebirth and replenish the lands, I need Gaea seeds. Do you have them, $c?', '', '', '', '', '', 16205, 10, 69, 75, 1400, 1200, 840, 1, 1, 1, 1, 1, 0);
+
+                -- Start
+                    REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90111, 30300); -- Rendall Moonculler (Stonetalon Peak)
+
+                -- End
+                    REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90111, 30300); -- Rendall Moonculler (Stonetalon Peak)
+
+            --     -> https://www.wowhead.com/tbc/quest=6381/new-life
+                REPLACE `quest_template` (`entry`, `patch`, `Method`, `ZoneOrSort`, `MinLevel`, `MaxLevel`, `QuestLevel`, `Type`, `RequiredClasses`, `RequiredRaces`, `RequiredSkill`, `RequiredSkillValue`, `RequiredCondition`, `RepObjectiveFaction`, `RepObjectiveValue`, `RequiredMinRepFaction`, `RequiredMinRepValue`, `RequiredMaxRepFaction`, `RequiredMaxRepValue`, `SuggestedPlayers`, `LimitTime`, `QuestFlags`, `SpecialFlags`, `PrevQuestId`, `NextQuestId`, `ExclusiveGroup`, `BreadcrumbForQuestId`, `NextQuestInChain`, `SrcItemId`, `SrcItemCount`, `SrcSpell`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemId2`, `ReqItemId3`, `ReqItemId4`, `ReqItemCount1`, `ReqItemCount2`, `ReqItemCount3`, `ReqItemCount4`, `ReqSourceId1`, `ReqSourceId2`, `ReqSourceId3`, `ReqSourceId4`, `ReqSourceCount1`, `ReqSourceCount2`, `ReqSourceCount3`, `ReqSourceCount4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOId2`, `ReqCreatureOrGOId3`, `ReqCreatureOrGOId4`, `ReqCreatureOrGOCount1`, `ReqCreatureOrGOCount2`, `ReqCreatureOrGOCount3`, `ReqCreatureOrGOCount4`, `ReqSpellCast1`, `ReqSpellCast2`, `ReqSpellCast3`, `ReqSpellCast4`, `RewChoiceItemId1`, `RewChoiceItemId2`, `RewChoiceItemId3`, `RewChoiceItemId4`, `RewChoiceItemId5`, `RewChoiceItemId6`, `RewChoiceItemCount1`, `RewChoiceItemCount2`, `RewChoiceItemCount3`, `RewChoiceItemCount4`, `RewChoiceItemCount5`, `RewChoiceItemCount6`, `RewItemId1`, `RewItemId2`, `RewItemId3`, `RewItemId4`, `RewItemCount1`, `RewItemCount2`, `RewItemCount3`, `RewItemCount4`, `RewRepFaction1`, `RewRepFaction2`, `RewRepFaction3`, `RewRepFaction4`, `RewRepFaction5`, `RewRepValue1`, `RewRepValue2`, `RewRepValue3`, `RewRepValue4`, `RewRepValue5`, `RewRepSpilloverMask`, `RewXP`, `RewOrReqMoney`, `RewMoneyMaxLevel`, `RewSpell`, `RewSpellCast`, `RewMailTemplateId`, `RewMailDelaySecs`, `RewMailMoney`, `PointMapId`, `PointX`, `PointY`, `PointOpt`, `DetailsEmote1`, `DetailsEmote2`, `DetailsEmote3`, `DetailsEmote4`, `DetailsEmoteDelay1`, `DetailsEmoteDelay2`, `DetailsEmoteDelay3`, `DetailsEmoteDelay4`, `IncompleteEmote`, `CompleteEmote`, `OfferRewardEmote1`, `OfferRewardEmote2`, `OfferRewardEmote3`, `OfferRewardEmote4`, `OfferRewardEmoteDelay1`, `OfferRewardEmoteDelay2`, `OfferRewardEmoteDelay3`, `OfferRewardEmoteDelay4`, `StartScript`, `CompleteScript`) VALUES (30301, 0, 2, 406, 17, 0, 25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 30300, 0, 0, 0, 0, 16208, 1, 0, 'New Life', 'As you have seen, $c, though the land is in pain, the cycle of life is a powerful thing. Now we must do our part help it along. You must plant these seeds at the center of the destruction, to the west, in the Charred Vale. Beware, for harpies and angry fire elementals still plague the scarred land.$B$B$N, take these enchanted Gaea seeds and plant them in fertile mounds of soil. The cycle of life must go on!', 'Plant 10 Gaea Seeds in Gaea Dirt Mounds, and then return the remaining Enchanted Gaea Seeds to Rendall Moonculler at Stonetalon Peak.', 'This is great victory for the land. In time, other things will come to pass: the Venture Co. will pack up their buzz saws and axes, the angry fire spirits will calm, and the harpies will be pushed out by the land.$B$BOnly then $N, will Stonetalon be truly at peace.$B$BYou have done well $c; take one of these items as thanks for the new life you have created here today.', 'These seeds you plant are strong, resisting corruption, and making a foothold for other life. They will grow and grow, first preventing corruption and healing the scarred land, and then one day, restoring Stonetalon to a lush forest, once again.$B$BHave you planted all of the Gaea seeds?', '', 'Gaea seed planted', '', '', '', 16208, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -177929, 0, 0, 0, 10, 0, 0, 0, 20269, 0, 0, 0, 16985, 16986, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 69, 0, 0, 0, 0, 100, 0, 0, 0, 0, 0, 2000, 0, 1200, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0);
+
+                -- Start
+                    REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90111, 30301); -- Rendall Moonculler (Stonetalon Peak)
+
+                -- End
+                    REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90111, 30301); -- Rendall Moonculler (Stonetalon Peak)
+
+            -- https://www.wowhead.com/tbc/quest=1058/jinzils-forest-magic
+                REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemId2`, `ReqItemId3`, `ReqItemId4`, `ReqItemCount1`, `ReqItemCount2`, `ReqItemCount3`, `ReqItemCount4`, `RewChoiceItemId1`, `RewChoiceItemId2`, `RewChoiceItemCount1`, `RewChoiceItemCount2`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewMoneyMaxLevel`, `DetailsEmote1`, `DetailsEmote2`, `DetailsEmote3`, `DetailsEmote4`, `IncompleteEmote`, `CompleteEmote`, `CompleteScript`) VALUES (30302, 406, 20, 26, 8, 'Trinti\'s Forest Magic', 'So excited I am!$b$bThree little cages for three little elves! But what shall we do with our lovely tree-hugging friends? Why, let\'s give them a taste of... what do they call it... forest magic!$b$bI\'ll need a good mess of Stonetalon sap. From those horrid felines, bring me some twilight whiskers. This calls for plenty of courser eyes, of course - can never have enough eyes. Oh, and lest we forget, a precious scale from a fey dragon.$b$bHurry to Stonetalon Peak, $n, so I can brew some forest magic!', 'Mage Trinti Machinemouth at Webwinder Path wants 5 portions of Stonetalon Sap, 5 Twilight Whiskers, 30 Courser Eyes and a Fey Dragon Scale.', 'Oh how happy these little woodland nymphs shall be! We\'ll make them feel right at home with this special concoction!', 'Look at our poor little elf friends. All caged up with no forest to frolic in!$b$bNow were you able to find me some sap? How about the whiskers from the twilight runners? Don\'t suppose you have that fey dragon scale on you?$b$bAnd eyes! I\'ll need so many eyes! You just can\'t mix up a fierce forest magic brew without a good helping of eyes!', '', '', '', '', '', 5582, 5584, 5585, 5583, 5, 5, 30, 1, 6664, 6665, 1, 1, 54, 100, 2100, 1260, 4, 6, 1, 5, 11, 11, 0);
+
+                -- Start
+                    REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90115, 30302); -- Trinti Machinemouth (Webwinder Path)
+
+                -- End
+                    REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90115, 30302); -- Trinti Machinemouth (Webwinder Path)
+
+            -- https://www.wowhead.com/tbc/quest=6283/bloodfury-bloodline
+                REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `Type`, `QuestFlags`, `PrevQuestId`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewChoiceItemId1`, `RewChoiceItemId2`, `RewChoiceItemCount1`, `RewChoiceItemCount2`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewMoneyMaxLevel`, `DetailsEmote1`, `DetailsEmote2`, `IncompleteEmote`, `CompleteEmote`, `OfferRewardEmote1`) VALUES (30303, 406, 18, 26, 1, 8, 1057, 'Bloodfury Bloodline', 'Limiting the number of Bloodfury Harpies will not be enough. The only true cure for their disease would be to slay their leader, Bloodfury Ripper!$B$BShe is all but a queen to those filthy creatures. Slay her and their numbers will surely diminish.$B$BGo back into the Charred Vale and you will find her along the western hills. She will not be easy to vanquish, but the reward will be great.', 'Keeper Albagorm at Stonetalon Peak wishes you to slay Bloodfury Ripper and bring her remains as proof of your deed.', 'Already I feel the anger leave me. What will I do with my time? Knowing evil moves near my land kept my thoughts moving, though now they are silent. Perhaps this is a good thing... maybe now I can focus on the good, as all Tauren should.$B$BPlease accept this as a reward for your troubles.', 'Bloodfury Ripper is a nasty creature! You will have success finding her along the western hill line in the Charred Vale.$B$BThe bloodfuries will be helpless with out... surely we can vanquish them forever!', '', '', '', '', '', 16190, 1, 16990, 16987, 1, 1, 69, 100, 2100, 1260, 1, 1, 1, 1, 1);
+
+                -- Start
+                    REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (3994, 30303); -- Keeper Albagorm (Stonetalon Peak)
+
+                -- End
+                    REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (3994, 30303); -- Keeper Albagorm (Stonetalon Peak)
 
     -- Arathi Highlands
         -- Quest
@@ -1775,102 +1853,661 @@ REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (5479, 30174
         -- Quest
             REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemId2`, `ReqItemId3`, `ReqItemId4`, `ReqItemCount1`, `ReqItemCount2`, `ReqItemCount3`, `ReqItemCount4`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewMoneyMaxLevel`) VALUES (30346, 45, 30, 33, 8, 'Back on the Menu', 'The syndicate took me cows! They are at Northfold Manor, please get them back for me!', 'Capture 6 Cows from Northfold Manor to the west and then return them back to Narj Deepslice at Refuge Pointe.', 'Meat and milk is back on the menu!', 'Did you find the cows?', '', '', '', '', '', 30455, 0, 0, 0, 6, 0, 0, 0, 47, 100, 2400, 1500);
 
-            UPDATE `mangos`.`quest_template` SET `SrcItemId`=30454, `SrcItemCount`=1 WHERE  `entry`=30346 AND `patch`=0;
+            UPDATE `mangos`.`quest_template` SET `SrcItemId`=30454, `SrcItemCount`=1, `ReqItemId2`=30454, `ReqItemCount2`=1 WHERE  `entry`=30346 AND `patch`=0;
 
             -- Start
                 REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (2814, 30346); -- Narj Deepslice (Refuge Pointe)
 
             -- End
                 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (2814, 30346);  -- Narj Deepslice (Refuge Pointe)
+    -- Desolace
+        -- NPCs
+            -- Template
+                REPLACE `mangos`.`creature_template` (`entry`, `name`, `subname`, `level_min`, `level_max`, `faction`, `npc_flags`, `display_id1`, `display_probability1`, `display_total_probability`, `type`, `unit_class`, `health_multiplier`, `damage_multiplier`, `equipment_id`, `static_flags1`, `flags_extra`) VALUES (90132, 'Kayme Fhiro', '', 45, 45, 80, 2, 6879, 1, 1, 7, 1, 1.1, 1.05, 2796, 138936390, 2);
 
-    -- Stonetalon
-        -- NPCs 
-            -- Creature Template
-                REPLACE `mangos`.`creature_template` (`entry`, `name`, `level_min`, `level_max`, `faction`, `npc_flags`, `display_id1`, `display_probability1`, `display_total_probability`, `speed_walk`, `type`, `unit_class`, `health_multiplier`, `inhabit_type`, `civilian`, `static_flags1`, `flags_extra`) VALUES (90110, 'Ziophor', 30, 30, 80, 2, 10616, 1, 1, 1.11111, 7, 1, 1.05, 1, 1, 138412102, 2);
+                REPLACE `mangos`.`creature_template` (`entry`, `name`, `subname`, `level_min`, `level_max`, `faction`, `npc_flags`, `display_id1`, `display_probability1`, `display_total_probability`, `type`, `unit_class`, `health_multiplier`, `damage_multiplier`, `equipment_id`, `static_flags1`, `flags_extra`) VALUES (90133, 'Alumnia', '', 45, 45, 80, 2, 5186, 1, 1, 7, 1, 1.1, 1.05, 2796, 138936390, 2);
 
-                REPLACE `mangos`.`creature_template` (`entry`, `name`, `level_min`, `level_max`, `faction`, `npc_flags`, `display_id1`, `display_probability1`, `display_total_probability`, `speed_walk`, `type`, `unit_class`, `health_multiplier`, `inhabit_type`, `civilian`, `static_flags1`, `flags_extra`) VALUES (90111, 'Rendall Moonculler', 30, 30, 80, 2, 2253, 1, 1, 1.11111, 7, 1, 1.05, 1, 1, 138412102, 2);
+            -- Spawns
+                -- Bowyer
+                    REPLACE `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000193, 14301, 0, 0, 0, 0, 1, -1409.25, 1478.99, 61.1006, 3.64633, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
 
-                REPLACE `mangos`.`creature_template` (`entry`, `name`, `level_min`, `level_max`, `faction`, `npc_flags`, `display_id1`, `display_probability1`, `display_total_probability`, `speed_walk`, `type`, `unit_class`, `health_multiplier`, `inhabit_type`, `civilian`, `static_flags1`, `flags_extra`) VALUES (90112, 'Anyine', 30, 30, 80, 2, 2211, 1, 1, 1.11111, 7, 1, 1.05, 1, 1, 138412102, 2);
+                -- Food and Drink
+                    REPLACE `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000194, 4181, 0, 0, 0, 0, 1, -1396.93, 1486.62, 61.6992, 2.58448, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
 
-                REPLACE `mangos`.`creature_template` (`entry`, `name`, `level_min`, `level_max`, `faction`, `npc_flags`, `display_id1`, `display_probability1`, `display_total_probability`, `speed_walk`, `type`, `unit_class`, `health_multiplier`, `inhabit_type`, `civilian`, `static_flags1`, `flags_extra`) VALUES (90115, 'Trinti Machinemouth', 30, 30, 80, 2, 10214, 1, 1, 1.11111, 7, 1, 1.05, 1, 1, 138412102, 2);
+                -- Quest Givers
+                    REPLACE `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000195, 90132, 0, 0, 0, 0, 1, -1408, 1486.36, 61.2536, 2.37005, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
+                    REPLACE `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000196, 90133, 0, 0, 0, 0, 1, -1391.44, 1496.96, 61.2529, 1.44249, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
 
-            -- Spawns 
-                REPLACE `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000163, 90110, 0, 0, 0, 0, 1, 2686.65, 1477.66, 234.351, 3.94618, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
-                REPLACE `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000164, 90111, 0, 0, 0, 0, 1, 2701.93, 1425.13, 243.04, 2.88196, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
-                REPLACE `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000162, 90112, 0, 0, 0, 0, 1, 2693.05, 1509.08, 236.819, 4.8651, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
-                REPLACE `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000167, 90115, 0, 0, 0, 0, 1, 724.681, 343.607, 64.3999, 0.180167, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
-        -- Quests
-            -- https://www.wowhead.com/tbc/quest=6284/arachnophobia
-                REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `Type`, `RequiredRaces`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewChoiceItemId1`, `RewChoiceItemId2`, `RewChoiceItemCount1`, `RewChoiceItemCount2`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewMoneyMaxLevel`, `IncompleteEmote`, `CompleteEmote`, `OfferRewardEmote1`, `OfferRewardEmote2`) VALUES (30296, 406, 15, 21, 1, 0, 8, 'Arachnophobia', 'Warning: Proceed into Sishir Canyon west of here at your own risk.$B$BBesseleth and her eight-legged children of the forest have claimed this canyon as their webbed lair.$B$BAnyine in Stonetalon Peak has placed a bounty on Besseleth. Slay her and bring proof of your killing to Anyine; there you will receive your reward for disposing this eight-legged menace.', 'Kill Besseleth and bring Besseleth\'s Fang to Anyine at Stonetalon Peak.', 'Good hunting, $N! Besseleth is an old predator in these parts... I will miss her not. Take this reward as a token for being the forest champion.$B$B<Maggran rubs the wound caused by Besseleth.>$B$BPerhaps now many more will travel to Stonetalon Peak without fearing what lurks in the dark.', 'Besseleth is a ruthless predator... I fear for those that travel Webwinder Path at night. It\'s then that she and her children prey upon innocent travelers. I myself fell prey to her two-foot fang of death, but luckily I was able to fend her off and get to safety. I would give anything to see that monster destroyed.', '', '', '', '', '', 16192, 1, 16891, 16894, 1, 1, 69, 100, 1650, 1020, 1, 1, 1, 1);
 
-                -- Start
-                    REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90112, 30296); -- Anyine (Stonetalon Peak)
+        -- Reagents for reclaimers inc not require 2nd part to get 3rd (only require first, satyrs)
+            UPDATE `mangos`.`quest_template` SET `NextQuestInChain`=0 WHERE  `entry`=1458 AND `patch`=0;
+            UPDATE `mangos`.`quest_template` SET `NextQuestInChain`=0 WHERE  `entry`=1459 AND `patch`=7;
+            UPDATE `mangos`.`quest_template` SET `PrevQuestId`=1458 WHERE  `entry`=1466 AND `patch`=0;
 
-                -- End
-                    REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90112, 30296); -- Anyine (Stonetalon Peak)
 
-            -- https://www.wowhead.com/tbc/quest=6461/blood-feeders
-                REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOId2`, `ReqCreatureOrGOCount1`, `ReqCreatureOrGOCount2`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewOrReqMoney`, `RewMoneyMaxLevel`, `DetailsEmote1`, `DetailsEmote2`, `IncompleteEmote`, `CompleteEmote`, `OfferRewardEmote1`) VALUES (30297, 406, 13, 19, 8, 'Blood Feeders', 'We Trolls here at Malaka\'Jin have prospered from the land; Stonetalon Mountain offers great hunting for us to live on.$B$BLately, we have attracted the wrong dinner guests... the spiders in these mountains have been raiding our camps at night looking to steal our hunt.$B$BIf you were to help us kill off these ghastly beasts we at Stonetalon Peak would be in your debt. Spiders are everywhere in Stonetalon - just head north from here and you will see what I am talking about.', 'Ziophor at Stonetalon Peak needs you to kill 10 Deepmoss Creepers and 7 Deepmoss Venomspitters.', 'Sweet, mon! Good news, perhaps we will have fewer unwanted dinner guests tonight.$B$BMany thanks, $N.  We are forever in your debt.', 'Hey mon, have you slain the hairy blood feeders? I fear none here in Stonetalon but I don\'t go walking around here at night... if you know what I mean mon!$B$BAs long as I stay off their dinner plate then all is well.$B$BGood luck to you, $c!', '', '', '', '', '', 4005, 4007, 10, 7, 69, 100, 1450, 1100, 900, 1, 1, 1, 1, 1);
+        -- Quest
+            REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`) VALUES (30347, 405, 33, 38, 8, 'Kayme Fhiro ', 'The demon threat in this land is great. Go far south to Scrabblescrew\'s Camp and find Kayme Fhiro.', 'Find Kayme Fhiro far south in Desolace at Scrabblescrew\'s Camp.', 'All demons must be wiped from this planet.', 'Did you find Kayme Fhiro ', '', '', '', '', '', 0, 0, 69, 100, 1200);
 
-                -- Start
-                    REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90110, 30297); -- Ziophor (Stonetalon Peak)
+            -- Start
+                REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (5642, 30347); -- Vahlarriel Demonslayer (Nijels Point)
 
-                -- End
-                    REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90110, 30297); -- Ziophor (Stonetalon Peak)
+            -- End
+                REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90132, 30347);   -- Kayme Fhiro (Scrabblescrew's Camp)
 
-            -- https://www.wowhead.com/tbc/quest=6548/avenge-my-village 
-                REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `NextQuestInChain`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOId2`, `ReqCreatureOrGOCount1`, `ReqCreatureOrGOCount2`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewOrReqMoney`, `RewMoneyMaxLevel`, `DetailsEmote1`, `OfferRewardEmote1`) VALUES (30298, 406, 12, 18, 8, 30299, 'Avenge The Village', 'The Grimtotem Clan raided the tauren village and killed most everyone. I killed all I could, but barely escaped with the tauren life.$b$b$N, all I wish now is that more of them are dead. You will find them just to the west of here.\n\n', 'Kill 8 Grimtotem Ruffians and 6 Grimtotem Mercenaries, and then return to Trinti Machinemouth at Webwinder Path.\n', '$N, I thank you... but I will never forget what the Grimtotem have done to the tauren village.', 'Have you killed them yet?', '', '', '', '', '', 11910, 11911, 8, 6, 54, 100, 1350, 1000, 840, 1, 1);
+        -- New quest hub very far south
+        -- Quest
+            REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `NextQuestInChain`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`) VALUES (30076, 405, 30, 37, 30348, 8, 'Infernals Of Desolace', 'Far south in Desolace there still remains infernals from the third war. Wipe out their existence.', 'Kill 15 Lesser Infernals for to Vahlarriel Demonslayer at Nijel\'s Point in Desolace.', 'All demons must be wiped from this planet.', 'Did you wipe out the infernals?', '', '', '', '', '', 4676, 15, 69, 100, 2800);
 
-                -- Start
-                    REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90115, 30298); -- Trinti Machinemouth (Webwinder Path)
+            -- Start
+                REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90132, 30076);  -- Kayme Fhiro (Scrabblescrew's Camp)
 
-                -- End
-                    REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90115, 30298); -- Trinti Machinemouth (Webwinder Path)
+            -- End
+                REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90132, 30076); -- Kayme Fhiro (Scrabblescrew's Camp)
 
-            --     -> https://www.wowhead.com/tbc/quest=6629/kill-grundig-darkcloud
-                REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `PrevQuestId`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOId2`, `ReqCreatureOrGOCount1`, `ReqCreatureOrGOCount2`, `RewXP`, `RewOrReqMoney`, `RewMoneyMaxLevel`, `DetailsEmote1`, `OfferRewardEmote1`) VALUES (30299, 406, 12, 18, 8, 30298, 'Kill Grundig Darkcloud', '$N, you\'ve done a fine job killing Grimtotem. If you dare, Grundig Darkcloud and his personal band of brutes is by far the worst of the lot. He was the one who led the brutal attack the tauren village.$b$bYou will find him in Grimtotem Post a bit further up the path to the west. Kill him, and I will be forever grateful.\n', 'Kill Grundig Darkcloud and 6 Grimtotem Brutes, and return to Trinti Machinemouth at Webwinder Path.\n', 'Grundig Darkcloud is dead! $N, I will always be grateful for what you\'ve done here today.', 'Have you killed Grundig Darkcloud and his personal band of Brutes?\n', '', '', '', '', '', 11858, 11912, 1, 6, 1350, 1000, 840, 1, 1);
+            -- Quest
+                REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`) VALUES (30077, 405, 30, 38, 8, 'Fel Guards of Desolace', 'Far south in Desolace there still remains fel guards from the third war. Wipe out their existence.', 'Kill 10 Doomwarders for to Vahlarriel Demonslayer at Nijel\'s Point in Desolace.', 'All demons must be wiped from this planet.', 'Did you wipe out the fel guards?', '', '', '', '', '', 4677, 10, 69, 100, 2800);
 
-                -- Start
-                    REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90115, 30299); -- Trinti Machinemouth (Webwinder Path)
+            -- Start
+                REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90132, 30077);  -- Kayme Fhiro (Scrabblescrew's Camp)
 
-                -- End
-                    REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90115, 30299); -- Trinti Machinemouth (Webwinder Path)
-            -- https://www.wowhead.com/tbc/quest=6301/cycle-of-rebirth
-                REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewOrReqMoney`, `RewMoneyMaxLevel`, `DetailsEmote1`, `DetailsEmote2`, `IncompleteEmote`, `CompleteEmote`, `OfferRewardEmote1`, `CompleteScript`) VALUES (30300, 406, 17, 23, 8, 'Cycle of Rebirth', 'Industrial greed and continuous war have wrecked the lands of Stonetalon. Only the blessings of the Earthmother can cure such injury.$B$B$N, I will require you to seek a special seed, the Gaea seed. They are only found here in Stonetalon Mountain, south of Stonetalon Peak at Mirkfallon Lake, near the water\'s edge.$B$BOnce you bring me the seeds I will imbue them with shamanistic power to speed their growth.', 'Rendall Moonculler at Stonetalon Peak wants you to gather 10 Gaea Seeds.', 'Ah, $N, you have the Gaea seeds. Watch and see how the blessing of the Earthmother can cause even these small kernels of life to bloom and flourish.$B$B<TRendall Moonculler ammra begins to chant.>', 'The continuous destruction caused by war and those that seek a profit from lumber pains me deeply. To aid the cycle of rebirth and replenish the lands, I need Gaea seeds. Do you have them, $c?', '', '', '', '', '', 16205, 10, 69, 75, 1400, 1200, 840, 1, 1, 1, 1, 1, 0);
+            -- End
+                REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90132, 30077); -- Kayme Fhiro (Scrabblescrew's Camp)
 
-                -- Start
-                    REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90111, 30300); -- Rendall Moonculler (Stonetalon Peak)
+        -- -> Quest
+            REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `PrevQuestId`, `NextQuestInChain`, `SrcItemId`, `SrcItemCount`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOCount1`, `RewChoiceItemId1`, `RewChoiceItemId2`, `RewChoiceItemCount1`, `RewChoiceItemCount2`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewOrReqMoney`, `RewMoneyMaxLevel`, `DetailsEmote1`, `OfferRewardEmote1`) VALUES (30348, 405, 32, 38, 30076, 30349, 30458, 1, 'Portals of the Legion', 'Behold - the Hand of Iruxos. A gruesome sight indeed.$B$BYou must possess it if the demon portals at Mannoroc Coven are to be banished... which is what I now ask you to do. The Demon threat is increasing and we must close these portals to stem the tide of demons to this world. Good luck, $N... and be wary of the portal guardians.\n', 'Banish 6 Portals at Mannoroc Coven and return to Taiga Wisemane at Shadowprey Village.\n', 'You are to be commended, $n.  Your effort has helped greatly in fighting the demon threat, and all of Azeroth is safer because of it.\n', 'Have you banished the demon portals at Mannoroc Coven?\n', '', 'Portals Banished', 'Portals Banished', '', '', 30458, 1, 11937, 6, 16794, 16873, 1, 1, 69, 150, 3550, 4500, 2160, 1, 1);
 
-                -- End
-                    REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90111, 30300); -- Rendall Moonculler (Stonetalon Peak)
+            -- Start
+                REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90132, 30348); -- Kayme Fhiro (Scrabblescrew's Camp)
 
-            --     -> https://www.wowhead.com/tbc/quest=6381/new-life
-                REPLACE `quest_template` (`entry`, `patch`, `Method`, `ZoneOrSort`, `MinLevel`, `MaxLevel`, `QuestLevel`, `Type`, `RequiredClasses`, `RequiredRaces`, `RequiredSkill`, `RequiredSkillValue`, `RequiredCondition`, `RepObjectiveFaction`, `RepObjectiveValue`, `RequiredMinRepFaction`, `RequiredMinRepValue`, `RequiredMaxRepFaction`, `RequiredMaxRepValue`, `SuggestedPlayers`, `LimitTime`, `QuestFlags`, `SpecialFlags`, `PrevQuestId`, `NextQuestId`, `ExclusiveGroup`, `BreadcrumbForQuestId`, `NextQuestInChain`, `SrcItemId`, `SrcItemCount`, `SrcSpell`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemId2`, `ReqItemId3`, `ReqItemId4`, `ReqItemCount1`, `ReqItemCount2`, `ReqItemCount3`, `ReqItemCount4`, `ReqSourceId1`, `ReqSourceId2`, `ReqSourceId3`, `ReqSourceId4`, `ReqSourceCount1`, `ReqSourceCount2`, `ReqSourceCount3`, `ReqSourceCount4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOId2`, `ReqCreatureOrGOId3`, `ReqCreatureOrGOId4`, `ReqCreatureOrGOCount1`, `ReqCreatureOrGOCount2`, `ReqCreatureOrGOCount3`, `ReqCreatureOrGOCount4`, `ReqSpellCast1`, `ReqSpellCast2`, `ReqSpellCast3`, `ReqSpellCast4`, `RewChoiceItemId1`, `RewChoiceItemId2`, `RewChoiceItemId3`, `RewChoiceItemId4`, `RewChoiceItemId5`, `RewChoiceItemId6`, `RewChoiceItemCount1`, `RewChoiceItemCount2`, `RewChoiceItemCount3`, `RewChoiceItemCount4`, `RewChoiceItemCount5`, `RewChoiceItemCount6`, `RewItemId1`, `RewItemId2`, `RewItemId3`, `RewItemId4`, `RewItemCount1`, `RewItemCount2`, `RewItemCount3`, `RewItemCount4`, `RewRepFaction1`, `RewRepFaction2`, `RewRepFaction3`, `RewRepFaction4`, `RewRepFaction5`, `RewRepValue1`, `RewRepValue2`, `RewRepValue3`, `RewRepValue4`, `RewRepValue5`, `RewRepSpilloverMask`, `RewXP`, `RewOrReqMoney`, `RewMoneyMaxLevel`, `RewSpell`, `RewSpellCast`, `RewMailTemplateId`, `RewMailDelaySecs`, `RewMailMoney`, `PointMapId`, `PointX`, `PointY`, `PointOpt`, `DetailsEmote1`, `DetailsEmote2`, `DetailsEmote3`, `DetailsEmote4`, `DetailsEmoteDelay1`, `DetailsEmoteDelay2`, `DetailsEmoteDelay3`, `DetailsEmoteDelay4`, `IncompleteEmote`, `CompleteEmote`, `OfferRewardEmote1`, `OfferRewardEmote2`, `OfferRewardEmote3`, `OfferRewardEmote4`, `OfferRewardEmoteDelay1`, `OfferRewardEmoteDelay2`, `OfferRewardEmoteDelay3`, `OfferRewardEmoteDelay4`, `StartScript`, `CompleteScript`) VALUES (30301, 0, 2, 406, 17, 0, 25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 30300, 0, 0, 0, 0, 16208, 1, 0, 'New Life', 'As you have seen, $c, though the land is in pain, the cycle of life is a powerful thing. Now we must do our part help it along. You must plant these seeds at the center of the destruction, to the west, in the Charred Vale. Beware, for harpies and angry fire elementals still plague the scarred land.$B$B$N, take these enchanted Gaea seeds and plant them in fertile mounds of soil. The cycle of life must go on!', 'Plant 10 Gaea Seeds in Gaea Dirt Mounds, and then return the remaining Enchanted Gaea Seeds to Rendall Moonculler at Stonetalon Peak.', 'This is great victory for the land. In time, other things will come to pass: the Venture Co. will pack up their buzz saws and axes, the angry fire spirits will calm, and the harpies will be pushed out by the land.$B$BOnly then $N, will Stonetalon be truly at peace.$B$BYou have done well $c; take one of these items as thanks for the new life you have created here today.', 'These seeds you plant are strong, resisting corruption, and making a foothold for other life. They will grow and grow, first preventing corruption and healing the scarred land, and then one day, restoring Stonetalon to a lush forest, once again.$B$BHave you planted all of the Gaea seeds?', '', 'Gaea seed planted', '', '', '', 16208, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -177929, 0, 0, 0, 10, 0, 0, 0, 20269, 0, 0, 0, 16985, 16986, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 69, 0, 0, 0, 0, 100, 0, 0, 0, 0, 0, 2000, 0, 1200, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0);
+            -- End
+                REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90132, 30348);  -- Kayme Fhiro (Scrabblescrew's Camp)
 
-                -- Start
-                    REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90111, 30301); -- Rendall Moonculler (Stonetalon Peak)
+         -- -> Quest
+            REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `Type`, `QuestFlags`, `PrevQuestId`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOId2`, `ReqCreatureOrGOCount1`, `ReqCreatureOrGOCount2`, `RewChoiceItemId1`, `RewChoiceItemId2`, `RewChoiceItemCount1`, `RewChoiceItemCount2`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewMoneyMaxLevel`, `DetailsEmote1`, `DetailsEmote2`, `DetailsEmote3`, `IncompleteEmote`, `CompleteEmote`, `OfferRewardEmote1`, `OfferRewardEmote2`) VALUES (30349, 405, 25, 40, 1, 8, 30348, 'The Corrupter', 'Although I have no knowledge of this Lord Azrethoc, I agree with Maurin, he must be stopped; especially if he is attempting to gain influence over the Burning Blade to further his goals.$B$BYou have already shown you wish to aid the Warchief, and I would trust you to gather a party to slay the demon lord and his warlock servant.$B$BWhen you are ready, head directly south,  and return to me when the threat has been ended.', 'Slay Lord Azrethoc and Jugkar Grim\'rod and return to Takata Steelblade in Desolace.', 'A mighty victory for us all, $N. Let us rejoice in your success. I trust now that our future here is not as bleak as I once thought.$B$BThe demons will be slain, the Burning Blade will fail in their efforts, and we may one day have a place we can safely call home again.', 'Glory to the Horde, and death to our enemies, $N!$B$BThe demons in Desolace pose a greater threat than ever before. My hope of returning to the Warchief dwindles as more and more of the foul creatures seem to appear.$B$BI sometimes wish it was only the centaur we had to deal with.', '', '', '', '', '', 5760, 5771, 1, 1, 6746, 6747, 1, 1, 69, 150, 3900, 2340, 1, 1, 1, 1, 1, 2, 1);
 
-                -- End
-                    REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90111, 30301); -- Rendall Moonculler (Stonetalon Peak)
+            -- Start
+                REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90132, 30349); -- Kayme Fhiro (Scrabblescrew's Camp)
 
-            -- https://www.wowhead.com/tbc/quest=1058/jinzils-forest-magic
-                REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemId2`, `ReqItemId3`, `ReqItemId4`, `ReqItemCount1`, `ReqItemCount2`, `ReqItemCount3`, `ReqItemCount4`, `RewChoiceItemId1`, `RewChoiceItemId2`, `RewChoiceItemCount1`, `RewChoiceItemCount2`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewMoneyMaxLevel`, `DetailsEmote1`, `DetailsEmote2`, `DetailsEmote3`, `DetailsEmote4`, `IncompleteEmote`, `CompleteEmote`, `CompleteScript`) VALUES (30302, 406, 20, 26, 8, 'Trinti\'s Forest Magic', 'So excited I am!$b$bThree little cages for three little elves! But what shall we do with our lovely tree-hugging friends? Why, let\'s give them a taste of... what do they call it... forest magic!$b$bI\'ll need a good mess of Stonetalon sap. From those horrid felines, bring me some twilight whiskers. This calls for plenty of courser eyes, of course - can never have enough eyes. Oh, and lest we forget, a precious scale from a fey dragon.$b$bHurry to Stonetalon Peak, $n, so I can brew some forest magic!', 'Mage Trinti Machinemouth at Webwinder Path wants 5 portions of Stonetalon Sap, 5 Twilight Whiskers, 30 Courser Eyes and a Fey Dragon Scale.', 'Oh how happy these little woodland nymphs shall be! We\'ll make them feel right at home with this special concoction!', 'Look at our poor little elf friends. All caged up with no forest to frolic in!$b$bNow were you able to find me some sap? How about the whiskers from the twilight runners? Don\'t suppose you have that fey dragon scale on you?$b$bAnd eyes! I\'ll need so many eyes! You just can\'t mix up a fierce forest magic brew without a good helping of eyes!', '', '', '', '', '', 5582, 5584, 5585, 5583, 5, 5, 30, 1, 6664, 6665, 1, 1, 54, 100, 2100, 1260, 4, 6, 1, 5, 11, 11, 0);
+            -- End
+                REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90132, 30349);  -- Kayme Fhiro (Scrabblescrew's Camp)
 
-                -- Start
-                    REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90115, 30302); -- Trinti Machinemouth (Webwinder Path)
+        -- Quest
+            REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOId2`, `ReqCreatureOrGOCount1`, `ReqCreatureOrGOCount2`, `RewRepFaction1`, `RewRepValue1`, `RewXP`) VALUES (30078, 405, 35, 40, 8, 'Demon Summoners', 'Far south in Desolace there is a group of orc summoners trying to summon more demons into our world. Put a stop to them.', 'Kill 15 Burning Blade Summoner and 15 Burning Blade Invoker for to Vahlarriel Demonslayer at Nijel\'s Point in Desolace.', 'All demons must be wiped from this planet.', 'Did you kill all the orc summoners?', '', '', '', '', '', 4668, 4705, 15, 15, 69, 100, 2800);
 
-                -- End
-                    REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90115, 30302); -- Trinti Machinemouth (Webwinder Path)
+            -- Start
+                REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90133, 30078);  -- Alumnia (Scrabblescrew's Camp)
 
-            -- https://www.wowhead.com/tbc/quest=6283/bloodfury-bloodline
-                REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `Type`, `QuestFlags`, `PrevQuestId`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewChoiceItemId1`, `RewChoiceItemId2`, `RewChoiceItemCount1`, `RewChoiceItemCount2`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewMoneyMaxLevel`, `DetailsEmote1`, `DetailsEmote2`, `IncompleteEmote`, `CompleteEmote`, `OfferRewardEmote1`) VALUES (30303, 406, 18, 26, 1, 8, 6282, 'Bloodfury Bloodline', 'Limiting the number of Bloodfury Harpies will not be enough. The only true cure for their disease would be to slay their leader, Bloodfury Ripper!$B$BShe is all but a queen to those filthy creatures. Slay her and their numbers will surely diminish.$B$BGo back into the Charred Vale and you will find her along the western hills. She will not be easy to vanquish, but the reward will be great.', 'Maggran at Sun Rock Retreat wishes you to slay Bloodfury Ripper and bring her remains as proof of your deed.', 'Already I feel the anger leave me. What will I do with my time? Knowing evil moves near my land kept my thoughts moving, though now they are silent. Perhaps this is a good thing... maybe now I can focus on the good, as all Tauren should.$B$BPlease accept this as a reward for your troubles.', 'Bloodfury Ripper is a nasty creature! You will have success finding her along the western hill line in the Charred Vale.$B$BThe bloodfuries will be helpless with out... surely we can vanquish them forever!', '', '', '', '', '', 16190, 1, 16990, 16987, 1, 1, 69, 100, 2100, 1260, 1, 1, 1, 1, 1);
+            -- End
+                REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90133, 30078); -- Alumnia (Scrabblescrew's Camp)
+            
+        -- Quest
+            REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOCount1`, `RewItemId1`, `RewItemCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewOrReqMoney`, `RewMoneyMaxLevel`) VALUES (30245, 405, 35, 45, 8, 'Master Summoner', 'Far south in Desolace there is a group of orc summoners being led by Monu. Go there, and kill Monu for me.', 'Kill Monu for Vahlarriel Demonslayer at Nijel\'s Point in Desolace.', 'All demons must be wiped from this planet.', 'Did you kill all the orcs leader?', '', '', '', '', '', 90046, 1, 30126, 1, 69, 100, 3500, 5500, 3500);
 
-                -- Start
-                    REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90111, 30303); -- Rendall Moonculler (Stonetalon Peak)
+                -- Creature
+                    -- Template
+                        REPLACE `mangos`.`creature_template` (`entry`, `name`, `subname`, `level_min`, `level_max`, `faction`, `display_id1`, `display_id2`, `display_id3`, `display_id4`, `display_probability1`, `display_probability2`, `display_probability3`, `display_probability4`, `display_total_probability`, `type`, `unit_class`, `health_multiplier`, `armor_multiplier`, `damage_multiplier`, `damage_variance`, `loot_id`, `pickpocket_loot_id`, `gold_min`, `gold_max`, `spell_list_id`, `ai_name`, `movement_type`, `inhabit_type`, `equipment_id`, `static_flags1`) VALUES (90046, 'Monu', 'Master Summoner', 45, 45, 554, 4709, 4710, 11309, 11310, 40, 40, 10, 5, 95, 7, 8, 2.0, 2, 1.5, 0.16, 4668, 4668, 55, 201, 46680, 'EventAI', 1, 1, 4668, 524288);
 
-                -- End
-                    REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90111, 30303); -- Rendall Moonculler (Stonetalon Peak)
+                        UPDATE `mangos`.`creature_template` SET `armor_multiplier`=0.7, `spell_list_id`=200115 WHERE  `entry`=90046 AND `patch`=0;
 
+                    -- Spawns
+                        REPLACE `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000060, 90046, 0, 0, 0, 0, 1, -1849.11, 592.273, 157.556, 0.455089, 660, 660, 5, 100, 100, 1, 0, 0, 0, 10);
+
+            -- Start
+                REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90133, 30245);  -- Alumnia (Scrabblescrew's Camp)
+
+            -- End
+                REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90133, 30245); -- Alumnia (Scrabblescrew's Camp)
+
+        -- Quest
+            REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `PrevQuestId`, `NextQuestInChain`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemId2`, `ReqItemCount1`, `ReqItemCount2`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewOrReqMoney`, `RewMoneyMaxLevel`, `DetailsEmote1`, `DetailsEmote2`, `IncompleteEmote`, `CompleteEmote`, `OfferRewardEmote1`, `OfferRewardEmote2`, `OfferRewardEmote3`) VALUES (30350, 405, 30, 40, 8, 1453, 1459, 'Burning Blade Documents', 'One of my tasks out here involves picking up some reagents for Leftwitch, a gnome mage in Kharanos . Roetten seems to think it\'s easy coin in the bank since we\'re out here already. He doesn\'t really care that we\'re short-handed as is.$B$BThe first few items on his list should be easy enough to get, and it\'d be a good chunk of coin for anyone helping me out.$B$BI need some horns and claws from the Hatefury satyr to the east of here. Bring \'em back to me and we\'ll get started on the rest of the list.', 'Bring 10 Hatefury Claws, and 10 Hatefury Horns to Kreldig Ungor in Desolace.', 'Good good, $N. Not sure if these are of any good quality, but if Leftwitch wanted a specific type, he should have specified before sending the Reclaimers out here to begin with.$B$BWhat say you to getting on with the next item on his list?', 'Despicable creatures, the satyr. Story says they\'re somehow tied to the night elves, but I\'m not so sure I believe it.$B$BI think they get that on account of that one elf that brought them into the war few years back. World\'s never been the same since. Lot more dangerous, and a lot scarier.', '', '', '', '', '', 30456, 30457, 1, 1, 69, 100, 3100, 3500, 1620, 1, 1, 1, 1, 1, 1, 6);
+
+            -- Objects
+                -- Templates
+                REPLACE `mangos`.`gameobject_template` (`entry`, `type`, `displayId`, `name`, `flags`, `data0`, `data1`) VALUES (987685, 3, 5743, 'Burning Blade Coffer', 4, 43, 42922);
+                REPLACE `mangos`.`gameobject_template` (`entry`, `type`, `displayId`, `name`, `flags`, `data0`, `data1`) VALUES (987686, 3, 5743, 'Burning Blade Coffer', 4, 43, 42923);
+
+                -- Spawns
+                    REPLACE `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (4100186, 987685, 1, -1962.9, 545.689, 166.397, 5.88942, 0, 0, 0.195614, -0.980681, 10, 10, 100, 1, 0, 0, 0, 10);
+                    REPLACE `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (4100187, 987686, 1, -1845.91, 606.462, 136.457, 5.48807, 0, 0, 0.387169, -0.922009, 10, 10, 100, 1, 0, 0, 0, 10);
+
+                -- Loot Template
+                    REPLACE `mangos`.`gameobject_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (42922, 30456, -100);
+                    REPLACE `mangos`.`gameobject_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (42923, 30457, -100);
+
+            -- Start
+                REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90133, 30350);  -- Alumnia(Scrabblescrew's Camp)
+
+            -- End
+                REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90133, 30350); -- Alumnia (Scrabblescrew's Camp)
+
+    -- Hinterlands
+        -- NPCs
+            -- Template
+                REPLACE `mangos`.`creature_template` (`entry`, `name`, `subname`, `level_min`, `level_max`, `faction`, `npc_flags`, `display_id1`, `display_probability1`, `display_total_probability`, `type`, `unit_class`, `health_multiplier`, `damage_multiplier`, `equipment_id`, `static_flags1`, `flags_extra`) VALUES (90135, 'Dully Stoutfury', '', 45, 45, 80, 2, 4988, 1, 1, 7, 1, 1.1, 1.05, 2796, 138936390, 2);
+
+                REPLACE `mangos`.`creature_template` (`entry`, `name`, `subname`, `level_min`, `level_max`, `faction`, `npc_flags`, `display_id1`, `display_probability1`, `display_total_probability`, `type`, `unit_class`, `health_multiplier`, `damage_multiplier`, `equipment_id`, `static_flags1`, `flags_extra`) VALUES (90136, 'Moh Anvilforge', '', 45, 45, 80, 2, 3099, 1, 1, 7, 1, 1.1, 1.05, 2796, 138936390, 2);
+
+                REPLACE `mangos`.`creature_template` (`entry`, `name`, `subname`, `level_min`, `level_max`, `faction`, `npc_flags`, `display_id1`, `display_probability1`, `display_total_probability`, `type`, `unit_class`, `health_multiplier`, `damage_multiplier`, `equipment_id`, `static_flags1`, `flags_extra`) VALUES (90137, 'Hellen Brewarm', '', 45, 45, 80, 2, 1670, 1, 1, 7, 1, 1.1, 1.05, 2796, 138936390, 2);
+
+                REPLACE `mangos`.`creature_template` (`entry`, `name`, `subname`, `level_min`, `level_max`, `faction`, `npc_flags`, `display_id1`, `display_probability1`, `display_total_probability`, `type`, `unit_class`, `health_multiplier`, `damage_multiplier`, `equipment_id`, `static_flags1`, `flags_extra`) VALUES (90138, 'Explorer Shortmountain', '', 45, 45, 80, 2, 3042, 1, 1, 7, 1, 1.1, 1.05, 2796, 138936390, 2);
+
+            -- Spawns
+                -- Weapon Merchant
+                    REPLACE `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000197, 5102, 0, 0, 0, 0, 0, 229.692, -2859.53, 110.293, 3.27836, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
+
+                -- Quest Givers
+                    REPLACE INTO `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000201, 90135, 0, 0, 0, 0, 0, 257.516, -2808.04, 123.371, 2.09614, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
+                    REPLACE INTO `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000202, 90136, 0, 0, 0, 0, 0, 213.241, -2734.97, 123.369, 5.34376, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
+                    REPLACE INTO `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000203, 90137, 0, 0, 0, 0, 0, 261.012, -2756.24, 122.553, 3.85151, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
+                    REPLACE INTO `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000204, 90138, 0, 0, 0, 0, 0, 203.559, -2782.15, 120.876, 3.62453, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
+                    REPLACE INTO `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000200, 90139, 0, 0, 0, 0, 0, -208.915, -2517.74, 119.664, 4.03385, 660, 660, 5, 100, 100, 1, 0, 0, 0, 10);
+
+        -- Creatures
+            UPDATE `mangos`.`creature_template` SET `npc_flags`=2 WHERE  `entry`=2474 AND `patch`=0;
+
+            -- The Ancient Egg (Gave Hitah'ya the Keeper custom spells and made stronger)
+            UPDATE `mangos`.`creature_template` SET `health_multiplier`=25, `mana_multiplier`=25, `spell_list_id`=200080, `auras`='33706' WHERE  `entry`=10802 AND `patch`=0;
+
+        -- Quest 
+            REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `NextQuestInChain`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewMoneyMaxLevel`) VALUES (30353, 47, 40, 44, 8, 30354, 'Gilveradin Sunchase', 'My master lives in The Hinterlands just past here at Shindigger\'s Camp. Please find him.', 'Find Gilveradin Sunchase at Shindigger\'s Camp in The Hinterlands.', 'Kudros told you to come see me? He must be hungry...', 'What are you doing? Go to Shindigger\'s camp and find Gilveradin Sunchase!', '', '', '', '', '', 471, 75, 1750, 1680);
+
+            -- Start
+                REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (2474, 30353);  -- Kudros (Entrance of Hinterlands at Hillsbrad)
+
+            -- End
+                REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (7801, 30353); -- Gilveradin Sunchase (Shindigger's Camp)
+
+        -- -> Kill Wolves for meat
+                REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `PrevQuestId`, `NextQuestInChain`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewChoiceItemId1`, `RewChoiceItemId2`, `RewChoiceItemId3`, `RewChoiceItemCount1`, `RewChoiceItemCount2`, `RewChoiceItemCount3`, `RewXP`, `RewMoneyMaxLevel`) VALUES (30354, 47, 40, 44, 8, 30353, 30355, 'Gryphon Dinner', 'The gryphons here are hungry. Kill the Silvermane wolves here for their meat so I can cook it up and feed it to them. They don\'t like their meat Raw.', 'Bring an 8 Raw Silvermane Meat Gilveradin Sunchase at Shindigger\'s Camp in the Hinterlands.', 'Now to cook this up...', 'Bring 8 Raw Silvermane Meat to Gilveradin Sunchase at Shindigger\'s Camp in the Hinterlands.', '', '', '', '', '', 30460, 8, 0, 0, 0, 0, 0, 0, 3900, 1680);
+                
+                -- Loot Template
+                    REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (2923, 30460, -25);
+                    REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (2924, 30460, -25);
+                    REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (2925, 30460, -25);
+                    REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (2926, 30460, -25);
+
+            -- Start
+                REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (7801, 30354);  -- Gilveradin Sunchase (Shindigger's Camp)
+
+            -- End
+                REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (7801, 30354); -- Gilveradin Sunchase (Shindigger's Camp)
+
+        -- -> Quest
+            REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `PrevQuestId`, `NextQuestInChain`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOId2`, `ReqCreatureOrGOCount1`, `ReqCreatureOrGOCount2`, `RewRepFaction1`, `RewRepValue1`, `RewXP`) VALUES (30355, 47, 40, 45, 8, 30354, 0, 'Feeding Gryphons', 'Here is the cooked meat, use this to feed the Gryphons in The Hinterlands.', 'Feed 8 Gryphons then return to Gilveradin Sunchase at Shindigger\'s Camp in the Hinterlands.', 'Now the Grphons should be full!', 'Did you feed the Gryphons?', '', '', '', '', '', 2658, 0, 8, 0, 69, 100, 4100);
+
+            UPDATE `mangos`.`quest_template` SET `SrcItemId`=30461, `SrcItemCount`=1, `ReqItemId1`=30461, `ReqItemCount1`=1, `ObjectiveText1`='Gryphons Fed' WHERE  `entry`=30355;
+
+            -- Allow Gryphons to be targettable by TARGET_UNIT_FRIEND (21) spells
+            UPDATE creature_template SET static_flags1 = static_flags1 | 0x00400000 WHERE entry = 2658;
+
+            -- Start
+                REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (7801, 30355);  -- Gilveradin Sunchase (Shindigger's Camp)
+
+            -- End
+                REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (7801, 30355); -- Gilveradin Sunchase (Shindigger's Camp)
+
+        -- Quest
+            REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewChoiceItemId1`, `RewChoiceItemId2`, `RewChoiceItemId3`, `RewChoiceItemCount1`, `RewChoiceItemCount2`, `RewChoiceItemCount3`, `RewXP`, `RewMoneyMaxLevel`) VALUES (30027, 47, 40, 45, 8, 'Undamaged Venom Sac', 'The gryphons here are getting sick. If I had more undamaged venom sacs from the Witherbark spiders to the south east. Could you get me some so we can save these gryphons?', 'Bring an Undamaged Venom Sac Gilveradin Sunchase at Shindigger\'s Camp in the Hinterlands. This venom sac disappears after 30 minutes.', 'This should help me create an antidote. Thank you, you saved the lives of some Gryphons!', 'Bring an Undamaged Venom Gilveradin Sunchase at Shindigger\'s Camp in the Hinterlands. This venom sac disappears after 30 minutes.', '', '', '', '', '', 9322, 1, 0, 0, 0, 0, 0, 0, 3900, 1680);
+            UPDATE `mangos`.`quest_template` SET `RewRepFaction1`=471, `RewRepValue1`=100 WHERE  `entry`=30027 AND `patch`=0;
+
+            -- Start
+                REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (7801, 30027);  -- Gilveradin Sunchase (Shindigger's Camp)
+
+            -- End
+                REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (7801, 30027); -- Gilveradin Sunchase (Shindigger's Camp)
+
+        -- Quest 
+            REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOId2`, `ReqCreatureOrGOCount1`, `ReqCreatureOrGOCount2`, `RewRepFaction1`, `RewRepValue1`, `RewXP`) VALUES (30356, 47, 40, 45, 8, 'Spider Troll Worshippers', 'The trolls to the south west in Shadra\'Alor keep bothering our Gryphons. Go there and kill them.', 'Kill 8 Witherbark Sadist and 8 Witherbark Callers then return to Falstad Wildhammer at Aerie Peak.', 'This should help keep our Gryphons safe!', 'Did you kill the trolls?', '', '', '', '', '', 2653, 2654, 6, 2, 471, 100, 4100);
+
+            -- Creatures
+                -- Witherbark Caller now level 49
+                UPDATE `mangos`.`creature_template` SET `level_min`=49, `level_max`=49 WHERE  `entry`=2654 AND `patch`=0;
+
+            -- Start
+                REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (5635, 30356); -- Falstad Wildhammer (Aerie Peak)
+
+            -- End
+                REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (5635, 30356); -- Falstad Wildhammer (Aerie Peak)
+
+        -- Quest
+            REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOId2`, `ReqCreatureOrGOCount1`, `ReqCreatureOrGOCount2`, `RewRepFaction1`, `RewRepValue1`, `RewXP`) VALUES (30357, 47, 40, 45, 8, 'Burning Eggs', 'The troll temple to the south west in Shadra\'Alor has been infested with spiders which they seem to worship. Go there and burn their eggs. Beware, there might be angry spiderlings that come out after you burn the eggs.', 'Kill 40 Witherbark Broodguard Spiderling then return to Falstad Wildhammer at Aerie Peak.', 'This should help keep our Gryphons safe!', 'Did you burn the eggs?', '', '', '', '', '', 90134, 0, 40, 0, 471, 100, 4100);
+
+            UPDATE `mangos`.`quest_template` SET `SrcItemId`=30459, `SrcItemCount`=1, `ReqItemId1`=30459, `ReqItemCount1`=1 WHERE  `entry`=30357;
+
+            -- Creature
+                -- Template
+                    REPLACE `mangos`.`creature_template` (`entry`, `name`, `level_min`, `level_max`, `faction`, `display_id1`, `display_scale1`, `display_probability1`, `display_total_probability`, `type`, `pet_family`, `unit_class`, `health_multiplier`, `damage_multiplier`, `pet_spell_list_id`, `movement_type`, `inhabit_type`, `static_flags1`) VALUES (90134, 'Witherbark Broodguard Spiderling', 44, 45, 312, 1157, 1, 1, 1, 1, 3, 1, 0.4, 0.4, 5904, 1, 1, 16);
+
+            -- Objects
+                -- Template
+                    REPLACE `mangos`.`gameobject_template` (`entry`, `type`, `displayId`, `name`, `faction`, `data0`, `data3`, `data7`) VALUES (987690, @GAMEOBJECT_TYPE_GOOBER, 378, 'Broodguard Eggs', 35, 43, 1, 19543);
+
+                -- Spawns
+                    REPLACE `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (4100202, 987690, 0, -473.92, -2814.03, 110.351, 6.22673, 0, 0, 0.0282223, -0.999602, 330, 330, 100, 1, 0, 0, 0, 10);
+                    REPLACE `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (4100201, 987690, 0, -422.08, -2766.82, 92.9843, 0.837343, 0, 0, 0.406547, 0.91363, 330, 330, 100, 1, 0, 0, 0, 10);
+                    REPLACE `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (4100200, 987690, 0, -429.649, -2821.4, 80.7354, 2.46312, 0, 0, 0.943009, 0.332768, 330, 330, 100, 1, 0, 0, 0, 10);
+                    REPLACE `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (4100199, 987690, 0, -239.313, -2877.14, 98.5318, 2.26677, 0, 0, 0.905851, 0.423595, 330, 330, 100, 1, 0, 0, 0, 10);
+                    REPLACE `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (4100198, 987690, 0, -267.22, -2891.38, 88.0153, 3.66557, 0, 0, 0.965877, -0.259001, 330, 330, 100, 1, 0, 0, 0, 10);
+                    REPLACE `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (4100197, 987690, 0, -309.128, -2874.16, 79.9503, 0.693616, 0, 0, 0.339898, 0.940462, 330, 330, 100, 1, 0, 0, 0, 10);
+                    REPLACE `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (4100196, 987690, 0, -368.902, -2827.64, 76.5383, 6.08144, 0, 0, 0.100699, -0.994917, 330, 330, 100, 1, 0, 0, 0, 10);
+                    REPLACE `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (4100195, 987690, 0, -398.044, -2824.98, 76.121, 0.355891, 0, 0, 0.177008, 0.984209, 330, 330, 100, 1, 0, 0, 0, 10);
+                    REPLACE `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (4100194, 987690, 0, -419.659, -2886.45, 83.8111, 0.596223, 0, 0, 0.293716, 0.955893, 330, 330, 100, 1, 0, 0, 0, 10);
+                    REPLACE `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (4100193, 987690, 0, -393.872, -2925.75, 78.4716, 3.44643, 0, 0, 0.988406, -0.151831, 330, 330, 100, 1, 0, 0, 0, 10);
+                    REPLACE `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (4100192, 987690, 0, -321.818, -2933.92, 79.3853, 3.45821, 0, 0, 0.987495, -0.157651, 330, 330, 100, 1, 0, 0, 0, 10);
+                    REPLACE `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (4100191, 987690, 0, -282.795, -2935.73, 85.2449, 2.71994, 0, 0, 0.977858, 0.209268, 330, 330, 100, 1, 0, 0, 0, 10);
+
+            -- Start
+                REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (5635, 30357); -- Falstad Wildhammer (Aerie Peak)
+
+            -- End
+                REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (5635, 30357); -- Falstad Wildhammer (Aerie Peak)
+
+        -- Level50 Owlbeast kill quest inside Bogen's Ledge (Cave). Comes with 2 level 45 owlbeasts
+            REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOId2`, `ReqCreatureOrGOCount1`, `ReqCreatureOrGOCount2`, `RewRepFaction1`, `RewRepValue1`, `RewXP`) VALUES (30358, 47, 40, 50, 8, 'Chosen Owlbeast', 'To the south there is a cave called Bogen\'s Ledge. Go there and kill the mighty Owlbeast that inhabits it.', 'Kill Elune\'s Chosen then return to Gryphon Master Talonaxe at Aerie Peak.', 'Great job!', 'Did you burn the owlbeast?', '', '', '', '', '', 90139, 0, 1, 0, 471, 100, 5100);
+
+            -- Creatures
+                -- Template
+                    REPLACE `mangos`.`creature_template` (`entry`, `name`, `level_min`, `level_max`, `faction`, `display_id1`, `display_probability1`, `display_total_probability`, `type`, `unit_class`, `health_multiplier`, `damage_multiplier`, `loot_id`, `gold_min`, `gold_max`, `movement_type`) VALUES (90139, 'Elune\'s Chosen', 50, 50, 14, 12238, 1, 1, 7, 1, 2.5, 1.5, 2928, 81, 449, 1);
+
+                    UPDATE `mangos`.`creature_template` SET `display_scale1`=2, `spell_list_id`=200116, `auras`='24907' WHERE  `entry`=90139;
+
+                -- Spawns
+                    REPLACE INTO `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000198, 2928, 0, 0, 0, 0, 0, -215.515, -2519.66, 118.41, 4.10064, 360, 360, 5, 100, 100, 1, 0, 0, 0, 10);
+                    REPLACE INTO `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000199, 2928, 0, 0, 0, 0, 0, -209.715, -2524.51, 119.077, 4.08101, 360, 360, 5, 100, 100, 1, 0, 0, 0, 10);
+                    REPLACE INTO `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000200, 90139, 0, 0, 0, 0, 0, -208.915, -2517.74, 119.664, 4.03385, 660, 660, 5, 100, 100, 1, 0, 0, 0, 10);
+
+
+            -- Start
+                REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (5636, 30358); -- Gryphon Master Talonaxe (Aerie Peak)
+
+            -- End
+                REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (5636, 30358); -- Gryphon Master Talonaxe (Aerie Peak)
+        -- Quest 30359
+        -- https://www.wowhead.com/cata/quest=26381/the-eye-of-shadra 5 part quest to summon shadra
+            REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `PrevQuestId`, `NextQuestInChain`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewMoneyMaxLevel`) VALUES (30359, 47, 40, 48, 8, 0, 30360, 'Eye of Shadra', 'In order to stop the trolls to the south, at Shadra\'Alor we need to summon their spider God, Shadra, and end kill her. To summon her, we will need to gather 3 items first. They are scattered around The Hinterlands, hidden away in chests by the trolls at Agol\'watha to the east, west of Skulk Rock. The first item is her eye.', 'Bring an Eye of Shadra to Rhapsody Shindiggerat Shindigger\'s Camp in the Hinterlands.', 'There are still more items left before we can summon and kill Shadra!', 'Well? Where\'s the Eye of Shadra?', '', '', '', '', '', 30462, 1, 471, 100, 3900, 1680);
+
+            -- Objects
+                -- Template
+                    REPLACE `mangos`.`gameobject_template` (`entry`, `type`, `displayId`, `name`, `flags`, `data0`, `data1`) VALUES (987691, @GAMEOBJECT_TYPE_CHEST, 5743, 'Troll Coffer', 4, 43, 42924);
+
+                -- Spawns
+                    REPLACE INTO `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (4100206, 987691, 0, 469.236, -3326.68, 120.196, 3.69379, 0, 0, 0.962126, -0.272605, 10, 10, 100, 1, 0, 0, 0, 10);
+
+                -- Loot Template
+                    REPLACE `mangos`.`gameobject_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (42924, 30462, -100);
+
+            -- Start
+                REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (5634, 30359);  -- Rhapsody Shindigger (Shindigger's Camp)
+
+            -- End
+                REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (5634, 30359); -- Rhapsody Shindigger (Shindigger's Camp)
+
+        -- -> Quest 30360
+            REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `PrevQuestId`, `NextQuestInChain`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewMoneyMaxLevel`) VALUES (30360, 47, 40, 48, 8, 30359, 30361, 'Fang of Shadra', 'In order to stop the trolls to the south, at Shadra\'Alor we need to summon their spider God, Shadra, and end kill her. To summon her, we will need to gather 3 items first. They are scattered around The Hinterlands, hidden away in chests by the trolls, at The Creeping Ruins to the east, south of Agol\'watha. The second item is her Fang.', 'Bring a Fang of Shadra to Rhapsody Shindiggerat Shindigger\'s Camp in the Hinterlands.', 'There are still more items left before we can summon and kill Shadra!', 'Well? Where\'s the Fang of Shadra?', '', '', '', '', '', 30463, 1, 471, 100, 3900, 1680);
+
+            -- Objects
+                -- Template
+                    REPLACE `mangos`.`gameobject_template` (`entry`, `type`, `displayId`, `name`, `flags`, `data0`, `data1`) VALUES (987692, @GAMEOBJECT_TYPE_CHEST, 5743, 'Troll Coffer', 4, 43, 42925);
+
+                -- Spawns
+                    REPLACE INTO `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (4100207, 987692, 0, 128.943, -3482.08, 107.504, 0.745391, 0, 0, 0.364127, 0.931349, 10, 10, 100, 1, 0, 0, 0, 10);
+
+                -- Loot Template
+                    REPLACE `mangos`.`gameobject_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (42925, 30463, -100);
+
+            -- Start
+                REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (5634, 30360);  -- Rhapsody Shindigger (Shindigger's Camp)
+
+            -- End
+                REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (5634, 30360); -- Rhapsody Shindigger (Shindigger's Camp)
+
+        -- -> Quest 30361
+            REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `PrevQuestId`, `NextQuestInChain`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewMoneyMaxLevel`) VALUES (30361, 47, 40, 48, 8, 30360, 30362, 'Shell of Shadra', 'In order to stop the trolls to the south, at Shadra\'Alor we need to summon their spider God, Shadra, and end kill her. To summon her, we will need to gather 3 items first. They are scattered around The Hinterlands, hidden away in chests by the trolls, at The Altar of Zul to the south east, south of The Creeping Ruins. The third and last item is her Shell.', 'Bring a Shell of Shadra to Rhapsody Shindiggerat Shindigger\'s Camp in the Hinterlands.', 'There are still more items left before we can summon and kill Shadra!', 'Well? Where\'s the Shell of Shadra?', '', '', '', '', '', 30464, 1, 471, 100, 3900, 1680);
+
+            -- Objects
+                -- Template
+                    REPLACE `mangos`.`gameobject_template` (`entry`, `type`, `displayId`, `name`, `flags`, `data0`, `data1`) VALUES (987693, @GAMEOBJECT_TYPE_CHEST, 5743, 'Troll Coffer', 4, 43, 42926);
+
+                -- Spawns
+                    REPLACE INTO `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (4100208, 987693, 0, -295.1, -3460.21, 193.885, 0.855338, 0, 0, 0.414751, 0.909935, 10, 10, 100, 1, 0, 0, 0, 10);
+
+                -- Loot Template
+                    REPLACE `mangos`.`gameobject_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (42926, 30464, -100);
+
+            -- Start
+                REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (5634, 30361);  -- Rhapsody Shindigger (Shindigger's Camp)
+
+            -- End
+                REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (5634, 30361); -- Rhapsody Shindigger (Shindigger's Camp)
+
+        -- -> Quest
+            REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `PrevQuestId`, `NextQuestInChain`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewMoneyMaxLevel`) VALUES (30362, 47, 40, 48, 8, 30361, 30363, 'Summoning Shadra', 'Now that you have these 3 items, you need to use them on the troll altars inside Shadra\'Alor. Afterwards, bring the fully charged Shadra Idol back to me at Shindigger\'s Camp, then I will make it into a scroll to finally summon the beast!', 'Use the Idol of Shadra on the 3 troll altars in The Hinterlands.', 'Now it\'s time to kill Shadra!', 'Go use the Shadra Idol on the troll altars!', '', '', '', '', '', 30465, 1, 471, 100, 5100, 1680);
+            
+            -- Dummy NPCs and replace quest text
+            UPDATE `mangos`.`quest_template` SET `SrcItemId`=30465, `SrcItemCount`=1, `ObjectiveText1`='Northwestern Temple', `ObjectiveText2`='Eastern Temple', `ObjectiveText3`='	Southwestern Temple', `ReqCreatureOrGOId1`=3197, `ReqCreatureOrGOId2`=3198, `ReqCreatureOrGOId3`=3199, `ReqCreatureOrGOCount1`=1, `ReqCreatureOrGOCount2`=1, `ReqCreatureOrGOCount3`=1 WHERE `entry`=30362;
+
+            -- Objects
+                -- Template
+                    REPLACE `mangos`.`gameobject_template` (`entry`, `type`, `displayId`, `name`, `size`, `data0`, `data1`, `data3`, `data6`) VALUES (987694, 10, 227, 'Shadra\'Alor Summoning Altar', 1.0, 304, 7, 1, -1);
+                    REPLACE `mangos`.`gameobject_template` (`entry`, `type`, `displayId`, `name`, `size`, `data0`, `data1`, `data3`, `data6`) VALUES (987695, 10, 227, 'Shadra\'Alor Summoning Altar', 1.0, 304, 7, 1, -1);
+                    REPLACE `mangos`.`gameobject_template` (`entry`, `type`, `displayId`, `name`, `size`, `data0`, `data1`, `data3`, `data6`) VALUES (987696, 10, 227, 'Shadra\'Alor Summoning Altar', 1.0, 304, 7, 1, -1);
+
+                -- Spawns
+                    REPLACE INTO `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (4100203, 987694, 0, -247.457, -2804.94, 114.562, 3.59877, 0, 0, 0.973988, -0.226602, 25, 25, 100, 1, 0, 0, 0, 10);
+                    REPLACE INTO `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (4100204, 987695, 0, -370.854, -3014.7, 110.385, 1.5528, 0, 0, 0.700716, 0.71344, 25, 25, 100, 1, 0, 0, 0, 10);
+                    REPLACE INTO `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (4100205, 987696, 0, -486.404, -2817.84, 114.548, 4.30955, 0, 0, 0.834276, -0.551347, 25, 25, 100, 1, 0, 0, 0, 10);
+
+            -- Start
+                REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (5634, 30362);  -- Rhapsody Shindigger (Shindigger's Camp)
+
+            -- End
+                REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (5634, 30362); -- Rhapsody Shindigger (Shindigger's Camp)
+
+        -- -> Quest
+            REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `PrevQuestId`, `NextQuestInChain`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewMoneyMaxLevel`) VALUES (30363, 47, 40, 55, 8, 30362, 0, 'Shadra the Venom Queen', 'Now the final step, go to Shadra\'s Altar and use this scroll to kill her!', 'Use Gadrin\'s Parchment to summon Shadra at Shadra\'s Altar and kill her. Return to Rhapsody Shindigger at Shindigger\'s Camp.afterwards.', 'At last, this should put a huge dent in the trolls plans!', 'Quickly, go kill Shadra!', '', '', '', '', '', 0, 0, 471, 500, 17000, 1680);
+            
+            UPDATE `mangos`.`quest_template` SET `SrcItemId`=9323, `SrcItemCount`=1, `ReqCreatureOrGOId1`=2707, `ReqCreatureOrGOCount1`=1, `RewChoiceItemId1`=9649, `RewChoiceItemId2`=9650, `RewChoiceItemId3`=10686, `RewChoiceItemCount1`=1, `RewChoiceItemCount2`=1, `RewChoiceItemCount3`=1 WHERE `entry`=30363;
+
+            -- Start
+                REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (5634, 30363);  -- Rhapsody Shindigger (Shindigger's Camp)
+
+            -- End
+                REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (5634, 30363); -- Rhapsody Shindigger (Shindigger's Camp)
+
+        -- Chain from Rhapsody Shindigger to kill the low level trolls(10/10), then medium level (15/15), then Qiraji the keeper
+            REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `PrevQuestId`, `NextQuestInChain`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOId2`, `ReqCreatureOrGOCount1`, `ReqCreatureOrGOCount2`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewMoneyMaxLevel`) VALUES (30364, 47, 40, 42, 8, 0, 30365, 'Trolls of Zun\'watha', 'The Hinterlands is infested with trolls. Go to Zun\'watha to the south and eliminate them.', 'Kill 10 Witherbark Scalpers and 10 Witherbark Zealots then return to Rhapsody Shindigger at Shindigger\'s Camp.', 'Your work isn\'t done, there\'s still more trolls to take care of.', 'What are you doing? There\'s trolls to be killing!', '', '', '', '', '', 2649, 2650, 10, 10, 471, 100, 3100, 1680);
+
+            -- Start
+                REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (5634, 30364);  -- Rhapsody Shindigger (Shindigger's Camp)
+
+            -- End
+                REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (5634, 30364); -- Rhapsody Shindigger (Shindigger's Camp)
+        -- -> Quest
+            REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `PrevQuestId`, `NextQuestInChain`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOId2`, `ReqCreatureOrGOCount1`, `ReqCreatureOrGOCount2`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewMoneyMaxLevel`) VALUES (30365, 47, 40, 43, 8, 30364, 30366, 'Trolls of Hiri\'watha', 'The Hinterlands is infested with trolls. Go to Hiri\'watha to the south east mand eliminate them.', 'Kill 10 Witherbark Hideskinners and 10 Witherbark Venombloods then return to Rhapsody Shindigger at Shindigger\'s Camp.', 'Your work isn\'t done, there\'s still more trolls to take care of.', 'What are you doing? There\'s trolls to be killing!', '', '', '', '', '', 2651, 2652, 10, 10, 471, 100, 3500, 1680);
+
+            -- Start
+                REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (5634, 30365);  -- Rhapsody Shindigger (Shindigger's Camp)
+
+            -- End
+                REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (5634, 30365); -- Rhapsody Shindigger (Shindigger's Camp)
+
+        -- -> Quest
+            REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `PrevQuestId`, `NextQuestInChain`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOId2`, `ReqCreatureOrGOId3`, `ReqCreatureOrGOCount1`, `ReqCreatureOrGOCount2`, `ReqCreatureOrGOCount3`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewMoneyMaxLevel`) VALUES (30366, 47, 40, 47, 8, 30365, 30367, 'The Altar of Zul', 'The Hinterlands is infested with trolls. Go to The Altar of Zul to far to the south east mand eliminate them.', 'Kill 8 Vilebranch Axe Throwers, 8 Vilebranch Scalpers, and Vilebranch Soothsayers then return to Rhapsody Shindigger at Shindigger\'s Camp.', 'Your work isn\'t done, there\'s still more trolls to take care of.', 'What are you doing? There\'s trolls to be killing!', '', '', '', '', '', 2639, 4466, 4467, 8, 8, 8, 471, 150, 3900, 1680);
+
+            -- Start
+                REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (5634, 30366);  -- Rhapsody Shindigger (Shindigger's Camp)
+
+            -- End
+                REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (5634, 30366); -- Rhapsody Shindigger (Shindigger's Camp)
+
+        -- -> Quest
+            REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `Type`, `QuestFlags`, `PrevQuestId`, `NextQuestInChain`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOId2`, `ReqCreatureOrGOId3`, `ReqCreatureOrGOCount1`, `ReqCreatureOrGOCount2`, `ReqCreatureOrGOCount3`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewMoneyMaxLevel`) VALUES (30367, 47, 40, 50, 1, 8, 30366, 0, 'The Keeper\'s of Zul', 'Your final troll killing task for now is to go to the ALtar of Zul, far to the south east of here, and kill the two keepers that guard it.', 'Kill Qiaga the Keeper and Morta\'gya the Keeper then return to Rhapsody Shindigger at Shindigger\'s Camp.', 'Great work! You\'re free to take a break. for now.', 'What are you doing? There\'s trolls to be killing!', '', '', '', '', '', 7996, 8636, 0, 1, 1, 0, 471, 250, 4900, 1680);
+
+            -- Start
+                REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (5634, 30367);  -- Rhapsody Shindigger (Shindigger's Camp)
+
+            -- End
+                REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (5634, 30367); -- Rhapsody Shindigger (Shindigger's Camp)
+            
+        -- Quest
+            REPLACE `mangos`.`quest_template` (`entry`, `patch`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewOrReqMoney`, `RewMoneyMaxLevel`, `DetailsEmote1`, `DetailsEmote2`, `DetailsEmote3`, `IncompleteEmote`, `CompleteEmote`, `OfferRewardEmote1`, `OfferRewardEmote2`, `OfferRewardEmote3`, `OfferRewardEmote4`) VALUES (30368, 3, 47, 44, 48, 8, 'Vilebranch Hooligans', 'Vilebranch scum invaded our village and stole my tools! I have backup tools but the set they stole was a gift given to me by a kind hearted gnome that saved my life when I was a young orc.$B$BI want those tools back, $N - they mean the world to me.$B$BMarkhor reported that the tools were spotted near the Agol\'watha and Shaol\'watha temples.$B$BThose temples are in the northeastern region of the Hinterlands.$B$BRecover my tools!', 'Smith Slagtree at Revantusk Village in the Hinterlands wants you to find Slagtree\'s Lost Tools. Return to him once this task is complete.$B$BYou recall Smith Slagtree mentioning that the tools might be at one of the Vilebranch temples in the northeastern region of the Hinterlands. You should also check Skulk Rock.', 'My tools! You found them! Oh glorious day! Thank you, $N.', 'Watch out for the Vilebranch trolls of the region, $N. They are ruthless, murderous filth.', '', '', '', '', '', 19033, 1, 471, 100, 4400, 14000, 2640, 1, 1, 1, 1, 1, 1, 5, 5, 4);
+
+            -- Start
+                REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90135, 30368);  -- Dully Stoutfury (Quel'Danil Lodge)
+
+            -- End
+                REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90135, 30368); -- Dully Stoutfury (Quel'Danil Lodge)
+
+        -- Quest
+            REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `PrevQuestId`, `NextQuestInChain`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewMoneyMaxLevel`) VALUES (30369, 47, 44, 48, 8, 0, 0, 'Stout in the Water', 'In order to stop the trolls to the south, at Shadra\'Alor we need to summon their spider God, Shadra, and end kill her. To summon her, we will need to gather 3 items first. They are scattered around The Hinterlands, hidden away in chests by the trolls, at The Altar of Zul to the south east, south of The Creeping Ruins. The third and last item is her Shell.', 'Bring a Shell of Shadra to Dully Stoutfury at the Quel\'Danil Lodge in the Hinterlands.', 'There are still more items left before we can summon and kill Shadra!', 'Well? Where\'s the Shell of Shadra?', '', '', '', '', '', 30466, 1, 471, 100, 4400, 1680);
+
+            -- Objects
+                -- Template
+                    REPLACE `mangos`.`gameobject_template` (`entry`, `type`, `displayId`, `name`, `flags`, `data0`, `data1`, `data3`) VALUES (987697, 3, 49, 'Mud', 4, 43, 42927, 0);
+
+                -- Spawns
+                    REPLACE INTO `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (4100209, 987697, 0, 545.625, -3477.4, 58.6243, 0.890559, 0, 0, 0.43071, 0.90249, 10, 10, 100, 1, 0, 0, 0, 10);
+
+                -- Loot Template
+                    REPLACE `mangos`.`gameobject_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (42927, 30466, -100);
+
+            -- Start
+                REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90135, 30369);  -- Dully Stoutfury (Quel'Danil Lodge)
+
+            -- End
+                REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90135, 30369); -- Dully Stoutfury (Quel'Danil Lodge)
+
+        -- Quest Primitive OwlBeast (2928) (Spirit 90140)
+            -- TODO: Spell needs to be usable on dead things, need to figure out targetting. Its a flag that must be set (16777216 ?)
+            REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `Type`, `QuestFlags`, `PrevQuestId`, `NextQuestInChain`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOId2`, `ReqCreatureOrGOId3`, `ReqCreatureOrGOCount1`, `ReqCreatureOrGOCount2`, `ReqCreatureOrGOCount3`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewMoneyMaxLevel`) VALUES (30370, 47, 40, 45, 0, 8, 0, 30371, 'Release The High Elf Spirits', 'The High Elf spirits have posessed the Primitive Owlbeasts here. Kill the Owlbeasts, then release the spirit and rid the world of them.', 'Kill Primitive Owlbeasts then use the Dimensional Spirit Ripper to pull out the High Elf spirits and kill 15 of them then return to Dully Stoutfury at the Quel\'Danil Lodge in the Hinterlands', 'Nice job!', 'Get rid of the High Elf Spirits!', '', '', '', '', '', 90140, 0, 0, 15, 0, 0, 471, 250, 4900, 1680);
+
+            UPDATE `mangos`.`quest_template` SET `SrcItemId`=30467, `SrcItemCount`=1, `ReqItemId1`=30467, `ReqItemCount1`=1 WHERE `entry`=30370;
+
+            -- Creatures
+                -- Template
+                    REPLACE `mangos`.`creature_template` (`entry`, `name`, `level_min`, `level_max`, `faction`, `display_id1`, `display_probability1`, `display_total_probability`, `speed_walk`, `type`, `unit_class`, `armor_multiplier`, `gold_min`, `gold_max`, `spell_list_id`, `movement_type`, `mechanic_immune_mask`) VALUES (90140, 'High Elf Spirit', 44, 45, 14, 5430, 1, 1, 1.11111, 6, 1, 0.85, 53, 204, 21770, 1, 8413718);
+
+            -- Start
+                REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90135, 30370);  -- Dully Stoutfury (Quel'Danil Lodge)
+
+            -- End
+                REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90135, 30370); -- Dully Stoutfury (Quel'Danil Lodge)
+
+        -- -> Quest
+            REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `PrevQuestId`, `NextQuestInChain`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewMoneyMaxLevel`) VALUES (30371, 47, 44, 48, 8, 30370, 30372, 'Black Dynamite', 'For your next task I want you to blow up some Savage Owlbeasts, but thehe damned trolls stole my dynamite! Find where they hid it and bring it back to me.', 'Bring the Damaged Dwarven Dynamite to Dully Stoutfury at the Quel\'Danil Lodge in the Hinterlands.', 'Blasted! The trolls damaged the dynamite. Let me try to fix it.', 'Did you find my Dynamite?', '', '', '', '', '', 30469, 1, 471, 100, 4400, 1680);
+
+            -- Objects
+                -- Template
+                    REPLACE `mangos`.`gameobject_template` (`entry`, `type`, `displayId`, `name`, `flags`, `data0`, `data1`, `data3`) VALUES (987698, 3, 112, 'Dwarven Dynamite', 4, 43, 42928, 0);
+
+                -- Spawns
+                    REPLACE INTO `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (4100210, 987698, 0, -66.7429, -4022.42, 121.727, 0.984004, 0, 0, 0.472392, 0.881389, 10, 10, 100, 1, 0, 0, 0, 10);
+
+                -- Loot Template
+                    REPLACE `mangos`.`gameobject_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (42928, 30469, -100);
+            
+            -- Start
+                REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90135, 30371);  -- Dully Stoutfury (Quel'Danil Lodge)
+
+            -- End
+                REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90135, 30371); -- Dully Stoutfury (Quel'Danil Lodge)
+
+        -- -> Quest 
+            REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `Type`, `QuestFlags`, `PrevQuestId`, `NextQuestInChain`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOId2`, `ReqCreatureOrGOId3`, `ReqCreatureOrGOCount1`, `ReqCreatureOrGOCount2`, `ReqCreatureOrGOCount3`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewMoneyMaxLevel`) VALUES (30372, 47, 44, 48, 0, 8, 30371, 30373, 'Blow up the Owlbeasts', 'Take this Dwarven Dynamite and use it on Savage Owlbeasts close to death to explode them!.', 'Kill 15 Savage Owlbeasts with Dwarven Dynamite then return to Dully Stoutfury at the Quel\'Danil Lodge in the Hinterlands.', 'Nice job!', 'Did you blow up the owlbeasts with the dynamite yet?!', '', '', '', '', '', 3099, 0, 0, 15, 0, 0, 471, 250, 4900, 1680);
+
+            UPDATE `mangos`.`quest_template` SET `SrcItemId`=30468, `SrcItemCount`=1, `ReqItemId1`=30468, `ReqItemCount1`=1, `ObjectiveText1`='Savage Owlbeasts killed with Dwarven Dynamite' WHERE `entry`=30372;
+
+            -- Start
+                REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90135, 30372);  -- Dully Stoutfury (Quel'Danil Lodge)
+
+            -- End
+                REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90135, 30372); -- Dully Stoutfury (Quel'Danil Lodge)
+
+        -- -> Quest
+            REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `Type`, `QuestFlags`, `PrevQuestId`, `NextQuestInChain`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOId2`, `ReqCreatureOrGOId3`, `ReqCreatureOrGOCount1`, `ReqCreatureOrGOCount2`, `ReqCreatureOrGOCount3`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewMoneyMaxLevel`) VALUES (30373, 47, 44, 48, 0, 8, 30372, 0, 'Tested Dynamite Delivery', 'Now that this dynamite has been well tested, give it to the Gnomes in Ironforge. They might have a use for it.', 'Take the Dwarven Dynamite to High Tinker Mekkatorque in Tinker Town at Ironforge.', 'Hmm...interesting. I will look into using this in our devices in the future. Here, take one of these items from your High Elf friends at the Hinterlands for your troubles.', 'What is this? Dwarven dynamite, you tested it yourself?', '', '', '', '', '', 0, 0, 0, 0, 0, 0, @FACTION_GNOMEREGAN_EXILES, 250, 7100, 1680);
+
+            UPDATE `mangos`.`quest_template` SET `SrcItemId`=30470, `SrcItemCount`=1, `ReqItemId1`=30470, `ReqItemCount1`=1, `RewChoiceItemId1`=19114, `RewChoiceItemId2`=19115, `RewChoiceItemCount1`=1, `RewChoiceItemCount2`=1 WHERE `entry`=30373;
+
+            -- Start
+                REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90135, 30373);  -- Dully Stoutfury (Quel'Danil Lodge)
+
+            -- End
+                REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (7937, 30373); -- High Tinker Mekkatorque (Tinker Town, Ironforge)
+
+        -- Quest
+            REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOId2`, `ReqCreatureOrGOId3`, `ReqCreatureOrGOCount1`, `ReqCreatureOrGOCount2`, `ReqCreatureOrGOCount3`, `RewItemId1`, `RewItemId2`, `RewItemCount1`, `RewItemCount2`, `RewXP`, `RewMoneyMaxLevel`) VALUES (30026, 47, 44, 47, 8, 'Owls of the Hinterlands', 'Please cull the Hinterlands of the ravage Owlbeasts. They are starting to cause trouble for us.', 'Kill 10 Vicious Owlbeasts, 10 Primitive Owlbeasts and 10 Savage Owlbeast then return to Hellen Brewarm in the Hinterlands.', 'The Owlbeasts numbers have been thinned.', 'You haven\'t finished your task, get back to work!', '', '', '', '', '', 2927, 2928, 2929, 10, 10, 10, 19118, 12469, 1, 1, 4400, 1680);
+
+            UPDATE `mangos`.`quest_template` SET `RewChoiceItemId1`=0, `RewChoiceItemId2`=0, `RewChoiceItemCount1`=0, `RewChoiceItemCount2`=0, `RewItemId1`=0, `RewItemId2`=0, `RewItemCount1`=0, `RewItemCount2`=0, `RewRepFaction1`=@FACTION_WILDHAMMER, `RewRepValue1`=100 WHERE  `entry`=30026 AND `patch`=0;
+
+        -- Start
+            REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90137, 30026);  -- Hellen Brewarm (Quel'Danil Lodge)
+
+        -- End
+            REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90137, 30026); -- Hellen Brewarm (Quel'Danil Lodge)
+
+        -- Quest
+            REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOId2`, `ReqCreatureOrGOCount1`, `ReqCreatureOrGOCount2`, `RewXP`, `RewMoneyMaxLevel`) VALUES (30024, 47, 44, 48, 8, 'Stalking the Stalkers', 'The Silvermane wolves are one of the biggest threats to our hunters. They lay in wait, hiding amongst the bushes and landscape, then strike out when the opportunity presents itself.', 'Hellen Brewarm at Quel\'Danil Lodge in the Hinterlands wants you to kill 15 Silvermane Stalkers and 15 Silvermane Howlers. Return to her once the task is complete.', 'I feel much safer now.', 'What are you doin? There\'s still wolves out there to kill!', '', '', '', '', '', 2926, 2925, 15, 15, 4400, 1680);
+
+            UPDATE `mangos`.`quest_template` SET `RewRepFaction1`=@FACTION_WILDHAMMER, `RewRepValue1`=100 WHERE  `entry`=30024 AND `patch`=0;
+
+        -- Start
+            REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90137, 30024);  -- Hellen Brewarm (Quel'Danil Lodge)
+
+        -- End
+            REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90137, 30024); -- Hellen Brewarm (Quel'Danil Lodge)
+
+        -- Quest
+            REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `Type`, `QuestFlags`, `PrevQuestId`, `NextQuestInChain`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewMoneyMaxLevel`) VALUES (30374, 47, 44, 48, 0, 8, 0, 30375, 'Restocking Quivers', 'The owlbeasts here have very sharp claws, I can use them to make arrows for our High Elf friends here. Gather some for me. All the owlbeasts here have claws but the Savage Owlbeasts seem to have the sharpest claws.', 'Gather 8 Owlbeast Claws then return to Hellen Brewarm in Quel\'Danil Lodge at The Hinterlands.', 'This should help out our High Elves with brand new arrows!', 'Did you get the Owlbeast Claws?', '', '', '', '', '', 30471, 8, @FACTION_WILDHAMMER, 150, 4750, 1680);
+
+            -- Loot Template
+                REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (2927, 30471, -5);
+                REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (2928, 30471, -15);
+                REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (2929, 30471, -25);
+
+        -- Start
+            REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90137, 30374);  -- Hellen Brewarm (Quel'Danil Lodge)
+
+        -- End
+            REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90137, 30374); -- Hellen Brewarm (Quel'Danil Lodge)
+
+        -- Quest
+            REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `Type`, `QuestFlags`, `PrevQuestId`, `NextQuestInChain`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewMoneyMaxLevel`) VALUES (30375, 47, 44, 48, 0, 8, 30374, 30376, 'Restocking Hides', 'The wolves here have very unique hides, I can use them to repair the damaged armor of our High Elf friends. Gather some for me. All the wolves here have tough hides but the Silvermane Stalkers have the toughest hides.', 'Gather 8 Silvermane Hides then return to Hellen Brewarm in Quel\'Danil Lodge at The Hinterlands.', 'Great! Now to patch up all the High Elves armor!', 'Did you get the Silvermane Hides?', '', '', '', '', '', 30472, 8, @FACTION_WILDHAMMER, 100, 5100, 1680);
+
+            -- Loot Template
+                REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (2923, 30472, -5);
+                REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (2924, 30472, -15);
+                REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (2925, 30472, -15);
+                REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (2926, 30472, -25);
+
+        -- Start
+            REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90137, 30375);  -- Hellen Brewarm (Quel'Danil Lodge)
+
+        -- End
+            REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90137, 30375); -- Hellen Brewarm (Quel'Danil Lodge)
+
+        -- Quest
+            REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `Type`, `QuestFlags`, `PrevQuestId`, `NextQuestInChain`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewMoneyMaxLevel`) VALUES (30376, 47, 44, 50, 0, 8, 30375, 0, 'Snapjaw Turtle Shells', 'I have one last task for you, $N. Gather some turtle shells from the Saltwater Snapjaws far to the east along the coast and bring them back to me.', 'Gather 8 Snapjaw Shells then return to Hellen Brewarm in Quel\'Danil Lodge at The Hinterlands.', 'You have done an amazing job, please take allow me to offer you one of these items to show my gratitude.', 'Did you get the Snapjaw Shells?', '', '', '', '', '', 30473, 8, @FACTION_WILDHAMMER, 250, 6000, 1680);
+
+            UPDATE `mangos`.`quest_template` SET  `RewChoiceItemId1`=19117, `RewChoiceItemId2`=19116, `RewChoiceItemId3`=19119, `RewChoiceItemCount1`=1, `RewChoiceItemCount2`=1, `RewChoiceItemCount3`=1 WHERE `entry`=30376;
+
+            -- Loot Template
+                REPLACE `mangos`.`creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (2505, 30473, -25);
+
+        -- Start
+            REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90137, 30376);  -- Hellen Brewarm (Quel'Danil Lodge)
+
+        -- End
+            REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90137, 30376); -- Hellen Brewarm (Quel'Danil Lodge)
+
+        -- Quest
+            REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `Type`, `QuestFlags`, `PrevQuestId`, `NextQuestInChain`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewMoneyMaxLevel`) VALUES (30377, 47, 44, 48, 0, 8, 0, 0, 'Skulk Rock Gathering', '$N, I am in need of someone as strong as you to explore the caves here. Go to Skulk Rock to the east and gather me mushrooms - I\'m very interested in how they can grow in a cave of such conditions.', 'Gather 12 Sleepshrooms then return to Explorer Shortmountain in Quel\'Danil Lodge at The Hinterlands.', 'These are some interesting mushrooms, they\'re in perfecet condition despite being surrounded by slimes.', 'Did you get the Sleepshrooms?', '', '', '', '', '', 30474, 8, @FACTION_WILDHAMMER, 150, 4900, 1680);
+
+            -- Objects
+                -- Template
+                    REPLACE `mangos`.`gameobject_template` (`entry`, `type`, `displayId`, `name`, `flags`, `data0`, `data1`, `data3`) VALUES (987699, 3, 359, 'Sleepshroom Stalk', 4, 43, 42929, 0);
+
+                -- Spawns
+                    REPLACE INTO `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (4100223, 987699, 0, 344.875, -3779.31, 107.26, 4.80373, 0, 0, 0.674086, -0.738653, 330, 330, 100, 1, 0, 0, 0, 10);
+                    REPLACE INTO `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (4100222, 987699, 0, 364.495, -3832.19, 107.166, 0.711812, 0, 0, 0.34844, 0.937331, 330, 330, 100, 1, 0, 0, 0, 10);
+                    REPLACE INTO `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (4100221, 987699, 0, 348.388, -3847.62, 107.162, 4.09688, 0, 0, 0.888081, -0.459687, 330, 330, 100, 1, 0, 0, 0, 10);
+                    REPLACE INTO `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (4100220, 987699, 0, 419.454, -3891.97, 98.6178, 4.6388, 0, 0, 0.73264, -0.680616, 330, 330, 100, 1, 0, 0, 0, 10);
+                    REPLACE INTO `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (4100219, 987699, 0, 423.461, -3789.64, 101.592, 5.83812, 0, 0, 0.2207, -0.975342, 330, 330, 100, 1, 0, 0, 0, 10);
+                    REPLACE INTO `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (4100218, 987699, 0, 357.964, -3804.71, 126.822, 5.33468, 0, 0, 0.456673, -0.889635, 330, 330, 100, 1, 0, 0, 0, 10);
+                    REPLACE INTO `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (4100217, 987699, 0, 427.415, -3790.09, 121.118, 3.69713, 0, 0, 0.96167, -0.274211, 330, 330, 100, 1, 0, 0, 0, 10);
+                    REPLACE INTO `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (4100216, 987699, 0, 337.579, -3768.44, 127, 3.33584, 0, 0, 0.995287, -0.0969714, 330, 330, 100, 1, 0, 0, 0, 10);
+                    REPLACE INTO `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (4100215, 987699, 0, 391.273, -3813.15, 116.986, 1.04955, 0, 0, 0.501016, 0.865438, 330, 330, 100, 1, 0, 0, 0, 10);
+                    REPLACE INTO `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (4100214, 987699, 0, 374.439, -3782.07, 108.895, 4.52101, 0, 0, 0.77143, -0.636314, 330, 330, 100, 1, 0, 0, 0, 10);
+                    REPLACE INTO `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (4100213, 987699, 0, 332.841, -3699.8, 106.859, 1.75248, 0, 0, 0.768339, 0.640043, 330, 330, 100, 1, 0, 0, 0, 10);
+                    REPLACE INTO `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (4100212, 987699, 0, 338.589, -3752.41, 107.406, 1.19642, 0, 0, 0.563165, 0.826344, 330, 330, 100, 1, 0, 0, 0, 10);
+                    REPLACE INTO `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (4100211, 987699, 0, 359.277, -3767.79, 107.504, 1.46974, 0, 0, 0.670492, 0.741917, 330, 330, 100, 1, 0, 0, 0, 10);
+                
+            -- Loot Template
+                REPLACE `mangos`.`gameobject_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (42929, 30474, -100);
+
+        -- Start
+            REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90138, 30377);  -- Explorer Shortmountain (Quel'Danil Lodge)
+
+        -- End
+            REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90138, 30377); -- Explorer Shortmountain (Quel'Danil Lodge)
+
+        -- Quest
+            REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOId2`, `ReqCreatureOrGOCount1`, `ReqCreatureOrGOCount2`, `RewXP`, `RewMoneyMaxLevel`) VALUES (30378, 47, 44, 50, 8, 'Big Slimer', 'At the tip top of Skulk Rock there is a very big slime. Go there and rid the world of him for me..', 'Explorer Shortmountai at Quel\'Danil Lodge in the Hinterlands wants you to kill Big Slimer at the top of Skulk Rock to the east. Return to him once the task is complete.', 'I feel much safer now.', 'Did ye get the gigantic slime yet?', '', '', '', '', '', 90141, 0, 1, 0, 5250, 1680);
+
+            UPDATE `mangos`.`quest_template` SET `RewChoiceItemId1`=19118, `RewChoiceItemId2`=19120, `RewChoiceItemCount1`=1, `RewChoiceItemCount2`=1, `RewRepFaction1`=@FACTION_WILDHAMMER, `RewRepValue1`=150 WHERE  `entry`=30378 AND `patch`=0;
+
+            -- Creatures
+                -- Template
+                    REPLACE `mangos`.`creature_template` (`entry`, `patch`, `name`, `level_min`, `level_max`, `faction`, `display_id1`, `display_probability1`, `display_total_probability`, `type`, `unit_class`, `health_multiplier`, `armor_multiplier`, `damage_multiplier`, `nature_res`, `loot_id`, `pickpocket_loot_id`, `gold_min`, `gold_max`, `movement_type`) VALUES (90141, 7, 'Big Slimer', 50, 50, 14, 1145, 1, 1, 10, 1, 3.0, 1.25, 2.0, 115, 2655, 2655, 68, 294, 1);
+
+                    REPLACE `mangos`.`creature_template` (`entry`, `patch`, `name`, `level_min`, `level_max`, `faction`, `display_id1`, `display_probability1`, `display_total_probability`, `type`, `unit_class`, `health_multiplier`, `armor_multiplier`, `damage_multiplier`, `nature_res`, `loot_id`, `pickpocket_loot_id`, `gold_min`, `gold_max`, `movement_type`) VALUES (90142, 7, 'Cloned Big Slimer', 48, 48, 14, 1145, 1, 1, 10, 1, 1.0, 1.25, 1.0, 115, 2655, 2655, 68, 294, 1);
+
+                    -- 90142
+
+                    UPDATE `mangos`.`creature_template` SET `display_scale1`=4, `spell_list_id`=200117, `auras`='34356' WHERE  `entry`=90141;
+
+                -- Spawns
+                    REPLACE INTO `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000205, 90141, 0, 0, 0, 0, 0, 366.478, -3796.33, 171.122, 3.27141, 660, 660, 5, 100, 100, 1, 0, 0, 0, 10);
+
+
+            -- Start
+                REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90138, 30378);  -- Explorer Shortmountain (Quel'Danil Lodge)
+
+            -- End
+                REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90138, 30378); -- Explorer Shortmountain (Quel'Danil Lodge)
+
+        -- Quest
+            REPLACE `mangos`.`quest_template` (`entry`, `patch`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOCount1`, `RewItemId1`, `RewItemCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewOrReqMoney`, `RewMoneyMaxLevel`, `DetailsEmote1`, `DetailsEmote2`, `DetailsEmote3`, `DetailsEmote4`, `IncompleteEmote`, `CompleteEmote`, `OfferRewardEmote1`, `OfferRewardEmote2`) VALUES (30379, 3, 47, 44, 50, 8, 'Snapjaws, Lad!', 'Don\'t let their big eyes fool you! Those saltwater snapjaws be a menace. I can\'t fish for five minutes without getting a broken line from one of those oversized fish vacuums stealing my bait.$B$BDo me and the people of Quel\'Danil Lodge a service and kill em.$B$BKill the whole lot of em!', 'Explorer Shortmountai at Quel\'Danil Lodge in the Hinterlands wants you to kill 15 Saltwater Snapjaw turtles far to the east alongside the coast at The Overlook Cliffs. Return to him when you have completed this task.', 'I can\'t thank you enough! Hopefully this here fishing pole will be reward enough for the job.', 'How goes the hunt?', '', '', '', '', '', 2505, 15, 19022, 1, 471, 100, 4700, 7500, 2820, 1, 1, 1, 5, 6, 6, 1, 1);
+
+            -- Start
+                REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90138, 30379);  -- Explorer Shortmountain (Quel'Danil Lodge)
+
+            -- End
+                REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90138, 30379); -- Explorer Shortmountain (Quel'Danil Lodge)
+
+        -- Quest
+            REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `Type`, `QuestFlags`, `PrevQuestId`, `NextQuestInChain`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewMoneyMaxLevel`) VALUES (30380, 47, 44, 48, 0, 8, 0, 0, 'Ooze Extractin\'', '$N, I have a job for you! Take this Extraction Vial and use it on the oozes to the east at Skulk Rock. Get me some usable samples from them.', 'Use the Extraction Vile on oozes at Skulk Rock to gather 6 Ooze Liquid then return to Moh Anvilforge in Quel\'Danil Lodge at The Hinterlands.', 'These are some interesting mushrooms, they\'re in perfecet condition despite being surrounded by slimes.', 'Did you get the Ooze Liquid?', '', '', '', '', '', 30477, 6, @FACTION_WILDHAMMER, 150, 5250, 1680);
+
+            UPDATE `mangos`.`quest_template` SET `SrcItemId`=30475, `SrcItemCount`=1 WHERE `entry`=30380;
+
+            -- Start
+                REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90136, 30380);  -- Moh Anvilforge (Quel'Danil Lodge)
+
+            -- End
+                REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90136, 30380); -- Moh Anvilforge (Quel'Danil Lodge)
+        
+        -- Quest
+            REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `Type`, `QuestFlags`, `PrevQuestId`, `NextQuestInChain`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewMoneyMaxLevel`) VALUES (30381, 47, 44, 50, 1, 8, 0, 0, 'Toljinka the Enraged', '$N, I have something of utmost emergency for you to take care of! Take this Troll Incense to Shaol\'watha, far to the east, right before The Overlook Cliffs, and use it to summon Toljinka the Enraged, then kill him. The trolls will suffer a nasty blow without their little Toljinka to protect them.', 'Use the Troll Incense at Shaol\'watha then kill Toljinka the Enraged. Afterwards, return to Moh Anvilforge in Quel\'Danil Lodge at The Hinterlands.', 'Great work!', 'Did you kill Toljinka the Enraged yet?', '', '', '', '', '', 90143, 1, @FACTION_WILDHAMMER, 200, 6500, 1680);
+
+            UPDATE `mangos`.`quest_template` SET `SrcItemId`=30478, `SrcItemCount`=1, `ReqItemId1`=30478, `ReqItemCount1`=1, `RewChoiceItemId1`=19159, `RewChoiceItemId2`=19121, `RewChoiceItemCount1`=1, `RewChoiceItemCount2`=1 WHERE `entry`=30381;
+
+            -- Creatures
+                -- Templates
+                    REPLACE `mangos`.`creature_template` (`entry`, `patch`, `name`, `level_min`, `level_max`, `faction`, `display_id1`, `detection_range`, `type`, `rank`, `unit_class`, `health_multiplier`, `armor_multiplier`, `damage_multiplier`, `base_attack_time`, `ranged_attack_time`, `fire_res`, `nature_res`, `frost_res`, `shadow_res`, `arcane_res`, `gold_min`, `gold_max`, `spell_list_id`, `movement_type`, `inhabit_type`, `immunity_flags`, `static_flags1`, `flags_extra`) VALUES (90143, 3, 'Toljinka the Enraged', 50, 50, 14, 7873, 20, 7, 1, 1, 5.0, 1.45, 3.0, 1133, 1246, 10, 10, 10, 10, 10, 53, 213, 200118, 1, 1, 8, 524288, 32768);
+
+            -- Objects
+                -- Template
+                    REPLACE `mangos`.`gameobject_template` (`entry`, `type`, `displayId`, `name`, `flags`, `data0`, `data1`, `data3`) VALUES (987700, @GAMEOBJECT_TYPE_GOOBER, 602, 'Troll Brazier', 4, 43, 0, 0);
+
+                -- Spawns
+                    REPLACE INTO `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (4100224, 987700, 0, 80.8516, -4403.57, 119.994, 3.933, 0, 0, 0.922725, -0.38546, 25, 25, 100, 1, 0, 0, 0, 10);
+
+            -- Start
+                REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90136, 30381);  -- Moh Anvilforge (Quel'Danil Lodge)
+
+            -- End
+                REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90136, 30381); -- Moh Anvilforge (Quel'Danil Lodge)
+
+        -- Quest
+            REPLACE `mangos`.`quest_template` (`entry`, `patch`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewItemId1`, `RewItemCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewOrReqMoney`, `RewMoneyMaxLevel`, `IncompleteEmote`, `CompleteEmote`, `OfferRewardEmote1`, `OfferRewardEmote2`) VALUES (30382, 3, 47, 44, 49, 8, 'Lard Lost His Lunch', 'Lard was at secret special spot having picnic when ugly mean Vilebranch hit Lard wit da big stick. Lard run back to Revantusk but forget Lard lunch. Lard hungry. Maybe you go back to secret special spot and get Lard lunch? Lard scared. Go nort! Island der to da nort is da secret special spot.', 'Lard at Revantusk Village in the Hinterlands wants you to find Lard\'s Lunch. Return to him when this task is complete.$B$BLard mentioned that he left it on the island to the north. Watch out for Vilebranch trolls.', '<Lard takes the huge haunch of meat from you and stuffs it in his face.>$B$BDis hit da spot! Tanks little one.$B$BLard make you special picnic basket for help Lard.', '<Lard rubs his enormous belly.>$B$BLard so hungry.', '', '', '', '', '', 19034, 1, 19035, 1, 471, 100, 4550, 14000, 2760, 1, 1, 1, 1);
+
+            -- Start
+                REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90136, 30382);  -- Moh Anvilforge (Quel'Danil Lodge)
+
+            -- End
+                REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90136, 30382); -- Moh Anvilforge (Quel'Danil Lodge)
+
+
+        -- TODO: Monu still doesn't summon succubus
 -- Dungeons
     -- Ragefire Chasm
         -- Hidden Enemies

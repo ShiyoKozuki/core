@@ -913,7 +913,7 @@ struct PortalDeviceScript : public SpellScript
 
         GameObject* portal = caster->FindNearestGameObject(OBJECT_DEMON_PORTAL, 10.0f);
         if (!portal)
-            return SPELL_FAILED_BAD_TARGETS;
+            return SPELL_FAILED_NOT_HERE;
 
         return SPELL_CAST_OK;
     }
@@ -1024,7 +1024,7 @@ struct HandOfIruxosScript : public SpellScript
         }
 
         if (!portal)
-            return SPELL_FAILED_BAD_TARGETS;
+            return SPELL_FAILED_NOT_HERE;
 
         return SPELL_CAST_OK;
     }
@@ -1078,7 +1078,7 @@ struct BurnBroodGuardEggsScript : public SpellScript
 
         GameObject* portal = caster->FindNearestGameObject(OBJECT_BROODGUARD_EGGS, 10.0f);
         if (!portal)
-            return SPELL_FAILED_BAD_TARGETS;
+            return SPELL_FAILED_NOT_HERE;
 
         return SPELL_CAST_OK;
     }
@@ -1155,19 +1155,19 @@ SpellScript* GetScript_FeedGryphons(SpellEntry const*)
     return new FeedGryphonsScript();
 }
 
-enum
-{
-    OBJECT_ALTAR_1 = 987694,
-    OBJECT_ALTAR_2 = 987695,
-    OBJECT_ALTAR_3 = 987696,
-    DUMMY_CREATURE_1 = 3197,
-    DUMMY_CREATURE_2 = 3198,
-    DUMMY_CREATURE_3 = 3199,
-};
-
 
 struct RitualOfShadraScript : public SpellScript
 {
+    enum
+    {
+        OBJECT_ALTAR_1 = 987694,
+        OBJECT_ALTAR_2 = 987695,
+        OBJECT_ALTAR_3 = 987696,
+        NPC_DUMMY_CREATURE_1 = 3197,
+        NPC_DUMMY_CREATURE_2 = 3198,
+        NPC_DUMMY_CREATURE_3 = 3199,
+    };
+
     SpellCastResult OnCheckCast(Spell* spell, bool /*strict*/) const final
     {
         Unit* caster = spell->m_casterUnit;
@@ -1180,7 +1180,7 @@ struct RitualOfShadraScript : public SpellScript
         GameObject* altar_3 = caster->FindNearestGameObject(OBJECT_ALTAR_3, 10.0f);
 
         if (!altar_1 && !altar_2 && !altar_3)
-            return SPELL_FAILED_BAD_TARGETS;
+            return SPELL_FAILED_NOT_HERE;
 
         return SPELL_CAST_OK;
     }
@@ -1198,11 +1198,11 @@ struct RitualOfShadraScript : public SpellScript
             GameObject* altar_3 = pPlayer->FindNearestGameObject(OBJECT_ALTAR_3, 10.0f);
 
             if (altar_1)
-                pPlayer->KilledMonsterCredit(DUMMY_CREATURE_1, altar_1->GetObjectGuid());
+                pPlayer->KilledMonsterCredit(NPC_DUMMY_CREATURE_1, altar_1->GetObjectGuid());
             else if (altar_2)
-                pPlayer->KilledMonsterCredit(DUMMY_CREATURE_2, altar_2->GetObjectGuid());
+                pPlayer->KilledMonsterCredit(NPC_DUMMY_CREATURE_2, altar_2->GetObjectGuid());
             else if (altar_3)   
-            pPlayer->KilledMonsterCredit(DUMMY_CREATURE_3, altar_3->GetObjectGuid());
+            pPlayer->KilledMonsterCredit(NPC_DUMMY_CREATURE_3, altar_3->GetObjectGuid());
         }
 
         return true;
@@ -1263,13 +1263,15 @@ SpellScript* GetScript_DimensionalSpiritRipper(SpellEntry const*)
     return new DimensionalSpiritRipperScript();
 }
 
-enum
-{
-    NPC_SAVAGE_OWLBEAST = 2929
-};
 
 struct DwarvenDynamiteScript : public SpellScript
 {
+    enum
+    {
+        NPC_SAVAGE_OWLBEAST = 2929,
+        NPC_DUMMMY_CREATURE = 3099
+    };
+
     SpellCastResult OnCheckCast(Spell* spell, bool /*strict*/) const final
     {
         if (Unit* pTarget = spell->m_targets.getUnitTarget())
@@ -1297,7 +1299,7 @@ struct DwarvenDynamiteScript : public SpellScript
             if (!pTarget)
                 return false;
 
-            pPlayer->KilledMonsterCredit(NPC_SAVAGE_OWLBEAST, pTarget->GetObjectGuid());
+            pPlayer->KilledMonsterCredit(NPC_DUMMMY_CREATURE, pTarget->GetObjectGuid());
 
             if (pTarget->IsAlive())
                 pPlayer->DealDamage(pTarget, pTarget->GetHealth(), nullptr, DIRECT_DAMAGE, SPELL_SCHOOL_MASK_NORMAL, nullptr, false);
@@ -1310,6 +1312,111 @@ struct DwarvenDynamiteScript : public SpellScript
 SpellScript* GetScript_DwarvenDynamite(SpellEntry const*)
 {
     return new DwarvenDynamiteScript();
+}
+
+struct ExtractionVialScript : public SpellScript
+{
+    enum
+    {
+        NPC_GREEN_SLUDGE = 2655,
+        NPC_JADE_OOZE = 2656
+    };
+
+    SpellCastResult OnCheckCast(Spell* spell, bool /*strict*/) const final
+    {
+        if (Unit* pTarget = spell->m_targets.getUnitTarget())
+        {
+            if ((pTarget->GetEntry() != NPC_GREEN_SLUDGE && pTarget->GetEntry() != NPC_JADE_OOZE) || !pTarget->IsDead())
+                return SPELL_FAILED_BAD_TARGETS;
+        }
+        else
+        {
+            return SPELL_FAILED_BAD_TARGETS;
+        }
+
+        return SPELL_CAST_OK;
+    }
+
+    bool OnEffectExecute(Spell* spell, SpellEffectIndex effIdx) const final
+    {
+        enum
+        {
+            ITEM_DEFECTIVE_SKULK_ROCK_OOZE = 30476,
+            ITEM_SKULK_ROCK_OOZE_LIQUID = 30477
+        };
+
+        if (effIdx == EFFECT_INDEX_0)
+        {
+            Player* pPlayer = spell->m_casterUnit->ToPlayer();
+            if (!pPlayer)
+                return false;
+
+            Unit* pTarget = spell->m_targets.getUnitTarget();
+            if (!pTarget)
+                return false;
+
+            uint16 item;
+
+            // 25% chance 
+            if (roll_chance_i(25)) // 75% chance of failure (defective ooze liquid)
+                item = ITEM_DEFECTIVE_SKULK_ROCK_OOZE;
+            else
+                item = ITEM_SKULK_ROCK_OOZE_LIQUID;
+
+            if (!item)
+                return false;
+
+            uint32 count = 1;
+
+            ItemPosCountVec dest;
+            InventoryResult msg = pPlayer->CanStoreNewItem(NULL_BAG, NULL_SLOT, dest, item, count);
+
+            if (msg == EQUIP_ERR_OK)
+            {
+                pPlayer->StoreNewItem(dest, item, true);
+
+                // Despawn the Ooze
+                Creature* pCreature = pTarget->ToCreature();
+                if (pCreature)
+                    pCreature->ForcedDespawn();
+            }
+        }
+
+        return true;
+    }
+};
+
+SpellScript* GetScript_ExtractionVial(SpellEntry const*)
+{
+    return new ExtractionVialScript();
+}
+
+struct TrollIncenseScript : public SpellScript
+{
+    enum
+    {
+        OBJECT_SUMMONING_BRAZIER = 987700
+    };
+
+    SpellCastResult OnCheckCast(Spell* spell, bool /*strict*/) const final
+    {
+        Unit* caster = spell->m_casterUnit;
+
+        if (!caster)
+            return SPELL_FAILED_BAD_TARGETS;
+
+        GameObject* brazier = caster->FindNearestGameObject(OBJECT_SUMMONING_BRAZIER, 10.0f);
+
+        if (!brazier)
+            return SPELL_FAILED_NOT_HERE;
+
+        return SPELL_CAST_OK;
+    }
+};
+
+SpellScript* GetScript_TrollIncense(SpellEntry const*)
+{
+    return new TrollIncenseScript();
 }
 
 
@@ -1525,5 +1632,15 @@ void AddSC_item_spell_scripts()
     newscript = new Script;
     newscript->Name = "spell_dwarven_dynamite";
     newscript->GetSpellScript = &GetScript_DwarvenDynamite;
+    newscript->RegisterSelf();
+
+    newscript = new Script;
+    newscript->Name = "spell_extraction_vial";
+    newscript->GetSpellScript = &GetScript_ExtractionVial;
+    newscript->RegisterSelf();
+
+    newscript = new Script;
+    newscript->Name = "spell_troll_incense";
+    newscript->GetSpellScript = &GetScript_TrollIncense;
     newscript->RegisterSelf();
 }
