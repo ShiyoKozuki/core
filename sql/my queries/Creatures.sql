@@ -134,6 +134,9 @@ WHERE display_id IN(59, 60, 12170);
 -- Vengful Spirit damage reduced (Not captured)
 UPDATE `mangos`.`creature_template` SET `damage_multiplier`=1.10 WHERE  `entry`=4030 AND `patch`=0;
 
+-- Terrowulf Packlord damage reduced (Not captured)
+UPDATE `mangos`.`creature_template` SET `damage_multiplier`=1.25 WHERE  `entry`=3792 AND `patch`=0;
+
 -- Jandice Barov correct Curse of Blood spellId
 -- UPDATE `mangos`.`creature_template` SET `spell_id1`=16098 WHERE  `entry`=10503 AND `patch`=0; -- TODO:
 
