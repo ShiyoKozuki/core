@@ -996,10 +996,17 @@ REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id
 
 REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quality`, `flags`, `allowable_class`, `allowable_race`, `item_level`, `max_count`, `delay`, `spellid_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30478, @ITEM_CLASS_QUEST, 'Troll Incense', 7065, 1, 2048, 2047, -1, 1, 1, 0, 34359, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 4, 1);
 
+REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quality`, `flags`, `allowable_class`, `allowable_race`, `item_level`, `max_count`, `delay`, `spellid_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30479, @ITEM_CLASS_QUEST, 'Gordunni Orb', 16209, 1, 2048, 2047, -1, 1, 1, 0, 34360, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 4, 1);
+
+REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quality`, `flags`, `allowable_class`, `allowable_race`, `item_level`, `max_count`, `delay`, `spellid_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30480, @ITEM_CLASS_QUEST, 'Charged Gordunni Orb', 16209, 1, 2048, 2047, -1, 1, 1, 0, 34361, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 4, 1);
+
+REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `delay`, `dmg_min1`, `dmg_max1`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `sheath`, `max_durability`, `disenchant_id`) VALUES (30481, 2, 10, 'Gordunni Staff', 20298, 3, 108853, 21770, 17, -1, -1, 40, 3700, 119, 180, 18049, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 2, 2, 2, 120, 61);
+
+
 -- TODO: All legs of the blue pvp / TBC dungeon sets as random drops
 -- https://www.wowhead.com/tbc/transmog-set=910/beast-lord-armor
 -- 30428, 30429 free
--- NEXT 30479
+-- NEXT 30481
 
 -- Item classes
     -- Trade goods
@@ -9831,7 +9838,7 @@ WHERE entry = 6973;
 -- Fire Hardened Gauntlets
 UPDATE mangos . item_template
 SET quality = 3,
-    armor = 126,
+    armor = 140,
     spellid_1 = 9140, -- +10 Attack Power
     spelltrigger_1 = 1
 WHERE entry = 6974;
@@ -16100,7 +16107,7 @@ WHERE entry IN(12717, 18418, 22388, 14512, 14513, 14514, 12834, 12825, 18260, 20
         -- Infantry Tunic (display: 3057)
         -- Copper Chain Vest
         -- Infantry Leggings (Display: 3058)
-        -- Burnished Tunic (Display: 25769)
+        -- Burnished Tunic (Lots of cleavage, boobs huge, Display: 25769)
         -- Glimmering Mail Breastplate
         -- (Bare back) Sparkleshell Breastplate 
         -- (Lots of tummy shown!) Enduring Breastplate

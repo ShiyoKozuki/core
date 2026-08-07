@@ -4,8 +4,8 @@
 -- NEXT generic_script 9000001
 -- NEXT creature_movement_scripts 9000001
 
--- NEXT creature_template 90144
--- NEXT gameobject_template 987701
+-- NEXT creature_template 90148
+-- NEXT gameobject_template 987705
 -- NEXT gameobject_loot_template 42930
 
 -- NEXT gameobject 300406
@@ -1212,7 +1212,7 @@ REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (5479, 30174
 
                 -- Creature
                     -- Template
-                        REPLACE `mangos`.`creature_template` (`entry`, `name`, `level_min`, `level_max`, `faction`, `display_id1`, `type`, `rank`, `unit_class`, `health_multiplier`, `damage_multiplier`, `arcane_res`, `loot_id`, `pickpocket_loot_id`, `gold_min`, `gold_max`, `spell_list_id`, `movement_type`, `inhabit_type`) VALUES (90122, 'Babadook', 32, 32, 90, 2019, 3, 1, 1, 2.0, 1.5, 200, 3754, 3754, 98, 133, 71050, 1, 1);
+                        REPLACE `mangos`.`creature_template` (`entry`, `name`, `level_min`, `level_max`, `faction`, `display_id1`, `type`, `rank`, `unit_class`, `health_multiplier`, `damage_multiplier`, `arcane_res`, `loot_id`, `pickpocket_loot_id`, `gold_min`, `gold_max`, `spell_list_id`, `movement_type`, `inhabit_type`) VALUES (90122, 'Babadook', 32, 32, 90, 2019, 3, 1, 1, 3.5, 2.0, 200, 3754, 3754, 98, 133, 71050, 1, 1);
 
                     -- Spawn
                         REPLACE INTO `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000183, 90122, 0, 0, 0, 0, 1, 2935.13, -2729.48, 213.612, 4.41072, 660, 660, 5, 100, 100, 1, 0, 0, 0, 10);
@@ -2184,7 +2184,7 @@ REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (5479, 30174
             REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `PrevQuestId`, `NextQuestInChain`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewMoneyMaxLevel`) VALUES (30362, 47, 40, 48, 8, 30361, 30363, 'Summoning Shadra', 'Now that you have these 3 items, you need to use them on the troll altars inside Shadra\'Alor. Afterwards, bring the fully charged Shadra Idol back to me at Shindigger\'s Camp, then I will make it into a scroll to finally summon the beast!', 'Use the Idol of Shadra on the 3 troll altars in The Hinterlands.', 'Now it\'s time to kill Shadra!', 'Go use the Shadra Idol on the troll altars!', '', '', '', '', '', 30465, 1, 471, 100, 5100, 1680);
             
             -- Dummy NPCs and replace quest text
-            UPDATE `mangos`.`quest_template` SET `SrcItemId`=30465, `SrcItemCount`=1, `ObjectiveText1`='Northwestern Temple', `ObjectiveText2`='Eastern Temple', `ObjectiveText3`='	Southwestern Temple', `ReqCreatureOrGOId1`=3197, `ReqCreatureOrGOId2`=3198, `ReqCreatureOrGOId3`=3199, `ReqCreatureOrGOCount1`=1, `ReqCreatureOrGOCount2`=1, `ReqCreatureOrGOCount3`=1 WHERE `entry`=30362;
+            UPDATE `mangos`.`quest_template` SET `SrcItemId`=30465, `SrcItemCount`=1, `ObjectiveText1`='Northwestern Temple', `ObjectiveText2`='Eastern Temple', `ObjectiveText3`='Southwestern Temple', `ReqCreatureOrGOId1`=3197, `ReqCreatureOrGOId2`=3198, `ReqCreatureOrGOId3`=3199, `ReqCreatureOrGOCount1`=1, `ReqCreatureOrGOCount2`=1, `ReqCreatureOrGOCount3`=1 WHERE `entry`=30362;
 
             -- Objects
                 -- Template
@@ -2437,11 +2437,9 @@ REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (5479, 30174
 
             -- Creatures
                 -- Template
-                    REPLACE `mangos`.`creature_template` (`entry`, `patch`, `name`, `level_min`, `level_max`, `faction`, `display_id1`, `display_probability1`, `display_total_probability`, `type`, `unit_class`, `health_multiplier`, `armor_multiplier`, `damage_multiplier`, `nature_res`, `loot_id`, `pickpocket_loot_id`, `gold_min`, `gold_max`, `movement_type`) VALUES (90141, 7, 'Big Slimer', 50, 50, 14, 1145, 1, 1, 10, 1, 3.0, 1.25, 2.0, 115, 2655, 2655, 68, 294, 1);
+                    REPLACE `mangos`.`creature_template` (`entry`, `patch`, `name`, `level_min`, `level_max`, `faction`, `display_id1`, `display_probability1`, `display_total_probability`, `type`, `unit_class`, `health_multiplier`, `armor_multiplier`, `damage_multiplier`, `nature_res`, `loot_id`, `pickpocket_loot_id`, `gold_min`, `gold_max`, `movement_type`) VALUES (90141, 7, 'Big Slimer', 53, 53, 14, 1145, 1, 1, 10, 1, 3.0, 1.25, 2.0, 115, 2655, 2655, 68, 294, 1);
 
                     REPLACE `mangos`.`creature_template` (`entry`, `patch`, `name`, `level_min`, `level_max`, `faction`, `display_id1`, `display_probability1`, `display_total_probability`, `type`, `unit_class`, `health_multiplier`, `armor_multiplier`, `damage_multiplier`, `nature_res`, `loot_id`, `pickpocket_loot_id`, `gold_min`, `gold_max`, `movement_type`) VALUES (90142, 7, 'Cloned Big Slimer', 48, 48, 14, 1145, 1, 1, 10, 1, 1.0, 1.25, 1.0, 115, 2655, 2655, 68, 294, 1);
-
-                    -- 90142
 
                     UPDATE `mangos`.`creature_template` SET `display_scale1`=4, `spell_list_id`=200117, `auras`='34356' WHERE  `entry`=90141;
 
@@ -2505,6 +2503,146 @@ REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (5479, 30174
 
             -- End
                 REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90136, 30382); -- Moh Anvilforge (Quel'Danil Lodge)
+
+    -- Feralas
+        -- NPCs
+            -- Creature Template
+                REPLACE `mangos`.`creature_template` (`entry`, `name`, `subname`, `level_min`, `level_max`, `faction`, `npc_flags`, `display_id1`, `display_probability1`, `display_total_probability`, `type`, `unit_class`, `health_multiplier`, `damage_multiplier`, `equipment_id`, `static_flags1`, `flags_extra`) VALUES (90144, 'Faely', '', 35, 35, 80, 2, 2232, 1, 1, 7, 1, 1.1, 1.05, 2796, 138936390, 2);
+
+                REPLACE `mangos`.`creature_template` (`entry`, `name`, `subname`, `level_min`, `level_max`, `faction`, `npc_flags`, `display_id1`, `display_probability1`, `display_total_probability`, `type`, `unit_class`, `health_multiplier`, `damage_multiplier`, `equipment_id`, `static_flags1`, `flags_extra`) VALUES (90145, 'Elyin', '', 35, 35, 80, 2, 2197, 1, 1, 7, 1, 1.1, 1.05, 2796, 138936390, 2);
+
+                REPLACE `mangos`.`creature_template` (`entry`, `name`, `subname`, `level_min`, `level_max`, `faction`, `npc_flags`, `display_id1`, `display_probability1`, `display_total_probability`, `type`, `unit_class`, `health_multiplier`, `damage_multiplier`, `equipment_id`, `static_flags1`, `flags_extra`) VALUES (90146, 'Dellania', '', 35, 35, 80, 2, 10615, 1, 1, 7, 1, 1.1, 1.05, 2796, 138936390, 2);
+
+                REPLACE `mangos`.`creature_template` (`entry`, `name`, `subname`, `level_min`, `level_max`, `faction`, `npc_flags`, `display_id1`, `display_probability1`, `display_total_probability`, `type`, `unit_class`, `health_multiplier`, `damage_multiplier`, `equipment_id`, `static_flags1`, `flags_extra`) VALUES (90147, 'Cyrenia', '', 35, 35, 80, 2, 2199, 1, 1, 7, 1, 1.1, 1.05, 2796, 138936390, 2);
+
+
+            -- Spawns 
+                -- Bowyer
+                    REPLACE INTO `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000210, 14301, 0, 0, 0, 0, 1, -4679.94, 1268.44, 97.3885, 1.06166, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
+
+                -- Food and Drink
+                    REPLACE INTO `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000211, 4181, 0, 0, 0, 0, 1, -4668.85, 1268.42, 96.1783, 1.30121, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
+
+                -- Quest Givers
+                    REPLACE INTO `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000206, 90144, 0, 0, 0, 0, 1, -4660.72, 1279.67, 96.1788, 3.18617, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
+                    REPLACE INTO `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000207, 90145, 0, 0, 0, 0, 1, -4668.94, 1281.38, 96.1774, 2.59712, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
+                    REPLACE INTO `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000208, 90146, 0, 0, 0, 0, 1, -4675.35, 1285.28, 96.1774, 5.6209, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
+                    REPLACE INTO `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000209, 90147, 0, 0, 0, 0, 1, -4688.51, 1283.07, 96.439, 0.343021, 25, 25, 0, 100, 100, 0, 0, 0, 0, 10);
+
+        -- Quest
+            REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `Type`, `QuestFlags`, `PrevQuestId`, `NextQuestInChain`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewMoneyMaxLevel`) VALUES (30383, 357, 38, 46, 0, 8, 0, 30384, 'Onwards to Faely', 'Hello there, $N. There are more people who need your assistance far to the east of here, off the island, near Dire Maul. Go there and meet Faely at her camp.', 'Take the boat off the island and head far east to Faely, near the entrance of Dire Maul.', 'Vivianna sent you? Great, we could use all the help we can get.', 'Why are you still here? Go to Faely outside Dire Maul!', '', '', '', '', '', 90143, 1, @FACTION_DARNASSUS, 50, 2100, 1680);
+
+            -- Start
+                REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (7947, 30383);  -- Vivianna (Fethermon Stronghold)
+
+            -- End
+                REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90144, 30383); -- Faely (Dire Maul)
+
+        -- Quest
+            REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `PrevQuestId`, `NextQuestInChain`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewMoneyMaxLevel`, `DetailsEmote1`) VALUES (30384, 357, 38, 46, 8, 30383, 30385, 'Dark Ceremony', 'These seem to be plans for some sort of dark ceremony, $N. From what I can make out, this ritual is conducted by the Gordunni mage-lords.$B$BFind one of these mage-lords, and from him, gather an orb.$B$BThe orb of a mage contains great power, and will help us discover more about this ceremony and the magic that the Gordunni wield.', 'Rok Orhan in Camp Mojache wants you to find a Gordunni Orb.', 'This orb will provide us with more information about the Gordunni... which we will then use in planning their downfall, $N.', 'We must discover more about why the Gordunni are here, $N.', '', '', '', '', '', 9371, 1, 69, 100, 4050, 2460, 1);
+
+            -- Start
+                REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90144, 30384);  -- Faely (Dire Maul)
+
+            -- End
+                REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90144, 30384); -- Faely (Dire Maul)
+
+        -- Quest
+            REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `Type`, `QuestFlags`, `PrevQuestId`, `NextQuestInChain`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewMoneyMaxLevel`) VALUES (30385, 357, 38, 46, 0, 8, 30384, 30386, 'Charge the Orb!', 'Hello there, $N. There are more people who need your assistance far to the east of here, off the island, near Dire Maul. Go there and meet Faely at her camp.', 'Take the boat off the island and head far east to Faely, near the entrance of Dire Maul.', 'Vivianna sent you? Great, we could use all the help we can get.', 'Why are you still here? Go to Faely outside Dire Maul!', '', '', '', '', '', 90143, 1, @FACTION_DARNASSUS, 100, 4750, 1680);
+
+            -- Dummy NPCs and replace quest text
+                UPDATE `mangos`.`quest_template` SET `SrcItemId`=30479, `SrcItemCount`=1, `ReqItemId1`=30479, `ReqItemCount1`=1, `ObjectiveText1`='Gordunni Orb charged at eastern iris', `ObjectiveText2`='Gordunni Orb charged at central iris', `ObjectiveText3`='Gordunni Orb charged at north western iris', `ReqCreatureOrGOId1`=2949, `ReqCreatureOrGOId2`=2958, `ReqCreatureOrGOId3`=2975, `ReqCreatureOrGOCount1`=1, `ReqCreatureOrGOCount2`=1, `ReqCreatureOrGOCount3`=1 WHERE `entry`=30385;
+
+            -- Objects
+                -- display_info_addon
+                    REPLACE `mangos`.`gameobject_display_info_addon` (`display_id`, `min_x`, `min_y`, `min_z`, `max_x`, `max_y`, `max_z`) VALUES (7800, -0.260733, -0.451229, 0.00741847, 0.260617, 0.44936, 0.686414);
+                -- Template
+                    REPLACE `mangos`.`gameobject_template` (`entry`, `type`, `displayId`, `name`, `size`, `data0`, `data1`, `data3`, `data6`) VALUES (987701, 10, 7800, 'Highborne Focusing Iris', 2.0, 304, 7, 1, -1);
+                    REPLACE `mangos`.`gameobject_template` (`entry`, `type`, `displayId`, `name`, `size`, `data0`, `data1`, `data3`, `data6`) VALUES (987702, 10, 7800, 'Highborne Focusing Iris', 2.0, 304, 7, 1, -1);
+                    REPLACE `mangos`.`gameobject_template` (`entry`, `type`, `displayId`, `name`, `size`, `data0`, `data1`, `data3`, `data6`) VALUES (987703, 10, 7800, 'Highborne Focusing Iris', 2.0, 304, 7, 1, -1);
+
+                -- Spawns
+                    REPLACE INTO `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (4100225, 987701, 1, -5780.25, 1200.39, 67.6314, 0.0461256, 0, 0, 0.0230608, 0.999734, 25, 25, 100, 1, 0, 0, 0, 10);
+                    REPLACE INTO `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (4100226, 987702, 1, -5660.91, 1374.86, 78.4457, 6.17458, 0, 0, 0.0542745, -0.998526, 25, 25, 100, 1, 0, 0, 0, 10);
+                    REPLACE INTO `gameobject` (`guid`, `id`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecsmin`, `spawntimesecsmax`, `animprogress`, `state`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (4100227, 987703, 1, -5560.17, 1471.15, 52.6243, 3.72412, 0, 0, 0.957882, -0.287162, 25, 25, 100, 1, 0, 0, 0, 10);
+
+            -- Start
+                REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90144, 30385);  -- Faely (Dire Maul)
+
+            -- End
+                REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90144, 30385); -- Faely (Dire Maul)
+
+        -- Quest
+            REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `Type`, `QuestFlags`, `PrevQuestId`, `NextQuestInChain`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOCount1`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewOrReqMoney`, `RewMoneyMaxLevel`) VALUES (30386, 357, 38, 46, 1, 8, 30385, 0, 'Charge the Orb!', 'Hello there, $N. There are more people who need your assistance far to the east of here, off the island, near Dire Maul. Go there and meet Faely at her camp.', 'Take the boat off the island and head far east to Faely, near the entrance of Dire Maul.', 'Vivianna sent you? Great, we could use all the help we can get.', 'Why are you still here? Go to Faely outside Dire Maul!', '', '', '', '', '', 90143, 1, @FACTION_DARNASSUS, 250, 7100, 25000, 1680);
+
+            UPDATE `mangos`.`quest_template` SET `SrcItemId`=30480, `SrcItemCount`=1, `ReqItemId1`=30480, `ReqItemCount1`=1, `RewChoiceItemId1`=30481, `RewChoiceItemId2`=11863, `RewChoiceItemId3`=11864, `RewChoiceItemId4`=11862, `RewChoiceItemCount1`=1, `RewChoiceItemCount2`=1, `RewChoiceItemCount3`=1, `RewChoiceItemCount4`=1 WHERE `entry`=30386;
+
+            -- Creature
+                -- Template
+                    REPLACE `mangos`.`creature_template` (`entry`, `name`, `level_min`, `level_max`, `faction`, `display_id1`, `type`, `rank`, `unit_class`, `health_multiplier`, `mana_multiplier`, `armor_multiplier`, `damage_multiplier`, `shadow_res`, `loot_id`, `pickpocket_loot_id`, `gold_min`, `gold_max`, `spell_list_id`, `movement_type`, `equipment_id`, `static_flags1`) VALUES (90048, 'Zhi\'Mun', 48, 48, 45, 11560, 7, 1, 8, 20.0, 25.0, 2, 3.5, 125, 5240, 5240, 62, 421, 200075, 1, 5240, 524288);
+
+                    REPLACE `mangos`.`creature_template` (`entry`, `name`, `level_min`, `level_max`, `faction`, `display_id1`, `display_probability1`, `display_total_probability`, `speed_walk`, `type`, `unit_class`, `health_multiplier`, `damage_multiplier`, `inhabit_type`, `mechanic_immune_mask`, `static_flags1`) VALUES (90049, 'Summoned Skeleton', 48, 48, 14, 158, 1, 1, 0.888888, 6, 1, 0.33, 0.33, 1, 8602131, 4);
+
+            -- Start
+                REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90144, 30386);  -- Faely (Dire Maul)
+
+            -- End
+                REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90144, 30386); -- Faely (Dire Maul)
+
+        -- Quest
+            REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `SrcItemId`, `SrcItemCount`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqItemId1`, `ReqItemId2`, `ReqItemCount1`, `ReqItemCount2`, `RewChoiceItemId1`, `RewChoiceItemId2`, `RewChoiceItemCount1`, `RewChoiceItemCount2`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewMoneyMaxLevel`, `DetailsEmote1`, `OfferRewardEmote1`) VALUES (30387, 357, 38, 43, 9466, 1, 'Gordunni Cobalt', 'I just arrived here in Feralas, and I\'ve heard that the Gordunni Ogres that inhabit the wilds here have some interesting minerals. Who knows what they are up to, but they sure are protective of that stuff! They don\'t leave it just lying around; no, they bury it to protect folks like me from getting their hands on it.$B$BIf you\'d be willing, I\'ll give you my shovel. Go to the Gordunni Outpost north of here and dig me up some Gordunni cobalt. Look for the blue glow, then start digging!', 'Orwin Gizzmick in Camp Mojache wants 12 samples of Gordunni Cobalt.', 'Perfect! I will take these along as I continue my travels, $N. I\'m sure I can find someone that will pay a pretty penny for this cobalt.$B$BHere, take this for your trouble.', 'Get on up there and start digging!$B$BI\'ve got places to go and people to see - time is money!', '', '', '', '', '', 9463, 9466, 12, 1, 9658, 9660, 1, 1, 69, 100, 3600, 2160, 1, 1);
+
+            -- Start
+                REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90144, 30387);  -- Faely (Dire Maul)
+
+            -- End
+                REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90144, 30387); -- Faely (Dire Maul)
+
+        -- Quest
+            REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `NextQuestInChain`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOId2`, `ReqCreatureOrGOId3`, `ReqCreatureOrGOCount1`, `ReqCreatureOrGOCount2`, `ReqCreatureOrGOCount3`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewOrReqMoney`, `RewMoneyMaxLevel`, `DetailsEmote1`, `OfferRewardEmote1`) VALUES (30388, 357, 38, 43, 8, 30389, 'The Ogres of Feralas', 'The effects of the Gordunni Ogre tribe can hardly go unnoticed in this area. Look around, $N; their very presence scars this land. We must push them back before they expand even further into Feralas.$B$BFollow the river north, and you will find their outpost. Decrease their numbers, $N. We must show them that their kind is not wanted here.', 'Rok Orhan in Camp Mojache wants you to kill 10 Gordunni Ogres, 10 Gordunni Ogre-Magi, and 5 Gordunni Brutes.', 'Excellent, $N. In time, the land will heal. We must not give up.', 'Move swiftly, $N. Or is the task I requested too difficult?', '', '', '', '', '', 5229, 5237, 5232, 10, 10, 5, 69, 75, 2700, 4500, 1620, 5, 1);
+
+            -- Start
+                REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90144, 30388);  -- Faely (Dire Maul)
+
+            -- End
+                REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90144, 30388); -- Faely (Dire Maul)
+
+        -- Quest
+            REPLACE `mangos`.`quest_template` (`entry`, `ZoneOrSort`, `MinLevel`, `QuestLevel`, `QuestFlags`, `PrevQuestId`, `Title`, `Details`, `Objectives`, `OfferRewardText`, `RequestItemsText`, `EndText`, `ObjectiveText1`, `ObjectiveText2`, `ObjectiveText3`, `ObjectiveText4`, `ReqCreatureOrGOId1`, `ReqCreatureOrGOId2`, `ReqCreatureOrGOId3`, `ReqCreatureOrGOCount1`, `ReqCreatureOrGOCount2`, `ReqCreatureOrGOCount3`, `RewRepFaction1`, `RewRepValue1`, `RewXP`, `RewOrReqMoney`, `RewMoneyMaxLevel`, `OfferRewardEmote1`) VALUES (30389, 357, 38, 44, 8, 30388, 'The Ogres of Feralas', 'Now that you have proven that you are a true fighter, I trust that you possess the courage to continue with the task at hand.$B$BTravel to the High Wilderness, southwest of here. There lie some abandoned and destroyed structures, on land that once belonged to the night elves. Look for these ruins, and when you see the withered trees and desecrated terrain, you will find the Gordunni. Push them back.$B$BThese ogres are much stronger than the ones you faced previously, $N. Be aware.', 'Rok Orhan in Camp Mojache wants you to kill 10 Gordunni Shaman, 10 Gordunni Warlocks, and 5 Gordunni Maulers.', 'You have proven yourself to be a trustworthy and dependable ally, $N. ', 'Have you found the ruins, $N?', '', '', '', '', '', 5236, 5240, 5234, 10, 10, 5, 69, 100, 3750, 12500, 2280, 2);
+
+            -- Objects
+                -- Template
+                    REPLACE `mangos`.`gameobject_template` (`entry`, `type`, `displayId`, `name`, `flags`, `data0`, `data1`, `data3`) VALUES (987704, @GAMEOBJECT_TYPE_GOOBER, 602, 'Highborne Brazier', 4, 43, 0, 0);
+
+                -- Spawns
+
+            -- Start
+                REPLACE `mangos`.`creature_questrelation` (`id`, `quest`) VALUES (90144, 30389);  -- Faely (Dire Maul)
+
+            -- End
+                REPLACE `mangos`.`creature_involvedrelation` (`id`, `quest`) VALUES (90144, 30389); -- Faely (Dire Maul)
+
+        -- -> Quest (battlemasters warlords etc)
+
+
+    -- Grimtotem quests
+    -- Grimtotem quest: https://www.wowhead.com/tbc/quest=2974/a-grim-discovery
+    -- -> https://www.wowhead.com/tbc/quest=2976/a-grim-discovery (Go to SW or IF)
+    -- Gnoll quests
+    -- Gnole Quest: https://www.wowhead.com/tbc/quest=2862/war-on-the-woodpaw
+    -- -> https://www.wowhead.com/tbc/quest=2863/alpha-strike
+    -- -> https://www.wowhead.com/tbc/quest=2902/woodpaw-investigation
+    -- -> https://www.wowhead.com/tbc/quest=2903/the-battle-plans
+    -- Yeti cave Quests
+    -- Hippogryph quests
+    -- Silithid quests
+    -- Slithid quest: https://www.wowhead.com/tbc/quest=7730/zukkash-infestation (Already coded in unused)
+    -- -> https://www.wowhead.com/tbc/quest=7731/stinglasher
+    -- Hippo quest: https://www.wowhead.com/tbc/quest=3124/hippogryph-muisek (maybe entire chain)
+        -- Rewards: https://www.wowhead.com/classic/quest=3129/weapons-of-spirit
+    -- Harpy Quests
+    -- Harpy quest: https://www.wowhead.com/tbc/quest=3062/dark-heart
+    -- Harpy quest: https://www.wowhead.com/tbc/quest=3063/vengeance-on-the-northspring
 
 
         -- TODO: Monu still doesn't summon succubus

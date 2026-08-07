@@ -1,4 +1,4 @@
--- 34360 NEXT SPELL
+-- 34361 NEXT SPELL
 -- 15233 NEXT SKILL_LINE_ABILITY
 -- NEXT category 10007
 
@@ -1604,6 +1604,9 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
 UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `entry`=20924;
 
 -- Warrior
+    -- Slam (Not interrupted by moving or pushback, cast time reduced to 1s)
+        UPDATE `mangos`.`spell_template` SET `castingTimeIndex`=4, `interruptFlags`=12 WHERE entry IN (1464, 8820, 11604, 11605);
+
     -- Devastate
         -- Rank 1
             -- Spell
@@ -4890,6 +4893,12 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
 
         -- Troll Incense
             REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `attributesEx`, `castingTimeIndex`, `interruptFlags`, `procChance`, `spellLevel`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectMiscValue1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `script_name`) VALUES (34359, 4222, 256, 1024, @CASTING_TIME_10000_MS, 1, 101, 1, 3, -1, 41, 1, 1, 0, 1, -1, -1, 1, 90143, 175, 153, 'Troll Incense', 983054, 983052, 'Attract Toljinka the Enraged.', 983054, 983052, 133, 1500, -1, 1, 1, 1, 'spell_troll_incense');
+
+        -- Gordunni Orb
+            REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `attributesEx`, `castingTimeIndex`, `interruptFlags`, `procChance`, `spellLevel`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectMiscValue1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `script_name`) VALUES (34360, 4222, 256, 1024, @CASTING_TIME_10000_MS, 1, 101, 1, 3, -1, 41, 1, 1, 2, 1, -1, -1, 1, 5241, 2756, 0, 'Gordunni Orb', 983054, 983052, 'Gather nearby power into the Gordunni orb.', 983054, 983052, 133, 1500, -1, 1, 1, 1, 'spell_gordunni_orb');
+
+        -- Charged Gordunni Orb
+            REPLACE `mangos`.`spell_template` (`entry`, `build`, `attributes`, `attributesEx`, `castingTimeIndex`, `interruptFlags`, `procChance`, `spellLevel`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectMiscValue1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `script_name`) VALUES (34361, 4222, 256, 1024, @CASTING_TIME_10000_MS, 1, 101, 1, 3, -1, 41, 1, 1, 0, 1, -1, -1, 1, 90048, 175, 153, 'Gordunni Orb', 983054, 983052, 'Start Gordunni summoning ritual.', 983054, 983052, 133, 1500, -1, 1, 1, 1, 'spell_charged_gordunni_orb');
         
         -- +1 Fire weapon damage to attacks
             -- Aura
