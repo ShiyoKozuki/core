@@ -283,6 +283,9 @@ UPDATE `mangos`.`creature` SET `spawntimesecsmin`=180, `spawntimesecsmax`=180 WH
 -- Risen Lackey levels
 UPDATE `mangos`.`creature_template` SET `level_min`=56, `level_max`=56 WHERE  `entry`=10482 AND `patch`=0;
 
+-- Fix RFC spawns
+DELETE FROM creature_groups WHERE member_guid = 48690;
+
 -- Shadow Hunter Vosh'gajin
 -- UPDATE `mangos`.`creature_template` SET `spell_id2`=16098 WHERE  `entry`=9236 AND `patch`=0;
 
