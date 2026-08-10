@@ -901,7 +901,7 @@ WHERE entry = 16720;
 -- Warlock
 
     -- Improved Firestone (No longer adds fire damage, description updated)
-    UPDATE `mangos`.`spell_template` SET `description`='Increases the Firestone effect by $s1%.' WHERE entry IN(18767, 18768);
+    UPDATE `mangos`.`spell_template` SET `description`='Increases the damage of Firestones by $s1%.' WHERE entry IN(18767, 18768);
 
 
     -- Master Demonologist (Added Felguard)
