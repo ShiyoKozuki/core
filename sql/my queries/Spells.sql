@@ -1666,6 +1666,87 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
         UPDATE `mangos`.`spell_template` SET  `script_name`='spell_warrior_revenge', `description`='Instantly counterattack an enemy for $s1 damage, increased by your attack power, and a high amount of threat.   Revenge must follow a block, dodge or parry.' WHERE entry IN (6572, 6574, 7379, 11600, 11601, 25288);
 
 -- Warlock
+    -- Firestone
+        -- Rank 1
+            -- Create spell
+                UPDATE `mangos`.`spell_template` SET `description`='Creates a Lesser Firestone which can be equipped in the off hand.  When equipped, grants each spell cast or periodic spell tick a chance to deal $34363s1 additional Fire damage.\r\n\r\nConjured items disappear if logged out for more than 15 minutes.' WHERE  `entry`=6366 AND `build`=5875;
+
+            -- Aura
+                REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `attributesEx3`, `castingTimeIndex`, `procFlags`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectItemType1`, `effectTriggerSpell1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `stanceBarOrder`, `dmgMultiplier1`) VALUES (34362, 5464, 2, 464, 67108864, 1, 349520, 33, 21, 1, -1, 6, 1, 1, -1, 0, -1, -1, 1, 42, 4295509903, 34363, 6082, 'Firestone', 4128830, '0', 4128830, 'Gives your damaging and periodic spells a $h% chance burn the target for $34363s1 Fire damage.', 4128830, 4128828, 5, -1, 1);
+
+            -- Proc
+                REPLACE `mangos`.`spell_template` (`entry`, `school`, `attributes`, `castingTimeIndex`, `interruptFlags`, `procChance`, `maxLevel`, `baseLevel`, `spellLevel`, `rangeIndex`, `speed`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectRealPointsPerLevel1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34363, 2, 65536, 1, 15, 101, 5, 1, 1, 4, 16, -1, -1, 2, 3, 1, 0.3, 5, 0.164, -1, -1, 6, 1465, 18, 'Firestone', 8323198, 8323198, 'Deals $s1 Fire damage to a target.', 8323198, 4128892, 133, 1000, 5, 2097152, 1, 1, -1, 1, 1, 1);
+
+            UPDATE `mangos`.`spell_template` SET 
+            `maxLevel`=35, 
+            `baseLevel`=28, 
+            `spellLevel`=28, 
+            `effectDieSides1`=3, 
+            `effectRealPointsPerLevel1`=0.3, 
+            `effectBasePoints1`=15, 
+            `effectBonusCoefficient1`=0.25 
+            WHERE  `entry`=34363;
+
+        -- Rank 2
+            -- Create spell
+                UPDATE `mangos`.`spell_template` SET `description`='Creates a Lesser Firestone which can be equipped in the off hand.  When equipped, grants each spell cast or periodic spell tick a chance to deal $34365s1 additional Fire damage.\r\n\r\nConjured items disappear if logged out for more than 15 minutes.' WHERE  `entry`=17951 AND `build`=5875;
+
+            -- Aura
+                REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `attributesEx3`, `castingTimeIndex`, `procFlags`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectItemType1`, `effectTriggerSpell1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `stanceBarOrder`, `dmgMultiplier1`) VALUES (34364, 5464, 2, 464, 67108864, 1, 349520, 33, 21, 1, -1, 6, 1, 1, -1, 0, -1, -1, 1, 42, 4295509903, 34365, 6082, 'Firestone', 4128830, '0', 4128830, 'Gives your damaging and periodic spells a $h% chance burn the target for $34365s1 Fire damage.', 4128830, 4128828, 5, -1, 1);
+
+            -- Proc
+                REPLACE `mangos`.`spell_template` (`entry`, `school`, `attributes`, `castingTimeIndex`, `interruptFlags`, `procChance`, `maxLevel`, `baseLevel`, `spellLevel`, `rangeIndex`, `speed`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectRealPointsPerLevel1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34365, 2, 65536, 1, 15, 101, 5, 1, 1, 4, 16, -1, -1, 2, 3, 1, 0.3, 5, 0.164, -1, -1, 6, 1465, 18, 'Firestone', 8323198, 8323198, 'Deals $s1 Fire damage to a target.', 8323198, 4128892, 133, 1000, 5, 2097152, 1, 1, -1, 1, 1, 1);
+
+            UPDATE `mangos`.`spell_template` SET 
+            `maxLevel`=45, 
+            `baseLevel`=36, 
+            `spellLevel`=36, 
+            `effectDieSides1`=6, 
+            `effectRealPointsPerLevel1`=0.3, 
+            `effectBasePoints1`=25, 
+            `effectBonusCoefficient1`=0.25 
+            WHERE  `entry`=34365;
+
+        -- Rank 3
+            -- Create spell
+                UPDATE `mangos`.`spell_template` SET `description`='Creates a Lesser Firestone which can be equipped in the off hand.  When equipped, grants each spell cast or periodic spell tick a chance to deal $34367s1 additional Fire damage.\r\n\r\nConjured items disappear if logged out for more than 15 minutes.' WHERE  `entry`=17952 AND `build`=5875;
+
+            -- Aura
+                REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `attributesEx3`, `castingTimeIndex`, `procFlags`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectItemType1`, `effectTriggerSpell1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `stanceBarOrder`, `dmgMultiplier1`) VALUES (34366, 5464, 2, 464, 67108864, 1, 349520, 33, 21, 1, -1, 6, 1, 1, -1, 0, -1, -1, 1, 42, 4295509903, 34367, 6082, 'Firestone', 4128830, '0', 4128830, 'Gives your damaging and periodic spells a $h% chance burn the target for $34367s1 Fire damage.', 4128830, 4128828, 5, -1, 1);
+
+            -- Proc
+                REPLACE `mangos`.`spell_template` (`entry`, `school`, `attributes`, `castingTimeIndex`, `interruptFlags`, `procChance`, `maxLevel`, `baseLevel`, `spellLevel`, `rangeIndex`, `speed`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectRealPointsPerLevel1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34367, 2, 65536, 1, 15, 101, 5, 1, 1, 4, 16, -1, -1, 2, 3, 1, 0.3, 5, 0.164, -1, -1, 6, 1465, 18, 'Firestone', 8323198, 8323198, 'Deals $s1 Fire damage to a target.', 8323198, 4128892, 133, 1000, 5, 2097152, 1, 1, -1, 1, 1, 1);
+
+            UPDATE `mangos`.`spell_template` SET 
+            `maxLevel`=55, 
+            `baseLevel`=46, 
+            `spellLevel`=46, 
+            `effectDieSides1`=11, 
+            `effectRealPointsPerLevel1`=0.3, 
+            `effectBasePoints1`=35, 
+            `effectBonusCoefficient1`=0.25 
+            WHERE  `entry`=34367;
+
+        -- Rank 4
+            -- Create spell
+                UPDATE `mangos`.`spell_template` SET `description`='Creates a Lesser Firestone which can be equipped in the off hand.  When equipped, grants each spell cast or periodic spell tick a chance to deal $34369s1 additional Fire damage.\r\n\r\nConjured items disappear if logged out for more than 15 minutes.' WHERE  `entry`=17953 AND `build`=5875;
+
+            -- Aura
+                REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `attributesEx3`, `castingTimeIndex`, `procFlags`, `procChance`, `durationIndex`, `rangeIndex`, `equippedItemClass`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectApplyAuraName1`, `effectItemType1`, `effectTriggerSpell1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `spellFamilyName`, `stanceBarOrder`, `dmgMultiplier1`) VALUES (34368, 5464, 2, 464, 67108864, 1, 349520, 33, 21, 1, -1, 6, 1, 1, -1, 0, -1, -1, 1, 42, 4295509903, 34369, 6082, 'Firestone', 4128830, '0', 4128830, 'Gives your damaging and periodic spells a $h% chance burn the target for $34369s1 Fire damage.', 4128830, 4128828, 5, -1, 1);
+
+            -- Proc
+                REPLACE `mangos`.`spell_template` (`entry`, `school`, `attributes`, `castingTimeIndex`, `interruptFlags`, `procChance`, `maxLevel`, `baseLevel`, `spellLevel`, `rangeIndex`, `speed`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effectDieSides1`, `effectBaseDice1`, `effectRealPointsPerLevel1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`) VALUES (34369, 2, 65536, 1, 15, 101, 5, 1, 1, 4, 16, -1, -1, 2, 3, 1, 0.3, 5, 0.164, -1, -1, 6, 1465, 18, 'Firestone', 8323198, 8323198, 'Deals $s1 Fire damage to a target.', 8323198, 4128892, 133, 1000, 5, 2097152, 1, 1, -1, 1, 1, 1);
+
+            UPDATE `mangos`.`spell_template` SET 
+            `maxLevel`=61, 
+            `baseLevel`=56, 
+            `spellLevel`=56, 
+            `effectDieSides1`=13, 
+            `effectRealPointsPerLevel1`=0.3, 
+            `effectBasePoints1`=45, 
+            `effectBonusCoefficient1`=0.25 
+            WHERE  `entry`=34369;
+
     -- Curse of Recklessness spell mask
     UPDATE `mangos`.`spell_template` SET `spellFamilyFlags`=139586437120 WHERE entry IN (704, 7658, 7659, 11717);
 
@@ -2569,6 +2650,9 @@ UPDATE `mangos`.`spell_template` SET `effectBonusCoefficient1`=0.052 WHERE  `ent
             REPLACE `mangos`.`spell_chain` (`spell_id`, `prev_spell`, `first_spell`, `rank`) VALUES (34162, 34161, 34158, 5);
 
     -- Mage
+        -- Combustion (Now 90s cd)
+            UPDATE `mangos`.`spell_template` SET `categoryRecoveryTime`=90000 WHERE  `entry`=11129 AND `build`=5875;
+
         -- Arcane Blast
             -- Rank 1
                 REPLACE `mangos`.`spell_template` (`entry`, `build`, `school`, `attributes`, `castingTimeIndex`, `interruptFlags`, `procFlags`, `procChance`, `maxLevel`, `baseLevel`, `spellLevel`, `manaCost`, `rangeIndex`, `speed`, `equippedItemClass`, `equippedItemSubClassMask`, `effect1`, `effect2`, `effectDieSides1`, `effectDieSides2`, `effectBaseDice1`, `effectBaseDice2`, `effectRealPointsPerLevel1`, `effectBasePoints1`, `effectBonusCoefficient1`, `effectBonusCoefficient2`, `effectBonusCoefficient3`, `effectImplicitTargetA1`, `effectImplicitTargetA2`, `effectMultipleValue1`, `effectTriggerSpell2`, `spellVisual1`, `spellIconId`, `name`, `nameFlags`, `nameSubtext`, `nameSubtextFlags`, `description`, `descriptionFlags`, `auraDescriptionFlags`, `startRecoveryCategory`, `startRecoveryTime`, `spellFamilyName`, `spellFamilyFlags`, `dmgClass`, `preventionType`, `stanceBarOrder`, `dmgMultiplier1`, `dmgMultiplier2`, `dmgMultiplier3`, `customFlags`, `script_name`) VALUES (34339, 4222, 6, 65536, 22, 15, 87376, 100, 25, 20, 20, 110, 4, 20, -1, -1, 2, 64, 13, 1, 1, 1, 1.2, 85, 0.857, -1, -1, 6, 1, 1, 34340, 7749, 2294, 'Arcane Blast', 7274526, 'Rank 1', 7274526, 'Blasts the target with energy, dealing $s1 Arcane damage.  \r\nEach time you cast Arcane Blast, the damage of Arcane Blast and Arcane Barrage is increased by $34340s1% and mana cost is increased by $34340s2%.  \r\nEffect stacks up to 4 times and lasts $34340d.', 983070, 983052, 133, 1500, 3, 1099511627776, 1, 1, -1, 1, 1, 1, 128, '');

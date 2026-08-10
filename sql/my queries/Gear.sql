@@ -1002,11 +1002,17 @@ REPLACE `mangos`.`item_template` (`entry`, `class`, `name`, `display_id`, `quali
 
 REPLACE `mangos`.`item_template` (`entry`, `class`, `subclass`, `name`, `display_id`, `quality`, `buy_price`, `sell_price`, `inventory_type`, `allowable_class`, `allowable_race`, `item_level`, `delay`, `dmg_min1`, `dmg_max1`, `spellid_1`, `spelltrigger_1`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`, `sheath`, `max_durability`, `disenchant_id`) VALUES (30481, 2, 10, 'Gordunni Staff', 20298, 3, 108853, 21770, 17, -1, -1, 40, 3700, 119, 180, 18049, 1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 2, 2, 2, 120, 61);
 
+REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id`, `quality`, `flags`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30482, 2, 12, 'Yellow Highborne Relic', 34151, 1, 0, -1, -1, 1, 1, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 4, -1);
+
+REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id`, `quality`, `flags`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30483, 2, 12, 'Red Highborne Relic', 34154, 1, 0, -1, -1, 1, 1, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 4, -1);
+
+REPLACE `mangos`.`item_template` (`entry`, `patch`, `class`, `name`, `display_id`, `quality`, `flags`, `allowable_class`, `allowable_race`, `item_level`, `stackable`, `delay`, `spellcooldown_1`, `spellcategorycooldown_1`, `spellcooldown_2`, `spellcategorycooldown_2`, `spellcooldown_3`, `spellcategorycooldown_3`, `spellcooldown_4`, `spellcategorycooldown_4`, `spellcooldown_5`, `spellcategorycooldown_5`, `bonding`, `material`) VALUES (30484, 2, 12, 'Blue Highborne Relic', 34140, 1, 0, -1, -1, 1, 1, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 4, -1);
+
 
 -- TODO: All legs of the blue pvp / TBC dungeon sets as random drops
 -- https://www.wowhead.com/tbc/transmog-set=910/beast-lord-armor
 -- 30428, 30429 free
--- NEXT 30481
+-- NEXT 30485
 
 -- Item classes
     -- Trade goods
@@ -9150,8 +9156,8 @@ WHERE entry = 5815;
 
 -- Spellcrafter Wand
 UPDATE mangos . item_template
-SET dmg_min1 = 39,
-    dmg_max1 = 63,
+SET dmg_min1 = 31,
+    dmg_max1 = 59,
     spellid_1 = 9395, -- +5 Spell Damage
     spelltrigger_1 = 1
 WHERE entry = 6677;
@@ -15791,46 +15797,38 @@ WHERE entry = 6265;
 
 -- Lesser Firestone
 UPDATE mangos . item_template
-SET name = 'Lesser Demons Heart',
-    stat_type1 = 7,
-    stat_value1 = 25,
-    spellid_1 = 20555, -- Health regeneration rate increased by 10%.  10% of total Health regeneration may continue during combat.
+SET name = 'Lesser Firestone',
+    spellid_1 = 34362, -- Chance on spell cast and periodic tick to deal Fire damage
     spelltrigger_1 = 1,
-    spellid_2 = 23210, -- 16 HP/5
-    spelltrigger_2 = 1
+    spellid_2 = 0,
+    spelltrigger_2 = 0
 WHERE entry = 1254;
 
--- Demons Heart
+-- Firestone
 UPDATE mangos . item_template
-SET name = 'Demons Heart',
-    stat_type1 = 7,
-    stat_value1 = 35,
-    spellid_1 = 20555, -- Health regeneration rate increased by 10%.  10% of total Health regeneration may continue during combat.
+SET name = 'Firestone',
+    spellid_1 = 34364, -- Chance on spell cast and periodic tick to deal Fire damage
     spelltrigger_1 = 1,
-    spellid_2 = 23210, -- 16 HP/5
-    spelltrigger_2 = 1
+    spellid_2 = 0,
+    spelltrigger_2 = 0
 WHERE entry = 13699;
 
--- Greater Demons Heart
+-- Greater Firestone
 UPDATE mangos . item_template
-SET name = 'Greater Demons Heart',
-    stat_type1 = 7,
-    stat_value1 = 45,
-    spellid_1 = 20555, -- Health regeneration rate increased by 10%.  10% of total Health regeneration may continue during combat.
+SET name = 'Greater Firestone',
+    spellid_1 = 34366, -- Chance on spell cast and periodic tick to deal Fire damage
     spelltrigger_1 = 1,
-    spellid_2 = 23210, -- 16 HP/5
-    spelltrigger_2 = 1
+    spellid_2 = 0,
+    spelltrigger_2 = 0
 WHERE entry = 13700;
 
--- Major Demons Heart
+-- Major Firestone
 UPDATE mangos . item_template
-SET name = 'Major Demons Heart',
-    stat_type1 = 7,
-    stat_value1 = 55,
-    spellid_1 = 20555, -- Health regeneration rate increased by 10%.  10% of total Health regeneration may continue during combat.
+SET name = 'Major Firestone',
+    spellid_1 = 34368, -- Chance on spell cast and periodic tick to deal Fire damage
     spelltrigger_1 = 1,
-    spellid_2 = 23210, -- 16 HP/5
-    spelltrigger_2 = 1
+    spellid_2 = 0,
+    spelltrigger_2 = 0
 WHERE entry = 13701;
 
 -- Spellstone

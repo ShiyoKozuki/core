@@ -900,6 +900,10 @@ WHERE entry = 16720;
 
 -- Warlock
 
+    -- Improved Firestone (No longer adds fire damage, description updated)
+    UPDATE `mangos`.`spell_template` SET `description`='Increases the Firestone effect by $s1%.' WHERE entry IN(18767, 18768);
+
+
     -- Master Demonologist (Added Felguard)
         UPDATE `mangos`.`spell_template` SET `description`='Grants both the Warlock and the summoned demon an effect as long as that demon is active.\r\n\r\nImp - Reduces threat caused by $23759s1%.\r\n\r\nVoidwalker - Reduces physical damage taken by $23760s1%.\r\n\r\nSuccubus / Felguard - Increases all damage caused by $23761s1%.\r\n\r\nFelhunter - Increases all resistances by .2 per level.' WHERE  `entry`=23785 AND `build`=4878;
 
