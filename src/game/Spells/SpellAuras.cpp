@@ -2299,15 +2299,15 @@ std::pair<unsigned int, float> GetShapeshiftDisplayInfo(ShapeshiftForm form, Uni
     case FORM_AQUA:
         if (target->IsPlayer())
         {
-            if (Player::TeamForRace(target->GetRace()) == ALLIANCE)
-            {
-                if (target->GetRace() == RACE_BLOODELF)
-                    display_id = 12192;
-                else
-                    display_id = 2428;
-            }
-            else
-                display_id = 2428;
+            //if (Player::TeamForRace(target->GetRace()) == ALLIANCE)
+            //{
+            //    if (target->GetRace() == RACE_BLOODELF)
+            //        display_id = 12192;
+            //    else
+            //        display_id = 2428;
+            //}
+            //else
+            //    display_id = 2428;
         }
         else
             display_id = 2428;
@@ -4373,7 +4373,7 @@ float Aura::CalculateDotDamage() const
                 }
             }
 
-            // Rake / Brutal Slash / Thrash
+            // Rake / Brutal Slash
             if (spellProto->IsFitToFamilyMask<CF_DRUID_RAKE_CLAW>() || spellProto->IsFitToFamilyMask<CF_DRUID_BRUTAL_SLASH>())
             {
                 // Damage scales AP * 0.10
