@@ -157,6 +157,9 @@ UPDATE `mangos`.`creature` SET `spawntimesecsmin`=180, `spawntimesecsmax`=180 WH
 -- Garr Salthoof lowered damage
 UPDATE `mangos`.`creature_template` SET `damage_multiplier`=1.0 WHERE  `entry`=2549 AND `patch`=0;
 
+-- Molok The Crusher lowered damage
+UPDATE `mangos`.`creature_template` SET `damage_multiplier`=2.0 WHERE  `entry`=2604 AND `patch`=0;
+
 -- Coast Strider / Deep Dweller spawns
 REPLACE INTO `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000057, 5466, 0, 0, 0, 0, 1, -8723.12, -4855.07, -70.381, 5.44643, 300, 300, 25, 100, 100, 0, 0, 0, 0, 10);
 REPLACE INTO `creature` (`guid`, `id`, `id2`, `id3`, `id4`, `id5`, `map`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecsmin`, `spawntimesecsmax`, `wander_distance`, `health_percent`, `mana_percent`, `movement_type`, `spawn_flags`, `visibility_mod`, `patch_min`, `patch_max`) VALUES (2000058, 5466, 0, 0, 0, 0, 1, -8711.89, -4807.56, -34.8317, 0.931954, 300, 300, 25, 100, 100, 0, 0, 0, 0, 10);

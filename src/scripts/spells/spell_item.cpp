@@ -1419,6 +1419,119 @@ SpellScript* GetScript_TrollIncense(SpellEntry const*)
     return new TrollIncenseScript();
 }
 
+struct GordunniOrbScript : public SpellScript
+{
+    enum
+    {
+        OBJECT_FOCUSING_IRIS_1 = 987701,
+        OBJECT_FOCUSING_IRIS_2 = 987702,
+        OBJECT_FOCUSING_IRIS_3 = 987703,
+        NPC_DUMMY_CREATURE_1 = 2949,
+        NPC_DUMMY_CREATURE_2 = 2958,
+        NPC_DUMMY_CREATURE_3 = 2975,
+    };
+
+    SpellCastResult OnCheckCast(Spell* spell, bool /*strict*/) const final
+    {
+        Unit* caster = spell->m_casterUnit;
+
+        if (!caster)
+            return SPELL_FAILED_BAD_TARGETS;
+
+        GameObject* FOCUSING_IRIS_1 = caster->FindNearestGameObject(OBJECT_FOCUSING_IRIS_1, 10.0f);
+        GameObject* FOCUSING_IRIS_2 = caster->FindNearestGameObject(OBJECT_FOCUSING_IRIS_2, 10.0f);
+        GameObject* FOCUSING_IRIS_3 = caster->FindNearestGameObject(OBJECT_FOCUSING_IRIS_3, 10.0f);
+
+        if (!FOCUSING_IRIS_1 && !FOCUSING_IRIS_2 && !FOCUSING_IRIS_3)
+            return SPELL_FAILED_NOT_HERE;
+
+        return SPELL_CAST_OK;
+    }
+
+    bool OnEffectExecute(Spell* spell, SpellEffectIndex effIdx) const final
+    {
+        if (effIdx == EFFECT_INDEX_0)
+        {
+            Player* pPlayer = spell->m_casterUnit->ToPlayer();
+            if (!pPlayer)
+                return false;
+
+            GameObject* FOCUSING_IRIS_1 = pPlayer->FindNearestGameObject(OBJECT_FOCUSING_IRIS_1, 10.0f);
+            GameObject* FOCUSING_IRIS_2 = pPlayer->FindNearestGameObject(OBJECT_FOCUSING_IRIS_2, 10.0f);
+            GameObject* FOCUSING_IRIS_3 = pPlayer->FindNearestGameObject(OBJECT_FOCUSING_IRIS_3, 10.0f);
+
+            if (FOCUSING_IRIS_1)
+                pPlayer->KilledMonsterCredit(NPC_DUMMY_CREATURE_1, FOCUSING_IRIS_1->GetObjectGuid());
+            else if (FOCUSING_IRIS_2)
+                pPlayer->KilledMonsterCredit(NPC_DUMMY_CREATURE_2, FOCUSING_IRIS_2->GetObjectGuid());
+            else if (FOCUSING_IRIS_3)
+                pPlayer->KilledMonsterCredit(NPC_DUMMY_CREATURE_3, FOCUSING_IRIS_3->GetObjectGuid());
+        }
+
+        return true;
+    }
+};
+
+SpellScript* GetScript_GordunniOrb(SpellEntry const*)
+{
+    return new GordunniOrbScript();
+}
+
+struct ChargedGordunniOrbScript : public SpellScript
+{
+    enum
+    {
+        OBJECT_SUMMONING_BRAZIER = 987704
+    };
+
+    SpellCastResult OnCheckCast(Spell* spell, bool /*strict*/) const final
+    {
+        Unit* caster = spell->m_casterUnit;
+
+        if (!caster)
+            return SPELL_FAILED_BAD_TARGETS;
+
+        GameObject* brazier = caster->FindNearestGameObject(OBJECT_SUMMONING_BRAZIER, 10.0f);
+
+        if (!brazier)
+            return SPELL_FAILED_NOT_HERE;
+
+        return SPELL_CAST_OK;
+    }
+};
+
+SpellScript* GetScript_ChargedGordunniOrb(SpellEntry const*)
+{
+    return new ChargedGordunniOrbScript();
+}
+
+struct YetiCharmScript : public SpellScript
+{
+    enum
+    {
+        OBJECT_SUMMONING_BRAZIER = 987710
+    };
+
+    SpellCastResult OnCheckCast(Spell* spell, bool /*strict*/) const final
+    {
+        Unit* caster = spell->m_casterUnit;
+
+        if (!caster)
+            return SPELL_FAILED_BAD_TARGETS;
+
+        GameObject* brazier = caster->FindNearestGameObject(OBJECT_SUMMONING_BRAZIER, 10.0f);
+
+        if (!brazier)
+            return SPELL_FAILED_NOT_HERE;
+
+        return SPELL_CAST_OK;
+    }
+};
+
+SpellScript* GetScript_YetiCharm(SpellEntry const*)
+{
+    return new YetiCharmScript();
+}
 
 void AddSC_item_spell_scripts()
 {
@@ -1642,5 +1755,20 @@ void AddSC_item_spell_scripts()
     newscript = new Script;
     newscript->Name = "spell_troll_incense";
     newscript->GetSpellScript = &GetScript_TrollIncense;
+    newscript->RegisterSelf();
+
+    newscript = new Script;
+    newscript->Name = "spell_gordunni_orb";
+    newscript->GetSpellScript = &GetScript_GordunniOrb;
+    newscript->RegisterSelf();
+
+    newscript = new Script;
+    newscript->Name = "spell_charged_gordunni_orb";
+    newscript->GetSpellScript = &GetScript_ChargedGordunniOrb;
+    newscript->RegisterSelf();
+
+    newscript = new Script;
+    newscript->Name = "spell_yeti_charm";
+    newscript->GetSpellScript = &GetScript_YetiCharm;
     newscript->RegisterSelf();
 }
